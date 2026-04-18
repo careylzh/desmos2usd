@@ -1,0 +1,35 @@
+{
+  "samples": [
+    {
+      "hash": "zaqxhna15w",
+      "title": "Quebec Bridge 3D",
+      "url": "https://www.desmos.com/3d/zaqxhna15w",
+      "state": "fixtures/states/zaqxhna15w.json"
+    },
+    {
+      "hash": "ghnr7txz47",
+      "title": "meth",
+      "url": "https://www.desmos.com/3d/ghnr7txz47",
+      "state": "fixtures/states/ghnr7txz47.json"
+    },
+    {
+      "hash": "yuqwjsfvsc",
+      "title": "S206_groupA_California,US_Golden Gate Bridge",
+      "url": "https://www.desmos.com/3d/yuqwjsfvsc",
+      "state": "fixtures/states/yuqwjsfvsc.json"
+    },
+    {
+      "hash": "vyp9ogyimt",
+      "title": "Akashi Kaikyo Bridge, Group G, S2-06",
+      "url": "https://www.desmos.com/3d/vyp9ogyimt",
+      "state": "fixtures/states/vyp9ogyimt.json"
+    },
+    {
+      "hash": "k0fbxxwkqf",
+      "title": "tower bridge",
+      "url": "https://www.desmos.com/3d/k0fbxxwkqf",
+      "state": "fixtures/states/k0fbxxwkqf.json"
+    }
+  ]
+}
+

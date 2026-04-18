@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>desmos2usd USDA Review</title>
+    <link rel="stylesheet" href="./styles.css">
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="stage" aria-label="USDA scene">
+        <canvas id="viewerCanvas"></canvas>
+        <div id="dropOverlay" class="drop-overlay" aria-hidden="true">
+          <div class="drop-copy">
+            <strong>Drop a .usda file</strong>
+            <span>Release to load it here.</span>
+          </div>
+        </div>
+        <div class="stage-bar">
+          <div id="statusText" class="status-text">Choose a sample or load a .usda file.</div>
+          <div class="stage-actions">
+            <button id="panelModeButton" type="button">Panels: Dim</button>
+            <button id="fitButton" type="button">Fit</button>
+            <button id="resetButton" type="button">Reset</button>
+          </div>
+        </div>
+      </section>
+
+      <aside class="side-panel" aria-label="Review controls">
+        <header class="panel-header">
+          <h1>USDA Review</h1>
+          <p>Orbit with one finger or mouse. Pan with two fingers or right drag.</p>
+        </header>
+
+        <section class="control-section">
+          <label for="sampleSelect">Acceptance sample</label>
+          <select id="sampleSelect">
+            <option value="">Select a sample...</option>
+            <option value="../artifacts/acceptance/zaqxhna15w.usda">zaqxhna15w</option>
+            <option value="../artifacts/acceptance/ghnr7txz47.usda">ghnr7txz47</option>
+            <option value="../artifacts/acceptance/yuqwjsfvsc.usda">yuqwjsfvsc</option>
+            <option value="../artifacts/acceptance/vyp9ogyimt.usda">vyp9ogyimt</option>
+            <option value="../artifacts/acceptance/k0fbxxwkqf.usda">k0fbxxwkqf</option>
+          </select>
+        </section>
+
+        <section class="control-section">
+          <label for="fileInput">Load file</label>
+          <input id="fileInput" type="file" accept=".usda,text/plain">
+          <p class="hint">Tap to browse or drag a generated USDA file onto the scene.</p>
+        </section>
+
+        <section class="summary-section" aria-live="polite">
+          <h2>Scene</h2>
+          <dl id="sceneSummary" class="summary-grid">
+            <dt>File</dt><dd>-</dd>
+            <dt>Prims</dt><dd>-</dd>
+            <dt>Faces</dt><dd>-</dd>
+            <dt>Points</dt><dd>-</dd>
+          </dl>
+        </section>
+
+        <section class="summary-section">
+          <h2>Selection</h2>
+          <div id="selectionPanel" class="selection-panel">Click a prim or choose one below.</div>
+        </section>
+
+        <section class="summary-section prim-list-section">
+          <div class="list-heading">
+            <h2>Prims</h2>
+            <input id="primFilter" type="search" placeholder="Filter">
+          </div>
+          <div id="primList" class="prim-list" role="listbox" aria-label="Prims"></div>
+        </section>
+      </aside>
+    </main>
+
+    <script src="./app.js"></script>
+  </body>
+</html>

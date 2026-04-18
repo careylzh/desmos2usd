@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "desmos2usd"
+version = "0.1.0"
+description = "Deterministic Desmos 3D share URL to USDA converter"
+readme = "README.md"
+license = {file = "LICENSE"}
+requires-python = ">=3.11"
+dependencies = []
+
+[project.scripts]
+desmos2usd = "desmos2usd.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
