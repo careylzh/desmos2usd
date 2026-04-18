@@ -8,6 +8,79 @@ The implementation is deterministic and fixture-first. The required acceptance U
 
 This project is not affiliated with, endorsed by, or sponsored by Desmos. It works with public Desmos 3D share URLs for research and tooling purposes.
 
+## Architecture
+
+```mermaid
+flowchart TB
+    subgraph Converter["Python converter (src/desmos2usd)"]
+        direction LR
+        URL["Desmos 3D share URL"] --> FETCH["desmos_fetch +<br/>desmos_state"]
+        FIX[("fixtures/states/*.json<br/>frozen samples")] --> FETCH
+        FETCH --> IR["ir.py<br/>GraphIR + ExpressionIR"]
+        IR --> CLS["parse/classify<br/>(+ predicates, latex_subset)"]
+        CLS --> CTX["eval/context<br/>scalars, colors, functions"]
+        CLS --> TESS["tessellate/<br/>surfaces · slabs ·<br/>parametric · triangles"]
+        TESS --> WRITER["usd/writer"]
+        TESS --> VAL["validate/equations"]
+        WRITER --> USDA[("artifacts/acceptance/*.usda")]
+        VAL --> REP[("*.report.json")]
+        TESS --> PPM[("*.ppm preview")]
+    end
+    subgraph Pages["GitHub Pages site"]
+        LAND["index.html landing"]
+        VIEW["viewer/<br/>WebGL USDA reviewer"]
+    end
+    USDA -. fetch .-> VIEW
+    LAND --> VIEW
+```
+
+The pipeline is deterministic: the same fixture or freshly fetched state always produces the same USDA bytes. Every stage preserves source provenance — the LaTeX, restrictions, resolved color, and Desmos expression id are written back into the USDA as `desmos:*` custom attributes so the exported mesh can be traced back to its source expression.
+
+## Key files
+
+```text
+desmos2usd/
+├── src/desmos2usd/
+│   ├── cli.py                 # CLI entry: `desmos2usd <url> -o out.usda`
+│   ├── converter.py           # Top-level pipeline glue (URL → classified → geometry → USDA)
+│   ├── desmos_fetch.py        # Fetch Desmos calculator state JSON (with fallbacks)
+│   ├── desmos_state.py        # Load frozen fixture or live-fetched state
+│   ├── desmos_url.py          # Parse/normalise public share URLs
+│   ├── ir.py                  # `ExpressionIR`, `GraphIR`, `SourceInfo`
+│   ├── eval/
+│   │   ├── context.py         # `EvalContext` — scalars, lists, vectors, colors, functions
+│   │   └── numeric.py         # Numeric evaluation helpers for the LaTeX AST
+│   ├── parse/
+│   │   ├── latex_subset.py    # LaTeX → Python AST subset
+│   │   ├── predicates.py      # Comparison predicates + half-open strict evaluation
+│   │   └── classify.py        # Register definitions, resolve `colorLatex`, classify kinds
+│   ├── tessellate/
+│   │   ├── mesh.py            # `GeometryData` dataclass + quad-face helpers
+│   │   ├── surfaces.py        # Explicit surfaces (`z = f(x,y)` etc.) with bound inference
+│   │   ├── slabs.py           # Inequality regions: bands, boxes, flat 2D regions
+│   │   ├── parametric.py      # Parametric 3D curves
+│   │   └── triangles.py       # Desmos `triangle(...)` meshes
+│   ├── usd/
+│   │   ├── writer.py          # Emit `.usda` with mesh + `desmos:*` custom attributes
+│   │   └── metadata.py        # Prim naming + source-provenance metadata
+│   └── validate/
+│       ├── equations.py                 # Numeric check of emitted geometry vs source
+│       ├── sample_suite.py              # Batch runner over the 5 acceptance URLs
+│       ├── visual.py                    # Deterministic orthographic PPM preview
+│       ├── prim_diagnostics.py          # Post-export geometric diagnostics
+│       └── window_border_diagnostics.py # Shared-boundary / seam diagnostics
+├── fixtures/states/*.json      # Frozen Desmos states for the 5 acceptance samples
+├── artifacts/acceptance/       # Demo outputs: *.usda, *.report.json, *.ppm, summary.json
+├── viewer/
+│   ├── index.html              # USDA Review viewer shell
+│   ├── app.js                  # WebGL USDA parser + renderer
+│   └── styles.css
+├── index.html                  # GitHub Pages landing page
+├── tests/                      # `unittest` suite
+├── pyproject.toml              # Project metadata (stdlib-only; MIT license)
+└── LICENSE                     # MIT
+```
+
 ## Install
 
 ```bash
