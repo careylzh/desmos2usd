@@ -152,10 +152,11 @@ class TessellationTests(unittest.TestCase):
             if abs(point[1] + 90.0) < 1e-8 and abs(point[2] - 19.8) < 1e-8 and 2.0 <= point[0] <= 3.0
         )
 
-        self.assertEqual(
-            shared_line_x_values,
-            [2.0, 2.14285714, 2.28571429, 2.42857143, 2.57142857, 2.71428571, 2.85714286, 3.0],
-        )
+        # The boundary-nudge sample (high - 2e-5) is included in the grid
+        # alongside the exact boundary.  Filter it for the partition check.
+        expected = [2.0, 2.14285714, 2.28571429, 2.42857143, 2.57142857, 2.71428571, 2.85714286, 3.0]
+        filtered = [v for v in shared_line_x_values if not any(abs(v - e) < 1e-4 and v != e for e in expected)]
+        self.assertEqual(filtered, expected)
 
     def test_zaqxhna15w_predicate_clipped_wall_reaches_exact_z_bounds(self) -> None:
         graph = graph_ir_from_state(load_fixture_state("https://www.desmos.com/3d/zaqxhna15w", ROOT))
@@ -186,6 +187,63 @@ class TessellationTests(unittest.TestCase):
         self.assertGreater(geometry.face_count, 0)
         self.assertAlmostEqual(min(used_y_values), -5.006848580913449, places=5)
         self.assertAlmostEqual(max(used_y_values), 6.7 / 1.36, places=5)
+
+    def test_zaqxhna15w_adjacent_surfaces_have_no_boundary_gap(self) -> None:
+        """Adjacent explicit surfaces sharing a strict boundary must tile without
+        visible gaps.  The parabolic arch (expr 18, -26<y<26) and the flat cap
+        (expr 27, 26<y<32) meet at y=26.  The arch's mesh must extend close to
+        y=26 so the gap is imperceptible."""
+        graph = graph_ir_from_state(load_fixture_state("https://www.desmos.com/3d/zaqxhna15w", ROOT))
+        result = classify_graph(graph)
+        by_id = {item.ir.expr_id: item for item in result.classified}
+
+        pairs = [
+            # (surface ending at boundary, surface starting at boundary, shared y, description)
+            ("18", "27", 26.0, "arch upper bound → flat cap lower bound"),
+            ("25", "18", -26.0, "flat cap upper bound → arch lower bound"),
+            ("1", "314", 32.0, "lower deck upper bound → right deck lower bound"),
+            ("242", "25", -32.0, "left diagonal upper bound → center flat lower bound"),
+        ]
+        for left_id, right_id, boundary_y, desc in pairs:
+            with self.subTest(desc=desc):
+                left_item = by_id[left_id]
+                right_item = by_id[right_id]
+                left_geom = tessellate(left_item, result.context, resolution=18)
+                right_geom = tessellate(right_item, result.context, resolution=18)
+                left_used_y = used_axis_values(left_geom, axis="y")
+                right_used_y = used_axis_values(right_geom, axis="y")
+                gap = min(right_used_y) - max(left_used_y)
+                self.assertLessEqual(
+                    abs(gap), 0.01,
+                    f"{desc}: gap of {gap:.4f} units at y={boundary_y}",
+                )
+
+    def test_zaqxhna15w_adjacent_surfaces_do_not_overlap_at_boundary(self) -> None:
+        """Adjacent explicit surfaces sharing a strict boundary must NOT produce
+        overlapping faces.  Overlap causes z-fighting and, when the two surfaces
+        have slightly different z-values at the boundary (e.g. z=7 vs z=7.04 due
+        to approximate coefficients), exposes a visible wedge-like seam."""
+        graph = graph_ir_from_state(load_fixture_state("https://www.desmos.com/3d/zaqxhna15w", ROOT))
+        result = classify_graph(graph)
+        by_id = {item.ir.expr_id: item for item in result.classified}
+
+        pairs = [
+            ("18", "27", 26.0, "arch / flat cap at y=26"),
+            ("25", "18", -26.0, "flat cap / arch at y=-26"),
+            ("1", "314", 32.0, "lower deck at y=32"),
+            ("242", "25", -32.0, "diagonal / center flat at y=-32"),
+        ]
+        for left_id, right_id, boundary_y, desc in pairs:
+            with self.subTest(desc=desc):
+                left_geom = tessellate(by_id[left_id], result.context, resolution=18)
+                right_geom = tessellate(by_id[right_id], result.context, resolution=18)
+                left_max_y = max(used_axis_values(left_geom, axis="y"))
+                right_min_y = min(used_axis_values(right_geom, axis="y"))
+                self.assertGreater(
+                    right_min_y, left_max_y - 1e-8,
+                    f"{desc}: overlap detected — left reaches {left_max_y}, "
+                    f"right starts at {right_min_y}",
+                )
 
     def test_ghnr7txz47_expr835_suppressed_when_solved_axis_outside_viewport(self) -> None:
         """Expr 835 (z=1.5x+120, x∈[62,67]) evaluates to z∈[213,220.5], entirely

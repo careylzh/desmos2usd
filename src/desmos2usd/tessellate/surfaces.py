@@ -13,6 +13,8 @@ DEFAULT_BOUNDS = (-5.0, 5.0)
 INFERENCE_SAMPLES = 64
 SINGLE_AXIS_INFERENCE_SAMPLES = 1024
 BOUNDARY_REFINE_ITERATIONS = 60
+HALF_OPEN_TOL = 1e-5
+BOUNDARY_NUDGE = 2e-5
 
 
 def tessellate_explicit_surface(
@@ -40,7 +42,7 @@ def tessellate_explicit_surface(
             variables[item.axis] = target
             point = point_from_variables(variables)
             points.append(point)
-            row_valid.append(all(predicate.evaluate_half_open(context, variables, tol=1e-5) for predicate in item.predicates))
+            row_valid.append(all(predicate.evaluate_half_open(context, variables, tol=HALF_OPEN_TOL) for predicate in item.predicates))
         valid_grid.append(row_valid)
     counts, indices = quad_faces(len(a_values), len(b_values), valid_grid)
     if not counts and resolution < 64:
@@ -82,6 +84,15 @@ def sample_axis_values(
             continue
         clamped = low if abs(value - low) <= 1e-8 else high if abs(value - high) <= 1e-8 else value
         values[round(clamped, 10)] = clamped
+    # Add boundary-nudge samples just inside each endpoint so that the
+    # half-open predicate evaluation keeps the mesh within ~BOUNDARY_NUDGE
+    # of the domain edge.  Without these, the exclusive side of a strict
+    # bound loses an entire grid cell (multi-unit gap).
+    if high - low > BOUNDARY_NUDGE * 4:
+        for nudge in (low + BOUNDARY_NUDGE, high - BOUNDARY_NUDGE):
+            key = round(nudge, 10)
+            if key not in values:
+                values[key] = nudge
     return [values[key] for key in sorted(values)]
 
 
