@@ -14,12 +14,15 @@
   const primFilter = document.getElementById("primFilter");
   const dropOverlay = document.getElementById("dropOverlay");
 
+  const acceptanceRoot = window.location.pathname.includes("/viewer/")
+    ? "../artifacts/acceptance"
+    : "artifacts/acceptance";
   const acceptanceSamples = {
-    zaqxhna15w: "../artifacts/acceptance/zaqxhna15w.usda",
-    ghnr7txz47: "../artifacts/acceptance/ghnr7txz47.usda",
-    yuqwjsfvsc: "../artifacts/acceptance/yuqwjsfvsc.usda",
-    vyp9ogyimt: "../artifacts/acceptance/vyp9ogyimt.usda",
-    k0fbxxwkqf: "../artifacts/acceptance/k0fbxxwkqf.usda",
+    zaqxhna15w: `${acceptanceRoot}/zaqxhna15w.usda`,
+    ghnr7txz47: `${acceptanceRoot}/ghnr7txz47.usda`,
+    yuqwjsfvsc: `${acceptanceRoot}/yuqwjsfvsc.usda`,
+    vyp9ogyimt: `${acceptanceRoot}/vyp9ogyimt.usda`,
+    k0fbxxwkqf: `${acceptanceRoot}/k0fbxxwkqf.usda`,
   };
 
   const gl = canvas.getContext("webgl2", {
@@ -60,6 +63,7 @@
   gl.clearColor(0.045, 0.045, 0.045, 1);
 
   bindUi();
+  populateSampleSelect();
   resize();
   updateSurfaceModeButton();
   requestAnimationFrame(render);
@@ -108,6 +112,15 @@
     });
   }
 
+  function populateSampleSelect() {
+    for (const [sample, url] of Object.entries(acceptanceSamples)) {
+      const option = document.createElement("option");
+      option.value = url;
+      option.textContent = sample;
+      sampleSelect.appendChild(option);
+    }
+  }
+
   async function loadSample(url, label) {
     try {
       setStatus(`Loading ${label}...`);
@@ -135,7 +148,12 @@
     }
 
     const usdaPath = (params.get("usda") || "").trim();
-    if (!usdaPath) return;
+    if (!usdaPath) {
+      const [defaultSample, defaultUrl] = Object.entries(acceptanceSamples)[0];
+      sampleSelect.value = defaultUrl;
+      loadSample(defaultUrl, defaultSample);
+      return;
+    }
     if (!usdaPath.toLowerCase().endsWith(".usda")) {
       setStatus("The usda query parameter must point to a .usda file.");
       return;
