@@ -16,12 +16,16 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--resolution", type=int, default=18, help="Base tessellation resolution")
     parser.add_argument("--report", help="Optional JSON report path")
     parser.add_argument("--preview", action="store_true", help="Write a deterministic orthographic PPM preview beside the USDA")
+    parser.add_argument("--usdz", help="Optional output .usdz path packaged from the generated USDA")
+    parser.add_argument("--validate-usdz", action="store_true", help="Run usdchecker --arkit on --usdz and fail if invalid")
     return parser
 
 
 def main(argv: list[str] | None = None) -> int:
     parser = build_parser()
     args = parser.parse_args(argv)
+    if args.validate_usdz and not args.usdz:
+        parser.error("--validate-usdz requires --usdz")
     root = project_root_from_cwd()
     report = convert_url(
         args.url,
@@ -30,6 +34,8 @@ def main(argv: list[str] | None = None) -> int:
         refresh=args.refresh,
         resolution=args.resolution,
         write_preview=args.preview,
+        usdz_output=Path(args.usdz) if args.usdz else None,
+        validate_usdz=args.validate_usdz,
     )
     if args.report:
         report_path = Path(args.report)
@@ -41,4 +47,3 @@ def main(argv: list[str] | None = None) -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
-

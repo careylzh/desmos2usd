@@ -21,13 +21,15 @@ def write_usda(path: Path, graph: GraphIR, prims: list[ExportedPrim]) -> None:
     lines: list[str] = [
         "#usda 1.0",
         "(",
+        '    defaultPrim = "DesmosGraph"',
+        "    metersPerUnit = 1",
         '    upAxis = "Z"',
         "    customLayerData = {",
-        f"        string desmos:url = {usd_string(graph.source.url)}",
-        f"        string desmos:hash = {usd_string(graph.source.graph_hash)}",
-        f"        string desmos:title = {usd_string(graph.source.title)}",
-        f"        string desmos:stateUrl = {usd_string(graph.source.state_url)}",
-        f"        string desmos:viewportBounds = {usd_string(json.dumps(graph.source.viewport_bounds, sort_keys=True))}",
+        f"        string \"desmos:url\" = {usd_string(graph.source.url)}",
+        f"        string \"desmos:hash\" = {usd_string(graph.source.graph_hash)}",
+        f"        string \"desmos:title\" = {usd_string(graph.source.title)}",
+        f"        string \"desmos:stateUrl\" = {usd_string(graph.source.state_url)}",
+        f"        string \"desmos:viewportBounds\" = {usd_string(json.dumps(graph.source.viewport_bounds, sort_keys=True))}",
         "    }",
         ")",
         "",
@@ -97,4 +99,3 @@ def format_float(value: float) -> str:
     if abs(value) < 5e-13:
         value = 0.0
     return f"{value:.9g}"
-

@@ -1,6 +1,6 @@
 # desmos2usd
 
-`desmos2usd` converts supported geometry from a public Desmos 3D share URL into an inspectable USDA file while preserving the original Desmos equations, restrictions, expression order, colors, and provenance as USD custom attributes. Unsupported expressions are reported explicitly with their id, kind, original LaTeX, and reason.
+`desmos2usd` converts supported geometry from a public Desmos 3D share URL into an inspectable USDA file while preserving the original Desmos equations, restrictions, expression order, colors, and provenance as USD custom attributes. USDA is the canonical export. When Apple USD tools are available, the CLI can also package the generated USDA as USDZ for Apple and visionOS workflows. Unsupported expressions are reported explicitly with their id, kind, original LaTeX, and reason.
 
 The implementation is deterministic and fixture-first. The required acceptance URLs are frozen under `fixtures/states/` so local and container verification do not depend on network access. Live fetching is implemented for normal use and can refresh fixtures when DNS/network access is available.
 
@@ -23,6 +23,7 @@ flowchart TB
         TESS --> WRITER["usd/writer"]
         TESS --> VAL["validate/equations"]
         WRITER --> USDA[("artifacts/acceptance/*.usda")]
+        USDA -. optional usdzip .-> USDZ[("*.usdz")]
         VAL --> REP[("*.report.json")]
         TESS --> PPM[("*.ppm preview")]
     end
@@ -41,7 +42,7 @@ The pipeline is deterministic: the same fixture or freshly fetched state always 
 ```text
 desmos2usd/
 ├── src/desmos2usd/
-│   ├── cli.py                 # CLI entry: `desmos2usd <url> -o out.usda`
+│   ├── cli.py                 # CLI entry: `desmos2usd <url> -o out.usda [--usdz out.usdz]`
 │   ├── converter.py           # Top-level pipeline glue (URL → classified → geometry → USDA)
 │   ├── desmos_fetch.py        # Fetch Desmos calculator state JSON (with fallbacks)
 │   ├── desmos_state.py        # Load frozen fixture or live-fetched state
@@ -62,6 +63,7 @@ desmos2usd/
 │   │   └── triangles.py       # Desmos `triangle(...)` meshes
 │   ├── usd/
 │   │   ├── writer.py          # Emit `.usda` with mesh + `desmos:*` custom attributes
+│   │   ├── package.py         # Optional `usdzip` packaging + `usdchecker --arkit` validation
 │   │   └── metadata.py        # Prim naming + source-provenance metadata
 │   └── validate/
 │       ├── equations.py                 # Numeric check of emitted geometry vs source
@@ -87,7 +89,7 @@ desmos2usd/
 python3 -m pip install -e .
 ```
 
-The project intentionally uses only the Python standard library for conversion and validation.
+The project intentionally uses only the Python standard library for conversion and validation. Optional USDZ packaging uses Apple/Pixar USD command-line tools when present on `PATH`: `usdzip` for packaging and `usdchecker` for `--validate-usdz`.
 
 ## Export
 
@@ -100,6 +102,20 @@ By default, required sample URLs are read from frozen fixtures. Add `--refresh` 
 ```bash
 python3 -m desmos2usd.cli https://www.desmos.com/3d/zaqxhna15w -o artifacts/live.usda --refresh
 ```
+
+To package a USDZ beside the canonical USDA:
+
+```bash
+python3 -m desmos2usd.cli https://www.desmos.com/3d/zaqxhna15w -o artifacts/zaqxhna15w.usda --usdz artifacts/zaqxhna15w.usdz
+```
+
+To validate the package for RealityKit/ARKit compatibility during export:
+
+```bash
+python3 -m desmos2usd.cli https://www.desmos.com/3d/zaqxhna15w -o artifacts/zaqxhna15w.usda --usdz artifacts/zaqxhna15w.usdz --validate-usdz
+```
+
+The JSON report always includes `output` for the USDA path. When `--usdz` is used, it also includes `usdz_output` and `usdz_package`; with `--validate-usdz`, it includes `usdz_validation`. `--validate-usdz` requires `--usdz` and exits non-zero if `usdchecker --arkit` rejects the package.
 
 ## Acceptance Suite
 

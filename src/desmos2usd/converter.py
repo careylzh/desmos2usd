@@ -12,8 +12,9 @@ from desmos2usd.parse.classify import ClassificationResult, classify_graph
 from desmos2usd.tessellate import tessellate
 from desmos2usd.tessellate.mesh import linspace
 from desmos2usd.tessellate.surfaces import explicit_surface_domain_bounds
-from desmos2usd.usd.writer import ExportedPrim, write_usda
 from desmos2usd.usd.metadata import prim_name
+from desmos2usd.usd.package import package_usdz, validate_usdz_arkit
+from desmos2usd.usd.writer import ExportedPrim, write_usda
 from desmos2usd.validate.equations import ValidationReport, validate_geometry
 from desmos2usd.validate.visual import write_preview_ppm
 
@@ -23,6 +24,9 @@ class ConversionReport:
     url: str
     graph_hash: str
     output: str
+    usdz_output: str | None
+    usdz_package: dict[str, Any] | None
+    usdz_validation: dict[str, Any] | None
     view_metadata: dict[str, Any]
     renderable_expression_count: int
     prim_count: int
@@ -41,17 +45,30 @@ def convert_url(
     refresh: bool = False,
     resolution: int = 18,
     write_preview: bool = False,
+    usdz_output: Path | None = None,
+    validate_usdz: bool = False,
 ) -> ConversionReport:
+    if validate_usdz and usdz_output is None:
+        raise ValueError("validate_usdz requires usdz_output")
     state = load_state_for_url(url, project_root=project_root, refresh=refresh)
     graph = graph_ir_from_state(state)
     classification = classify_graph(graph)
     prims, validations, unsupported = export_graph(graph, classification, output, resolution=resolution)
     if write_preview:
         write_preview_ppm(output.with_suffix(".ppm"), prims)
+    usdz_package = None
+    usdz_validation = None
+    if usdz_output is not None:
+        usdz_package = package_usdz(output, usdz_output).to_dict()
+        if validate_usdz:
+            usdz_validation = validate_usdz_arkit(usdz_output).to_dict()
     return ConversionReport(
         url=graph.source.url,
         graph_hash=graph.source.graph_hash,
         output=str(output),
+        usdz_output=str(usdz_output) if usdz_output is not None else None,
+        usdz_package=usdz_package,
+        usdz_validation=usdz_validation,
         view_metadata=graph.source.view_metadata,
         renderable_expression_count=len(classification.classified),
         prim_count=len(prims),
