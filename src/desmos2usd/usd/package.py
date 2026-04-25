@@ -21,6 +21,8 @@ class UsdzCommandResult:
 
 def package_usdz(usda_path: Path, usdz_path: Path) -> UsdzCommandResult:
     usdzip = require_tool("usdzip")
+    usda_path = usda_path.resolve()
+    usdz_path = usdz_path.resolve()
     usdz_path.parent.mkdir(parents=True, exist_ok=True)
     command = [usdzip, str(usdz_path), usda_path.name]
     result = run_command(command, cwd=usda_path.parent)
