@@ -1,0 +1,473 @@
+{
+  "acceptance_success": false,
+  "complete": false,
+  "fixture": "[4B] 3D Diagram - S2-06 Group C.json",
+  "fixture_path": "fixtures/states/[4B] 3D Diagram - S2-06 Group C.json",
+  "graph_hash": null,
+  "output": "/Users/careylai/Desktop/desmos2usd/artifacts/fixture_usdz/[4B] 3D Diagram - S2-06 Group C.usda",
+  "prim_count": 41,
+  "renderable_expression_count": 44,
+  "resolution": 8,
+  "status": "partial",
+  "title": "Desmos graph",
+  "unsupported": [
+    {
+      "expr_id": "139",
+      "kind": "inequality_region",
+      "latex": "x<-1.2z+150\\left\\{-x<-1.2z+150\\right\\}\\left\\{y<-1.2z+150\\right\\}\\left\\{-y<-1.2z+150\\right\\}\\left\\{85<z<100\\right\\}",
+      "reason": "Inequality region for 139 did not resolve to sampled cells"
+    },
+    {
+      "expr_id": "154",
+      "kind": "inequality_region",
+      "latex": "z<1x+150\\left\\{z<-1x+150\\right\\}\\left\\{z<-1y+138\\right\\}\\left\\{z<1y+138\\right\\}\\left\\{115<z<117\\right\\}",
+      "reason": "Inequality region for 154 did not resolve to sampled cells"
+    },
+    {
+      "expr_id": "160",
+      "kind": "inequality_region",
+      "latex": "-x<0.35z-20\\left\\{-x>-0.35z+20\\right\\}\\left\\{-y>-0.35z+25\\right\\}\\left\\{-y<0.35z-25\\right\\}\\left\\{135<z<140\\right\\}",
+      "reason": "Inequality region for 160 did not resolve to sampled cells"
+    }
+  ],
+  "unsupported_count": 3,
+  "usdz_exists": true,
+  "usdz_output": "/Users/careylai/Desktop/desmos2usd/artifacts/fixture_usdz/[4B] 3D Diagram - S2-06 Group C.usdz",
+  "usdz_package": {
+    "command": [
+      "/usr/bin/usdzip",
+      "/Users/careylai/Desktop/desmos2usd/artifacts/fixture_usdz/[4B] 3D Diagram - S2-06 Group C.usdz",
+      "[4B] 3D Diagram - S2-06 Group C.usda"
+    ],
+    "cwd": "/Users/careylai/Desktop/desmos2usd/artifacts/fixture_usdz",
+    "returncode": 0,
+    "stderr": "",
+    "stdout": "",
+    "tool": "usdzip"
+  },
+  "usdz_validation": {
+    "command": [
+      "/usr/bin/usdchecker",
+      "--arkit",
+      "/Users/careylai/Desktop/desmos2usd/artifacts/fixture_usdz/[4B] 3D Diagram - S2-06 Group C.usdz"
+    ],
+    "cwd": null,
+    "returncode": 0,
+    "stderr": "",
+    "stdout": "\nValidation Result with no explicit variants set\nSuccess!\n",
+    "tool": "usdchecker"
+  },
+  "valid": true,
+  "validations": [
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "43",
+      "face_count": 192,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 256,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "46",
+      "face_count": 48,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 64,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "47",
+      "face_count": 12,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 16,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "78",
+      "face_count": 12,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 32,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "102",
+      "face_count": 12,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 32,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "103",
+      "face_count": 12,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 32,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "86",
+      "face_count": 12,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 32,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "79",
+      "face_count": 64,
+      "kind": "explicit_surface",
+      "max_residual": 0.0,
+      "point_count": 100,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "85",
+      "face_count": 64,
+      "kind": "explicit_surface",
+      "max_residual": 0.0,
+      "point_count": 100,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "87",
+      "face_count": 12,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 32,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "89",
+      "face_count": 132,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 176,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "95",
+      "face_count": 138,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 184,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "94",
+      "face_count": 8,
+      "kind": "explicit_surface",
+      "max_residual": 0.0,
+      "point_count": 100,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "176",
+      "face_count": 282,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 376,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "100",
+      "face_count": 16,
+      "kind": "explicit_surface",
+      "max_residual": 0.0,
+      "point_count": 324,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "177",
+      "face_count": 114,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 152,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "97",
+      "face_count": 16,
+      "kind": "explicit_surface",
+      "max_residual": 0.0,
+      "point_count": 324,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "178",
+      "face_count": 282,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 376,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "98",
+      "face_count": 16,
+      "kind": "explicit_surface",
+      "max_residual": 0.0,
+      "point_count": 324,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "179",
+      "face_count": 114,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 152,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "101",
+      "face_count": 12,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 32,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "109",
+      "face_count": 64,
+      "kind": "explicit_surface",
+      "max_residual": 0.0,
+      "point_count": 100,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "110",
+      "face_count": 64,
+      "kind": "explicit_surface",
+      "max_residual": 0.0,
+      "point_count": 100,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "112",
+      "face_count": 12,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 32,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "111",
+      "face_count": 108,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 144,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "113",
+      "face_count": 108,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 144,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "116",
+      "face_count": 144,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 192,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "137",
+      "face_count": 16,
+      "kind": "explicit_surface",
+      "max_residual": 0.0,
+      "point_count": 100,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "138",
+      "face_count": 16,
+      "kind": "explicit_surface",
+      "max_residual": 0.0,
+      "point_count": 100,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "143",
+      "face_count": 186,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 248,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "144",
+      "face_count": 432,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 576,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "145",
+      "face_count": 12,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 32,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "136",
+      "face_count": 12,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 32,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "146",
+      "face_count": 64,
+      "kind": "explicit_surface",
+      "max_residual": 0.0,
+      "point_count": 100,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "147",
+      "face_count": 64,
+      "kind": "explicit_surface",
+      "max_residual": 0.0,
+      "point_count": 100,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "157",
+      "face_count": 12,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 32,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "158",
+      "face_count": 132,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 176,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "166",
+      "face_count": 64,
+      "kind": "explicit_surface",
+      "max_residual": 0.0,
+      "point_count": 100,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "169",
+      "face_count": 64,
+      "kind": "explicit_surface",
+      "max_residual": 0.0,
+      "point_count": 100,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "170",
+      "face_count": 144,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 192,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "167",
+      "face_count": 144,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 192,
+      "valid": true
+    }
+  ]
+}

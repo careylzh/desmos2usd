@@ -1,0 +1,15 @@
+{
+  "acceptance_success": false,
+  "error": "Unsupported expression 115 'x\\\\le0\\\\left\\\\{-50<x<-47\\\\right\\\\}\\\\left\\\\{\\\\ y-23<z<11\\\\left\\\\{32<y<38\\\\right\\\\}\\\\right\\\\}': Could not parse '11{32' as '11*(32': '(' was never closed (<unknown>, line 1)",
+  "error_stage": "classify",
+  "error_type": "ValueError",
+  "fixture": "[4B] 3D Diagram - S2-06 Group F.json",
+  "fixture_path": "fixtures/states/[4B] 3D Diagram - S2-06 Group F.json",
+  "graph_hash": null,
+  "output": "/Users/careylai/Desktop/desmos2usd/artifacts/fixture_usdz/[4B] 3D Diagram - S2-06 Group F.usda",
+  "resolution": 8,
+  "status": "error",
+  "title": "Desmos graph",
+  "usdz_exists": false,
+  "usdz_output": "/Users/careylai/Desktop/desmos2usd/artifacts/fixture_usdz/[4B] 3D Diagram - S2-06 Group F.usdz"
+}

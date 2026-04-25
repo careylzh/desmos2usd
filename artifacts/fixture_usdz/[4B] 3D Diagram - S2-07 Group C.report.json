@@ -1,0 +1,15 @@
+{
+  "acceptance_success": false,
+  "error": "Unsupported expression 109 'x\\\\ =\\\\ 0.64\\\\sin\\\\left(5y\\\\right)-4.3\\\\left\\\\{8\\\\le z\\\\le29\\\\right\\\\}\\\\left\\\\{10.\\\\ge y\\\\ge01\\\\right\\\\}': Could not parse '01' as '01': leading zeros in decimal integer literals are not permitted; use an 0o prefix for octal integers (<unknown>, line 1)",
+  "error_stage": "classify",
+  "error_type": "ValueError",
+  "fixture": "[4B] 3D Diagram - S2-07 Group C.json",
+  "fixture_path": "fixtures/states/[4B] 3D Diagram - S2-07 Group C.json",
+  "graph_hash": null,
+  "output": "/Users/careylai/Desktop/desmos2usd/artifacts/fixture_usdz/[4B] 3D Diagram - S2-07 Group C.usda",
+  "resolution": 8,
+  "status": "error",
+  "title": "Desmos graph",
+  "usdz_exists": false,
+  "usdz_output": "/Users/careylai/Desktop/desmos2usd/artifacts/fixture_usdz/[4B] 3D Diagram - S2-07 Group C.usdz"
+}

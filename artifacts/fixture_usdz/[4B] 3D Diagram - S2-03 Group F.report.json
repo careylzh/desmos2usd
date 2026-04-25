@@ -1,0 +1,521 @@
+{
+  "acceptance_success": false,
+  "complete": false,
+  "fixture": "[4B] 3D Diagram - S2-03 Group F.json",
+  "fixture_path": "fixtures/states/[4B] 3D Diagram - S2-03 Group F.json",
+  "graph_hash": null,
+  "output": "/Users/careylai/Desktop/desmos2usd/artifacts/fixture_usdz/[4B] 3D Diagram - S2-03 Group F.usda",
+  "prim_count": 41,
+  "renderable_expression_count": 52,
+  "resolution": 8,
+  "status": "partial",
+  "title": "Desmos graph",
+  "unsupported": [
+    {
+      "expr_id": "113",
+      "kind": "parametric_curve",
+      "latex": "(7.8*(u-0.5),7.8*(v-0.5),5.7)",
+      "reason": "Could not evaluate '7.8*(u-0.5)' with variables {'t': 0.0}: name 'u' is not defined"
+    },
+    {
+      "expr_id": "114",
+      "kind": "parametric_curve",
+      "latex": "(3.8*(u-0.5),3.8*(v-0.5),11.5)",
+      "reason": "Could not evaluate '3.8*(u-0.5)' with variables {'t': 0.0}: name 'u' is not defined"
+    },
+    {
+      "expr_id": "115",
+      "kind": "parametric_curve",
+      "latex": "(1.4*(u-0.5),1.4*(v-0.5),27.6)",
+      "reason": "Could not evaluate '1.4*(u-0.5)' with variables {'t': 0.0}: name 'u' is not defined"
+    },
+    {
+      "expr_id": "122",
+      "kind": "parametric_curve",
+      "latex": "(((1-v)*3.9+v*1.9)*(2*u-1),(1-v)*3.9+v*1.9,5.7+5.8*v)",
+      "reason": "Could not evaluate '((1-v)*3.9+v*1.9)*(2*u-1)' with variables {'t': 0.0}: name 'v' is not defined"
+    },
+    {
+      "expr_id": "123",
+      "kind": "parametric_curve",
+      "latex": "(((1-v)*3.9+v*1.9)*(2*u-1),-((1-v)*3.9+v*1.9),5.7+5.8*v)",
+      "reason": "Could not evaluate '((1-v)*3.9+v*1.9)*(2*u-1)' with variables {'t': 0.0}: name 'v' is not defined"
+    },
+    {
+      "expr_id": "124",
+      "kind": "parametric_curve",
+      "latex": "((1-v)*3.9+v*1.9,((1-v)*3.9+v*1.9)*(2*u-1),5.7+5.8*v)",
+      "reason": "Could not evaluate '(1-v)*3.9+v*1.9' with variables {'t': 0.0}: name 'v' is not defined"
+    },
+    {
+      "expr_id": "125",
+      "kind": "parametric_curve",
+      "latex": "(-((1-v)*3.9+v*1.9),((1-v)*3.9+v*1.9)*(2*u-1),5.7+5.8*v)",
+      "reason": "Could not evaluate '-((1-v)*3.9+v*1.9)' with variables {'t': 0.0}: name 'v' is not defined"
+    },
+    {
+      "expr_id": "127",
+      "kind": "parametric_curve",
+      "latex": "(((1-v)*1.9+v*0.7)*(2*u-1),(1-v)*1.9+v*0.7,11.5+16.1*v)",
+      "reason": "Could not evaluate '((1-v)*1.9+v*0.7)*(2*u-1)' with variables {'t': 0.0}: name 'v' is not defined"
+    },
+    {
+      "expr_id": "128",
+      "kind": "parametric_curve",
+      "latex": "(((1-v)*1.9+v*0.7)*(2*u-1),-((1-v)*1.9+v*0.7),11.5+16.1*v)",
+      "reason": "Could not evaluate '((1-v)*1.9+v*0.7)*(2*u-1)' with variables {'t': 0.0}: name 'v' is not defined"
+    },
+    {
+      "expr_id": "129",
+      "kind": "parametric_curve",
+      "latex": "((1-v)*1.9+v*0.7,((1-v)*1.9+v*0.7)*(2*u-1),11.5+16.1*v)",
+      "reason": "Could not evaluate '(1-v)*1.9+v*0.7' with variables {'t': 0.0}: name 'v' is not defined"
+    },
+    {
+      "expr_id": "130",
+      "kind": "parametric_curve",
+      "latex": "(-((1-v)*1.9+v*0.7),((1-v)*1.9+v*0.7)*(2*u-1),11.5+16.1*v)",
+      "reason": "Could not evaluate '-((1-v)*1.9+v*0.7)' with variables {'t': 0.0}: name 'v' is not defined"
+    }
+  ],
+  "unsupported_count": 11,
+  "usdz_exists": true,
+  "usdz_output": "/Users/careylai/Desktop/desmos2usd/artifacts/fixture_usdz/[4B] 3D Diagram - S2-03 Group F.usdz",
+  "usdz_package": {
+    "command": [
+      "/usr/bin/usdzip",
+      "/Users/careylai/Desktop/desmos2usd/artifacts/fixture_usdz/[4B] 3D Diagram - S2-03 Group F.usdz",
+      "[4B] 3D Diagram - S2-03 Group F.usda"
+    ],
+    "cwd": "/Users/careylai/Desktop/desmos2usd/artifacts/fixture_usdz",
+    "returncode": 0,
+    "stderr": "",
+    "stdout": "",
+    "tool": "usdzip"
+  },
+  "usdz_validation": {
+    "command": [
+      "/usr/bin/usdchecker",
+      "--arkit",
+      "/Users/careylai/Desktop/desmos2usd/artifacts/fixture_usdz/[4B] 3D Diagram - S2-03 Group F.usdz"
+    ],
+    "cwd": null,
+    "returncode": 0,
+    "stderr": "Coding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'BasisCurves' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'BasisCurves' type and apischemas.\n",
+    "stdout": "\nValidation Result with no explicit variants set\nSuccess!\n",
+    "tool": "usdchecker"
+  },
+  "valid": true,
+  "validations": [
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "71",
+      "face_count": 0,
+      "kind": "parametric_curve",
+      "max_residual": 0.0,
+      "point_count": 16,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "72",
+      "face_count": 0,
+      "kind": "parametric_curve",
+      "max_residual": 0.0,
+      "point_count": 16,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "73",
+      "face_count": 0,
+      "kind": "parametric_curve",
+      "max_residual": 0.0,
+      "point_count": 16,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "74",
+      "face_count": 0,
+      "kind": "parametric_curve",
+      "max_residual": 0.0,
+      "point_count": 16,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "75",
+      "face_count": 0,
+      "kind": "parametric_curve",
+      "max_residual": 0.0,
+      "point_count": 16,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "76",
+      "face_count": 0,
+      "kind": "parametric_curve",
+      "max_residual": 0.0,
+      "point_count": 16,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "77",
+      "face_count": 0,
+      "kind": "parametric_curve",
+      "max_residual": 0.0,
+      "point_count": 16,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "78",
+      "face_count": 0,
+      "kind": "parametric_curve",
+      "max_residual": 0.0,
+      "point_count": 16,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "79",
+      "face_count": 0,
+      "kind": "parametric_curve",
+      "max_residual": 0.0,
+      "point_count": 16,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "80",
+      "face_count": 0,
+      "kind": "parametric_curve",
+      "max_residual": 0.0,
+      "point_count": 16,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "81",
+      "face_count": 0,
+      "kind": "parametric_curve",
+      "max_residual": 0.0,
+      "point_count": 16,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "82",
+      "face_count": 0,
+      "kind": "parametric_curve",
+      "max_residual": 0.0,
+      "point_count": 16,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "83",
+      "face_count": 0,
+      "kind": "parametric_curve",
+      "max_residual": 0.0,
+      "point_count": 16,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "84",
+      "face_count": 0,
+      "kind": "parametric_curve",
+      "max_residual": 0.0,
+      "point_count": 16,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "85",
+      "face_count": 0,
+      "kind": "parametric_curve",
+      "max_residual": 0.0,
+      "point_count": 16,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "86",
+      "face_count": 0,
+      "kind": "parametric_curve",
+      "max_residual": 0.0,
+      "point_count": 16,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "87",
+      "face_count": 0,
+      "kind": "parametric_curve",
+      "max_residual": 0.0,
+      "point_count": 16,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "88",
+      "face_count": 0,
+      "kind": "parametric_curve",
+      "max_residual": 0.0,
+      "point_count": 16,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "89",
+      "face_count": 0,
+      "kind": "parametric_curve",
+      "max_residual": 0.0,
+      "point_count": 16,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "90",
+      "face_count": 0,
+      "kind": "parametric_curve",
+      "max_residual": 0.0,
+      "point_count": 16,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "91",
+      "face_count": 0,
+      "kind": "parametric_curve",
+      "max_residual": 0.0,
+      "point_count": 16,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "92",
+      "face_count": 0,
+      "kind": "parametric_curve",
+      "max_residual": 0.0,
+      "point_count": 16,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "93",
+      "face_count": 0,
+      "kind": "parametric_curve",
+      "max_residual": 0.0,
+      "point_count": 16,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "94",
+      "face_count": 0,
+      "kind": "parametric_curve",
+      "max_residual": 0.0,
+      "point_count": 16,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "95",
+      "face_count": 0,
+      "kind": "parametric_curve",
+      "max_residual": 0.0,
+      "point_count": 16,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "96",
+      "face_count": 0,
+      "kind": "parametric_curve",
+      "max_residual": 0.0,
+      "point_count": 16,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "97",
+      "face_count": 0,
+      "kind": "parametric_curve",
+      "max_residual": 0.0,
+      "point_count": 16,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "98",
+      "face_count": 0,
+      "kind": "parametric_curve",
+      "max_residual": 0.0,
+      "point_count": 16,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "99",
+      "face_count": 0,
+      "kind": "parametric_curve",
+      "max_residual": 0.0,
+      "point_count": 16,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "100",
+      "face_count": 0,
+      "kind": "parametric_curve",
+      "max_residual": 0.0,
+      "point_count": 16,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "101",
+      "face_count": 0,
+      "kind": "parametric_curve",
+      "max_residual": 0.0,
+      "point_count": 16,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "102",
+      "face_count": 0,
+      "kind": "parametric_curve",
+      "max_residual": 0.0,
+      "point_count": 16,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "103",
+      "face_count": 0,
+      "kind": "parametric_curve",
+      "max_residual": 0.0,
+      "point_count": 16,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "104",
+      "face_count": 0,
+      "kind": "parametric_curve",
+      "max_residual": 0.0,
+      "point_count": 16,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "105",
+      "face_count": 0,
+      "kind": "parametric_curve",
+      "max_residual": 0.0,
+      "point_count": 16,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "106",
+      "face_count": 0,
+      "kind": "parametric_curve",
+      "max_residual": 0.0,
+      "point_count": 16,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "107",
+      "face_count": 0,
+      "kind": "parametric_curve",
+      "max_residual": 0.0,
+      "point_count": 16,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "108",
+      "face_count": 0,
+      "kind": "parametric_curve",
+      "max_residual": 0.0,
+      "point_count": 16,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "109",
+      "face_count": 0,
+      "kind": "parametric_curve",
+      "max_residual": 0.0,
+      "point_count": 16,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "110",
+      "face_count": 0,
+      "kind": "parametric_curve",
+      "max_residual": 0.0,
+      "point_count": 16,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "111",
+      "face_count": 0,
+      "kind": "parametric_curve",
+      "max_residual": 0.0,
+      "point_count": 16,
+      "valid": true
+    }
+  ]
+}

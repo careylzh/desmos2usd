@@ -1,0 +1,15 @@
+{
+  "acceptance_success": false,
+  "error": "Unsupported expression 35 'z=20\\\\ \\\\left\\\\{-23.92<x<-9.92\\\\right\\\\}\\\\ \\\\left(\\\\left\\\\{\\\\ -40<y<60\\\\right\\\\}\\\\right)': Unsupported expression node Tuple",
+  "error_stage": "classify",
+  "error_type": "ValueError",
+  "fixture": "[4B] 3D Diagram - S2-09 Group D.json",
+  "fixture_path": "fixtures/states/[4B] 3D Diagram - S2-09 Group D.json",
+  "graph_hash": null,
+  "output": "/Users/careylai/Desktop/desmos2usd/artifacts/fixture_usdz/[4B] 3D Diagram - S2-09 Group D.usda",
+  "resolution": 8,
+  "status": "error",
+  "title": "Desmos graph",
+  "usdz_exists": false,
+  "usdz_output": "/Users/careylai/Desktop/desmos2usd/artifacts/fixture_usdz/[4B] 3D Diagram - S2-09 Group D.usdz"
+}

@@ -1,0 +1,15 @@
+{
+  "acceptance_success": false,
+  "error": "Unsupported expression 47 '\\\\operatorname{abs}(\\\\operatorname{abs}(x)-2.5)=0.3\\\\left\\\\{y<-3\\\\right\\\\}\\\\left\\\\{y>-3.5\\\\right\\\\}\\\\left\\\\{1.2<z<2.5\\\\right\\\\}': not a supported renderable geometry form",
+  "error_stage": "classify",
+  "error_type": "ValueError",
+  "fixture": "[4B] 3D Diagram - S2-01 Group C.json",
+  "fixture_path": "fixtures/states/[4B] 3D Diagram - S2-01 Group C.json",
+  "graph_hash": null,
+  "output": "/Users/careylai/Desktop/desmos2usd/artifacts/fixture_usdz/[4B] 3D Diagram - S2-01 Group C.usda",
+  "resolution": 8,
+  "status": "error",
+  "title": "Desmos graph",
+  "usdz_exists": false,
+  "usdz_output": "/Users/careylai/Desktop/desmos2usd/artifacts/fixture_usdz/[4B] 3D Diagram - S2-01 Group C.usdz"
+}

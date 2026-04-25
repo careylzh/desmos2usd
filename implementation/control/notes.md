@@ -1,0 +1,4 @@
+- 2026-04-25 17:41 +08: launched controller-managed full 71-fixture sweep after adding `desmos2usd.validate.fixture_usdz_suite`.
+- 2026-04-25 17:47 +08: harvested completed run `mild-basil`; baseline is now 12 success, 21 partial, 38 error across 71 fixtures.
+- [4B]-only baseline: 28 USDZ files present, 38 missing.
+- Dominant blocker families from the harvested sweep: implicit equality geometry, inequality-region sampling, parametric `u`/`v` handling, tuple-definition parsing, and segment expressions.

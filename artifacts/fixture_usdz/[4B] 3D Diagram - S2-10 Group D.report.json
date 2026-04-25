@@ -1,0 +1,15 @@
+{
+  "acceptance_success": false,
+  "error": "Unsupported expression 173 'by=-\\\\frac{c}{z}\\\\left\\\\{-3\\\\le y\\\\le5\\\\right\\\\}\\\\left\\\\{-1\\\\le x\\\\le1\\\\right\\\\}\\\\ \\\\left\\\\{z\\\\le11\\\\right\\\\}': not a supported renderable geometry form",
+  "error_stage": "classify",
+  "error_type": "ValueError",
+  "fixture": "[4B] 3D Diagram - S2-10 Group D.json",
+  "fixture_path": "fixtures/states/[4B] 3D Diagram - S2-10 Group D.json",
+  "graph_hash": null,
+  "output": "/Users/careylai/Desktop/desmos2usd/artifacts/fixture_usdz/[4B] 3D Diagram - S2-10 Group D.usda",
+  "resolution": 8,
+  "status": "error",
+  "title": "Desmos graph",
+  "usdz_exists": false,
+  "usdz_output": "/Users/careylai/Desktop/desmos2usd/artifacts/fixture_usdz/[4B] 3D Diagram - S2-10 Group D.usdz"
+}

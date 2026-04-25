@@ -1,0 +1,17 @@
+#usda 1.0
+(
+    defaultPrim = "DesmosGraph"
+    metersPerUnit = 1
+    upAxis = "Z"
+    customLayerData = {
+        string "desmos:url" = ""
+        string "desmos:hash" = ""
+        string "desmos:title" = "Desmos graph"
+        string "desmos:stateUrl" = ""
+        string "desmos:viewportBounds" = "{\"x\": [-22.690197469541005, 22.690197469541005], \"y\": [-22.690197469541005, 22.690197469541005], \"z\": [-22.690197469541005, 22.690197469541005]}"
+    }
+)
+
+def Xform "DesmosGraph"
+{
+}

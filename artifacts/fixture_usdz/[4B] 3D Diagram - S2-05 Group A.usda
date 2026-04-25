@@ -1,0 +1,51 @@
+#usda 1.0
+(
+    defaultPrim = "DesmosGraph"
+    metersPerUnit = 1
+    upAxis = "Z"
+    customLayerData = {
+        string "desmos:url" = ""
+        string "desmos:hash" = ""
+        string "desmos:title" = "Desmos graph"
+        string "desmos:stateUrl" = ""
+        string "desmos:viewportBounds" = "{\"x\": [-167.3801004565175, 163.36989954348084], \"y\": [-153.37960513460982, 177.37039486538853], \"z\": [-165.37499999999918, 165.37499999999918]}"
+    }
+)
+
+def Xform "DesmosGraph"
+{
+    def Mesh "expr_0003__27"
+    {
+        custom string desmos:url = ""
+        custom string desmos:hash = ""
+        custom string desmos:exprId = "27"
+        custom int desmos:order = 3
+        custom string desmos:latex = "x<0"
+        custom string desmos:constraints = "x<0"
+        custom string desmos:kind = "inequality_region"
+        custom string desmos:color = "#fa7e19"
+        custom bool desmos:hidden = false
+        uniform bool doubleSided = true
+        point3f[] points = [(-167.3801, -153.379605, -165.375), (0, -153.379605, -165.375), (0, 177.370395, -165.375), (-167.3801, 177.370395, -165.375), (-167.3801, -153.379605, 165.375), (0, -153.379605, 165.375), (0, 177.370395, 165.375), (-167.3801, 177.370395, 165.375)]
+        int[] faceVertexCounts = [4, 4, 4, 4, 4, 4]
+        int[] faceVertexIndices = [0, 1, 2, 3, 4, 7, 6, 5, 0, 4, 5, 1, 1, 5, 6, 2, 2, 6, 7, 3, 3, 7, 4, 0]
+    }
+
+    def Mesh "expr_0004__28"
+    {
+        custom string desmos:url = ""
+        custom string desmos:hash = ""
+        custom string desmos:exprId = "28"
+        custom int desmos:order = 4
+        custom string desmos:latex = "x>0"
+        custom string desmos:constraints = "x>0"
+        custom string desmos:kind = "inequality_region"
+        custom string desmos:color = "#fa7e19"
+        custom bool desmos:hidden = false
+        uniform bool doubleSided = true
+        point3f[] points = [(0, -153.379605, -165.375), (163.3699, -153.379605, -165.375), (163.3699, 177.370395, -165.375), (0, 177.370395, -165.375), (0, -153.379605, 165.375), (163.3699, -153.379605, 165.375), (163.3699, 177.370395, 165.375), (0, 177.370395, 165.375)]
+        int[] faceVertexCounts = [4, 4, 4, 4, 4, 4]
+        int[] faceVertexIndices = [0, 1, 2, 3, 4, 7, 6, 5, 0, 4, 5, 1, 1, 5, 6, 2, 2, 6, 7, 3, 3, 7, 4, 0]
+    }
+
+}

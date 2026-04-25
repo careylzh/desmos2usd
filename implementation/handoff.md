@@ -1,43 +1,47 @@
-## Handoff: 2026-04-25 17:27 +08
+## Handoff: 2026-04-25 17:47 +08
 
 ### Active Task
-- Establish a reproducible local 71-fixture USDZ sweep and capture the first blocker families.
+- Remove the highest-frequency parser and geometry blocker families preventing `[4B]` fixtures from producing USDZ.
 
 ### What Changed
-- Reframed the bounded loop around the new acceptance criterion: all 71 JSON fixtures under `fixtures/states` must successfully convert to corresponding `.usdz` outputs.
-- Confirmed the fixture inventory is `71` files.
-- Reviewed `README.md`, the current test suite, and the USDZ packaging path in `src/desmos2usd/usd/package.py`.
-- Confirmed local Apple USD tools are available on PATH: `/usr/bin/usdzip` and `/usr/bin/usdchecker`.
-- Discovered that Python imports can accidentally resolve to a different editable `desmos2usd` checkout unless validation uses `PYTHONPATH=src`.
-- Fixed `package_usdz()` so relative output paths resolve before invoking `usdzip`.
-- Added `tests/test_usd_package.py` to lock in the relative-path packaging fix.
-- Ran a first local probe against the first five fixtures with `PYTHONPATH=src`:
-  - `[4B] 3D Diagram - S2-01 Group A.json`: USDA + USDZ succeed, but `119` expressions remain unsupported.
-  - `[4B] 3D Diagram - S2-01 Group B.json`: fails in `classify_graph` on tuple definition `G=((20,20,0))`.
-  - `[4B] 3D Diagram - S2-01 Group C.json`: unsupported `abs(abs(x)-2.5)=...` renderable form.
-  - `[4B] 3D Diagram - S2-01 Group D.json`: unsupported `segment(...)` renderable form.
-  - `[4B] 3D Diagram - S2-01 Group E.json`: USDA + USDZ succeed, but `20` expressions remain unsupported.
-- Registered five-minute cron job `521141b3-c3c5-49b3-ad9c-83870ad650d1` for continued bounded wakes.
+- Harvested the completed controller-managed full sweep `mild-basil` instead of launching a duplicate run.
+- Archived the active-run marker and refreshed controller files under `implementation/control/`.
+- Recorded the first full baseline for all 71 fixtures from `artifacts/fixture_usdz/summary.json`:
+  - total fixtures: `71`
+  - success: `12`
+  - partial USDZ outputs: `21`
+  - errors: `38`
+  - fixtures with USDZ artifacts present: `33`
+- Extracted the `[4B]`-only baseline:
+  - fixture count: `66`
+  - USDZ files present: `28`
+  - missing USDZ files: `38`
+  - success: `8`
+  - partial: `20`
+  - error: `38`
+- Summarized dominant blocker families:
+  - errors: implicit equality geometry (`18`), other unsupported expressions (`9`), segment expressions (`3`), tuple definition parse (`3`), other definition parse (`3`), list definition parse (`2`)
+  - partials: inequality-region sampling (`11`), parametric `u`/`v` vars (`4`), evaluation failure (`2`)
+- Advanced the loop from baseline collection to task 2, focusing on the highest-frequency blocker families.
 
 ### Validation
-- `python3 - <<'PY' ...` to count fixture JSONs under `fixtures/states` (`71`)
-- `which usdzip`
-- `which usdchecker`
-- `PYTHONPATH=src:tests python3 -m unittest tests.test_usd_package tests.test_cli`
-- `PYTHONPATH=src python3 - <<'PY' ...` probe confirming relative-path USDZ packaging now succeeds for `[4B] 3D Diagram - S2-01 Group A.json`
-- `PYTHONPATH=src python3 - <<'PY' ...` first-five-fixture probe capturing blocker families
+- `process poll mild-basil` → completed with exit code `0`
+- `PYTHONPATH=src python3 - <<'PY' ...` to summarize `artifacts/fixture_usdz/summary.json`
+- `find artifacts/fixture_usdz -maxdepth 1 -type f | wc -l`
+- `read implementation/control/full-sweep.log`
 
 ### Executor Notes
 - Primary: OpenClaw main session (openai/gpt-5.4)
 - Secondary review: not used
+- Background controller run: none active after harvest
 
 ### Risks or Open Questions
-- [ ] The current blocker set suggests acceptance will require new geometry support, not just a batch harness.
-- [ ] The repo has pre-existing modified acceptance artifacts from the earlier five-sample loop; avoid conflating those with the new 71-fixture acceptance work.
-- [ ] A full 71-fixture sweep may exceed one wake once the harness exists; switch to controller mode only if later tranches truly need background execution.
+- [ ] The highest-frequency category, implicit equality geometry, likely needs new classification and tessellation support rather than a small patch.
+- [ ] Partial fixtures already emit USDZ packages, so later tranches need to distinguish “USDZ exists” from “acceptance success”.
+- [ ] The viewer can now list generated fixture USDA outputs, but only for artifacts that have been committed and pushed.
 
 ### Recommended Next Wake
-- Build a dedicated local fixture-sweep helper (script or test-friendly utility) that walks all 71 fixture JSONs under `PYTHONPATH=src`, exports USDA/USDZ into a dedicated artifacts directory, and records per-fixture success/failure without aborting on the first error.
+- Work one bounded tranche on the single biggest blocker family: inspect a representative implicit-equality fixture, add the smallest support slice or diagnostic needed to reduce that class of failures, validate it on one or a few targeted `[4B]` fixtures, and update the baseline if the missing-USDZ count drops.
 
 ### User-Facing Update
-- Worth surfacing now: the loop is active, the new acceptance target is wired in, and the first tranche already found real blocker families instead of just setup work.
+- Worth surfacing now if asked: the full sweep finished, and currently `28/66` `[4B]` fixtures have USDZ outputs while `38` still fail under the current converter.

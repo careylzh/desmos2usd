@@ -1,0 +1,238 @@
+#usda 1.0
+(
+    defaultPrim = "DesmosGraph"
+    metersPerUnit = 1
+    upAxis = "Z"
+    customLayerData = {
+        string "desmos:url" = ""
+        string "desmos:hash" = ""
+        string "desmos:title" = "Desmos graph"
+        string "desmos:stateUrl" = ""
+        string "desmos:viewportBounds" = "{\"x\": [-203.87160109971657, 203.87160109971657], \"y\": [-203.87160109971657, 203.87160109971657], \"z\": [-203.87160109971657, 203.87160109971657]}"
+    }
+)
+
+def Xform "DesmosGraph"
+{
+    def BasisCurves "expr_0001_e1"
+    {
+        custom string desmos:url = ""
+        custom string desmos:hash = ""
+        custom string desmos:exprId = "e1"
+        custom int desmos:order = 1
+        custom string desmos:latex = "(s(t),s(t),t)"
+        custom string desmos:constraints = ""
+        custom string desmos:kind = "parametric_curve"
+        custom string desmos:color = "#8B1A1A"
+        custom bool desmos:hidden = false
+        uniform token type = "linear"
+        int[] curveVertexCounts = [16]
+        point3f[] points = [(40, 40, 0), (39.9533644, 39.9533644, 0.0666666667), (39.906791, 39.906791, 0.133333333), (39.8602796, 39.8602796, 0.2), (39.8138302, 39.8138302, 0.266666667), (39.7674427, 39.7674427, 0.333333333), (39.721117, 39.721117, 0.4), (39.674853, 39.674853, 0.466666667), (39.6286507, 39.6286507, 0.533333333), (39.58251, 39.58251, 0.6), (39.5364307, 39.5364307, 0.666666667), (39.4904128, 39.4904128, 0.733333333), (39.4444562, 39.4444562, 0.8), (39.3985609, 39.3985609, 0.866666667), (39.3527267, 39.3527267, 0.933333333), (39.3069536, 39.3069536, 1)]
+        float[] widths = [0.025]
+    }
+
+    def BasisCurves "expr_0002_e2"
+    {
+        custom string desmos:url = ""
+        custom string desmos:hash = ""
+        custom string desmos:exprId = "e2"
+        custom int desmos:order = 2
+        custom string desmos:latex = "(-s(t),s(t),t)"
+        custom string desmos:constraints = ""
+        custom string desmos:kind = "parametric_curve"
+        custom string desmos:color = "#8B1A1A"
+        custom bool desmos:hidden = false
+        uniform token type = "linear"
+        int[] curveVertexCounts = [16]
+        point3f[] points = [(-40, 40, 0), (-39.9533644, 39.9533644, 0.0666666667), (-39.906791, 39.906791, 0.133333333), (-39.8602796, 39.8602796, 0.2), (-39.8138302, 39.8138302, 0.266666667), (-39.7674427, 39.7674427, 0.333333333), (-39.721117, 39.721117, 0.4), (-39.674853, 39.674853, 0.466666667), (-39.6286507, 39.6286507, 0.533333333), (-39.58251, 39.58251, 0.6), (-39.5364307, 39.5364307, 0.666666667), (-39.4904128, 39.4904128, 0.733333333), (-39.4444562, 39.4444562, 0.8), (-39.3985609, 39.3985609, 0.866666667), (-39.3527267, 39.3527267, 0.933333333), (-39.3069536, 39.3069536, 1)]
+        float[] widths = [0.025]
+    }
+
+    def BasisCurves "expr_0003_e3"
+    {
+        custom string desmos:url = ""
+        custom string desmos:hash = ""
+        custom string desmos:exprId = "e3"
+        custom int desmos:order = 3
+        custom string desmos:latex = "(s(t),-s(t),t)"
+        custom string desmos:constraints = ""
+        custom string desmos:kind = "parametric_curve"
+        custom string desmos:color = "#8B1A1A"
+        custom bool desmos:hidden = false
+        uniform token type = "linear"
+        int[] curveVertexCounts = [16]
+        point3f[] points = [(40, -40, 0), (39.9533644, -39.9533644, 0.0666666667), (39.906791, -39.906791, 0.133333333), (39.8602796, -39.8602796, 0.2), (39.8138302, -39.8138302, 0.266666667), (39.7674427, -39.7674427, 0.333333333), (39.721117, -39.721117, 0.4), (39.674853, -39.674853, 0.466666667), (39.6286507, -39.6286507, 0.533333333), (39.58251, -39.58251, 0.6), (39.5364307, -39.5364307, 0.666666667), (39.4904128, -39.4904128, 0.733333333), (39.4444562, -39.4444562, 0.8), (39.3985609, -39.3985609, 0.866666667), (39.3527267, -39.3527267, 0.933333333), (39.3069536, -39.3069536, 1)]
+        float[] widths = [0.025]
+    }
+
+    def BasisCurves "expr_0004_e4"
+    {
+        custom string desmos:url = ""
+        custom string desmos:hash = ""
+        custom string desmos:exprId = "e4"
+        custom int desmos:order = 4
+        custom string desmos:latex = "(-s(t),-s(t),t)"
+        custom string desmos:constraints = ""
+        custom string desmos:kind = "parametric_curve"
+        custom string desmos:color = "#8B1A1A"
+        custom bool desmos:hidden = false
+        uniform token type = "linear"
+        int[] curveVertexCounts = [16]
+        point3f[] points = [(-40, -40, 0), (-39.9533644, -39.9533644, 0.0666666667), (-39.906791, -39.906791, 0.133333333), (-39.8602796, -39.8602796, 0.2), (-39.8138302, -39.8138302, 0.266666667), (-39.7674427, -39.7674427, 0.333333333), (-39.721117, -39.721117, 0.4), (-39.674853, -39.674853, 0.466666667), (-39.6286507, -39.6286507, 0.533333333), (-39.58251, -39.58251, 0.6), (-39.5364307, -39.5364307, 0.666666667), (-39.4904128, -39.4904128, 0.733333333), (-39.4444562, -39.4444562, 0.8), (-39.3985609, -39.3985609, 0.866666667), (-39.3527267, -39.3527267, 0.933333333), (-39.3069536, -39.3069536, 1)]
+        float[] widths = [0.025]
+    }
+
+    def BasisCurves "expr_0019_e23"
+    {
+        custom string desmos:url = ""
+        custom string desmos:hash = ""
+        custom string desmos:exprId = "e23"
+        custom int desmos:order = 19
+        custom string desmos:latex = "(40\\cos(t),s(20\\sin(t)),20\\sin(t))"
+        custom string desmos:constraints = ""
+        custom string desmos:kind = "parametric_curve"
+        custom string desmos:color = "#8B1A1A"
+        custom bool desmos:hidden = false
+        uniform token type = "linear"
+        int[] curveVertexCounts = [16]
+        point3f[] points = [(40, 40, 0), (39.911144, 39.0796742, 1.3323459), (39.6449709, 38.1874772, 2.65877245), (39.2026631, 37.3262738, 3.97338662), (38.5861858, 36.4985371, 5.27034782), (37.7982779, 35.7063718, 6.54389394), (36.8424398, 34.9515395, 7.78836685), (35.7229181, 34.2354879, 8.99823761), (34.4446868, 33.5593804, 10.168131), (33.0134246, 32.9241267, 11.2928495), (31.4354904, 32.3304138, 12.3673961), (29.7178947, 31.7787356, 13.3869968), (27.8682684, 31.2694226, 14.3471218), (25.8948289, 30.8026694, 15.2435055), (23.806344, 30.3785608, 16.0721653), (21.6120922, 29.9970962, 16.8294197)]
+        float[] widths = [0.025]
+    }
+
+    def BasisCurves "expr_0020_e24"
+    {
+        custom string desmos:url = ""
+        custom string desmos:hash = ""
+        custom string desmos:exprId = "e24"
+        custom int desmos:order = 20
+        custom string desmos:latex = "(40\\cos(t),-s(20\\sin(t)),20\\sin(t))"
+        custom string desmos:constraints = ""
+        custom string desmos:kind = "parametric_curve"
+        custom string desmos:color = "#8B1A1A"
+        custom bool desmos:hidden = false
+        uniform token type = "linear"
+        int[] curveVertexCounts = [16]
+        point3f[] points = [(40, -40, 0), (39.911144, -39.0796742, 1.3323459), (39.6449709, -38.1874772, 2.65877245), (39.2026631, -37.3262738, 3.97338662), (38.5861858, -36.4985371, 5.27034782), (37.7982779, -35.7063718, 6.54389394), (36.8424398, -34.9515395, 7.78836685), (35.7229181, -34.2354879, 8.99823761), (34.4446868, -33.5593804, 10.168131), (33.0134246, -32.9241267, 11.2928495), (31.4354904, -32.3304138, 12.3673961), (29.7178947, -31.7787356, 13.3869968), (27.8682684, -31.2694226, 14.3471218), (25.8948289, -30.8026694, 15.2435055), (23.806344, -30.3785608, 16.0721653), (21.6120922, -29.9970962, 16.8294197)]
+        float[] widths = [0.025]
+    }
+
+    def BasisCurves "expr_0021_e25"
+    {
+        custom string desmos:url = ""
+        custom string desmos:hash = ""
+        custom string desmos:exprId = "e25"
+        custom int desmos:order = 21
+        custom string desmos:latex = "(s(20\\sin(t)),40\\cos(t),20\\sin(t))"
+        custom string desmos:constraints = ""
+        custom string desmos:kind = "parametric_curve"
+        custom string desmos:color = "#8B1A1A"
+        custom bool desmos:hidden = false
+        uniform token type = "linear"
+        int[] curveVertexCounts = [16]
+        point3f[] points = [(40, 40, 0), (39.0796742, 39.911144, 1.3323459), (38.1874772, 39.6449709, 2.65877245), (37.3262738, 39.2026631, 3.97338662), (36.4985371, 38.5861858, 5.27034782), (35.7063718, 37.7982779, 6.54389394), (34.9515395, 36.8424398, 7.78836685), (34.2354879, 35.7229181, 8.99823761), (33.5593804, 34.4446868, 10.168131), (32.9241267, 33.0134246, 11.2928495), (32.3304138, 31.4354904, 12.3673961), (31.7787356, 29.7178947, 13.3869968), (31.2694226, 27.8682684, 14.3471218), (30.8026694, 25.8948289, 15.2435055), (30.3785608, 23.806344, 16.0721653), (29.9970962, 21.6120922, 16.8294197)]
+        float[] widths = [0.025]
+    }
+
+    def BasisCurves "expr_0022_e26"
+    {
+        custom string desmos:url = ""
+        custom string desmos:hash = ""
+        custom string desmos:exprId = "e26"
+        custom int desmos:order = 22
+        custom string desmos:latex = "(-s(20\\sin(t)),40\\cos(t),20\\sin(t))"
+        custom string desmos:constraints = ""
+        custom string desmos:kind = "parametric_curve"
+        custom string desmos:color = "#8B1A1A"
+        custom bool desmos:hidden = false
+        uniform token type = "linear"
+        int[] curveVertexCounts = [16]
+        point3f[] points = [(-40, 40, 0), (-39.0796742, 39.911144, 1.3323459), (-38.1874772, 39.6449709, 2.65877245), (-37.3262738, 39.2026631, 3.97338662), (-36.4985371, 38.5861858, 5.27034782), (-35.7063718, 37.7982779, 6.54389394), (-34.9515395, 36.8424398, 7.78836685), (-34.2354879, 35.7229181, 8.99823761), (-33.5593804, 34.4446868, 10.168131), (-32.9241267, 33.0134246, 11.2928495), (-32.3304138, 31.4354904, 12.3673961), (-31.7787356, 29.7178947, 13.3869968), (-31.2694226, 27.8682684, 14.3471218), (-30.8026694, 25.8948289, 15.2435055), (-30.3785608, 23.806344, 16.0721653), (-29.9970962, 21.6120922, 16.8294197)]
+        float[] widths = [0.025]
+    }
+
+    def BasisCurves "expr_0023_e27"
+    {
+        custom string desmos:url = ""
+        custom string desmos:hash = ""
+        custom string desmos:exprId = "e27"
+        custom int desmos:order = 23
+        custom string desmos:latex = "(2,2,138+12t)"
+        custom string desmos:constraints = ""
+        custom string desmos:kind = "parametric_curve"
+        custom string desmos:color = "#4A4A4A"
+        custom bool desmos:hidden = false
+        uniform token type = "linear"
+        int[] curveVertexCounts = [16]
+        point3f[] points = [(2, 2, 138), (2, 2, 138.8), (2, 2, 139.6), (2, 2, 140.4), (2, 2, 141.2), (2, 2, 142), (2, 2, 142.8), (2, 2, 143.6), (2, 2, 144.4), (2, 2, 145.2), (2, 2, 146), (2, 2, 146.8), (2, 2, 147.6), (2, 2, 148.4), (2, 2, 149.2), (2, 2, 150)]
+        float[] widths = [0.025]
+    }
+
+    def BasisCurves "expr_0024_e28"
+    {
+        custom string desmos:url = ""
+        custom string desmos:hash = ""
+        custom string desmos:exprId = "e28"
+        custom int desmos:order = 24
+        custom string desmos:latex = "(-2,2,138+12t)"
+        custom string desmos:constraints = ""
+        custom string desmos:kind = "parametric_curve"
+        custom string desmos:color = "#4A4A4A"
+        custom bool desmos:hidden = false
+        uniform token type = "linear"
+        int[] curveVertexCounts = [16]
+        point3f[] points = [(-2, 2, 138), (-2, 2, 138.8), (-2, 2, 139.6), (-2, 2, 140.4), (-2, 2, 141.2), (-2, 2, 142), (-2, 2, 142.8), (-2, 2, 143.6), (-2, 2, 144.4), (-2, 2, 145.2), (-2, 2, 146), (-2, 2, 146.8), (-2, 2, 147.6), (-2, 2, 148.4), (-2, 2, 149.2), (-2, 2, 150)]
+        float[] widths = [0.025]
+    }
+
+    def BasisCurves "expr_0025_e29"
+    {
+        custom string desmos:url = ""
+        custom string desmos:hash = ""
+        custom string desmos:exprId = "e29"
+        custom int desmos:order = 25
+        custom string desmos:latex = "(2,-2,138+12t)"
+        custom string desmos:constraints = ""
+        custom string desmos:kind = "parametric_curve"
+        custom string desmos:color = "#4A4A4A"
+        custom bool desmos:hidden = false
+        uniform token type = "linear"
+        int[] curveVertexCounts = [16]
+        point3f[] points = [(2, -2, 138), (2, -2, 138.8), (2, -2, 139.6), (2, -2, 140.4), (2, -2, 141.2), (2, -2, 142), (2, -2, 142.8), (2, -2, 143.6), (2, -2, 144.4), (2, -2, 145.2), (2, -2, 146), (2, -2, 146.8), (2, -2, 147.6), (2, -2, 148.4), (2, -2, 149.2), (2, -2, 150)]
+        float[] widths = [0.025]
+    }
+
+    def BasisCurves "expr_0026_e30"
+    {
+        custom string desmos:url = ""
+        custom string desmos:hash = ""
+        custom string desmos:exprId = "e30"
+        custom int desmos:order = 26
+        custom string desmos:latex = "(-2,-2,138+12t)"
+        custom string desmos:constraints = ""
+        custom string desmos:kind = "parametric_curve"
+        custom string desmos:color = "#4A4A4A"
+        custom bool desmos:hidden = false
+        uniform token type = "linear"
+        int[] curveVertexCounts = [16]
+        point3f[] points = [(-2, -2, 138), (-2, -2, 138.8), (-2, -2, 139.6), (-2, -2, 140.4), (-2, -2, 141.2), (-2, -2, 142), (-2, -2, 142.8), (-2, -2, 143.6), (-2, -2, 144.4), (-2, -2, 145.2), (-2, -2, 146), (-2, -2, 146.8), (-2, -2, 147.6), (-2, -2, 148.4), (-2, -2, 149.2), (-2, -2, 150)]
+        float[] widths = [0.025]
+    }
+
+    def BasisCurves "expr_0028_e32"
+    {
+        custom string desmos:url = ""
+        custom string desmos:hash = ""
+        custom string desmos:exprId = "e32"
+        custom int desmos:order = 28
+        custom string desmos:latex = "(0,0,150+15t)"
+        custom string desmos:constraints = ""
+        custom string desmos:kind = "parametric_curve"
+        custom string desmos:color = "#2A2A2A"
+        custom bool desmos:hidden = false
+        uniform token type = "linear"
+        int[] curveVertexCounts = [16]
+        point3f[] points = [(0, 0, 150), (0, 0, 151), (0, 0, 152), (0, 0, 153), (0, 0, 154), (0, 0, 155), (0, 0, 156), (0, 0, 157), (0, 0, 158), (0, 0, 159), (0, 0, 160), (0, 0, 161), (0, 0, 162), (0, 0, 163), (0, 0, 164), (0, 0, 165)]
+        float[] widths = [0.025]
+    }
+
+}

@@ -1,0 +1,373 @@
+{
+  "acceptance_success": false,
+  "complete": false,
+  "fixture": "[4B] 3D Diagram - S2-05 Group D.json",
+  "fixture_path": "fixtures/states/[4B] 3D Diagram - S2-05 Group D.json",
+  "graph_hash": null,
+  "output": "/Users/careylai/Desktop/desmos2usd/artifacts/fixture_usdz/[4B] 3D Diagram - S2-05 Group D.usda",
+  "prim_count": 13,
+  "renderable_expression_count": 46,
+  "resolution": 8,
+  "status": "partial",
+  "title": "Desmos graph",
+  "unsupported": [
+    {
+      "expr_id": "e15_0",
+      "kind": "parametric_curve",
+      "latex": "((1-t)a(-1.0)+tb(-1.0),-a(-1.0)+t(a(-1.0)+b(-1.0)),z_{0}+nh+th)",
+      "reason": "Could not evaluate '-a(-1.0)+t(a(-1.0)+b(-1.0))' with variables {'t': 0.0}: 'float' object is not callable"
+    },
+    {
+      "expr_id": "e16_0",
+      "kind": "parametric_curve",
+      "latex": "((1-t)a(-1.0)+tb(-1.0),a(-1.0)-t(a(-1.0)+b(-1.0)),z_{0}+nh+th)",
+      "reason": "Could not evaluate 'a(-1.0)-t(a(-1.0)+b(-1.0))' with variables {'t': 0.0}: 'float' object is not callable"
+    },
+    {
+      "expr_id": "e17_0",
+      "kind": "parametric_curve",
+      "latex": "(-((1-t)a(-1.0)+tb(-1.0)),-a(-1.0)+t(a(-1.0)+b(-1.0)),z_{0}+nh+th)",
+      "reason": "Could not evaluate '-a(-1.0)+t(a(-1.0)+b(-1.0))' with variables {'t': 0.0}: 'float' object is not callable"
+    },
+    {
+      "expr_id": "e18_0",
+      "kind": "parametric_curve",
+      "latex": "(-((1-t)a(-1.0)+tb(-1.0)),a(-1.0)-t(a(-1.0)+b(-1.0)),z_{0}+nh+th)",
+      "reason": "Could not evaluate 'a(-1.0)-t(a(-1.0)+b(-1.0))' with variables {'t': 0.0}: 'float' object is not callable"
+    },
+    {
+      "expr_id": "e19_0",
+      "kind": "parametric_curve",
+      "latex": "(-a(-1.0)+t(a(-1.0)+b(-1.0)),(1-t)a(-1.0)+tb(-1.0),z_{0}+nh+th)",
+      "reason": "Could not evaluate '-a(-1.0)+t(a(-1.0)+b(-1.0))' with variables {'t': 0.0}: 'float' object is not callable"
+    },
+    {
+      "expr_id": "e20_0",
+      "kind": "parametric_curve",
+      "latex": "(a(-1.0)-t(a(-1.0)+b(-1.0)),(1-t)a(-1.0)+tb(-1.0),z_{0}+nh+th)",
+      "reason": "Could not evaluate 'a(-1.0)-t(a(-1.0)+b(-1.0))' with variables {'t': 0.0}: 'float' object is not callable"
+    },
+    {
+      "expr_id": "e21_0",
+      "kind": "parametric_curve",
+      "latex": "(-a(-1.0)+t(a(-1.0)+b(-1.0)),-((1-t)a(-1.0)+tb(-1.0)),z_{0}+nh+th)",
+      "reason": "Could not evaluate '-a(-1.0)+t(a(-1.0)+b(-1.0))' with variables {'t': 0.0}: 'float' object is not callable"
+    },
+    {
+      "expr_id": "e22_0",
+      "kind": "parametric_curve",
+      "latex": "(a(-1.0)-t(a(-1.0)+b(-1.0)),-((1-t)a(-1.0)+tb(-1.0)),z_{0}+nh+th)",
+      "reason": "Could not evaluate 'a(-1.0)-t(a(-1.0)+b(-1.0))' with variables {'t': 0.0}: 'float' object is not callable"
+    },
+    {
+      "expr_id": "e31",
+      "kind": "parametric_curve",
+      "latex": "(2u,2v,150)",
+      "reason": "Could not evaluate '2u' with variables {'t': 0.0}: name 'u' is not defined"
+    },
+    {
+      "expr_id": "p1a",
+      "kind": "parametric_curve",
+      "latex": "(s(20)(2u-1),s(20)(2v-1),20)",
+      "reason": "Could not evaluate 's(20)(2u-1)' with variables {'t': 0.0}: name 'u' is not defined"
+    },
+    {
+      "expr_id": "p1b",
+      "kind": "parametric_curve",
+      "latex": "(s(20)(2u-1),s(20)(2v-1),(20-t_{p}))",
+      "reason": "Could not evaluate 's(20)(2u-1)' with variables {'t': 0.0}: name 'u' is not defined"
+    },
+    {
+      "expr_id": "p1c",
+      "kind": "parametric_curve",
+      "latex": "(s(20),s(20)(2u-1),(20-t_{p}+t_{p}v))",
+      "reason": "Could not evaluate 's(20)(2u-1)' with variables {'t': 0.0}: name 'u' is not defined"
+    },
+    {
+      "expr_id": "p1d",
+      "kind": "parametric_curve",
+      "latex": "(-s(20),s(20)(2u-1),(20-t_{p}+t_{p}v))",
+      "reason": "Could not evaluate 's(20)(2u-1)' with variables {'t': 0.0}: name 'u' is not defined"
+    },
+    {
+      "expr_id": "p1e",
+      "kind": "parametric_curve",
+      "latex": "(s(20)(2u-1),s(20),(20-t_{p}+t_{p}v))",
+      "reason": "Could not evaluate 's(20)(2u-1)' with variables {'t': 0.0}: name 'u' is not defined"
+    },
+    {
+      "expr_id": "p1f",
+      "kind": "parametric_curve",
+      "latex": "(s(20)(2u-1),-s(20),(20-t_{p}+t_{p}v))",
+      "reason": "Could not evaluate 's(20)(2u-1)' with variables {'t': 0.0}: name 'u' is not defined"
+    },
+    {
+      "expr_id": "p2a",
+      "kind": "parametric_curve",
+      "latex": "(s(28.5)(2u-1),s(28.5)(2v-1),28.5)",
+      "reason": "Could not evaluate 's(28.5)(2u-1)' with variables {'t': 0.0}: name 'u' is not defined"
+    },
+    {
+      "expr_id": "p2b",
+      "kind": "parametric_curve",
+      "latex": "(s(28.5)(2u-1),s(28.5)(2v-1),(28.5-t_{p}))",
+      "reason": "Could not evaluate 's(28.5)(2u-1)' with variables {'t': 0.0}: name 'u' is not defined"
+    },
+    {
+      "expr_id": "p2c",
+      "kind": "parametric_curve",
+      "latex": "(s(28.5),s(28.5)(2u-1),(28.5-t_{p}+t_{p}v))",
+      "reason": "Could not evaluate 's(28.5)(2u-1)' with variables {'t': 0.0}: name 'u' is not defined"
+    },
+    {
+      "expr_id": "p2d",
+      "kind": "parametric_curve",
+      "latex": "(-s(28.5),s(28.5)(2u-1),(28.5-t_{p}+t_{p}v))",
+      "reason": "Could not evaluate 's(28.5)(2u-1)' with variables {'t': 0.0}: name 'u' is not defined"
+    },
+    {
+      "expr_id": "p2e",
+      "kind": "parametric_curve",
+      "latex": "(s(28.5)(2u-1),s(28.5),(28.5-t_{p}+t_{p}v))",
+      "reason": "Could not evaluate 's(28.5)(2u-1)' with variables {'t': 0.0}: name 'u' is not defined"
+    },
+    {
+      "expr_id": "p2f",
+      "kind": "parametric_curve",
+      "latex": "(s(28.5)(2u-1),-s(28.5),(28.5-t_{p}+t_{p}v))",
+      "reason": "Could not evaluate 's(28.5)(2u-1)' with variables {'t': 0.0}: name 'u' is not defined"
+    },
+    {
+      "expr_id": "p3a",
+      "kind": "parametric_curve",
+      "latex": "(s(57.5)(2u-1),s(57.5)(2v-1),57.5)",
+      "reason": "Could not evaluate 's(57.5)(2u-1)' with variables {'t': 0.0}: name 'u' is not defined"
+    },
+    {
+      "expr_id": "p3b",
+      "kind": "parametric_curve",
+      "latex": "(s(57.5)(2u-1),s(57.5)(2v-1),(57.5-t_{p}))",
+      "reason": "Could not evaluate 's(57.5)(2u-1)' with variables {'t': 0.0}: name 'u' is not defined"
+    },
+    {
+      "expr_id": "p3c",
+      "kind": "parametric_curve",
+      "latex": "(s(57.5),s(57.5)(2u-1),(57.5-t_{p}+t_{p}v))",
+      "reason": "Could not evaluate 's(57.5)(2u-1)' with variables {'t': 0.0}: name 'u' is not defined"
+    },
+    {
+      "expr_id": "p3d",
+      "kind": "parametric_curve",
+      "latex": "(-s(57.5),s(57.5)(2u-1),(57.5-t_{p}+t_{p}v))",
+      "reason": "Could not evaluate 's(57.5)(2u-1)' with variables {'t': 0.0}: name 'u' is not defined"
+    },
+    {
+      "expr_id": "p3e",
+      "kind": "parametric_curve",
+      "latex": "(s(57.5)(2u-1),s(57.5),(57.5-t_{p}+t_{p}v))",
+      "reason": "Could not evaluate 's(57.5)(2u-1)' with variables {'t': 0.0}: name 'u' is not defined"
+    },
+    {
+      "expr_id": "p3f",
+      "kind": "parametric_curve",
+      "latex": "(s(57.5)(2u-1),-s(57.5),(57.5-t_{p}+t_{p}v))",
+      "reason": "Could not evaluate 's(57.5)(2u-1)' with variables {'t': 0.0}: name 'u' is not defined"
+    },
+    {
+      "expr_id": "p4a",
+      "kind": "parametric_curve",
+      "latex": "(s(138)(2u-1),s(138)(2v-1),138)",
+      "reason": "Could not evaluate 's(138)(2u-1)' with variables {'t': 0.0}: name 'u' is not defined"
+    },
+    {
+      "expr_id": "p4b",
+      "kind": "parametric_curve",
+      "latex": "(s(138)(2u-1),s(138)(2v-1),(138-t_{p}))",
+      "reason": "Could not evaluate 's(138)(2u-1)' with variables {'t': 0.0}: name 'u' is not defined"
+    },
+    {
+      "expr_id": "p4c",
+      "kind": "parametric_curve",
+      "latex": "(s(138),s(138)(2u-1),(138-t_{p}+t_{p}v))",
+      "reason": "Could not evaluate 's(138)(2u-1)' with variables {'t': 0.0}: name 'u' is not defined"
+    },
+    {
+      "expr_id": "p4d",
+      "kind": "parametric_curve",
+      "latex": "(-s(138),s(138)(2u-1),(138-t_{p}+t_{p}v))",
+      "reason": "Could not evaluate 's(138)(2u-1)' with variables {'t': 0.0}: name 'u' is not defined"
+    },
+    {
+      "expr_id": "p4e",
+      "kind": "parametric_curve",
+      "latex": "(s(138)(2u-1),s(138),(138-t_{p}+t_{p}v))",
+      "reason": "Could not evaluate 's(138)(2u-1)' with variables {'t': 0.0}: name 'u' is not defined"
+    },
+    {
+      "expr_id": "p4f",
+      "kind": "parametric_curve",
+      "latex": "(s(138)(2u-1),-s(138),(138-t_{p}+t_{p}v))",
+      "reason": "Could not evaluate 's(138)(2u-1)' with variables {'t': 0.0}: name 'u' is not defined"
+    }
+  ],
+  "unsupported_count": 33,
+  "usdz_exists": true,
+  "usdz_output": "/Users/careylai/Desktop/desmos2usd/artifacts/fixture_usdz/[4B] 3D Diagram - S2-05 Group D.usdz",
+  "usdz_package": {
+    "command": [
+      "/usr/bin/usdzip",
+      "/Users/careylai/Desktop/desmos2usd/artifacts/fixture_usdz/[4B] 3D Diagram - S2-05 Group D.usdz",
+      "[4B] 3D Diagram - S2-05 Group D.usda"
+    ],
+    "cwd": "/Users/careylai/Desktop/desmos2usd/artifacts/fixture_usdz",
+    "returncode": 0,
+    "stderr": "",
+    "stdout": "",
+    "tool": "usdzip"
+  },
+  "usdz_validation": {
+    "command": [
+      "/usr/bin/usdchecker",
+      "--arkit",
+      "/Users/careylai/Desktop/desmos2usd/artifacts/fixture_usdz/[4B] 3D Diagram - S2-05 Group D.usdz"
+    ],
+    "cwd": null,
+    "returncode": 0,
+    "stderr": "Coding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'BasisCurves' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'BasisCurves' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'BasisCurves' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'BasisCurves' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'BasisCurves' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'BasisCurves' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'BasisCurves' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'BasisCurves' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'BasisCurves' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'BasisCurves' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'BasisCurves' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'BasisCurves' type and apischemas.\n",
+    "stdout": "\nValidation Result with no explicit variants set\nSuccess!\n",
+    "tool": "usdchecker"
+  },
+  "valid": true,
+  "validations": [
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "e1",
+      "face_count": 0,
+      "kind": "parametric_curve",
+      "max_residual": 0.0,
+      "point_count": 16,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "e2",
+      "face_count": 0,
+      "kind": "parametric_curve",
+      "max_residual": 0.0,
+      "point_count": 16,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "e3",
+      "face_count": 0,
+      "kind": "parametric_curve",
+      "max_residual": 0.0,
+      "point_count": 16,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "e4",
+      "face_count": 0,
+      "kind": "parametric_curve",
+      "max_residual": 0.0,
+      "point_count": 16,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "e23",
+      "face_count": 0,
+      "kind": "parametric_curve",
+      "max_residual": 0.0,
+      "point_count": 16,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "e24",
+      "face_count": 0,
+      "kind": "parametric_curve",
+      "max_residual": 0.0,
+      "point_count": 16,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "e25",
+      "face_count": 0,
+      "kind": "parametric_curve",
+      "max_residual": 0.0,
+      "point_count": 16,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "e26",
+      "face_count": 0,
+      "kind": "parametric_curve",
+      "max_residual": 0.0,
+      "point_count": 16,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "e27",
+      "face_count": 0,
+      "kind": "parametric_curve",
+      "max_residual": 0.0,
+      "point_count": 16,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "e28",
+      "face_count": 0,
+      "kind": "parametric_curve",
+      "max_residual": 0.0,
+      "point_count": 16,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "e29",
+      "face_count": 0,
+      "kind": "parametric_curve",
+      "max_residual": 0.0,
+      "point_count": 16,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "e30",
+      "face_count": 0,
+      "kind": "parametric_curve",
+      "max_residual": 0.0,
+      "point_count": 16,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "e32",
+      "face_count": 0,
+      "kind": "parametric_curve",
+      "max_residual": 0.0,
+      "point_count": 16,
+      "valid": true
+    }
+  ]
+}

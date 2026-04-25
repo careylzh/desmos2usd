@@ -1,6 +1,6 @@
 # Implementation State
 
-Last updated: 2026-04-25 17:27 +08
+Last updated: 2026-04-25 17:47 +08
 
 ## Loop Mode
 - cadence: 5m one-shot wakes
@@ -9,6 +9,7 @@ Last updated: 2026-04-25 17:27 +08
 - branch: main
 - cron-job: 521141b3-c3c5-49b3-ad9c-83870ad650d1
 - supersedes: 8f195356-9b3d-422d-a912-0a88f39bb268 (disabled prior loop)
+- controller: implementation/control/status.md
 
 ## Executor Policy
 - primary: OpenClaw main session (openai/gpt-5.4)
@@ -16,26 +17,27 @@ Last updated: 2026-04-25 17:27 +08
 - availability: available
 
 ## Active Task
-- index: 1
-- id: fixture-usdz-baseline
-- title: Establish a reproducible local 71-fixture USDZ sweep and capture the first blocker families
+- index: 2
+- id: remove-major-blocker-families
+- title: Remove the highest-frequency parser and geometry blocker families preventing `[4B]` fixtures from producing USDZ
 - done-when:
-  - There is a repeatable local workflow that enumerates all 71 JSON fixtures under `fixtures/states` using this checkout (`PYTHONPATH=src`).
-  - The loop has a baseline of which fixtures already emit valid `.usdz` packages and which fail, with concrete first-failure reasons.
-  - Packaging path issues no longer force absolute-path workarounds.
+  - The harvested baseline has been recorded for all 71 fixtures.
+  - The next tranche is focused on one blocker family at a time, starting with the highest-frequency categories from `implementation/control/last-summary.json`.
+  - Progress measurably reduces the count of `[4B]` fixtures missing `.usdz` outputs.
 
 ## Ordered Task Cycle
-1. [ ] Establish a reproducible local 71-fixture USDZ sweep and capture the first blocker families.
+1. [x] Establish a reproducible local 71-fixture USDZ sweep and capture the first blocker families.
 2. [ ] Remove parser, classifier, tessellation, and packaging gaps until every fixture can export USDA and package a valid USDZ.
 3. [ ] Add or extend tests and docs for the 71-fixture USDZ acceptance target.
-4. [ ] Run the full 71-fixture sweep cleanly and verify every fixture has a corresponding valid `.usdz` output.
+4. [ ] Run the full 71-fixture sweep cleanly and verify every fixture has a corresponding valid USDZ output.
 
 ## Blockers
-- Python imports must prefer `PYTHONPATH=src`; the current environment also has a different editable `desmos2usd` checkout on the import path.
-- Early local probe results show broad unsupported coverage beyond packaging alone, including tuple definitions, `abs(...) = ...` style implicit geometry, and `segment(...)` expressions.
-- The repo currently has prior acceptance-artifact edits and many fixture JSONs already untracked; treat them as existing repo state, not evidence of new loop progress.
+- `[4B]` baseline after the harvested full sweep: `28/66` USDZ files present, `38/66` still missing.
+- Dominant error families are implicit equality geometry (`18`), other unsupported expressions (`9`), segment expressions (`3`), tuple definition parsing (`3`), and remaining definition parse gaps (`5` combined).
+- Dominant partial families are inequality-region sampling (`11`) and parametric `u`/`v` handling (`4`).
+- Python imports must still prefer `PYTHONPATH=src`; the current environment also has a different editable `desmos2usd` checkout on the import path.
 
 ## Last Wake
-- timestamp: 2026-04-25 17:27 +08
+- timestamp: 2026-04-25 17:47 +08
 - result: advanced
-- notes: Counted 71 fixtures, reviewed README/tests/USDZ code paths, fixed relative `package_usdz` output-path handling, and captured first local probe failures for the new acceptance target.
+- notes: Harvested completed full sweep `mild-basil`, recorded the 71-fixture baseline, cleared the active-run marker, and advanced to fixing the highest-frequency blocker families.

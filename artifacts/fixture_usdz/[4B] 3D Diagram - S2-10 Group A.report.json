@@ -1,0 +1,15 @@
+{
+  "acceptance_success": false,
+  "error": "Unsupported expression 14 '2.8x-1.25z+8.4=0\\\\ \\\\left\\\\{-3<x<-1.75\\\\right\\\\}\\\\left\\\\{-1<x+y<0\\\\right\\\\}': not a supported renderable geometry form",
+  "error_stage": "classify",
+  "error_type": "ValueError",
+  "fixture": "[4B] 3D Diagram - S2-10 Group A.json",
+  "fixture_path": "fixtures/states/[4B] 3D Diagram - S2-10 Group A.json",
+  "graph_hash": null,
+  "output": "/Users/careylai/Desktop/desmos2usd/artifacts/fixture_usdz/[4B] 3D Diagram - S2-10 Group A.usda",
+  "resolution": 8,
+  "status": "error",
+  "title": "Desmos graph",
+  "usdz_exists": false,
+  "usdz_output": "/Users/careylai/Desktop/desmos2usd/artifacts/fixture_usdz/[4B] 3D Diagram - S2-10 Group A.usdz"
+}

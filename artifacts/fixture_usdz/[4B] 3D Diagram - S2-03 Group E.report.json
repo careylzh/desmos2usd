@@ -1,0 +1,15 @@
+{
+  "acceptance_success": false,
+  "error": "Failed to parse definition 51 's_{sidelength}\\\\ =\\\\ 2a\\\\left(\\\\sqrt{2}\\\\ -\\\\ 1\\\\right)': Could not evaluate '2a(\\\\sqrt{2}-1)' with variables {}: name 'a' is not defined",
+  "error_stage": "classify",
+  "error_type": "ValueError",
+  "fixture": "[4B] 3D Diagram - S2-03 Group E.json",
+  "fixture_path": "fixtures/states/[4B] 3D Diagram - S2-03 Group E.json",
+  "graph_hash": null,
+  "output": "/Users/careylai/Desktop/desmos2usd/artifacts/fixture_usdz/[4B] 3D Diagram - S2-03 Group E.usda",
+  "resolution": 8,
+  "status": "error",
+  "title": "Desmos graph",
+  "usdz_exists": false,
+  "usdz_output": "/Users/careylai/Desktop/desmos2usd/artifacts/fixture_usdz/[4B] 3D Diagram - S2-03 Group E.usdz"
+}

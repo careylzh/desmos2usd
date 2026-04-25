@@ -1,0 +1,15 @@
+{
+  "acceptance_success": false,
+  "error": "Unsupported expression 6552 '\\\\operatorname{sphere}\\\\left(\\\\left(0,0,20.5\\\\right),0.4\\\\right)': not a supported renderable geometry form",
+  "error_stage": "classify",
+  "error_type": "ValueError",
+  "fixture": "[4B] 3D Diagram - S2-07 Group D.json",
+  "fixture_path": "fixtures/states/[4B] 3D Diagram - S2-07 Group D.json",
+  "graph_hash": null,
+  "output": "/Users/careylai/Desktop/desmos2usd/artifacts/fixture_usdz/[4B] 3D Diagram - S2-07 Group D.usda",
+  "resolution": 8,
+  "status": "error",
+  "title": "Desmos graph",
+  "usdz_exists": false,
+  "usdz_output": "/Users/careylai/Desktop/desmos2usd/artifacts/fixture_usdz/[4B] 3D Diagram - S2-07 Group D.usdz"
+}

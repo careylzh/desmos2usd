@@ -1,0 +1,15 @@
+{
+  "acceptance_success": false,
+  "error": "Unsupported expression 157 'x\\\\ =\\\\ -\\\\left\\\\{\\\\ 18<\\\\ y\\\\ <\\\\ 28\\\\right\\\\}\\\\ \\\\left\\\\{60\\\\ <\\\\ z\\\\ <\\\\ 62\\\\right\\\\}': Could not parse '' as '': invalid syntax (<unknown>, line 0)",
+  "error_stage": "classify",
+  "error_type": "ValueError",
+  "fixture": "[4B] 3D Diagram - S2-10 Group B.json",
+  "fixture_path": "fixtures/states/[4B] 3D Diagram - S2-10 Group B.json",
+  "graph_hash": null,
+  "output": "/Users/careylai/Desktop/desmos2usd/artifacts/fixture_usdz/[4B] 3D Diagram - S2-10 Group B.usda",
+  "resolution": 8,
+  "status": "error",
+  "title": "Desmos graph",
+  "usdz_exists": false,
+  "usdz_output": "/Users/careylai/Desktop/desmos2usd/artifacts/fixture_usdz/[4B] 3D Diagram - S2-10 Group B.usdz"
+}

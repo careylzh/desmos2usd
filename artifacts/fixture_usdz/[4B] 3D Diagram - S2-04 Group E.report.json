@@ -1,0 +1,15 @@
+{
+  "acceptance_success": false,
+  "error": "Unsupported expression 1 '\\\\left(x+15\\\\right)^{2}+\\\\left(y-5\\\\right)^{2}=100\\\\ \\\\left\\\\{0<z<60\\\\right\\\\}': not a supported renderable geometry form",
+  "error_stage": "classify",
+  "error_type": "ValueError",
+  "fixture": "[4B] 3D Diagram - S2-04 Group E.json",
+  "fixture_path": "fixtures/states/[4B] 3D Diagram - S2-04 Group E.json",
+  "graph_hash": null,
+  "output": "/Users/careylai/Desktop/desmos2usd/artifacts/fixture_usdz/[4B] 3D Diagram - S2-04 Group E.usda",
+  "resolution": 8,
+  "status": "error",
+  "title": "Desmos graph",
+  "usdz_exists": false,
+  "usdz_output": "/Users/careylai/Desktop/desmos2usd/artifacts/fixture_usdz/[4B] 3D Diagram - S2-04 Group E.usdz"
+}

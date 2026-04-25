@@ -1,0 +1,15 @@
+{
+  "acceptance_success": false,
+  "error": "Unsupported expression 22 '\\\\left[2.7,-4.3\\\\right]\\\\le x\\\\le\\\\left[4.3,-2.7\\\\right]\\\\left\\\\{4.2>y>3\\\\right\\\\}\\\\left\\\\{-3.25\\\\le z\\\\le0.5,-10.5\\\\le z\\\\le-6.75\\\\right\\\\}': Unsupported expression node Tuple",
+  "error_stage": "classify",
+  "error_type": "ValueError",
+  "fixture": "[4B] 3D Diagram - S2-03 Group D.json",
+  "fixture_path": "fixtures/states/[4B] 3D Diagram - S2-03 Group D.json",
+  "graph_hash": null,
+  "output": "/Users/careylai/Desktop/desmos2usd/artifacts/fixture_usdz/[4B] 3D Diagram - S2-03 Group D.usda",
+  "resolution": 8,
+  "status": "error",
+  "title": "Desmos graph",
+  "usdz_exists": false,
+  "usdz_output": "/Users/careylai/Desktop/desmos2usd/artifacts/fixture_usdz/[4B] 3D Diagram - S2-03 Group D.usdz"
+}

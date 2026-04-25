@@ -1,0 +1,83 @@
+{
+  "acceptance_success": false,
+  "complete": false,
+  "fixture": "[4B] 3D Diagram - S2-05 Group A.json",
+  "fixture_path": "fixtures/states/[4B] 3D Diagram - S2-05 Group A.json",
+  "graph_hash": null,
+  "output": "/Users/careylai/Desktop/desmos2usd/artifacts/fixture_usdz/[4B] 3D Diagram - S2-05 Group A.usda",
+  "prim_count": 2,
+  "renderable_expression_count": 5,
+  "resolution": 8,
+  "status": "partial",
+  "title": "Desmos graph",
+  "unsupported": [
+    {
+      "expr_id": "23",
+      "kind": "inequality_region",
+      "latex": "0<=z<=45-\\max(\\operatorname{abs}(x-110),\\operatorname{abs}(y-20))",
+      "reason": "Inequality region for 23 did not resolve to sampled cells"
+    },
+    {
+      "expr_id": "24",
+      "kind": "inequality_region",
+      "latex": "0<=z<=59-\\max(\\operatorname{abs}(x),\\operatorname{abs}(y+50))",
+      "reason": "Inequality region for 24 did not resolve to sampled cells"
+    },
+    {
+      "expr_id": "25",
+      "kind": "inequality_region",
+      "latex": "0<=z<=35-\\max(\\operatorname{abs}(x+100),\\operatorname{abs}(y--90))",
+      "reason": "Inequality region for 25 did not resolve to sampled cells"
+    }
+  ],
+  "unsupported_count": 3,
+  "usdz_exists": true,
+  "usdz_output": "/Users/careylai/Desktop/desmos2usd/artifacts/fixture_usdz/[4B] 3D Diagram - S2-05 Group A.usdz",
+  "usdz_package": {
+    "command": [
+      "/usr/bin/usdzip",
+      "/Users/careylai/Desktop/desmos2usd/artifacts/fixture_usdz/[4B] 3D Diagram - S2-05 Group A.usdz",
+      "[4B] 3D Diagram - S2-05 Group A.usda"
+    ],
+    "cwd": "/Users/careylai/Desktop/desmos2usd/artifacts/fixture_usdz",
+    "returncode": 0,
+    "stderr": "",
+    "stdout": "",
+    "tool": "usdzip"
+  },
+  "usdz_validation": {
+    "command": [
+      "/usr/bin/usdchecker",
+      "--arkit",
+      "/Users/careylai/Desktop/desmos2usd/artifacts/fixture_usdz/[4B] 3D Diagram - S2-05 Group A.usdz"
+    ],
+    "cwd": null,
+    "returncode": 0,
+    "stderr": "Coding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\n",
+    "stdout": "\nValidation Result with no explicit variants set\nSuccess!\n",
+    "tool": "usdchecker"
+  },
+  "valid": true,
+  "validations": [
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "27",
+      "face_count": 6,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 8,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "28",
+      "face_count": 6,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 8,
+      "valid": true
+    }
+  ]
+}

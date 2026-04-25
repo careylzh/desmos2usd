@@ -1,0 +1,37 @@
+{
+  "source": "controller-managed full 71-fixture sweep",
+  "harvestedAt": "2026-04-25 17:47 +08",
+  "fixture_count": 71,
+  "success_count": 12,
+  "partial_count": 21,
+  "error_count": 38,
+  "fixtures_with_usdz_count": 33,
+  "acceptance_met": false,
+  "error_stage_counts": {
+    "classify": 38
+  },
+  "four_b": {
+    "fixture_count": 66,
+    "usdz_exists_count": 28,
+    "missing_usdz_count": 38,
+    "success_count": 8,
+    "partial_count": 20,
+    "error_count": 38
+  },
+  "error_families": {
+    "implicit-equality-geometry": 18,
+    "other-unsupported-expression": 9,
+    "segment-expression": 3,
+    "tuple-definition-parse": 3,
+    "other-definition-parse": 3,
+    "list-definition-parse": 2
+  },
+  "partial_families": {
+    "inequality-region-sampling": 11,
+    "parametric-u-v-vars": 4,
+    "evaluation-failure": 2,
+    "predicate-violations": 1,
+    "symbol-call-conflict": 1,
+    "other-partial": 1
+  }
+}

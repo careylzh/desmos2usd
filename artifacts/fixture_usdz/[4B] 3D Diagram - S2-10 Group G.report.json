@@ -1,0 +1,15 @@
+{
+  "acceptance_success": false,
+  "error": "Unsupported expression 2 '-14<y<14\\\\left\\\\{50\\\\le z\\\\le80\\\\right\\\\}\\\\left\\\\{-14\\\\le x\\\\le14\\\\right\\\\}\\\\left\\\\{\\\\left(z-64\\\\right)^{2}+\\\\left(x-0\\\\right)^{2\\\\ }\\\\ge10^{2}\\\\ \\\\left\\\\{-13\\\\le y\\\\le13\\\\right\\\\}\\\\right\\\\}\\\\left\\\\{\\\\left(z-64\\\\right)^{2}+\\\\left(y-0\\\\right)^{2\\\\ }\\\\ge10^{2}\\\\ \\\\left\\\\{-13\\\\le x\\\\le13\\\\right\\\\}\\\\right\\\\}': Could not parse '10^{2}{-13' as '10**(2)*(-13': '(' was never closed (<unknown>, line 1)",
+  "error_stage": "classify",
+  "error_type": "ValueError",
+  "fixture": "[4B] 3D Diagram - S2-10 Group G.json",
+  "fixture_path": "fixtures/states/[4B] 3D Diagram - S2-10 Group G.json",
+  "graph_hash": null,
+  "output": "/Users/careylai/Desktop/desmos2usd/artifacts/fixture_usdz/[4B] 3D Diagram - S2-10 Group G.usda",
+  "resolution": 8,
+  "status": "error",
+  "title": "Desmos graph",
+  "usdz_exists": false,
+  "usdz_output": "/Users/careylai/Desktop/desmos2usd/artifacts/fixture_usdz/[4B] 3D Diagram - S2-10 Group G.usdz"
+}

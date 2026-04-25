@@ -1,0 +1,15 @@
+{
+  "acceptance_success": false,
+  "error": "Unsupported expression 20 'z>-4\\\\left\\\\{z<-1\\\\right\\\\}\\\\left\\\\{x>-0.6\\\\left\\\\{x<-0.4\\\\right\\\\}\\\\left\\\\{y>0.3\\\\right\\\\}\\\\left\\\\{y<0.5\\\\right\\\\}\\\\right\\\\}': Could not parse '-0.6{x' as '-0.6*(x': '(' was never closed (<unknown>, line 1)",
+  "error_stage": "classify",
+  "error_type": "ValueError",
+  "fixture": "[4B] 3D Diagram - S2-02 Group B.json",
+  "fixture_path": "fixtures/states/[4B] 3D Diagram - S2-02 Group B.json",
+  "graph_hash": null,
+  "output": "/Users/careylai/Desktop/desmos2usd/artifacts/fixture_usdz/[4B] 3D Diagram - S2-02 Group B.usda",
+  "resolution": 8,
+  "status": "error",
+  "title": "Desmos graph",
+  "usdz_exists": false,
+  "usdz_output": "/Users/careylai/Desktop/desmos2usd/artifacts/fixture_usdz/[4B] 3D Diagram - S2-02 Group B.usdz"
+}
