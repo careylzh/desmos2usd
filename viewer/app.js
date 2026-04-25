@@ -17,13 +17,17 @@
   const acceptanceRoot = window.location.pathname.includes("/viewer/")
     ? "../artifacts/acceptance"
     : "artifacts/acceptance";
-  const acceptanceSamples = {
-    zaqxhna15w: `${acceptanceRoot}/zaqxhna15w.usda`,
-    ghnr7txz47: `${acceptanceRoot}/ghnr7txz47.usda`,
-    yuqwjsfvsc: `${acceptanceRoot}/yuqwjsfvsc.usda`,
-    vyp9ogyimt: `${acceptanceRoot}/vyp9ogyimt.usda`,
-    k0fbxxwkqf: `${acceptanceRoot}/k0fbxxwkqf.usda`,
-  };
+  const fixtureSweepRoot = window.location.pathname.includes("/viewer/")
+    ? "../artifacts/fixture_usdz"
+    : "artifacts/fixture_usdz";
+  const builtInSamples = [
+    { key: "zaqxhna15w", label: "zaqxhna15w", url: `${acceptanceRoot}/zaqxhna15w.usda`, group: "Acceptance" },
+    { key: "ghnr7txz47", label: "ghnr7txz47", url: `${acceptanceRoot}/ghnr7txz47.usda`, group: "Acceptance" },
+    { key: "yuqwjsfvsc", label: "yuqwjsfvsc", url: `${acceptanceRoot}/yuqwjsfvsc.usda`, group: "Acceptance" },
+    { key: "vyp9ogyimt", label: "vyp9ogyimt", url: `${acceptanceRoot}/vyp9ogyimt.usda`, group: "Acceptance" },
+    { key: "k0fbxxwkqf", label: "k0fbxxwkqf", url: `${acceptanceRoot}/k0fbxxwkqf.usda`, group: "Acceptance" },
+  ];
+  let sampleCatalog = [];
 
   const gl = canvas.getContext("webgl2", {
     antialias: true,
@@ -63,11 +67,10 @@
   gl.clearColor(0.045, 0.045, 0.045, 1);
 
   bindUi();
-  populateSampleSelect();
   resize();
   updateSurfaceModeButton();
   requestAnimationFrame(render);
-  loadInitialQueryTarget();
+  initialize();
 
   function bindUi() {
     window.addEventListener("resize", resize);
@@ -112,13 +115,88 @@
     });
   }
 
-  function populateSampleSelect() {
-    for (const [sample, url] of Object.entries(acceptanceSamples)) {
-      const option = document.createElement("option");
-      option.value = url;
-      option.textContent = sample;
-      sampleSelect.appendChild(option);
+  async function initialize() {
+    await populateSampleSelect();
+    loadInitialQueryTarget();
+  }
+
+  async function populateSampleSelect() {
+    const placeholder = sampleSelect.querySelector('option[value=""]');
+    sampleSelect.innerHTML = "";
+    sampleSelect.appendChild(placeholder || new Option("Select a sample...", ""));
+    sampleCatalog = [];
+
+    appendSampleGroup("Acceptance", builtInSamples);
+
+    const fixtureSamples = await loadFixtureSamples();
+    if (fixtureSamples.length) {
+      appendSampleGroup("Fixture sweep", fixtureSamples);
     }
+  }
+
+  function appendSampleGroup(label, samples) {
+    if (!samples.length) return;
+    const group = document.createElement("optgroup");
+    group.label = label;
+    for (const sample of samples) {
+      const option = document.createElement("option");
+      option.value = sample.url;
+      option.textContent = sample.label;
+      option.dataset.key = normalizeSampleKey(sample.key || sample.label);
+      group.appendChild(option);
+      sampleCatalog.push(sample);
+    }
+    sampleSelect.appendChild(group);
+  }
+
+  async function loadFixtureSamples() {
+    try {
+      const response = await fetch(`${fixtureSweepRoot}/summary.json`, { cache: "no-store" });
+      if (!response.ok) return [];
+      const summary = await response.json();
+      if (!summary || !Array.isArray(summary.reports)) return [];
+      return summary.reports
+        .map((report) => {
+          const fileName = basenameFromPath(report.output);
+          if (!fileName) return null;
+          const label = fixtureLabel(report, fileName);
+          return {
+            key: label,
+            label,
+            url: joinSamplePath(fixtureSweepRoot, fileName),
+            group: "Fixture sweep",
+          };
+        })
+        .filter(Boolean)
+        .sort((left, right) => left.label.localeCompare(right.label));
+    } catch (_error) {
+      return [];
+    }
+  }
+
+  function fixtureLabel(report, fileName) {
+    if (report && typeof report.fixture === "string" && report.fixture.trim()) {
+      return report.fixture.replace(/\.json$/i, "");
+    }
+    return fileName.replace(/\.usda$/i, "");
+  }
+
+  function basenameFromPath(value) {
+    if (typeof value !== "string" || !value.trim()) return "";
+    const parts = value.split(/[\\/]/).filter(Boolean);
+    return parts.length ? parts[parts.length - 1] : "";
+  }
+
+  function joinSamplePath(root, fileName) {
+    return `${root}/${encodePathSegment(fileName)}`;
+  }
+
+  function encodePathSegment(value) {
+    return encodeURIComponent(value).replace(/%2F/g, "/");
+  }
+
+  function normalizeSampleKey(value) {
+    return String(value || "").trim().toLowerCase();
   }
 
   async function loadSample(url, label) {
@@ -136,22 +214,25 @@
 
   function loadInitialQueryTarget() {
     const params = new URLSearchParams(window.location.search);
-    const sample = (params.get("sample") || "").trim();
+    const sample = normalizeSampleKey(params.get("sample") || "");
     if (sample) {
-      const url = acceptanceSamples[sample];
-      if (url) {
-        loadSample(url, sample);
+      const option = Array.from(sampleSelect.options).find((candidate) => candidate.dataset.key === sample);
+      if (option) {
+        sampleSelect.value = option.value;
+        loadSample(option.value, option.textContent);
       } else {
-        setStatus(`Unknown acceptance sample: ${sample}`);
+        setStatus(`Unknown sample: ${params.get("sample")}`);
       }
       return;
     }
 
     const usdaPath = (params.get("usda") || "").trim();
     if (!usdaPath) {
-      const [defaultSample, defaultUrl] = Object.entries(acceptanceSamples)[0];
-      sampleSelect.value = defaultUrl;
-      loadSample(defaultUrl, defaultSample);
+      const defaultOption = Array.from(sampleSelect.options).find((option) => option.value);
+      if (defaultOption) {
+        sampleSelect.value = defaultOption.value;
+        loadSample(defaultOption.value, defaultOption.textContent);
+      }
       return;
     }
     if (!usdaPath.toLowerCase().endsWith(".usda")) {
