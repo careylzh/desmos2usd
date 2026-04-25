@@ -6,7 +6,7 @@
   "fixture_path": "fixtures/states/[4B] 3D Diagram - S2-10 Group F.json",
   "graph_hash": null,
   "output": "artifacts/fixture_usdz/[4B] 3D Diagram - S2-10 Group F.usda",
-  "prim_count": 83,
+  "prim_count": 85,
   "renderable_expression_count": 167,
   "resolution": 8,
   "status": "partial",
@@ -334,7 +334,7 @@
       "expr_id": "414",
       "kind": "inequality_region",
       "latex": "\\left(x-7.6\\right)^{2}+\\left(y-2.6\\right)^{2}<0.4^{2}\\left\\{\\operatorname{mod}\\left(z,0.4\\right)<0.1\\right\\}\\left\\{0<z<5\\right\\}",
-      "reason": "Could not evaluate '\\\\operatorname{mod}(z,0.4)' with variables {'x': 7.5, 'y': 2.5, 'z': 0.0}: name 'm' is not defined"
+      "reason": "Inequality region for 414 did not resolve to sampled cells"
     },
     {
       "expr_id": "349",
@@ -358,7 +358,7 @@
       "expr_id": "418",
       "kind": "inequality_region",
       "latex": "\\left(x-7.6\\right)^{2}+y^{2}<0.4^{2}\\left\\{\\operatorname{mod}\\left(z,0.4\\right)<0.1\\right\\}\\left\\{0<z<5\\right\\}",
-      "reason": "Could not evaluate '\\\\operatorname{mod}(z,0.4)' with variables {'x': 7.5, 'y': 0.0, 'z': 0.0}: name 'm' is not defined"
+      "reason": "Inequality region for 418 did not resolve to sampled cells"
     },
     {
       "expr_id": "351",
@@ -382,7 +382,7 @@
       "expr_id": "420",
       "kind": "inequality_region",
       "latex": "\\left(x-7.6\\right)^{2}+\\left(y+2.6\\right)^{2}<0.4^{2}\\left\\{\\operatorname{mod}\\left(z,0.4\\right)<0.1\\right\\}\\left\\{0<z<5\\right\\}",
-      "reason": "Could not evaluate '\\\\operatorname{mod}(z,0.4)' with variables {'x': 7.5, 'y': -2.5, 'z': 0.0}: name 'm' is not defined"
+      "reason": "Inequality region for 420 did not resolve to sampled cells"
     },
     {
       "expr_id": "353",
@@ -394,7 +394,7 @@
       "expr_id": "421",
       "kind": "inequality_region",
       "latex": "\\left(x+7.6\\right)^{2}+\\left(y-2.6\\right)^{2}<0.4^{2}\\left\\{\\operatorname{mod}\\left(z,0.4\\right)<0.1\\right\\}\\left\\{0<z<5\\right\\}",
-      "reason": "Could not evaluate '\\\\operatorname{mod}(z,0.4)' with variables {'x': -7.5, 'y': 2.5, 'z': 0.0}: name 'm' is not defined"
+      "reason": "Inequality region for 421 did not resolve to sampled cells"
     },
     {
       "expr_id": "354",
@@ -418,7 +418,7 @@
       "expr_id": "425",
       "kind": "inequality_region",
       "latex": "\\left(x+7.6\\right)^{2}+y^{2}<0.4^{2}\\left\\{\\operatorname{mod}\\left(z,0.4\\right)<0.1\\right\\}\\left\\{0<z<5\\right\\}",
-      "reason": "Could not evaluate '\\\\operatorname{mod}(z,0.4)' with variables {'x': -7.5, 'y': 0.0, 'z': 0.0}: name 'm' is not defined"
+      "reason": "Inequality region for 425 did not resolve to sampled cells"
     },
     {
       "expr_id": "357",
@@ -442,82 +442,70 @@
       "expr_id": "427",
       "kind": "inequality_region",
       "latex": "\\left(x+7.6\\right)^{2}+\\left(y+2.6\\right)^{2}<0.4^{2}\\left\\{\\operatorname{mod}\\left(z,0.4\\right)<0.1\\right\\}\\left\\{0<z<5\\right\\}",
-      "reason": "Could not evaluate '\\\\operatorname{mod}(z,0.4)' with variables {'x': -7.5, 'y': -2.5, 'z': 0.0}: name 'm' is not defined"
-    },
-    {
-      "expr_id": "431",
-      "kind": "inequality_region",
-      "latex": "\\operatorname{mod}\\left(z,0.2\\right)<0.05\\left\\{0<z<5.2\\right\\}\\left\\{-2.8<y<2.8\\right\\}\\left\\{-6.7<x<6.7\\right\\}",
-      "reason": "Could not evaluate '\\\\operatorname{mod}(z,0.2)' with variables {'x': -6.7, 'y': -2.8, 'z': 0.0}: name 'm' is not defined"
+      "reason": "Inequality region for 427 did not resolve to sampled cells"
     },
     {
       "expr_id": "434",
       "kind": "inequality_region",
       "latex": "\\operatorname{mod}(x-0.5,\\ 1.8)\\le0.1\\left\\{5.2<z<6\\right\\}\\left\\{-9.5<x<9.5\\right\\}\\left\\{4.8>y>4.1\\right\\}",
-      "reason": "Could not evaluate '\\\\operatorname{mod}(x-0.5,1.8)' with variables {'x': -9.5, 'y': 4.1, 'z': 5.2}: name 'm' is not defined"
+      "reason": "Inequality region for 434 did not resolve to sampled cells"
     },
     {
       "expr_id": "435",
       "kind": "inequality_region",
       "latex": "\\operatorname{mod}(x-0.25,\\ 1.8)\\le0.1\\left\\{5.2<z<6\\right\\}\\left\\{-9.5<x<9.5\\right\\}\\left\\{4.5<y<4.8\\right\\}",
-      "reason": "Could not evaluate '\\\\operatorname{mod}(x-0.25,1.8)' with variables {'x': -9.5, 'y': 4.5, 'z': 5.2}: name 'm' is not defined"
+      "reason": "Inequality region for 435 did not resolve to sampled cells"
     },
     {
       "expr_id": "436",
       "kind": "inequality_region",
       "latex": "\\operatorname{mod}(x,\\ 1.8)\\le0.1\\left\\{5.2<z<6\\right\\}\\left\\{-9.5<x<9.5\\right\\}\\left\\{4.5\\le y\\le4.8\\right\\}",
-      "reason": "Could not evaluate '\\\\operatorname{mod}(x,1.8)' with variables {'x': -9.5, 'y': 4.5, 'z': 5.2}: name 'm' is not defined"
+      "reason": "Inequality region for 436 did not resolve to sampled cells"
     },
     {
       "expr_id": "437",
       "kind": "inequality_region",
       "latex": "\\operatorname{mod}(x-0.5,\\ 1.8)\\le0.1\\left\\{5.2<z<6\\right\\}\\left\\{-9.5<x<9.5\\right\\}\\left\\{-4.5>y>-4.8\\right\\}",
-      "reason": "Could not evaluate '\\\\operatorname{mod}(x-0.5,1.8)' with variables {'x': -9.5, 'y': -4.8, 'z': 5.2}: name 'm' is not defined"
+      "reason": "Inequality region for 437 did not resolve to sampled cells"
     },
     {
       "expr_id": "438",
       "kind": "inequality_region",
       "latex": "\\operatorname{mod}(x-0.25,\\ 1.8)\\le0.1\\left\\{5.2<z<6\\right\\}\\left\\{-9.5<x<9.5\\right\\}\\left\\{-4.5>y>-4.8\\right\\}",
-      "reason": "Could not evaluate '\\\\operatorname{mod}(x-0.25,1.8)' with variables {'x': -9.5, 'y': -4.8, 'z': 5.2}: name 'm' is not defined"
+      "reason": "Inequality region for 438 did not resolve to sampled cells"
     },
     {
       "expr_id": "439",
       "kind": "inequality_region",
       "latex": "\\operatorname{mod}(y,\\ 1.4)\\le0.1\\left\\{5.2<z<6\\right\\}\\left\\{-9.5<y<9.5\\right\\}\\left\\{10>x>9.5\\right\\}\\left\\{-4.5<y<4.5\\right\\}",
-      "reason": "Could not evaluate '\\\\operatorname{mod}(y,1.4)' with variables {'x': 9.5, 'y': -4.5, 'z': 5.2}: name 'm' is not defined"
+      "reason": "Inequality region for 439 did not resolve to sampled cells"
     },
     {
       "expr_id": "440",
       "kind": "inequality_region",
       "latex": "\\operatorname{mod}(y-0.25,\\ 1.4)\\le0.1\\left\\{5.2<z<6\\right\\}\\left\\{-9.5<y<9.5\\right\\}\\left\\{10>x>9.5\\right\\}\\left\\{-4.5<y<4.5\\right\\}",
-      "reason": "Could not evaluate '\\\\operatorname{mod}(y-0.25,1.4)' with variables {'x': 9.5, 'y': -4.5, 'z': 5.2}: name 'm' is not defined"
+      "reason": "Inequality region for 440 did not resolve to sampled cells"
     },
     {
       "expr_id": "441",
       "kind": "inequality_region",
       "latex": "\\operatorname{mod}(y-0.5,\\ 1.4)\\le0.1\\left\\{5.2<z<6\\right\\}\\left\\{-9.5<y<9.5\\right\\}\\left\\{10>x>9.5\\right\\}\\left\\{-4.5<y<4.5\\right\\}",
-      "reason": "Could not evaluate '\\\\operatorname{mod}(y-0.5,1.4)' with variables {'x': 9.5, 'y': -4.5, 'z': 5.2}: name 'm' is not defined"
+      "reason": "Inequality region for 441 did not resolve to sampled cells"
     },
     {
       "expr_id": "442",
       "kind": "inequality_region",
       "latex": "\\operatorname{mod}(y,\\ 1.4)\\le0.1\\left\\{5.2<z<6\\right\\}\\left\\{-9.5<y<9.5\\right\\}\\left\\{-10<x<-9.5\\right\\}\\left\\{-4.5<y<4.5\\right\\}",
-      "reason": "Could not evaluate '\\\\operatorname{mod}(y,1.4)' with variables {'x': -10.0, 'y': -4.5, 'z': 5.2}: name 'm' is not defined"
+      "reason": "Inequality region for 442 did not resolve to sampled cells"
     },
     {
       "expr_id": "443",
       "kind": "inequality_region",
       "latex": "\\operatorname{mod}(y-0.25,\\ 1.4)\\le0.1\\left\\{5.2<z<6\\right\\}\\left\\{-9.5<y<9.5\\right\\}\\left\\{-10<x<-9.5\\right\\}\\left\\{-4.5<y<4.5\\right\\}",
-      "reason": "Could not evaluate '\\\\operatorname{mod}(y-0.25,1.4)' with variables {'x': -10.0, 'y': -4.5, 'z': 5.2}: name 'm' is not defined"
-    },
-    {
-      "expr_id": "444",
-      "kind": "inequality_region",
-      "latex": "\\operatorname{mod}(y-0.5,\\ 1.)\\le0.1\\left\\{5.2<z<6\\right\\}\\left\\{-9.5<y<9.5\\right\\}\\left\\{-10<x<-9.5\\right\\}\\left\\{-4.5<y<4.5\\right\\}",
-      "reason": "Could not evaluate '\\\\operatorname{mod}(y-0.5,1.)' with variables {'x': -10.0, 'y': -4.5, 'z': 5.2}: name 'm' is not defined"
+      "reason": "Inequality region for 443 did not resolve to sampled cells"
     }
   ],
-  "unsupported_count": 84,
+  "unsupported_count": 82,
   "usda_exists": true,
   "usdz_exists": true,
   "usdz_output": "artifacts/fixture_usdz/[4B] 3D Diagram - S2-10 Group F.usdz",
@@ -1319,6 +1307,16 @@
     {
       "constraint_violation_count": 0,
       "errors": [],
+      "expr_id": "431",
+      "face_count": 30,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 40,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
       "expr_id": "370",
       "face_count": 12,
       "kind": "inequality_region",
@@ -1364,6 +1362,16 @@
       "kind": "inequality_region",
       "max_residual": null,
       "point_count": 144,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "444",
+      "face_count": 144,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 192,
       "valid": true
     }
   ]

@@ -265,6 +265,7 @@ def convert_latex_to_python(latex: str) -> str:
     for command in ["sin", "cos", "tan", "arcsin", "arccos", "arctan", "sinh", "cosh", "tanh"]:
         py_name = {"arcsin": "asin", "arccos": "acos", "arctan": "atan"}.get(command, command)
         text = text.replace(f"\\{command}", py_name)
+    text = re.sub(r"pi(?=[A-Za-z_])", "pi*", text)
     text = replace_abs_bars(text)
     text = re.sub(r"([A-Za-z]_\{[^{}]+\})(?=[A-Za-z])", lambda m: normalize_identifier(m.group(1)) + "*", text)
     text = re.sub(r"([A-Za-z])_\{([^{}]+)\}", lambda m: normalize_identifier(m.group(0)), text)

@@ -100,11 +100,103 @@ class StudentFixtureRegressionTests(unittest.TestCase):
         self.assertEqual(len(unsupported), 1)
         self.assertEqual(unsupported[0].expr_id, "1")
 
+    def test_desmos_ellipsis_list_definition_expands_fixture_repetition(self) -> None:
+        graph = GraphIR(
+            source=SOURCE,
+            expressions=[
+                expr("1", "N=4"),
+                expr("2", "z_{0}=20"),
+                expr("3", "h=2"),
+                expr("4", "a(k)=k"),
+                expr("5", "b(k)=k+1"),
+                expr("6", "n=[0...N-1]"),
+                expr("7", "((1-t)a(n)+tb(n),0,z_{0}+nh+th)"),
+            ],
+            raw_state={},
+        )
+
+        classification, unsupported = classify_graph_tolerant(graph)
+
+        self.assertEqual(len(unsupported), 0)
+        self.assertEqual([item.ir.expr_id for item in classification.classified], ["7_0", "7_1", "7_2", "7_3"])
+        self.assertEqual(classification.classified[2].ir.latex, "((1-t)a(2.0)+tb(2.0),0,z_{0}+2.0h+th)")
+
+    def test_desmos_simple_ellipsis_list_definition_expands_fixture_repetition(self) -> None:
+        graph = GraphIR(
+            source=SOURCE,
+            expressions=[
+                expr("1", "N=4"),
+                expr("2", "n=[0...N-1]"),
+                expr("3", "(n,0,t)"),
+            ],
+            raw_state={},
+        )
+
+        classification, unsupported = classify_graph_tolerant(graph)
+
+        self.assertEqual(len(unsupported), 0)
+        self.assertEqual([item.ir.expr_id for item in classification.classified], ["3_0", "3_1", "3_2", "3_3"])
+
+    def test_desmos_stepped_ellipsis_list_definition_parses(self) -> None:
+        graph = GraphIR(
+            source=SOURCE,
+            expressions=[
+                expr("1", "k=[0.3,0.6...1.2]"),
+                expr("2", "x=k\\left\\{0<y<1\\right\\}\\left\\{0<z<1\\right\\}"),
+            ],
+            raw_state={},
+        )
+
+        classification, unsupported = classify_graph_tolerant(graph)
+
+        self.assertEqual(len(unsupported), 0)
+        self.assertEqual([item.ir.expr_id for item in classification.classified], ["2_0", "2_1", "2_2", "2_3"])
+
+    def test_scalar_formula_over_list_definition_expands(self) -> None:
+        graph = GraphIR(
+            source=SOURCE,
+            expressions=[
+                expr("1", "k=[0...3]"),
+                expr("2", "j=2\\pi k/4"),
+                expr("3", "(\\cos(j),\\sin(j),t)"),
+            ],
+            raw_state={},
+        )
+
+        classification, unsupported = classify_graph_tolerant(graph)
+
+        self.assertEqual(len(unsupported), 0)
+        self.assertEqual([item.ir.expr_id for item in classification.classified], ["3_0", "3_1", "3_2", "3_3"])
+
+    def test_desmos_mod_is_available_in_list_definitions(self) -> None:
+        graph = GraphIR(
+            source=SOURCE,
+            expressions=[
+                expr("1", "k=[0...3]"),
+                expr("2", "j=2\\pi\\operatorname{mod}(k+1,4)/4"),
+                expr("3", "(j,0,t)"),
+            ],
+            raw_state={},
+        )
+
+        classification, unsupported = classify_graph_tolerant(graph)
+
+        self.assertEqual(len(unsupported), 0)
+        self.assertEqual(
+            [item.ir.latex for item in classification.classified],
+            [
+                "(1.5707963267948966,0,t)",
+                "(3.141592653589793,0,t)",
+                "(4.71238898038469,0,t)",
+                "(0.0,0,t)",
+            ],
+        )
+
     def test_tolerant_fixture_classification_reports_failed_definition_once(self) -> None:
         graph = GraphIR(
             source=SOURCE,
             expressions=[
-                expr("1", "k=[1,...,50]"),
+                expr("1", "k=[1,x]"),
                 expr("2", "z=0\\left\\{-1<x<1\\right\\}\\left\\{-1<y<1\\right\\}"),
             ],
             raw_state={},

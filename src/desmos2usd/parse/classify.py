@@ -134,6 +134,20 @@ def register_definition(expr: ExpressionIR, context: EvalContext) -> bool:
             context.colors[name] = rgb
         return True
     parsed = LatexExpression.parse(rhs)
+    list_names = parsed.identifiers & set(context.lists)
+    if list_names:
+        if parsed.identifiers & {"x", "y", "z", "t", "u", "v"}:
+            return False
+        lengths = {len(context.lists[list_name]) for list_name in list_names}
+        if len(lengths) != 1:
+            raise ValueError(f"List definition references lists with mismatched lengths: {', '.join(sorted(list_names))}")
+        count = lengths.pop()
+        values = []
+        for index in range(count):
+            variables = {list_name: context.lists[list_name][index] for list_name in list_names}
+            values.append(parsed.eval(context, variables))
+        context.lists[name] = tuple(values)
+        return True
     if parsed.identifiers & {"x", "y", "z", "t", "u", "v"}:
         return False
     context.scalars[name] = parsed.eval(context, {})
@@ -281,21 +295,139 @@ def parse_scalar_list(text: str, context: EvalContext) -> tuple[float, ...]:
     stripped = normalize_latex_delimiters(text)
     if not (stripped.startswith("[") and stripped.endswith("]")):
         raise ValueError(f"Expected scalar list, got {text!r}")
+    return tuple(parse_scalar_list_body(stripped[1:-1], context))
+
+
+def parse_scalar_list_body(body: str, context: EvalContext) -> list[float]:
+    parts = [part for part in split_top_level(body, ",") if part]
     values: list[float] = []
-    for part in split_top_level(stripped[1:-1], ","):
-        if not part:
+    index = 0
+    while index < len(parts):
+        part = parts[index]
+        if part == "...":
+            if not values or index + 1 >= len(parts):
+                raise ValueError(f"Malformed scalar list range: {body!r}")
+            values.extend(scalar_range(values[-1], None, parse_scalar_value(parts[index + 1], context))[1:])
+            index += 2
             continue
-        parsed = LatexExpression.parse(part)
-        if parsed.identifiers & {"x", "y", "z", "t", "u", "v"}:
-            raise ValueError(f"List value depends on graph variables: {part!r}")
-        values.append(parsed.eval(context, {}))
-    return tuple(values)
+        if "..." in part:
+            left, right = part.split("...", 1)
+            if not left or not right:
+                raise ValueError(f"Malformed scalar list range: {body!r}")
+            end = parse_scalar_value(right, context)
+            if values:
+                second = parse_scalar_value(left, context)
+                values.extend(scalar_range(values[-1], second, end)[1:])
+            else:
+                start = parse_scalar_value(left, context)
+                values.extend(scalar_range(start, None, end))
+            index += 1
+            continue
+        if index + 1 < len(parts) and parts[index + 1] == "...":
+            start = parse_scalar_value(part, context)
+            if index + 2 >= len(parts):
+                raise ValueError(f"Malformed scalar list range: {body!r}")
+            end = parse_scalar_value(parts[index + 2], context)
+            if values:
+                values.extend(scalar_range(values[-1], start, end)[1:])
+            else:
+                values.extend(scalar_range(start, None, end))
+            index += 3
+            continue
+        if index + 2 < len(parts) and parts[index + 2] == "...":
+            start = parse_scalar_value(part, context)
+            second = parse_scalar_value(parts[index + 1], context)
+            if index + 3 >= len(parts):
+                raise ValueError(f"Malformed scalar list range: {body!r}")
+            end = parse_scalar_value(parts[index + 3], context)
+            if values:
+                values.extend(scalar_range(values[-1], start, end)[1:])
+            else:
+                values.extend(scalar_range(start, second, end))
+            index += 4
+            continue
+        values.append(parse_scalar_value(part, context))
+        index += 1
+    return values
+
+
+def parse_scalar_value(part: str, context: EvalContext) -> float:
+    parsed = LatexExpression.parse(part)
+    if parsed.identifiers & {"x", "y", "z", "t", "u", "v"}:
+        raise ValueError(f"List value depends on graph variables: {part!r}")
+    return parsed.eval(context, {})
+
+
+def scalar_range(start: float, second: float | None, end: float) -> list[float]:
+    step = (second - start) if second is not None else (1.0 if end >= start else -1.0)
+    if abs(step) < 1e-12:
+        raise ValueError("Scalar list range step cannot be zero")
+    if (end - start) * step < -1e-12:
+        raise ValueError(f"Scalar list range step {step!r} does not move from {start!r} toward {end!r}")
+    values: list[float] = []
+    current = start
+    tolerance = max(1e-9, abs(step) * 1e-9)
+    limit = 10000
+    while (step > 0 and current <= end + tolerance) or (step < 0 and current >= end - tolerance):
+        values.append(round(current, 12))
+        if len(values) > limit:
+            raise ValueError(f"Scalar list range has more than {limit} values")
+        current += step
+    return values
+
+
+def parse_literal_scalar_list(text: str, context: EvalContext) -> tuple[float, ...] | None:
+    stripped = normalize_latex_delimiters(text)
+    if not (stripped.startswith("[") and stripped.endswith("]")):
+        return None
+    try:
+        return tuple(parse_scalar_list_body(stripped[1:-1], context))
+    except Exception:
+        return None
+
+
+def expand_literal_list_expression(expr: ExpressionIR, context: EvalContext) -> list[ExpressionIR]:
+    main, restriction_texts = split_restrictions(expr.latex)
+    equals = find_top_level(main, "=")
+    if equals < 0:
+        return [expr]
+    lhs = main[:equals].strip()
+    rhs = main[equals + 1 :].strip()
+    lhs_list = parse_literal_scalar_list(lhs, context)
+    rhs_list = parse_literal_scalar_list(rhs, context)
+    if lhs_list is None and rhs_list is None:
+        return [expr]
+    values = lhs_list if lhs_list is not None else rhs_list
+    assert values is not None
+    template_lhs = "{}" if lhs_list is not None else lhs
+    template_rhs = rhs if lhs_list is not None else "{}"
+    restrictions = "".join(r"\left\{" + restriction + r"\right\}" for restriction in restriction_texts)
+    expanded: list[ExpressionIR] = []
+    for index, value in enumerate(values):
+        raw = dict(expr.raw)
+        raw["expandedFromListExpression"] = expr.expr_id
+        raw["listIndex"] = index
+        expanded.append(
+            ExpressionIR(
+                source=expr.source,
+                expr_id=f"{expr.expr_id}_{index}",
+                order=expr.order,
+                latex=f"{template_lhs.format(repr(value))}={template_rhs.format(repr(value))}{restrictions}",
+                color=expr.color,
+                color_latex=expr.color_latex,
+                hidden=expr.hidden,
+                folder_id=expr.folder_id,
+                type=expr.type,
+                raw=raw,
+            )
+        )
+    return expanded
 
 
 def expand_list_expression(expr: ExpressionIR, context: EvalContext) -> list[ExpressionIR]:
     names = [name for name in context.lists if latex_identifier_present(expr.latex, name)]
     if not names:
-        return [expr]
+        return expand_literal_list_expression(expr, context)
     lengths = {len(context.lists[name]) for name in names}
     if len(lengths) != 1:
         raise ValueError(f"Expression references lists with mismatched lengths: {', '.join(names)}")
@@ -330,7 +462,13 @@ def latex_identifier_present(text: str, identifier: str) -> bool:
 
 
 def replace_latex_identifier(text: str, identifier: str, replacement: str) -> str:
-    return re.sub(latex_identifier_pattern(identifier), replacement, text)
+    replaced = re.sub(latex_identifier_pattern(identifier), replacement, text)
+    if re.match(r"^[a-z]$", identifier):
+        # Desmos commonly writes products such as `nh` without `*`.  The normal
+        # identifier boundary intentionally avoids replacing inside longer names,
+        # so add the narrow single-letter implicit-multiplication case here.
+        replaced = re.sub(rf"(?<![A-Za-z0-9_\\]){re.escape(identifier)}(?=[A-Za-z\\])", replacement, replaced)
+    return replaced
 
 
 def latex_identifier_pattern(identifier: str) -> str:

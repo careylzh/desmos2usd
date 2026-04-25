@@ -1,13 +1,13 @@
 {
   "acceptance_success": false,
-  "classified_expression_count": 178,
+  "classified_expression_count": 185,
   "complete": false,
   "fixture": "[4B] 3D Diagram - S2-03 Group E.json",
   "fixture_path": "fixtures/states/[4B] 3D Diagram - S2-03 Group E.json",
   "graph_hash": null,
   "output": "artifacts/fixture_usdz/[4B] 3D Diagram - S2-03 Group E.usda",
   "prim_count": 99,
-  "renderable_expression_count": 190,
+  "renderable_expression_count": 196,
   "resolution": 8,
   "status": "partial",
   "title": "Desmos graph",
@@ -41,12 +41,6 @@
       "kind": "definition",
       "latex": "\\left(x\\ -\\ s\\right)^{2}\\ +\\ \\left(y\\ -\\ q\\right)^{2}\\ +\\ \\left(z\\ -\\ 17.8\\right)^{2}\\ =\\ c^{2}",
       "reason": "Failed to parse definition: Could not evaluate 'c^{2}' with variables {}: name 'c' is not defined"
-    },
-    {
-      "expr_id": "323",
-      "kind": "definition",
-      "latex": "L\\ =\\left[0...7\\right]",
-      "reason": "Failed to parse definition: Could not parse '0...7' as '0..7': invalid syntax (<unknown>, line 1)"
     },
     {
       "expr_id": "363_0",
@@ -376,25 +370,25 @@
       "expr_id": "365_0",
       "kind": "inequality_region",
       "latex": "\\left(x\\ -\\ 20.0\\right)^{2}\\ +\\ \\left(y\\ -\\ 20.0\\right)^{2}\\ <\\ \\left(r_{pil}\\ -\\ 0.1\\right)^{2}\\ \\left\\{2.5\\ \\le z\\ \\le\\ 23.2\\right\\}",
-      "reason": "Inequality region for 365_0 did not resolve to sampled cells"
+      "reason": "Could not evaluate '(r_{pil}-0.1)^{2}' with variables {'x': -38.288446875000005, 'y': -38.288446875000005, 'z': 2.5}: name 'r_pi_l' is not defined"
     },
     {
       "expr_id": "365_1",
       "kind": "inequality_region",
       "latex": "\\left(x\\ -\\ -20.0\\right)^{2}\\ +\\ \\left(y\\ -\\ 20.0\\right)^{2}\\ <\\ \\left(r_{pil}\\ -\\ 0.1\\right)^{2}\\ \\left\\{2.5\\ \\le z\\ \\le\\ 23.2\\right\\}",
-      "reason": "Inequality region for 365_1 did not resolve to sampled cells"
+      "reason": "Could not evaluate '(r_{pil}-0.1)^{2}' with variables {'x': -38.288446875000005, 'y': -38.288446875000005, 'z': 2.5}: name 'r_pi_l' is not defined"
     },
     {
       "expr_id": "365_2",
       "kind": "inequality_region",
       "latex": "\\left(x\\ -\\ 20.0\\right)^{2}\\ +\\ \\left(y\\ -\\ -20.0\\right)^{2}\\ <\\ \\left(r_{pil}\\ -\\ 0.1\\right)^{2}\\ \\left\\{2.5\\ \\le z\\ \\le\\ 23.2\\right\\}",
-      "reason": "Inequality region for 365_2 did not resolve to sampled cells"
+      "reason": "Could not evaluate '(r_{pil}-0.1)^{2}' with variables {'x': -38.288446875000005, 'y': -38.288446875000005, 'z': 2.5}: name 'r_pi_l' is not defined"
     },
     {
       "expr_id": "365_3",
       "kind": "inequality_region",
       "latex": "\\left(x\\ -\\ -20.0\\right)^{2}\\ +\\ \\left(y\\ -\\ -20.0\\right)^{2}\\ <\\ \\left(r_{pil}\\ -\\ 0.1\\right)^{2}\\ \\left\\{2.5\\ \\le z\\ \\le\\ 23.2\\right\\}",
-      "reason": "Inequality region for 365_3 did not resolve to sampled cells"
+      "reason": "Could not evaluate '(r_{pil}-0.1)^{2}' with variables {'x': -38.288446875000005, 'y': -38.288446875000005, 'z': 2.5}: name 'r_pi_l' is not defined"
     },
     {
       "expr_id": "190",
@@ -541,10 +535,52 @@
       "reason": "Could not evaluate '(x-s)^{2}+(y-q)^{2}' with variables {'x': -38.288446875000005, 'y': -38.288446875000005, 'z': 18.0}: name 's' is not defined"
     },
     {
-      "expr_id": "329",
+      "expr_id": "329_0",
       "kind": "triangle_mesh",
-      "latex": "\\operatorname{triangle}\\left(\\left(x_{A}+r_{A}\\cos\\left(\\frac{2\\pi L}{n_{A}}+d_{A}\\right),y_{A}+r_{A}\\sin\\left(\\frac{2\\pi L}{n_{A}}+d_{A}\\right),z_{A}\\right),\\left(x_{A}+r_{A}\\cos\\left(\\frac{2\\pi\\operatorname{mod}(L+1,n_{A})}{n_{A}}+d_{A}\\right),y_{A}+r_{A}\\sin\\left(\\frac{2\\pi\\operatorname{mod}(L+1,n_{A})}{n_{A}}+d_{A}\\right),z_{A}\\right),\\left(x_{A},y_{A},z_{A2}\\right)\\right)",
-      "reason": "Could not evaluate 'x_{A}+r_{A}\\\\cos(\\\\frac{2\\\\pi L}{n_{A}}+d_{A})' with variables {}: name 'L' is not defined"
+      "latex": "\\operatorname{triangle}\\left(\\left(x_{A}+r_{A}\\cos\\left(\\frac{2\\pi 0.0}{n_{A}}+d_{A}\\right),y_{A}+r_{A}\\sin\\left(\\frac{2\\pi 0.0}{n_{A}}+d_{A}\\right),z_{A}\\right),\\left(x_{A}+r_{A}\\cos\\left(\\frac{2\\pi\\operatorname{mod}(0.0+1,n_{A})}{n_{A}}+d_{A}\\right),y_{A}+r_{A}\\sin\\left(\\frac{2\\pi\\operatorname{mod}(0.0+1,n_{A})}{n_{A}}+d_{A}\\right),z_{A}\\right),\\left(x_{A},y_{A},z_{A2}\\right)\\right)",
+      "reason": "Could not evaluate 'z_{A2}' with variables {}: name 'z_A2' is not defined"
+    },
+    {
+      "expr_id": "329_1",
+      "kind": "triangle_mesh",
+      "latex": "\\operatorname{triangle}\\left(\\left(x_{A}+r_{A}\\cos\\left(\\frac{2\\pi 1.0}{n_{A}}+d_{A}\\right),y_{A}+r_{A}\\sin\\left(\\frac{2\\pi 1.0}{n_{A}}+d_{A}\\right),z_{A}\\right),\\left(x_{A}+r_{A}\\cos\\left(\\frac{2\\pi\\operatorname{mod}(1.0+1,n_{A})}{n_{A}}+d_{A}\\right),y_{A}+r_{A}\\sin\\left(\\frac{2\\pi\\operatorname{mod}(1.0+1,n_{A})}{n_{A}}+d_{A}\\right),z_{A}\\right),\\left(x_{A},y_{A},z_{A2}\\right)\\right)",
+      "reason": "Could not evaluate 'z_{A2}' with variables {}: name 'z_A2' is not defined"
+    },
+    {
+      "expr_id": "329_2",
+      "kind": "triangle_mesh",
+      "latex": "\\operatorname{triangle}\\left(\\left(x_{A}+r_{A}\\cos\\left(\\frac{2\\pi 2.0}{n_{A}}+d_{A}\\right),y_{A}+r_{A}\\sin\\left(\\frac{2\\pi 2.0}{n_{A}}+d_{A}\\right),z_{A}\\right),\\left(x_{A}+r_{A}\\cos\\left(\\frac{2\\pi\\operatorname{mod}(2.0+1,n_{A})}{n_{A}}+d_{A}\\right),y_{A}+r_{A}\\sin\\left(\\frac{2\\pi\\operatorname{mod}(2.0+1,n_{A})}{n_{A}}+d_{A}\\right),z_{A}\\right),\\left(x_{A},y_{A},z_{A2}\\right)\\right)",
+      "reason": "Could not evaluate 'z_{A2}' with variables {}: name 'z_A2' is not defined"
+    },
+    {
+      "expr_id": "329_3",
+      "kind": "triangle_mesh",
+      "latex": "\\operatorname{triangle}\\left(\\left(x_{A}+r_{A}\\cos\\left(\\frac{2\\pi 3.0}{n_{A}}+d_{A}\\right),y_{A}+r_{A}\\sin\\left(\\frac{2\\pi 3.0}{n_{A}}+d_{A}\\right),z_{A}\\right),\\left(x_{A}+r_{A}\\cos\\left(\\frac{2\\pi\\operatorname{mod}(3.0+1,n_{A})}{n_{A}}+d_{A}\\right),y_{A}+r_{A}\\sin\\left(\\frac{2\\pi\\operatorname{mod}(3.0+1,n_{A})}{n_{A}}+d_{A}\\right),z_{A}\\right),\\left(x_{A},y_{A},z_{A2}\\right)\\right)",
+      "reason": "Could not evaluate 'z_{A2}' with variables {}: name 'z_A2' is not defined"
+    },
+    {
+      "expr_id": "329_4",
+      "kind": "triangle_mesh",
+      "latex": "\\operatorname{triangle}\\left(\\left(x_{A}+r_{A}\\cos\\left(\\frac{2\\pi 4.0}{n_{A}}+d_{A}\\right),y_{A}+r_{A}\\sin\\left(\\frac{2\\pi 4.0}{n_{A}}+d_{A}\\right),z_{A}\\right),\\left(x_{A}+r_{A}\\cos\\left(\\frac{2\\pi\\operatorname{mod}(4.0+1,n_{A})}{n_{A}}+d_{A}\\right),y_{A}+r_{A}\\sin\\left(\\frac{2\\pi\\operatorname{mod}(4.0+1,n_{A})}{n_{A}}+d_{A}\\right),z_{A}\\right),\\left(x_{A},y_{A},z_{A2}\\right)\\right)",
+      "reason": "Could not evaluate 'z_{A2}' with variables {}: name 'z_A2' is not defined"
+    },
+    {
+      "expr_id": "329_5",
+      "kind": "triangle_mesh",
+      "latex": "\\operatorname{triangle}\\left(\\left(x_{A}+r_{A}\\cos\\left(\\frac{2\\pi 5.0}{n_{A}}+d_{A}\\right),y_{A}+r_{A}\\sin\\left(\\frac{2\\pi 5.0}{n_{A}}+d_{A}\\right),z_{A}\\right),\\left(x_{A}+r_{A}\\cos\\left(\\frac{2\\pi\\operatorname{mod}(5.0+1,n_{A})}{n_{A}}+d_{A}\\right),y_{A}+r_{A}\\sin\\left(\\frac{2\\pi\\operatorname{mod}(5.0+1,n_{A})}{n_{A}}+d_{A}\\right),z_{A}\\right),\\left(x_{A},y_{A},z_{A2}\\right)\\right)",
+      "reason": "Could not evaluate 'z_{A2}' with variables {}: name 'z_A2' is not defined"
+    },
+    {
+      "expr_id": "329_6",
+      "kind": "triangle_mesh",
+      "latex": "\\operatorname{triangle}\\left(\\left(x_{A}+r_{A}\\cos\\left(\\frac{2\\pi 6.0}{n_{A}}+d_{A}\\right),y_{A}+r_{A}\\sin\\left(\\frac{2\\pi 6.0}{n_{A}}+d_{A}\\right),z_{A}\\right),\\left(x_{A}+r_{A}\\cos\\left(\\frac{2\\pi\\operatorname{mod}(6.0+1,n_{A})}{n_{A}}+d_{A}\\right),y_{A}+r_{A}\\sin\\left(\\frac{2\\pi\\operatorname{mod}(6.0+1,n_{A})}{n_{A}}+d_{A}\\right),z_{A}\\right),\\left(x_{A},y_{A},z_{A2}\\right)\\right)",
+      "reason": "Could not evaluate 'z_{A2}' with variables {}: name 'z_A2' is not defined"
+    },
+    {
+      "expr_id": "329_7",
+      "kind": "triangle_mesh",
+      "latex": "\\operatorname{triangle}\\left(\\left(x_{A}+r_{A}\\cos\\left(\\frac{2\\pi 7.0}{n_{A}}+d_{A}\\right),y_{A}+r_{A}\\sin\\left(\\frac{2\\pi 7.0}{n_{A}}+d_{A}\\right),z_{A}\\right),\\left(x_{A}+r_{A}\\cos\\left(\\frac{2\\pi\\operatorname{mod}(7.0+1,n_{A})}{n_{A}}+d_{A}\\right),y_{A}+r_{A}\\sin\\left(\\frac{2\\pi\\operatorname{mod}(7.0+1,n_{A})}{n_{A}}+d_{A}\\right),z_{A}\\right),\\left(x_{A},y_{A},z_{A2}\\right)\\right)",
+      "reason": "Could not evaluate 'z_{A2}' with variables {}: name 'z_A2' is not defined"
     },
     {
       "expr_id": "347",
@@ -559,7 +595,7 @@
       "reason": "Could not evaluate '(x-j_{points}.x)^{2}+(y-j_{points}.y)^{2}' with variables {'x': -38.288446875000005, 'y': -38.288446875000005, 'z': 2.5}: name 'j_points' is not defined"
     }
   ],
-  "unsupported_count": 91,
+  "unsupported_count": 97,
   "usda_exists": true,
   "usdz_exists": true,
   "usdz_output": "artifacts/fixture_usdz/[4B] 3D Diagram - S2-03 Group E.usdz",

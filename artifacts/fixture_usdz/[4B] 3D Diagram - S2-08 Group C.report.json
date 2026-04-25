@@ -6,38 +6,20 @@
   "fixture_path": "fixtures/states/[4B] 3D Diagram - S2-08 Group C.json",
   "graph_hash": null,
   "output": "artifacts/fixture_usdz/[4B] 3D Diagram - S2-08 Group C.usda",
-  "prim_count": 9,
+  "prim_count": 12,
   "renderable_expression_count": 13,
   "resolution": 8,
   "status": "partial",
   "title": "Desmos graph",
   "unsupported": [
     {
-      "expr_id": "6",
-      "kind": "inequality_region",
-      "latex": "\\max(((\\operatorname{mod}(x+6,2)-1)/0.4)^{2},(y/2)^{2})<1\\left\\{0.3<z<6.6\\right\\}\\left\\{-6<x<6\\right\\}",
-      "reason": "Could not evaluate '\\\\max(((\\\\operatorname{mod}(x+6,2)-1)/0.4)^{2},(y/2)^{2})' with variables {'x': -6.0, 'y': -19.60064569229304, 'z': 0.3}: name 'm' is not defined"
-    },
-    {
       "expr_id": "7",
       "kind": "inequality_region",
       "latex": "\\max(((\\operatorname{mod}(x+6,2)-1)/0.32)^{2},(y/2.1)^{2})<1\\left\\{-0<z<0.7\\right\\}\\left\\{-8<x<-8\\right\\}\\left\\{-4<y<4\\right\\}",
-      "reason": "Could not evaluate '\\\\max(((\\\\operatorname{mod}(x+6,2)-1)/0.32)^{2},(y/2.1)^{2})' with variables {'x': -8.0, 'y': -4.0, 'z': 0.0}: name 'm' is not defined"
-    },
-    {
-      "expr_id": "8",
-      "kind": "inequality_region",
-      "latex": "\\max(((\\operatorname{mod}(x+6,2)-1)/0.32)^{2},(y/2.1)^{2})<1\\left\\{0.3<z<0.7\\right\\}\\left\\{-6<x<6\\right\\}\\left\\{-2.1<y<2.1\\right\\}",
-      "reason": "Could not evaluate '\\\\max(((\\\\operatorname{mod}(x+6,2)-1)/0.32)^{2},(y/2.1)^{2})' with variables {'x': -6.0, 'y': -2.1, 'z': 0.3}: name 'm' is not defined"
-    },
-    {
-      "expr_id": "14",
-      "kind": "inequality_region",
-      "latex": "(\\operatorname{mod}(x+1.2,0.5)-0.25)^{2}+y^{2}<0.04\\left\\{9.8<z<10.4\\right\\}\\left\\{-1.4<x<0.8\\right\\}\\left\\{-0.5<y<0.5\\right\\}",
-      "reason": "Could not evaluate '(\\\\operatorname{mod}(x+1.2,0.5)-0.25)^{2}+y^{2}' with variables {'x': -1.4, 'y': -0.5, 'z': 9.8}: name 'm' is not defined"
+      "reason": "Inequality region for 7 did not resolve to sampled cells"
     }
   ],
-  "unsupported_count": 4,
+  "unsupported_count": 1,
   "usda_exists": true,
   "usdz_exists": true,
   "usdz_output": "artifacts/fixture_usdz/[4B] 3D Diagram - S2-08 Group C.usdz",
@@ -64,6 +46,26 @@
       "kind": "inequality_region",
       "max_residual": null,
       "point_count": 32,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "6",
+      "face_count": 3024,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 4032,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "8",
+      "face_count": 3456,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 4608,
       "valid": true
     },
     {
@@ -114,6 +116,16 @@
       "kind": "inequality_region",
       "max_residual": null,
       "point_count": 32,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "14",
+      "face_count": 516,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 688,
       "valid": true
     },
     {
