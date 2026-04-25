@@ -6,7 +6,7 @@
   "fixture_path": "fixtures/states/[4B] 3D Diagram - S2-08 Group G.json",
   "graph_hash": null,
   "output": "artifacts/fixture_usdz/[4B] 3D Diagram - S2-08 Group G.usda",
-  "prim_count": 1213,
+  "prim_count": 1217,
   "renderable_expression_count": 1259,
   "resolution": 8,
   "status": "partial",
@@ -139,30 +139,6 @@
       "reason": "Unsupported expression node Tuple"
     },
     {
-      "expr_id": "100",
-      "kind": "parametric_curve",
-      "latex": "(34.8-68.7t,55.7+80t(1-t)\\cos(2.33),-148+152t(1-t)\\sin(2.33))",
-      "reason": "Could not evaluate '55.7+80t(1-t)\\\\cos(2.33)' with variables {'t': 0.0}: 'float' object is not callable"
-    },
-    {
-      "expr_id": "103",
-      "kind": "parametric_curve",
-      "latex": "(34.8-68.7t,-55.7-80t(1-t)\\cos(2.33),-148+152t(1-t)\\sin(2.33))",
-      "reason": "Could not evaluate '-55.7-80t(1-t)\\\\cos(2.33)' with variables {'t': 0.0}: 'float' object is not callable"
-    },
-    {
-      "expr_id": "126",
-      "kind": "parametric_curve",
-      "latex": "(-55.7-80t(1-t)\\cos(2.33),34.8-68.7t,-148+152t(1-t)\\sin(2.33))",
-      "reason": "Could not evaluate '-55.7-80t(1-t)\\\\cos(2.33)' with variables {'t': 0.0}: 'float' object is not callable"
-    },
-    {
-      "expr_id": "127",
-      "kind": "parametric_curve",
-      "latex": "(55.7+80t(1-t)\\cos(2.33),34.8-68.7t,-148+152t(1-t)\\sin(2.33))",
-      "reason": "Could not evaluate '55.7+80t(1-t)\\\\cos(2.33)' with variables {'t': 0.0}: 'float' object is not callable"
-    },
-    {
       "expr_id": "9",
       "kind": "inequality_region",
       "latex": "-39.375\\le y\\le39.375\\left\\{-39.375<x<-13.015\\right\\}\\left\\{z=-107.37\\right\\}",
@@ -289,7 +265,7 @@
       "reason": "Inequality region for 801 did not resolve to sampled cells"
     }
   ],
-  "unsupported_count": 46,
+  "unsupported_count": 42,
   "usda_exists": true,
   "usdz_exists": true,
   "usdz_output": "artifacts/fixture_usdz/[4B] 3D Diagram - S2-08 Group G.usdz",
@@ -382,6 +358,46 @@
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "108",
+      "face_count": 0,
+      "kind": "parametric_curve",
+      "max_residual": 0.0,
+      "point_count": 16,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "100",
+      "face_count": 0,
+      "kind": "parametric_curve",
+      "max_residual": 0.0,
+      "point_count": 16,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "103",
+      "face_count": 0,
+      "kind": "parametric_curve",
+      "max_residual": 0.0,
+      "point_count": 16,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "126",
+      "face_count": 0,
+      "kind": "parametric_curve",
+      "max_residual": 0.0,
+      "point_count": 16,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "127",
       "face_count": 0,
       "kind": "parametric_curve",
       "max_residual": 0.0,

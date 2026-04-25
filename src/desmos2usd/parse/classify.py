@@ -40,7 +40,10 @@ class ClassifiedExpression:
     inequality: ComparisonPredicate | None = None
     vector: VectorExpression | None = None
     triangle_mesh: TriangleMeshExpression | None = None
+    parameter: str = "t"
     t_bounds: tuple[float, float] = (0.0, 1.0)
+    u_bounds: tuple[float, float] = (0.0, 1.0)
+    v_bounds: tuple[float, float] = (0.0, 1.0)
 
     @property
     def metadata_constraints(self) -> str:
@@ -131,7 +134,7 @@ def register_definition(expr: ExpressionIR, context: EvalContext) -> bool:
             context.colors[name] = rgb
         return True
     parsed = LatexExpression.parse(rhs)
-    if parsed.identifiers & {"x", "y", "z", "t"}:
+    if parsed.identifiers & {"x", "y", "z", "t", "u", "v"}:
         return False
     context.scalars[name] = parsed.eval(context, {})
     return True
@@ -153,8 +156,29 @@ def classify_expression(expr: ExpressionIR, context: EvalContext) -> ClassifiedE
 
     if looks_like_vector(main):
         vector = parse_vector(main, context)
-        t_bounds = find_t_bounds(predicates, context)
-        return ClassifiedExpression(ir=expr, kind="parametric_curve", predicates=predicates, vector=vector, t_bounds=t_bounds)
+        vector_identifiers = set().union(*(component.identifiers for component in vector.components))
+        if {"u", "v"} <= vector_identifiers:
+            return ClassifiedExpression(
+                ir=expr,
+                kind="parametric_surface",
+                predicates=predicates,
+                vector=vector,
+                u_bounds=find_parameter_bounds(predicates, context, "u"),
+                v_bounds=find_parameter_bounds(predicates, context, "v"),
+            )
+        parameter = "t"
+        for candidate_parameter in ("t", "u", "v"):
+            if candidate_parameter in vector_identifiers:
+                parameter = candidate_parameter
+                break
+        return ClassifiedExpression(
+            ir=expr,
+            kind="parametric_curve",
+            predicates=predicates,
+            vector=vector,
+            parameter=parameter,
+            t_bounds=find_parameter_bounds(predicates, context, parameter),
+        )
 
     if has_top_level_comparison(main):
         inequality = parse_predicate(main)
@@ -262,7 +286,7 @@ def parse_scalar_list(text: str, context: EvalContext) -> tuple[float, ...]:
         if not part:
             continue
         parsed = LatexExpression.parse(part)
-        if parsed.identifiers & {"x", "y", "z", "t"}:
+        if parsed.identifiers & {"x", "y", "z", "t", "u", "v"}:
             raise ValueError(f"List value depends on graph variables: {part!r}")
         values.append(parsed.eval(context, {}))
     return tuple(values)
@@ -524,11 +548,11 @@ def find_binary_vector_op(text: str, op: str) -> int:
     return -1
 
 
-def find_t_bounds(predicates: list[ComparisonPredicate], context: EvalContext) -> tuple[float, float]:
+def find_parameter_bounds(predicates: list[ComparisonPredicate], context: EvalContext, parameter: str) -> tuple[float, float]:
     low, high = 0.0, 1.0
     for predicate in predicates:
         for variable, (lower, upper) in predicate.variable_bounds().items():
-            if variable != "t":
+            if variable != parameter:
                 continue
             if lower:
                 low = lower.eval(context, {})

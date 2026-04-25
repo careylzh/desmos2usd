@@ -34,6 +34,29 @@ class StudentFixtureRegressionTests(unittest.TestCase):
         self.assertEqual(geometry.points[0], (0.0, -8.2, 0.0))
         self.assertEqual(geometry.points[-1], (0.0, -5.0, 122.6))
 
+    def test_uv_tuple_exports_as_parametric_surface(self) -> None:
+        item = classify_expression(expr("1", r"\left(17u-8.5,-2.5,0.4v\right)"), EvalContext())
+
+        geometry = tessellate(item, EvalContext(), resolution=4)
+
+        self.assertEqual(item.kind, "parametric_surface")
+        self.assertEqual(geometry.kind, "Mesh")
+        self.assertEqual(geometry.point_count, 16)
+        self.assertEqual(geometry.face_count, 9)
+        self.assertEqual(geometry.points[0], (-8.5, -2.5, 0.0))
+        self.assertEqual(geometry.points[-1], (8.5, -2.5, 0.4))
+
+    def test_single_u_tuple_exports_as_parametric_curve(self) -> None:
+        item = classify_expression(expr("1", r"\left(u,0,u^{2}\right)\left\{0\le u\le2\right\}"), EvalContext())
+
+        geometry = tessellate(item, EvalContext(), resolution=4)
+
+        self.assertEqual(item.kind, "parametric_curve")
+        self.assertEqual(item.parameter, "u")
+        self.assertEqual(geometry.kind, "BasisCurves")
+        self.assertEqual(geometry.points[0], (0.0, 0.0, 0.0))
+        self.assertEqual(geometry.points[-1], (2.0, 0.0, 4.0))
+
     def test_double_parenthesized_vector_definitions_feed_triangles(self) -> None:
         context = EvalContext()
         self.assertTrue(register_definition(expr("1", r"a_{27}=\left(\left(6,117,15\right)\right)", hidden=True), context))

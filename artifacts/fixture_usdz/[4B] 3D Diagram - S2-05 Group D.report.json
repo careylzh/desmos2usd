@@ -6,7 +6,7 @@
   "fixture_path": "fixtures/states/[4B] 3D Diagram - S2-05 Group D.json",
   "graph_hash": null,
   "output": "artifacts/fixture_usdz/[4B] 3D Diagram - S2-05 Group D.usda",
-  "prim_count": 13,
+  "prim_count": 38,
   "renderable_expression_count": 46,
   "resolution": 8,
   "status": "partial",
@@ -16,202 +16,52 @@
       "expr_id": "e15_0",
       "kind": "parametric_curve",
       "latex": "((1-t)a(-1.0)+tb(-1.0),-a(-1.0)+t(a(-1.0)+b(-1.0)),z_{0}+nh+th)",
-      "reason": "Could not evaluate '-a(-1.0)+t(a(-1.0)+b(-1.0))' with variables {'t': 0.0}: 'float' object is not callable"
+      "reason": "Could not evaluate 'z_{0}+nh+th' with variables {'t': 0.0}: name 'n' is not defined"
     },
     {
       "expr_id": "e16_0",
       "kind": "parametric_curve",
       "latex": "((1-t)a(-1.0)+tb(-1.0),a(-1.0)-t(a(-1.0)+b(-1.0)),z_{0}+nh+th)",
-      "reason": "Could not evaluate 'a(-1.0)-t(a(-1.0)+b(-1.0))' with variables {'t': 0.0}: 'float' object is not callable"
+      "reason": "Could not evaluate 'z_{0}+nh+th' with variables {'t': 0.0}: name 'n' is not defined"
     },
     {
       "expr_id": "e17_0",
       "kind": "parametric_curve",
       "latex": "(-((1-t)a(-1.0)+tb(-1.0)),-a(-1.0)+t(a(-1.0)+b(-1.0)),z_{0}+nh+th)",
-      "reason": "Could not evaluate '-a(-1.0)+t(a(-1.0)+b(-1.0))' with variables {'t': 0.0}: 'float' object is not callable"
+      "reason": "Could not evaluate 'z_{0}+nh+th' with variables {'t': 0.0}: name 'n' is not defined"
     },
     {
       "expr_id": "e18_0",
       "kind": "parametric_curve",
       "latex": "(-((1-t)a(-1.0)+tb(-1.0)),a(-1.0)-t(a(-1.0)+b(-1.0)),z_{0}+nh+th)",
-      "reason": "Could not evaluate 'a(-1.0)-t(a(-1.0)+b(-1.0))' with variables {'t': 0.0}: 'float' object is not callable"
+      "reason": "Could not evaluate 'z_{0}+nh+th' with variables {'t': 0.0}: name 'n' is not defined"
     },
     {
       "expr_id": "e19_0",
       "kind": "parametric_curve",
       "latex": "(-a(-1.0)+t(a(-1.0)+b(-1.0)),(1-t)a(-1.0)+tb(-1.0),z_{0}+nh+th)",
-      "reason": "Could not evaluate '-a(-1.0)+t(a(-1.0)+b(-1.0))' with variables {'t': 0.0}: 'float' object is not callable"
+      "reason": "Could not evaluate 'z_{0}+nh+th' with variables {'t': 0.0}: name 'n' is not defined"
     },
     {
       "expr_id": "e20_0",
       "kind": "parametric_curve",
       "latex": "(a(-1.0)-t(a(-1.0)+b(-1.0)),(1-t)a(-1.0)+tb(-1.0),z_{0}+nh+th)",
-      "reason": "Could not evaluate 'a(-1.0)-t(a(-1.0)+b(-1.0))' with variables {'t': 0.0}: 'float' object is not callable"
+      "reason": "Could not evaluate 'z_{0}+nh+th' with variables {'t': 0.0}: name 'n' is not defined"
     },
     {
       "expr_id": "e21_0",
       "kind": "parametric_curve",
       "latex": "(-a(-1.0)+t(a(-1.0)+b(-1.0)),-((1-t)a(-1.0)+tb(-1.0)),z_{0}+nh+th)",
-      "reason": "Could not evaluate '-a(-1.0)+t(a(-1.0)+b(-1.0))' with variables {'t': 0.0}: 'float' object is not callable"
+      "reason": "Could not evaluate 'z_{0}+nh+th' with variables {'t': 0.0}: name 'n' is not defined"
     },
     {
       "expr_id": "e22_0",
       "kind": "parametric_curve",
       "latex": "(a(-1.0)-t(a(-1.0)+b(-1.0)),-((1-t)a(-1.0)+tb(-1.0)),z_{0}+nh+th)",
-      "reason": "Could not evaluate 'a(-1.0)-t(a(-1.0)+b(-1.0))' with variables {'t': 0.0}: 'float' object is not callable"
-    },
-    {
-      "expr_id": "e31",
-      "kind": "parametric_curve",
-      "latex": "(2u,2v,150)",
-      "reason": "Could not evaluate '2u' with variables {'t': 0.0}: name 'u' is not defined"
-    },
-    {
-      "expr_id": "p1a",
-      "kind": "parametric_curve",
-      "latex": "(s(20)(2u-1),s(20)(2v-1),20)",
-      "reason": "Could not evaluate 's(20)(2u-1)' with variables {'t': 0.0}: name 'u' is not defined"
-    },
-    {
-      "expr_id": "p1b",
-      "kind": "parametric_curve",
-      "latex": "(s(20)(2u-1),s(20)(2v-1),(20-t_{p}))",
-      "reason": "Could not evaluate 's(20)(2u-1)' with variables {'t': 0.0}: name 'u' is not defined"
-    },
-    {
-      "expr_id": "p1c",
-      "kind": "parametric_curve",
-      "latex": "(s(20),s(20)(2u-1),(20-t_{p}+t_{p}v))",
-      "reason": "Could not evaluate 's(20)(2u-1)' with variables {'t': 0.0}: name 'u' is not defined"
-    },
-    {
-      "expr_id": "p1d",
-      "kind": "parametric_curve",
-      "latex": "(-s(20),s(20)(2u-1),(20-t_{p}+t_{p}v))",
-      "reason": "Could not evaluate 's(20)(2u-1)' with variables {'t': 0.0}: name 'u' is not defined"
-    },
-    {
-      "expr_id": "p1e",
-      "kind": "parametric_curve",
-      "latex": "(s(20)(2u-1),s(20),(20-t_{p}+t_{p}v))",
-      "reason": "Could not evaluate 's(20)(2u-1)' with variables {'t': 0.0}: name 'u' is not defined"
-    },
-    {
-      "expr_id": "p1f",
-      "kind": "parametric_curve",
-      "latex": "(s(20)(2u-1),-s(20),(20-t_{p}+t_{p}v))",
-      "reason": "Could not evaluate 's(20)(2u-1)' with variables {'t': 0.0}: name 'u' is not defined"
-    },
-    {
-      "expr_id": "p2a",
-      "kind": "parametric_curve",
-      "latex": "(s(28.5)(2u-1),s(28.5)(2v-1),28.5)",
-      "reason": "Could not evaluate 's(28.5)(2u-1)' with variables {'t': 0.0}: name 'u' is not defined"
-    },
-    {
-      "expr_id": "p2b",
-      "kind": "parametric_curve",
-      "latex": "(s(28.5)(2u-1),s(28.5)(2v-1),(28.5-t_{p}))",
-      "reason": "Could not evaluate 's(28.5)(2u-1)' with variables {'t': 0.0}: name 'u' is not defined"
-    },
-    {
-      "expr_id": "p2c",
-      "kind": "parametric_curve",
-      "latex": "(s(28.5),s(28.5)(2u-1),(28.5-t_{p}+t_{p}v))",
-      "reason": "Could not evaluate 's(28.5)(2u-1)' with variables {'t': 0.0}: name 'u' is not defined"
-    },
-    {
-      "expr_id": "p2d",
-      "kind": "parametric_curve",
-      "latex": "(-s(28.5),s(28.5)(2u-1),(28.5-t_{p}+t_{p}v))",
-      "reason": "Could not evaluate 's(28.5)(2u-1)' with variables {'t': 0.0}: name 'u' is not defined"
-    },
-    {
-      "expr_id": "p2e",
-      "kind": "parametric_curve",
-      "latex": "(s(28.5)(2u-1),s(28.5),(28.5-t_{p}+t_{p}v))",
-      "reason": "Could not evaluate 's(28.5)(2u-1)' with variables {'t': 0.0}: name 'u' is not defined"
-    },
-    {
-      "expr_id": "p2f",
-      "kind": "parametric_curve",
-      "latex": "(s(28.5)(2u-1),-s(28.5),(28.5-t_{p}+t_{p}v))",
-      "reason": "Could not evaluate 's(28.5)(2u-1)' with variables {'t': 0.0}: name 'u' is not defined"
-    },
-    {
-      "expr_id": "p3a",
-      "kind": "parametric_curve",
-      "latex": "(s(57.5)(2u-1),s(57.5)(2v-1),57.5)",
-      "reason": "Could not evaluate 's(57.5)(2u-1)' with variables {'t': 0.0}: name 'u' is not defined"
-    },
-    {
-      "expr_id": "p3b",
-      "kind": "parametric_curve",
-      "latex": "(s(57.5)(2u-1),s(57.5)(2v-1),(57.5-t_{p}))",
-      "reason": "Could not evaluate 's(57.5)(2u-1)' with variables {'t': 0.0}: name 'u' is not defined"
-    },
-    {
-      "expr_id": "p3c",
-      "kind": "parametric_curve",
-      "latex": "(s(57.5),s(57.5)(2u-1),(57.5-t_{p}+t_{p}v))",
-      "reason": "Could not evaluate 's(57.5)(2u-1)' with variables {'t': 0.0}: name 'u' is not defined"
-    },
-    {
-      "expr_id": "p3d",
-      "kind": "parametric_curve",
-      "latex": "(-s(57.5),s(57.5)(2u-1),(57.5-t_{p}+t_{p}v))",
-      "reason": "Could not evaluate 's(57.5)(2u-1)' with variables {'t': 0.0}: name 'u' is not defined"
-    },
-    {
-      "expr_id": "p3e",
-      "kind": "parametric_curve",
-      "latex": "(s(57.5)(2u-1),s(57.5),(57.5-t_{p}+t_{p}v))",
-      "reason": "Could not evaluate 's(57.5)(2u-1)' with variables {'t': 0.0}: name 'u' is not defined"
-    },
-    {
-      "expr_id": "p3f",
-      "kind": "parametric_curve",
-      "latex": "(s(57.5)(2u-1),-s(57.5),(57.5-t_{p}+t_{p}v))",
-      "reason": "Could not evaluate 's(57.5)(2u-1)' with variables {'t': 0.0}: name 'u' is not defined"
-    },
-    {
-      "expr_id": "p4a",
-      "kind": "parametric_curve",
-      "latex": "(s(138)(2u-1),s(138)(2v-1),138)",
-      "reason": "Could not evaluate 's(138)(2u-1)' with variables {'t': 0.0}: name 'u' is not defined"
-    },
-    {
-      "expr_id": "p4b",
-      "kind": "parametric_curve",
-      "latex": "(s(138)(2u-1),s(138)(2v-1),(138-t_{p}))",
-      "reason": "Could not evaluate 's(138)(2u-1)' with variables {'t': 0.0}: name 'u' is not defined"
-    },
-    {
-      "expr_id": "p4c",
-      "kind": "parametric_curve",
-      "latex": "(s(138),s(138)(2u-1),(138-t_{p}+t_{p}v))",
-      "reason": "Could not evaluate 's(138)(2u-1)' with variables {'t': 0.0}: name 'u' is not defined"
-    },
-    {
-      "expr_id": "p4d",
-      "kind": "parametric_curve",
-      "latex": "(-s(138),s(138)(2u-1),(138-t_{p}+t_{p}v))",
-      "reason": "Could not evaluate 's(138)(2u-1)' with variables {'t': 0.0}: name 'u' is not defined"
-    },
-    {
-      "expr_id": "p4e",
-      "kind": "parametric_curve",
-      "latex": "(s(138)(2u-1),s(138),(138-t_{p}+t_{p}v))",
-      "reason": "Could not evaluate 's(138)(2u-1)' with variables {'t': 0.0}: name 'u' is not defined"
-    },
-    {
-      "expr_id": "p4f",
-      "kind": "parametric_curve",
-      "latex": "(s(138)(2u-1),-s(138),(138-t_{p}+t_{p}v))",
-      "reason": "Could not evaluate 's(138)(2u-1)' with variables {'t': 0.0}: name 'u' is not defined"
+      "reason": "Could not evaluate 'z_{0}+nh+th' with variables {'t': 0.0}: name 'n' is not defined"
     }
   ],
-  "unsupported_count": 33,
+  "unsupported_count": 8,
   "usda_exists": true,
   "usdz_exists": true,
   "usdz_output": "artifacts/fixture_usdz/[4B] 3D Diagram - S2-05 Group D.usdz",
@@ -353,11 +203,261 @@
     {
       "constraint_violation_count": 0,
       "errors": [],
+      "expr_id": "e31",
+      "face_count": 49,
+      "kind": "parametric_surface",
+      "max_residual": 0.0,
+      "point_count": 64,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
       "expr_id": "e32",
       "face_count": 0,
       "kind": "parametric_curve",
       "max_residual": 0.0,
       "point_count": 16,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "p1a",
+      "face_count": 49,
+      "kind": "parametric_surface",
+      "max_residual": 0.0,
+      "point_count": 64,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "p1b",
+      "face_count": 49,
+      "kind": "parametric_surface",
+      "max_residual": 0.0,
+      "point_count": 64,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "p1c",
+      "face_count": 49,
+      "kind": "parametric_surface",
+      "max_residual": 0.0,
+      "point_count": 64,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "p1d",
+      "face_count": 49,
+      "kind": "parametric_surface",
+      "max_residual": 0.0,
+      "point_count": 64,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "p1e",
+      "face_count": 49,
+      "kind": "parametric_surface",
+      "max_residual": 0.0,
+      "point_count": 64,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "p1f",
+      "face_count": 49,
+      "kind": "parametric_surface",
+      "max_residual": 0.0,
+      "point_count": 64,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "p2a",
+      "face_count": 49,
+      "kind": "parametric_surface",
+      "max_residual": 0.0,
+      "point_count": 64,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "p2b",
+      "face_count": 49,
+      "kind": "parametric_surface",
+      "max_residual": 0.0,
+      "point_count": 64,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "p2c",
+      "face_count": 49,
+      "kind": "parametric_surface",
+      "max_residual": 0.0,
+      "point_count": 64,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "p2d",
+      "face_count": 49,
+      "kind": "parametric_surface",
+      "max_residual": 0.0,
+      "point_count": 64,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "p2e",
+      "face_count": 49,
+      "kind": "parametric_surface",
+      "max_residual": 0.0,
+      "point_count": 64,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "p2f",
+      "face_count": 49,
+      "kind": "parametric_surface",
+      "max_residual": 0.0,
+      "point_count": 64,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "p3a",
+      "face_count": 49,
+      "kind": "parametric_surface",
+      "max_residual": 0.0,
+      "point_count": 64,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "p3b",
+      "face_count": 49,
+      "kind": "parametric_surface",
+      "max_residual": 0.0,
+      "point_count": 64,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "p3c",
+      "face_count": 49,
+      "kind": "parametric_surface",
+      "max_residual": 0.0,
+      "point_count": 64,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "p3d",
+      "face_count": 49,
+      "kind": "parametric_surface",
+      "max_residual": 0.0,
+      "point_count": 64,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "p3e",
+      "face_count": 49,
+      "kind": "parametric_surface",
+      "max_residual": 0.0,
+      "point_count": 64,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "p3f",
+      "face_count": 49,
+      "kind": "parametric_surface",
+      "max_residual": 0.0,
+      "point_count": 64,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "p4a",
+      "face_count": 49,
+      "kind": "parametric_surface",
+      "max_residual": 0.0,
+      "point_count": 64,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "p4b",
+      "face_count": 49,
+      "kind": "parametric_surface",
+      "max_residual": 0.0,
+      "point_count": 64,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "p4c",
+      "face_count": 49,
+      "kind": "parametric_surface",
+      "max_residual": 0.0,
+      "point_count": 64,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "p4d",
+      "face_count": 49,
+      "kind": "parametric_surface",
+      "max_residual": 0.0,
+      "point_count": 64,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "p4e",
+      "face_count": 49,
+      "kind": "parametric_surface",
+      "max_residual": 0.0,
+      "point_count": 64,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "p4f",
+      "face_count": 49,
+      "kind": "parametric_surface",
+      "max_residual": 0.0,
+      "point_count": 64,
       "valid": true
     }
   ]

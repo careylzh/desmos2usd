@@ -30,6 +30,16 @@ class ParserTests(unittest.TestCase):
         expr = LatexExpression.parse(r"a_{1}x^{2}+b_{1}x+c_{1}")
         self.assertEqual(expr.python, "a_1*x**(2)+b_1*x+c_1")
 
+    def test_parameter_adjacency_is_implicit_multiplication(self) -> None:
+        expr = LatexExpression.parse(r"0.05\left(4t\left(1-t\right)-1\right)")
+        self.assertEqual(expr.python, "0.05*(4*t*(1-t)-1)")
+        self.assertAlmostEqual(expr.eval(variables={"t": 0.5}), 0.0)
+
+    def test_subscripted_scalar_adjacent_to_parameter_multiplies(self) -> None:
+        expr = LatexExpression.parse(r"t_{p}v")
+        self.assertEqual(expr.python, "t_p*v")
+        self.assertAlmostEqual(expr.eval(EvalContext(scalars={"t_p": 2.0}), {"v": 3.0}), 6.0)
+
     def test_predicate(self) -> None:
         predicate = parse_predicate("-2<=x<=2")
         self.assertTrue(predicate.evaluate(context=EvalContext(), variables={"x": 1}))

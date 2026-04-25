@@ -237,6 +237,8 @@ def is_value_start(token: str) -> bool:
 def needs_multiply(prev: str, token: str, index: int, tokens: list[str]) -> bool:
     if prev in {"(", "+", "-", "*", "/", ",", "**"} or token in {")", "+", "-", "*", "/", ",", "**"}:
         return False
+    if prev in {"x", "y", "z", "t", "u", "v"} and token == "(":
+        return True
     if re.match(r"[A-Za-z_]", prev) and token == "(":
         return False
     if prev == ")" and token == "(":
@@ -264,6 +266,7 @@ def convert_latex_to_python(latex: str) -> str:
         py_name = {"arcsin": "asin", "arccos": "acos", "arctan": "atan"}.get(command, command)
         text = text.replace(f"\\{command}", py_name)
     text = replace_abs_bars(text)
+    text = re.sub(r"([A-Za-z]_\{[^{}]+\})(?=[A-Za-z])", lambda m: normalize_identifier(m.group(1)) + "*", text)
     text = re.sub(r"([A-Za-z])_\{([^{}]+)\}", lambda m: normalize_identifier(m.group(0)), text)
     text = re.sub(r"([A-Za-z])_([A-Za-z0-9]+)", lambda m: normalize_identifier(m.group(0)), text)
     text = re.sub(r"([A-Za-z]_[0-9]+)(?=[A-Za-z])", r"\1*", text)

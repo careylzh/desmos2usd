@@ -544,7 +544,7 @@
       "expr_id": "329",
       "kind": "triangle_mesh",
       "latex": "\\operatorname{triangle}\\left(\\left(x_{A}+r_{A}\\cos\\left(\\frac{2\\pi L}{n_{A}}+d_{A}\\right),y_{A}+r_{A}\\sin\\left(\\frac{2\\pi L}{n_{A}}+d_{A}\\right),z_{A}\\right),\\left(x_{A}+r_{A}\\cos\\left(\\frac{2\\pi\\operatorname{mod}(L+1,n_{A})}{n_{A}}+d_{A}\\right),y_{A}+r_{A}\\sin\\left(\\frac{2\\pi\\operatorname{mod}(L+1,n_{A})}{n_{A}}+d_{A}\\right),z_{A}\\right),\\left(x_{A},y_{A},z_{A2}\\right)\\right)",
-      "reason": "Could not evaluate 'x_{A}+r_{A}\\\\cos(\\\\frac{2\\\\pi L}{n_{A}}+d_{A})' with variables {}: name 'r_Acos' is not defined"
+      "reason": "Could not evaluate 'x_{A}+r_{A}\\\\cos(\\\\frac{2\\\\pi L}{n_{A}}+d_{A})' with variables {}: name 'L' is not defined"
     },
     {
       "expr_id": "347",

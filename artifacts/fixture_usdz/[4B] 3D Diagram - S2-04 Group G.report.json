@@ -16,19 +16,19 @@
       "expr_id": "109",
       "kind": "definition",
       "latex": "c_{1}=\\operatorname{hsv}(160,0,0)",
-      "reason": "Failed to parse definition: Could not evaluate '\\\\operatorname{hsv}(160,0,0)' with variables {}: name 'h' is not defined"
+      "reason": "Failed to parse definition: Unsupported expression node Tuple"
     },
     {
       "expr_id": "130",
       "kind": "definition",
       "latex": "c_{2}=\\operatorname{hsv}\\left(160,0,1\\right)",
-      "reason": "Failed to parse definition: Could not evaluate '\\\\operatorname{hsv}(160,0,1)' with variables {}: name 'h' is not defined"
+      "reason": "Failed to parse definition: Unsupported expression node Tuple"
     },
     {
       "expr_id": "131",
       "kind": "definition",
       "latex": "c_{3}=\\operatorname{okhsv}(72,0.243,0.99)",
-      "reason": "Failed to parse definition: Could not evaluate '\\\\operatorname{okhsv}(72,0.243,0.99)' with variables {}: name 'o' is not defined"
+      "reason": "Failed to parse definition: Unsupported expression node Tuple"
     },
     {
       "expr_id": "25",

@@ -58,7 +58,7 @@ def residual_for_point(item: ClassifiedExpression, context: EvalContext, variabl
         if not item.axis or not item.expression:
             return None
         return variables[item.axis] - item.expression.eval(context, variables)
-    if item.kind == "parametric_curve":
+    if item.kind in {"parametric_curve", "parametric_surface"}:
         if not item.vector:
             return None
         expected = item.vector.eval(context, variables)
