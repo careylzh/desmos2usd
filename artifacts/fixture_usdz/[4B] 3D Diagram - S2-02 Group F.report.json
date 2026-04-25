@@ -1,15 +1,226 @@
 {
   "acceptance_success": false,
-  "error": "Failed to parse definition 100 'L_{1}=[0.3,0.6...12.9]': Could not parse '0.6...12.9' as '0.6.12.9': invalid syntax (<unknown>, line 1)",
-  "error_stage": "classify",
-  "error_type": "ValueError",
+  "classified_expression_count": 15,
+  "complete": false,
   "fixture": "[4B] 3D Diagram - S2-02 Group F.json",
   "fixture_path": "fixtures/states/[4B] 3D Diagram - S2-02 Group F.json",
   "graph_hash": null,
-  "output": "/Users/careylai/Desktop/desmos2usd/artifacts/fixture_usdz/[4B] 3D Diagram - S2-02 Group F.usda",
+  "output": "artifacts/fixture_usdz/[4B] 3D Diagram - S2-02 Group F.usda",
+  "prim_count": 4,
+  "renderable_expression_count": 29,
   "resolution": 8,
-  "status": "error",
+  "status": "partial",
   "title": "Desmos graph",
-  "usdz_exists": false,
-  "usdz_output": "/Users/careylai/Desktop/desmos2usd/artifacts/fixture_usdz/[4B] 3D Diagram - S2-02 Group F.usdz"
+  "unsupported": [
+    {
+      "expr_id": "100",
+      "kind": "definition",
+      "latex": "L_{1}=[0.3,0.6...12.9]",
+      "reason": "Failed to parse definition: Could not parse '0.6...12.9' as '0.6.12.9': invalid syntax (<unknown>, line 1)"
+    },
+    {
+      "expr_id": "101",
+      "kind": "definition",
+      "latex": "L_{2}=[0.2,0.4...1.8]",
+      "reason": "Failed to parse definition: Could not parse '0.4...1.8' as '0.4.1.8': invalid syntax (<unknown>, line 1)"
+    },
+    {
+      "expr_id": "102",
+      "kind": "definition",
+      "latex": "L_{3}=[4.2,4.4...5.8]",
+      "reason": "Failed to parse definition: Could not parse '4.4...5.8' as '4.4.5.8': invalid syntax (<unknown>, line 1)"
+    },
+    {
+      "expr_id": "3",
+      "kind": "classification",
+      "latex": "(z-[0.3,0.6...12.9])^{2}\\le0.0025\\left\\{-0.03\\le x\\le2.03\\right\\}\\left\\{-0.03\\le y\\le2.03\\right\\}",
+      "reason": "Could not parse '(z-[0.3,0.6...12.9])^{2}' as '(z-0.3,0.6.12.9)**(2)': invalid syntax. Perhaps you forgot a comma? (<unknown>, line 1)"
+    },
+    {
+      "expr_id": "71",
+      "kind": "classification",
+      "latex": "(z-[0.3,0.6...12.9])^{2}\\le0.0025\\left\\{3.97\\le x\\le6.03\\right\\}\\left\\{-0.03\\le y\\le2.03\\right\\}",
+      "reason": "Could not parse '(z-[0.3,0.6...12.9])^{2}' as '(z-0.3,0.6.12.9)**(2)': invalid syntax. Perhaps you forgot a comma? (<unknown>, line 1)"
+    },
+    {
+      "expr_id": "72",
+      "kind": "classification",
+      "latex": "(y-[0.2,0.4...1.8])^{2}\\le0.00250\\le z\\le13.2-0.03\\le x\\le2.03",
+      "reason": "Could not parse '(y-[0.2,0.4...1.8])^{2}' as '(y-0.2,0.4.1.8)**(2)': invalid syntax. Perhaps you forgot a comma? (<unknown>, line 1)"
+    },
+    {
+      "expr_id": "73",
+      "kind": "classification",
+      "latex": "x=[0.2,0.4...1.8]\\left\\{0\\le z\\le13.2\\right\\}\\left\\{-0.03\\le y\\le2.03\\right\\}",
+      "reason": "Could not parse '[0.2,0.4...1.8]' as '0.2,0.4.1.8': invalid syntax (<unknown>, line 1)"
+    },
+    {
+      "expr_id": "74",
+      "kind": "classification",
+      "latex": "x=[4.2,4.4...5.8]\\left\\{0\\le z\\le13.2\\right\\}\\left\\{-0.03\\le y\\le2.03\\right\\}",
+      "reason": "Could not parse '[4.2,4.4...5.8]' as '4.2,4.4.5.8': invalid syntax (<unknown>, line 1)"
+    },
+    {
+      "expr_id": "75",
+      "kind": "classification",
+      "latex": "y=[0.2,0.4...1.8]\\left\\{0\\le z\\le13.2\\right\\}\\left\\{-0.03\\le x\\le2.03\\right\\}",
+      "reason": "Could not parse '[0.2,0.4...1.8]' as '0.2,0.4.1.8': invalid syntax (<unknown>, line 1)"
+    },
+    {
+      "expr_id": "76",
+      "kind": "classification",
+      "latex": "y=[0.2,0.4...1.8]\\left\\{0\\le z\\le13.2\\right\\}\\left\\{3.93\\le x\\le6.03\\right\\}",
+      "reason": "Could not parse '[0.2,0.4...1.8]' as '0.2,0.4.1.8': invalid syntax (<unknown>, line 1)"
+    },
+    {
+      "expr_id": "78",
+      "kind": "classification",
+      "latex": "z=[14.3,14.4,14.5]\\left\\{0.94\\le x\\le1.06\\right\\}\\left\\{0.94\\le y\\le1.06\\right\\}",
+      "reason": "Unsupported expression node Tuple"
+    },
+    {
+      "expr_id": "87",
+      "kind": "classification",
+      "latex": "z=[13.35,13.4...14.25]\\left\\{0.96\\le x\\le1.04\\right\\}\\left\\{0.96\\le y\\le1.04\\right\\}",
+      "reason": "Could not parse '[13.35,13.4...14.25]' as '13.35,13.4.14.25': invalid syntax (<unknown>, line 1)"
+    },
+    {
+      "expr_id": "90",
+      "kind": "classification",
+      "latex": "z=[15.5,15.55...16.5]\\left\\{(x-1)^{2}+(y-1)^{2}\\le0.003\\right\\}",
+      "reason": "Could not parse '[15.5,15.55...16.5]' as '15.5,15.55.16.5': invalid syntax (<unknown>, line 1)"
+    },
+    {
+      "expr_id": "98",
+      "kind": "classification",
+      "latex": "z=[18,18.03...18.5]\\left\\{(x-1)^{2}+(y-1)^{2}\\le0.001\\right\\}",
+      "reason": "Could not parse '[18,18.03...18.5]' as '18,18.03.18.5': invalid syntax (<unknown>, line 1)"
+    },
+    {
+      "expr_id": "77",
+      "kind": "inequality_region",
+      "latex": "(x-0.96)^{2}+(y-1.04)^{2}\\le0.0005\\left\\{13.3\\le z\\le14.5\\right\\}",
+      "reason": "Inequality region for 77 did not resolve to sampled cells"
+    },
+    {
+      "expr_id": "79",
+      "kind": "inequality_region",
+      "latex": "(x-1.04)^{2}+(y-1.04)^{2}\\le0.0005\\left\\{13.3\\le z\\le14.5\\right\\}",
+      "reason": "Inequality region for 79 did not resolve to sampled cells"
+    },
+    {
+      "expr_id": "81",
+      "kind": "inequality_region",
+      "latex": "(x-1.04)^{2}+(y-0.96)^{2}\\le0.0005\\left\\{13.3\\le z\\le14.5\\right\\}",
+      "reason": "Inequality region for 81 did not resolve to sampled cells"
+    },
+    {
+      "expr_id": "89",
+      "kind": "inequality_region",
+      "latex": "(x-1)^{2}+(y-1)^{2}\\le0.002\\left\\{14.5\\le z\\le15.5\\right\\}",
+      "reason": "Inequality region for 89 did not resolve to sampled cells"
+    },
+    {
+      "expr_id": "92",
+      "kind": "inequality_region",
+      "latex": "(x-1)^{2}+(y-1)^{2}\\le0.00125\\left\\{15.5\\le z\\le16.5\\right\\}",
+      "reason": "Inequality region for 92 did not resolve to sampled cells"
+    },
+    {
+      "expr_id": "94",
+      "kind": "inequality_region",
+      "latex": "(x-1)^{2}+(y-1)^{2}\\le0.0018\\left\\{16.5\\le z\\le17\\right\\}",
+      "reason": "Inequality region for 94 did not resolve to sampled cells"
+    },
+    {
+      "expr_id": "95",
+      "kind": "inequality_region",
+      "latex": "(x-1)^{2}+(y-1)^{2}\\le0.0012\\left\\{17\\le z\\le17.5\\right\\}",
+      "reason": "Inequality region for 95 did not resolve to sampled cells"
+    },
+    {
+      "expr_id": "96",
+      "kind": "inequality_region",
+      "latex": "(x-1)^{2}+(y-1)^{2}\\le0.0008\\left\\{17.5\\le z\\le18\\right\\}",
+      "reason": "Inequality region for 96 did not resolve to sampled cells"
+    },
+    {
+      "expr_id": "97",
+      "kind": "inequality_region",
+      "latex": "(x-1)^{2}+(y-1)^{2}\\le0.0004\\left\\{18\\le z\\le18.5\\right\\}",
+      "reason": "Inequality region for 97 did not resolve to sampled cells"
+    },
+    {
+      "expr_id": "99",
+      "kind": "inequality_region",
+      "latex": "(x-1)^{2}+(y-1)^{2}\\le0.0001\\left\\{18.5\\le z\\le18.7\\right\\}",
+      "reason": "Inequality region for 99 did not resolve to sampled cells"
+    },
+    {
+      "expr_id": "103",
+      "kind": "inequality_region",
+      "latex": "(x-5)^{2}+(y-1)^{2}\\le0.002\\left\\{13.2\\le z\\le14.5\\right\\}",
+      "reason": "Inequality region for 103 did not resolve to sampled cells"
+    }
+  ],
+  "unsupported_count": 25,
+  "usda_exists": true,
+  "usdz_exists": true,
+  "usdz_output": "artifacts/fixture_usdz/[4B] 3D Diagram - S2-02 Group F.usdz",
+  "usdz_package": {
+    "command": [
+      "/usr/bin/usdzip",
+      "/Users/chek/repos/desmos2usd-carey/artifacts/fixture_usdz/[4B] 3D Diagram - S2-02 Group F.usdz",
+      "[4B] 3D Diagram - S2-02 Group F.usda"
+    ],
+    "cwd": "/Users/chek/repos/desmos2usd-carey/artifacts/fixture_usdz",
+    "returncode": 0,
+    "stderr": "",
+    "stdout": "",
+    "tool": "usdzip"
+  },
+  "usdz_validation": null,
+  "valid": true,
+  "validations": [
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "69",
+      "face_count": 30,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 32,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "70",
+      "face_count": 30,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 32,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "80",
+      "face_count": 6,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 8,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "86",
+      "face_count": 30,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 32,
+      "valid": true
+    }
+  ]
 }

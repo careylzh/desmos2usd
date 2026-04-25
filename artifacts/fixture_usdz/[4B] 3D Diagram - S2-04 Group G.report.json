@@ -1,15 +1,672 @@
 {
   "acceptance_success": false,
-  "error": "Failed to parse definition 109 'c_{1}=\\\\operatorname{hsv}(160,0,0)': Could not evaluate '\\\\operatorname{hsv}(160,0,0)' with variables {}: name 'h' is not defined",
-  "error_stage": "classify",
-  "error_type": "ValueError",
+  "classified_expression_count": 52,
+  "complete": false,
   "fixture": "[4B] 3D Diagram - S2-04 Group G.json",
   "fixture_path": "fixtures/states/[4B] 3D Diagram - S2-04 Group G.json",
   "graph_hash": null,
-  "output": "/Users/careylai/Desktop/desmos2usd/artifacts/fixture_usdz/[4B] 3D Diagram - S2-04 Group G.usda",
+  "output": "artifacts/fixture_usdz/[4B] 3D Diagram - S2-04 Group G.usda",
+  "prim_count": 39,
+  "renderable_expression_count": 80,
   "resolution": 8,
-  "status": "error",
+  "status": "partial",
   "title": "Desmos graph",
-  "usdz_exists": false,
-  "usdz_output": "/Users/careylai/Desktop/desmos2usd/artifacts/fixture_usdz/[4B] 3D Diagram - S2-04 Group G.usdz"
+  "unsupported": [
+    {
+      "expr_id": "109",
+      "kind": "definition",
+      "latex": "c_{1}=\\operatorname{hsv}(160,0,0)",
+      "reason": "Failed to parse definition: Could not evaluate '\\\\operatorname{hsv}(160,0,0)' with variables {}: name 'h' is not defined"
+    },
+    {
+      "expr_id": "130",
+      "kind": "definition",
+      "latex": "c_{2}=\\operatorname{hsv}\\left(160,0,1\\right)",
+      "reason": "Failed to parse definition: Could not evaluate '\\\\operatorname{hsv}(160,0,1)' with variables {}: name 'h' is not defined"
+    },
+    {
+      "expr_id": "131",
+      "kind": "definition",
+      "latex": "c_{3}=\\operatorname{okhsv}(72,0.243,0.99)",
+      "reason": "Failed to parse definition: Could not evaluate '\\\\operatorname{okhsv}(72,0.243,0.99)' with variables {}: name 'o' is not defined"
+    },
+    {
+      "expr_id": "25",
+      "kind": "classification",
+      "latex": "\\frac{x}{\\infty}=z-90\\left\\{60>y>-60\\right\\}\\left\\{30>x>-30\\right\\}",
+      "reason": "not a supported renderable geometry form"
+    },
+    {
+      "expr_id": "26",
+      "kind": "classification",
+      "latex": "\\frac{x}{\\infty}=z-90\\left\\{60>x>-60\\right\\}\\left\\{30>y>-30\\right\\}",
+      "reason": "not a supported renderable geometry form"
+    },
+    {
+      "expr_id": "49",
+      "kind": "classification",
+      "latex": "\\frac{x}{\\infty}=z-1\\left\\{30>y>-30\\right\\}\\left\\{120<x<370\\right\\}",
+      "reason": "not a supported renderable geometry form"
+    },
+    {
+      "expr_id": "53",
+      "kind": "classification",
+      "latex": "\\operatorname{sphere}\\left(\\left(0,0,100\\right),40\\right)",
+      "reason": "not a supported renderable geometry form"
+    },
+    {
+      "expr_id": "54",
+      "kind": "classification",
+      "latex": "\\operatorname{sphere}\\left(\\left(85,85,120\\right),8\\right)",
+      "reason": "not a supported renderable geometry form"
+    },
+    {
+      "expr_id": "56",
+      "kind": "classification",
+      "latex": "\\operatorname{sphere}\\left(\\left(-85,85,120\\right),8\\right)",
+      "reason": "not a supported renderable geometry form"
+    },
+    {
+      "expr_id": "57",
+      "kind": "classification",
+      "latex": "\\operatorname{sphere}\\left(\\left(-85,-85,120\\right),8\\right)",
+      "reason": "not a supported renderable geometry form"
+    },
+    {
+      "expr_id": "58",
+      "kind": "classification",
+      "latex": "\\operatorname{sphere}\\left(\\left(85,-85,120\\right),8\\right)",
+      "reason": "not a supported renderable geometry form"
+    },
+    {
+      "expr_id": "68",
+      "kind": "classification",
+      "latex": "\\operatorname{sphere}\\left(\\left(s,d,p\\right),o\\right)",
+      "reason": "not a supported renderable geometry form"
+    },
+    {
+      "expr_id": "75",
+      "kind": "classification",
+      "latex": "\\operatorname{sphere}\\left(\\left(-s,d,p\\right),o\\right)",
+      "reason": "not a supported renderable geometry form"
+    },
+    {
+      "expr_id": "77",
+      "kind": "classification",
+      "latex": "\\operatorname{sphere}\\left(\\left(-s,-d,p\\right),o\\right)",
+      "reason": "not a supported renderable geometry form"
+    },
+    {
+      "expr_id": "79",
+      "kind": "classification",
+      "latex": "\\operatorname{sphere}\\left(\\left(s,-d,p\\right),o\\right)",
+      "reason": "not a supported renderable geometry form"
+    },
+    {
+      "expr_id": "93",
+      "kind": "classification",
+      "latex": "\\frac{x}{\\infty}=z-90\\left\\{60>x>-60\\right\\}\\left\\{30>y>-30\\right\\}",
+      "reason": "not a supported renderable geometry form"
+    },
+    {
+      "expr_id": "182",
+      "kind": "classification",
+      "latex": "\\operatorname{sphere}\\left(\\left(-37,37,95\\right),13.1\\right)",
+      "reason": "not a supported renderable geometry form"
+    },
+    {
+      "expr_id": "183",
+      "kind": "classification",
+      "latex": "\\operatorname{sphere}\\left(\\left(-37,37,97\\right),13.1\\right)",
+      "reason": "not a supported renderable geometry form"
+    },
+    {
+      "expr_id": "184",
+      "kind": "classification",
+      "latex": "\\operatorname{sphere}\\left(\\left(-37,37,99\\right),13.1\\right)",
+      "reason": "not a supported renderable geometry form"
+    },
+    {
+      "expr_id": "185",
+      "kind": "classification",
+      "latex": "\\operatorname{sphere}\\left(\\left(37,37,95\\right),13.1\\right)",
+      "reason": "not a supported renderable geometry form"
+    },
+    {
+      "expr_id": "186",
+      "kind": "classification",
+      "latex": "\\operatorname{sphere}\\left(\\left(37,37,97\\right),13.1\\right)",
+      "reason": "not a supported renderable geometry form"
+    },
+    {
+      "expr_id": "187",
+      "kind": "classification",
+      "latex": "\\operatorname{sphere}\\left(\\left(37,37,99\\right),13.1\\right)",
+      "reason": "not a supported renderable geometry form"
+    },
+    {
+      "expr_id": "188",
+      "kind": "classification",
+      "latex": "\\operatorname{sphere}\\left(\\left(37,-37,95\\right),13.1\\right)",
+      "reason": "not a supported renderable geometry form"
+    },
+    {
+      "expr_id": "189",
+      "kind": "classification",
+      "latex": "\\operatorname{sphere}\\left(\\left(37,-37,97\\right),13.1\\right)",
+      "reason": "not a supported renderable geometry form"
+    },
+    {
+      "expr_id": "190",
+      "kind": "classification",
+      "latex": "\\operatorname{sphere}\\left(\\left(37,-37,99\\right),13.1\\right)",
+      "reason": "not a supported renderable geometry form"
+    },
+    {
+      "expr_id": "191",
+      "kind": "classification",
+      "latex": "\\operatorname{sphere}\\left(\\left(-37,-37,95\\right),13.1\\right)",
+      "reason": "not a supported renderable geometry form"
+    },
+    {
+      "expr_id": "192",
+      "kind": "classification",
+      "latex": "\\operatorname{sphere}\\left(\\left(-37,-37,97\\right),13.1\\right)",
+      "reason": "not a supported renderable geometry form"
+    },
+    {
+      "expr_id": "193",
+      "kind": "classification",
+      "latex": "\\operatorname{sphere}\\left(\\left(-37,-37,99\\right),13.1\\right)",
+      "reason": "not a supported renderable geometry form"
+    },
+    {
+      "expr_id": "110",
+      "kind": "explicit_surface",
+      "latex": "y=\\frac{z}{\\infty}-60\\ \\left\\{70>z>10\\right\\}\\left\\{15<x<18\\right\\}",
+      "reason": "Could not evaluate '\\\\frac{z}{\\\\infty}-60' with variables {'x': 15.0, 'z': 10.0}: name 'n' is not defined"
+    },
+    {
+      "expr_id": "111",
+      "kind": "explicit_surface",
+      "latex": "y=\\frac{z}{\\infty}-60\\ \\left\\{70>z>10\\right\\}\\left\\{-15>x>-18\\right\\}",
+      "reason": "Could not evaluate '\\\\frac{z}{\\\\infty}-60' with variables {'x': -18.0, 'z': 10.0}: name 'n' is not defined"
+    },
+    {
+      "expr_id": "114",
+      "kind": "explicit_surface",
+      "latex": "y=\\frac{z}{\\infty}+60\\ \\left\\{70>z>10\\right\\}\\left\\{-15>x>-18\\right\\}",
+      "reason": "Could not evaluate '\\\\frac{z}{\\\\infty}+60' with variables {'x': -18.0, 'z': 10.0}: name 'n' is not defined"
+    },
+    {
+      "expr_id": "116",
+      "kind": "explicit_surface",
+      "latex": "y=\\frac{z}{\\infty}+60\\ \\left\\{70>z>10\\right\\}\\left\\{15<x<18\\right\\}",
+      "reason": "Could not evaluate '\\\\frac{z}{\\\\infty}+60' with variables {'x': 15.0, 'z': 10.0}: name 'n' is not defined"
+    },
+    {
+      "expr_id": "119",
+      "kind": "explicit_surface",
+      "latex": "x=\\frac{z}{\\infty}+60\\ \\left\\{70>z>10\\right\\}\\left\\{15<y<18\\right\\}",
+      "reason": "Could not evaluate '\\\\frac{z}{\\\\infty}+60' with variables {'y': 15.0, 'z': 10.0}: name 'n' is not defined"
+    },
+    {
+      "expr_id": "121",
+      "kind": "explicit_surface",
+      "latex": "x=\\frac{z}{\\infty}+60\\ \\left\\{70>z>10\\right\\}\\left\\{-15>y>-18\\right\\}",
+      "reason": "Could not evaluate '\\\\frac{z}{\\\\infty}+60' with variables {'y': -18.0, 'z': 10.0}: name 'n' is not defined"
+    },
+    {
+      "expr_id": "123",
+      "kind": "explicit_surface",
+      "latex": "x=\\frac{z}{\\infty}-60\\ \\left\\{70>z>10\\right\\}\\left\\{-15>y>-18\\right\\}",
+      "reason": "Could not evaluate '\\\\frac{z}{\\\\infty}-60' with variables {'y': -18.0, 'z': 10.0}: name 'n' is not defined"
+    },
+    {
+      "expr_id": "125",
+      "kind": "explicit_surface",
+      "latex": "x=\\frac{z}{\\infty}-60\\ \\left\\{70>z>10\\right\\}\\left\\{15<y<18\\right\\}",
+      "reason": "Could not evaluate '\\\\frac{z}{\\\\infty}-60' with variables {'y': 15.0, 'z': 10.0}: name 'n' is not defined"
+    },
+    {
+      "expr_id": "177",
+      "kind": "inequality_region",
+      "latex": "15^{2}\\le x^{2}+\\left(z-70\\right)^{2}\\le18^{2}\\left\\{y=60\\right\\}\\left\\{z\\ge70\\right\\}",
+      "reason": "Inequality region for 177 did not resolve to sampled cells"
+    },
+    {
+      "expr_id": "178",
+      "kind": "inequality_region",
+      "latex": "15^{2}\\le y^{2}+\\left(z-70\\right)^{2}\\le18^{2}\\left\\{x=60\\right\\}\\left\\{z\\ge70\\right\\}",
+      "reason": "Inequality region for 178 did not resolve to sampled cells"
+    },
+    {
+      "expr_id": "179",
+      "kind": "inequality_region",
+      "latex": "15^{2}\\le y^{2}+\\left(z-70\\right)^{2}\\le18^{2}\\left\\{x=60\\right\\}\\left\\{z\\ge70\\right\\}",
+      "reason": "Inequality region for 179 did not resolve to sampled cells"
+    },
+    {
+      "expr_id": "194",
+      "kind": "inequality_region",
+      "latex": "15^{2}\\le y^{2}+\\left(z-70\\right)^{2}\\le18^{2}\\left\\{x=-60\\right\\}\\left\\{z\\ge70\\right\\}",
+      "reason": "Inequality region for 194 did not resolve to sampled cells"
+    },
+    {
+      "expr_id": "195",
+      "kind": "inequality_region",
+      "latex": "15^{2}\\le x^{2}+\\left(z-70\\right)^{2}\\le18^{2}\\left\\{y=-60\\right\\}\\left\\{z\\ge70\\right\\}",
+      "reason": "Inequality region for 195 did not resolve to sampled cells"
+    }
+  ],
+  "unsupported_count": 41,
+  "usda_exists": true,
+  "usdz_exists": true,
+  "usdz_output": "artifacts/fixture_usdz/[4B] 3D Diagram - S2-04 Group G.usdz",
+  "usdz_package": {
+    "command": [
+      "/usr/bin/usdzip",
+      "/Users/chek/repos/desmos2usd-carey/artifacts/fixture_usdz/[4B] 3D Diagram - S2-04 Group G.usdz",
+      "[4B] 3D Diagram - S2-04 Group G.usda"
+    ],
+    "cwd": "/Users/chek/repos/desmos2usd-carey/artifacts/fixture_usdz",
+    "returncode": 0,
+    "stderr": "",
+    "stdout": "",
+    "tool": "usdzip"
+  },
+  "usdz_validation": null,
+  "valid": true,
+  "validations": [
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "6",
+      "face_count": 64,
+      "kind": "explicit_surface",
+      "max_residual": 0.0,
+      "point_count": 100,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "7",
+      "face_count": 64,
+      "kind": "explicit_surface",
+      "max_residual": 0.0,
+      "point_count": 100,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "11",
+      "face_count": 72,
+      "kind": "explicit_surface",
+      "max_residual": 0.0,
+      "point_count": 100,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "12",
+      "face_count": 72,
+      "kind": "explicit_surface",
+      "max_residual": 0.0,
+      "point_count": 100,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "13",
+      "face_count": 72,
+      "kind": "explicit_surface",
+      "max_residual": 0.0,
+      "point_count": 100,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "14",
+      "face_count": 72,
+      "kind": "explicit_surface",
+      "max_residual": 0.0,
+      "point_count": 100,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "17",
+      "face_count": 64,
+      "kind": "explicit_surface",
+      "max_residual": 0.0,
+      "point_count": 100,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "18",
+      "face_count": 64,
+      "kind": "explicit_surface",
+      "max_residual": 0.0,
+      "point_count": 100,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "19",
+      "face_count": 64,
+      "kind": "explicit_surface",
+      "max_residual": 0.0,
+      "point_count": 100,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "20",
+      "face_count": 64,
+      "kind": "explicit_surface",
+      "max_residual": 0.0,
+      "point_count": 100,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "21",
+      "face_count": 64,
+      "kind": "explicit_surface",
+      "max_residual": 0.0,
+      "point_count": 100,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "22",
+      "face_count": 64,
+      "kind": "explicit_surface",
+      "max_residual": 0.0,
+      "point_count": 100,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "23",
+      "face_count": 64,
+      "kind": "explicit_surface",
+      "max_residual": 0.0,
+      "point_count": 100,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "24",
+      "face_count": 64,
+      "kind": "explicit_surface",
+      "max_residual": 0.0,
+      "point_count": 100,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "27",
+      "face_count": 4,
+      "kind": "implicit_surface",
+      "max_residual": null,
+      "point_count": 16,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "32",
+      "face_count": 4,
+      "kind": "implicit_surface",
+      "max_residual": null,
+      "point_count": 16,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "33",
+      "face_count": 4,
+      "kind": "implicit_surface",
+      "max_residual": null,
+      "point_count": 16,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "34",
+      "face_count": 4,
+      "kind": "implicit_surface",
+      "max_residual": null,
+      "point_count": 16,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "35",
+      "face_count": 0,
+      "kind": "implicit_surface",
+      "max_residual": null,
+      "point_count": 0,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "38",
+      "face_count": 0,
+      "kind": "implicit_surface",
+      "max_residual": null,
+      "point_count": 0,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "39",
+      "face_count": 0,
+      "kind": "implicit_surface",
+      "max_residual": null,
+      "point_count": 0,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "40",
+      "face_count": 0,
+      "kind": "implicit_surface",
+      "max_residual": null,
+      "point_count": 0,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "41",
+      "face_count": 0,
+      "kind": "implicit_surface",
+      "max_residual": null,
+      "point_count": 0,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "42",
+      "face_count": 0,
+      "kind": "implicit_surface",
+      "max_residual": null,
+      "point_count": 0,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "43",
+      "face_count": 0,
+      "kind": "implicit_surface",
+      "max_residual": null,
+      "point_count": 0,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "44",
+      "face_count": 0,
+      "kind": "implicit_surface",
+      "max_residual": null,
+      "point_count": 0,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "47",
+      "face_count": 64,
+      "kind": "explicit_surface",
+      "max_residual": 0.0,
+      "point_count": 100,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "59",
+      "face_count": 0,
+      "kind": "implicit_surface",
+      "max_residual": null,
+      "point_count": 0,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "62",
+      "face_count": 0,
+      "kind": "implicit_surface",
+      "max_residual": null,
+      "point_count": 0,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "63",
+      "face_count": 0,
+      "kind": "implicit_surface",
+      "max_residual": null,
+      "point_count": 0,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "64",
+      "face_count": 0,
+      "kind": "implicit_surface",
+      "max_residual": null,
+      "point_count": 0,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "65",
+      "face_count": 0,
+      "kind": "implicit_surface",
+      "max_residual": null,
+      "point_count": 0,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "83",
+      "face_count": 0,
+      "kind": "implicit_surface",
+      "max_residual": null,
+      "point_count": 0,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "87",
+      "face_count": 0,
+      "kind": "implicit_surface",
+      "max_residual": null,
+      "point_count": 0,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "88",
+      "face_count": 0,
+      "kind": "implicit_surface",
+      "max_residual": null,
+      "point_count": 0,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "89",
+      "face_count": 0,
+      "kind": "implicit_surface",
+      "max_residual": null,
+      "point_count": 0,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "90",
+      "face_count": 4,
+      "kind": "implicit_surface",
+      "max_residual": null,
+      "point_count": 16,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "127",
+      "face_count": 8,
+      "kind": "implicit_surface",
+      "max_residual": null,
+      "point_count": 32,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "181",
+      "face_count": 0,
+      "kind": "implicit_surface",
+      "max_residual": null,
+      "point_count": 0,
+      "valid": true
+    }
+  ]
 }

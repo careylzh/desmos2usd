@@ -155,15 +155,22 @@
       if (!response.ok) return [];
       const summary = await response.json();
       if (!summary || !Array.isArray(summary.reports)) return [];
+      const seen = new Set();
       return summary.reports
+        .filter((report) => report && report.usda_exists && basenameFromPath(report.output))
         .map((report) => {
           const fileName = basenameFromPath(report.output);
           if (!fileName) return null;
           const label = fixtureLabel(report, fileName);
+          const url = joinSamplePath(fixtureSweepRoot, fileName);
+          const key = `${normalizeSampleKey(label)}
+${url}`;
+          if (seen.has(key)) return null;
+          seen.add(key);
           return {
             key: label,
             label,
-            url: joinSamplePath(fixtureSweepRoot, fileName),
+            url,
             group: "Fixture sweep",
           };
         })

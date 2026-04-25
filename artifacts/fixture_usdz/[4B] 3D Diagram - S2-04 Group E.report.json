@@ -1,15 +1,215 @@
 {
-  "acceptance_success": false,
-  "error": "Unsupported expression 1 '\\\\left(x+15\\\\right)^{2}+\\\\left(y-5\\\\right)^{2}=100\\\\ \\\\left\\\\{0<z<60\\\\right\\\\}': not a supported renderable geometry form",
-  "error_stage": "classify",
-  "error_type": "ValueError",
+  "acceptance_success": true,
+  "classified_expression_count": 18,
+  "complete": true,
   "fixture": "[4B] 3D Diagram - S2-04 Group E.json",
   "fixture_path": "fixtures/states/[4B] 3D Diagram - S2-04 Group E.json",
   "graph_hash": null,
-  "output": "/Users/careylai/Desktop/desmos2usd/artifacts/fixture_usdz/[4B] 3D Diagram - S2-04 Group E.usda",
+  "output": "artifacts/fixture_usdz/[4B] 3D Diagram - S2-04 Group E.usda",
+  "prim_count": 18,
+  "renderable_expression_count": 18,
   "resolution": 8,
-  "status": "error",
+  "status": "success",
   "title": "Desmos graph",
-  "usdz_exists": false,
-  "usdz_output": "/Users/careylai/Desktop/desmos2usd/artifacts/fixture_usdz/[4B] 3D Diagram - S2-04 Group E.usdz"
+  "unsupported": [],
+  "unsupported_count": 0,
+  "usda_exists": true,
+  "usdz_exists": true,
+  "usdz_output": "artifacts/fixture_usdz/[4B] 3D Diagram - S2-04 Group E.usdz",
+  "usdz_package": {
+    "command": [
+      "/usr/bin/usdzip",
+      "/Users/chek/repos/desmos2usd-carey/artifacts/fixture_usdz/[4B] 3D Diagram - S2-04 Group E.usdz",
+      "[4B] 3D Diagram - S2-04 Group E.usda"
+    ],
+    "cwd": "/Users/chek/repos/desmos2usd-carey/artifacts/fixture_usdz",
+    "returncode": 0,
+    "stderr": "",
+    "stdout": "",
+    "tool": "usdzip"
+  },
+  "usdz_validation": null,
+  "valid": true,
+  "validations": [
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "1",
+      "face_count": 0,
+      "kind": "implicit_surface",
+      "max_residual": null,
+      "point_count": 0,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "4",
+      "face_count": 0,
+      "kind": "implicit_surface",
+      "max_residual": null,
+      "point_count": 0,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "6",
+      "face_count": 0,
+      "kind": "implicit_surface",
+      "max_residual": null,
+      "point_count": 0,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "7",
+      "face_count": 0,
+      "kind": "implicit_surface",
+      "max_residual": null,
+      "point_count": 0,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "22",
+      "face_count": 0,
+      "kind": "implicit_surface",
+      "max_residual": null,
+      "point_count": 0,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "23",
+      "face_count": 0,
+      "kind": "implicit_surface",
+      "max_residual": null,
+      "point_count": 0,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "24",
+      "face_count": 0,
+      "kind": "implicit_surface",
+      "max_residual": null,
+      "point_count": 0,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "25",
+      "face_count": 0,
+      "kind": "implicit_surface",
+      "max_residual": null,
+      "point_count": 0,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "45",
+      "face_count": 1,
+      "kind": "triangle_mesh",
+      "max_residual": null,
+      "point_count": 3,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "46",
+      "face_count": 1,
+      "kind": "triangle_mesh",
+      "max_residual": null,
+      "point_count": 3,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "47",
+      "face_count": 1,
+      "kind": "triangle_mesh",
+      "max_residual": null,
+      "point_count": 3,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "48",
+      "face_count": 1,
+      "kind": "triangle_mesh",
+      "max_residual": null,
+      "point_count": 3,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "49",
+      "face_count": 1,
+      "kind": "triangle_mesh",
+      "max_residual": null,
+      "point_count": 3,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "34",
+      "face_count": 1,
+      "kind": "triangle_mesh",
+      "max_residual": null,
+      "point_count": 3,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "35",
+      "face_count": 1,
+      "kind": "triangle_mesh",
+      "max_residual": null,
+      "point_count": 3,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "36",
+      "face_count": 1,
+      "kind": "triangle_mesh",
+      "max_residual": null,
+      "point_count": 3,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "37",
+      "face_count": 1,
+      "kind": "triangle_mesh",
+      "max_residual": null,
+      "point_count": 3,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "56",
+      "face_count": 12,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 32,
+      "valid": true
+    }
+  ]
 }

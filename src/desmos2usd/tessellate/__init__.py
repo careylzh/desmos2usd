@@ -2,6 +2,7 @@ from __future__ import annotations
 
 from desmos2usd.eval.context import EvalContext
 from desmos2usd.parse.classify import ClassifiedExpression
+from desmos2usd.tessellate.implicit import tessellate_implicit_surface
 from desmos2usd.tessellate.mesh import GeometryData
 from desmos2usd.tessellate.parametric import tessellate_parametric_curve
 from desmos2usd.tessellate.slabs import tessellate_inequality_region
@@ -22,6 +23,8 @@ def tessellate(
             resolution=resolution,
             axis_samples=explicit_surface_axis_samples,
         )
+    if item.kind == "implicit_surface":
+        return tessellate_implicit_surface(item, context, resolution=max(8, resolution))
     if item.kind == "inequality_region":
         return tessellate_inequality_region(item, context, resolution=max(4, resolution - 4))
     if item.kind == "parametric_curve":

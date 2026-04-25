@@ -48,6 +48,7 @@ class FixtureUsdzSuiteTests(unittest.TestCase):
             self.assertEqual(process_fixture.call_count, 3)
             summary = json.loads((out_dir / "summary.json").read_text(encoding="utf-8"))
             self.assertEqual(summary["fixture_count"], 3)
+            self.assertEqual(summary["out_dir"], "artifacts/fixture_usdz")
             self.assertEqual(summary["success_count"], 1)
             self.assertEqual(summary["partial_count"], 1)
             self.assertEqual(summary["error_count"], 1)

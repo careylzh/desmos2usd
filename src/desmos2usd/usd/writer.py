@@ -60,6 +60,7 @@ def write_mesh(name: str, item: ClassifiedExpression, geometry: GeometryData, in
     lines.extend(
         [
             f"{indent}    uniform bool doubleSided = true",
+            *display_color_lines(item, indent),
             f"{indent}    point3f[] points = {format_points(geometry.points)}",
             f"{indent}    int[] faceVertexCounts = {format_ints(geometry.face_vertex_counts)}",
             f"{indent}    int[] faceVertexIndices = {format_ints(geometry.face_vertex_indices)}",
@@ -77,6 +78,7 @@ def write_curve(name: str, item: ClassifiedExpression, geometry: GeometryData, i
     lines.extend(
         [
             f'{indent}    uniform token type = "linear"',
+            *display_color_lines(item, indent),
             f"{indent}    int[] curveVertexCounts = {format_ints(geometry.curve_vertex_counts)}",
             f"{indent}    point3f[] points = {format_points(geometry.points)}",
             f"{indent}    float[] widths = [0.025]",
@@ -85,6 +87,30 @@ def write_curve(name: str, item: ClassifiedExpression, geometry: GeometryData, i
         ]
     )
     return lines
+
+
+def display_color_lines(item: ClassifiedExpression, indent: str) -> list[str]:
+    rgb = parse_hex_color(item.ir.color)
+    if rgb is None:
+        return []
+    r, g, b = rgb
+    return [
+        f"{indent}    color3f[] primvars:displayColor = [({format_float(r)}, {format_float(g)}, {format_float(b)})] (",
+        f'{indent}        interpolation = "constant"',
+        f"{indent}    )",
+    ]
+
+
+def parse_hex_color(value: str | None) -> tuple[float, float, float] | None:
+    if not value:
+        return None
+    text = value.strip()
+    if len(text) == 7 and text.startswith("#"):
+        try:
+            return tuple(int(text[index : index + 2], 16) / 255.0 for index in (1, 3, 5))  # type: ignore[return-value]
+        except ValueError:
+            return None
+    return None
 
 
 def format_points(points: list[tuple[float, float, float]]) -> str:

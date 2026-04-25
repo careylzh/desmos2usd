@@ -6,10 +6,17 @@ from dataclasses import asdict
 from pathlib import Path
 from typing import Any
 
-from desmos2usd.converter import export_graph
+from desmos2usd.converter import UnsupportedExpression, export_graph
 from desmos2usd.desmos_state import project_root_from_cwd
-from desmos2usd.ir import graph_ir_from_state
-from desmos2usd.parse.classify import classify_graph
+from desmos2usd.eval.context import EvalContext
+from desmos2usd.ir import ExpressionIR, GraphIR, graph_ir_from_state
+from desmos2usd.parse.classify import (
+    ClassificationResult,
+    classify_expression,
+    expand_list_expression,
+    register_definition,
+    resolve_color_latex,
+)
 from desmos2usd.usd.package import package_usdz, validate_usdz_arkit
 
 SUMMARY_FILENAME = "summary.json"
@@ -64,9 +71,86 @@ def write_json(path: Path, payload: dict[str, Any]) -> None:
 def classify_fixture_status(report: dict[str, Any]) -> str:
     if report.get("acceptance_success"):
         return "success"
-    if report.get("usdz_exists"):
+    if report.get("usda_exists") or report.get("usdz_exists"):
         return "partial"
     return "error"
+
+
+def artifact_display_path(path: Path, project_root: Path) -> str:
+    try:
+        return str(path.resolve().relative_to(project_root.resolve()))
+    except ValueError:
+        return str(path)
+
+
+def classify_graph_tolerant(graph: GraphIR) -> tuple[ClassificationResult, list[UnsupportedExpression]]:
+    context = EvalContext()
+    classified = []
+    definitions = []
+    definition_ids: set[str] = set()
+    unsupported: list[UnsupportedExpression] = []
+
+    for expr in graph.expressions:
+        if expr.type != "expression" or not expr.latex.strip():
+            continue
+        try:
+            if register_definition(expr, context):
+                definition_ids.add(expr.expr_id)
+                if expr.renderable_candidate:
+                    definitions.append(expr)
+        except Exception as exc:
+            if expr.renderable_candidate:
+                definition_ids.add(expr.expr_id)
+                unsupported.append(
+                    UnsupportedExpression(
+                        expr_id=expr.expr_id,
+                        kind="definition",
+                        latex=expr.latex,
+                        reason=f"Failed to parse definition: {exc}",
+                    )
+                )
+
+    for expr in graph.expressions:
+        if not expr.renderable_candidate or expr.expr_id in definition_ids:
+            continue
+        try:
+            resolved = resolve_color_latex(expr.color_latex, context)
+            effective_color = f"#{resolved[0]:02x}{resolved[1]:02x}{resolved[2]:02x}" if resolved else expr.color
+            candidate = expr if effective_color == expr.color else ExpressionIR(
+                source=expr.source,
+                expr_id=expr.expr_id,
+                order=expr.order,
+                latex=expr.latex,
+                color=effective_color,
+                color_latex=expr.color_latex,
+                hidden=expr.hidden,
+                folder_id=expr.folder_id,
+                type=expr.type,
+                raw=expr.raw,
+            )
+            for expanded in expand_list_expression(candidate, context):
+                try:
+                    classified.append(classify_expression(expanded, context))
+                except Exception as exc:
+                    unsupported.append(
+                        UnsupportedExpression(
+                            expr_id=expanded.expr_id,
+                            kind="classification",
+                            latex=expanded.latex,
+                            reason=str(exc),
+                        )
+                    )
+        except Exception as exc:
+            unsupported.append(
+                UnsupportedExpression(
+                    expr_id=expr.expr_id,
+                    kind="classification",
+                    latex=expr.latex,
+                    reason=str(exc),
+                )
+            )
+
+    return ClassificationResult(context=context, classified=classified, definitions=definitions), unsupported
 
 
 def process_fixture(
@@ -84,8 +168,8 @@ def process_fixture(
     report: dict[str, Any] = {
         "fixture": fixture_path.name,
         "fixture_path": str(fixture_path.relative_to(project_root)),
-        "output": str(usda_path),
-        "usdz_output": str(usdz_path),
+        "output": artifact_display_path(usda_path, project_root),
+        "usdz_output": artifact_display_path(usdz_path, project_root),
         "resolution": resolution,
     }
 
@@ -96,17 +180,20 @@ def process_fixture(
         report["title"] = graph.source.title
 
         stage = "classify"
-        classification = classify_graph(graph)
-        report["renderable_expression_count"] = len(classification.classified)
+        classification, classification_unsupported = classify_graph_tolerant(graph)
+        report["renderable_expression_count"] = len(classification.classified) + len(classification_unsupported)
+        report["classified_expression_count"] = len(classification.classified)
 
         stage = "export"
-        prims, validations, unsupported = export_graph(graph, classification, usda_path, resolution=resolution)
+        prims, validations, export_unsupported = export_graph(graph, classification, usda_path, resolution=resolution)
+        unsupported = [*classification_unsupported, *export_unsupported]
         report["prim_count"] = len(prims)
         report["unsupported_count"] = len(unsupported)
         report["valid"] = all(item.valid for item in validations)
         report["complete"] = not unsupported
         report["validations"] = [asdict(item) for item in validations]
         report["unsupported"] = [asdict(item) for item in unsupported]
+        report["usda_exists"] = usda_path.exists()
 
         stage = "package_usdz"
         package_result = package_usdz(usda_path, usdz_path)
@@ -119,6 +206,7 @@ def process_fixture(
         else:
             report["usdz_validation"] = None
 
+        report["usda_exists"] = usda_path.exists()
         report["usdz_exists"] = usdz_path.exists()
         report["acceptance_success"] = bool(report["usdz_exists"] and report["valid"] and report["complete"])
         report["status"] = classify_fixture_status(report)
@@ -126,6 +214,7 @@ def process_fixture(
         report["error_stage"] = stage
         report["error_type"] = exc.__class__.__name__
         report["error"] = str(exc)
+        report["usda_exists"] = usda_path.exists()
         report["usdz_exists"] = usdz_path.exists()
         report["acceptance_success"] = False
         report["status"] = classify_fixture_status(report)
@@ -134,7 +223,7 @@ def process_fixture(
     return report
 
 
-def build_summary(reports: list[dict[str, Any]], out_dir: Path) -> dict[str, Any]:
+def build_summary(reports: list[dict[str, Any]], out_dir: Path, project_root: Path | None = None) -> dict[str, Any]:
     counts = {"success": 0, "partial": 0, "error": 0}
     error_stage_counts: dict[str, int] = {}
     unsupported_fixture_names: list[str] = []
@@ -148,7 +237,7 @@ def build_summary(reports: list[dict[str, Any]], out_dir: Path) -> dict[str, Any
             unsupported_fixture_names.append(str(report.get("fixture") or "unknown"))
 
     return {
-        "out_dir": str(out_dir),
+        "out_dir": artifact_display_path(out_dir, project_root) if project_root is not None else str(out_dir),
         "fixture_count": len(reports),
         "success_count": counts.get("success", 0),
         "partial_count": counts.get("partial", 0),
@@ -182,7 +271,7 @@ def main(argv: list[str] | None = None) -> int:
         )
         for fixture in fixtures
     ]
-    summary = build_summary(reports, out_dir)
+    summary = build_summary(reports, out_dir, project_root)
     write_json(out_dir / SUMMARY_FILENAME, summary)
     print(json.dumps(summary, indent=2, sort_keys=True))
     return 0

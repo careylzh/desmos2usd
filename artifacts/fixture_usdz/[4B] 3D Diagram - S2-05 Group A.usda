@@ -26,6 +26,9 @@ def Xform "DesmosGraph"
         custom string desmos:color = "#fa7e19"
         custom bool desmos:hidden = false
         uniform bool doubleSided = true
+        color3f[] primvars:displayColor = [(0.980392157, 0.494117647, 0.0980392157)] (
+            interpolation = "constant"
+        )
         point3f[] points = [(-167.3801, -153.379605, -165.375), (0, -153.379605, -165.375), (0, 177.370395, -165.375), (-167.3801, 177.370395, -165.375), (-167.3801, -153.379605, 165.375), (0, -153.379605, 165.375), (0, 177.370395, 165.375), (-167.3801, 177.370395, 165.375)]
         int[] faceVertexCounts = [4, 4, 4, 4, 4, 4]
         int[] faceVertexIndices = [0, 1, 2, 3, 4, 7, 6, 5, 0, 4, 5, 1, 1, 5, 6, 2, 2, 6, 7, 3, 3, 7, 4, 0]
@@ -43,6 +46,9 @@ def Xform "DesmosGraph"
         custom string desmos:color = "#fa7e19"
         custom bool desmos:hidden = false
         uniform bool doubleSided = true
+        color3f[] primvars:displayColor = [(0.980392157, 0.494117647, 0.0980392157)] (
+            interpolation = "constant"
+        )
         point3f[] points = [(0, -153.379605, -165.375), (163.3699, -153.379605, -165.375), (163.3699, 177.370395, -165.375), (0, 177.370395, -165.375), (0, -153.379605, 165.375), (163.3699, -153.379605, 165.375), (163.3699, 177.370395, 165.375), (0, 177.370395, 165.375)]
         int[] faceVertexCounts = [4, 4, 4, 4, 4, 4]
         int[] faceVertexIndices = [0, 1, 2, 3, 4, 7, 6, 5, 0, 4, 5, 1, 1, 5, 6, 2, 2, 6, 7, 3, 3, 7, 4, 0]

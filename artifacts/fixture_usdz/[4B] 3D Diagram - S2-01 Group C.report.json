@@ -1,15 +1,198 @@
 {
   "acceptance_success": false,
-  "error": "Unsupported expression 47 '\\\\operatorname{abs}(\\\\operatorname{abs}(x)-2.5)=0.3\\\\left\\\\{y<-3\\\\right\\\\}\\\\left\\\\{y>-3.5\\\\right\\\\}\\\\left\\\\{1.2<z<2.5\\\\right\\\\}': not a supported renderable geometry form",
-  "error_stage": "classify",
-  "error_type": "ValueError",
+  "classified_expression_count": 18,
+  "complete": false,
   "fixture": "[4B] 3D Diagram - S2-01 Group C.json",
   "fixture_path": "fixtures/states/[4B] 3D Diagram - S2-01 Group C.json",
   "graph_hash": null,
-  "output": "/Users/careylai/Desktop/desmos2usd/artifacts/fixture_usdz/[4B] 3D Diagram - S2-01 Group C.usda",
+  "output": "artifacts/fixture_usdz/[4B] 3D Diagram - S2-01 Group C.usda",
+  "prim_count": 12,
+  "renderable_expression_count": 19,
   "resolution": 8,
-  "status": "error",
+  "status": "partial",
   "title": "Desmos graph",
-  "usdz_exists": false,
-  "usdz_output": "/Users/careylai/Desktop/desmos2usd/artifacts/fixture_usdz/[4B] 3D Diagram - S2-01 Group C.usdz"
+  "unsupported": [
+    {
+      "expr_id": "47",
+      "kind": "classification",
+      "latex": "\\operatorname{abs}(\\operatorname{abs}(x)-2.5)=0.3\\left\\{y<-3\\right\\}\\left\\{y>-3.5\\right\\}\\left\\{1.2<z<2.5\\right\\}",
+      "reason": "not a supported renderable geometry form"
+    },
+    {
+      "expr_id": "22",
+      "kind": "inequality_region",
+      "latex": "x^{2}+y^{2}+3(z-3.8)^{2}<4.2\\left\\{z>3.5\\right\\}",
+      "reason": "Inequality region for 22 did not resolve to sampled cells"
+    },
+    {
+      "expr_id": "28",
+      "kind": "inequality_region",
+      "latex": "\\operatorname{abs}(x)<1.5\\left\\{\\operatorname{abs}(x)>1.4\\right\\}\\left\\{y>-4\\right\\}\\left\\{y<-3\\right\\}\\left\\{0.5<z<2.5\\right\\}",
+      "reason": "Inequality region for 28 did not resolve to sampled cells"
+    },
+    {
+      "expr_id": "30",
+      "kind": "inequality_region",
+      "latex": "x^{2}+y^{2}<0.01\\left\\{z>4.5\\right\\}\\left\\{z<5.5\\right\\}",
+      "reason": "Inequality region for 30 did not resolve to sampled cells"
+    },
+    {
+      "expr_id": "40",
+      "kind": "inequality_region",
+      "latex": "(x+2.5)^{2}+(y+3n)^{2}<0.2\\left\\{0<z<1.5\\right\\}",
+      "reason": "Could not evaluate '(x+2.5)^{2}+(y+3n)^{2}' with variables {'x': -18.66728161170779, 'y': -18.66728161170779, 'z': 0.0}: name 'n' is not defined"
+    },
+    {
+      "expr_id": "42",
+      "kind": "inequality_region",
+      "latex": "(x-2.5)^{2}+(y+3n)^{2}<0.2\\left\\{0<z<1.5\\right\\}",
+      "reason": "Could not evaluate '(x-2.5)^{2}+(y+3n)^{2}' with variables {'x': -18.66728161170779, 'y': -18.66728161170779, 'z': 0.0}: name 'n' is not defined"
+    },
+    {
+      "expr_id": "51",
+      "kind": "inequality_region",
+      "latex": "(x-18)^{2}+(y-12)^{2}+(z-20)^{2}<15",
+      "reason": "Inequality region for 51 did not resolve to sampled cells"
+    }
+  ],
+  "unsupported_count": 7,
+  "usda_exists": true,
+  "usdz_exists": true,
+  "usdz_output": "artifacts/fixture_usdz/[4B] 3D Diagram - S2-01 Group C.usdz",
+  "usdz_package": {
+    "command": [
+      "/usr/bin/usdzip",
+      "/Users/chek/repos/desmos2usd-carey/artifacts/fixture_usdz/[4B] 3D Diagram - S2-01 Group C.usdz",
+      "[4B] 3D Diagram - S2-01 Group C.usda"
+    ],
+    "cwd": "/Users/chek/repos/desmos2usd-carey/artifacts/fixture_usdz",
+    "returncode": 0,
+    "stderr": "",
+    "stdout": "",
+    "tool": "usdzip"
+  },
+  "usdz_validation": null,
+  "valid": true,
+  "validations": [
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "17",
+      "face_count": 2904,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 3872,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "20",
+      "face_count": 2904,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 3872,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "23",
+      "face_count": 2448,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 3264,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "24",
+      "face_count": 2448,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 3264,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "25",
+      "face_count": 2448,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 3264,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "26",
+      "face_count": 2448,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 3264,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "29",
+      "face_count": 2232,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 2976,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "32",
+      "face_count": 56,
+      "kind": "explicit_surface",
+      "max_residual": 0.0,
+      "point_count": 100,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "38",
+      "face_count": 56,
+      "kind": "explicit_surface",
+      "max_residual": 0.0,
+      "point_count": 100,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "39",
+      "face_count": 25,
+      "kind": "explicit_surface",
+      "max_residual": 0.0,
+      "point_count": 100,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "49",
+      "face_count": 3,
+      "kind": "implicit_surface",
+      "max_residual": null,
+      "point_count": 12,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "50",
+      "face_count": 32,
+      "kind": "explicit_surface",
+      "max_residual": 0.0,
+      "point_count": 324,
+      "valid": true
+    }
+  ]
 }

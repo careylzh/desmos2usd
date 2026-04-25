@@ -1,15 +1,226 @@
 {
   "acceptance_success": false,
-  "error": "Failed to parse definition 22 'k=\\\\left[0...80\\\\right]': Could not parse '0...80' as '0..80': invalid syntax (<unknown>, line 1)",
-  "error_stage": "classify",
-  "error_type": "ValueError",
+  "classified_expression_count": 24,
+  "complete": false,
   "fixture": "[4B] 3D Diagram - S2-06 Group E.json",
   "fixture_path": "fixtures/states/[4B] 3D Diagram - S2-06 Group E.json",
   "graph_hash": null,
-  "output": "/Users/careylai/Desktop/desmos2usd/artifacts/fixture_usdz/[4B] 3D Diagram - S2-06 Group E.usda",
+  "output": "artifacts/fixture_usdz/[4B] 3D Diagram - S2-06 Group E.usda",
+  "prim_count": 4,
+  "renderable_expression_count": 29,
   "resolution": 8,
-  "status": "error",
+  "status": "partial",
   "title": "Desmos graph",
-  "usdz_exists": false,
-  "usdz_output": "/Users/careylai/Desktop/desmos2usd/artifacts/fixture_usdz/[4B] 3D Diagram - S2-06 Group E.usdz"
+  "unsupported": [
+    {
+      "expr_id": "22",
+      "kind": "definition",
+      "latex": "k=\\left[0...80\\right]",
+      "reason": "Failed to parse definition: Could not parse '0...80' as '0..80': invalid syntax (<unknown>, line 1)"
+    },
+    {
+      "expr_id": "23",
+      "kind": "definition",
+      "latex": "t=\\frac{2\\pi k}{80}",
+      "reason": "Failed to parse definition: Could not evaluate '\\\\frac{2\\\\pi k}{80}' with variables {}: name 'k' is not defined"
+    },
+    {
+      "expr_id": "132",
+      "kind": "definition",
+      "latex": "j=\\frac{2\\pi\\operatorname{mod}\\left(\\left(k+1\\right),81\\right)}{80}",
+      "reason": "Failed to parse definition: Could not evaluate '\\\\frac{2\\\\pi\\\\operatorname{mod}((k+1),81)}{80}' with variables {}: name 'p' is not defined"
+    },
+    {
+      "expr_id": "196",
+      "kind": "definition",
+      "latex": "k_{2}=\\left[0...72\\right]",
+      "reason": "Failed to parse definition: Could not parse '0...72' as '0..72': invalid syntax (<unknown>, line 1)"
+    },
+    {
+      "expr_id": "199",
+      "kind": "definition",
+      "latex": "t_{2}=\\frac{2\\pi k_{2}}{72}",
+      "reason": "Failed to parse definition: Could not evaluate '\\\\frac{2\\\\pi k_{2}}{72}' with variables {}: name 'k_2' is not defined"
+    },
+    {
+      "expr_id": "146",
+      "kind": "explicit_surface",
+      "latex": "y\\left\\{-\\sqrt{100000\\left(1-\\frac{x^{2}}{200000}\\right)}<y<\\sqrt{100000\\left(1-\\frac{x^{2}}{200000}\\right)}\\right\\}=\\frac{b_{1}\\sin\\left(j+230\\right)-b_{1}\\sin\\left(t+230\\right)}{a_{1}\\cos\\left(j+230\\right)-a_{1}\\cos\\left(t+230\\right)}\\left(x-a_{1}\\cos\\left(t+230\\right)\\right)+b_{1}\\sin\\left(t+230\\right)\\left\\{0<z<30\\right\\}",
+      "reason": "Could not evaluate '\\\\frac{b_{1}\\\\sin(j+230)-b_{1}\\\\sin(t+230)}{a_{1}\\\\cos(j+230)-a_{1}\\\\cos(t+230)}(x-a_{1}\\\\cos(t+230))+b_{1}\\\\sin(t+230)' with variables {'x': -562.4523117311907, 'z': 0.0}: name 'j' is not defined"
+    },
+    {
+      "expr_id": "25",
+      "kind": "inequality_region",
+      "latex": "a_{1}\\cos\\left(t+230\\right)-2.5<x<a_{1}\\cos\\left(t+230\\right)+2.5\\left\\{\\ b_{1}\\sin\\left(t+230\\right)<y+5<\\ b_{1}\\sin\\left(t+230\\right)+10\\right\\}\\left\\{0<z<30\\right\\}",
+      "reason": "Could not evaluate 'a_{1}\\\\cos(t+230)-2.5' with variables {'y': -597.2364941883797, 'z': 0.0}: name 't' is not defined"
+    },
+    {
+      "expr_id": "165",
+      "kind": "explicit_surface",
+      "latex": "y\\left\\{-\\sqrt{98000\\left(1-\\frac{x^{2}}{198000}\\right)}<y<\\sqrt{98000\\left(1-\\frac{x^{2}}{198000}\\right)}\\right\\}=\\frac{b_{2}\\sin\\left(j+230\\right)-b_{2}\\sin\\left(t+230\\right)}{a_{2}\\cos\\left(j+230\\right)-a_{2}\\cos\\left(t+230\\right)}\\left(x-a_{2}\\cos\\left(t+230\\right)\\right)+b_{2}\\sin\\left(t+230\\right)\\left\\{40<z<70\\right\\}",
+      "reason": "Could not evaluate '\\\\frac{b_{2}\\\\sin(j+230)-b_{2}\\\\sin(t+230)}{a_{2}\\\\cos(j+230)-a_{2}\\\\cos(t+230)}(x-a_{2}\\\\cos(t+230))+b_{2}\\\\sin(t+230)' with variables {'x': -562.4523117311907, 'z': 40.0}: name 'j' is not defined"
+    },
+    {
+      "expr_id": "168",
+      "kind": "inequality_region",
+      "latex": "a_{2}\\cos\\left(t+230\\right)-2.5<x<a_{2}\\cos\\left(t+230\\right)+2.5\\left\\{\\ b_{2}\\sin\\left(t+230\\right)<y+5<\\ b_{2}\\sin\\left(t+230\\right)+10\\right\\}\\left\\{40<z<70\\right\\}",
+      "reason": "Could not evaluate 'a_{2}\\\\cos(t+230)-2.5' with variables {'y': -597.2364941883797, 'z': 40.0}: name 't' is not defined"
+    },
+    {
+      "expr_id": "169",
+      "kind": "inequality_region",
+      "latex": "98000<\\frac{x^{2}}{2}+y^{2}<100000\\left\\{35<z<40\\right\\}",
+      "reason": "Inequality region for 169 did not resolve to sampled cells"
+    },
+    {
+      "expr_id": "175",
+      "kind": "inequality_region",
+      "latex": "a_{3}\\cos\\left(t+230\\right)-2.5<x<a_{3}\\cos\\left(t+230\\right)+2.5\\left\\{\\ b_{3}\\sin\\left(t+230\\right)<y+5<\\ b_{3}\\sin\\left(t+230\\right)+10\\right\\}\\left\\{75<z<105\\right\\}",
+      "reason": "Could not evaluate 'a_{3}\\\\cos(t+230)-2.5' with variables {'y': -597.2364941883797, 'z': 75.0}: name 't' is not defined"
+    },
+    {
+      "expr_id": "176",
+      "kind": "explicit_surface",
+      "latex": "y\\left\\{-\\sqrt{96000\\left(1-\\frac{x^{2}}{196000}\\right)}<y<\\sqrt{96000\\left(1-\\frac{x^{2}}{196000}\\right)}\\right\\}=\\frac{b_{3}\\sin\\left(j+230\\right)-b_{3}\\sin\\left(t+230\\right)}{a_{3}\\cos\\left(j+230\\right)-a_{3}\\cos\\left(t+230\\right)}\\left(x-a_{3}\\cos\\left(t+230\\right)\\right)+b_{3}\\sin\\left(t+230\\right)\\left\\{75<z<105\\right\\}",
+      "reason": "Could not evaluate '\\\\frac{b_{3}\\\\sin(j+230)-b_{3}\\\\sin(t+230)}{a_{3}\\\\cos(j+230)-a_{3}\\\\cos(t+230)}(x-a_{3}\\\\cos(t+230))+b_{3}\\\\sin(t+230)' with variables {'x': -562.4523117311907, 'z': 75.0}: name 'j' is not defined"
+    },
+    {
+      "expr_id": "177",
+      "kind": "inequality_region",
+      "latex": "90000<\\frac{x^{2}}{2}+y^{2}<96000\\left\\{70<z<75\\right\\}",
+      "reason": "Inequality region for 177 did not resolve to sampled cells"
+    },
+    {
+      "expr_id": "182",
+      "kind": "inequality_region",
+      "latex": "a_{4}\\cos\\left(t+230\\right)-2.5<x<a_{4}\\cos\\left(t+230\\right)+2.5\\left\\{\\ b_{4}\\sin\\left(t+230\\right)<y+5<\\ b_{4}\\sin\\left(t+230\\right)+10\\right\\}\\left\\{110<z<170\\right\\}",
+      "reason": "Could not evaluate 'a_{4}\\\\cos(t+230)-2.5' with variables {'y': -597.2364941883797, 'z': 110.0}: name 't' is not defined"
+    },
+    {
+      "expr_id": "183",
+      "kind": "inequality_region",
+      "latex": "94000<\\frac{x^{2}}{2}+y^{2}<100000\\left\\{105<z<110\\right\\}",
+      "reason": "Inequality region for 183 did not resolve to sampled cells"
+    },
+    {
+      "expr_id": "184",
+      "kind": "explicit_surface",
+      "latex": "y\\left\\{-\\sqrt{94000\\left(1-\\frac{x^{2}}{194000}\\right)}<y<\\sqrt{94000\\left(1-\\frac{x^{2}}{194000}\\right)}\\right\\}=\\frac{b_{4}\\sin\\left(j+230\\right)-b_{4}\\sin\\left(t+230\\right)}{a_{4}\\cos\\left(j+230\\right)-a_{4}\\cos\\left(t+230\\right)}\\left(x-a_{4}\\cos\\left(t+230\\right)\\right)+b_{4}\\sin\\left(t+230\\right)\\left\\{110<z<170\\right\\}",
+      "reason": "Could not evaluate '\\\\frac{b_{4}\\\\sin(j+230)-b_{4}\\\\sin(t+230)}{a_{4}\\\\cos(j+230)-a_{4}\\\\cos(t+230)}(x-a_{4}\\\\cos(t+230))+b_{4}\\\\sin(t+230)' with variables {'x': -562.4523117311907, 'z': 110.0}: name 'j' is not defined"
+    },
+    {
+      "expr_id": "191",
+      "kind": "inequality_region",
+      "latex": "55000<\\frac{x^{2}}{2}+y^{2}<60000\\left\\{170<z<175\\right\\}",
+      "reason": "Inequality region for 191 did not resolve to sampled cells"
+    },
+    {
+      "expr_id": "209",
+      "kind": "explicit_surface",
+      "latex": "y\\left\\{-60000\\left(\\frac{x^{2}}{120000}-1\\right)<y^{2}<-100000\\left(\\frac{x^{2}}{200000}-1\\right)\\right\\}=\\frac{b_{6}\\sin\\left(t_{2}\\right)-b_{5}\\sin\\left(t_{2}\\right)}{a_{6}\\cos\\left(t_{2}\\right)-a_{5}\\cos\\left(t_{2}\\right)}\\left(x-a_{5}\\cos\\left(t_{2}\\right)\\right)+b_{5}\\sin\\left(t_{2}\\right)\\left\\{180<z<185\\right\\}",
+      "reason": "Could not evaluate '\\\\frac{b_{6}\\\\sin(t_{2})-b_{5}\\\\sin(t_{2})}{a_{6}\\\\cos(t_{2})-a_{5}\\\\cos(t_{2})}(x-a_{5}\\\\cos(t_{2}))+b_{5}\\\\sin(t_{2})' with variables {'x': -562.4523117311907, 'z': 180.0}: name 't_2' is not defined"
+    },
+    {
+      "expr_id": "214",
+      "kind": "inequality_region",
+      "latex": "e^{-\\frac{\\left(x-\\operatorname{random}\\left(1000\\right)\\cdot1000+500\\right)^{2}+\\left(y-\\operatorname{random}\\left(1000\\right)\\cdot600+300\\right)^{2}}{1.1}}>0.0000001\\left\\{-\\sqrt{100000\\left(1-\\frac{x^{2}}{200000}\\right)}<y<\\sqrt{100000\\left(1-\\frac{x^{2}}{200000}\\right)}\\right\\}",
+      "reason": "Could not evaluate 'e^{-\\\\frac{(x-\\\\operatorname{random}(1000)\\\\cdot1000+500)^{2}+(y-\\\\operatorname{random}(1000)\\\\cdot600+300)^{2}}{1.1}}' with variables {'x': -562.4523117311907, 'y': -597.2364941883797, 'z': -588.2531271137204}: name 'r' is not defined"
+    },
+    {
+      "expr_id": "217",
+      "kind": "inequality_region",
+      "latex": "e^{-\\frac{\\left(x-\\operatorname{random}\\left(1000\\right)\\cdot1000+500\\right)^{2}+\\left(y-\\operatorname{random}\\left(1000\\right)\\cdot600+300\\right)^{2}}{1.1}}>0.0000001\\left\\{-\\sqrt{100000\\left(1-\\frac{x^{2}}{200000}\\right)}<y<\\sqrt{100000\\left(1-\\frac{x^{2}}{200000}\\right)}\\right\\}",
+      "reason": "Could not evaluate 'e^{-\\\\frac{(x-\\\\operatorname{random}(1000)\\\\cdot1000+500)^{2}+(y-\\\\operatorname{random}(1000)\\\\cdot600+300)^{2}}{1.1}}' with variables {'x': -562.4523117311907, 'y': -597.2364941883797, 'z': -588.2531271137204}: name 'r' is not defined"
+    },
+    {
+      "expr_id": "218",
+      "kind": "inequality_region",
+      "latex": "e^{-\\frac{\\left(x-\\operatorname{random}\\left(1000\\right)\\cdot1000+500\\right)^{2}+\\left(y-\\operatorname{random}\\left(1000\\right)\\cdot600+300\\right)^{2}}{1.1}}>0.0000001\\left\\{-\\sqrt{100000\\left(1-\\frac{x^{2}}{200000}\\right)}<y<\\sqrt{100000\\left(1-\\frac{x^{2}}{200000}\\right)}\\right\\}",
+      "reason": "Could not evaluate 'e^{-\\\\frac{(x-\\\\operatorname{random}(1000)\\\\cdot1000+500)^{2}+(y-\\\\operatorname{random}(1000)\\\\cdot600+300)^{2}}{1.1}}' with variables {'x': -562.4523117311907, 'y': -597.2364941883797, 'z': -588.2531271137204}: name 'r' is not defined"
+    },
+    {
+      "expr_id": "222",
+      "kind": "inequality_region",
+      "latex": "e^{-\\frac{\\left(x-\\operatorname{random}\\left(1000\\right)\\cdot1000+500\\right)^{2}+\\left(y-\\operatorname{random}\\left(1000\\right)\\cdot600+300\\right)^{2}}{1.1}}>0.0000001\\left\\{-\\sqrt{100000\\left(1-\\frac{x^{2}}{200000}\\right)}<y<\\sqrt{100000\\left(1-\\frac{x^{2}}{200000}\\right)}\\right\\}",
+      "reason": "Could not evaluate 'e^{-\\\\frac{(x-\\\\operatorname{random}(1000)\\\\cdot1000+500)^{2}+(y-\\\\operatorname{random}(1000)\\\\cdot600+300)^{2}}{1.1}}' with variables {'x': -562.4523117311907, 'y': -597.2364941883797, 'z': -588.2531271137204}: name 'r' is not defined"
+    },
+    {
+      "expr_id": "230",
+      "kind": "inequality_region",
+      "latex": "e^{-\\frac{\\left(x-\\operatorname{random}\\left(1000\\right)\\cdot1000+500\\right)^{2}+\\left(y-\\operatorname{random}\\left(1000\\right)\\cdot600+300\\right)^{2}}{1.1}}>0.0000001\\left\\{-\\sqrt{100000\\left(1-\\frac{x^{2}}{200000}\\right)}<y<\\sqrt{100000\\left(1-\\frac{x^{2}}{200000}\\right)}\\right\\}",
+      "reason": "Could not evaluate 'e^{-\\\\frac{(x-\\\\operatorname{random}(1000)\\\\cdot1000+500)^{2}+(y-\\\\operatorname{random}(1000)\\\\cdot600+300)^{2}}{1.1}}' with variables {'x': -562.4523117311907, 'y': -597.2364941883797, 'z': -588.2531271137204}: name 'r' is not defined"
+    },
+    {
+      "expr_id": "248",
+      "kind": "inequality_region",
+      "latex": "e^{-\\frac{\\left(x-\\operatorname{random}\\left(1000\\right)\\cdot1000+500\\right)^{2}+\\left(y-\\operatorname{random}\\left(1000\\right)\\cdot600+300\\right)^{2}}{1.1}}>0.0000001\\left\\{-\\sqrt{100000\\left(1-\\frac{x^{2}}{200000}\\right)}<y<\\sqrt{100000\\left(1-\\frac{x^{2}}{200000}\\right)}\\right\\}",
+      "reason": "Could not evaluate 'e^{-\\\\frac{(x-\\\\operatorname{random}(1000)\\\\cdot1000+500)^{2}+(y-\\\\operatorname{random}(1000)\\\\cdot600+300)^{2}}{1.1}}' with variables {'x': -562.4523117311907, 'y': -597.2364941883797, 'z': -588.2531271137204}: name 'r' is not defined"
+    },
+    {
+      "expr_id": "246",
+      "kind": "inequality_region",
+      "latex": "e^{-\\frac{\\left(x-\\operatorname{random}\\left(10000\\right)\\cdot1000+500\\right)^{2}+\\left(y-\\operatorname{random}\\left(10000\\right)\\cdot600+300\\right)^{2}}{1.1}}>0.0000001\\left\\{-\\sqrt{100000\\left(1-\\frac{x^{2}}{200000}\\right)}<y<\\sqrt{100000\\left(1-\\frac{x^{2}}{200000}\\right)}\\right\\}",
+      "reason": "Could not evaluate 'e^{-\\\\frac{(x-\\\\operatorname{random}(10000)\\\\cdot1000+500)^{2}+(y-\\\\operatorname{random}(10000)\\\\cdot600+300)^{2}}{1.1}}' with variables {'x': -562.4523117311907, 'y': -597.2364941883797, 'z': -588.2531271137204}: name 'r' is not defined"
+    }
+  ],
+  "unsupported_count": 25,
+  "usda_exists": true,
+  "usdz_exists": true,
+  "usdz_output": "artifacts/fixture_usdz/[4B] 3D Diagram - S2-06 Group E.usdz",
+  "usdz_package": {
+    "command": [
+      "/usr/bin/usdzip",
+      "/Users/chek/repos/desmos2usd-carey/artifacts/fixture_usdz/[4B] 3D Diagram - S2-06 Group E.usdz",
+      "[4B] 3D Diagram - S2-06 Group E.usda"
+    ],
+    "cwd": "/Users/chek/repos/desmos2usd-carey/artifacts/fixture_usdz",
+    "returncode": 0,
+    "stderr": "",
+    "stdout": "",
+    "tool": "usdzip"
+  },
+  "usdz_validation": null,
+  "valid": true,
+  "validations": [
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "213",
+      "face_count": 624,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 832,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "1",
+      "face_count": 20,
+      "kind": "implicit_surface",
+      "max_residual": null,
+      "point_count": 80,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "150",
+      "face_count": 20,
+      "kind": "implicit_surface",
+      "max_residual": null,
+      "point_count": 80,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "189",
+      "face_count": 144,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 192,
+      "valid": true
+    }
+  ]
 }

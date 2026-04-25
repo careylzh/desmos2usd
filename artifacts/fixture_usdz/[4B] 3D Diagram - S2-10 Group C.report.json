@@ -1,15 +1,92 @@
 {
   "acceptance_success": false,
-  "error": "Unsupported expression 39 'h\\\\left(x+238,y+058\\\\right)\\\\left\\\\{-100\\\\le y\\\\le100\\\\right\\\\}\\\\left\\\\{-100\\\\le x\\\\le100\\\\right\\\\}': not a supported renderable geometry form",
-  "error_stage": "classify",
-  "error_type": "ValueError",
+  "classified_expression_count": 7,
+  "complete": false,
   "fixture": "[4B] 3D Diagram - S2-10 Group C.json",
   "fixture_path": "fixtures/states/[4B] 3D Diagram - S2-10 Group C.json",
   "graph_hash": null,
-  "output": "/Users/careylai/Desktop/desmos2usd/artifacts/fixture_usdz/[4B] 3D Diagram - S2-10 Group C.usda",
+  "output": "artifacts/fixture_usdz/[4B] 3D Diagram - S2-10 Group C.usda",
+  "prim_count": 2,
+  "renderable_expression_count": 8,
   "resolution": 8,
-  "status": "error",
+  "status": "partial",
   "title": "Desmos graph",
-  "usdz_exists": false,
-  "usdz_output": "/Users/careylai/Desktop/desmos2usd/artifacts/fixture_usdz/[4B] 3D Diagram - S2-10 Group C.usdz"
+  "unsupported": [
+    {
+      "expr_id": "39",
+      "kind": "classification",
+      "latex": "h\\left(x+238,y+058\\right)\\left\\{-100\\le y\\le100\\right\\}\\left\\{-100\\le x\\le100\\right\\}",
+      "reason": "not a supported renderable geometry form"
+    },
+    {
+      "expr_id": "1",
+      "kind": "inequality_region",
+      "latex": "\\frac{x^{2}}{94.5^{2}}+\\frac{y^{2}}{78^{2}}<1\\left\\{\\frac{x^{2}}{94.5^{2}}+\\frac{y^{2}}{78^{2}}>0.905^{2}\\right\\}\\left\\{0\\le z\\le50\\right\\}\\left\\{\\min\\left(\\operatorname{mod}\\left(\\frac{\\left(\\arctan\\left(156x,198y\\right)+\\pi\\right)}{2\\pi},\\frac{1}{16}\\right)-\\frac{1}{32},z,20-z\\right)\\le0\\right\\}\\left\\{0.5^{2}<\\left(g\\left(x,y\\right)-0.5\\right)^{2}+\\left(\\frac{z-20}{20}\\right)^{2}\\right\\}",
+      "reason": "Could not evaluate '\\\\min(\\\\operatorname{mod}(\\\\frac{(\\\\arctan(156x,198y)+\\\\pi)}{2\\\\pi},\\\\frac{1}{16})-\\\\frac{1}{32},z,20-z)' with variables {'x': -22.851493708752773, 'y': -73.96486314464664, 'z': 0.0}: name 'm' is not defined"
+    },
+    {
+      "expr_id": "24",
+      "kind": "inequality_region",
+      "latex": "\\frac{x^{2}}{94.5^{2}}+\\frac{y^{2}}{78^{2}}<1\\left\\{\\frac{x^{2}}{94.5^{2}}+\\frac{y^{2}}{78^{2}}>0.905^{2}\\right\\}\\left\\{0\\le z-55.4\\le50\\right\\}\\left\\{\\min\\left(\\operatorname{mod}\\left(\\frac{\\left(\\arctan\\left(156x,198y\\right)+\\pi\\right)}{2\\pi},\\frac{1}{16}\\right)-\\frac{1}{32},z-55.4,20-z+55.4\\right)\\le0\\right\\}\\left\\{0.5^{2}<\\left(g\\left(x,y\\right)-0.5\\right)^{2}+\\left(\\frac{z-20-55.4}{20}\\right)^{2}\\right\\}\\left\\{\\frac{x^{2}}{94.5^{2}}+\\frac{y^{2}}{78^{2}}>0.0005\\left(z-55.4\\right)^{2}\\right\\}",
+      "reason": "Inequality region for 24 did not resolve to sampled cells"
+    },
+    {
+      "expr_id": "35",
+      "kind": "inequality_region",
+      "latex": "h\\left(\\operatorname{floor}\\left(\\frac{x}{6.6}\\right),\\operatorname{floor}\\left(\\frac{y}{6.6}\\right)\\right)<0.5\\left\\{\\operatorname{mod}\\left(x,6.6\\right)<\\left(6.6\\right)0.2\\right\\}\\left\\{\\frac{x^{2}}{94.5^{2}}+\\frac{y^{2}}{78^{2}}\\le0.905^{2}\\right\\}\\left\\{5\\le z\\le30\\right\\}",
+      "reason": "Could not evaluate 'h(\\\\operatorname{floor}(\\\\frac{x}{6.6}),\\\\operatorname{floor}(\\\\frac{y}{6.6}))' with variables {'x': -36.525488552217396, 'y': -114.98684767504099, 'z': 5.0}: Could not evaluate '\\\\operatorname{mod}(43758.5453\\\\sin(12.9898p_{1}+78.233p_{2}),1)' with variables {'p_1': -6, 'p_2': -18}: name 'm' is not defined"
+    },
+    {
+      "expr_id": "38",
+      "kind": "inequality_region",
+      "latex": "h\\left(\\operatorname{floor}\\left(\\frac{x+1000}{6.6}\\right),\\operatorname{floor}\\left(\\frac{y+1000}{6.6}\\right)\\right)<0.5\\left\\{\\operatorname{mod}\\left(y,6.6\\right)<\\left(6.6\\right)0.2\\right\\}\\left\\{\\frac{x^{2}}{94.5^{2}}+\\frac{y^{2}}{78^{2}}\\le0.905^{2}\\right\\}\\left\\{5\\le z\\le30\\right\\}",
+      "reason": "Could not evaluate 'h(\\\\operatorname{floor}(\\\\frac{x+1000}{6.6}),\\\\operatorname{floor}(\\\\frac{y+1000}{6.6}))' with variables {'x': -36.525488552217396, 'y': -114.98684767504099, 'z': 5.0}: Could not evaluate '\\\\operatorname{mod}(43758.5453\\\\sin(12.9898p_{1}+78.233p_{2}),1)' with variables {'p_1': 145, 'p_2': 134}: name 'm' is not defined"
+    },
+    {
+      "expr_id": "50",
+      "kind": "inequality_region",
+      "latex": "g\\left(x,y\\right)<-0.9\\left\\{\\frac{x^{2}}{94.5^{2}}+\\frac{y^{2}}{78^{2}}<0.905^{2}\\right\\}\\left\\{\\frac{x^{2}}{94.5^{2}}+\\frac{y^{2}}{78^{2}}>0.4525^{2}\\right\\}\\left\\{0\\le z\\le50\\right\\}\\left\\{\\frac{x^{2}}{94.5^{2}}+\\frac{y^{2}}{78^{2}}>0.00012z^{2}+0.4525^{2}\\right\\}",
+      "reason": "Could not evaluate 'g(x,y)' with variables {'x': -36.525488552217396, 'y': -114.98684767504099, 'z': 0.0}: Could not evaluate '32(\\\\operatorname{mod}(\\\\frac{(\\\\arctan(156x,198y)+\\\\pi)}{2\\\\pi},\\\\frac{1}{16})-\\\\frac{1}{32})' with variables {'x': -36.525488552217396, 'y': -114.98684767504099}: name 'm' is not defined"
+    }
+  ],
+  "unsupported_count": 6,
+  "usda_exists": true,
+  "usdz_exists": true,
+  "usdz_output": "artifacts/fixture_usdz/[4B] 3D Diagram - S2-10 Group C.usdz",
+  "usdz_package": {
+    "command": [
+      "/usr/bin/usdzip",
+      "/Users/chek/repos/desmos2usd-carey/artifacts/fixture_usdz/[4B] 3D Diagram - S2-10 Group C.usdz",
+      "[4B] 3D Diagram - S2-10 Group C.usda"
+    ],
+    "cwd": "/Users/chek/repos/desmos2usd-carey/artifacts/fixture_usdz",
+    "returncode": 0,
+    "stderr": "",
+    "stdout": "",
+    "tool": "usdzip"
+  },
+  "usdz_validation": null,
+  "valid": true,
+  "validations": [
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "23",
+      "face_count": 576,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 768,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "28",
+      "face_count": 2304,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 3072,
+      "valid": true
+    }
+  ]
 }

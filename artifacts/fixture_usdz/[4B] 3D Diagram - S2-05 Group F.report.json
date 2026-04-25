@@ -1,10 +1,11 @@
 {
   "acceptance_success": false,
+  "classified_expression_count": 16,
   "complete": false,
   "fixture": "[4B] 3D Diagram - S2-05 Group F.json",
   "fixture_path": "fixtures/states/[4B] 3D Diagram - S2-05 Group F.json",
   "graph_hash": null,
-  "output": "/Users/careylai/Desktop/desmos2usd/artifacts/fixture_usdz/[4B] 3D Diagram - S2-05 Group F.usda",
+  "output": "artifacts/fixture_usdz/[4B] 3D Diagram - S2-05 Group F.usda",
   "prim_count": 10,
   "renderable_expression_count": 16,
   "resolution": 8,
@@ -49,32 +50,22 @@
     }
   ],
   "unsupported_count": 6,
+  "usda_exists": true,
   "usdz_exists": true,
-  "usdz_output": "/Users/careylai/Desktop/desmos2usd/artifacts/fixture_usdz/[4B] 3D Diagram - S2-05 Group F.usdz",
+  "usdz_output": "artifacts/fixture_usdz/[4B] 3D Diagram - S2-05 Group F.usdz",
   "usdz_package": {
     "command": [
       "/usr/bin/usdzip",
-      "/Users/careylai/Desktop/desmos2usd/artifacts/fixture_usdz/[4B] 3D Diagram - S2-05 Group F.usdz",
+      "/Users/chek/repos/desmos2usd-carey/artifacts/fixture_usdz/[4B] 3D Diagram - S2-05 Group F.usdz",
       "[4B] 3D Diagram - S2-05 Group F.usda"
     ],
-    "cwd": "/Users/careylai/Desktop/desmos2usd/artifacts/fixture_usdz",
+    "cwd": "/Users/chek/repos/desmos2usd-carey/artifacts/fixture_usdz",
     "returncode": 0,
     "stderr": "",
     "stdout": "",
     "tool": "usdzip"
   },
-  "usdz_validation": {
-    "command": [
-      "/usr/bin/usdchecker",
-      "--arkit",
-      "/Users/careylai/Desktop/desmos2usd/artifacts/fixture_usdz/[4B] 3D Diagram - S2-05 Group F.usdz"
-    ],
-    "cwd": null,
-    "returncode": 0,
-    "stderr": "",
-    "stdout": "\nValidation Result with no explicit variants set\nSuccess!\n",
-    "tool": "usdchecker"
-  },
+  "usdz_validation": null,
   "valid": true,
   "validations": [
     {

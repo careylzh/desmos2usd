@@ -1,15 +1,1572 @@
 {
   "acceptance_success": false,
-  "error": "Failed to parse definition 51 's_{sidelength}\\\\ =\\\\ 2a\\\\left(\\\\sqrt{2}\\\\ -\\\\ 1\\\\right)': Could not evaluate '2a(\\\\sqrt{2}-1)' with variables {}: name 'a' is not defined",
-  "error_stage": "classify",
-  "error_type": "ValueError",
+  "classified_expression_count": 178,
+  "complete": false,
   "fixture": "[4B] 3D Diagram - S2-03 Group E.json",
   "fixture_path": "fixtures/states/[4B] 3D Diagram - S2-03 Group E.json",
   "graph_hash": null,
-  "output": "/Users/careylai/Desktop/desmos2usd/artifacts/fixture_usdz/[4B] 3D Diagram - S2-03 Group E.usda",
+  "output": "artifacts/fixture_usdz/[4B] 3D Diagram - S2-03 Group E.usda",
+  "prim_count": 99,
+  "renderable_expression_count": 190,
   "resolution": 8,
-  "status": "error",
+  "status": "partial",
   "title": "Desmos graph",
-  "usdz_exists": false,
-  "usdz_output": "/Users/careylai/Desktop/desmos2usd/artifacts/fixture_usdz/[4B] 3D Diagram - S2-03 Group E.usdz"
+  "unsupported": [
+    {
+      "expr_id": "51",
+      "kind": "definition",
+      "latex": "s_{sidelength}\\ =\\ 2a\\left(\\sqrt{2}\\ -\\ 1\\right)",
+      "reason": "Failed to parse definition: Could not evaluate '2a(\\\\sqrt{2}-1)' with variables {}: name 'a' is not defined"
+    },
+    {
+      "expr_id": "106",
+      "kind": "definition",
+      "latex": "p_{pattern}\\ =\\ s_{sidelength}\\ \\ \\cdot\\ \\left[0...24\\right]",
+      "reason": "Failed to parse definition: Could not parse 's_{sidelength}\\\\cdot[0...24]' as 's_sidelength*0..24': invalid syntax (<unknown>, line 1)"
+    },
+    {
+      "expr_id": "132",
+      "kind": "definition",
+      "latex": "p_{pattern2}\\ =\\ s_{sidelength}\\ \\ \\cdot\\ \\operatorname{join}\\left(\\left[0...8\\right],\\ \\left[17...24\\right]\\right)",
+      "reason": "Failed to parse definition: Could not parse 's_{sidelength}\\\\cdot\\\\operatorname{join}([0...8],[17...24])' as 's_sidelength*j*o*i*n(0..8,17..24)': invalid syntax. Perhaps you forgot a comma? (<unknown>, line 1)"
+    },
+    {
+      "expr_id": "136",
+      "kind": "definition",
+      "latex": "p_{pattern3}\\ =\\ s_{sidelength}\\ \\cdot\\ \\left[9...16\\right]",
+      "reason": "Failed to parse definition: Could not parse 's_{sidelength}\\\\cdot[9...16]' as 's_sidelength*9..16': invalid syntax (<unknown>, line 1)"
+    },
+    {
+      "expr_id": "300",
+      "kind": "definition",
+      "latex": "\\left(x\\ -\\ s\\right)^{2}\\ +\\ \\left(y\\ -\\ q\\right)^{2}\\ +\\ \\left(z\\ -\\ 17.8\\right)^{2}\\ =\\ c^{2}",
+      "reason": "Failed to parse definition: Could not evaluate 'c^{2}' with variables {}: name 'c' is not defined"
+    },
+    {
+      "expr_id": "323",
+      "kind": "definition",
+      "latex": "L\\ =\\left[0...7\\right]",
+      "reason": "Failed to parse definition: Could not parse '0...7' as '0..7': invalid syntax (<unknown>, line 1)"
+    },
+    {
+      "expr_id": "363_0",
+      "kind": "classification",
+      "latex": "\\left(x\\ -\\ 20.0\\right)^{2}\\ +\\ \\left(y\\ -\\ 20.0\\right)^{2}\\ +\\ \\left(z\\ -\\ \\left(18.5\\ +\\ 2.3\\ +\\ 0.3\\right)\\right)^{2}\\ =\\ s_{top}^{2}\\ \\left\\{z\\ \\ge\\ 18.5\\ +\\ 2.3\\ +\\ 0.3\\right\\}",
+      "reason": "not a supported renderable geometry form"
+    },
+    {
+      "expr_id": "363_1",
+      "kind": "classification",
+      "latex": "\\left(x\\ -\\ -20.0\\right)^{2}\\ +\\ \\left(y\\ -\\ 20.0\\right)^{2}\\ +\\ \\left(z\\ -\\ \\left(18.5\\ +\\ 2.3\\ +\\ 0.3\\right)\\right)^{2}\\ =\\ s_{top}^{2}\\ \\left\\{z\\ \\ge\\ 18.5\\ +\\ 2.3\\ +\\ 0.3\\right\\}",
+      "reason": "not a supported renderable geometry form"
+    },
+    {
+      "expr_id": "363_2",
+      "kind": "classification",
+      "latex": "\\left(x\\ -\\ 20.0\\right)^{2}\\ +\\ \\left(y\\ -\\ -20.0\\right)^{2}\\ +\\ \\left(z\\ -\\ \\left(18.5\\ +\\ 2.3\\ +\\ 0.3\\right)\\right)^{2}\\ =\\ s_{top}^{2}\\ \\left\\{z\\ \\ge\\ 18.5\\ +\\ 2.3\\ +\\ 0.3\\right\\}",
+      "reason": "not a supported renderable geometry form"
+    },
+    {
+      "expr_id": "363_3",
+      "kind": "classification",
+      "latex": "\\left(x\\ -\\ -20.0\\right)^{2}\\ +\\ \\left(y\\ -\\ -20.0\\right)^{2}\\ +\\ \\left(z\\ -\\ \\left(18.5\\ +\\ 2.3\\ +\\ 0.3\\right)\\right)^{2}\\ =\\ s_{top}^{2}\\ \\left\\{z\\ \\ge\\ 18.5\\ +\\ 2.3\\ +\\ 0.3\\right\\}",
+      "reason": "not a supported renderable geometry form"
+    },
+    {
+      "expr_id": "189",
+      "kind": "classification",
+      "latex": "x^{2}\\ +\\ y^{2}\\ +\\ \\left(z\\ -\\ \\left(2.5\\ +\\ d_{height}\\ +\\ 4\\ +\\ 2.5\\right)\\right)^{2}\\ =\\ \\left(t\\ +\\ 0.5\\right)^{2}\\ ",
+      "reason": "not a supported renderable geometry form"
+    },
+    {
+      "expr_id": "311",
+      "kind": "classification",
+      "latex": "\\operatorname{triangle}\\left(\\left(x_{pos}\\ +\\ r_{circumradius}\\cos\\left(\\frac{2\\pi T}{n_{sides}}\\ +\\ d_{turn}\\right),\\ y_{pos}\\ +\\ r_{circumradius}\\sin\\left(\\frac{2\\pi T}{n_{sides}}\\ +\\ d_{turn}\\right),\\ z_{pos}\\right),\\ \\left(x_{pos}\\ +\\ r_{circumradius}\\cos\\left(\\frac{2\\pi\\operatorname{mod}\\left(T\\ +\\ 1,\\ n_{sides}\\right)}{n_{sides}}\\ +\\ d_{turn}\\right),\\ y_{pos}\\ +\\ r_{circumradius}\\sin\\left(\\frac{2\\pi\\operatorname{mod}\\left(T\\ +\\ 1,\\ n_{sides}\\right)}{n_{sides}}\\ +\\ d_{turn}\\right),\\ z_{pos}\\right),\\ \\left(x_{pos},\\ y_{pos},\\ z_{pos2}\\right)\\right)\\ ",
+      "reason": "Unsupported triangle expression tail: '\\\\'"
+    },
+    {
+      "expr_id": "53",
+      "kind": "inequality_region",
+      "latex": "f_{1}.y-\\frac{s_{sidelength}}{2}\\ \\le\\ y\\le\\ f_{1}.y\\ +\\frac{s_{sidelength}}{2}\\ \\left\\{3\\ \\ge\\ z\\ \\ge\\ 2.8\\ \\right\\}\\left\\{-0.2\\ +\\ f_{1}.x\\ \\le\\ x\\le\\ 0.2+f_{1}.x\\right\\}",
+      "reason": "Could not evaluate 'f_{1}.y-\\\\frac{s_{sidelength}}{2}' with variables {'x': -38.288446875000005, 'z': 2.8}: name 'f_1' is not defined"
+    },
+    {
+      "expr_id": "55",
+      "kind": "inequality_region",
+      "latex": "f_{1}.y-\\frac{s_{sidelength}}{2}\\ \\le\\ y\\le\\ f_{1}.y\\ +\\frac{s_{sidelength}}{2}\\ \\left\\{2\\ \\ge\\ z\\ \\ge\\ 1.8\\ \\right\\}\\left\\{-0.2\\ +\\ f_{1}.x\\ \\le\\ x\\le\\ 0.2+f_{1}.x\\right\\}",
+      "reason": "Could not evaluate 'f_{1}.y-\\\\frac{s_{sidelength}}{2}' with variables {'x': -38.288446875000005, 'z': 1.8}: name 'f_1' is not defined"
+    },
+    {
+      "expr_id": "56",
+      "kind": "inequality_region",
+      "latex": "f_{1}.y-\\frac{s_{sidelength}}{2}\\ \\le\\ y\\le\\ f_{1}.y\\ +\\frac{s_{sidelength}}{2}\\ \\left\\{0.2\\ \\ge\\ z\\ \\ge\\ 0\\ \\right\\}\\left\\{-0.2\\ +\\ f_{1}.x\\ \\le\\ x\\le\\ 0.2+f_{1}.x\\right\\}",
+      "reason": "Could not evaluate 'f_{1}.y-\\\\frac{s_{sidelength}}{2}' with variables {'x': -38.288446875000005, 'z': 0.0}: name 'f_1' is not defined"
+    },
+    {
+      "expr_id": "57",
+      "kind": "inequality_region",
+      "latex": "f_{1}.y-\\frac{s_{sidelength}}{2}\\ \\le\\ y\\le\\ f_{1}.y\\ -\\frac{s_{sidelength}}{2}+\\ 0.2\\ \\left\\{3\\ \\ge\\ z\\ \\ge\\ 0\\ \\right\\}\\left\\{-0.2\\ +\\ f_{1}.x\\ \\le\\ x\\le\\ 0.2+f_{1}.x\\right\\}",
+      "reason": "Could not evaluate 'f_{1}.y-\\\\frac{s_{sidelength}}{2}' with variables {'x': -38.288446875000005, 'z': 0.0}: name 'f_1' is not defined"
+    },
+    {
+      "expr_id": "58",
+      "kind": "inequality_region",
+      "latex": "f_{1}.y+\\frac{s_{sidelength}}{2}\\ \\ge\\ y\\ge\\ f_{1}.y\\ +\\frac{s_{sidelength}}{2}-\\ 0.2\\ \\left\\{3\\ \\ge\\ z\\ \\ge\\ 0\\ \\right\\}\\left\\{-0.2\\ +\\ f_{1}.x\\ \\le\\ x\\le\\ 0.2+f_{1}.x\\right\\}",
+      "reason": "Could not evaluate 'f_{1}.y+\\\\frac{s_{sidelength}}{2}-0.2' with variables {'x': -38.288446875000005, 'z': 0.0}: name 'f_1' is not defined"
+    },
+    {
+      "expr_id": "63",
+      "kind": "inequality_region",
+      "latex": "f_{2}.y-\\frac{s_{sidelength}}{2}\\ \\le\\ y\\le\\ f_{2}.y\\ +\\frac{s_{sidelength}}{2}\\ \\left\\{3\\ \\ge\\ z\\ \\ge\\ 2.8\\ \\right\\}\\left\\{-0.2\\ +\\ f_{2}.x\\ \\le\\ x\\le\\ 0.2+f_{2}.x\\right\\}",
+      "reason": "Could not evaluate 'f_{2}.y-\\\\frac{s_{sidelength}}{2}' with variables {'x': -38.288446875000005, 'z': 2.8}: name 'f_2' is not defined"
+    },
+    {
+      "expr_id": "64",
+      "kind": "inequality_region",
+      "latex": "f_{2}.y-\\frac{s_{sidelength}}{2}\\ \\le\\ y\\le\\ f_{2}.y\\ +\\frac{s_{sidelength}}{2}\\ \\left\\{2\\ \\ge\\ z\\ \\ge\\ 1.8\\ \\right\\}\\left\\{-0.2\\ +\\ f_{2}.x\\ \\le\\ x\\le\\ 0.2+f_{2}.x\\right\\}",
+      "reason": "Could not evaluate 'f_{2}.y-\\\\frac{s_{sidelength}}{2}' with variables {'x': -38.288446875000005, 'z': 1.8}: name 'f_2' is not defined"
+    },
+    {
+      "expr_id": "65",
+      "kind": "inequality_region",
+      "latex": "f_{2}.y-\\frac{s_{sidelength}}{2}\\ \\le\\ y\\le\\ f_{2}.y\\ +\\frac{s_{sidelength}}{2}\\ \\left\\{0.2\\ \\ge\\ z\\ \\ge\\ 0\\ \\right\\}\\left\\{-0.2\\ +\\ f_{2}.x\\ \\le\\ x\\le\\ 0.2+f_{2}.x\\right\\}",
+      "reason": "Could not evaluate 'f_{2}.y-\\\\frac{s_{sidelength}}{2}' with variables {'x': -38.288446875000005, 'z': 0.0}: name 'f_2' is not defined"
+    },
+    {
+      "expr_id": "66",
+      "kind": "inequality_region",
+      "latex": "f_{2}.y-\\frac{s_{sidelength}}{2}\\ \\le\\ y\\le\\ f_{2}.y\\ -\\frac{s_{sidelength}}{2}+0.2\\ \\left\\{3\\ \\ge\\ z\\ \\ge\\ 0\\right\\}\\left\\{-0.2\\ +\\ f_{2}.x\\ \\le\\ x\\le\\ 0.2+f_{2}.x\\right\\}",
+      "reason": "Could not evaluate 'f_{2}.y-\\\\frac{s_{sidelength}}{2}' with variables {'x': -38.288446875000005, 'z': 0.0}: name 'f_2' is not defined"
+    },
+    {
+      "expr_id": "67",
+      "kind": "inequality_region",
+      "latex": "f_{2}.y+\\frac{s_{sidelength}}{2}\\ \\ge\\ y\\ge\\ f_{2}.y\\ +\\frac{s_{sidelength}}{2}-0.2\\ \\left\\{3\\ \\ge\\ z\\ \\ge\\ 0\\right\\}\\left\\{-0.2\\ +\\ f_{2}.x\\ \\le\\ x\\le\\ 0.2+f_{2}.x\\right\\}",
+      "reason": "Could not evaluate 'f_{2}.y+\\\\frac{s_{sidelength}}{2}-0.2' with variables {'x': -38.288446875000005, 'z': 0.0}: name 'f_2' is not defined"
+    },
+    {
+      "expr_id": "68",
+      "kind": "inequality_region",
+      "latex": "f_{3}.x-\\frac{s_{sidelength}}{2}\\ \\le\\ x\\le\\ f_{3}.x\\ +\\frac{s_{sidelength}}{2}\\ \\left\\{3\\ \\ge\\ z\\ \\ge\\ 2.8\\ \\right\\}\\left\\{-0.2\\ +\\ f_{3}.y\\ \\le\\ y\\le\\ 0.2+f_{3}.y\\right\\}",
+      "reason": "Could not evaluate 'f_{3}.x-\\\\frac{s_{sidelength}}{2}' with variables {'y': -38.288446875000005, 'z': 2.8}: name 'f_3' is not defined"
+    },
+    {
+      "expr_id": "70",
+      "kind": "inequality_region",
+      "latex": "f_{3}.x-\\frac{s_{sidelength}}{2}\\ \\le\\ x\\le\\ f_{3}.x\\ +\\frac{s_{sidelength}}{2}\\ \\left\\{2\\ \\ge\\ z\\ \\ge\\ 1.8\\ \\right\\}\\left\\{-0.2\\ +\\ f_{3}.y\\ \\le\\ y\\le\\ 0.2+f_{3}.y\\right\\}",
+      "reason": "Could not evaluate 'f_{3}.x-\\\\frac{s_{sidelength}}{2}' with variables {'y': -38.288446875000005, 'z': 1.8}: name 'f_3' is not defined"
+    },
+    {
+      "expr_id": "71",
+      "kind": "inequality_region",
+      "latex": "f_{3}.x-\\frac{s_{sidelength}}{2}\\ \\le\\ x\\le\\ f_{3}.x\\ +\\frac{s_{sidelength}}{2}\\ \\left\\{0.2\\ \\ge\\ z\\ \\ge\\ 0\\ \\right\\}\\left\\{-0.2\\ +\\ f_{3}.y\\ \\le\\ y\\le\\ 0.2+f_{3}.y\\right\\}",
+      "reason": "Could not evaluate 'f_{3}.x-\\\\frac{s_{sidelength}}{2}' with variables {'y': -38.288446875000005, 'z': 0.0}: name 'f_3' is not defined"
+    },
+    {
+      "expr_id": "72",
+      "kind": "inequality_region",
+      "latex": "f_{3}.x-\\frac{s_{sidelength}}{2}\\ \\le\\ x\\le\\ f_{3}.x\\ -\\frac{s_{sidelength}}{2}\\ +\\ 0.2\\left\\{3\\ \\ge\\ z\\ \\ge\\ 0\\ \\right\\}\\left\\{-0.2\\ +\\ f_{3}.y\\ \\le\\ y\\le\\ 0.2+f_{3}.y\\right\\}",
+      "reason": "Could not evaluate 'f_{3}.x-\\\\frac{s_{sidelength}}{2}' with variables {'y': -38.288446875000005, 'z': 0.0}: name 'f_3' is not defined"
+    },
+    {
+      "expr_id": "73",
+      "kind": "inequality_region",
+      "latex": "f_{3}.x+\\frac{s_{sidelength}}{2}\\ \\ge\\ x\\ge\\ f_{3}.x\\ +\\frac{s_{sidelength}}{2}\\ -\\ 0.2\\left\\{3\\ \\ge\\ z\\ \\ge\\ 0\\ \\right\\}\\left\\{-0.2\\ +\\ f_{3}.y\\ \\le\\ y\\le\\ 0.2+f_{3}.y\\right\\}",
+      "reason": "Could not evaluate 'f_{3}.x+\\\\frac{s_{sidelength}}{2}-0.2' with variables {'y': -38.288446875000005, 'z': 0.0}: name 'f_3' is not defined"
+    },
+    {
+      "expr_id": "74",
+      "kind": "inequality_region",
+      "latex": "f_{4}.x-\\frac{s_{sidelength}}{2}\\ \\le\\ x\\le\\ f_{4}.x\\ +\\frac{s_{sidelength}}{2}\\ \\left\\{3\\ \\ge\\ z\\ \\ge\\ 2.8\\ \\right\\}\\left\\{-0.2\\ +\\ f_{4}.y\\ \\le\\ y\\le\\ 0.2+f_{4}.y\\right\\}",
+      "reason": "Could not evaluate 'f_{4}.x-\\\\frac{s_{sidelength}}{2}' with variables {'y': -38.288446875000005, 'z': 2.8}: name 'f_4' is not defined"
+    },
+    {
+      "expr_id": "75",
+      "kind": "inequality_region",
+      "latex": "f_{4}.x-\\frac{s_{sidelength}}{2}\\ \\le\\ x\\le\\ f_{4}.x\\ +\\frac{s_{sidelength}}{2}\\ \\left\\{2\\ \\ge\\ z\\ \\ge\\ 1.8\\ \\right\\}\\left\\{-0.2\\ +\\ f_{4}.y\\ \\le\\ y\\le\\ 0.2+f_{4}.y\\right\\}",
+      "reason": "Could not evaluate 'f_{4}.x-\\\\frac{s_{sidelength}}{2}' with variables {'y': -38.288446875000005, 'z': 1.8}: name 'f_4' is not defined"
+    },
+    {
+      "expr_id": "76",
+      "kind": "inequality_region",
+      "latex": "f_{4}.x-\\frac{s_{sidelength}}{2}\\ \\le\\ x\\le\\ f_{4}.x\\ +\\frac{s_{sidelength}}{2}\\ \\left\\{0.2\\ \\ge\\ z\\ \\ge\\ 0\\ \\right\\}\\left\\{-0.2\\ +\\ f_{4}.y\\ \\le\\ y\\le\\ 0.2+f_{4}.y\\right\\}",
+      "reason": "Could not evaluate 'f_{4}.x-\\\\frac{s_{sidelength}}{2}' with variables {'y': -38.288446875000005, 'z': 0.0}: name 'f_4' is not defined"
+    },
+    {
+      "expr_id": "77",
+      "kind": "inequality_region",
+      "latex": "f_{4}.x-\\frac{s_{sidelength}}{2}\\ \\le\\ x\\le\\ f_{4}.x\\ -\\frac{s_{sidelength}}{2}\\ +\\ 0.2\\left\\{3\\ \\ge\\ z\\ \\ge\\ 0\\ \\right\\}\\left\\{-0.2\\ +\\ f_{4}.y\\ \\le\\ y\\le\\ 0.2+f_{4}.y\\right\\}",
+      "reason": "Could not evaluate 'f_{4}.x-\\\\frac{s_{sidelength}}{2}' with variables {'y': -38.288446875000005, 'z': 0.0}: name 'f_4' is not defined"
+    },
+    {
+      "expr_id": "78",
+      "kind": "inequality_region",
+      "latex": "f_{4}.x+\\frac{s_{sidelength}}{2}\\ \\ge\\ x\\ge\\ f_{4}.x\\ +\\frac{s_{sidelength}}{2}\\ -\\ 0.2\\left\\{3\\ \\ge\\ z\\ \\ge\\ 0\\ \\right\\}\\left\\{-0.2\\ +\\ f_{4}.y\\ \\le\\ y\\le\\ 0.2+f_{4}.y\\right\\}",
+      "reason": "Could not evaluate 'f_{4}.x+\\\\frac{s_{sidelength}}{2}-0.2' with variables {'y': -38.288446875000005, 'z': 0.0}: name 'f_4' is not defined"
+    },
+    {
+      "expr_id": "84",
+      "kind": "inequality_region",
+      "latex": "-\\frac{s_{sidelength}}{2}\\ \\le\\ \\frac{\\left(x-f_{5}.x\\ -\\left(\\ y-f_{5}.y\\right)\\right)}{\\sqrt{2}}\\le\\ \\frac{s_{sidelength}}{2}\\ \\left\\{3\\ \\ge\\ z\\ \\ge\\ 2.8\\ \\right\\}\\left\\{-0.2\\ \\le\\ \\frac{\\left(y-f_{5}.y+\\left(x-f_{5}.x\\right)\\right)}{-\\sqrt{2}}\\le\\ 0.2\\right\\}",
+      "reason": "Could not evaluate '-\\\\frac{s_{sidelength}}{2}' with variables {'x': -38.288446875000005, 'y': -38.288446875000005, 'z': 2.8}: name 's_sidelength' is not defined"
+    },
+    {
+      "expr_id": "85",
+      "kind": "inequality_region",
+      "latex": "-\\frac{s_{sidelength}}{2}\\ \\le\\ \\frac{\\left(x-f_{5}.x\\ -\\left(\\ y-f_{5}.y\\right)\\right)}{\\sqrt{2}}\\le\\ \\frac{s_{sidelength}}{2}\\ \\left\\{2\\ \\ge\\ z\\ \\ge\\ 1.8\\ \\right\\}\\left\\{-0.2\\ \\le\\ \\frac{\\left(y-f_{5}.y+\\left(x-f_{5}.x\\right)\\right)}{-\\sqrt{2}}\\le\\ 0.2\\right\\}",
+      "reason": "Could not evaluate '-\\\\frac{s_{sidelength}}{2}' with variables {'x': -38.288446875000005, 'y': -38.288446875000005, 'z': 1.8}: name 's_sidelength' is not defined"
+    },
+    {
+      "expr_id": "86",
+      "kind": "inequality_region",
+      "latex": "-\\frac{s_{sidelength}}{2}\\ \\le\\ \\frac{\\left(x-f_{5}.x\\ -\\left(\\ y-f_{5}.y\\right)\\right)}{\\sqrt{2}}\\le\\ \\frac{s_{sidelength}}{2}\\ \\left\\{0.2\\ \\ge\\ z\\ \\ge\\ 0\\ \\right\\}\\left\\{-0.2\\ \\le\\ \\frac{\\left(y-f_{5}.y+\\left(x-f_{5}.x\\right)\\right)}{-\\sqrt{2}}\\le\\ 0.2\\right\\}",
+      "reason": "Could not evaluate '-\\\\frac{s_{sidelength}}{2}' with variables {'x': -38.288446875000005, 'y': -38.288446875000005, 'z': 0.0}: name 's_sidelength' is not defined"
+    },
+    {
+      "expr_id": "87",
+      "kind": "inequality_region",
+      "latex": "-\\frac{s_{sidelength}}{2}\\ \\le\\ \\frac{\\left(x-f_{5}.x\\ -\\left(\\ y-f_{5}.y\\right)\\right)}{\\sqrt{2}}\\le\\ -\\frac{s_{sidelength}}{2}\\ +\\ 0.2\\left\\{3\\ \\ge\\ z\\ \\ge\\ 0\\right\\}\\left\\{-0.2\\ \\le\\ \\frac{\\left(y-f_{5}.y+\\left(x-f_{5}.x\\right)\\right)}{-\\sqrt{2}}\\le\\ 0.2\\right\\}",
+      "reason": "Could not evaluate '-\\\\frac{s_{sidelength}}{2}' with variables {'x': -38.288446875000005, 'y': -38.288446875000005, 'z': 0.0}: name 's_sidelength' is not defined"
+    },
+    {
+      "expr_id": "88",
+      "kind": "inequality_region",
+      "latex": "\\frac{s_{sidelength}}{2}\\ \\ge\\ \\frac{\\left(x-f_{5}.x\\ -\\left(\\ y-f_{5}.y\\right)\\right)}{\\sqrt{2}}\\ge\\ \\frac{s_{sidelength}}{2}\\ -\\ 0.2\\left\\{3\\ \\ge\\ z\\ \\ge\\ 0\\right\\}\\left\\{-0.2\\ \\le\\ \\frac{\\left(y-f_{5}.y+\\left(x-f_{5}.x\\right)\\right)}{-\\sqrt{2}}\\le\\ 0.2\\right\\}",
+      "reason": "Could not evaluate '\\\\frac{s_{sidelength}}{2}' with variables {'x': -38.288446875000005, 'y': -38.288446875000005, 'z': 0.0}: name 's_sidelength' is not defined"
+    },
+    {
+      "expr_id": "89",
+      "kind": "inequality_region",
+      "latex": "-\\frac{s_{sidelength}}{2}\\ \\le\\ \\frac{\\left(x-f_{6}.x\\ +\\left(\\ y-f_{6}.y\\right)\\right)}{\\sqrt{2}}\\le\\ \\frac{s_{sidelength}}{2}\\ \\left\\{3\\ \\ge\\ z\\ \\ge\\ 2.8\\ \\right\\}\\left\\{-0.2\\ \\le\\ \\frac{\\left(y-f_{6}.y-\\left(x-f_{6}.x\\right)\\right)}{-\\sqrt{2}}\\le\\ 0.2\\right\\}",
+      "reason": "Could not evaluate '-\\\\frac{s_{sidelength}}{2}' with variables {'x': -38.288446875000005, 'y': -38.288446875000005, 'z': 2.8}: name 's_sidelength' is not defined"
+    },
+    {
+      "expr_id": "90",
+      "kind": "inequality_region",
+      "latex": "-\\frac{s_{sidelength}}{2}\\ \\le\\ \\frac{\\left(x-f_{6}.x\\ +\\left(\\ y-f_{6}.y\\right)\\right)}{\\sqrt{2}}\\le\\ \\frac{s_{sidelength}}{2}\\ \\left\\{2\\ \\ge\\ z\\ \\ge\\ 1.8\\ \\right\\}\\left\\{-0.2\\ \\le\\ \\frac{\\left(y-f_{6}.y-\\left(x-f_{6}.x\\right)\\right)}{-\\sqrt{2}}\\le\\ 0.2\\right\\}",
+      "reason": "Could not evaluate '-\\\\frac{s_{sidelength}}{2}' with variables {'x': -38.288446875000005, 'y': -38.288446875000005, 'z': 1.8}: name 's_sidelength' is not defined"
+    },
+    {
+      "expr_id": "91",
+      "kind": "inequality_region",
+      "latex": "-\\frac{s_{sidelength}}{2}\\ \\le\\ \\frac{\\left(x-f_{6}.x\\ +\\left(\\ y-f_{6}.y\\right)\\right)}{\\sqrt{2}}\\le\\ \\frac{s_{sidelength}}{2}\\ \\left\\{0.2\\ \\ge\\ z\\ \\ge\\ 0\\ \\right\\}\\left\\{-0.2\\ \\le\\ \\frac{\\left(y-f_{6}.y-\\left(x-f_{6}.x\\right)\\right)}{-\\sqrt{2}}\\le\\ 0.2\\right\\}",
+      "reason": "Could not evaluate '-\\\\frac{s_{sidelength}}{2}' with variables {'x': -38.288446875000005, 'y': -38.288446875000005, 'z': 0.0}: name 's_sidelength' is not defined"
+    },
+    {
+      "expr_id": "92",
+      "kind": "inequality_region",
+      "latex": "-\\frac{s_{sidelength}}{2}\\ \\le\\ \\frac{\\left(x-f_{6}.x\\ +\\left(\\ y-f_{6}.y\\right)\\right)}{\\sqrt{2}}\\le\\ -\\frac{s_{sidelength}}{2}\\ +\\ 0.2\\ \\left\\{3\\ \\ge\\ z\\ \\ge\\ 0\\ \\right\\}\\left\\{-0.2\\ \\le\\ \\frac{\\left(y-f_{6}.y-\\left(x-f_{6}.x\\right)\\right)}{-\\sqrt{2}}\\le\\ 0.2\\right\\}",
+      "reason": "Could not evaluate '-\\\\frac{s_{sidelength}}{2}' with variables {'x': -38.288446875000005, 'y': -38.288446875000005, 'z': 0.0}: name 's_sidelength' is not defined"
+    },
+    {
+      "expr_id": "93",
+      "kind": "inequality_region",
+      "latex": "\\frac{s_{sidelength}}{2}\\ \\ge\\ \\frac{\\left(x-f_{6}.x\\ +\\left(\\ y-f_{6}.y\\right)\\right)}{\\sqrt{2}}\\ge\\ \\frac{s_{sidelength}}{2}\\ -\\ 0.2\\ \\left\\{3\\ \\ge\\ z\\ \\ge\\ 0\\ \\right\\}\\left\\{-0.2\\ \\le\\ \\frac{\\left(y-f_{6}.y-\\left(x-f_{6}.x\\right)\\right)}{-\\sqrt{2}}\\le\\ 0.2\\right\\}",
+      "reason": "Could not evaluate '\\\\frac{s_{sidelength}}{2}' with variables {'x': -38.288446875000005, 'y': -38.288446875000005, 'z': 0.0}: name 's_sidelength' is not defined"
+    },
+    {
+      "expr_id": "99",
+      "kind": "inequality_region",
+      "latex": "-\\frac{s_{sidelength}}{2}\\ \\le\\ \\frac{\\left(x-f_{7}.x\\ +\\left(\\ y-f_{7}.y\\right)\\right)}{\\sqrt{2}}\\le\\ \\frac{s_{sidelength}}{2}\\ \\left\\{3\\ \\ge\\ z\\ \\ge\\ 2.8\\ \\right\\}\\left\\{-0.2\\ \\le\\ \\frac{\\left(y-f_{7}.y-\\left(x-f_{7}.x\\right)\\right)}{-\\sqrt{2}}\\le\\ 0.2\\right\\}",
+      "reason": "Could not evaluate '-\\\\frac{s_{sidelength}}{2}' with variables {'x': -38.288446875000005, 'y': -38.288446875000005, 'z': 2.8}: name 's_sidelength' is not defined"
+    },
+    {
+      "expr_id": "100",
+      "kind": "inequality_region",
+      "latex": "-\\frac{s_{sidelength}}{2}\\ \\le\\ \\frac{\\left(x-f_{7}.x\\ +\\left(\\ y-f_{7}.y\\right)\\right)}{\\sqrt{2}}\\le\\ \\frac{s_{sidelength}}{2}\\ \\left\\{2\\ \\ge\\ z\\ \\ge\\ 1.8\\ \\right\\}\\left\\{-0.2\\ \\le\\ \\frac{\\left(y-f_{7}.y-\\left(x-f_{7}.x\\right)\\right)}{-\\sqrt{2}}\\le\\ 0.2\\right\\}",
+      "reason": "Could not evaluate '-\\\\frac{s_{sidelength}}{2}' with variables {'x': -38.288446875000005, 'y': -38.288446875000005, 'z': 1.8}: name 's_sidelength' is not defined"
+    },
+    {
+      "expr_id": "102",
+      "kind": "inequality_region",
+      "latex": "-\\frac{s_{sidelength}}{2}\\ \\le\\ \\frac{\\left(x-f_{7}.x\\ +\\left(\\ y-f_{7}.y\\right)\\right)}{\\sqrt{2}}\\le\\ -\\frac{s_{sidelength}}{2}\\ +\\ 0.2\\ \\left\\{3\\ \\ge\\ z\\ \\ge\\ 0\\ \\right\\}\\left\\{-0.2\\ \\le\\ \\frac{\\left(y-f_{7}.y-\\left(x-f_{7}.x\\right)\\right)}{-\\sqrt{2}}\\le\\ 0.2\\right\\}",
+      "reason": "Could not evaluate '-\\\\frac{s_{sidelength}}{2}' with variables {'x': -38.288446875000005, 'y': -38.288446875000005, 'z': 0.0}: name 's_sidelength' is not defined"
+    },
+    {
+      "expr_id": "103",
+      "kind": "inequality_region",
+      "latex": "\\frac{s_{sidelength}}{2}\\ \\ge\\ \\frac{\\left(x-f_{7}.x\\ +\\left(\\ y-f_{7}.y\\right)\\right)}{\\sqrt{2}}\\ge\\ \\frac{s_{sidelength}}{2}\\ -\\ 0.2\\ \\left\\{3\\ \\ge\\ z\\ \\ge\\ 0\\ \\right\\}\\left\\{-0.2\\ \\le\\ \\frac{\\left(y-f_{7}.y-\\left(x-f_{7}.x\\right)\\right)}{-\\sqrt{2}}\\le\\ 0.2\\right\\}",
+      "reason": "Could not evaluate '\\\\frac{s_{sidelength}}{2}' with variables {'x': -38.288446875000005, 'y': -38.288446875000005, 'z': 0.0}: name 's_sidelength' is not defined"
+    },
+    {
+      "expr_id": "94",
+      "kind": "inequality_region",
+      "latex": "-\\frac{s_{sidelength}}{2}\\ \\le\\ \\frac{\\left(x-f_{8}.x\\ -\\left(\\ y-f_{8}.y\\right)\\right)}{\\sqrt{2}}\\le\\ \\frac{s_{sidelength}}{2}\\ \\left\\{3\\ \\ge\\ z\\ \\ge\\ 2.8\\ \\right\\}\\left\\{-0.2\\ \\le\\ \\frac{\\left(y-f_{8}.y+\\left(x-f_{8}.x\\right)\\right)}{-\\sqrt{2}}\\le\\ 0.2\\right\\}",
+      "reason": "Could not evaluate '-\\\\frac{s_{sidelength}}{2}' with variables {'x': -38.288446875000005, 'y': -38.288446875000005, 'z': 2.8}: name 's_sidelength' is not defined"
+    },
+    {
+      "expr_id": "95",
+      "kind": "inequality_region",
+      "latex": "-\\frac{s_{sidelength}}{2}\\ \\le\\ \\frac{\\left(x-f_{8}.x\\ -\\left(\\ y-f_{8}.y\\right)\\right)}{\\sqrt{2}}\\le\\ \\frac{s_{sidelength}}{2}\\ \\left\\{2\\ \\ge\\ z\\ \\ge\\ 1.8\\ \\right\\}\\left\\{-0.2\\ \\le\\ \\frac{\\left(y-f_{8}.y+\\left(x-f_{8}.x\\right)\\right)}{-\\sqrt{2}}\\le\\ 0.2\\right\\}",
+      "reason": "Could not evaluate '-\\\\frac{s_{sidelength}}{2}' with variables {'x': -38.288446875000005, 'y': -38.288446875000005, 'z': 1.8}: name 's_sidelength' is not defined"
+    },
+    {
+      "expr_id": "96",
+      "kind": "inequality_region",
+      "latex": "-\\frac{s_{sidelength}}{2}\\ \\le\\ \\frac{\\left(x-f_{8}.x\\ -\\left(\\ y-f_{8}.y\\right)\\right)}{\\sqrt{2}}\\le\\ \\frac{s_{sidelength}}{2}\\ \\left\\{0.2\\ \\ge\\ z\\ \\ge\\ 0\\ \\right\\}\\left\\{-0.2\\ \\le\\ \\frac{\\left(y-f_{8}.y+\\left(x-f_{8}.x\\right)\\right)}{-\\sqrt{2}}\\le\\ 0.2\\right\\}",
+      "reason": "Could not evaluate '-\\\\frac{s_{sidelength}}{2}' with variables {'x': -38.288446875000005, 'y': -38.288446875000005, 'z': 0.0}: name 's_sidelength' is not defined"
+    },
+    {
+      "expr_id": "97",
+      "kind": "inequality_region",
+      "latex": "-\\frac{s_{sidelength}}{2}\\ \\le\\ \\frac{\\left(x-f_{8}.x\\ -\\left(\\ y-f_{8}.y\\right)\\right)}{\\sqrt{2}}\\le\\ -\\frac{s_{sidelength}}{2}\\ +\\ 0.2\\ \\left\\{3\\ \\ge\\ z\\ \\ge\\ 0\\ \\right\\}\\left\\{-0.2\\ \\le\\ \\frac{\\left(y-f_{8}.y+\\left(x-f_{8}.x\\right)\\right)}{-\\sqrt{2}}\\le\\ 0.2\\right\\}",
+      "reason": "Could not evaluate '-\\\\frac{s_{sidelength}}{2}' with variables {'x': -38.288446875000005, 'y': -38.288446875000005, 'z': 0.0}: name 's_sidelength' is not defined"
+    },
+    {
+      "expr_id": "98",
+      "kind": "inequality_region",
+      "latex": "\\frac{s_{sidelength}}{2}\\ \\ge\\ \\frac{\\left(x-f_{8}.x\\ -\\left(\\ y-f_{8}.y\\right)\\right)}{\\sqrt{2}}\\ge\\frac{s_{sidelength}}{2}\\ -\\ 0.2\\ \\left\\{3\\ \\ge\\ z\\ \\ge\\ 0\\ \\right\\}\\left\\{-0.2\\ \\le\\ \\frac{\\left(y-f_{8}.y+\\left(x-f_{8}.x\\right)\\right)}{-\\sqrt{2}}\\le\\ 0.2\\right\\}",
+      "reason": "Could not evaluate '\\\\frac{s_{sidelength}}{2}' with variables {'x': -38.288446875000005, 'y': -38.288446875000005, 'z': 0.0}: name 's_sidelength' is not defined"
+    },
+    {
+      "expr_id": "110",
+      "kind": "inequality_region",
+      "latex": "20.5\\ \\le y\\ \\le\\ 20.5\\ +\\ 0.2\\left\\{3\\ \\ge\\ z\\ \\ge0\\right\\}\\left\\{20.5\\ -\\ p_{pattern}\\ \\ge x\\ge20.3-p_{pattern}\\right\\}",
+      "reason": "Could not evaluate '20.5-p_{pattern}' with variables {'x': -38.288446875000005, 'y': 20.5, 'z': 0.0}: name 'p_pattern' is not defined"
+    },
+    {
+      "expr_id": "117",
+      "kind": "inequality_region",
+      "latex": "-20.5\\ \\ge y\\ \\ge\\ -20.5\\ -\\ 0.2\\left\\{3\\ \\ge\\ z\\ \\ge0\\right\\}\\left\\{20.5\\ -\\ p_{pattern}\\ \\ge x\\ge20.3-p_{pattern}\\right\\}",
+      "reason": "Could not evaluate '20.5-p_{pattern}' with variables {'x': -38.288446875000005, 'y': -20.7, 'z': 0.0}: name 'p_pattern' is not defined"
+    },
+    {
+      "expr_id": "123",
+      "kind": "inequality_region",
+      "latex": "-20.5\\ \\ge x\\ \\ge\\ -20.5\\ -\\ 0.2\\left\\{3\\ \\ge\\ z\\ \\ge0\\right\\}\\left\\{20.5\\ -\\ p_{pattern}\\ \\ge y\\ge20.3-p_{pattern}\\right\\}",
+      "reason": "Could not evaluate '20.5-p_{pattern}' with variables {'x': -20.7, 'y': -38.288446875000005, 'z': 0.0}: name 'p_pattern' is not defined"
+    },
+    {
+      "expr_id": "131",
+      "kind": "inequality_region",
+      "latex": "20.5\\ \\le x\\ \\le\\ 20.5\\ +\\ 0.2\\left\\{3\\ \\ge\\ z\\ \\ge0\\right\\}\\left\\{20.5\\ -\\ p_{pattern2}\\ \\ge y\\ge20.3-p_{pattern2}\\right\\}",
+      "reason": "Could not evaluate '20.5-p_{pattern2}' with variables {'x': 20.5, 'y': -38.288446875000005, 'z': 0.0}: name 'p_pattern2' is not defined"
+    },
+    {
+      "expr_id": "140",
+      "kind": "inequality_region",
+      "latex": "23.5\\ \\le x\\ \\le\\ 23.5\\ +\\ 0.2\\left\\{3\\ \\ge\\ z\\ \\ge0\\right\\}\\left\\{20.5\\ -\\ p_{pattern3}\\ \\ge y\\ge20.3-p_{pattern3}\\right\\}",
+      "reason": "Could not evaluate '20.5-p_{pattern3}' with variables {'x': 23.5, 'y': -38.288446875000005, 'z': 0.0}: name 'p_pattern3' is not defined"
+    },
+    {
+      "expr_id": "353_0",
+      "kind": "inequality_region",
+      "latex": "\\left(x\\ -\\ 20.0\\right)^{\\ 2}\\ +\\ \\left(y\\ -\\ 20.0\\right)^{2}\\ \\le\\ (a-0.7)-0.5*(z-2.5)/17.5\\ \\left\\{2.5\\ \\le\\ z\\ \\le18\\right\\}",
+      "reason": "Inequality region for 353_0 did not resolve to sampled cells"
+    },
+    {
+      "expr_id": "353_1",
+      "kind": "inequality_region",
+      "latex": "\\left(x\\ -\\ -20.0\\right)^{\\ 2}\\ +\\ \\left(y\\ -\\ 20.0\\right)^{2}\\ \\le\\ (a-0.7)-0.5*(z-2.5)/17.5\\ \\left\\{2.5\\ \\le\\ z\\ \\le18\\right\\}",
+      "reason": "Inequality region for 353_1 did not resolve to sampled cells"
+    },
+    {
+      "expr_id": "353_2",
+      "kind": "inequality_region",
+      "latex": "\\left(x\\ -\\ 20.0\\right)^{\\ 2}\\ +\\ \\left(y\\ -\\ -20.0\\right)^{2}\\ \\le\\ (a-0.7)-0.5*(z-2.5)/17.5\\ \\left\\{2.5\\ \\le\\ z\\ \\le18\\right\\}",
+      "reason": "Inequality region for 353_2 did not resolve to sampled cells"
+    },
+    {
+      "expr_id": "353_3",
+      "kind": "inequality_region",
+      "latex": "\\left(x\\ -\\ -20.0\\right)^{\\ 2}\\ +\\ \\left(y\\ -\\ -20.0\\right)^{2}\\ \\le\\ (a-0.7)-0.5*(z-2.5)/17.5\\ \\left\\{2.5\\ \\le\\ z\\ \\le18\\right\\}",
+      "reason": "Inequality region for 353_3 did not resolve to sampled cells"
+    },
+    {
+      "expr_id": "365_0",
+      "kind": "inequality_region",
+      "latex": "\\left(x\\ -\\ 20.0\\right)^{2}\\ +\\ \\left(y\\ -\\ 20.0\\right)^{2}\\ <\\ \\left(r_{pil}\\ -\\ 0.1\\right)^{2}\\ \\left\\{2.5\\ \\le z\\ \\le\\ 23.2\\right\\}",
+      "reason": "Inequality region for 365_0 did not resolve to sampled cells"
+    },
+    {
+      "expr_id": "365_1",
+      "kind": "inequality_region",
+      "latex": "\\left(x\\ -\\ -20.0\\right)^{2}\\ +\\ \\left(y\\ -\\ 20.0\\right)^{2}\\ <\\ \\left(r_{pil}\\ -\\ 0.1\\right)^{2}\\ \\left\\{2.5\\ \\le z\\ \\le\\ 23.2\\right\\}",
+      "reason": "Inequality region for 365_1 did not resolve to sampled cells"
+    },
+    {
+      "expr_id": "365_2",
+      "kind": "inequality_region",
+      "latex": "\\left(x\\ -\\ 20.0\\right)^{2}\\ +\\ \\left(y\\ -\\ -20.0\\right)^{2}\\ <\\ \\left(r_{pil}\\ -\\ 0.1\\right)^{2}\\ \\left\\{2.5\\ \\le z\\ \\le\\ 23.2\\right\\}",
+      "reason": "Inequality region for 365_2 did not resolve to sampled cells"
+    },
+    {
+      "expr_id": "365_3",
+      "kind": "inequality_region",
+      "latex": "\\left(x\\ -\\ -20.0\\right)^{2}\\ +\\ \\left(y\\ -\\ -20.0\\right)^{2}\\ <\\ \\left(r_{pil}\\ -\\ 0.1\\right)^{2}\\ \\left\\{2.5\\ \\le z\\ \\le\\ 23.2\\right\\}",
+      "reason": "Inequality region for 365_3 did not resolve to sampled cells"
+    },
+    {
+      "expr_id": "190",
+      "kind": "inequality_region",
+      "latex": "z\\ >\\ d_{height}\\ -\\ r_{arc}\\left(\\frac{d_{height}}{i_{intercept}^{2}}\\right)x^{2}\\ \\left\\{11\\ >\\ y\\ >\\ 9\\right\\}\\left\\{-\\sqrt{\\frac{d_{height}}{2}}\\le\\ x\\ \\le\\ \\sqrt{\\frac{d_{height}}{2}}\\right\\}\\left\\{i_{intercept}\\ \\le\\ z\\ \\le2.5\\ +\\ d_{height}\\right\\}",
+      "reason": "Could not evaluate 'd_{height}-r_{arc}(\\\\frac{d_{height}}{i_{intercept}^{2}})x^{2}' with variables {'x': -2.3979157616563596, 'y': 9.0, 'z': 10.0}: 'float' object is not callable"
+    },
+    {
+      "expr_id": "233",
+      "kind": "inequality_region",
+      "latex": "z\\ >\\ d_{height}\\ -\\ r_{arc}\\left(\\frac{d_{height}}{i_{intercept}^{2}}\\right)y^{2}\\ \\left\\{11\\ >\\ x\\ >\\ 9\\right\\}\\left\\{-\\sqrt{\\frac{d_{height}}{2}}\\le\\ y\\ \\le\\ \\sqrt{\\frac{d_{height}}{2}}\\right\\}\\left\\{i_{intercept}\\ \\le\\ z\\ \\le2.5\\ +\\ d_{height}\\right\\}",
+      "reason": "Could not evaluate 'd_{height}-r_{arc}(\\\\frac{d_{height}}{i_{intercept}^{2}})y^{2}' with variables {'x': 9.0, 'y': -2.3979157616563596, 'z': 10.0}: 'float' object is not callable"
+    },
+    {
+      "expr_id": "217",
+      "kind": "inequality_region",
+      "latex": "z\\ >\\ d_{height}\\ -\\ r_{arc}\\left(\\frac{d_{height}}{i_{intercept}^{2}}\\right)x^{2}\\ \\left\\{-11\\ \\le\\ y\\ \\le\\ -9\\right\\}\\left\\{-\\sqrt{\\frac{d_{height}}{2}}\\le\\ x\\ \\le\\ \\sqrt{\\frac{d_{height}}{2}}\\right\\}\\left\\{i_{intercept}\\ \\le\\ z\\ \\le2.5\\ +\\ d_{height}\\right\\}",
+      "reason": "Could not evaluate 'd_{height}-r_{arc}(\\\\frac{d_{height}}{i_{intercept}^{2}})x^{2}' with variables {'x': -2.3979157616563596, 'y': -11.0, 'z': 10.0}: 'float' object is not callable"
+    },
+    {
+      "expr_id": "234",
+      "kind": "inequality_region",
+      "latex": "z\\ >\\ d_{height}\\ -\\ r_{arc}\\left(\\frac{d_{height}}{i_{intercept}^{2}}\\right)y^{2}\\ \\left\\{-11\\ \\le\\ x\\ \\le\\ -9\\right\\}\\left\\{-\\sqrt{\\frac{d_{height}}{2}}\\le\\ y\\ \\le\\ \\sqrt{\\frac{d_{height}}{2}}\\right\\}\\left\\{i_{intercept}\\ \\le\\ z\\ \\le2.5\\ +\\ d_{height}\\right\\}",
+      "reason": "Could not evaluate 'd_{height}-r_{arc}(\\\\frac{d_{height}}{i_{intercept}^{2}})y^{2}' with variables {'x': -11.0, 'y': -2.3979157616563596, 'z': 10.0}: 'float' object is not callable"
+    },
+    {
+      "expr_id": "254",
+      "kind": "inequality_region",
+      "latex": "\\left(\\frac{x\\ -\\ y}{\\sqrt{2}}\\ -\\ p_{3}\\right)^{2}\\ +\\ \\left(z\\ -\\ p_{2}\\right)^{2}\\ \\ge\\ r_{arc}^{2}\\ \\left\\{-\\frac{d_{length}}{2}\\ \\le\\ \\frac{x\\ -\\ y}{\\sqrt{2}}\\ \\le\\ \\frac{d_{length}}{2}\\right\\}\\left\\{d_{height}\\ +\\ 2.5\\ \\ge z\\ \\ge\\ p_{2}\\right\\}\\left\\{\\sqrt{162}\\ -\\ 2\\ <\\ \\frac{x\\ +\\ y}{\\sqrt{2}}\\ <\\ \\sqrt{162}\\right\\}",
+      "reason": "Inequality region for 254 did not resolve to sampled cells"
+    },
+    {
+      "expr_id": "268",
+      "kind": "inequality_region",
+      "latex": "\\left(\\frac{x\\ +\\ y}{\\sqrt{2}}\\ -\\ p_{3}\\right)^{2}\\ +\\ \\left(z\\ -\\ p_{2}\\right)^{2}\\ \\ge\\ r_{arc}^{2}\\ \\left\\{-\\frac{d_{length}}{2}\\ \\le\\ \\frac{x\\ +\\ y}{\\sqrt{2}}\\ \\le\\ \\frac{d_{length}}{2}\\right\\}\\left\\{d_{height}\\ +\\ 2.5\\ \\ge z\\ \\ge\\ p_{2}\\right\\}\\left\\{\\sqrt{162}\\ -\\ 2\\ <\\ \\frac{x\\ -\\ y}{\\sqrt{2}}\\ <\\ \\sqrt{162}\\right\\}",
+      "reason": "Inequality region for 268 did not resolve to sampled cells"
+    },
+    {
+      "expr_id": "261",
+      "kind": "inequality_region",
+      "latex": "\\left(\\frac{x\\ -\\ y}{\\sqrt{2}}\\ -\\ p_{3}\\right)^{2}\\ +\\ \\left(z\\ -\\ p_{2}\\right)^{2}\\ \\ge\\ r_{arc}^{2}\\ \\left\\{-\\frac{d_{length}}{2}\\ \\le\\ \\frac{x\\ -\\ y}{\\sqrt{2}}\\ \\le\\ \\frac{d_{length}}{2}\\right\\}\\left\\{d_{height}\\ +\\ 2.5\\ \\ge z\\ \\ge\\ p_{2}\\right\\}\\left\\{-\\sqrt{162}\\ +\\ 2\\ >\\ \\frac{x\\ +\\ y}{\\sqrt{2}}\\ >\\ -\\sqrt{162}\\right\\}",
+      "reason": "Inequality region for 261 did not resolve to sampled cells"
+    },
+    {
+      "expr_id": "269",
+      "kind": "inequality_region",
+      "latex": "\\left(\\frac{x\\ +\\ y}{\\sqrt{2}}\\ -\\ p_{3}\\right)^{2}\\ +\\ \\left(z\\ -\\ p_{2}\\right)^{2}\\ \\ge\\ r_{arc}^{2}\\ \\left\\{-\\frac{d_{length}}{2}\\ \\le\\ \\frac{x\\ +\\ y}{\\sqrt{2}}\\ \\le\\ \\frac{d_{length}}{2}\\right\\}\\left\\{d_{height}\\ +\\ 2.5\\ \\ge z\\ \\ge\\ p_{2}\\right\\}\\left\\{-\\sqrt{162}\\ +\\ 2\\ >\\ \\frac{x\\ -\\ y}{\\sqrt{2}}\\ >\\ -\\sqrt{162}\\right\\}",
+      "reason": "Inequality region for 269 did not resolve to sampled cells"
+    },
+    {
+      "expr_id": "257",
+      "kind": "inequality_region",
+      "latex": "\\left(\\frac{x\\ -\\ y}{\\sqrt{2}}\\ -\\ p_{3}\\right)^{2}\\ +\\ \\left(z\\ -\\ \\frac{p_{2}}{2}\\right)^{2}\\ \\ge\\ r_{arc}^{2}\\ \\left\\{-\\frac{d_{length}}{2}\\ \\le\\ \\frac{x\\ -\\ y}{\\sqrt{2}}\\ \\le\\ \\frac{d_{length}}{2}\\right\\}\\left\\{d_{height}\\ \\ -\\ \\frac{p_{2}}{2}\\ \\ge z\\ \\ge\\ \\frac{p_{2}}{2}\\right\\}\\left\\{\\sqrt{162}\\ -\\ 2\\ <\\ \\frac{x\\ +\\ y}{\\sqrt{2}}\\ <\\ \\sqrt{162}\\right\\}",
+      "reason": "Inequality region for 257 did not resolve to sampled cells"
+    },
+    {
+      "expr_id": "270",
+      "kind": "inequality_region",
+      "latex": "\\left(\\frac{x\\ +\\ y}{\\sqrt{2}}\\ -\\ p_{3}\\right)^{2}\\ +\\ \\left(z\\ -\\ \\frac{p_{2}}{2}\\right)^{2}\\ \\ge\\ r_{arc}^{2}\\ \\left\\{-\\frac{d_{length}}{2}\\ \\le\\ \\frac{x\\ +\\ y}{\\sqrt{2}}\\ \\le\\ \\frac{d_{length}}{2}\\right\\}\\left\\{d_{height}\\ \\ -\\ \\frac{p_{2}}{2}\\ \\ge z\\ \\ge\\ \\frac{p_{2}}{2}\\right\\}\\left\\{\\sqrt{162}\\ -\\ 2\\ <\\ \\frac{x\\ -\\ y}{\\sqrt{2}}\\ <\\ \\sqrt{162}\\right\\}",
+      "reason": "Inequality region for 270 did not resolve to sampled cells"
+    },
+    {
+      "expr_id": "263",
+      "kind": "inequality_region",
+      "latex": "\\left(\\frac{x\\ -\\ y}{\\sqrt{2}}\\ -\\ p_{3}\\right)^{2}\\ +\\ \\left(z\\ -\\ \\frac{p_{2}}{2}\\right)^{2}\\ \\ge\\ r_{arc}^{2}\\ \\left\\{-\\frac{d_{length}}{2}\\ \\le\\ \\frac{x\\ -\\ y}{\\sqrt{2}}\\ \\le\\ \\frac{d_{length}}{2}\\right\\}\\left\\{d_{height}\\ \\ -\\ \\frac{p_{2}}{2}\\ \\ge z\\ \\ge\\ \\frac{p_{2}}{2}\\right\\}\\left\\{-\\sqrt{162}\\ +\\ 2\\ >\\ \\frac{x\\ +\\ y}{\\sqrt{2}}\\ >\\ -\\sqrt{162}\\right\\}",
+      "reason": "Inequality region for 263 did not resolve to sampled cells"
+    },
+    {
+      "expr_id": "271",
+      "kind": "inequality_region",
+      "latex": "\\left(\\frac{x\\ +\\ y}{\\sqrt{2}}\\ -\\ p_{3}\\right)^{2}\\ +\\ \\left(z\\ -\\ \\frac{p_{2}}{2}\\right)^{2}\\ \\ge\\ r_{arc}^{2}\\ \\left\\{-\\frac{d_{length}}{2}\\ \\le\\ \\frac{x\\ +\\ y}{\\sqrt{2}}\\ \\le\\ \\frac{d_{length}}{2}\\right\\}\\left\\{d_{height}\\ \\ -\\ \\frac{p_{2}}{2}\\ \\ge z\\ \\ge\\ \\frac{p_{2}}{2}\\right\\}\\left\\{-\\sqrt{162}\\ +\\ 2\\ >\\ \\frac{x\\ -\\ y}{\\sqrt{2}}\\ >\\ -\\sqrt{162}\\right\\}",
+      "reason": "Inequality region for 271 did not resolve to sampled cells"
+    },
+    {
+      "expr_id": "259",
+      "kind": "inequality_region",
+      "latex": "\\frac{d_{length}}{2}\\ \\ge\\ \\frac{x\\ -\\ y}{\\sqrt{2}}\\ \\ge\\ \\frac{d_{length}}{2}\\ -\\ \\frac{r_{arc}}{2}\\ \\left\\{\\sqrt{162}\\ -\\ 2\\le\\frac{x\\ +\\ y}{\\sqrt{2}}\\ \\le\\ \\sqrt{162}\\right\\}\\ \\left\\{2.5\\ \\le\\ z\\ \\le\\ d_{height}\\ +\\ 2.5\\right\\}",
+      "reason": "Inequality region for 259 did not resolve to sampled cells"
+    },
+    {
+      "expr_id": "272",
+      "kind": "inequality_region",
+      "latex": "\\frac{d_{length}}{2}\\ \\ge\\ \\frac{x\\ +\\ y}{\\sqrt{2}}\\ \\ge\\ \\frac{d_{length}}{2}\\ -\\ \\frac{r_{arc}}{2}\\ \\left\\{\\sqrt{162}\\ -\\ 2\\le\\frac{x\\ -\\ y}{\\sqrt{2}}\\ \\le\\ \\sqrt{162}\\right\\}\\ \\left\\{2.5\\ \\le\\ z\\ \\le\\ d_{height}\\ +\\ 2.5\\right\\}",
+      "reason": "Inequality region for 272 did not resolve to sampled cells"
+    },
+    {
+      "expr_id": "265",
+      "kind": "inequality_region",
+      "latex": "\\frac{d_{length}}{2}\\ \\ge\\ \\frac{x\\ -\\ y}{\\sqrt{2}}\\ \\ge\\ \\frac{d_{length}}{2}\\ -\\ \\frac{r_{arc}}{2}\\ \\left\\{-\\sqrt{162}\\ +\\ 2\\ge\\frac{x\\ +\\ y}{\\sqrt{2}}\\ \\ge\\ -\\sqrt{162}\\right\\}\\ \\left\\{2.5\\ \\le\\ z\\ \\le\\ d_{height}\\ +\\ 2.5\\right\\}",
+      "reason": "Inequality region for 265 did not resolve to sampled cells"
+    },
+    {
+      "expr_id": "273",
+      "kind": "inequality_region",
+      "latex": "\\frac{d_{length}}{2}\\ \\ge\\ \\frac{x\\ +\\ y}{\\sqrt{2}}\\ \\ge\\ \\frac{d_{length}}{2}\\ -\\ \\frac{r_{arc}}{2}\\ \\left\\{-\\sqrt{162}\\ +\\ 2\\ge\\frac{x\\ -\\ y}{\\sqrt{2}}\\ \\ge\\ -\\sqrt{162}\\right\\}\\ \\left\\{2.5\\ \\le\\ z\\ \\le\\ d_{height}\\ +\\ 2.5\\right\\}",
+      "reason": "Inequality region for 273 did not resolve to sampled cells"
+    },
+    {
+      "expr_id": "260",
+      "kind": "inequality_region",
+      "latex": "-\\frac{d_{length}}{2}\\ \\le\\ \\frac{x\\ -\\ y}{\\sqrt{2}}\\ \\le\\ -\\frac{d_{length}}{2}\\ +\\ \\frac{r_{arc}}{2}\\ \\left\\{\\sqrt{162}\\ -\\ 2\\le\\frac{x\\ +\\ y}{\\sqrt{2}}\\ \\le\\ \\sqrt{162}\\right\\}\\ \\left\\{2.5\\ \\le\\ z\\ \\le\\ d_{height}\\ +\\ 2.5\\right\\}",
+      "reason": "Inequality region for 260 did not resolve to sampled cells"
+    },
+    {
+      "expr_id": "274",
+      "kind": "inequality_region",
+      "latex": "-\\frac{d_{length}}{2}\\ \\le\\ \\frac{x\\ +\\ y}{\\sqrt{2}}\\ \\le\\ -\\frac{d_{length}}{2}\\ +\\ \\frac{r_{arc}}{2}\\ \\left\\{\\sqrt{162}\\ -\\ 2\\le\\frac{x\\ -\\ y}{\\sqrt{2}}\\ \\le\\ \\sqrt{162}\\right\\}\\ \\left\\{2.5\\ \\le\\ z\\ \\le\\ d_{height}\\ +\\ 2.5\\right\\}",
+      "reason": "Inequality region for 274 did not resolve to sampled cells"
+    },
+    {
+      "expr_id": "267",
+      "kind": "inequality_region",
+      "latex": "-\\frac{d_{length}}{2}\\ \\le\\ \\frac{x\\ -\\ y}{\\sqrt{2}}\\ \\le\\ -\\frac{d_{length}}{2}\\ +\\ \\frac{r_{arc}}{2}\\ \\left\\{-\\sqrt{162}\\ +\\ 2\\ \\ge\\frac{x\\ +\\ y}{\\sqrt{2}}\\ \\ge\\ -\\sqrt{162}\\right\\}\\ \\left\\{2.5\\ \\le\\ z\\ \\le\\ d_{height}\\ +\\ 2.5\\right\\}",
+      "reason": "Inequality region for 267 did not resolve to sampled cells"
+    },
+    {
+      "expr_id": "275",
+      "kind": "inequality_region",
+      "latex": "-\\frac{d_{length}}{2}\\ \\le\\ \\frac{x\\ +\\ y}{\\sqrt{2}}\\ \\le\\ -\\frac{d_{length}}{2}\\ +\\ \\frac{r_{arc}}{2}\\ \\left\\{-\\sqrt{162}\\ +\\ 2\\ \\ge\\frac{x\\ -\\ y}{\\sqrt{2}}\\ \\ge\\ -\\sqrt{162}\\right\\}\\ \\left\\{2.5\\ \\le\\ z\\ \\le\\ d_{height}\\ +\\ 2.5\\right\\}",
+      "reason": "Inequality region for 275 did not resolve to sampled cells"
+    },
+    {
+      "expr_id": "294",
+      "kind": "inequality_region",
+      "latex": "\\max\\left(\\left|\\left(x\\ -\\ s\\right)\\right|,\\left|\\left(y\\ -\\ q\\right)\\right|,\\frac{\\left|\\left(x\\ -\\ s\\right)+\\left(y\\ -\\ q\\right)\\right|}{\\sqrt{2}},\\frac{\\left|\\left(x\\ -\\ s\\right)-\\left(y\\ -\\ q\\right)\\right|}{\\sqrt{2}}\\right)\\le s_{size}\\ \\left\\{d_{height}\\ +\\ 2.5\\ \\le\\ z\\ \\le\\ d_{height}\\ +\\ 3.5\\right\\}",
+      "reason": "Could not evaluate '\\\\max(|(x-s)|,|(y-q)|,\\\\frac{|(x-s)+(y-q)|}{\\\\sqrt{2}},\\\\frac{|(x-s)-(y-q)|}{\\\\sqrt{2}})' with variables {'x': -38.288446875000005, 'y': -38.288446875000005, 'z': 14.0}: name 's' is not defined"
+    },
+    {
+      "expr_id": "299",
+      "kind": "inequality_region",
+      "latex": "\\max\\left(\\left|\\left(x\\ -\\ s\\right)\\right|,\\left|\\left(y\\ -\\ q\\right)\\right|,\\frac{\\left|\\left(x\\ -\\ s\\right)+\\left(y\\ -\\ q\\right)\\right|}{\\sqrt{2}},\\frac{\\left|\\left(x\\ -\\ s\\right)-\\left(y\\ -\\ q\\right)\\right|}{\\sqrt{2}}\\right)\\le s_{size}\\ +\\ 0.3\\left\\{d_{height}\\ +\\ 5.2\\ \\le\\ z\\ \\le\\ d_{height}\\ +\\ 5.4\\right\\}",
+      "reason": "Could not evaluate '\\\\max(|(x-s)|,|(y-q)|,\\\\frac{|(x-s)+(y-q)|}{\\\\sqrt{2}},\\\\frac{|(x-s)-(y-q)|}{\\\\sqrt{2}})' with variables {'x': -38.288446875000005, 'y': -38.288446875000005, 'z': 16.7}: name 's' is not defined"
+    },
+    {
+      "expr_id": "298",
+      "kind": "inequality_region",
+      "latex": "\\max\\left(\\left|\\left(x\\ -\\ s\\right)\\right|,\\left|\\left(y\\ -\\ q\\right)\\right|,\\frac{\\left|\\left(x\\ -\\ s\\right)+\\left(y\\ -\\ q\\right)\\right|}{\\sqrt{2}},\\frac{\\left|\\left(x\\ -\\ s\\right)-\\left(y\\ -\\ q\\right)\\right|}{\\sqrt{2}}\\right)\\le s_{size}\\ -\\ 0.3\\left\\{d_{height}\\ +\\ 3.5\\ \\le\\ z\\ \\le\\ d_{height}\\ +\\ 5.6\\right\\}",
+      "reason": "Could not evaluate '\\\\max(|(x-s)|,|(y-q)|,\\\\frac{|(x-s)+(y-q)|}{\\\\sqrt{2}},\\\\frac{|(x-s)-(y-q)|}{\\\\sqrt{2}})' with variables {'x': -38.288446875000005, 'y': -38.288446875000005, 'z': 15.0}: name 's' is not defined"
+    },
+    {
+      "expr_id": "303",
+      "kind": "inequality_region",
+      "latex": "\\left(x\\ -\\ s\\right)^{2}\\ +\\ \\left(y\\ -\\ q\\right)^{2}\\ <\\ 0.1^{2}\\ \\left\\{18\\ \\le\\ z\\ \\le\\ 20\\right\\}",
+      "reason": "Could not evaluate '(x-s)^{2}+(y-q)^{2}' with variables {'x': -38.288446875000005, 'y': -38.288446875000005, 'z': 18.0}: name 's' is not defined"
+    },
+    {
+      "expr_id": "329",
+      "kind": "triangle_mesh",
+      "latex": "\\operatorname{triangle}\\left(\\left(x_{A}+r_{A}\\cos\\left(\\frac{2\\pi L}{n_{A}}+d_{A}\\right),y_{A}+r_{A}\\sin\\left(\\frac{2\\pi L}{n_{A}}+d_{A}\\right),z_{A}\\right),\\left(x_{A}+r_{A}\\cos\\left(\\frac{2\\pi\\operatorname{mod}(L+1,n_{A})}{n_{A}}+d_{A}\\right),y_{A}+r_{A}\\sin\\left(\\frac{2\\pi\\operatorname{mod}(L+1,n_{A})}{n_{A}}+d_{A}\\right),z_{A}\\right),\\left(x_{A},y_{A},z_{A2}\\right)\\right)",
+      "reason": "Could not evaluate 'x_{A}+r_{A}\\\\cos(\\\\frac{2\\\\pi L}{n_{A}}+d_{A})' with variables {}: name 'r_Acos' is not defined"
+    },
+    {
+      "expr_id": "347",
+      "kind": "inequality_region",
+      "latex": "\\left(x\\ -\\ p_{points}.x\\right)^{2}\\ +\\ \\left(y\\ -\\ p_{points}.y\\right)^{2}\\ <\\ r_{pil}^{2}\\ \\left\\{2.5\\ \\le z\\ \\le\\ d_{height}\\ +\\ 5\\right\\}",
+      "reason": "Could not evaluate '(x-p_{points}.x)^{2}+(y-p_{points}.y)^{2}' with variables {'x': -38.288446875000005, 'y': -38.288446875000005, 'z': 2.5}: name 'p_points' is not defined"
+    },
+    {
+      "expr_id": "351",
+      "kind": "inequality_region",
+      "latex": "\\left(x\\ -\\ j_{points}.x\\right)^{2}\\ +\\ \\left(y\\ -\\ j_{points}.y\\right)^{2}\\ <\\ r_{pil}^{2}\\ \\left\\{2.5\\ \\le z\\ \\le\\ 19\\right\\}",
+      "reason": "Could not evaluate '(x-j_{points}.x)^{2}+(y-j_{points}.y)^{2}' with variables {'x': -38.288446875000005, 'y': -38.288446875000005, 'z': 2.5}: name 'j_points' is not defined"
+    }
+  ],
+  "unsupported_count": 91,
+  "usda_exists": true,
+  "usdz_exists": true,
+  "usdz_output": "artifacts/fixture_usdz/[4B] 3D Diagram - S2-03 Group E.usdz",
+  "usdz_package": {
+    "command": [
+      "/usr/bin/usdzip",
+      "/Users/chek/repos/desmos2usd-carey/artifacts/fixture_usdz/[4B] 3D Diagram - S2-03 Group E.usdz",
+      "[4B] 3D Diagram - S2-03 Group E.usda"
+    ],
+    "cwd": "/Users/chek/repos/desmos2usd-carey/artifacts/fixture_usdz",
+    "returncode": 0,
+    "stderr": "",
+    "stdout": "",
+    "tool": "usdzip"
+  },
+  "usdz_validation": null,
+  "valid": true,
+  "validations": [
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "367",
+      "face_count": 6,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 8,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "1",
+      "face_count": 30,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 32,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "7",
+      "face_count": 30,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 32,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "14",
+      "face_count": 30,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 32,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "22",
+      "face_count": 30,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 32,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "23",
+      "face_count": 30,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 32,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "24",
+      "face_count": 30,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 32,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "25",
+      "face_count": 30,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 32,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "26",
+      "face_count": 30,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 32,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "27",
+      "face_count": 30,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 32,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "28",
+      "face_count": 30,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 32,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "107",
+      "face_count": 30,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 32,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "108",
+      "face_count": 30,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 32,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "109",
+      "face_count": 30,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 32,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "112",
+      "face_count": 30,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 32,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "114",
+      "face_count": 30,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 32,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "116",
+      "face_count": 30,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 32,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "118",
+      "face_count": 30,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 32,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "120",
+      "face_count": 30,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 32,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "122",
+      "face_count": 30,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 32,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "125",
+      "face_count": 30,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 32,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "135",
+      "face_count": 30,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 32,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "127",
+      "face_count": 30,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 32,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "129",
+      "face_count": 30,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 32,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "137",
+      "face_count": 30,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 32,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "138",
+      "face_count": 30,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 32,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "139",
+      "face_count": 30,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 32,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "141",
+      "face_count": 30,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 32,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "142",
+      "face_count": 30,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 32,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "144",
+      "face_count": 30,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 32,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "145",
+      "face_count": 30,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 32,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "146",
+      "face_count": 30,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 32,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "147",
+      "face_count": 30,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 32,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "31_0",
+      "face_count": 1494,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 1992,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "31_1",
+      "face_count": 1494,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 1992,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "31_2",
+      "face_count": 1494,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 1992,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "31_3",
+      "face_count": 1494,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 1992,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "356_0",
+      "face_count": 1578,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 2104,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "356_1",
+      "face_count": 1578,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 2104,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "356_2",
+      "face_count": 1578,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 2104,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "356_3",
+      "face_count": 1578,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 2104,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "357_0",
+      "face_count": 2070,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 2760,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "357_1",
+      "face_count": 2070,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 2760,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "357_2",
+      "face_count": 2070,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 2760,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "357_3",
+      "face_count": 2070,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 2760,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "359_0",
+      "face_count": 1800,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 2400,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "359_1",
+      "face_count": 1800,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 2400,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "359_2",
+      "face_count": 1800,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 2400,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "359_3",
+      "face_count": 1800,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 2400,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "361_0",
+      "face_count": 1134,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 1512,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "361_1",
+      "face_count": 1134,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 1512,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "361_2",
+      "face_count": 1134,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 1512,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "361_3",
+      "face_count": 1134,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 1512,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "362_0",
+      "face_count": 2070,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 2760,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "362_1",
+      "face_count": 2070,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 2760,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "362_2",
+      "face_count": 2070,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 2760,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "362_3",
+      "face_count": 2070,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 2760,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "202",
+      "face_count": 144,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 192,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "236",
+      "face_count": 144,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 192,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "219",
+      "face_count": 144,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 192,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "237",
+      "face_count": 144,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 192,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "213",
+      "face_count": 144,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 192,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "238",
+      "face_count": 144,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 192,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "221",
+      "face_count": 144,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 192,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "239",
+      "face_count": 144,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 192,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "212",
+      "face_count": 144,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 192,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "240",
+      "face_count": 144,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 192,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "222",
+      "face_count": 144,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 192,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "241",
+      "face_count": 144,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 192,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "215",
+      "face_count": 144,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 192,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "242",
+      "face_count": 144,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 192,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "224",
+      "face_count": 144,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 192,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "243",
+      "face_count": 144,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 192,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "208",
+      "face_count": 30,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 32,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "244",
+      "face_count": 30,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 32,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "226",
+      "face_count": 30,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 32,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "245",
+      "face_count": 30,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 32,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "210",
+      "face_count": 30,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 32,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "246",
+      "face_count": 30,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 32,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "228",
+      "face_count": 30,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 32,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "247",
+      "face_count": 30,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 32,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "207",
+      "face_count": 30,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 32,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "248",
+      "face_count": 30,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 32,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "230",
+      "face_count": 30,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 32,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "249",
+      "face_count": 30,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 32,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "214",
+      "face_count": 30,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 32,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "250",
+      "face_count": 30,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 32,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "232",
+      "face_count": 30,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 32,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "251",
+      "face_count": 30,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 32,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "185",
+      "face_count": 2256,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 3008,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "278",
+      "face_count": 1056,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 1408,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "279",
+      "face_count": 1056,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 1408,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "280",
+      "face_count": 30,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 32,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "281",
+      "face_count": 30,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 32,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "282",
+      "face_count": 30,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 32,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "286",
+      "face_count": 30,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 32,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "284",
+      "face_count": 30,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 32,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "287",
+      "face_count": 30,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 32,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "304",
+      "face_count": 480,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 640,
+      "valid": true
+    }
+  ]
 }

@@ -143,6 +143,10 @@ def classify_expression(expr: ExpressionIR, context: EvalContext) -> ClassifiedE
     for restriction in restriction_texts:
         predicates.extend(parse_predicates(restriction))
 
+    if looks_like_segment(main):
+        vector = parse_segment_curve(main, context)
+        return ClassifiedExpression(ir=expr, kind="parametric_curve", predicates=predicates, vector=vector, t_bounds=(0.0, 1.0))
+
     if looks_like_triangle(main):
         triangle_mesh = parse_triangle_mesh(main, context)
         return ClassifiedExpression(ir=expr, kind="triangle_mesh", predicates=predicates, triangle_mesh=triangle_mesh)
@@ -177,6 +181,15 @@ def classify_expression(expr: ExpressionIR, context: EvalContext) -> ClassifiedE
                 predicates=predicates,
                 axis=rhs_id,
                 expression=LatexExpression.parse(lhs),
+            )
+        residual = LatexExpression.parse(f"({lhs})-({rhs})")
+        residual_axes = residual.identifiers & {"x", "y", "z"}
+        if len(residual_axes) == 2:
+            return ClassifiedExpression(
+                ir=expr,
+                kind="implicit_surface",
+                predicates=predicates,
+                expression=residual,
             )
     raise ValueError("not a supported renderable geometry form")
 
@@ -278,6 +291,7 @@ def expand_list_expression(expr: ExpressionIR, context: EvalContext) -> list[Exp
                 order=expr.order,
                 latex=latex,
                 color=expr.color,
+                color_latex=expr.color_latex,
                 hidden=expr.hidden,
                 folder_id=expr.folder_id,
                 type=expr.type,
@@ -311,12 +325,17 @@ def has_top_level_comparison(text: str) -> bool:
 
 def looks_like_vector(text: str) -> bool:
     stripped = strip_extra_trailing_closing_parens(normalize_latex_delimiters(text))
-    if stripped.startswith("("):
+    while stripped.startswith("("):
         try:
-            inner = stripped[1 : matching_paren(stripped, 0)]
+            close_at = matching_paren(stripped, 0)
         except ValueError:
             return False
-        return len(split_top_level(inner, ",")) == 3
+        inner = stripped[1:close_at].strip()
+        if len(split_top_level(inner, ",")) == 3:
+            return True
+        if close_at != len(stripped) - 1:
+            return False
+        stripped = inner
     return False
 
 
@@ -384,6 +403,39 @@ def expand_vector_expression(text: str, context: EvalContext) -> str:
     if name in context.vectors:
         return "(" + ",".join(repr(v) for v in context.vectors[name]) + ")"
     return s
+
+
+SEGMENT_PREFIX = "\\operatorname{segment}"
+
+
+def looks_like_segment(text: str) -> bool:
+    normalized = normalize_latex_delimiters(text).lstrip()
+    return normalized.startswith(SEGMENT_PREFIX)
+
+
+def parse_segment_curve(text: str, context: EvalContext) -> VectorExpression:
+    normalized = normalize_latex_delimiters(text).strip()
+    if not normalized.startswith(SEGMENT_PREFIX):
+        raise ValueError(f"Expected segment expression, got {text!r}")
+    open_at = len(SEGMENT_PREFIX)
+    while open_at < len(normalized) and normalized[open_at].isspace():
+        open_at += 1
+    if open_at >= len(normalized) or normalized[open_at] != "(":
+        raise ValueError(f"Malformed segment expression: {text!r}")
+    close_at = matching_paren(normalized, open_at)
+    tail = normalized[close_at + 1 :].strip()
+    if tail and any(char != ")" for char in tail):
+        raise ValueError(f"Unsupported segment expression tail: {tail!r}")
+    args = split_top_level(normalized[open_at + 1 : close_at], ",")
+    if len(args) != 2:
+        raise ValueError(f"segment() expects 2 arguments, got {len(args)}")
+    start = parse_vector_components(args[0], context)
+    end = parse_vector_components(args[1], context)
+    components = [f"(({a})+t*(({b})-({a})))" for a, b in zip(start, end, strict=True)]
+    return VectorExpression(
+        raw=normalized,
+        components=tuple(LatexExpression.parse(component) for component in components),  # type: ignore[arg-type]
+    )
 
 
 def looks_like_triangle(text: str) -> bool:

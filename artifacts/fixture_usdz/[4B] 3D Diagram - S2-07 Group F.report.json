@@ -1,15 +1,810 @@
 {
   "acceptance_success": false,
-  "error": "Failed to parse definition 310 '\\\\left(x+a\\\\right)^{2}+\\\\left(y+b\\\\right)^{2}+\\\\left(z+c\\\\right)^{2}=d': Could not evaluate 'd' with variables {}: name 'd' is not defined",
-  "error_stage": "classify",
-  "error_type": "ValueError",
+  "classified_expression_count": 37,
+  "complete": false,
   "fixture": "[4B] 3D Diagram - S2-07 Group F.json",
   "fixture_path": "fixtures/states/[4B] 3D Diagram - S2-07 Group F.json",
   "graph_hash": null,
-  "output": "/Users/careylai/Desktop/desmos2usd/artifacts/fixture_usdz/[4B] 3D Diagram - S2-07 Group F.usda",
+  "output": "artifacts/fixture_usdz/[4B] 3D Diagram - S2-07 Group F.usda",
+  "prim_count": 36,
+  "renderable_expression_count": 105,
   "resolution": 8,
-  "status": "error",
+  "status": "partial",
   "title": "Desmos graph",
-  "usdz_exists": false,
-  "usdz_output": "/Users/careylai/Desktop/desmos2usd/artifacts/fixture_usdz/[4B] 3D Diagram - S2-07 Group F.usdz"
+  "unsupported": [
+    {
+      "expr_id": "310",
+      "kind": "definition",
+      "latex": "\\left(x+a\\right)^{2}+\\left(y+b\\right)^{2}+\\left(z+c\\right)^{2}=d",
+      "reason": "Failed to parse definition: Could not evaluate 'd' with variables {}: name 'd' is not defined"
+    },
+    {
+      "expr_id": "4",
+      "kind": "classification",
+      "latex": "\\operatorname{triangle}\\left(A\\left[B.x\\right],A\\left[B.y\\right],A\\left[B.z\\right]\\right)",
+      "reason": "Expected vector expression, got 'A[B.x]'"
+    },
+    {
+      "expr_id": "10",
+      "kind": "classification",
+      "latex": "\\operatorname{triangle}\\left(C\\left[D.x\\right],C\\left[D.y\\right],C\\left[D.z\\right]\\right)",
+      "reason": "Expected vector expression, got 'C[D.x]'"
+    },
+    {
+      "expr_id": "20",
+      "kind": "classification",
+      "latex": "\\operatorname{triangle}(A[B.x],C[D.x],C[D.y])",
+      "reason": "Expected vector expression, got 'A[B.x]'"
+    },
+    {
+      "expr_id": "58",
+      "kind": "classification",
+      "latex": "\\operatorname{triangle}(A[B.x],A[B.y],C[D.y])",
+      "reason": "Expected vector expression, got 'A[B.x]'"
+    },
+    {
+      "expr_id": "59",
+      "kind": "classification",
+      "latex": "\\operatorname{triangle}(A[B.y],A[B.z],C[D.z])",
+      "reason": "Expected vector expression, got 'A[B.y]'"
+    },
+    {
+      "expr_id": "23",
+      "kind": "classification",
+      "latex": "\\operatorname{triangle}(A[B.y],C[D.y],C[D.z])",
+      "reason": "Expected vector expression, got 'A[B.y]'"
+    },
+    {
+      "expr_id": "24",
+      "kind": "classification",
+      "latex": "\\operatorname{triangle}(A[B.z],A[B.x],C[D.x])",
+      "reason": "Expected vector expression, got 'A[B.z]'"
+    },
+    {
+      "expr_id": "25",
+      "kind": "classification",
+      "latex": "\\operatorname{triangle}(A[B.z],C[D.z],C[D.x])",
+      "reason": "Expected vector expression, got 'A[B.z]'"
+    },
+    {
+      "expr_id": "35",
+      "kind": "classification",
+      "latex": "\\operatorname{triangle}\\left(E\\left[F.x\\right],E\\left[F.y\\right],E\\left[F.z\\right]\\right)",
+      "reason": "Expected vector expression, got 'E[F.x]'"
+    },
+    {
+      "expr_id": "48",
+      "kind": "classification",
+      "latex": "\\operatorname{triangle}\\left(G\\left[H.x\\right],G\\left[H.y\\right],G\\left[H.z\\right]\\right)",
+      "reason": "Expected vector expression, got 'G[H.x]'"
+    },
+    {
+      "expr_id": "65",
+      "kind": "classification",
+      "latex": "\\operatorname{triangle}(E[F.x],G[H.x],G[H.y])",
+      "reason": "Expected vector expression, got 'E[F.x]'"
+    },
+    {
+      "expr_id": "66",
+      "kind": "classification",
+      "latex": "\\operatorname{triangle}(E[F.x],E[F.y],G[H.y])",
+      "reason": "Expected vector expression, got 'E[F.x]'"
+    },
+    {
+      "expr_id": "67",
+      "kind": "classification",
+      "latex": "\\operatorname{triangle}(E[F.y],E[F.z],G[H.z])",
+      "reason": "Expected vector expression, got 'E[F.y]'"
+    },
+    {
+      "expr_id": "68",
+      "kind": "classification",
+      "latex": "\\operatorname{triangle}(E[F.y],G[H.y],G[H.z])",
+      "reason": "Expected vector expression, got 'E[F.y]'"
+    },
+    {
+      "expr_id": "69",
+      "kind": "classification",
+      "latex": "\\operatorname{triangle}(E[F.z],E[F.x],G[H.x])",
+      "reason": "Expected vector expression, got 'E[F.z]'"
+    },
+    {
+      "expr_id": "70",
+      "kind": "classification",
+      "latex": "\\operatorname{triangle}(E[F.z],G[H.z],G[H.x])",
+      "reason": "Expected vector expression, got 'E[F.z]'"
+    },
+    {
+      "expr_id": "72",
+      "kind": "classification",
+      "latex": "2z=.515x+1.91\\left\\{-1.55\\le y\\le2.6\\right\\}\\left\\{-2\\le x\\le-.6\\right\\}",
+      "reason": "Could not parse '(2z)-(.515x+1.91)' as '(2*z)-(.515x+1.91)': invalid decimal literal (<unknown>, line 1)"
+    },
+    {
+      "expr_id": "88",
+      "kind": "classification",
+      "latex": "2z=-.515x+1.91\\left\\{-1.55\\le y\\le2.6\\right\\}\\left\\{.6\\le x\\le2\\right\\}",
+      "reason": "Could not parse '(2z)-(-.515x+1.91)' as '(2*z)-(-.515x+1.91)': invalid decimal literal (<unknown>, line 1)"
+    },
+    {
+      "expr_id": "112",
+      "kind": "classification",
+      "latex": ".5\\le z\\le1+.43(x+0.6)\\left\\{-10\\le x\\le-0.6\\right\\}\\left\\{2.55\\le y\\le2.6\\right\\}",
+      "reason": "Only direct function calls are supported"
+    },
+    {
+      "expr_id": "117",
+      "kind": "classification",
+      "latex": ".5\\le z\\le1+.43(x+0.6)\\left\\{-10\\le x\\le-0.6\\right\\}\\left\\{-1.6\\le y\\le-1.55\\right\\}",
+      "reason": "Only direct function calls are supported"
+    },
+    {
+      "expr_id": "123",
+      "kind": "classification",
+      "latex": ".5\\le z\\le1+.43(0.6-x)\\left\\{0.6\\le x\\right\\}\\left\\{-1.6\\le y\\le-1.55\\right\\}",
+      "reason": "Only direct function calls are supported"
+    },
+    {
+      "expr_id": "125",
+      "kind": "classification",
+      "latex": ".5\\le z\\le1+.43(0.6-x)\\left\\{0.6\\le x\\right\\}\\left\\{2.55\\le y\\le2.6\\right\\}",
+      "reason": "Only direct function calls are supported"
+    },
+    {
+      "expr_id": "127",
+      "kind": "classification",
+      "latex": "\\operatorname{triangle}\\left(I\\left[J.x\\right],I\\left[J.y\\right],I\\left[J.z\\right]\\right)",
+      "reason": "Expected vector expression, got 'I[J.x]'"
+    },
+    {
+      "expr_id": "135",
+      "kind": "classification",
+      "latex": "\\operatorname{triangle}\\left(K\\left[L.x\\right],K\\left[L.y\\right],K\\left[L.z\\right]\\right)",
+      "reason": "Expected vector expression, got 'K[L.x]'"
+    },
+    {
+      "expr_id": "137",
+      "kind": "classification",
+      "latex": "\\operatorname{triangle}(I[J.x],K[L.x],K[L.y])",
+      "reason": "Expected vector expression, got 'I[J.x]'"
+    },
+    {
+      "expr_id": "138",
+      "kind": "classification",
+      "latex": "\\operatorname{triangle}(I[J.x],I[J.y],K[L.y])",
+      "reason": "Expected vector expression, got 'I[J.x]'"
+    },
+    {
+      "expr_id": "139",
+      "kind": "classification",
+      "latex": "\\operatorname{triangle}(I[J.y],I[J.z],K[L.z])",
+      "reason": "Expected vector expression, got 'I[J.y]'"
+    },
+    {
+      "expr_id": "140",
+      "kind": "classification",
+      "latex": "\\operatorname{triangle}(I[J.y],K[L.y],K[L.z])",
+      "reason": "Expected vector expression, got 'I[J.y]'"
+    },
+    {
+      "expr_id": "141",
+      "kind": "classification",
+      "latex": "\\operatorname{triangle}(I[J.z],I[J.x],K[L.x])",
+      "reason": "Expected vector expression, got 'I[J.z]'"
+    },
+    {
+      "expr_id": "142",
+      "kind": "classification",
+      "latex": "\\operatorname{triangle}(I[J.z],K[L.z],K[L.x])",
+      "reason": "Expected vector expression, got 'I[J.z]'"
+    },
+    {
+      "expr_id": "145",
+      "kind": "classification",
+      "latex": "\\operatorname{triangle}(M[N.x],M[N.y],M[N.z])",
+      "reason": "Expected vector expression, got 'M[N.x]'"
+    },
+    {
+      "expr_id": "148",
+      "kind": "classification",
+      "latex": "\\operatorname{triangle}(O[P.x],O[P.y],O[P.z])",
+      "reason": "Expected vector expression, got 'O[P.x]'"
+    },
+    {
+      "expr_id": "150",
+      "kind": "classification",
+      "latex": "\\operatorname{triangle}(M[N.x],M[N.y],M[N.z])",
+      "reason": "Expected vector expression, got 'M[N.x]'"
+    },
+    {
+      "expr_id": "151",
+      "kind": "classification",
+      "latex": "\\operatorname{triangle}(M[N.x],O[P.x],O[P.y])",
+      "reason": "Expected vector expression, got 'M[N.x]'"
+    },
+    {
+      "expr_id": "152",
+      "kind": "classification",
+      "latex": "\\operatorname{triangle}(M[N.x],M[N.y],O[P.y])",
+      "reason": "Expected vector expression, got 'M[N.x]'"
+    },
+    {
+      "expr_id": "153",
+      "kind": "classification",
+      "latex": "\\operatorname{triangle}(M[N.y],M[N.z],O[P.z])",
+      "reason": "Expected vector expression, got 'M[N.y]'"
+    },
+    {
+      "expr_id": "154",
+      "kind": "classification",
+      "latex": "\\operatorname{triangle}(M[N.y],O[P.y],O[P.z])",
+      "reason": "Expected vector expression, got 'M[N.y]'"
+    },
+    {
+      "expr_id": "155",
+      "kind": "classification",
+      "latex": "\\operatorname{triangle}(M[N.z],M[N.x],O[P.x])",
+      "reason": "Expected vector expression, got 'M[N.z]'"
+    },
+    {
+      "expr_id": "156",
+      "kind": "classification",
+      "latex": "\\operatorname{triangle}(M[N.z],O[P.z],O[P.x])",
+      "reason": "Expected vector expression, got 'M[N.z]'"
+    },
+    {
+      "expr_id": "160",
+      "kind": "classification",
+      "latex": "2z=.75x+2.46\\left\\{-1.15\\le x\\le-0.35\\right\\}\\left\\{-0.8\\le y\\le1.85\\right\\}",
+      "reason": "Could not parse '(2z)-(.75x+2.46)' as '(2*z)-(.75x+2.46)': invalid decimal literal (<unknown>, line 1)"
+    },
+    {
+      "expr_id": "163",
+      "kind": "classification",
+      "latex": "2z=-.75x+2.46\\left\\{0.35\\le x\\le1.15\\right\\}\\left\\{-0.8\\le y\\le1.85\\right\\}",
+      "reason": "Could not parse '(2z)-(-.75x+2.46)' as '(2*z)-(-.75x+2.46)': invalid decimal literal (<unknown>, line 1)"
+    },
+    {
+      "expr_id": "171",
+      "kind": "classification",
+      "latex": ".8\\le z\\le1.3+.63(x+.35)\\left\\{-10\\le x\\le-.35\\right\\}\\left\\{1.85\\le y\\le1.9\\right\\}",
+      "reason": "Only direct function calls are supported"
+    },
+    {
+      "expr_id": "175",
+      "kind": "classification",
+      "latex": ".8\\le z\\le1.3+.63(x+.35)\\left\\{-10\\le x\\le-.35\\right\\}\\left\\{-0.85\\le y\\le-0.8\\right\\}",
+      "reason": "Only direct function calls are supported"
+    },
+    {
+      "expr_id": "176",
+      "kind": "classification",
+      "latex": ".8\\le z\\le1.3+.63(0.35-x)\\left\\{-10\\le0.35\\le x\\right\\}\\left\\{1.85\\le y\\le1.9\\right\\}",
+      "reason": "Only direct function calls are supported"
+    },
+    {
+      "expr_id": "178",
+      "kind": "classification",
+      "latex": ".8\\le z\\le1.3+.63(0.35-x)\\left\\{-10\\le0.35\\le x\\right\\}\\left\\{-0.85\\le y\\le-0.8\\right\\}",
+      "reason": "Only direct function calls are supported"
+    },
+    {
+      "expr_id": "181",
+      "kind": "classification",
+      "latex": "\\operatorname{triangle}(Q[R.x],Q[R.y],Q[R.z])",
+      "reason": "Expected vector expression, got 'Q[R.x]'"
+    },
+    {
+      "expr_id": "184",
+      "kind": "classification",
+      "latex": "\\operatorname{triangle}(S[T.x],S[T.y],S[T.z])",
+      "reason": "Expected vector expression, got 'S[T.x]'"
+    },
+    {
+      "expr_id": "186",
+      "kind": "classification",
+      "latex": "\\operatorname{triangle}(Q[R.x],Q[R.y],Q[R.z])",
+      "reason": "Expected vector expression, got 'Q[R.x]'"
+    },
+    {
+      "expr_id": "187",
+      "kind": "classification",
+      "latex": "\\operatorname{triangle}(Q[R.x],S[T.x],S[T.y])",
+      "reason": "Expected vector expression, got 'Q[R.x]'"
+    },
+    {
+      "expr_id": "188",
+      "kind": "classification",
+      "latex": "\\operatorname{triangle}(Q[R.x],Q[R.y],S[T.y])",
+      "reason": "Expected vector expression, got 'Q[R.x]'"
+    },
+    {
+      "expr_id": "189",
+      "kind": "classification",
+      "latex": "\\operatorname{triangle}(Q[R.y],Q[R.z],S[T.z])",
+      "reason": "Expected vector expression, got 'Q[R.y]'"
+    },
+    {
+      "expr_id": "190",
+      "kind": "classification",
+      "latex": "\\operatorname{triangle}(Q[R.y],S[T.y],S[T.z])",
+      "reason": "Expected vector expression, got 'Q[R.y]'"
+    },
+    {
+      "expr_id": "191",
+      "kind": "classification",
+      "latex": "\\operatorname{triangle}(Q[R.z],Q[R.x],S[T.x])",
+      "reason": "Expected vector expression, got 'Q[R.z]'"
+    },
+    {
+      "expr_id": "192",
+      "kind": "classification",
+      "latex": "\\operatorname{triangle}(Q[R.z],S[T.z],S[T.x])",
+      "reason": "Expected vector expression, got 'Q[R.z]'"
+    },
+    {
+      "expr_id": "195",
+      "kind": "classification",
+      "latex": "\\operatorname{triangle}(U[V.x],U[V.y],U[V.z])",
+      "reason": "Expected vector expression, got 'U[V.x]'"
+    },
+    {
+      "expr_id": "198",
+      "kind": "classification",
+      "latex": "\\operatorname{triangle}(W[X.x],W[X.y],W[X.z])",
+      "reason": "Expected vector expression, got 'W[X.x]'"
+    },
+    {
+      "expr_id": "200",
+      "kind": "classification",
+      "latex": "\\operatorname{triangle}(U[V.x],U[V.y],U[V.z])",
+      "reason": "Expected vector expression, got 'U[V.x]'"
+    },
+    {
+      "expr_id": "201",
+      "kind": "classification",
+      "latex": "\\operatorname{triangle}(U[V.x],W[X.x],W[X.y])",
+      "reason": "Expected vector expression, got 'U[V.x]'"
+    },
+    {
+      "expr_id": "202",
+      "kind": "classification",
+      "latex": "\\operatorname{triangle}(U[V.x],U[V.y],W[X.y])",
+      "reason": "Expected vector expression, got 'U[V.x]'"
+    },
+    {
+      "expr_id": "203",
+      "kind": "classification",
+      "latex": "\\operatorname{triangle}(U[V.y],U[V.z],W[X.z])",
+      "reason": "Expected vector expression, got 'U[V.y]'"
+    },
+    {
+      "expr_id": "204",
+      "kind": "classification",
+      "latex": "\\operatorname{triangle}(U[V.y],W[X.y],W[X.z])",
+      "reason": "Expected vector expression, got 'U[V.y]'"
+    },
+    {
+      "expr_id": "205",
+      "kind": "classification",
+      "latex": "\\operatorname{triangle}(U[V.z],U[V.x],W[X.x])",
+      "reason": "Expected vector expression, got 'U[V.z]'"
+    },
+    {
+      "expr_id": "206",
+      "kind": "classification",
+      "latex": "\\operatorname{triangle}(U[V.z],W[X.z],W[X.x])",
+      "reason": "Expected vector expression, got 'U[V.z]'"
+    },
+    {
+      "expr_id": "297",
+      "kind": "classification",
+      "latex": ".5x+3.76\\le z\\le.8x+4.13\\left\\{-0.08\\le x\\le0.09\\right\\}\\left\\{0.206\\le y\\le.75\\right\\}",
+      "reason": "Could not parse '.5x+3.76' as '.5x+3.76': invalid decimal literal (<unknown>, line 1)"
+    },
+    {
+      "expr_id": "300",
+      "kind": "classification",
+      "latex": "\\operatorname{triangle}\\left(A_{1}\\left[B_{1}.x\\right],A_{1}\\left[B_{1}.y\\right],A_{1}\\left[B_{1}.z\\right]\\right)",
+      "reason": "Expected vector expression, got 'A_{1}[B_{1}.x]'"
+    },
+    {
+      "expr_id": "303",
+      "kind": "classification",
+      "latex": "\\operatorname{triangle}\\left(C_{1}\\left[D_{1}.x\\right],C_{1}\\left[D_{1}.y\\right],C_{1}\\left[D_{1}.z\\right]\\right)",
+      "reason": "Expected vector expression, got 'C_{1}[D_{1}.x]'"
+    },
+    {
+      "expr_id": "309",
+      "kind": "classification",
+      "latex": "\\operatorname{triangle}\\left(G_{1}\\left[H_{1}.x\\right],G_{1}\\left[H_{1}.y\\right],G_{1}\\left[H_{1}.z\\right]\\right)",
+      "reason": "Expected vector expression, got 'G_{1}[H_{1}.x]'"
+    },
+    {
+      "expr_id": "325",
+      "kind": "inequality_region",
+      "latex": "(x-u)^{2}+(y-v)^{2}\\le w^{2}q-t/2\\le z\\le q+t/2\\ \\left\\{5<z<5.9\\right\\}",
+      "reason": "Inequality region for 325 did not resolve to sampled cells"
+    }
+  ],
+  "unsupported_count": 69,
+  "usda_exists": true,
+  "usdz_exists": true,
+  "usdz_output": "artifacts/fixture_usdz/[4B] 3D Diagram - S2-07 Group F.usdz",
+  "usdz_package": {
+    "command": [
+      "/usr/bin/usdzip",
+      "/Users/chek/repos/desmos2usd-carey/artifacts/fixture_usdz/[4B] 3D Diagram - S2-07 Group F.usdz",
+      "[4B] 3D Diagram - S2-07 Group F.usda"
+    ],
+    "cwd": "/Users/chek/repos/desmos2usd-carey/artifacts/fixture_usdz",
+    "returncode": 0,
+    "stderr": "",
+    "stdout": "",
+    "tool": "usdzip"
+  },
+  "usdz_validation": null,
+  "valid": true,
+  "validations": [
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "26",
+      "face_count": 30,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 32,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "27",
+      "face_count": 30,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 32,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "28",
+      "face_count": 30,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 32,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "90",
+      "face_count": 30,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 32,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "93",
+      "face_count": 30,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 32,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "157",
+      "face_count": 30,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 32,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "165",
+      "face_count": 30,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 32,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "170",
+      "face_count": 30,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 32,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "208",
+      "face_count": 1686,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 2248,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "210",
+      "face_count": 2952,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 3936,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "212",
+      "face_count": 24,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 32,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "213",
+      "face_count": 138,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 184,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "214",
+      "face_count": 30,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 32,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "215",
+      "face_count": 30,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 32,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "216",
+      "face_count": 30,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 32,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "218",
+      "face_count": 120,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 160,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "219",
+      "face_count": 126,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 168,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "220",
+      "face_count": 120,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 160,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "221",
+      "face_count": 126,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 168,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "222",
+      "face_count": 144,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 192,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "223",
+      "face_count": 30,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 32,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "225",
+      "face_count": 114,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 152,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "226",
+      "face_count": 108,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 144,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "228",
+      "face_count": 48,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 64,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "229",
+      "face_count": 120,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 160,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "230",
+      "face_count": 66,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 88,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "231",
+      "face_count": 48,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 64,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "232",
+      "face_count": 102,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 136,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "233",
+      "face_count": 114,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 152,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "235",
+      "face_count": 30,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 32,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "236",
+      "face_count": 30,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 32,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "237",
+      "face_count": 30,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 32,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "287",
+      "face_count": 2880,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 3840,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "290",
+      "face_count": 30,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 32,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "295",
+      "face_count": 30,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 32,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "296",
+      "face_count": 30,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 32,
+      "valid": true
+    }
+  ]
 }
