@@ -1,0 +1,1080 @@
+#usda 1.0
+(
+    defaultPrim = "DesmosGraph"
+    metersPerUnit = 1
+    upAxis = "Z"
+    customLayerData = {
+        string "desmos:url" = ""
+        string "desmos:hash" = ""
+        string "desmos:title" = "Desmos graph"
+        string "desmos:stateUrl" = ""
+        string "desmos:viewportBounds" = "{\"x\": [-10.0, 10.0], \"y\": [-10.0, 10.0], \"z\": [-10.0, 10.0]}"
+        string "desmos:worldRotation3D" = "[3.6555940033074356e-17, 1.0, 4.9122934612591247e-17, -0.597003806461194, 6.123233995736766e-17, -0.8022384028895931, -0.8022384028895931, 0.0, 0.597003806461194]"
+        string "desmos:axis3D" = "[-0.9999999999957112, -6.123233995710528e-17, -4.573227489781277e-31]"
+        string "desmos:threeDMode" = "true"
+    }
+)
+
+def Xform "DesmosGraph"
+{
+    def Mesh "expr_0000__99"
+    {
+        custom string desmos:url = ""
+        custom string desmos:hash = ""
+        custom string desmos:exprId = "99"
+        custom int desmos:order = 0
+        custom string desmos:latex = "-0.5\\le z\\le0\\ \\left\\{-5.5\\le y\\le5.5\\right\\}\\left\\{-9\\le x\\le9\\right\\}"
+        custom string desmos:constraints = "-0.5\\le z\\le0; -5.5\\le y\\le5.5; -9\\le x\\le9"
+        custom string desmos:kind = "inequality_region"
+        custom string desmos:color = "#aaaaaa"
+        custom bool desmos:hidden = false
+        uniform bool doubleSided = true
+        color3f[] primvars:displayColor = [(0.666666667, 0.666666667, 0.666666667)] (
+            interpolation = "constant"
+        )
+        point3f[] points = [(-9, -5.5, -0.5), (-3, -5.5, -0.5), (3, -5.5, -0.5), (9, -5.5, -0.5), (-9, -1.83333333, -0.5), (-3, -1.83333333, -0.5), (3, -1.83333333, -0.5), (9, -1.83333333, -0.5), (-9, 1.83333333, -0.5), (-3, 1.83333333, -0.5), (3, 1.83333333, -0.5), (9, 1.83333333, -0.5), (-9, 5.5, -0.5), (-3, 5.5, -0.5), (3, 5.5, -0.5), (9, 5.5, -0.5), (-9, -5.5, 0), (-3, -5.5, 0), (3, -5.5, 0), (9, -5.5, 0), (-9, -1.83333333, 0), (-3, -1.83333333, 0), (3, -1.83333333, 0), (9, -1.83333333, 0), (-9, 1.83333333, 0), (-3, 1.83333333, 0), (3, 1.83333333, 0), (9, 1.83333333, 0), (-9, 5.5, 0), (-3, 5.5, 0), (3, 5.5, 0), (9, 5.5, 0)]
+        int[] faceVertexCounts = [4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4]
+        int[] faceVertexIndices = [0, 1, 5, 4, 1, 2, 6, 5, 2, 3, 7, 6, 4, 5, 9, 8, 5, 6, 10, 9, 6, 7, 11, 10, 8, 9, 13, 12, 9, 10, 14, 13, 10, 11, 15, 14, 20, 21, 17, 16, 21, 22, 18, 17, 22, 23, 19, 18, 24, 25, 21, 20, 25, 26, 22, 21, 26, 27, 23, 22, 28, 29, 25, 24, 29, 30, 26, 25, 30, 31, 27, 26, 0, 1, 17, 16, 1, 2, 18, 17, 2, 3, 19, 18, 12, 13, 29, 28, 13, 14, 30, 29, 14, 15, 31, 30, 0, 4, 20, 16, 4, 8, 24, 20, 8, 12, 28, 24, 3, 7, 23, 19, 7, 11, 27, 23, 11, 15, 31, 27]
+    }
+
+    def Mesh "expr_0001__100"
+    {
+        custom string desmos:url = ""
+        custom string desmos:hash = ""
+        custom string desmos:exprId = "100"
+        custom int desmos:order = 1
+        custom string desmos:latex = "-1\\le z\\le-0.5\\left\\{-6\\le y\\le6\\right\\}\\left\\{-9.5\\le x\\le9.5\\right\\}"
+        custom string desmos:constraints = "-1\\le z\\le-0.5; -6\\le y\\le6; -9.5\\le x\\le9.5"
+        custom string desmos:kind = "inequality_region"
+        custom string desmos:color = "#aaaaaa"
+        custom bool desmos:hidden = false
+        uniform bool doubleSided = true
+        color3f[] primvars:displayColor = [(0.666666667, 0.666666667, 0.666666667)] (
+            interpolation = "constant"
+        )
+        point3f[] points = [(-9.5, -6, -1), (-3.16666667, -6, -1), (3.16666667, -6, -1), (9.5, -6, -1), (-9.5, -2, -1), (-3.16666667, -2, -1), (3.16666667, -2, -1), (9.5, -2, -1), (-9.5, 2, -1), (-3.16666667, 2, -1), (3.16666667, 2, -1), (9.5, 2, -1), (-9.5, 6, -1), (-3.16666667, 6, -1), (3.16666667, 6, -1), (9.5, 6, -1), (-9.5, -6, -0.5), (-3.16666667, -6, -0.5), (3.16666667, -6, -0.5), (9.5, -6, -0.5), (-9.5, -2, -0.5), (-3.16666667, -2, -0.5), (3.16666667, -2, -0.5), (9.5, -2, -0.5), (-9.5, 2, -0.5), (-3.16666667, 2, -0.5), (3.16666667, 2, -0.5), (9.5, 2, -0.5), (-9.5, 6, -0.5), (-3.16666667, 6, -0.5), (3.16666667, 6, -0.5), (9.5, 6, -0.5)]
+        int[] faceVertexCounts = [4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4]
+        int[] faceVertexIndices = [0, 1, 5, 4, 1, 2, 6, 5, 2, 3, 7, 6, 4, 5, 9, 8, 5, 6, 10, 9, 6, 7, 11, 10, 8, 9, 13, 12, 9, 10, 14, 13, 10, 11, 15, 14, 20, 21, 17, 16, 21, 22, 18, 17, 22, 23, 19, 18, 24, 25, 21, 20, 25, 26, 22, 21, 26, 27, 23, 22, 28, 29, 25, 24, 29, 30, 26, 25, 30, 31, 27, 26, 0, 1, 17, 16, 1, 2, 18, 17, 2, 3, 19, 18, 12, 13, 29, 28, 13, 14, 30, 29, 14, 15, 31, 30, 0, 4, 20, 16, 4, 8, 24, 20, 8, 12, 28, 24, 3, 7, 23, 19, 7, 11, 27, 23, 11, 15, 31, 27]
+    }
+
+    def Mesh "expr_0002__101"
+    {
+        custom string desmos:url = ""
+        custom string desmos:hash = ""
+        custom string desmos:exprId = "101"
+        custom int desmos:order = 2
+        custom string desmos:latex = "-3\\le z\\le-1\\left\\{-6.5\\le y\\le6.5\\right\\}\\left\\{-10\\le x\\le10\\right\\}"
+        custom string desmos:constraints = "-3\\le z\\le-1; -6.5\\le y\\le6.5; -10\\le x\\le10"
+        custom string desmos:kind = "inequality_region"
+        custom string desmos:color = "#aaaaaa"
+        custom bool desmos:hidden = false
+        uniform bool doubleSided = true
+        color3f[] primvars:displayColor = [(0.666666667, 0.666666667, 0.666666667)] (
+            interpolation = "constant"
+        )
+        point3f[] points = [(-10, -6.5, -3), (-3.33333333, -6.5, -3), (3.33333333, -6.5, -3), (10, -6.5, -3), (-10, -2.16666667, -3), (-3.33333333, -2.16666667, -3), (3.33333333, -2.16666667, -3), (10, -2.16666667, -3), (-10, 2.16666667, -3), (-3.33333333, 2.16666667, -3), (3.33333333, 2.16666667, -3), (10, 2.16666667, -3), (-10, 6.5, -3), (-3.33333333, 6.5, -3), (3.33333333, 6.5, -3), (10, 6.5, -3), (-10, -6.5, -1), (-3.33333333, -6.5, -1), (3.33333333, -6.5, -1), (10, -6.5, -1), (-10, -2.16666667, -1), (-3.33333333, -2.16666667, -1), (3.33333333, -2.16666667, -1), (10, -2.16666667, -1), (-10, 2.16666667, -1), (-3.33333333, 2.16666667, -1), (3.33333333, 2.16666667, -1), (10, 2.16666667, -1), (-10, 6.5, -1), (-3.33333333, 6.5, -1), (3.33333333, 6.5, -1), (10, 6.5, -1)]
+        int[] faceVertexCounts = [4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4]
+        int[] faceVertexIndices = [0, 1, 5, 4, 1, 2, 6, 5, 2, 3, 7, 6, 4, 5, 9, 8, 5, 6, 10, 9, 6, 7, 11, 10, 8, 9, 13, 12, 9, 10, 14, 13, 10, 11, 15, 14, 20, 21, 17, 16, 21, 22, 18, 17, 22, 23, 19, 18, 24, 25, 21, 20, 25, 26, 22, 21, 26, 27, 23, 22, 28, 29, 25, 24, 29, 30, 26, 25, 30, 31, 27, 26, 0, 1, 17, 16, 1, 2, 18, 17, 2, 3, 19, 18, 12, 13, 29, 28, 13, 14, 30, 29, 14, 15, 31, 30, 0, 4, 20, 16, 4, 8, 24, 20, 8, 12, 28, 24, 3, 7, 23, 19, 7, 11, 27, 23, 11, 15, 31, 27]
+    }
+
+    def Mesh "expr_0003__103"
+    {
+        custom string desmos:url = ""
+        custom string desmos:hash = ""
+        custom string desmos:exprId = "103"
+        custom int desmos:order = 3
+        custom string desmos:latex = "-5\\le z\\le-1.5\\left\\{-7\\le y\\le7\\right\\}\\left\\{-10\\le x\\le10\\right\\}"
+        custom string desmos:constraints = "-5\\le z\\le-1.5; -7\\le y\\le7; -10\\le x\\le10"
+        custom string desmos:kind = "inequality_region"
+        custom string desmos:color = "#aaaaaa"
+        custom bool desmos:hidden = false
+        uniform bool doubleSided = true
+        color3f[] primvars:displayColor = [(0.666666667, 0.666666667, 0.666666667)] (
+            interpolation = "constant"
+        )
+        point3f[] points = [(-10, -7, -5), (-3.33333333, -7, -5), (3.33333333, -7, -5), (10, -7, -5), (-10, -2.33333333, -5), (-3.33333333, -2.33333333, -5), (3.33333333, -2.33333333, -5), (10, -2.33333333, -5), (-10, 2.33333333, -5), (-3.33333333, 2.33333333, -5), (3.33333333, 2.33333333, -5), (10, 2.33333333, -5), (-10, 7, -5), (-3.33333333, 7, -5), (3.33333333, 7, -5), (10, 7, -5), (-10, -7, -1.5), (-3.33333333, -7, -1.5), (3.33333333, -7, -1.5), (10, -7, -1.5), (-10, -2.33333333, -1.5), (-3.33333333, -2.33333333, -1.5), (3.33333333, -2.33333333, -1.5), (10, -2.33333333, -1.5), (-10, 2.33333333, -1.5), (-3.33333333, 2.33333333, -1.5), (3.33333333, 2.33333333, -1.5), (10, 2.33333333, -1.5), (-10, 7, -1.5), (-3.33333333, 7, -1.5), (3.33333333, 7, -1.5), (10, 7, -1.5)]
+        int[] faceVertexCounts = [4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4]
+        int[] faceVertexIndices = [0, 1, 5, 4, 1, 2, 6, 5, 2, 3, 7, 6, 4, 5, 9, 8, 5, 6, 10, 9, 6, 7, 11, 10, 8, 9, 13, 12, 9, 10, 14, 13, 10, 11, 15, 14, 20, 21, 17, 16, 21, 22, 18, 17, 22, 23, 19, 18, 24, 25, 21, 20, 25, 26, 22, 21, 26, 27, 23, 22, 28, 29, 25, 24, 29, 30, 26, 25, 30, 31, 27, 26, 0, 1, 17, 16, 1, 2, 18, 17, 2, 3, 19, 18, 12, 13, 29, 28, 13, 14, 30, 29, 14, 15, 31, 30, 0, 4, 20, 16, 4, 8, 24, 20, 8, 12, 28, 24, 3, 7, 23, 19, 7, 11, 27, 23, 11, 15, 31, 27]
+    }
+
+    def Mesh "expr_0004__104"
+    {
+        custom string desmos:url = ""
+        custom string desmos:hash = ""
+        custom string desmos:exprId = "104"
+        custom int desmos:order = 4
+        custom string desmos:latex = "-7\\le z\\le-2\\left\\{-7.5\\le y\\le7.5\\right\\}\\left\\{-10\\le x\\le10\\right\\}"
+        custom string desmos:constraints = "-7\\le z\\le-2; -7.5\\le y\\le7.5; -10\\le x\\le10"
+        custom string desmos:kind = "inequality_region"
+        custom string desmos:color = "#aaaaaa"
+        custom bool desmos:hidden = false
+        uniform bool doubleSided = true
+        color3f[] primvars:displayColor = [(0.666666667, 0.666666667, 0.666666667)] (
+            interpolation = "constant"
+        )
+        point3f[] points = [(-10, -7.5, -7), (-3.33333333, -7.5, -7), (3.33333333, -7.5, -7), (10, -7.5, -7), (-10, -2.5, -7), (-3.33333333, -2.5, -7), (3.33333333, -2.5, -7), (10, -2.5, -7), (-10, 2.5, -7), (-3.33333333, 2.5, -7), (3.33333333, 2.5, -7), (10, 2.5, -7), (-10, 7.5, -7), (-3.33333333, 7.5, -7), (3.33333333, 7.5, -7), (10, 7.5, -7), (-10, -7.5, -2), (-3.33333333, -7.5, -2), (3.33333333, -7.5, -2), (10, -7.5, -2), (-10, -2.5, -2), (-3.33333333, -2.5, -2), (3.33333333, -2.5, -2), (10, -2.5, -2), (-10, 2.5, -2), (-3.33333333, 2.5, -2), (3.33333333, 2.5, -2), (10, 2.5, -2), (-10, 7.5, -2), (-3.33333333, 7.5, -2), (3.33333333, 7.5, -2), (10, 7.5, -2)]
+        int[] faceVertexCounts = [4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4]
+        int[] faceVertexIndices = [0, 1, 5, 4, 1, 2, 6, 5, 2, 3, 7, 6, 4, 5, 9, 8, 5, 6, 10, 9, 6, 7, 11, 10, 8, 9, 13, 12, 9, 10, 14, 13, 10, 11, 15, 14, 20, 21, 17, 16, 21, 22, 18, 17, 22, 23, 19, 18, 24, 25, 21, 20, 25, 26, 22, 21, 26, 27, 23, 22, 28, 29, 25, 24, 29, 30, 26, 25, 30, 31, 27, 26, 0, 1, 17, 16, 1, 2, 18, 17, 2, 3, 19, 18, 12, 13, 29, 28, 13, 14, 30, 29, 14, 15, 31, 30, 0, 4, 20, 16, 4, 8, 24, 20, 8, 12, 28, 24, 3, 7, 23, 19, 7, 11, 27, 23, 11, 15, 31, 27]
+    }
+
+    def Mesh "expr_0005__106"
+    {
+        custom string desmos:url = ""
+        custom string desmos:hash = ""
+        custom string desmos:exprId = "106"
+        custom int desmos:order = 5
+        custom string desmos:latex = "-7\\le z\\le-2.5\\left\\{-8\\le y\\le8\\right\\}\\left\\{-10\\le x\\le10\\right\\}"
+        custom string desmos:constraints = "-7\\le z\\le-2.5; -8\\le y\\le8; -10\\le x\\le10"
+        custom string desmos:kind = "inequality_region"
+        custom string desmos:color = "#aaaaaa"
+        custom bool desmos:hidden = false
+        uniform bool doubleSided = true
+        color3f[] primvars:displayColor = [(0.666666667, 0.666666667, 0.666666667)] (
+            interpolation = "constant"
+        )
+        point3f[] points = [(-10, -8, -7), (-3.33333333, -8, -7), (3.33333333, -8, -7), (10, -8, -7), (-10, -2.66666667, -7), (-3.33333333, -2.66666667, -7), (3.33333333, -2.66666667, -7), (10, -2.66666667, -7), (-10, 2.66666667, -7), (-3.33333333, 2.66666667, -7), (3.33333333, 2.66666667, -7), (10, 2.66666667, -7), (-10, 8, -7), (-3.33333333, 8, -7), (3.33333333, 8, -7), (10, 8, -7), (-10, -8, -2.5), (-3.33333333, -8, -2.5), (3.33333333, -8, -2.5), (10, -8, -2.5), (-10, -2.66666667, -2.5), (-3.33333333, -2.66666667, -2.5), (3.33333333, -2.66666667, -2.5), (10, -2.66666667, -2.5), (-10, 2.66666667, -2.5), (-3.33333333, 2.66666667, -2.5), (3.33333333, 2.66666667, -2.5), (10, 2.66666667, -2.5), (-10, 8, -2.5), (-3.33333333, 8, -2.5), (3.33333333, 8, -2.5), (10, 8, -2.5)]
+        int[] faceVertexCounts = [4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4]
+        int[] faceVertexIndices = [0, 1, 5, 4, 1, 2, 6, 5, 2, 3, 7, 6, 4, 5, 9, 8, 5, 6, 10, 9, 6, 7, 11, 10, 8, 9, 13, 12, 9, 10, 14, 13, 10, 11, 15, 14, 20, 21, 17, 16, 21, 22, 18, 17, 22, 23, 19, 18, 24, 25, 21, 20, 25, 26, 22, 21, 26, 27, 23, 22, 28, 29, 25, 24, 29, 30, 26, 25, 30, 31, 27, 26, 0, 1, 17, 16, 1, 2, 18, 17, 2, 3, 19, 18, 12, 13, 29, 28, 13, 14, 30, 29, 14, 15, 31, 30, 0, 4, 20, 16, 4, 8, 24, 20, 8, 12, 28, 24, 3, 7, 23, 19, 7, 11, 27, 23, 11, 15, 31, 27]
+    }
+
+    def Mesh "expr_0006__102"
+    {
+        custom string desmos:url = ""
+        custom string desmos:hash = ""
+        custom string desmos:exprId = "102"
+        custom int desmos:order = 6
+        custom string desmos:latex = "z<-3"
+        custom string desmos:constraints = "z<-3"
+        custom string desmos:kind = "inequality_region"
+        custom string desmos:color = "#388c46"
+        custom bool desmos:hidden = false
+        uniform bool doubleSided = true
+        color3f[] primvars:displayColor = [(0.219607843, 0.549019608, 0.274509804)] (
+            interpolation = "constant"
+        )
+        point3f[] points = [(-10, -10, -10), (10, -10, -10), (10, 10, -10), (-10, 10, -10), (-10, -10, -3), (10, -10, -3), (10, 10, -3), (-10, 10, -3)]
+        int[] faceVertexCounts = [4, 4, 4, 4, 4, 4]
+        int[] faceVertexIndices = [0, 1, 2, 3, 4, 7, 6, 5, 0, 4, 5, 1, 1, 5, 6, 2, 2, 6, 7, 3, 3, 7, 4, 0]
+    }
+
+    def Mesh "expr_0010__19"
+    {
+        custom string desmos:url = ""
+        custom string desmos:hash = ""
+        custom string desmos:exprId = "19"
+        custom int desmos:order = 10
+        custom string desmos:latex = "\\left(x+3.35\\right)^{2}+\\left(y+4\\right)^{2}=0.72\\left\\{0\\le z\\le8.5\\right\\}"
+        custom string desmos:constraints = "0\\le z\\le8.5"
+        custom string desmos:kind = "implicit_surface"
+        custom string desmos:color = "#fa7e19"
+        custom bool desmos:hidden = false
+        uniform bool doubleSided = true
+        color3f[] primvars:displayColor = [(0.980392157, 0.494117647, 0.0980392157)] (
+            interpolation = "constant"
+        )
+        point3f[] points = []
+        int[] faceVertexCounts = []
+        int[] faceVertexIndices = []
+    }
+
+    def Mesh "expr_0011__38"
+    {
+        custom string desmos:url = ""
+        custom string desmos:hash = ""
+        custom string desmos:exprId = "38"
+        custom int desmos:order = 11
+        custom string desmos:latex = "\\left(x-3.35\\right)^{2}+\\left(y+4\\right)^{2}=0.72\\left\\{0\\le z\\le8.5\\right\\}"
+        custom string desmos:constraints = "0\\le z\\le8.5"
+        custom string desmos:kind = "implicit_surface"
+        custom string desmos:color = "#fa7e19"
+        custom bool desmos:hidden = false
+        uniform bool doubleSided = true
+        color3f[] primvars:displayColor = [(0.980392157, 0.494117647, 0.0980392157)] (
+            interpolation = "constant"
+        )
+        point3f[] points = []
+        int[] faceVertexCounts = []
+        int[] faceVertexIndices = []
+    }
+
+    def Mesh "expr_0012__40"
+    {
+        custom string desmos:url = ""
+        custom string desmos:hash = ""
+        custom string desmos:exprId = "40"
+        custom int desmos:order = 12
+        custom string desmos:latex = "\\left(x-3.35\\right)^{2}+\\left(y-4\\right)^{2}=0.72\\left\\{0\\le z\\le8.5\\right\\}"
+        custom string desmos:constraints = "0\\le z\\le8.5"
+        custom string desmos:kind = "implicit_surface"
+        custom string desmos:color = "#fa7e19"
+        custom bool desmos:hidden = false
+        uniform bool doubleSided = true
+        color3f[] primvars:displayColor = [(0.980392157, 0.494117647, 0.0980392157)] (
+            interpolation = "constant"
+        )
+        point3f[] points = []
+        int[] faceVertexCounts = []
+        int[] faceVertexIndices = []
+    }
+
+    def Mesh "expr_0013__39"
+    {
+        custom string desmos:url = ""
+        custom string desmos:hash = ""
+        custom string desmos:exprId = "39"
+        custom int desmos:order = 13
+        custom string desmos:latex = "\\left(x+3.35\\right)^{2}+\\left(y-4\\right)^{2}=0.72\\left\\{0\\le z\\le8.5\\right\\}"
+        custom string desmos:constraints = "0\\le z\\le8.5"
+        custom string desmos:kind = "implicit_surface"
+        custom string desmos:color = "#fa7e19"
+        custom bool desmos:hidden = false
+        uniform bool doubleSided = true
+        color3f[] primvars:displayColor = [(0.980392157, 0.494117647, 0.0980392157)] (
+            interpolation = "constant"
+        )
+        point3f[] points = []
+        int[] faceVertexCounts = []
+        int[] faceVertexIndices = []
+    }
+
+    def Mesh "expr_0015__27"
+    {
+        custom string desmos:url = ""
+        custom string desmos:hash = ""
+        custom string desmos:exprId = "27"
+        custom int desmos:order = 15
+        custom string desmos:latex = "5\\ge y\\ge3\\left\\{4.2\\ge x\\ge2.5\\right\\}\\left\\{6.1\\ge z\\ge5.1\\right\\}"
+        custom string desmos:constraints = "5\\ge y\\ge3; 4.2\\ge x\\ge2.5; 6.1\\ge z\\ge5.1"
+        custom string desmos:kind = "inequality_region"
+        custom string desmos:color = "#aaaaaa"
+        custom bool desmos:hidden = false
+        uniform bool doubleSided = true
+        color3f[] primvars:displayColor = [(0.666666667, 0.666666667, 0.666666667)] (
+            interpolation = "constant"
+        )
+        point3f[] points = [(2.5, 3, 5.1), (3.06666667, 3, 5.1), (3.63333333, 3, 5.1), (4.2, 3, 5.1), (2.5, 3, 5.43333333), (3.06666667, 3, 5.43333333), (3.63333333, 3, 5.43333333), (4.2, 3, 5.43333333), (2.5, 3, 5.76666667), (3.06666667, 3, 5.76666667), (3.63333333, 3, 5.76666667), (4.2, 3, 5.76666667), (2.5, 3, 6.1), (3.06666667, 3, 6.1), (3.63333333, 3, 6.1), (4.2, 3, 6.1), (2.5, 5, 5.1), (3.06666667, 5, 5.1), (3.63333333, 5, 5.1), (4.2, 5, 5.1), (2.5, 5, 5.43333333), (3.06666667, 5, 5.43333333), (3.63333333, 5, 5.43333333), (4.2, 5, 5.43333333), (2.5, 5, 5.76666667), (3.06666667, 5, 5.76666667), (3.63333333, 5, 5.76666667), (4.2, 5, 5.76666667), (2.5, 5, 6.1), (3.06666667, 5, 6.1), (3.63333333, 5, 6.1), (4.2, 5, 6.1)]
+        int[] faceVertexCounts = [4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4]
+        int[] faceVertexIndices = [0, 1, 5, 4, 1, 2, 6, 5, 2, 3, 7, 6, 4, 5, 9, 8, 5, 6, 10, 9, 6, 7, 11, 10, 8, 9, 13, 12, 9, 10, 14, 13, 10, 11, 15, 14, 20, 21, 17, 16, 21, 22, 18, 17, 22, 23, 19, 18, 24, 25, 21, 20, 25, 26, 22, 21, 26, 27, 23, 22, 28, 29, 25, 24, 29, 30, 26, 25, 30, 31, 27, 26, 0, 1, 17, 16, 1, 2, 18, 17, 2, 3, 19, 18, 12, 13, 29, 28, 13, 14, 30, 29, 14, 15, 31, 30, 0, 4, 20, 16, 4, 8, 24, 20, 8, 12, 28, 24, 3, 7, 23, 19, 7, 11, 27, 23, 11, 15, 31, 27]
+    }
+
+    def Mesh "expr_0016__29"
+    {
+        custom string desmos:url = ""
+        custom string desmos:hash = ""
+        custom string desmos:exprId = "29"
+        custom int desmos:order = 16
+        custom string desmos:latex = "-3\\ge y\\ge-5\\left\\{4.2\\ge x\\ge2.5\\right\\}\\left\\{6.1\\ge z\\ge5.1\\right\\}"
+        custom string desmos:constraints = "-3\\ge y\\ge-5; 4.2\\ge x\\ge2.5; 6.1\\ge z\\ge5.1"
+        custom string desmos:kind = "inequality_region"
+        custom string desmos:color = "#aaaaaa"
+        custom bool desmos:hidden = false
+        uniform bool doubleSided = true
+        color3f[] primvars:displayColor = [(0.666666667, 0.666666667, 0.666666667)] (
+            interpolation = "constant"
+        )
+        point3f[] points = [(2.5, -5, 5.1), (3.06666667, -5, 5.1), (3.63333333, -5, 5.1), (4.2, -5, 5.1), (2.5, -5, 5.43333333), (3.06666667, -5, 5.43333333), (3.63333333, -5, 5.43333333), (4.2, -5, 5.43333333), (2.5, -5, 5.76666667), (3.06666667, -5, 5.76666667), (3.63333333, -5, 5.76666667), (4.2, -5, 5.76666667), (2.5, -5, 6.1), (3.06666667, -5, 6.1), (3.63333333, -5, 6.1), (4.2, -5, 6.1), (2.5, -3, 5.1), (3.06666667, -3, 5.1), (3.63333333, -3, 5.1), (4.2, -3, 5.1), (2.5, -3, 5.43333333), (3.06666667, -3, 5.43333333), (3.63333333, -3, 5.43333333), (4.2, -3, 5.43333333), (2.5, -3, 5.76666667), (3.06666667, -3, 5.76666667), (3.63333333, -3, 5.76666667), (4.2, -3, 5.76666667), (2.5, -3, 6.1), (3.06666667, -3, 6.1), (3.63333333, -3, 6.1), (4.2, -3, 6.1)]
+        int[] faceVertexCounts = [4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4]
+        int[] faceVertexIndices = [0, 1, 5, 4, 1, 2, 6, 5, 2, 3, 7, 6, 4, 5, 9, 8, 5, 6, 10, 9, 6, 7, 11, 10, 8, 9, 13, 12, 9, 10, 14, 13, 10, 11, 15, 14, 20, 21, 17, 16, 21, 22, 18, 17, 22, 23, 19, 18, 24, 25, 21, 20, 25, 26, 22, 21, 26, 27, 23, 22, 28, 29, 25, 24, 29, 30, 26, 25, 30, 31, 27, 26, 0, 1, 17, 16, 1, 2, 18, 17, 2, 3, 19, 18, 12, 13, 29, 28, 13, 14, 30, 29, 14, 15, 31, 30, 0, 4, 20, 16, 4, 8, 24, 20, 8, 12, 28, 24, 3, 7, 23, 19, 7, 11, 27, 23, 11, 15, 31, 27]
+    }
+
+    def Mesh "expr_0017__30"
+    {
+        custom string desmos:url = ""
+        custom string desmos:hash = ""
+        custom string desmos:exprId = "30"
+        custom int desmos:order = 17
+        custom string desmos:latex = "5\\ge y\\ge3\\left\\{-2.5\\ge x\\ge-4.2\\right\\}\\left\\{6.1\\ge z\\ge5.1\\right\\}"
+        custom string desmos:constraints = "5\\ge y\\ge3; -2.5\\ge x\\ge-4.2; 6.1\\ge z\\ge5.1"
+        custom string desmos:kind = "inequality_region"
+        custom string desmos:color = "#aaaaaa"
+        custom bool desmos:hidden = false
+        uniform bool doubleSided = true
+        color3f[] primvars:displayColor = [(0.666666667, 0.666666667, 0.666666667)] (
+            interpolation = "constant"
+        )
+        point3f[] points = [(-4.2, 3, 5.1), (-3.63333333, 3, 5.1), (-3.06666667, 3, 5.1), (-2.5, 3, 5.1), (-4.2, 3, 5.43333333), (-3.63333333, 3, 5.43333333), (-3.06666667, 3, 5.43333333), (-2.5, 3, 5.43333333), (-4.2, 3, 5.76666667), (-3.63333333, 3, 5.76666667), (-3.06666667, 3, 5.76666667), (-2.5, 3, 5.76666667), (-4.2, 3, 6.1), (-3.63333333, 3, 6.1), (-3.06666667, 3, 6.1), (-2.5, 3, 6.1), (-4.2, 5, 5.1), (-3.63333333, 5, 5.1), (-3.06666667, 5, 5.1), (-2.5, 5, 5.1), (-4.2, 5, 5.43333333), (-3.63333333, 5, 5.43333333), (-3.06666667, 5, 5.43333333), (-2.5, 5, 5.43333333), (-4.2, 5, 5.76666667), (-3.63333333, 5, 5.76666667), (-3.06666667, 5, 5.76666667), (-2.5, 5, 5.76666667), (-4.2, 5, 6.1), (-3.63333333, 5, 6.1), (-3.06666667, 5, 6.1), (-2.5, 5, 6.1)]
+        int[] faceVertexCounts = [4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4]
+        int[] faceVertexIndices = [0, 1, 5, 4, 1, 2, 6, 5, 2, 3, 7, 6, 4, 5, 9, 8, 5, 6, 10, 9, 6, 7, 11, 10, 8, 9, 13, 12, 9, 10, 14, 13, 10, 11, 15, 14, 20, 21, 17, 16, 21, 22, 18, 17, 22, 23, 19, 18, 24, 25, 21, 20, 25, 26, 22, 21, 26, 27, 23, 22, 28, 29, 25, 24, 29, 30, 26, 25, 30, 31, 27, 26, 0, 1, 17, 16, 1, 2, 18, 17, 2, 3, 19, 18, 12, 13, 29, 28, 13, 14, 30, 29, 14, 15, 31, 30, 0, 4, 20, 16, 4, 8, 24, 20, 8, 12, 28, 24, 3, 7, 23, 19, 7, 11, 27, 23, 11, 15, 31, 27]
+    }
+
+    def Mesh "expr_0018__43"
+    {
+        custom string desmos:url = ""
+        custom string desmos:hash = ""
+        custom string desmos:exprId = "43"
+        custom int desmos:order = 18
+        custom string desmos:latex = "-3\\ge y\\ge-5\\left\\{-2.5\\ge x\\ge-4.2\\right\\}\\left\\{6.1\\ge z\\ge5.1\\right\\}"
+        custom string desmos:constraints = "-3\\ge y\\ge-5; -2.5\\ge x\\ge-4.2; 6.1\\ge z\\ge5.1"
+        custom string desmos:kind = "inequality_region"
+        custom string desmos:color = "#aaaaaa"
+        custom bool desmos:hidden = false
+        uniform bool doubleSided = true
+        color3f[] primvars:displayColor = [(0.666666667, 0.666666667, 0.666666667)] (
+            interpolation = "constant"
+        )
+        point3f[] points = [(-4.2, -5, 5.1), (-3.63333333, -5, 5.1), (-3.06666667, -5, 5.1), (-2.5, -5, 5.1), (-4.2, -5, 5.43333333), (-3.63333333, -5, 5.43333333), (-3.06666667, -5, 5.43333333), (-2.5, -5, 5.43333333), (-4.2, -5, 5.76666667), (-3.63333333, -5, 5.76666667), (-3.06666667, -5, 5.76666667), (-2.5, -5, 5.76666667), (-4.2, -5, 6.1), (-3.63333333, -5, 6.1), (-3.06666667, -5, 6.1), (-2.5, -5, 6.1), (-4.2, -3, 5.1), (-3.63333333, -3, 5.1), (-3.06666667, -3, 5.1), (-2.5, -3, 5.1), (-4.2, -3, 5.43333333), (-3.63333333, -3, 5.43333333), (-3.06666667, -3, 5.43333333), (-2.5, -3, 5.43333333), (-4.2, -3, 5.76666667), (-3.63333333, -3, 5.76666667), (-3.06666667, -3, 5.76666667), (-2.5, -3, 5.76666667), (-4.2, -3, 6.1), (-3.63333333, -3, 6.1), (-3.06666667, -3, 6.1), (-2.5, -3, 6.1)]
+        int[] faceVertexCounts = [4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4]
+        int[] faceVertexIndices = [0, 1, 5, 4, 1, 2, 6, 5, 2, 3, 7, 6, 4, 5, 9, 8, 5, 6, 10, 9, 6, 7, 11, 10, 8, 9, 13, 12, 9, 10, 14, 13, 10, 11, 15, 14, 20, 21, 17, 16, 21, 22, 18, 17, 22, 23, 19, 18, 24, 25, 21, 20, 25, 26, 22, 21, 26, 27, 23, 22, 28, 29, 25, 24, 29, 30, 26, 25, 30, 31, 27, 26, 0, 1, 17, 16, 1, 2, 18, 17, 2, 3, 19, 18, 12, 13, 29, 28, 13, 14, 30, 29, 14, 15, 31, 30, 0, 4, 20, 16, 4, 8, 24, 20, 8, 12, 28, 24, 3, 7, 23, 19, 7, 11, 27, 23, 11, 15, 31, 27]
+    }
+
+    def Mesh "expr_0019__31"
+    {
+        custom string desmos:url = ""
+        custom string desmos:hash = ""
+        custom string desmos:exprId = "31"
+        custom int desmos:order = 19
+        custom string desmos:latex = "3.7\\ge y\\ge-3.7\\left\\{4\\le x\\le9\\right\\}\\left\\{4.5\\ge z\\ge4\\right\\}"
+        custom string desmos:constraints = "3.7\\ge y\\ge-3.7; 4\\le x\\le9; 4.5\\ge z\\ge4"
+        custom string desmos:kind = "inequality_region"
+        custom string desmos:color = "#aaaaaa"
+        custom bool desmos:hidden = false
+        uniform bool doubleSided = true
+        color3f[] primvars:displayColor = [(0.666666667, 0.666666667, 0.666666667)] (
+            interpolation = "constant"
+        )
+        point3f[] points = [(4, -3.7, 4), (5.66666667, -3.7, 4), (7.33333333, -3.7, 4), (9, -3.7, 4), (4, -3.7, 4.16666667), (5.66666667, -3.7, 4.16666667), (7.33333333, -3.7, 4.16666667), (9, -3.7, 4.16666667), (4, -3.7, 4.33333333), (5.66666667, -3.7, 4.33333333), (7.33333333, -3.7, 4.33333333), (9, -3.7, 4.33333333), (4, -3.7, 4.5), (5.66666667, -3.7, 4.5), (7.33333333, -3.7, 4.5), (9, -3.7, 4.5), (4, 3.7, 4), (5.66666667, 3.7, 4), (7.33333333, 3.7, 4), (9, 3.7, 4), (4, 3.7, 4.16666667), (5.66666667, 3.7, 4.16666667), (7.33333333, 3.7, 4.16666667), (9, 3.7, 4.16666667), (4, 3.7, 4.33333333), (5.66666667, 3.7, 4.33333333), (7.33333333, 3.7, 4.33333333), (9, 3.7, 4.33333333), (4, 3.7, 4.5), (5.66666667, 3.7, 4.5), (7.33333333, 3.7, 4.5), (9, 3.7, 4.5)]
+        int[] faceVertexCounts = [4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4]
+        int[] faceVertexIndices = [0, 1, 5, 4, 1, 2, 6, 5, 2, 3, 7, 6, 4, 5, 9, 8, 5, 6, 10, 9, 6, 7, 11, 10, 8, 9, 13, 12, 9, 10, 14, 13, 10, 11, 15, 14, 20, 21, 17, 16, 21, 22, 18, 17, 22, 23, 19, 18, 24, 25, 21, 20, 25, 26, 22, 21, 26, 27, 23, 22, 28, 29, 25, 24, 29, 30, 26, 25, 30, 31, 27, 26, 0, 1, 17, 16, 1, 2, 18, 17, 2, 3, 19, 18, 12, 13, 29, 28, 13, 14, 30, 29, 14, 15, 31, 30, 0, 4, 20, 16, 4, 8, 24, 20, 8, 12, 28, 24, 3, 7, 23, 19, 7, 11, 27, 23, 11, 15, 31, 27]
+    }
+
+    def Mesh "expr_0020__32"
+    {
+        custom string desmos:url = ""
+        custom string desmos:hash = ""
+        custom string desmos:exprId = "32"
+        custom int desmos:order = 20
+        custom string desmos:latex = "3.7\\ge y\\ge-3.7\\left\\{-9\\le x\\le-4\\right\\}\\left\\{4.5\\ge z\\ge4\\right\\}"
+        custom string desmos:constraints = "3.7\\ge y\\ge-3.7; -9\\le x\\le-4; 4.5\\ge z\\ge4"
+        custom string desmos:kind = "inequality_region"
+        custom string desmos:color = "#aaaaaa"
+        custom bool desmos:hidden = false
+        uniform bool doubleSided = true
+        color3f[] primvars:displayColor = [(0.666666667, 0.666666667, 0.666666667)] (
+            interpolation = "constant"
+        )
+        point3f[] points = [(-9, -3.7, 4), (-7.33333333, -3.7, 4), (-5.66666667, -3.7, 4), (-4, -3.7, 4), (-9, -3.7, 4.16666667), (-7.33333333, -3.7, 4.16666667), (-5.66666667, -3.7, 4.16666667), (-4, -3.7, 4.16666667), (-9, -3.7, 4.33333333), (-7.33333333, -3.7, 4.33333333), (-5.66666667, -3.7, 4.33333333), (-4, -3.7, 4.33333333), (-9, -3.7, 4.5), (-7.33333333, -3.7, 4.5), (-5.66666667, -3.7, 4.5), (-4, -3.7, 4.5), (-9, 3.7, 4), (-7.33333333, 3.7, 4), (-5.66666667, 3.7, 4), (-4, 3.7, 4), (-9, 3.7, 4.16666667), (-7.33333333, 3.7, 4.16666667), (-5.66666667, 3.7, 4.16666667), (-4, 3.7, 4.16666667), (-9, 3.7, 4.33333333), (-7.33333333, 3.7, 4.33333333), (-5.66666667, 3.7, 4.33333333), (-4, 3.7, 4.33333333), (-9, 3.7, 4.5), (-7.33333333, 3.7, 4.5), (-5.66666667, 3.7, 4.5), (-4, 3.7, 4.5)]
+        int[] faceVertexCounts = [4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4]
+        int[] faceVertexIndices = [0, 1, 5, 4, 1, 2, 6, 5, 2, 3, 7, 6, 4, 5, 9, 8, 5, 6, 10, 9, 6, 7, 11, 10, 8, 9, 13, 12, 9, 10, 14, 13, 10, 11, 15, 14, 20, 21, 17, 16, 21, 22, 18, 17, 22, 23, 19, 18, 24, 25, 21, 20, 25, 26, 22, 21, 26, 27, 23, 22, 28, 29, 25, 24, 29, 30, 26, 25, 30, 31, 27, 26, 0, 1, 17, 16, 1, 2, 18, 17, 2, 3, 19, 18, 12, 13, 29, 28, 13, 14, 30, 29, 14, 15, 31, 30, 0, 4, 20, 16, 4, 8, 24, 20, 8, 12, 28, 24, 3, 7, 23, 19, 7, 11, 27, 23, 11, 15, 31, 27]
+    }
+
+    def Mesh "expr_0021__33"
+    {
+        custom string desmos:url = ""
+        custom string desmos:hash = ""
+        custom string desmos:exprId = "33"
+        custom int desmos:order = 21
+        custom string desmos:latex = "-3\\le x\\le3\\left\\{-4\\le y\\le-3\\right\\}\\left\\{5\\le z\\le7.5\\right\\}"
+        custom string desmos:constraints = "-3\\le x\\le3; -4\\le y\\le-3; 5\\le z\\le7.5"
+        custom string desmos:kind = "inequality_region"
+        custom string desmos:color = "#fa7e19"
+        custom bool desmos:hidden = false
+        uniform bool doubleSided = true
+        color3f[] primvars:displayColor = [(0.980392157, 0.494117647, 0.0980392157)] (
+            interpolation = "constant"
+        )
+        point3f[] points = [(-3, -4, 5), (-3, -3.66666667, 5), (-3, -3.33333333, 5), (-3, -3, 5), (-3, -4, 5.83333333), (-3, -3.66666667, 5.83333333), (-3, -3.33333333, 5.83333333), (-3, -3, 5.83333333), (-3, -4, 6.66666667), (-3, -3.66666667, 6.66666667), (-3, -3.33333333, 6.66666667), (-3, -3, 6.66666667), (-3, -4, 7.5), (-3, -3.66666667, 7.5), (-3, -3.33333333, 7.5), (-3, -3, 7.5), (3, -4, 5), (3, -3.66666667, 5), (3, -3.33333333, 5), (3, -3, 5), (3, -4, 5.83333333), (3, -3.66666667, 5.83333333), (3, -3.33333333, 5.83333333), (3, -3, 5.83333333), (3, -4, 6.66666667), (3, -3.66666667, 6.66666667), (3, -3.33333333, 6.66666667), (3, -3, 6.66666667), (3, -4, 7.5), (3, -3.66666667, 7.5), (3, -3.33333333, 7.5), (3, -3, 7.5)]
+        int[] faceVertexCounts = [4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4]
+        int[] faceVertexIndices = [0, 1, 5, 4, 1, 2, 6, 5, 2, 3, 7, 6, 4, 5, 9, 8, 5, 6, 10, 9, 6, 7, 11, 10, 8, 9, 13, 12, 9, 10, 14, 13, 10, 11, 15, 14, 20, 21, 17, 16, 21, 22, 18, 17, 22, 23, 19, 18, 24, 25, 21, 20, 25, 26, 22, 21, 26, 27, 23, 22, 28, 29, 25, 24, 29, 30, 26, 25, 30, 31, 27, 26, 0, 1, 17, 16, 1, 2, 18, 17, 2, 3, 19, 18, 12, 13, 29, 28, 13, 14, 30, 29, 14, 15, 31, 30, 0, 4, 20, 16, 4, 8, 24, 20, 8, 12, 28, 24, 3, 7, 23, 19, 7, 11, 27, 23, 11, 15, 31, 27]
+    }
+
+    def Mesh "expr_0022__41"
+    {
+        custom string desmos:url = ""
+        custom string desmos:hash = ""
+        custom string desmos:exprId = "41"
+        custom int desmos:order = 22
+        custom string desmos:latex = "-3\\le x\\le3\\left\\{3\\le y\\le4\\right\\}\\left\\{5\\le z\\le7.5\\right\\}"
+        custom string desmos:constraints = "-3\\le x\\le3; 3\\le y\\le4; 5\\le z\\le7.5"
+        custom string desmos:kind = "inequality_region"
+        custom string desmos:color = "#fa7e19"
+        custom bool desmos:hidden = false
+        uniform bool doubleSided = true
+        color3f[] primvars:displayColor = [(0.980392157, 0.494117647, 0.0980392157)] (
+            interpolation = "constant"
+        )
+        point3f[] points = [(-3, 3, 5), (-3, 3.33333333, 5), (-3, 3.66666667, 5), (-3, 4, 5), (-3, 3, 5.83333333), (-3, 3.33333333, 5.83333333), (-3, 3.66666667, 5.83333333), (-3, 4, 5.83333333), (-3, 3, 6.66666667), (-3, 3.33333333, 6.66666667), (-3, 3.66666667, 6.66666667), (-3, 4, 6.66666667), (-3, 3, 7.5), (-3, 3.33333333, 7.5), (-3, 3.66666667, 7.5), (-3, 4, 7.5), (3, 3, 5), (3, 3.33333333, 5), (3, 3.66666667, 5), (3, 4, 5), (3, 3, 5.83333333), (3, 3.33333333, 5.83333333), (3, 3.66666667, 5.83333333), (3, 4, 5.83333333), (3, 3, 6.66666667), (3, 3.33333333, 6.66666667), (3, 3.66666667, 6.66666667), (3, 4, 6.66666667), (3, 3, 7.5), (3, 3.33333333, 7.5), (3, 3.66666667, 7.5), (3, 4, 7.5)]
+        int[] faceVertexCounts = [4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4]
+        int[] faceVertexIndices = [0, 1, 5, 4, 1, 2, 6, 5, 2, 3, 7, 6, 4, 5, 9, 8, 5, 6, 10, 9, 6, 7, 11, 10, 8, 9, 13, 12, 9, 10, 14, 13, 10, 11, 15, 14, 20, 21, 17, 16, 21, 22, 18, 17, 22, 23, 19, 18, 24, 25, 21, 20, 25, 26, 22, 21, 26, 27, 23, 22, 28, 29, 25, 24, 29, 30, 26, 25, 30, 31, 27, 26, 0, 1, 17, 16, 1, 2, 18, 17, 2, 3, 19, 18, 12, 13, 29, 28, 13, 14, 30, 29, 14, 15, 31, 30, 0, 4, 20, 16, 4, 8, 24, 20, 8, 12, 28, 24, 3, 7, 23, 19, 7, 11, 27, 23, 11, 15, 31, 27]
+    }
+
+    def Mesh "expr_0023__35"
+    {
+        custom string desmos:url = ""
+        custom string desmos:hash = ""
+        custom string desmos:exprId = "35"
+        custom int desmos:order = 23
+        custom string desmos:latex = "3.3\\ge y\\ge-3.3\\left\\{4\\le x\\le8.6\\right\\}\\left\\{5.7\\ge z\\ge5.5\\right\\}"
+        custom string desmos:constraints = "3.3\\ge y\\ge-3.3; 4\\le x\\le8.6; 5.7\\ge z\\ge5.5"
+        custom string desmos:kind = "inequality_region"
+        custom string desmos:color = "#fa7e19"
+        custom bool desmos:hidden = false
+        uniform bool doubleSided = true
+        color3f[] primvars:displayColor = [(0.980392157, 0.494117647, 0.0980392157)] (
+            interpolation = "constant"
+        )
+        point3f[] points = [(4, -3.3, 5.5), (5.53333333, -3.3, 5.5), (7.06666667, -3.3, 5.5), (8.6, -3.3, 5.5), (4, -3.3, 5.56666667), (5.53333333, -3.3, 5.56666667), (7.06666667, -3.3, 5.56666667), (8.6, -3.3, 5.56666667), (4, -3.3, 5.63333333), (5.53333333, -3.3, 5.63333333), (7.06666667, -3.3, 5.63333333), (8.6, -3.3, 5.63333333), (4, -3.3, 5.7), (5.53333333, -3.3, 5.7), (7.06666667, -3.3, 5.7), (8.6, -3.3, 5.7), (4, 3.3, 5.5), (5.53333333, 3.3, 5.5), (7.06666667, 3.3, 5.5), (8.6, 3.3, 5.5), (4, 3.3, 5.56666667), (5.53333333, 3.3, 5.56666667), (7.06666667, 3.3, 5.56666667), (8.6, 3.3, 5.56666667), (4, 3.3, 5.63333333), (5.53333333, 3.3, 5.63333333), (7.06666667, 3.3, 5.63333333), (8.6, 3.3, 5.63333333), (4, 3.3, 5.7), (5.53333333, 3.3, 5.7), (7.06666667, 3.3, 5.7), (8.6, 3.3, 5.7)]
+        int[] faceVertexCounts = [4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4]
+        int[] faceVertexIndices = [0, 1, 5, 4, 1, 2, 6, 5, 2, 3, 7, 6, 4, 5, 9, 8, 5, 6, 10, 9, 6, 7, 11, 10, 8, 9, 13, 12, 9, 10, 14, 13, 10, 11, 15, 14, 20, 21, 17, 16, 21, 22, 18, 17, 22, 23, 19, 18, 24, 25, 21, 20, 25, 26, 22, 21, 26, 27, 23, 22, 28, 29, 25, 24, 29, 30, 26, 25, 30, 31, 27, 26, 0, 1, 17, 16, 1, 2, 18, 17, 2, 3, 19, 18, 12, 13, 29, 28, 13, 14, 30, 29, 14, 15, 31, 30, 0, 4, 20, 16, 4, 8, 24, 20, 8, 12, 28, 24, 3, 7, 23, 19, 7, 11, 27, 23, 11, 15, 31, 27]
+    }
+
+    def Mesh "expr_0024__36"
+    {
+        custom string desmos:url = ""
+        custom string desmos:hash = ""
+        custom string desmos:exprId = "36"
+        custom int desmos:order = 24
+        custom string desmos:latex = "3.3\\ge y\\ge-3.3\\left\\{-4\\ge x\\ge-8.6\\right\\}\\left\\{5.7\\ge z\\ge5.5\\right\\}"
+        custom string desmos:constraints = "3.3\\ge y\\ge-3.3; -4\\ge x\\ge-8.6; 5.7\\ge z\\ge5.5"
+        custom string desmos:kind = "inequality_region"
+        custom string desmos:color = "#fa7e19"
+        custom bool desmos:hidden = false
+        uniform bool doubleSided = true
+        color3f[] primvars:displayColor = [(0.980392157, 0.494117647, 0.0980392157)] (
+            interpolation = "constant"
+        )
+        point3f[] points = [(-8.6, -3.3, 5.5), (-7.06666667, -3.3, 5.5), (-5.53333333, -3.3, 5.5), (-4, -3.3, 5.5), (-8.6, -3.3, 5.56666667), (-7.06666667, -3.3, 5.56666667), (-5.53333333, -3.3, 5.56666667), (-4, -3.3, 5.56666667), (-8.6, -3.3, 5.63333333), (-7.06666667, -3.3, 5.63333333), (-5.53333333, -3.3, 5.63333333), (-4, -3.3, 5.63333333), (-8.6, -3.3, 5.7), (-7.06666667, -3.3, 5.7), (-5.53333333, -3.3, 5.7), (-4, -3.3, 5.7), (-8.6, 3.3, 5.5), (-7.06666667, 3.3, 5.5), (-5.53333333, 3.3, 5.5), (-4, 3.3, 5.5), (-8.6, 3.3, 5.56666667), (-7.06666667, 3.3, 5.56666667), (-5.53333333, 3.3, 5.56666667), (-4, 3.3, 5.56666667), (-8.6, 3.3, 5.63333333), (-7.06666667, 3.3, 5.63333333), (-5.53333333, 3.3, 5.63333333), (-4, 3.3, 5.63333333), (-8.6, 3.3, 5.7), (-7.06666667, 3.3, 5.7), (-5.53333333, 3.3, 5.7), (-4, 3.3, 5.7)]
+        int[] faceVertexCounts = [4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4]
+        int[] faceVertexIndices = [0, 1, 5, 4, 1, 2, 6, 5, 2, 3, 7, 6, 4, 5, 9, 8, 5, 6, 10, 9, 6, 7, 11, 10, 8, 9, 13, 12, 9, 10, 14, 13, 10, 11, 15, 14, 20, 21, 17, 16, 21, 22, 18, 17, 22, 23, 19, 18, 24, 25, 21, 20, 25, 26, 22, 21, 26, 27, 23, 22, 28, 29, 25, 24, 29, 30, 26, 25, 30, 31, 27, 26, 0, 1, 17, 16, 1, 2, 18, 17, 2, 3, 19, 18, 12, 13, 29, 28, 13, 14, 30, 29, 14, 15, 31, 30, 0, 4, 20, 16, 4, 8, 24, 20, 8, 12, 28, 24, 3, 7, 23, 19, 7, 11, 27, 23, 11, 15, 31, 27]
+    }
+
+    def Mesh "expr_0025__37"
+    {
+        custom string desmos:url = ""
+        custom string desmos:hash = ""
+        custom string desmos:exprId = "37"
+        custom int desmos:order = 25
+        custom string desmos:latex = "\\frac{1}{2}x^{2}+x-4\\ge-z+x\\left\\{-3\\le x\\le3\\right\\}\\left\\{2\\le z\\le5\\right\\}\\left\\{-3.7\\le y\\le3.7\\right\\}"
+        custom string desmos:constraints = "\\frac{1}{2}x^{2}+x-4\\ge-z+x; -3\\le x\\le3; 2\\le z\\le5; -3.7\\le y\\le3.7"
+        custom string desmos:kind = "inequality_region"
+        custom string desmos:color = "#fa7e19"
+        custom bool desmos:hidden = false
+        uniform bool doubleSided = true
+        color3f[] primvars:displayColor = [(0.980392157, 0.494117647, 0.0980392157)] (
+            interpolation = "constant"
+        )
+        point3f[] points = [(-3, -3.7, 2), (3, -3.7, 2), (3, -3.7, 2.125), (-3, -3.7, 2.125), (-3, 3.7, 2), (3, 3.7, 2), (3, 3.7, 2.125), (-3, 3.7, 2.125), (-3, -3.7, 2.125), (3, -3.7, 2.125), (3, -3.7, 2.25), (-3, -3.7, 2.25), (-3, 3.7, 2.125), (3, 3.7, 2.125), (3, 3.7, 2.25), (-3, 3.7, 2.25), (-3, -3.7, 2.25), (3, -3.7, 2.25), (3, -3.7, 2.375), (-3, -3.7, 2.375), (-3, 3.7, 2.25), (3, 3.7, 2.25), (3, 3.7, 2.375), (-3, 3.7, 2.375), (-3, -3.7, 2.375), (3, -3.7, 2.375), (3, -3.7, 2.5), (-3, -3.7, 2.5), (-3, 3.7, 2.375), (3, 3.7, 2.375), (3, 3.7, 2.5), (-3, 3.7, 2.5), (-3, -3.7, 2.5), (3, -3.7, 2.5), (3, -3.7, 2.625), (-3, -3.7, 2.625), (-3, 3.7, 2.5), (3, 3.7, 2.5), (3, 3.7, 2.625), (-3, 3.7, 2.625), (-3, -3.7, 2.625), (3, -3.7, 2.625), (3, -3.7, 2.75), (-3, -3.7, 2.75), (-3, 3.7, 2.625), (3, 3.7, 2.625), (3, 3.7, 2.75), (-3, 3.7, 2.75), (-3, -3.7, 2.75), (3, -3.7, 2.75), (3, -3.7, 2.875), (-3, -3.7, 2.875), (-3, 3.7, 2.75), (3, 3.7, 2.75), (3, 3.7, 2.875), (-3, 3.7, 2.875), (-3, -3.7, 2.875), (3, -3.7, 2.875), (3, -3.7, 3), (-3, -3.7, 3), (-3, 3.7, 2.875), (3, 3.7, 2.875), (3, 3.7, 3), (-3, 3.7, 3), (-3, -3.7, 3), (3, -3.7, 3), (3, -3.7, 3.125), (-3, -3.7, 3.125), (-3, 3.7, 3), (3, 3.7, 3), (3, 3.7, 3.125), (-3, 3.7, 3.125), (-3, -3.7, 3.125), (3, -3.7, 3.125), (3, -3.7, 3.25), (-3, -3.7, 3.25), (-3, 3.7, 3.125), (3, 3.7, 3.125), (3, 3.7, 3.25), (-3, 3.7, 3.25), (-3, -3.7, 3.25), (3, -3.7, 3.25), (3, -3.7, 3.375), (-3, -3.7, 3.375), (-3, 3.7, 3.25), (3, 3.7, 3.25), (3, 3.7, 3.375), (-3, 3.7, 3.375), (-3, -3.7, 3.375), (3, -3.7, 3.375), (3, -3.7, 3.5), (-3, -3.7, 3.5), (-3, 3.7, 3.375), (3, 3.7, 3.375), (3, 3.7, 3.5), (-3, 3.7, 3.5), (-3, -3.7, 3.5), (3, -3.7, 3.5), (3, -3.7, 3.625), (-3, -3.7, 3.625), (-3, 3.7, 3.5), (3, 3.7, 3.5), (3, 3.7, 3.625), (-3, 3.7, 3.625), (-3, -3.7, 3.625), (3, -3.7, 3.625), (3, -3.7, 3.75), (-3, -3.7, 3.75), (-3, 3.7, 3.625), (3, 3.7, 3.625), (3, 3.7, 3.75), (-3, 3.7, 3.75), (-3, -3.7, 3.75), (3, -3.7, 3.75), (3, -3.7, 3.875), (-3, -3.7, 3.875), (-3, 3.7, 3.75), (3, 3.7, 3.75), (3, 3.7, 3.875), (-3, 3.7, 3.875), (-3, -3.7, 3.875), (3, -3.7, 3.875), (3, -3.7, 4), (-3, -3.7, 4), (-3, 3.7, 3.875), (3, 3.7, 3.875), (3, 3.7, 4), (-3, 3.7, 4), (-3, -3.7, 4), (3, -3.7, 4), (3, -3.7, 4.125), (-3, -3.7, 4.125), (-3, 3.7, 4), (3, 3.7, 4), (3, 3.7, 4.125), (-3, 3.7, 4.125), (-3, -3.7, 4.125), (3, -3.7, 4.125), (3, -3.7, 4.25), (-3, -3.7, 4.25), (-3, 3.7, 4.125), (3, 3.7, 4.125), (3, 3.7, 4.25), (-3, 3.7, 4.25), (-3, -3.7, 4.25), (3, -3.7, 4.25), (3, -3.7, 4.375), (-3, -3.7, 4.375), (-3, 3.7, 4.25), (3, 3.7, 4.25), (3, 3.7, 4.375), (-3, 3.7, 4.375), (-3, -3.7, 4.375), (3, -3.7, 4.375), (3, -3.7, 4.5), (-3, -3.7, 4.5), (-3, 3.7, 4.375), (3, 3.7, 4.375), (3, 3.7, 4.5), (-3, 3.7, 4.5), (-3, -3.7, 4.5), (3, -3.7, 4.5), (3, -3.7, 4.625), (-3, -3.7, 4.625), (-3, 3.7, 4.5), (3, 3.7, 4.5), (3, 3.7, 4.625), (-3, 3.7, 4.625), (-3, -3.7, 4.625), (3, -3.7, 4.625), (3, -3.7, 4.75), (-3, -3.7, 4.75), (-3, 3.7, 4.625), (3, 3.7, 4.625), (3, 3.7, 4.75), (-3, 3.7, 4.75), (-3, -3.7, 4.75), (3, -3.7, 4.75), (3, -3.7, 4.875), (-3, -3.7, 4.875), (-3, 3.7, 4.75), (3, 3.7, 4.75), (3, 3.7, 4.875), (-3, 3.7, 4.875), (-3, -3.7, 4.875), (3, -3.7, 4.875), (3, -3.7, 5), (-3, -3.7, 5), (-3, 3.7, 4.875), (3, 3.7, 4.875), (3, 3.7, 5), (-3, 3.7, 5)]
+        int[] faceVertexCounts = [4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4]
+        int[] faceVertexIndices = [0, 1, 2, 3, 4, 7, 6, 5, 0, 4, 5, 1, 1, 5, 6, 2, 2, 6, 7, 3, 3, 7, 4, 0, 8, 9, 10, 11, 12, 15, 14, 13, 8, 12, 13, 9, 9, 13, 14, 10, 10, 14, 15, 11, 11, 15, 12, 8, 16, 17, 18, 19, 20, 23, 22, 21, 16, 20, 21, 17, 17, 21, 22, 18, 18, 22, 23, 19, 19, 23, 20, 16, 24, 25, 26, 27, 28, 31, 30, 29, 24, 28, 29, 25, 25, 29, 30, 26, 26, 30, 31, 27, 27, 31, 28, 24, 32, 33, 34, 35, 36, 39, 38, 37, 32, 36, 37, 33, 33, 37, 38, 34, 34, 38, 39, 35, 35, 39, 36, 32, 40, 41, 42, 43, 44, 47, 46, 45, 40, 44, 45, 41, 41, 45, 46, 42, 42, 46, 47, 43, 43, 47, 44, 40, 48, 49, 50, 51, 52, 55, 54, 53, 48, 52, 53, 49, 49, 53, 54, 50, 50, 54, 55, 51, 51, 55, 52, 48, 56, 57, 58, 59, 60, 63, 62, 61, 56, 60, 61, 57, 57, 61, 62, 58, 58, 62, 63, 59, 59, 63, 60, 56, 64, 65, 66, 67, 68, 71, 70, 69, 64, 68, 69, 65, 65, 69, 70, 66, 66, 70, 71, 67, 67, 71, 68, 64, 72, 73, 74, 75, 76, 79, 78, 77, 72, 76, 77, 73, 73, 77, 78, 74, 74, 78, 79, 75, 75, 79, 76, 72, 80, 81, 82, 83, 84, 87, 86, 85, 80, 84, 85, 81, 81, 85, 86, 82, 82, 86, 87, 83, 83, 87, 84, 80, 88, 89, 90, 91, 92, 95, 94, 93, 88, 92, 93, 89, 89, 93, 94, 90, 90, 94, 95, 91, 91, 95, 92, 88, 96, 97, 98, 99, 100, 103, 102, 101, 96, 100, 101, 97, 97, 101, 102, 98, 98, 102, 103, 99, 99, 103, 100, 96, 104, 105, 106, 107, 108, 111, 110, 109, 104, 108, 109, 105, 105, 109, 110, 106, 106, 110, 111, 107, 107, 111, 108, 104, 112, 113, 114, 115, 116, 119, 118, 117, 112, 116, 117, 113, 113, 117, 118, 114, 114, 118, 119, 115, 115, 119, 116, 112, 120, 121, 122, 123, 124, 127, 126, 125, 120, 124, 125, 121, 121, 125, 126, 122, 122, 126, 127, 123, 123, 127, 124, 120, 128, 129, 130, 131, 132, 135, 134, 133, 128, 132, 133, 129, 129, 133, 134, 130, 130, 134, 135, 131, 131, 135, 132, 128, 136, 137, 138, 139, 140, 143, 142, 141, 136, 140, 141, 137, 137, 141, 142, 138, 138, 142, 143, 139, 139, 143, 140, 136, 144, 145, 146, 147, 148, 151, 150, 149, 144, 148, 149, 145, 145, 149, 150, 146, 146, 150, 151, 147, 147, 151, 148, 144, 152, 153, 154, 155, 156, 159, 158, 157, 152, 156, 157, 153, 153, 157, 158, 154, 154, 158, 159, 155, 155, 159, 156, 152, 160, 161, 162, 163, 164, 167, 166, 165, 160, 164, 165, 161, 161, 165, 166, 162, 162, 166, 167, 163, 163, 167, 164, 160, 168, 169, 170, 171, 172, 175, 174, 173, 168, 172, 173, 169, 169, 173, 174, 170, 170, 174, 175, 171, 171, 175, 172, 168, 176, 177, 178, 179, 180, 183, 182, 181, 176, 180, 181, 177, 177, 181, 182, 178, 178, 182, 183, 179, 179, 183, 180, 176, 184, 185, 186, 187, 188, 191, 190, 189, 184, 188, 189, 185, 185, 189, 190, 186, 186, 190, 191, 187, 187, 191, 188, 184]
+    }
+
+    def Mesh "expr_0026__20"
+    {
+        custom string desmos:url = ""
+        custom string desmos:hash = ""
+        custom string desmos:exprId = "20"
+        custom int desmos:order = 26
+        custom string desmos:latex = "-4\\le y\\le4\\left\\{-4.2\\le x\\le-2.5\\right\\}\\left\\{0\\le z\\le6\\right\\}"
+        custom string desmos:constraints = "-4\\le y\\le4; -4.2\\le x\\le-2.5; 0\\le z\\le6"
+        custom string desmos:kind = "inequality_region"
+        custom string desmos:color = "#fa7e19"
+        custom bool desmos:hidden = false
+        uniform bool doubleSided = true
+        color3f[] primvars:displayColor = [(0.980392157, 0.494117647, 0.0980392157)] (
+            interpolation = "constant"
+        )
+        point3f[] points = [(-4.2, -4, 0), (-3.63333333, -4, 0), (-3.06666667, -4, 0), (-2.5, -4, 0), (-4.2, -4, 2), (-3.63333333, -4, 2), (-3.06666667, -4, 2), (-2.5, -4, 2), (-4.2, -4, 4), (-3.63333333, -4, 4), (-3.06666667, -4, 4), (-2.5, -4, 4), (-4.2, -4, 6), (-3.63333333, -4, 6), (-3.06666667, -4, 6), (-2.5, -4, 6), (-4.2, 4, 0), (-3.63333333, 4, 0), (-3.06666667, 4, 0), (-2.5, 4, 0), (-4.2, 4, 2), (-3.63333333, 4, 2), (-3.06666667, 4, 2), (-2.5, 4, 2), (-4.2, 4, 4), (-3.63333333, 4, 4), (-3.06666667, 4, 4), (-2.5, 4, 4), (-4.2, 4, 6), (-3.63333333, 4, 6), (-3.06666667, 4, 6), (-2.5, 4, 6)]
+        int[] faceVertexCounts = [4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4]
+        int[] faceVertexIndices = [0, 1, 5, 4, 1, 2, 6, 5, 2, 3, 7, 6, 4, 5, 9, 8, 5, 6, 10, 9, 6, 7, 11, 10, 8, 9, 13, 12, 9, 10, 14, 13, 10, 11, 15, 14, 20, 21, 17, 16, 21, 22, 18, 17, 22, 23, 19, 18, 24, 25, 21, 20, 25, 26, 22, 21, 26, 27, 23, 22, 28, 29, 25, 24, 29, 30, 26, 25, 30, 31, 27, 26, 0, 1, 17, 16, 1, 2, 18, 17, 2, 3, 19, 18, 12, 13, 29, 28, 13, 14, 30, 29, 14, 15, 31, 30, 0, 4, 20, 16, 4, 8, 24, 20, 8, 12, 28, 24, 3, 7, 23, 19, 7, 11, 27, 23, 11, 15, 31, 27]
+    }
+
+    def Mesh "expr_0027__14"
+    {
+        custom string desmos:url = ""
+        custom string desmos:hash = ""
+        custom string desmos:exprId = "14"
+        custom int desmos:order = 27
+        custom string desmos:latex = "-3.7\\le y\\le3.8\\left\\{2.5\\le x\\le4.2\\right\\}\\left\\{0\\le z\\le6\\right\\}"
+        custom string desmos:constraints = "-3.7\\le y\\le3.8; 2.5\\le x\\le4.2; 0\\le z\\le6"
+        custom string desmos:kind = "inequality_region"
+        custom string desmos:color = "#fa7e19"
+        custom bool desmos:hidden = false
+        uniform bool doubleSided = true
+        color3f[] primvars:displayColor = [(0.980392157, 0.494117647, 0.0980392157)] (
+            interpolation = "constant"
+        )
+        point3f[] points = [(2.5, -3.7, 0), (3.06666667, -3.7, 0), (3.63333333, -3.7, 0), (4.2, -3.7, 0), (2.5, -3.7, 2), (3.06666667, -3.7, 2), (3.63333333, -3.7, 2), (4.2, -3.7, 2), (2.5, -3.7, 4), (3.06666667, -3.7, 4), (3.63333333, -3.7, 4), (4.2, -3.7, 4), (2.5, -3.7, 6), (3.06666667, -3.7, 6), (3.63333333, -3.7, 6), (4.2, -3.7, 6), (2.5, 3.8, 0), (3.06666667, 3.8, 0), (3.63333333, 3.8, 0), (4.2, 3.8, 0), (2.5, 3.8, 2), (3.06666667, 3.8, 2), (3.63333333, 3.8, 2), (4.2, 3.8, 2), (2.5, 3.8, 4), (3.06666667, 3.8, 4), (3.63333333, 3.8, 4), (4.2, 3.8, 4), (2.5, 3.8, 6), (3.06666667, 3.8, 6), (3.63333333, 3.8, 6), (4.2, 3.8, 6)]
+        int[] faceVertexCounts = [4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4]
+        int[] faceVertexIndices = [0, 1, 5, 4, 1, 2, 6, 5, 2, 3, 7, 6, 4, 5, 9, 8, 5, 6, 10, 9, 6, 7, 11, 10, 8, 9, 13, 12, 9, 10, 14, 13, 10, 11, 15, 14, 20, 21, 17, 16, 21, 22, 18, 17, 22, 23, 19, 18, 24, 25, 21, 20, 25, 26, 22, 21, 26, 27, 23, 22, 28, 29, 25, 24, 29, 30, 26, 25, 30, 31, 27, 26, 0, 1, 17, 16, 1, 2, 18, 17, 2, 3, 19, 18, 12, 13, 29, 28, 13, 14, 30, 29, 14, 15, 31, 30, 0, 4, 20, 16, 4, 8, 24, 20, 8, 12, 28, 24, 3, 7, 23, 19, 7, 11, 27, 23, 11, 15, 31, 27]
+    }
+
+    def Mesh "expr_0028__46"
+    {
+        custom string desmos:url = ""
+        custom string desmos:hash = ""
+        custom string desmos:exprId = "46"
+        custom int desmos:order = 28
+        custom string desmos:latex = "-3.5\\le y\\le3.5\\left\\{3\\le x\\le4\\right\\}\\left\\{5\\le z\\le7.5\\right\\}"
+        custom string desmos:constraints = "-3.5\\le y\\le3.5; 3\\le x\\le4; 5\\le z\\le7.5"
+        custom string desmos:kind = "inequality_region"
+        custom string desmos:color = "#fa7e19"
+        custom bool desmos:hidden = false
+        uniform bool doubleSided = true
+        color3f[] primvars:displayColor = [(0.980392157, 0.494117647, 0.0980392157)] (
+            interpolation = "constant"
+        )
+        point3f[] points = [(3, -3.5, 5), (3.33333333, -3.5, 5), (3.66666667, -3.5, 5), (4, -3.5, 5), (3, -3.5, 5.83333333), (3.33333333, -3.5, 5.83333333), (3.66666667, -3.5, 5.83333333), (4, -3.5, 5.83333333), (3, -3.5, 6.66666667), (3.33333333, -3.5, 6.66666667), (3.66666667, -3.5, 6.66666667), (4, -3.5, 6.66666667), (3, -3.5, 7.5), (3.33333333, -3.5, 7.5), (3.66666667, -3.5, 7.5), (4, -3.5, 7.5), (3, 3.5, 5), (3.33333333, 3.5, 5), (3.66666667, 3.5, 5), (4, 3.5, 5), (3, 3.5, 5.83333333), (3.33333333, 3.5, 5.83333333), (3.66666667, 3.5, 5.83333333), (4, 3.5, 5.83333333), (3, 3.5, 6.66666667), (3.33333333, 3.5, 6.66666667), (3.66666667, 3.5, 6.66666667), (4, 3.5, 6.66666667), (3, 3.5, 7.5), (3.33333333, 3.5, 7.5), (3.66666667, 3.5, 7.5), (4, 3.5, 7.5)]
+        int[] faceVertexCounts = [4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4]
+        int[] faceVertexIndices = [0, 1, 5, 4, 1, 2, 6, 5, 2, 3, 7, 6, 4, 5, 9, 8, 5, 6, 10, 9, 6, 7, 11, 10, 8, 9, 13, 12, 9, 10, 14, 13, 10, 11, 15, 14, 20, 21, 17, 16, 21, 22, 18, 17, 22, 23, 19, 18, 24, 25, 21, 20, 25, 26, 22, 21, 26, 27, 23, 22, 28, 29, 25, 24, 29, 30, 26, 25, 30, 31, 27, 26, 0, 1, 17, 16, 1, 2, 18, 17, 2, 3, 19, 18, 12, 13, 29, 28, 13, 14, 30, 29, 14, 15, 31, 30, 0, 4, 20, 16, 4, 8, 24, 20, 8, 12, 28, 24, 3, 7, 23, 19, 7, 11, 27, 23, 11, 15, 31, 27]
+    }
+
+    def Mesh "expr_0029__48"
+    {
+        custom string desmos:url = ""
+        custom string desmos:hash = ""
+        custom string desmos:exprId = "48"
+        custom int desmos:order = 29
+        custom string desmos:latex = "-3.5\\le y\\le3.5\\left\\{-4\\le x\\le-3\\right\\}\\left\\{5\\le z\\le7.5\\right\\}"
+        custom string desmos:constraints = "-3.5\\le y\\le3.5; -4\\le x\\le-3; 5\\le z\\le7.5"
+        custom string desmos:kind = "inequality_region"
+        custom string desmos:color = "#fa7e19"
+        custom bool desmos:hidden = false
+        uniform bool doubleSided = true
+        color3f[] primvars:displayColor = [(0.980392157, 0.494117647, 0.0980392157)] (
+            interpolation = "constant"
+        )
+        point3f[] points = [(-4, -3.5, 5), (-3.66666667, -3.5, 5), (-3.33333333, -3.5, 5), (-3, -3.5, 5), (-4, -3.5, 5.83333333), (-3.66666667, -3.5, 5.83333333), (-3.33333333, -3.5, 5.83333333), (-3, -3.5, 5.83333333), (-4, -3.5, 6.66666667), (-3.66666667, -3.5, 6.66666667), (-3.33333333, -3.5, 6.66666667), (-3, -3.5, 6.66666667), (-4, -3.5, 7.5), (-3.66666667, -3.5, 7.5), (-3.33333333, -3.5, 7.5), (-3, -3.5, 7.5), (-4, 3.5, 5), (-3.66666667, 3.5, 5), (-3.33333333, 3.5, 5), (-3, 3.5, 5), (-4, 3.5, 5.83333333), (-3.66666667, 3.5, 5.83333333), (-3.33333333, 3.5, 5.83333333), (-3, 3.5, 5.83333333), (-4, 3.5, 6.66666667), (-3.66666667, 3.5, 6.66666667), (-3.33333333, 3.5, 6.66666667), (-3, 3.5, 6.66666667), (-4, 3.5, 7.5), (-3.66666667, 3.5, 7.5), (-3.33333333, 3.5, 7.5), (-3, 3.5, 7.5)]
+        int[] faceVertexCounts = [4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4]
+        int[] faceVertexIndices = [0, 1, 5, 4, 1, 2, 6, 5, 2, 3, 7, 6, 4, 5, 9, 8, 5, 6, 10, 9, 6, 7, 11, 10, 8, 9, 13, 12, 9, 10, 14, 13, 10, 11, 15, 14, 20, 21, 17, 16, 21, 22, 18, 17, 22, 23, 19, 18, 24, 25, 21, 20, 25, 26, 22, 21, 26, 27, 23, 22, 28, 29, 25, 24, 29, 30, 26, 25, 30, 31, 27, 26, 0, 1, 17, 16, 1, 2, 18, 17, 2, 3, 19, 18, 12, 13, 29, 28, 13, 14, 30, 29, 14, 15, 31, 30, 0, 4, 20, 16, 4, 8, 24, 20, 8, 12, 28, 24, 3, 7, 23, 19, 7, 11, 27, 23, 11, 15, 31, 27]
+    }
+
+    def Mesh "expr_0030__50"
+    {
+        custom string desmos:url = ""
+        custom string desmos:hash = ""
+        custom string desmos:exprId = "50"
+        custom int desmos:order = 30
+        custom string desmos:latex = "4.5\\ge y\\ge-4.5\\left\\{-4\\le x\\le4\\right\\}\\left\\{5.1\\ge z\\ge4.8\\right\\}"
+        custom string desmos:constraints = "4.5\\ge y\\ge-4.5; -4\\le x\\le4; 5.1\\ge z\\ge4.8"
+        custom string desmos:kind = "inequality_region"
+        custom string desmos:color = "#aaaaaa"
+        custom bool desmos:hidden = false
+        uniform bool doubleSided = true
+        color3f[] primvars:displayColor = [(0.666666667, 0.666666667, 0.666666667)] (
+            interpolation = "constant"
+        )
+        point3f[] points = [(-4, -4.5, 4.8), (-1.33333333, -4.5, 4.8), (1.33333333, -4.5, 4.8), (4, -4.5, 4.8), (-4, -4.5, 4.9), (-1.33333333, -4.5, 4.9), (1.33333333, -4.5, 4.9), (4, -4.5, 4.9), (-4, -4.5, 5), (-1.33333333, -4.5, 5), (1.33333333, -4.5, 5), (4, -4.5, 5), (-4, -4.5, 5.1), (-1.33333333, -4.5, 5.1), (1.33333333, -4.5, 5.1), (4, -4.5, 5.1), (-4, 4.5, 4.8), (-1.33333333, 4.5, 4.8), (1.33333333, 4.5, 4.8), (4, 4.5, 4.8), (-4, 4.5, 4.9), (-1.33333333, 4.5, 4.9), (1.33333333, 4.5, 4.9), (4, 4.5, 4.9), (-4, 4.5, 5), (-1.33333333, 4.5, 5), (1.33333333, 4.5, 5), (4, 4.5, 5), (-4, 4.5, 5.1), (-1.33333333, 4.5, 5.1), (1.33333333, 4.5, 5.1), (4, 4.5, 5.1)]
+        int[] faceVertexCounts = [4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4]
+        int[] faceVertexIndices = [0, 1, 5, 4, 1, 2, 6, 5, 2, 3, 7, 6, 4, 5, 9, 8, 5, 6, 10, 9, 6, 7, 11, 10, 8, 9, 13, 12, 9, 10, 14, 13, 10, 11, 15, 14, 20, 21, 17, 16, 21, 22, 18, 17, 22, 23, 19, 18, 24, 25, 21, 20, 25, 26, 22, 21, 26, 27, 23, 22, 28, 29, 25, 24, 29, 30, 26, 25, 30, 31, 27, 26, 0, 1, 17, 16, 1, 2, 18, 17, 2, 3, 19, 18, 12, 13, 29, 28, 13, 14, 30, 29, 14, 15, 31, 30, 0, 4, 20, 16, 4, 8, 24, 20, 8, 12, 28, 24, 3, 7, 23, 19, 7, 11, 27, 23, 11, 15, 31, 27]
+    }
+
+    def Mesh "expr_0031__52"
+    {
+        custom string desmos:url = ""
+        custom string desmos:hash = ""
+        custom string desmos:exprId = "52"
+        custom int desmos:order = 31
+        custom string desmos:latex = "4.3\\ge y\\ge-4.3\\left\\{-4\\le x\\le4\\right\\}\\left\\{5.1\\ge z\\ge4.6\\right\\}"
+        custom string desmos:constraints = "4.3\\ge y\\ge-4.3; -4\\le x\\le4; 5.1\\ge z\\ge4.6"
+        custom string desmos:kind = "inequality_region"
+        custom string desmos:color = "#aaaaaa"
+        custom bool desmos:hidden = false
+        uniform bool doubleSided = true
+        color3f[] primvars:displayColor = [(0.666666667, 0.666666667, 0.666666667)] (
+            interpolation = "constant"
+        )
+        point3f[] points = [(-4, -4.3, 4.6), (-1.33333333, -4.3, 4.6), (1.33333333, -4.3, 4.6), (4, -4.3, 4.6), (-4, -4.3, 4.76666667), (-1.33333333, -4.3, 4.76666667), (1.33333333, -4.3, 4.76666667), (4, -4.3, 4.76666667), (-4, -4.3, 4.93333333), (-1.33333333, -4.3, 4.93333333), (1.33333333, -4.3, 4.93333333), (4, -4.3, 4.93333333), (-4, -4.3, 5.1), (-1.33333333, -4.3, 5.1), (1.33333333, -4.3, 5.1), (4, -4.3, 5.1), (-4, 4.3, 4.6), (-1.33333333, 4.3, 4.6), (1.33333333, 4.3, 4.6), (4, 4.3, 4.6), (-4, 4.3, 4.76666667), (-1.33333333, 4.3, 4.76666667), (1.33333333, 4.3, 4.76666667), (4, 4.3, 4.76666667), (-4, 4.3, 4.93333333), (-1.33333333, 4.3, 4.93333333), (1.33333333, 4.3, 4.93333333), (4, 4.3, 4.93333333), (-4, 4.3, 5.1), (-1.33333333, 4.3, 5.1), (1.33333333, 4.3, 5.1), (4, 4.3, 5.1)]
+        int[] faceVertexCounts = [4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4]
+        int[] faceVertexIndices = [0, 1, 5, 4, 1, 2, 6, 5, 2, 3, 7, 6, 4, 5, 9, 8, 5, 6, 10, 9, 6, 7, 11, 10, 8, 9, 13, 12, 9, 10, 14, 13, 10, 11, 15, 14, 20, 21, 17, 16, 21, 22, 18, 17, 22, 23, 19, 18, 24, 25, 21, 20, 25, 26, 22, 21, 26, 27, 23, 22, 28, 29, 25, 24, 29, 30, 26, 25, 30, 31, 27, 26, 0, 1, 17, 16, 1, 2, 18, 17, 2, 3, 19, 18, 12, 13, 29, 28, 13, 14, 30, 29, 14, 15, 31, 30, 0, 4, 20, 16, 4, 8, 24, 20, 8, 12, 28, 24, 3, 7, 23, 19, 7, 11, 27, 23, 11, 15, 31, 27]
+    }
+
+    def Mesh "expr_0032__55"
+    {
+        custom string desmos:url = ""
+        custom string desmos:hash = ""
+        custom string desmos:exprId = "55"
+        custom int desmos:order = 32
+        custom string desmos:latex = "4.1\\ge y\\ge-4.1\\left\\{-4\\le x\\le4\\right\\}\\left\\{4.9\\ge z\\ge4.4\\right\\}"
+        custom string desmos:constraints = "4.1\\ge y\\ge-4.1; -4\\le x\\le4; 4.9\\ge z\\ge4.4"
+        custom string desmos:kind = "inequality_region"
+        custom string desmos:color = "#aaaaaa"
+        custom bool desmos:hidden = false
+        uniform bool doubleSided = true
+        color3f[] primvars:displayColor = [(0.666666667, 0.666666667, 0.666666667)] (
+            interpolation = "constant"
+        )
+        point3f[] points = [(-4, -4.1, 4.4), (-1.33333333, -4.1, 4.4), (1.33333333, -4.1, 4.4), (4, -4.1, 4.4), (-4, -4.1, 4.56666667), (-1.33333333, -4.1, 4.56666667), (1.33333333, -4.1, 4.56666667), (4, -4.1, 4.56666667), (-4, -4.1, 4.73333333), (-1.33333333, -4.1, 4.73333333), (1.33333333, -4.1, 4.73333333), (4, -4.1, 4.73333333), (-4, -4.1, 4.9), (-1.33333333, -4.1, 4.9), (1.33333333, -4.1, 4.9), (4, -4.1, 4.9), (-4, 4.1, 4.4), (-1.33333333, 4.1, 4.4), (1.33333333, 4.1, 4.4), (4, 4.1, 4.4), (-4, 4.1, 4.56666667), (-1.33333333, 4.1, 4.56666667), (1.33333333, 4.1, 4.56666667), (4, 4.1, 4.56666667), (-4, 4.1, 4.73333333), (-1.33333333, 4.1, 4.73333333), (1.33333333, 4.1, 4.73333333), (4, 4.1, 4.73333333), (-4, 4.1, 4.9), (-1.33333333, 4.1, 4.9), (1.33333333, 4.1, 4.9), (4, 4.1, 4.9)]
+        int[] faceVertexCounts = [4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4]
+        int[] faceVertexIndices = [0, 1, 5, 4, 1, 2, 6, 5, 2, 3, 7, 6, 4, 5, 9, 8, 5, 6, 10, 9, 6, 7, 11, 10, 8, 9, 13, 12, 9, 10, 14, 13, 10, 11, 15, 14, 20, 21, 17, 16, 21, 22, 18, 17, 22, 23, 19, 18, 24, 25, 21, 20, 25, 26, 22, 21, 26, 27, 23, 22, 28, 29, 25, 24, 29, 30, 26, 25, 30, 31, 27, 26, 0, 1, 17, 16, 1, 2, 18, 17, 2, 3, 19, 18, 12, 13, 29, 28, 13, 14, 30, 29, 14, 15, 31, 30, 0, 4, 20, 16, 4, 8, 24, 20, 8, 12, 28, 24, 3, 7, 23, 19, 7, 11, 27, 23, 11, 15, 31, 27]
+    }
+
+    def Mesh "expr_0033__57"
+    {
+        custom string desmos:url = ""
+        custom string desmos:hash = ""
+        custom string desmos:exprId = "57"
+        custom int desmos:order = 33
+        custom string desmos:latex = "-3\\le x\\le3\\left\\{-4.3\\le y\\le-3\\right\\}\\left\\{7.5\\le z\\le8\\right\\}"
+        custom string desmos:constraints = "-3\\le x\\le3; -4.3\\le y\\le-3; 7.5\\le z\\le8"
+        custom string desmos:kind = "inequality_region"
+        custom string desmos:color = "#aaaaaa"
+        custom bool desmos:hidden = false
+        uniform bool doubleSided = true
+        color3f[] primvars:displayColor = [(0.666666667, 0.666666667, 0.666666667)] (
+            interpolation = "constant"
+        )
+        point3f[] points = [(-3, -4.3, 7.5), (-3, -3.86666667, 7.5), (-3, -3.43333333, 7.5), (-3, -3, 7.5), (-3, -4.3, 7.66666667), (-3, -3.86666667, 7.66666667), (-3, -3.43333333, 7.66666667), (-3, -3, 7.66666667), (-3, -4.3, 7.83333333), (-3, -3.86666667, 7.83333333), (-3, -3.43333333, 7.83333333), (-3, -3, 7.83333333), (-3, -4.3, 8), (-3, -3.86666667, 8), (-3, -3.43333333, 8), (-3, -3, 8), (3, -4.3, 7.5), (3, -3.86666667, 7.5), (3, -3.43333333, 7.5), (3, -3, 7.5), (3, -4.3, 7.66666667), (3, -3.86666667, 7.66666667), (3, -3.43333333, 7.66666667), (3, -3, 7.66666667), (3, -4.3, 7.83333333), (3, -3.86666667, 7.83333333), (3, -3.43333333, 7.83333333), (3, -3, 7.83333333), (3, -4.3, 8), (3, -3.86666667, 8), (3, -3.43333333, 8), (3, -3, 8)]
+        int[] faceVertexCounts = [4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4]
+        int[] faceVertexIndices = [0, 1, 5, 4, 1, 2, 6, 5, 2, 3, 7, 6, 4, 5, 9, 8, 5, 6, 10, 9, 6, 7, 11, 10, 8, 9, 13, 12, 9, 10, 14, 13, 10, 11, 15, 14, 20, 21, 17, 16, 21, 22, 18, 17, 22, 23, 19, 18, 24, 25, 21, 20, 25, 26, 22, 21, 26, 27, 23, 22, 28, 29, 25, 24, 29, 30, 26, 25, 30, 31, 27, 26, 0, 1, 17, 16, 1, 2, 18, 17, 2, 3, 19, 18, 12, 13, 29, 28, 13, 14, 30, 29, 14, 15, 31, 30, 0, 4, 20, 16, 4, 8, 24, 20, 8, 12, 28, 24, 3, 7, 23, 19, 7, 11, 27, 23, 11, 15, 31, 27]
+    }
+
+    def Mesh "expr_0034__58"
+    {
+        custom string desmos:url = ""
+        custom string desmos:hash = ""
+        custom string desmos:exprId = "58"
+        custom int desmos:order = 34
+        custom string desmos:latex = "-3.5\\le y\\le3.5\\left\\{-4.3\\le x\\le-3\\right\\}\\left\\{7.5\\le z\\le8\\right\\}"
+        custom string desmos:constraints = "-3.5\\le y\\le3.5; -4.3\\le x\\le-3; 7.5\\le z\\le8"
+        custom string desmos:kind = "inequality_region"
+        custom string desmos:color = "#aaaaaa"
+        custom bool desmos:hidden = false
+        uniform bool doubleSided = true
+        color3f[] primvars:displayColor = [(0.666666667, 0.666666667, 0.666666667)] (
+            interpolation = "constant"
+        )
+        point3f[] points = [(-4.3, -3.5, 7.5), (-3.86666667, -3.5, 7.5), (-3.43333333, -3.5, 7.5), (-3, -3.5, 7.5), (-4.3, -3.5, 7.66666667), (-3.86666667, -3.5, 7.66666667), (-3.43333333, -3.5, 7.66666667), (-3, -3.5, 7.66666667), (-4.3, -3.5, 7.83333333), (-3.86666667, -3.5, 7.83333333), (-3.43333333, -3.5, 7.83333333), (-3, -3.5, 7.83333333), (-4.3, -3.5, 8), (-3.86666667, -3.5, 8), (-3.43333333, -3.5, 8), (-3, -3.5, 8), (-4.3, 3.5, 7.5), (-3.86666667, 3.5, 7.5), (-3.43333333, 3.5, 7.5), (-3, 3.5, 7.5), (-4.3, 3.5, 7.66666667), (-3.86666667, 3.5, 7.66666667), (-3.43333333, 3.5, 7.66666667), (-3, 3.5, 7.66666667), (-4.3, 3.5, 7.83333333), (-3.86666667, 3.5, 7.83333333), (-3.43333333, 3.5, 7.83333333), (-3, 3.5, 7.83333333), (-4.3, 3.5, 8), (-3.86666667, 3.5, 8), (-3.43333333, 3.5, 8), (-3, 3.5, 8)]
+        int[] faceVertexCounts = [4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4]
+        int[] faceVertexIndices = [0, 1, 5, 4, 1, 2, 6, 5, 2, 3, 7, 6, 4, 5, 9, 8, 5, 6, 10, 9, 6, 7, 11, 10, 8, 9, 13, 12, 9, 10, 14, 13, 10, 11, 15, 14, 20, 21, 17, 16, 21, 22, 18, 17, 22, 23, 19, 18, 24, 25, 21, 20, 25, 26, 22, 21, 26, 27, 23, 22, 28, 29, 25, 24, 29, 30, 26, 25, 30, 31, 27, 26, 0, 1, 17, 16, 1, 2, 18, 17, 2, 3, 19, 18, 12, 13, 29, 28, 13, 14, 30, 29, 14, 15, 31, 30, 0, 4, 20, 16, 4, 8, 24, 20, 8, 12, 28, 24, 3, 7, 23, 19, 7, 11, 27, 23, 11, 15, 31, 27]
+    }
+
+    def Mesh "expr_0035__60"
+    {
+        custom string desmos:url = ""
+        custom string desmos:hash = ""
+        custom string desmos:exprId = "60"
+        custom int desmos:order = 35
+        custom string desmos:latex = "-3.5\\le y\\le3.5\\left\\{4.3\\ge x\\ge3\\right\\}\\left\\{7.5\\le z\\le8\\right\\}"
+        custom string desmos:constraints = "-3.5\\le y\\le3.5; 4.3\\ge x\\ge3; 7.5\\le z\\le8"
+        custom string desmos:kind = "inequality_region"
+        custom string desmos:color = "#aaaaaa"
+        custom bool desmos:hidden = false
+        uniform bool doubleSided = true
+        color3f[] primvars:displayColor = [(0.666666667, 0.666666667, 0.666666667)] (
+            interpolation = "constant"
+        )
+        point3f[] points = [(3, -3.5, 7.5), (3.43333333, -3.5, 7.5), (3.86666667, -3.5, 7.5), (4.3, -3.5, 7.5), (3, -3.5, 7.66666667), (3.43333333, -3.5, 7.66666667), (3.86666667, -3.5, 7.66666667), (4.3, -3.5, 7.66666667), (3, -3.5, 7.83333333), (3.43333333, -3.5, 7.83333333), (3.86666667, -3.5, 7.83333333), (4.3, -3.5, 7.83333333), (3, -3.5, 8), (3.43333333, -3.5, 8), (3.86666667, -3.5, 8), (4.3, -3.5, 8), (3, 3.5, 7.5), (3.43333333, 3.5, 7.5), (3.86666667, 3.5, 7.5), (4.3, 3.5, 7.5), (3, 3.5, 7.66666667), (3.43333333, 3.5, 7.66666667), (3.86666667, 3.5, 7.66666667), (4.3, 3.5, 7.66666667), (3, 3.5, 7.83333333), (3.43333333, 3.5, 7.83333333), (3.86666667, 3.5, 7.83333333), (4.3, 3.5, 7.83333333), (3, 3.5, 8), (3.43333333, 3.5, 8), (3.86666667, 3.5, 8), (4.3, 3.5, 8)]
+        int[] faceVertexCounts = [4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4]
+        int[] faceVertexIndices = [0, 1, 5, 4, 1, 2, 6, 5, 2, 3, 7, 6, 4, 5, 9, 8, 5, 6, 10, 9, 6, 7, 11, 10, 8, 9, 13, 12, 9, 10, 14, 13, 10, 11, 15, 14, 20, 21, 17, 16, 21, 22, 18, 17, 22, 23, 19, 18, 24, 25, 21, 20, 25, 26, 22, 21, 26, 27, 23, 22, 28, 29, 25, 24, 29, 30, 26, 25, 30, 31, 27, 26, 0, 1, 17, 16, 1, 2, 18, 17, 2, 3, 19, 18, 12, 13, 29, 28, 13, 14, 30, 29, 14, 15, 31, 30, 0, 4, 20, 16, 4, 8, 24, 20, 8, 12, 28, 24, 3, 7, 23, 19, 7, 11, 27, 23, 11, 15, 31, 27]
+    }
+
+    def Mesh "expr_0036__63"
+    {
+        custom string desmos:url = ""
+        custom string desmos:hash = ""
+        custom string desmos:exprId = "63"
+        custom int desmos:order = 36
+        custom string desmos:latex = "-3\\le x\\le3\\left\\{4.3\\ge y\\ge3\\right\\}\\left\\{7.5\\le z\\le8\\right\\}"
+        custom string desmos:constraints = "-3\\le x\\le3; 4.3\\ge y\\ge3; 7.5\\le z\\le8"
+        custom string desmos:kind = "inequality_region"
+        custom string desmos:color = "#aaaaaa"
+        custom bool desmos:hidden = false
+        uniform bool doubleSided = true
+        color3f[] primvars:displayColor = [(0.666666667, 0.666666667, 0.666666667)] (
+            interpolation = "constant"
+        )
+        point3f[] points = [(-3, 3, 7.5), (-3, 3.43333333, 7.5), (-3, 3.86666667, 7.5), (-3, 4.3, 7.5), (-3, 3, 7.66666667), (-3, 3.43333333, 7.66666667), (-3, 3.86666667, 7.66666667), (-3, 4.3, 7.66666667), (-3, 3, 7.83333333), (-3, 3.43333333, 7.83333333), (-3, 3.86666667, 7.83333333), (-3, 4.3, 7.83333333), (-3, 3, 8), (-3, 3.43333333, 8), (-3, 3.86666667, 8), (-3, 4.3, 8), (3, 3, 7.5), (3, 3.43333333, 7.5), (3, 3.86666667, 7.5), (3, 4.3, 7.5), (3, 3, 7.66666667), (3, 3.43333333, 7.66666667), (3, 3.86666667, 7.66666667), (3, 4.3, 7.66666667), (3, 3, 7.83333333), (3, 3.43333333, 7.83333333), (3, 3.86666667, 7.83333333), (3, 4.3, 7.83333333), (3, 3, 8), (3, 3.43333333, 8), (3, 3.86666667, 8), (3, 4.3, 8)]
+        int[] faceVertexCounts = [4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4]
+        int[] faceVertexIndices = [0, 1, 5, 4, 1, 2, 6, 5, 2, 3, 7, 6, 4, 5, 9, 8, 5, 6, 10, 9, 6, 7, 11, 10, 8, 9, 13, 12, 9, 10, 14, 13, 10, 11, 15, 14, 20, 21, 17, 16, 21, 22, 18, 17, 22, 23, 19, 18, 24, 25, 21, 20, 25, 26, 22, 21, 26, 27, 23, 22, 28, 29, 25, 24, 29, 30, 26, 25, 30, 31, 27, 26, 0, 1, 17, 16, 1, 2, 18, 17, 2, 3, 19, 18, 12, 13, 29, 28, 13, 14, 30, 29, 14, 15, 31, 30, 0, 4, 20, 16, 4, 8, 24, 20, 8, 12, 28, 24, 3, 7, 23, 19, 7, 11, 27, 23, 11, 15, 31, 27]
+    }
+
+    def Mesh "expr_0042__78"
+    {
+        custom string desmos:url = ""
+        custom string desmos:hash = ""
+        custom string desmos:exprId = "78"
+        custom int desmos:order = 42
+        custom string desmos:latex = "\\frac{1}{2}\\left(2x+11.5\\right)\\left(2x+13.5\\right)\\ge-2z-x-1\\left\\{-8.5\\le x\\le-4\\right\\}\\left\\{2\\le z\\le5\\right\\}\\left\\{-3.2\\le y\\le3.2\\right\\}"
+        custom string desmos:constraints = "\\frac{1}{2}(2x+11.5)(2x+13.5)\\ge-2z-x-1; -8.5\\le x\\le-4; 2\\le z\\le5; -3.2\\le y\\le3.2"
+        custom string desmos:kind = "inequality_region"
+        custom string desmos:color = "#fa7e19"
+        custom bool desmos:hidden = false
+        uniform bool doubleSided = true
+        color3f[] primvars:displayColor = [(0.980392157, 0.494117647, 0.0980392157)] (
+            interpolation = "constant"
+        )
+        point3f[] points = [(-8.5, -3.2, 2), (-4, -3.2, 2), (-4, -3.2, 2.125), (-8.5, -3.2, 2.125), (-8.5, 3.2, 2), (-4, 3.2, 2), (-4, 3.2, 2.125), (-8.5, 3.2, 2.125), (-8.5, -3.2, 2.125), (-4, -3.2, 2.125), (-4, -3.2, 2.25), (-8.5, -3.2, 2.25), (-8.5, 3.2, 2.125), (-4, 3.2, 2.125), (-4, 3.2, 2.25), (-8.5, 3.2, 2.25), (-8.5, -3.2, 2.25), (-4, -3.2, 2.25), (-4, -3.2, 2.375), (-8.5, -3.2, 2.375), (-8.5, 3.2, 2.25), (-4, 3.2, 2.25), (-4, 3.2, 2.375), (-8.5, 3.2, 2.375), (-8.5, -3.2, 2.375), (-4, -3.2, 2.375), (-4, -3.2, 2.5), (-8.5, -3.2, 2.5), (-8.5, 3.2, 2.375), (-4, 3.2, 2.375), (-4, 3.2, 2.5), (-8.5, 3.2, 2.5), (-8.5, -3.2, 2.5), (-4, -3.2, 2.5), (-4, -3.2, 2.625), (-8.5, -3.2, 2.625), (-8.5, 3.2, 2.5), (-4, 3.2, 2.5), (-4, 3.2, 2.625), (-8.5, 3.2, 2.625), (-8.5, -3.2, 2.625), (-4, -3.2, 2.625), (-4, -3.2, 2.75), (-8.5, -3.2, 2.75), (-8.5, 3.2, 2.625), (-4, 3.2, 2.625), (-4, 3.2, 2.75), (-8.5, 3.2, 2.75), (-8.5, -3.2, 2.75), (-4, -3.2, 2.75), (-4, -3.2, 2.875), (-8.5, -3.2, 2.875), (-8.5, 3.2, 2.75), (-4, 3.2, 2.75), (-4, 3.2, 2.875), (-8.5, 3.2, 2.875), (-8.5, -3.2, 2.875), (-4, -3.2, 2.875), (-4, -3.2, 3), (-8.5, -3.2, 3), (-8.5, 3.2, 2.875), (-4, 3.2, 2.875), (-4, 3.2, 3), (-8.5, 3.2, 3), (-8.5, -3.2, 3), (-4, -3.2, 3), (-4, -3.2, 3.125), (-8.5, -3.2, 3.125), (-8.5, 3.2, 3), (-4, 3.2, 3), (-4, 3.2, 3.125), (-8.5, 3.2, 3.125), (-8.5, -3.2, 3.125), (-4, -3.2, 3.125), (-4, -3.2, 3.25), (-8.5, -3.2, 3.25), (-8.5, 3.2, 3.125), (-4, 3.2, 3.125), (-4, 3.2, 3.25), (-8.5, 3.2, 3.25), (-8.5, -3.2, 3.25), (-4, -3.2, 3.25), (-4, -3.2, 3.375), (-8.5, -3.2, 3.375), (-8.5, 3.2, 3.25), (-4, 3.2, 3.25), (-4, 3.2, 3.375), (-8.5, 3.2, 3.375), (-8.5, -3.2, 3.375), (-4, -3.2, 3.375), (-4, -3.2, 3.5), (-8.5, -3.2, 3.5), (-8.5, 3.2, 3.375), (-4, 3.2, 3.375), (-4, 3.2, 3.5), (-8.5, 3.2, 3.5), (-8.5, -3.2, 3.5), (-4, -3.2, 3.5), (-4, -3.2, 3.625), (-8.5, -3.2, 3.625), (-8.5, 3.2, 3.5), (-4, 3.2, 3.5), (-4, 3.2, 3.625), (-8.5, 3.2, 3.625), (-8.5, -3.2, 3.625), (-4, -3.2, 3.625), (-4, -3.2, 3.75), (-8.5, -3.2, 3.75), (-8.5, 3.2, 3.625), (-4, 3.2, 3.625), (-4, 3.2, 3.75), (-8.5, 3.2, 3.75), (-8.5, -3.2, 3.75), (-4, -3.2, 3.75), (-4, -3.2, 3.875), (-8.5, -3.2, 3.875), (-8.5, 3.2, 3.75), (-4, 3.2, 3.75), (-4, 3.2, 3.875), (-8.5, 3.2, 3.875), (-8.5, -3.2, 3.875), (-4, -3.2, 3.875), (-4, -3.2, 4), (-8.5, -3.2, 4), (-8.5, 3.2, 3.875), (-4, 3.2, 3.875), (-4, 3.2, 4), (-8.5, 3.2, 4), (-8.5, -3.2, 4), (-4, -3.2, 4), (-4, -3.2, 4.125), (-8.5, -3.2, 4.125), (-8.5, 3.2, 4), (-4, 3.2, 4), (-4, 3.2, 4.125), (-8.5, 3.2, 4.125), (-8.5, -3.2, 4.125), (-4, -3.2, 4.125), (-4, -3.2, 4.25), (-8.5, -3.2, 4.25), (-8.5, 3.2, 4.125), (-4, 3.2, 4.125), (-4, 3.2, 4.25), (-8.5, 3.2, 4.25), (-8.5, -3.2, 4.25), (-4, -3.2, 4.25), (-4, -3.2, 4.375), (-8.5, -3.2, 4.375), (-8.5, 3.2, 4.25), (-4, 3.2, 4.25), (-4, 3.2, 4.375), (-8.5, 3.2, 4.375), (-8.5, -3.2, 4.375), (-4, -3.2, 4.375), (-4, -3.2, 4.5), (-8.5, -3.2, 4.5), (-8.5, 3.2, 4.375), (-4, 3.2, 4.375), (-4, 3.2, 4.5), (-8.5, 3.2, 4.5), (-8.5, -3.2, 4.5), (-4, -3.2, 4.5), (-4, -3.2, 4.625), (-8.5, -3.2, 4.625), (-8.5, 3.2, 4.5), (-4, 3.2, 4.5), (-4, 3.2, 4.625), (-8.5, 3.2, 4.625), (-8.5, -3.2, 4.625), (-4, -3.2, 4.625), (-4, -3.2, 4.75), (-8.5, -3.2, 4.75), (-8.5, 3.2, 4.625), (-4, 3.2, 4.625), (-4, 3.2, 4.75), (-8.5, 3.2, 4.75), (-8.5, -3.2, 4.75), (-4, -3.2, 4.75), (-4, -3.2, 4.875), (-8.5, -3.2, 4.875), (-8.5, 3.2, 4.75), (-4, 3.2, 4.75), (-4, 3.2, 4.875), (-8.5, 3.2, 4.875), (-8.5, -3.2, 4.875), (-4, -3.2, 4.875), (-4, -3.2, 5), (-8.5, -3.2, 5), (-8.5, 3.2, 4.875), (-4, 3.2, 4.875), (-4, 3.2, 5), (-8.5, 3.2, 5)]
+        int[] faceVertexCounts = [4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4]
+        int[] faceVertexIndices = [0, 1, 2, 3, 4, 7, 6, 5, 0, 4, 5, 1, 1, 5, 6, 2, 2, 6, 7, 3, 3, 7, 4, 0, 8, 9, 10, 11, 12, 15, 14, 13, 8, 12, 13, 9, 9, 13, 14, 10, 10, 14, 15, 11, 11, 15, 12, 8, 16, 17, 18, 19, 20, 23, 22, 21, 16, 20, 21, 17, 17, 21, 22, 18, 18, 22, 23, 19, 19, 23, 20, 16, 24, 25, 26, 27, 28, 31, 30, 29, 24, 28, 29, 25, 25, 29, 30, 26, 26, 30, 31, 27, 27, 31, 28, 24, 32, 33, 34, 35, 36, 39, 38, 37, 32, 36, 37, 33, 33, 37, 38, 34, 34, 38, 39, 35, 35, 39, 36, 32, 40, 41, 42, 43, 44, 47, 46, 45, 40, 44, 45, 41, 41, 45, 46, 42, 42, 46, 47, 43, 43, 47, 44, 40, 48, 49, 50, 51, 52, 55, 54, 53, 48, 52, 53, 49, 49, 53, 54, 50, 50, 54, 55, 51, 51, 55, 52, 48, 56, 57, 58, 59, 60, 63, 62, 61, 56, 60, 61, 57, 57, 61, 62, 58, 58, 62, 63, 59, 59, 63, 60, 56, 64, 65, 66, 67, 68, 71, 70, 69, 64, 68, 69, 65, 65, 69, 70, 66, 66, 70, 71, 67, 67, 71, 68, 64, 72, 73, 74, 75, 76, 79, 78, 77, 72, 76, 77, 73, 73, 77, 78, 74, 74, 78, 79, 75, 75, 79, 76, 72, 80, 81, 82, 83, 84, 87, 86, 85, 80, 84, 85, 81, 81, 85, 86, 82, 82, 86, 87, 83, 83, 87, 84, 80, 88, 89, 90, 91, 92, 95, 94, 93, 88, 92, 93, 89, 89, 93, 94, 90, 90, 94, 95, 91, 91, 95, 92, 88, 96, 97, 98, 99, 100, 103, 102, 101, 96, 100, 101, 97, 97, 101, 102, 98, 98, 102, 103, 99, 99, 103, 100, 96, 104, 105, 106, 107, 108, 111, 110, 109, 104, 108, 109, 105, 105, 109, 110, 106, 106, 110, 111, 107, 107, 111, 108, 104, 112, 113, 114, 115, 116, 119, 118, 117, 112, 116, 117, 113, 113, 117, 118, 114, 114, 118, 119, 115, 115, 119, 116, 112, 120, 121, 122, 123, 124, 127, 126, 125, 120, 124, 125, 121, 121, 125, 126, 122, 122, 126, 127, 123, 123, 127, 124, 120, 128, 129, 130, 131, 132, 135, 134, 133, 128, 132, 133, 129, 129, 133, 134, 130, 130, 134, 135, 131, 131, 135, 132, 128, 136, 137, 138, 139, 140, 143, 142, 141, 136, 140, 141, 137, 137, 141, 142, 138, 138, 142, 143, 139, 139, 143, 140, 136, 144, 145, 146, 147, 148, 151, 150, 149, 144, 148, 149, 145, 145, 149, 150, 146, 146, 150, 151, 147, 147, 151, 148, 144, 152, 153, 154, 155, 156, 159, 158, 157, 152, 156, 157, 153, 153, 157, 158, 154, 154, 158, 159, 155, 155, 159, 156, 152, 160, 161, 162, 163, 164, 167, 166, 165, 160, 164, 165, 161, 161, 165, 166, 162, 162, 166, 167, 163, 163, 167, 164, 160, 168, 169, 170, 171, 172, 175, 174, 173, 168, 172, 173, 169, 169, 173, 174, 170, 170, 174, 175, 171, 171, 175, 172, 168, 176, 177, 178, 179, 180, 183, 182, 181, 176, 180, 181, 177, 177, 181, 182, 178, 178, 182, 183, 179, 179, 183, 180, 176, 184, 185, 186, 187, 188, 191, 190, 189, 184, 188, 189, 185, 185, 189, 190, 186, 186, 190, 191, 187, 187, 191, 188, 184]
+    }
+
+    def Mesh "expr_0043__81"
+    {
+        custom string desmos:url = ""
+        custom string desmos:hash = ""
+        custom string desmos:exprId = "81"
+        custom int desmos:order = 43
+        custom string desmos:latex = "-2.5\\le x\\le-2\\left\\{0\\le z\\le2\\right\\}\\left\\{-3.7\\le y\\le3.7\\right\\}"
+        custom string desmos:constraints = "-2.5\\le x\\le-2; 0\\le z\\le2; -3.7\\le y\\le3.7"
+        custom string desmos:kind = "inequality_region"
+        custom string desmos:color = "#fa7e19"
+        custom bool desmos:hidden = false
+        uniform bool doubleSided = true
+        color3f[] primvars:displayColor = [(0.980392157, 0.494117647, 0.0980392157)] (
+            interpolation = "constant"
+        )
+        point3f[] points = [(-2.5, -3.7, 0), (-2.5, -1.23333333, 0), (-2.5, 1.23333333, 0), (-2.5, 3.7, 0), (-2.5, -3.7, 0.666666667), (-2.5, -1.23333333, 0.666666667), (-2.5, 1.23333333, 0.666666667), (-2.5, 3.7, 0.666666667), (-2.5, -3.7, 1.33333333), (-2.5, -1.23333333, 1.33333333), (-2.5, 1.23333333, 1.33333333), (-2.5, 3.7, 1.33333333), (-2.5, -3.7, 2), (-2.5, -1.23333333, 2), (-2.5, 1.23333333, 2), (-2.5, 3.7, 2), (-2, -3.7, 0), (-2, -1.23333333, 0), (-2, 1.23333333, 0), (-2, 3.7, 0), (-2, -3.7, 0.666666667), (-2, -1.23333333, 0.666666667), (-2, 1.23333333, 0.666666667), (-2, 3.7, 0.666666667), (-2, -3.7, 1.33333333), (-2, -1.23333333, 1.33333333), (-2, 1.23333333, 1.33333333), (-2, 3.7, 1.33333333), (-2, -3.7, 2), (-2, -1.23333333, 2), (-2, 1.23333333, 2), (-2, 3.7, 2)]
+        int[] faceVertexCounts = [4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4]
+        int[] faceVertexIndices = [0, 1, 5, 4, 1, 2, 6, 5, 2, 3, 7, 6, 4, 5, 9, 8, 5, 6, 10, 9, 6, 7, 11, 10, 8, 9, 13, 12, 9, 10, 14, 13, 10, 11, 15, 14, 20, 21, 17, 16, 21, 22, 18, 17, 22, 23, 19, 18, 24, 25, 21, 20, 25, 26, 22, 21, 26, 27, 23, 22, 28, 29, 25, 24, 29, 30, 26, 25, 30, 31, 27, 26, 0, 1, 17, 16, 1, 2, 18, 17, 2, 3, 19, 18, 12, 13, 29, 28, 13, 14, 30, 29, 14, 15, 31, 30, 0, 4, 20, 16, 4, 8, 24, 20, 8, 12, 28, 24, 3, 7, 23, 19, 7, 11, 27, 23, 11, 15, 31, 27]
+    }
+
+    def Mesh "expr_0044__82"
+    {
+        custom string desmos:url = ""
+        custom string desmos:hash = ""
+        custom string desmos:exprId = "82"
+        custom int desmos:order = 44
+        custom string desmos:latex = "2\\le x\\le2.5\\left\\{0\\le z\\le2\\right\\}\\left\\{-3.7\\le y\\le3.7\\right\\}"
+        custom string desmos:constraints = "2\\le x\\le2.5; 0\\le z\\le2; -3.7\\le y\\le3.7"
+        custom string desmos:kind = "inequality_region"
+        custom string desmos:color = "#fa7e19"
+        custom bool desmos:hidden = false
+        uniform bool doubleSided = true
+        color3f[] primvars:displayColor = [(0.980392157, 0.494117647, 0.0980392157)] (
+            interpolation = "constant"
+        )
+        point3f[] points = [(2, -3.7, 0), (2, -1.23333333, 0), (2, 1.23333333, 0), (2, 3.7, 0), (2, -3.7, 0.666666667), (2, -1.23333333, 0.666666667), (2, 1.23333333, 0.666666667), (2, 3.7, 0.666666667), (2, -3.7, 1.33333333), (2, -1.23333333, 1.33333333), (2, 1.23333333, 1.33333333), (2, 3.7, 1.33333333), (2, -3.7, 2), (2, -1.23333333, 2), (2, 1.23333333, 2), (2, 3.7, 2), (2.5, -3.7, 0), (2.5, -1.23333333, 0), (2.5, 1.23333333, 0), (2.5, 3.7, 0), (2.5, -3.7, 0.666666667), (2.5, -1.23333333, 0.666666667), (2.5, 1.23333333, 0.666666667), (2.5, 3.7, 0.666666667), (2.5, -3.7, 1.33333333), (2.5, -1.23333333, 1.33333333), (2.5, 1.23333333, 1.33333333), (2.5, 3.7, 1.33333333), (2.5, -3.7, 2), (2.5, -1.23333333, 2), (2.5, 1.23333333, 2), (2.5, 3.7, 2)]
+        int[] faceVertexCounts = [4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4]
+        int[] faceVertexIndices = [0, 1, 5, 4, 1, 2, 6, 5, 2, 3, 7, 6, 4, 5, 9, 8, 5, 6, 10, 9, 6, 7, 11, 10, 8, 9, 13, 12, 9, 10, 14, 13, 10, 11, 15, 14, 20, 21, 17, 16, 21, 22, 18, 17, 22, 23, 19, 18, 24, 25, 21, 20, 25, 26, 22, 21, 26, 27, 23, 22, 28, 29, 25, 24, 29, 30, 26, 25, 30, 31, 27, 26, 0, 1, 17, 16, 1, 2, 18, 17, 2, 3, 19, 18, 12, 13, 29, 28, 13, 14, 30, 29, 14, 15, 31, 30, 0, 4, 20, 16, 4, 8, 24, 20, 8, 12, 28, 24, 3, 7, 23, 19, 7, 11, 27, 23, 11, 15, 31, 27]
+    }
+
+    def Mesh "expr_0045__84"
+    {
+        custom string desmos:url = ""
+        custom string desmos:hash = ""
+        custom string desmos:exprId = "84"
+        custom int desmos:order = 45
+        custom string desmos:latex = "3.8\\le x\\le8.3\\left\\{0\\le z\\le5\\right\\}\\left\\{-2\\le y\\le2\\right\\}"
+        custom string desmos:constraints = "3.8\\le x\\le8.3; 0\\le z\\le5; -2\\le y\\le2"
+        custom string desmos:kind = "inequality_region"
+        custom string desmos:color = "#aaaaaa"
+        custom bool desmos:hidden = false
+        uniform bool doubleSided = true
+        color3f[] primvars:displayColor = [(0.666666667, 0.666666667, 0.666666667)] (
+            interpolation = "constant"
+        )
+        point3f[] points = [(3.8, -2, 0), (3.8, -0.666666667, 0), (3.8, 0.666666667, 0), (3.8, 2, 0), (3.8, -2, 1.66666667), (3.8, -0.666666667, 1.66666667), (3.8, 0.666666667, 1.66666667), (3.8, 2, 1.66666667), (3.8, -2, 3.33333333), (3.8, -0.666666667, 3.33333333), (3.8, 0.666666667, 3.33333333), (3.8, 2, 3.33333333), (3.8, -2, 5), (3.8, -0.666666667, 5), (3.8, 0.666666667, 5), (3.8, 2, 5), (8.3, -2, 0), (8.3, -0.666666667, 0), (8.3, 0.666666667, 0), (8.3, 2, 0), (8.3, -2, 1.66666667), (8.3, -0.666666667, 1.66666667), (8.3, 0.666666667, 1.66666667), (8.3, 2, 1.66666667), (8.3, -2, 3.33333333), (8.3, -0.666666667, 3.33333333), (8.3, 0.666666667, 3.33333333), (8.3, 2, 3.33333333), (8.3, -2, 5), (8.3, -0.666666667, 5), (8.3, 0.666666667, 5), (8.3, 2, 5)]
+        int[] faceVertexCounts = [4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4]
+        int[] faceVertexIndices = [0, 1, 5, 4, 1, 2, 6, 5, 2, 3, 7, 6, 4, 5, 9, 8, 5, 6, 10, 9, 6, 7, 11, 10, 8, 9, 13, 12, 9, 10, 14, 13, 10, 11, 15, 14, 20, 21, 17, 16, 21, 22, 18, 17, 22, 23, 19, 18, 24, 25, 21, 20, 25, 26, 22, 21, 26, 27, 23, 22, 28, 29, 25, 24, 29, 30, 26, 25, 30, 31, 27, 26, 0, 1, 17, 16, 1, 2, 18, 17, 2, 3, 19, 18, 12, 13, 29, 28, 13, 14, 30, 29, 14, 15, 31, 30, 0, 4, 20, 16, 4, 8, 24, 20, 8, 12, 28, 24, 3, 7, 23, 19, 7, 11, 27, 23, 11, 15, 31, 27]
+    }
+
+    def Mesh "expr_0046__85"
+    {
+        custom string desmos:url = ""
+        custom string desmos:hash = ""
+        custom string desmos:exprId = "85"
+        custom int desmos:order = 46
+        custom string desmos:latex = "-8.2\\le x\\le-3.8\\left\\{0\\le z\\le5\\right\\}\\left\\{-2\\le y\\le2\\right\\}"
+        custom string desmos:constraints = "-8.2\\le x\\le-3.8; 0\\le z\\le5; -2\\le y\\le2"
+        custom string desmos:kind = "inequality_region"
+        custom string desmos:color = "#aaaaaa"
+        custom bool desmos:hidden = false
+        uniform bool doubleSided = true
+        color3f[] primvars:displayColor = [(0.666666667, 0.666666667, 0.666666667)] (
+            interpolation = "constant"
+        )
+        point3f[] points = [(-8.2, -2, 0), (-8.2, -0.666666667, 0), (-8.2, 0.666666667, 0), (-8.2, 2, 0), (-8.2, -2, 1.66666667), (-8.2, -0.666666667, 1.66666667), (-8.2, 0.666666667, 1.66666667), (-8.2, 2, 1.66666667), (-8.2, -2, 3.33333333), (-8.2, -0.666666667, 3.33333333), (-8.2, 0.666666667, 3.33333333), (-8.2, 2, 3.33333333), (-8.2, -2, 5), (-8.2, -0.666666667, 5), (-8.2, 0.666666667, 5), (-8.2, 2, 5), (-3.8, -2, 0), (-3.8, -0.666666667, 0), (-3.8, 0.666666667, 0), (-3.8, 2, 0), (-3.8, -2, 1.66666667), (-3.8, -0.666666667, 1.66666667), (-3.8, 0.666666667, 1.66666667), (-3.8, 2, 1.66666667), (-3.8, -2, 3.33333333), (-3.8, -0.666666667, 3.33333333), (-3.8, 0.666666667, 3.33333333), (-3.8, 2, 3.33333333), (-3.8, -2, 5), (-3.8, -0.666666667, 5), (-3.8, 0.666666667, 5), (-3.8, 2, 5)]
+        int[] faceVertexCounts = [4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4]
+        int[] faceVertexIndices = [0, 1, 5, 4, 1, 2, 6, 5, 2, 3, 7, 6, 4, 5, 9, 8, 5, 6, 10, 9, 6, 7, 11, 10, 8, 9, 13, 12, 9, 10, 14, 13, 10, 11, 15, 14, 20, 21, 17, 16, 21, 22, 18, 17, 22, 23, 19, 18, 24, 25, 21, 20, 25, 26, 22, 21, 26, 27, 23, 22, 28, 29, 25, 24, 29, 30, 26, 25, 30, 31, 27, 26, 0, 1, 17, 16, 1, 2, 18, 17, 2, 3, 19, 18, 12, 13, 29, 28, 13, 14, 30, 29, 14, 15, 31, 30, 0, 4, 20, 16, 4, 8, 24, 20, 8, 12, 28, 24, 3, 7, 23, 19, 7, 11, 27, 23, 11, 15, 31, 27]
+    }
+
+    def Mesh "expr_0047__86"
+    {
+        custom string desmos:url = ""
+        custom string desmos:hash = ""
+        custom string desmos:exprId = "86"
+        custom int desmos:order = 47
+        custom string desmos:latex = "-8.5\\le x\\le-7.5\\left\\{0\\le z\\le2\\right\\}\\left\\{-3.2\\le y\\le3.2\\right\\}"
+        custom string desmos:constraints = "-8.5\\le x\\le-7.5; 0\\le z\\le2; -3.2\\le y\\le3.2"
+        custom string desmos:kind = "inequality_region"
+        custom string desmos:color = "#fa7e19"
+        custom bool desmos:hidden = false
+        uniform bool doubleSided = true
+        color3f[] primvars:displayColor = [(0.980392157, 0.494117647, 0.0980392157)] (
+            interpolation = "constant"
+        )
+        point3f[] points = [(-8.5, -3.2, 0), (-8.5, -1.06666667, 0), (-8.5, 1.06666667, 0), (-8.5, 3.2, 0), (-8.5, -3.2, 0.666666667), (-8.5, -1.06666667, 0.666666667), (-8.5, 1.06666667, 0.666666667), (-8.5, 3.2, 0.666666667), (-8.5, -3.2, 1.33333333), (-8.5, -1.06666667, 1.33333333), (-8.5, 1.06666667, 1.33333333), (-8.5, 3.2, 1.33333333), (-8.5, -3.2, 2), (-8.5, -1.06666667, 2), (-8.5, 1.06666667, 2), (-8.5, 3.2, 2), (-7.5, -3.2, 0), (-7.5, -1.06666667, 0), (-7.5, 1.06666667, 0), (-7.5, 3.2, 0), (-7.5, -3.2, 0.666666667), (-7.5, -1.06666667, 0.666666667), (-7.5, 1.06666667, 0.666666667), (-7.5, 3.2, 0.666666667), (-7.5, -3.2, 1.33333333), (-7.5, -1.06666667, 1.33333333), (-7.5, 1.06666667, 1.33333333), (-7.5, 3.2, 1.33333333), (-7.5, -3.2, 2), (-7.5, -1.06666667, 2), (-7.5, 1.06666667, 2), (-7.5, 3.2, 2)]
+        int[] faceVertexCounts = [4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4]
+        int[] faceVertexIndices = [0, 1, 5, 4, 1, 2, 6, 5, 2, 3, 7, 6, 4, 5, 9, 8, 5, 6, 10, 9, 6, 7, 11, 10, 8, 9, 13, 12, 9, 10, 14, 13, 10, 11, 15, 14, 20, 21, 17, 16, 21, 22, 18, 17, 22, 23, 19, 18, 24, 25, 21, 20, 25, 26, 22, 21, 26, 27, 23, 22, 28, 29, 25, 24, 29, 30, 26, 25, 30, 31, 27, 26, 0, 1, 17, 16, 1, 2, 18, 17, 2, 3, 19, 18, 12, 13, 29, 28, 13, 14, 30, 29, 14, 15, 31, 30, 0, 4, 20, 16, 4, 8, 24, 20, 8, 12, 28, 24, 3, 7, 23, 19, 7, 11, 27, 23, 11, 15, 31, 27]
+    }
+
+    def Mesh "expr_0048__87"
+    {
+        custom string desmos:url = ""
+        custom string desmos:hash = ""
+        custom string desmos:exprId = "87"
+        custom int desmos:order = 48
+        custom string desmos:latex = "-5.55\\le x\\le-3\\left\\{0\\le z\\le2\\right\\}\\left\\{-3.2\\le y\\le3.2\\right\\}"
+        custom string desmos:constraints = "-5.55\\le x\\le-3; 0\\le z\\le2; -3.2\\le y\\le3.2"
+        custom string desmos:kind = "inequality_region"
+        custom string desmos:color = "#fa7e19"
+        custom bool desmos:hidden = false
+        uniform bool doubleSided = true
+        color3f[] primvars:displayColor = [(0.980392157, 0.494117647, 0.0980392157)] (
+            interpolation = "constant"
+        )
+        point3f[] points = [(-5.55, -3.2, 0), (-5.55, -1.06666667, 0), (-5.55, 1.06666667, 0), (-5.55, 3.2, 0), (-5.55, -3.2, 0.666666667), (-5.55, -1.06666667, 0.666666667), (-5.55, 1.06666667, 0.666666667), (-5.55, 3.2, 0.666666667), (-5.55, -3.2, 1.33333333), (-5.55, -1.06666667, 1.33333333), (-5.55, 1.06666667, 1.33333333), (-5.55, 3.2, 1.33333333), (-5.55, -3.2, 2), (-5.55, -1.06666667, 2), (-5.55, 1.06666667, 2), (-5.55, 3.2, 2), (-3, -3.2, 0), (-3, -1.06666667, 0), (-3, 1.06666667, 0), (-3, 3.2, 0), (-3, -3.2, 0.666666667), (-3, -1.06666667, 0.666666667), (-3, 1.06666667, 0.666666667), (-3, 3.2, 0.666666667), (-3, -3.2, 1.33333333), (-3, -1.06666667, 1.33333333), (-3, 1.06666667, 1.33333333), (-3, 3.2, 1.33333333), (-3, -3.2, 2), (-3, -1.06666667, 2), (-3, 1.06666667, 2), (-3, 3.2, 2)]
+        int[] faceVertexCounts = [4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4]
+        int[] faceVertexIndices = [0, 1, 5, 4, 1, 2, 6, 5, 2, 3, 7, 6, 4, 5, 9, 8, 5, 6, 10, 9, 6, 7, 11, 10, 8, 9, 13, 12, 9, 10, 14, 13, 10, 11, 15, 14, 20, 21, 17, 16, 21, 22, 18, 17, 22, 23, 19, 18, 24, 25, 21, 20, 25, 26, 22, 21, 26, 27, 23, 22, 28, 29, 25, 24, 29, 30, 26, 25, 30, 31, 27, 26, 0, 1, 17, 16, 1, 2, 18, 17, 2, 3, 19, 18, 12, 13, 29, 28, 13, 14, 30, 29, 14, 15, 31, 30, 0, 4, 20, 16, 4, 8, 24, 20, 8, 12, 28, 24, 3, 7, 23, 19, 7, 11, 27, 23, 11, 15, 31, 27]
+    }
+
+    def Mesh "expr_0049__88"
+    {
+        custom string desmos:url = ""
+        custom string desmos:hash = ""
+        custom string desmos:exprId = "88"
+        custom int desmos:order = 49
+        custom string desmos:latex = "\\frac{1}{2}\\left(2x-17\\right)\\left(2x-8\\right)\\ge-2z-x+2\\left\\{4\\le x\\le8.5\\right\\}\\left\\{2\\le z\\le5\\right\\}\\left\\{-3.2\\le y\\le3.2\\right\\}"
+        custom string desmos:constraints = "\\frac{1}{2}(2x-17)(2x-8)\\ge-2z-x+2; 4\\le x\\le8.5; 2\\le z\\le5; -3.2\\le y\\le3.2"
+        custom string desmos:kind = "inequality_region"
+        custom string desmos:color = "#fa7e19"
+        custom bool desmos:hidden = false
+        uniform bool doubleSided = true
+        color3f[] primvars:displayColor = [(0.980392157, 0.494117647, 0.0980392157)] (
+            interpolation = "constant"
+        )
+        point3f[] points = [(4, -3.2, 2), (8.5, -3.2, 2), (8.5, -3.2, 2.125), (4, -3.2, 2.125), (4, 3.2, 2), (8.5, 3.2, 2), (8.5, 3.2, 2.125), (4, 3.2, 2.125), (4, -3.2, 2.125), (8.5, -3.2, 2.125), (8.5, -3.2, 2.25), (4, -3.2, 2.25), (4, 3.2, 2.125), (8.5, 3.2, 2.125), (8.5, 3.2, 2.25), (4, 3.2, 2.25), (4, -3.2, 2.25), (8.5, -3.2, 2.25), (8.5, -3.2, 2.375), (4, -3.2, 2.375), (4, 3.2, 2.25), (8.5, 3.2, 2.25), (8.5, 3.2, 2.375), (4, 3.2, 2.375), (4, -3.2, 2.375), (8.5, -3.2, 2.375), (8.5, -3.2, 2.5), (4, -3.2, 2.5), (4, 3.2, 2.375), (8.5, 3.2, 2.375), (8.5, 3.2, 2.5), (4, 3.2, 2.5), (4, -3.2, 2.5), (8.5, -3.2, 2.5), (8.5, -3.2, 2.625), (4, -3.2, 2.625), (4, 3.2, 2.5), (8.5, 3.2, 2.5), (8.5, 3.2, 2.625), (4, 3.2, 2.625), (4, -3.2, 2.625), (8.5, -3.2, 2.625), (8.5, -3.2, 2.75), (4, -3.2, 2.75), (4, 3.2, 2.625), (8.5, 3.2, 2.625), (8.5, 3.2, 2.75), (4, 3.2, 2.75), (4, -3.2, 2.75), (8.5, -3.2, 2.75), (8.5, -3.2, 2.875), (4, -3.2, 2.875), (4, 3.2, 2.75), (8.5, 3.2, 2.75), (8.5, 3.2, 2.875), (4, 3.2, 2.875), (4, -3.2, 2.875), (8.5, -3.2, 2.875), (8.5, -3.2, 3), (4, -3.2, 3), (4, 3.2, 2.875), (8.5, 3.2, 2.875), (8.5, 3.2, 3), (4, 3.2, 3), (4, -3.2, 3), (8.5, -3.2, 3), (8.5, -3.2, 3.125), (4, -3.2, 3.125), (4, 3.2, 3), (8.5, 3.2, 3), (8.5, 3.2, 3.125), (4, 3.2, 3.125), (4, -3.2, 3.125), (8.5, -3.2, 3.125), (8.5, -3.2, 3.25), (4, -3.2, 3.25), (4, 3.2, 3.125), (8.5, 3.2, 3.125), (8.5, 3.2, 3.25), (4, 3.2, 3.25), (4, -3.2, 3.25), (8.5, -3.2, 3.25), (8.5, -3.2, 3.375), (4, -3.2, 3.375), (4, 3.2, 3.25), (8.5, 3.2, 3.25), (8.5, 3.2, 3.375), (4, 3.2, 3.375), (4, -3.2, 3.375), (8.5, -3.2, 3.375), (8.5, -3.2, 3.5), (4, -3.2, 3.5), (4, 3.2, 3.375), (8.5, 3.2, 3.375), (8.5, 3.2, 3.5), (4, 3.2, 3.5), (4, -3.2, 3.5), (8.5, -3.2, 3.5), (8.5, -3.2, 3.625), (4, -3.2, 3.625), (4, 3.2, 3.5), (8.5, 3.2, 3.5), (8.5, 3.2, 3.625), (4, 3.2, 3.625), (4, -3.2, 3.625), (8.5, -3.2, 3.625), (8.5, -3.2, 3.75), (4, -3.2, 3.75), (4, 3.2, 3.625), (8.5, 3.2, 3.625), (8.5, 3.2, 3.75), (4, 3.2, 3.75), (4, -3.2, 3.75), (8.5, -3.2, 3.75), (8.5, -3.2, 3.875), (4, -3.2, 3.875), (4, 3.2, 3.75), (8.5, 3.2, 3.75), (8.5, 3.2, 3.875), (4, 3.2, 3.875), (4, -3.2, 3.875), (8.5, -3.2, 3.875), (8.5, -3.2, 4), (4, -3.2, 4), (4, 3.2, 3.875), (8.5, 3.2, 3.875), (8.5, 3.2, 4), (4, 3.2, 4), (4, -3.2, 4), (8.5, -3.2, 4), (8.5, -3.2, 4.125), (4, -3.2, 4.125), (4, 3.2, 4), (8.5, 3.2, 4), (8.5, 3.2, 4.125), (4, 3.2, 4.125), (4, -3.2, 4.125), (8.5, -3.2, 4.125), (8.5, -3.2, 4.25), (4, -3.2, 4.25), (4, 3.2, 4.125), (8.5, 3.2, 4.125), (8.5, 3.2, 4.25), (4, 3.2, 4.25), (4, -3.2, 4.25), (8.5, -3.2, 4.25), (8.5, -3.2, 4.375), (4, -3.2, 4.375), (4, 3.2, 4.25), (8.5, 3.2, 4.25), (8.5, 3.2, 4.375), (4, 3.2, 4.375), (4, -3.2, 4.375), (8.5, -3.2, 4.375), (8.5, -3.2, 4.5), (4, -3.2, 4.5), (4, 3.2, 4.375), (8.5, 3.2, 4.375), (8.5, 3.2, 4.5), (4, 3.2, 4.5), (4, -3.2, 4.5), (8.5, -3.2, 4.5), (8.5, -3.2, 4.625), (4, -3.2, 4.625), (4, 3.2, 4.5), (8.5, 3.2, 4.5), (8.5, 3.2, 4.625), (4, 3.2, 4.625), (4, -3.2, 4.625), (8.5, -3.2, 4.625), (8.5, -3.2, 4.75), (4, -3.2, 4.75), (4, 3.2, 4.625), (8.5, 3.2, 4.625), (8.5, 3.2, 4.75), (4, 3.2, 4.75), (4, -3.2, 4.75), (8.5, -3.2, 4.75), (8.5, -3.2, 4.875), (4, -3.2, 4.875), (4, 3.2, 4.75), (8.5, 3.2, 4.75), (8.5, 3.2, 4.875), (4, 3.2, 4.875), (4, -3.2, 4.875), (8.5, -3.2, 4.875), (8.5, -3.2, 5), (4, -3.2, 5), (4, 3.2, 4.875), (8.5, 3.2, 4.875), (8.5, 3.2, 5), (4, 3.2, 5)]
+        int[] faceVertexCounts = [4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4]
+        int[] faceVertexIndices = [0, 1, 2, 3, 4, 7, 6, 5, 0, 4, 5, 1, 1, 5, 6, 2, 2, 6, 7, 3, 3, 7, 4, 0, 8, 9, 10, 11, 12, 15, 14, 13, 8, 12, 13, 9, 9, 13, 14, 10, 10, 14, 15, 11, 11, 15, 12, 8, 16, 17, 18, 19, 20, 23, 22, 21, 16, 20, 21, 17, 17, 21, 22, 18, 18, 22, 23, 19, 19, 23, 20, 16, 24, 25, 26, 27, 28, 31, 30, 29, 24, 28, 29, 25, 25, 29, 30, 26, 26, 30, 31, 27, 27, 31, 28, 24, 32, 33, 34, 35, 36, 39, 38, 37, 32, 36, 37, 33, 33, 37, 38, 34, 34, 38, 39, 35, 35, 39, 36, 32, 40, 41, 42, 43, 44, 47, 46, 45, 40, 44, 45, 41, 41, 45, 46, 42, 42, 46, 47, 43, 43, 47, 44, 40, 48, 49, 50, 51, 52, 55, 54, 53, 48, 52, 53, 49, 49, 53, 54, 50, 50, 54, 55, 51, 51, 55, 52, 48, 56, 57, 58, 59, 60, 63, 62, 61, 56, 60, 61, 57, 57, 61, 62, 58, 58, 62, 63, 59, 59, 63, 60, 56, 64, 65, 66, 67, 68, 71, 70, 69, 64, 68, 69, 65, 65, 69, 70, 66, 66, 70, 71, 67, 67, 71, 68, 64, 72, 73, 74, 75, 76, 79, 78, 77, 72, 76, 77, 73, 73, 77, 78, 74, 74, 78, 79, 75, 75, 79, 76, 72, 80, 81, 82, 83, 84, 87, 86, 85, 80, 84, 85, 81, 81, 85, 86, 82, 82, 86, 87, 83, 83, 87, 84, 80, 88, 89, 90, 91, 92, 95, 94, 93, 88, 92, 93, 89, 89, 93, 94, 90, 90, 94, 95, 91, 91, 95, 92, 88, 96, 97, 98, 99, 100, 103, 102, 101, 96, 100, 101, 97, 97, 101, 102, 98, 98, 102, 103, 99, 99, 103, 100, 96, 104, 105, 106, 107, 108, 111, 110, 109, 104, 108, 109, 105, 105, 109, 110, 106, 106, 110, 111, 107, 107, 111, 108, 104, 112, 113, 114, 115, 116, 119, 118, 117, 112, 116, 117, 113, 113, 117, 118, 114, 114, 118, 119, 115, 115, 119, 116, 112, 120, 121, 122, 123, 124, 127, 126, 125, 120, 124, 125, 121, 121, 125, 126, 122, 122, 126, 127, 123, 123, 127, 124, 120, 128, 129, 130, 131, 132, 135, 134, 133, 128, 132, 133, 129, 129, 133, 134, 130, 130, 134, 135, 131, 131, 135, 132, 128, 136, 137, 138, 139, 140, 143, 142, 141, 136, 140, 141, 137, 137, 141, 142, 138, 138, 142, 143, 139, 139, 143, 140, 136, 144, 145, 146, 147, 148, 151, 150, 149, 144, 148, 149, 145, 145, 149, 150, 146, 146, 150, 151, 147, 147, 151, 148, 144, 152, 153, 154, 155, 156, 159, 158, 157, 152, 156, 157, 153, 153, 157, 158, 154, 154, 158, 159, 155, 155, 159, 156, 152, 160, 161, 162, 163, 164, 167, 166, 165, 160, 164, 165, 161, 161, 165, 166, 162, 162, 166, 167, 163, 163, 167, 164, 160, 168, 169, 170, 171, 172, 175, 174, 173, 168, 172, 173, 169, 169, 173, 174, 170, 170, 174, 175, 171, 171, 175, 172, 168, 176, 177, 178, 179, 180, 183, 182, 181, 176, 180, 181, 177, 177, 181, 182, 178, 178, 182, 183, 179, 179, 183, 180, 176, 184, 185, 186, 187, 188, 191, 190, 189, 184, 188, 189, 185, 185, 189, 190, 186, 186, 190, 191, 187, 187, 191, 188, 184]
+    }
+
+    def Mesh "expr_0050__89"
+    {
+        custom string desmos:url = ""
+        custom string desmos:hash = ""
+        custom string desmos:exprId = "89"
+        custom int desmos:order = 50
+        custom string desmos:latex = "3\\le x\\le5\\left\\{0\\le z\\le2\\right\\}\\left\\{-3.2\\le y\\le3.2\\right\\}"
+        custom string desmos:constraints = "3\\le x\\le5; 0\\le z\\le2; -3.2\\le y\\le3.2"
+        custom string desmos:kind = "inequality_region"
+        custom string desmos:color = "#fa7e19"
+        custom bool desmos:hidden = false
+        uniform bool doubleSided = true
+        color3f[] primvars:displayColor = [(0.980392157, 0.494117647, 0.0980392157)] (
+            interpolation = "constant"
+        )
+        point3f[] points = [(3, -3.2, 0), (3, -1.06666667, 0), (3, 1.06666667, 0), (3, 3.2, 0), (3, -3.2, 0.666666667), (3, -1.06666667, 0.666666667), (3, 1.06666667, 0.666666667), (3, 3.2, 0.666666667), (3, -3.2, 1.33333333), (3, -1.06666667, 1.33333333), (3, 1.06666667, 1.33333333), (3, 3.2, 1.33333333), (3, -3.2, 2), (3, -1.06666667, 2), (3, 1.06666667, 2), (3, 3.2, 2), (5, -3.2, 0), (5, -1.06666667, 0), (5, 1.06666667, 0), (5, 3.2, 0), (5, -3.2, 0.666666667), (5, -1.06666667, 0.666666667), (5, 1.06666667, 0.666666667), (5, 3.2, 0.666666667), (5, -3.2, 1.33333333), (5, -1.06666667, 1.33333333), (5, 1.06666667, 1.33333333), (5, 3.2, 1.33333333), (5, -3.2, 2), (5, -1.06666667, 2), (5, 1.06666667, 2), (5, 3.2, 2)]
+        int[] faceVertexCounts = [4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4]
+        int[] faceVertexIndices = [0, 1, 5, 4, 1, 2, 6, 5, 2, 3, 7, 6, 4, 5, 9, 8, 5, 6, 10, 9, 6, 7, 11, 10, 8, 9, 13, 12, 9, 10, 14, 13, 10, 11, 15, 14, 20, 21, 17, 16, 21, 22, 18, 17, 22, 23, 19, 18, 24, 25, 21, 20, 25, 26, 22, 21, 26, 27, 23, 22, 28, 29, 25, 24, 29, 30, 26, 25, 30, 31, 27, 26, 0, 1, 17, 16, 1, 2, 18, 17, 2, 3, 19, 18, 12, 13, 29, 28, 13, 14, 30, 29, 14, 15, 31, 30, 0, 4, 20, 16, 4, 8, 24, 20, 8, 12, 28, 24, 3, 7, 23, 19, 7, 11, 27, 23, 11, 15, 31, 27]
+    }
+
+    def Mesh "expr_0051__90"
+    {
+        custom string desmos:url = ""
+        custom string desmos:hash = ""
+        custom string desmos:exprId = "90"
+        custom int desmos:order = 51
+        custom string desmos:latex = "7\\le x\\le8.5\\left\\{0\\le z\\le2\\right\\}\\left\\{-3.2\\le y\\le3.2\\right\\}"
+        custom string desmos:constraints = "7\\le x\\le8.5; 0\\le z\\le2; -3.2\\le y\\le3.2"
+        custom string desmos:kind = "inequality_region"
+        custom string desmos:color = "#fa7e19"
+        custom bool desmos:hidden = false
+        uniform bool doubleSided = true
+        color3f[] primvars:displayColor = [(0.980392157, 0.494117647, 0.0980392157)] (
+            interpolation = "constant"
+        )
+        point3f[] points = [(7, -3.2, 0), (7, -1.06666667, 0), (7, 1.06666667, 0), (7, 3.2, 0), (7, -3.2, 0.666666667), (7, -1.06666667, 0.666666667), (7, 1.06666667, 0.666666667), (7, 3.2, 0.666666667), (7, -3.2, 1.33333333), (7, -1.06666667, 1.33333333), (7, 1.06666667, 1.33333333), (7, 3.2, 1.33333333), (7, -3.2, 2), (7, -1.06666667, 2), (7, 1.06666667, 2), (7, 3.2, 2), (8.5, -3.2, 0), (8.5, -1.06666667, 0), (8.5, 1.06666667, 0), (8.5, 3.2, 0), (8.5, -3.2, 0.666666667), (8.5, -1.06666667, 0.666666667), (8.5, 1.06666667, 0.666666667), (8.5, 3.2, 0.666666667), (8.5, -3.2, 1.33333333), (8.5, -1.06666667, 1.33333333), (8.5, 1.06666667, 1.33333333), (8.5, 3.2, 1.33333333), (8.5, -3.2, 2), (8.5, -1.06666667, 2), (8.5, 1.06666667, 2), (8.5, 3.2, 2)]
+        int[] faceVertexCounts = [4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4]
+        int[] faceVertexIndices = [0, 1, 5, 4, 1, 2, 6, 5, 2, 3, 7, 6, 4, 5, 9, 8, 5, 6, 10, 9, 6, 7, 11, 10, 8, 9, 13, 12, 9, 10, 14, 13, 10, 11, 15, 14, 20, 21, 17, 16, 21, 22, 18, 17, 22, 23, 19, 18, 24, 25, 21, 20, 25, 26, 22, 21, 26, 27, 23, 22, 28, 29, 25, 24, 29, 30, 26, 25, 30, 31, 27, 26, 0, 1, 17, 16, 1, 2, 18, 17, 2, 3, 19, 18, 12, 13, 29, 28, 13, 14, 30, 29, 14, 15, 31, 30, 0, 4, 20, 16, 4, 8, 24, 20, 8, 12, 28, 24, 3, 7, 23, 19, 7, 11, 27, 23, 11, 15, 31, 27]
+    }
+
+    def Mesh "expr_0052__91"
+    {
+        custom string desmos:url = ""
+        custom string desmos:hash = ""
+        custom string desmos:exprId = "91"
+        custom int desmos:order = 52
+        custom string desmos:latex = "3.2\\le x\\le3.35\\left\\{-4.1\\le y\\le-4\\right\\}\\left\\{0\\le z\\le10\\right\\}"
+        custom string desmos:constraints = "3.2\\le x\\le3.35; -4.1\\le y\\le-4; 0\\le z\\le10"
+        custom string desmos:kind = "inequality_region"
+        custom string desmos:color = "#fa7e19"
+        custom bool desmos:hidden = false
+        uniform bool doubleSided = true
+        color3f[] primvars:displayColor = [(0.980392157, 0.494117647, 0.0980392157)] (
+            interpolation = "constant"
+        )
+        point3f[] points = [(3.2, -4.1, 0), (3.2, -4.06666667, 0), (3.2, -4.03333333, 0), (3.2, -4, 0), (3.2, -4.1, 3.33333333), (3.2, -4.06666667, 3.33333333), (3.2, -4.03333333, 3.33333333), (3.2, -4, 3.33333333), (3.2, -4.1, 6.66666667), (3.2, -4.06666667, 6.66666667), (3.2, -4.03333333, 6.66666667), (3.2, -4, 6.66666667), (3.2, -4.1, 10), (3.2, -4.06666667, 10), (3.2, -4.03333333, 10), (3.2, -4, 10), (3.35, -4.1, 0), (3.35, -4.06666667, 0), (3.35, -4.03333333, 0), (3.35, -4, 0), (3.35, -4.1, 3.33333333), (3.35, -4.06666667, 3.33333333), (3.35, -4.03333333, 3.33333333), (3.35, -4, 3.33333333), (3.35, -4.1, 6.66666667), (3.35, -4.06666667, 6.66666667), (3.35, -4.03333333, 6.66666667), (3.35, -4, 6.66666667), (3.35, -4.1, 10), (3.35, -4.06666667, 10), (3.35, -4.03333333, 10), (3.35, -4, 10)]
+        int[] faceVertexCounts = [4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4]
+        int[] faceVertexIndices = [0, 1, 5, 4, 1, 2, 6, 5, 2, 3, 7, 6, 4, 5, 9, 8, 5, 6, 10, 9, 6, 7, 11, 10, 8, 9, 13, 12, 9, 10, 14, 13, 10, 11, 15, 14, 20, 21, 17, 16, 21, 22, 18, 17, 22, 23, 19, 18, 24, 25, 21, 20, 25, 26, 22, 21, 26, 27, 23, 22, 28, 29, 25, 24, 29, 30, 26, 25, 30, 31, 27, 26, 0, 1, 17, 16, 1, 2, 18, 17, 2, 3, 19, 18, 12, 13, 29, 28, 13, 14, 30, 29, 14, 15, 31, 30, 0, 4, 20, 16, 4, 8, 24, 20, 8, 12, 28, 24, 3, 7, 23, 19, 7, 11, 27, 23, 11, 15, 31, 27]
+    }
+
+    def Mesh "expr_0053__93"
+    {
+        custom string desmos:url = ""
+        custom string desmos:hash = ""
+        custom string desmos:exprId = "93"
+        custom int desmos:order = 53
+        custom string desmos:latex = "-8.5\\le x\\le-4\\left\\{-3.2\\le y\\le-2.5\\right\\}\\left\\{5\\le z\\le6\\right\\}"
+        custom string desmos:constraints = "-8.5\\le x\\le-4; -3.2\\le y\\le-2.5; 5\\le z\\le6"
+        custom string desmos:kind = "inequality_region"
+        custom string desmos:color = "#c74440"
+        custom bool desmos:hidden = false
+        uniform bool doubleSided = true
+        color3f[] primvars:displayColor = [(0.780392157, 0.266666667, 0.250980392)] (
+            interpolation = "constant"
+        )
+        point3f[] points = [(-8.5, -3.2, 5), (-8.5, -2.96666667, 5), (-8.5, -2.73333333, 5), (-8.5, -2.5, 5), (-8.5, -3.2, 5.33333333), (-8.5, -2.96666667, 5.33333333), (-8.5, -2.73333333, 5.33333333), (-8.5, -2.5, 5.33333333), (-8.5, -3.2, 5.66666667), (-8.5, -2.96666667, 5.66666667), (-8.5, -2.73333333, 5.66666667), (-8.5, -2.5, 5.66666667), (-8.5, -3.2, 6), (-8.5, -2.96666667, 6), (-8.5, -2.73333333, 6), (-8.5, -2.5, 6), (-4, -3.2, 5), (-4, -2.96666667, 5), (-4, -2.73333333, 5), (-4, -2.5, 5), (-4, -3.2, 5.33333333), (-4, -2.96666667, 5.33333333), (-4, -2.73333333, 5.33333333), (-4, -2.5, 5.33333333), (-4, -3.2, 5.66666667), (-4, -2.96666667, 5.66666667), (-4, -2.73333333, 5.66666667), (-4, -2.5, 5.66666667), (-4, -3.2, 6), (-4, -2.96666667, 6), (-4, -2.73333333, 6), (-4, -2.5, 6)]
+        int[] faceVertexCounts = [4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4]
+        int[] faceVertexIndices = [0, 1, 5, 4, 1, 2, 6, 5, 2, 3, 7, 6, 4, 5, 9, 8, 5, 6, 10, 9, 6, 7, 11, 10, 8, 9, 13, 12, 9, 10, 14, 13, 10, 11, 15, 14, 20, 21, 17, 16, 21, 22, 18, 17, 22, 23, 19, 18, 24, 25, 21, 20, 25, 26, 22, 21, 26, 27, 23, 22, 28, 29, 25, 24, 29, 30, 26, 25, 30, 31, 27, 26, 0, 1, 17, 16, 1, 2, 18, 17, 2, 3, 19, 18, 12, 13, 29, 28, 13, 14, 30, 29, 14, 15, 31, 30, 0, 4, 20, 16, 4, 8, 24, 20, 8, 12, 28, 24, 3, 7, 23, 19, 7, 11, 27, 23, 11, 15, 31, 27]
+    }
+
+    def Mesh "expr_0054__94"
+    {
+        custom string desmos:url = ""
+        custom string desmos:hash = ""
+        custom string desmos:exprId = "94"
+        custom int desmos:order = 54
+        custom string desmos:latex = "-8.5\\le x\\le-4\\left\\{3.2\\ge y\\ge2.5\\right\\}\\left\\{5\\le z\\le6\\right\\}"
+        custom string desmos:constraints = "-8.5\\le x\\le-4; 3.2\\ge y\\ge2.5; 5\\le z\\le6"
+        custom string desmos:kind = "inequality_region"
+        custom string desmos:color = "#c74440"
+        custom bool desmos:hidden = false
+        uniform bool doubleSided = true
+        color3f[] primvars:displayColor = [(0.780392157, 0.266666667, 0.250980392)] (
+            interpolation = "constant"
+        )
+        point3f[] points = [(-8.5, 2.5, 5), (-8.5, 2.73333333, 5), (-8.5, 2.96666667, 5), (-8.5, 3.2, 5), (-8.5, 2.5, 5.33333333), (-8.5, 2.73333333, 5.33333333), (-8.5, 2.96666667, 5.33333333), (-8.5, 3.2, 5.33333333), (-8.5, 2.5, 5.66666667), (-8.5, 2.73333333, 5.66666667), (-8.5, 2.96666667, 5.66666667), (-8.5, 3.2, 5.66666667), (-8.5, 2.5, 6), (-8.5, 2.73333333, 6), (-8.5, 2.96666667, 6), (-8.5, 3.2, 6), (-4, 2.5, 5), (-4, 2.73333333, 5), (-4, 2.96666667, 5), (-4, 3.2, 5), (-4, 2.5, 5.33333333), (-4, 2.73333333, 5.33333333), (-4, 2.96666667, 5.33333333), (-4, 3.2, 5.33333333), (-4, 2.5, 5.66666667), (-4, 2.73333333, 5.66666667), (-4, 2.96666667, 5.66666667), (-4, 3.2, 5.66666667), (-4, 2.5, 6), (-4, 2.73333333, 6), (-4, 2.96666667, 6), (-4, 3.2, 6)]
+        int[] faceVertexCounts = [4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4]
+        int[] faceVertexIndices = [0, 1, 5, 4, 1, 2, 6, 5, 2, 3, 7, 6, 4, 5, 9, 8, 5, 6, 10, 9, 6, 7, 11, 10, 8, 9, 13, 12, 9, 10, 14, 13, 10, 11, 15, 14, 20, 21, 17, 16, 21, 22, 18, 17, 22, 23, 19, 18, 24, 25, 21, 20, 25, 26, 22, 21, 26, 27, 23, 22, 28, 29, 25, 24, 29, 30, 26, 25, 30, 31, 27, 26, 0, 1, 17, 16, 1, 2, 18, 17, 2, 3, 19, 18, 12, 13, 29, 28, 13, 14, 30, 29, 14, 15, 31, 30, 0, 4, 20, 16, 4, 8, 24, 20, 8, 12, 28, 24, 3, 7, 23, 19, 7, 11, 27, 23, 11, 15, 31, 27]
+    }
+
+    def Mesh "expr_0055__95"
+    {
+        custom string desmos:url = ""
+        custom string desmos:hash = ""
+        custom string desmos:exprId = "95"
+        custom int desmos:order = 55
+        custom string desmos:latex = "-8.5\\le x\\le-7.8\\left\\{-3.2\\le y\\le3.2\\right\\}\\left\\{5\\le z\\le6\\right\\}"
+        custom string desmos:constraints = "-8.5\\le x\\le-7.8; -3.2\\le y\\le3.2; 5\\le z\\le6"
+        custom string desmos:kind = "inequality_region"
+        custom string desmos:color = "#c74440"
+        custom bool desmos:hidden = false
+        uniform bool doubleSided = true
+        color3f[] primvars:displayColor = [(0.780392157, 0.266666667, 0.250980392)] (
+            interpolation = "constant"
+        )
+        point3f[] points = [(-8.5, -3.2, 5), (-8.5, -1.06666667, 5), (-8.5, 1.06666667, 5), (-8.5, 3.2, 5), (-8.5, -3.2, 5.33333333), (-8.5, -1.06666667, 5.33333333), (-8.5, 1.06666667, 5.33333333), (-8.5, 3.2, 5.33333333), (-8.5, -3.2, 5.66666667), (-8.5, -1.06666667, 5.66666667), (-8.5, 1.06666667, 5.66666667), (-8.5, 3.2, 5.66666667), (-8.5, -3.2, 6), (-8.5, -1.06666667, 6), (-8.5, 1.06666667, 6), (-8.5, 3.2, 6), (-7.8, -3.2, 5), (-7.8, -1.06666667, 5), (-7.8, 1.06666667, 5), (-7.8, 3.2, 5), (-7.8, -3.2, 5.33333333), (-7.8, -1.06666667, 5.33333333), (-7.8, 1.06666667, 5.33333333), (-7.8, 3.2, 5.33333333), (-7.8, -3.2, 5.66666667), (-7.8, -1.06666667, 5.66666667), (-7.8, 1.06666667, 5.66666667), (-7.8, 3.2, 5.66666667), (-7.8, -3.2, 6), (-7.8, -1.06666667, 6), (-7.8, 1.06666667, 6), (-7.8, 3.2, 6)]
+        int[] faceVertexCounts = [4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4]
+        int[] faceVertexIndices = [0, 1, 5, 4, 1, 2, 6, 5, 2, 3, 7, 6, 4, 5, 9, 8, 5, 6, 10, 9, 6, 7, 11, 10, 8, 9, 13, 12, 9, 10, 14, 13, 10, 11, 15, 14, 20, 21, 17, 16, 21, 22, 18, 17, 22, 23, 19, 18, 24, 25, 21, 20, 25, 26, 22, 21, 26, 27, 23, 22, 28, 29, 25, 24, 29, 30, 26, 25, 30, 31, 27, 26, 0, 1, 17, 16, 1, 2, 18, 17, 2, 3, 19, 18, 12, 13, 29, 28, 13, 14, 30, 29, 14, 15, 31, 30, 0, 4, 20, 16, 4, 8, 24, 20, 8, 12, 28, 24, 3, 7, 23, 19, 7, 11, 27, 23, 11, 15, 31, 27]
+    }
+
+    def Mesh "expr_0056__96"
+    {
+        custom string desmos:url = ""
+        custom string desmos:hash = ""
+        custom string desmos:exprId = "96"
+        custom int desmos:order = 56
+        custom string desmos:latex = "8.5\\ge x\\ge7.8\\left\\{-3.2\\le y\\le3.2\\right\\}\\left\\{5\\le z\\le6\\right\\}"
+        custom string desmos:constraints = "8.5\\ge x\\ge7.8; -3.2\\le y\\le3.2; 5\\le z\\le6"
+        custom string desmos:kind = "inequality_region"
+        custom string desmos:color = "#c74440"
+        custom bool desmos:hidden = false
+        uniform bool doubleSided = true
+        color3f[] primvars:displayColor = [(0.780392157, 0.266666667, 0.250980392)] (
+            interpolation = "constant"
+        )
+        point3f[] points = [(7.8, -3.2, 5), (7.8, -1.06666667, 5), (7.8, 1.06666667, 5), (7.8, 3.2, 5), (7.8, -3.2, 5.33333333), (7.8, -1.06666667, 5.33333333), (7.8, 1.06666667, 5.33333333), (7.8, 3.2, 5.33333333), (7.8, -3.2, 5.66666667), (7.8, -1.06666667, 5.66666667), (7.8, 1.06666667, 5.66666667), (7.8, 3.2, 5.66666667), (7.8, -3.2, 6), (7.8, -1.06666667, 6), (7.8, 1.06666667, 6), (7.8, 3.2, 6), (8.5, -3.2, 5), (8.5, -1.06666667, 5), (8.5, 1.06666667, 5), (8.5, 3.2, 5), (8.5, -3.2, 5.33333333), (8.5, -1.06666667, 5.33333333), (8.5, 1.06666667, 5.33333333), (8.5, 3.2, 5.33333333), (8.5, -3.2, 5.66666667), (8.5, -1.06666667, 5.66666667), (8.5, 1.06666667, 5.66666667), (8.5, 3.2, 5.66666667), (8.5, -3.2, 6), (8.5, -1.06666667, 6), (8.5, 1.06666667, 6), (8.5, 3.2, 6)]
+        int[] faceVertexCounts = [4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4]
+        int[] faceVertexIndices = [0, 1, 5, 4, 1, 2, 6, 5, 2, 3, 7, 6, 4, 5, 9, 8, 5, 6, 10, 9, 6, 7, 11, 10, 8, 9, 13, 12, 9, 10, 14, 13, 10, 11, 15, 14, 20, 21, 17, 16, 21, 22, 18, 17, 22, 23, 19, 18, 24, 25, 21, 20, 25, 26, 22, 21, 26, 27, 23, 22, 28, 29, 25, 24, 29, 30, 26, 25, 30, 31, 27, 26, 0, 1, 17, 16, 1, 2, 18, 17, 2, 3, 19, 18, 12, 13, 29, 28, 13, 14, 30, 29, 14, 15, 31, 30, 0, 4, 20, 16, 4, 8, 24, 20, 8, 12, 28, 24, 3, 7, 23, 19, 7, 11, 27, 23, 11, 15, 31, 27]
+    }
+
+    def Mesh "expr_0057__97"
+    {
+        custom string desmos:url = ""
+        custom string desmos:hash = ""
+        custom string desmos:exprId = "97"
+        custom int desmos:order = 57
+        custom string desmos:latex = "8.5\\ge x\\ge4\\left\\{-3.2\\le y\\le-2.5\\right\\}\\left\\{5\\le z\\le6\\right\\}"
+        custom string desmos:constraints = "8.5\\ge x\\ge4; -3.2\\le y\\le-2.5; 5\\le z\\le6"
+        custom string desmos:kind = "inequality_region"
+        custom string desmos:color = "#c74440"
+        custom bool desmos:hidden = false
+        uniform bool doubleSided = true
+        color3f[] primvars:displayColor = [(0.780392157, 0.266666667, 0.250980392)] (
+            interpolation = "constant"
+        )
+        point3f[] points = [(4, -3.2, 5), (4, -2.96666667, 5), (4, -2.73333333, 5), (4, -2.5, 5), (4, -3.2, 5.33333333), (4, -2.96666667, 5.33333333), (4, -2.73333333, 5.33333333), (4, -2.5, 5.33333333), (4, -3.2, 5.66666667), (4, -2.96666667, 5.66666667), (4, -2.73333333, 5.66666667), (4, -2.5, 5.66666667), (4, -3.2, 6), (4, -2.96666667, 6), (4, -2.73333333, 6), (4, -2.5, 6), (8.5, -3.2, 5), (8.5, -2.96666667, 5), (8.5, -2.73333333, 5), (8.5, -2.5, 5), (8.5, -3.2, 5.33333333), (8.5, -2.96666667, 5.33333333), (8.5, -2.73333333, 5.33333333), (8.5, -2.5, 5.33333333), (8.5, -3.2, 5.66666667), (8.5, -2.96666667, 5.66666667), (8.5, -2.73333333, 5.66666667), (8.5, -2.5, 5.66666667), (8.5, -3.2, 6), (8.5, -2.96666667, 6), (8.5, -2.73333333, 6), (8.5, -2.5, 6)]
+        int[] faceVertexCounts = [4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4]
+        int[] faceVertexIndices = [0, 1, 5, 4, 1, 2, 6, 5, 2, 3, 7, 6, 4, 5, 9, 8, 5, 6, 10, 9, 6, 7, 11, 10, 8, 9, 13, 12, 9, 10, 14, 13, 10, 11, 15, 14, 20, 21, 17, 16, 21, 22, 18, 17, 22, 23, 19, 18, 24, 25, 21, 20, 25, 26, 22, 21, 26, 27, 23, 22, 28, 29, 25, 24, 29, 30, 26, 25, 30, 31, 27, 26, 0, 1, 17, 16, 1, 2, 18, 17, 2, 3, 19, 18, 12, 13, 29, 28, 13, 14, 30, 29, 14, 15, 31, 30, 0, 4, 20, 16, 4, 8, 24, 20, 8, 12, 28, 24, 3, 7, 23, 19, 7, 11, 27, 23, 11, 15, 31, 27]
+    }
+
+    def Mesh "expr_0058__98"
+    {
+        custom string desmos:url = ""
+        custom string desmos:hash = ""
+        custom string desmos:exprId = "98"
+        custom int desmos:order = 58
+        custom string desmos:latex = "8.5\\ge x\\ge4\\left\\{3.2\\ge y\\ge2.5\\right\\}\\left\\{5\\le z\\le6\\right\\}"
+        custom string desmos:constraints = "8.5\\ge x\\ge4; 3.2\\ge y\\ge2.5; 5\\le z\\le6"
+        custom string desmos:kind = "inequality_region"
+        custom string desmos:color = "#c74440"
+        custom bool desmos:hidden = false
+        uniform bool doubleSided = true
+        color3f[] primvars:displayColor = [(0.780392157, 0.266666667, 0.250980392)] (
+            interpolation = "constant"
+        )
+        point3f[] points = [(4, 2.5, 5), (4, 2.73333333, 5), (4, 2.96666667, 5), (4, 3.2, 5), (4, 2.5, 5.33333333), (4, 2.73333333, 5.33333333), (4, 2.96666667, 5.33333333), (4, 3.2, 5.33333333), (4, 2.5, 5.66666667), (4, 2.73333333, 5.66666667), (4, 2.96666667, 5.66666667), (4, 3.2, 5.66666667), (4, 2.5, 6), (4, 2.73333333, 6), (4, 2.96666667, 6), (4, 3.2, 6), (8.5, 2.5, 5), (8.5, 2.73333333, 5), (8.5, 2.96666667, 5), (8.5, 3.2, 5), (8.5, 2.5, 5.33333333), (8.5, 2.73333333, 5.33333333), (8.5, 2.96666667, 5.33333333), (8.5, 3.2, 5.33333333), (8.5, 2.5, 5.66666667), (8.5, 2.73333333, 5.66666667), (8.5, 2.96666667, 5.66666667), (8.5, 3.2, 5.66666667), (8.5, 2.5, 6), (8.5, 2.73333333, 6), (8.5, 2.96666667, 6), (8.5, 3.2, 6)]
+        int[] faceVertexCounts = [4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4]
+        int[] faceVertexIndices = [0, 1, 5, 4, 1, 2, 6, 5, 2, 3, 7, 6, 4, 5, 9, 8, 5, 6, 10, 9, 6, 7, 11, 10, 8, 9, 13, 12, 9, 10, 14, 13, 10, 11, 15, 14, 20, 21, 17, 16, 21, 22, 18, 17, 22, 23, 19, 18, 24, 25, 21, 20, 25, 26, 22, 21, 26, 27, 23, 22, 28, 29, 25, 24, 29, 30, 26, 25, 30, 31, 27, 26, 0, 1, 17, 16, 1, 2, 18, 17, 2, 3, 19, 18, 12, 13, 29, 28, 13, 14, 30, 29, 14, 15, 31, 30, 0, 4, 20, 16, 4, 8, 24, 20, 8, 12, 28, 24, 3, 7, 23, 19, 7, 11, 27, 23, 11, 15, 31, 27]
+    }
+
+    def Mesh "expr_0059__107"
+    {
+        custom string desmos:url = ""
+        custom string desmos:hash = ""
+        custom string desmos:exprId = "107"
+        custom int desmos:order = 59
+        custom string desmos:latex = "-3.45\\le x\\le-3.3\\left\\{-4.1\\le y\\le-4\\right\\}\\left\\{0\\le z\\le10\\right\\}"
+        custom string desmos:constraints = "-3.45\\le x\\le-3.3; -4.1\\le y\\le-4; 0\\le z\\le10"
+        custom string desmos:kind = "inequality_region"
+        custom string desmos:color = "#fa7e19"
+        custom bool desmos:hidden = false
+        uniform bool doubleSided = true
+        color3f[] primvars:displayColor = [(0.980392157, 0.494117647, 0.0980392157)] (
+            interpolation = "constant"
+        )
+        point3f[] points = [(-3.45, -4.1, 0), (-3.45, -4.06666667, 0), (-3.45, -4.03333333, 0), (-3.45, -4, 0), (-3.45, -4.1, 3.33333333), (-3.45, -4.06666667, 3.33333333), (-3.45, -4.03333333, 3.33333333), (-3.45, -4, 3.33333333), (-3.45, -4.1, 6.66666667), (-3.45, -4.06666667, 6.66666667), (-3.45, -4.03333333, 6.66666667), (-3.45, -4, 6.66666667), (-3.45, -4.1, 10), (-3.45, -4.06666667, 10), (-3.45, -4.03333333, 10), (-3.45, -4, 10), (-3.3, -4.1, 0), (-3.3, -4.06666667, 0), (-3.3, -4.03333333, 0), (-3.3, -4, 0), (-3.3, -4.1, 3.33333333), (-3.3, -4.06666667, 3.33333333), (-3.3, -4.03333333, 3.33333333), (-3.3, -4, 3.33333333), (-3.3, -4.1, 6.66666667), (-3.3, -4.06666667, 6.66666667), (-3.3, -4.03333333, 6.66666667), (-3.3, -4, 6.66666667), (-3.3, -4.1, 10), (-3.3, -4.06666667, 10), (-3.3, -4.03333333, 10), (-3.3, -4, 10)]
+        int[] faceVertexCounts = [4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4]
+        int[] faceVertexIndices = [0, 1, 5, 4, 1, 2, 6, 5, 2, 3, 7, 6, 4, 5, 9, 8, 5, 6, 10, 9, 6, 7, 11, 10, 8, 9, 13, 12, 9, 10, 14, 13, 10, 11, 15, 14, 20, 21, 17, 16, 21, 22, 18, 17, 22, 23, 19, 18, 24, 25, 21, 20, 25, 26, 22, 21, 26, 27, 23, 22, 28, 29, 25, 24, 29, 30, 26, 25, 30, 31, 27, 26, 0, 1, 17, 16, 1, 2, 18, 17, 2, 3, 19, 18, 12, 13, 29, 28, 13, 14, 30, 29, 14, 15, 31, 30, 0, 4, 20, 16, 4, 8, 24, 20, 8, 12, 28, 24, 3, 7, 23, 19, 7, 11, 27, 23, 11, 15, 31, 27]
+    }
+
+    def Mesh "expr_0060__108"
+    {
+        custom string desmos:url = ""
+        custom string desmos:hash = ""
+        custom string desmos:exprId = "108"
+        custom int desmos:order = 60
+        custom string desmos:latex = "-3.45\\le x\\le-3.3\\left\\{4\\le y\\le4.1\\right\\}\\left\\{0\\le z\\le10\\right\\}"
+        custom string desmos:constraints = "-3.45\\le x\\le-3.3; 4\\le y\\le4.1; 0\\le z\\le10"
+        custom string desmos:kind = "inequality_region"
+        custom string desmos:color = "#fa7e19"
+        custom bool desmos:hidden = false
+        uniform bool doubleSided = true
+        color3f[] primvars:displayColor = [(0.980392157, 0.494117647, 0.0980392157)] (
+            interpolation = "constant"
+        )
+        point3f[] points = [(-3.45, 4, 0), (-3.45, 4.03333333, 0), (-3.45, 4.06666667, 0), (-3.45, 4.1, 0), (-3.45, 4, 3.33333333), (-3.45, 4.03333333, 3.33333333), (-3.45, 4.06666667, 3.33333333), (-3.45, 4.1, 3.33333333), (-3.45, 4, 6.66666667), (-3.45, 4.03333333, 6.66666667), (-3.45, 4.06666667, 6.66666667), (-3.45, 4.1, 6.66666667), (-3.45, 4, 10), (-3.45, 4.03333333, 10), (-3.45, 4.06666667, 10), (-3.45, 4.1, 10), (-3.3, 4, 0), (-3.3, 4.03333333, 0), (-3.3, 4.06666667, 0), (-3.3, 4.1, 0), (-3.3, 4, 3.33333333), (-3.3, 4.03333333, 3.33333333), (-3.3, 4.06666667, 3.33333333), (-3.3, 4.1, 3.33333333), (-3.3, 4, 6.66666667), (-3.3, 4.03333333, 6.66666667), (-3.3, 4.06666667, 6.66666667), (-3.3, 4.1, 6.66666667), (-3.3, 4, 10), (-3.3, 4.03333333, 10), (-3.3, 4.06666667, 10), (-3.3, 4.1, 10)]
+        int[] faceVertexCounts = [4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4]
+        int[] faceVertexIndices = [0, 1, 5, 4, 1, 2, 6, 5, 2, 3, 7, 6, 4, 5, 9, 8, 5, 6, 10, 9, 6, 7, 11, 10, 8, 9, 13, 12, 9, 10, 14, 13, 10, 11, 15, 14, 20, 21, 17, 16, 21, 22, 18, 17, 22, 23, 19, 18, 24, 25, 21, 20, 25, 26, 22, 21, 26, 27, 23, 22, 28, 29, 25, 24, 29, 30, 26, 25, 30, 31, 27, 26, 0, 1, 17, 16, 1, 2, 18, 17, 2, 3, 19, 18, 12, 13, 29, 28, 13, 14, 30, 29, 14, 15, 31, 30, 0, 4, 20, 16, 4, 8, 24, 20, 8, 12, 28, 24, 3, 7, 23, 19, 7, 11, 27, 23, 11, 15, 31, 27]
+    }
+
+    def Mesh "expr_0061__109"
+    {
+        custom string desmos:url = ""
+        custom string desmos:hash = ""
+        custom string desmos:exprId = "109"
+        custom int desmos:order = 61
+        custom string desmos:latex = "3.2\\le x\\le3.35\\left\\{4\\le y\\le4.1\\right\\}\\left\\{0\\le z\\le10\\right\\}"
+        custom string desmos:constraints = "3.2\\le x\\le3.35; 4\\le y\\le4.1; 0\\le z\\le10"
+        custom string desmos:kind = "inequality_region"
+        custom string desmos:color = "#fa7e19"
+        custom bool desmos:hidden = false
+        uniform bool doubleSided = true
+        color3f[] primvars:displayColor = [(0.980392157, 0.494117647, 0.0980392157)] (
+            interpolation = "constant"
+        )
+        point3f[] points = [(3.2, 4, 0), (3.2, 4.03333333, 0), (3.2, 4.06666667, 0), (3.2, 4.1, 0), (3.2, 4, 3.33333333), (3.2, 4.03333333, 3.33333333), (3.2, 4.06666667, 3.33333333), (3.2, 4.1, 3.33333333), (3.2, 4, 6.66666667), (3.2, 4.03333333, 6.66666667), (3.2, 4.06666667, 6.66666667), (3.2, 4.1, 6.66666667), (3.2, 4, 10), (3.2, 4.03333333, 10), (3.2, 4.06666667, 10), (3.2, 4.1, 10), (3.35, 4, 0), (3.35, 4.03333333, 0), (3.35, 4.06666667, 0), (3.35, 4.1, 0), (3.35, 4, 3.33333333), (3.35, 4.03333333, 3.33333333), (3.35, 4.06666667, 3.33333333), (3.35, 4.1, 3.33333333), (3.35, 4, 6.66666667), (3.35, 4.03333333, 6.66666667), (3.35, 4.06666667, 6.66666667), (3.35, 4.1, 6.66666667), (3.35, 4, 10), (3.35, 4.03333333, 10), (3.35, 4.06666667, 10), (3.35, 4.1, 10)]
+        int[] faceVertexCounts = [4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4]
+        int[] faceVertexIndices = [0, 1, 5, 4, 1, 2, 6, 5, 2, 3, 7, 6, 4, 5, 9, 8, 5, 6, 10, 9, 6, 7, 11, 10, 8, 9, 13, 12, 9, 10, 14, 13, 10, 11, 15, 14, 20, 21, 17, 16, 21, 22, 18, 17, 22, 23, 19, 18, 24, 25, 21, 20, 25, 26, 22, 21, 26, 27, 23, 22, 28, 29, 25, 24, 29, 30, 26, 25, 30, 31, 27, 26, 0, 1, 17, 16, 1, 2, 18, 17, 2, 3, 19, 18, 12, 13, 29, 28, 13, 14, 30, 29, 14, 15, 31, 30, 0, 4, 20, 16, 4, 8, 24, 20, 8, 12, 28, 24, 3, 7, 23, 19, 7, 11, 27, 23, 11, 15, 31, 27]
+    }
+
+}
