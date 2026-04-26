@@ -1,53 +1,17 @@
 {
   "acceptance_success": false,
-  "classified_expression_count": 60,
+  "classified_expression_count": 65,
   "complete": false,
   "fixture": "[4B] 3D Diagram - S2-09 Group B.json",
   "fixture_path": "fixtures/states/[4B] 3D Diagram - S2-09 Group B.json",
   "graph_hash": null,
   "output": "artifacts/fixture_usdz/[4B] 3D Diagram - S2-09 Group B.usda",
-  "prim_count": 46,
+  "prim_count": 52,
   "renderable_expression_count": 65,
   "resolution": 8,
   "status": "partial",
   "title": "Desmos graph",
   "unsupported": [
-    {
-      "expr_id": "200",
-      "kind": "classification",
-      "latex": "x^{2\\ }+y^{2\\ }=\\left(13.1-z\\right)^{2\\ }\\left\\{11<z<13\\right\\}",
-      "reason": "not a supported renderable geometry form"
-    },
-    {
-      "expr_id": "231",
-      "kind": "classification",
-      "latex": "(x-6)^{2}+(y-6)^{2}=0.5+0.1*\\sin(2z)\\left\\{0<z<10\\right\\}",
-      "reason": "not a supported renderable geometry form"
-    },
-    {
-      "expr_id": "232",
-      "kind": "classification",
-      "latex": "(x--6)^{2}+(y-6)^{2}=0.5+0.1*\\sin(2z)\\left\\{0<z<10\\right\\}",
-      "reason": "not a supported renderable geometry form"
-    },
-    {
-      "expr_id": "233",
-      "kind": "classification",
-      "latex": "(x-6)^{2}+(y--6)^{2}=0.5+0.1*\\sin(2z)\\left\\{0<z<10\\right\\}",
-      "reason": "not a supported renderable geometry form"
-    },
-    {
-      "expr_id": "234",
-      "kind": "classification",
-      "latex": "(x--6)^{2}+(y--6)^{2}=0.5+0.1*\\sin(2z)\\left\\{0<z<10\\right\\}",
-      "reason": "not a supported renderable geometry form"
-    },
-    {
-      "expr_id": "44",
-      "kind": "inequality_region",
-      "latex": "x^{2}+y^{2}<(3\\cos(0.4(z-9)))^{2}\\left\\{1<z<11\\right\\}",
-      "reason": "Inequality region for 44 did not resolve to sampled cells"
-    },
     {
       "expr_id": "47",
       "kind": "inequality_region",
@@ -127,7 +91,7 @@
       "reason": "Inequality region for 153 did not resolve to sampled cells"
     }
   ],
-  "unsupported_count": 19,
+  "unsupported_count": 13,
   "usda_exists": true,
   "usdz_exists": true,
   "usdz_output": "artifacts/fixture_usdz/[4B] 3D Diagram - S2-09 Group B.usdz",
@@ -159,21 +123,31 @@
     {
       "constraint_violation_count": 0,
       "errors": [],
-      "expr_id": "46",
-      "face_count": 2040,
+      "expr_id": "44",
+      "face_count": 544,
       "kind": "inequality_region",
       "max_residual": null,
-      "point_count": 2720,
+      "point_count": 514,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "46",
+      "face_count": 544,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 514,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "56",
-      "face_count": 1152,
+      "face_count": 544,
       "kind": "inequality_region",
       "max_residual": null,
-      "point_count": 1536,
+      "point_count": 514,
       "valid": true
     },
     {
@@ -299,6 +273,16 @@
     {
       "constraint_violation_count": 0,
       "errors": [],
+      "expr_id": "200",
+      "face_count": 480,
+      "kind": "implicit_surface",
+      "max_residual": null,
+      "point_count": 512,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
       "expr_id": "211",
       "face_count": 0,
       "kind": "implicit_surface",
@@ -344,6 +328,46 @@
       "kind": "implicit_surface",
       "max_residual": null,
       "point_count": 0,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "231",
+      "face_count": 480,
+      "kind": "implicit_surface",
+      "max_residual": null,
+      "point_count": 512,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "232",
+      "face_count": 480,
+      "kind": "implicit_surface",
+      "max_residual": null,
+      "point_count": 512,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "233",
+      "face_count": 480,
+      "kind": "implicit_surface",
+      "max_residual": null,
+      "point_count": 512,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "234",
+      "face_count": 480,
+      "kind": "implicit_surface",
+      "max_residual": null,
+      "point_count": 512,
       "valid": true
     },
     {

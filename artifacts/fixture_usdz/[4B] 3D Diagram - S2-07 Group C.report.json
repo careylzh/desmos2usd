@@ -1,6 +1,6 @@
 {
   "acceptance_success": false,
-  "classified_expression_count": 23,
+  "classified_expression_count": 24,
   "complete": false,
   "fixture": "[4B] 3D Diagram - S2-07 Group C.json",
   "fixture_path": "fixtures/states/[4B] 3D Diagram - S2-07 Group C.json",
@@ -26,9 +26,9 @@
     },
     {
       "expr_id": "121",
-      "kind": "classification",
+      "kind": "implicit_surface",
       "latex": "\\frac{x^{2}}{13^{2}}+\\frac{y^{2}}{4.82}+\\frac{z^{2}}{46.8^{2}}=1.\\left\\{29\\le z\\right\\}",
-      "reason": "not a supported renderable geometry form"
+      "reason": "implicit surface requires a supported bounded three-axis form"
     }
   ],
   "unsupported_count": 3,

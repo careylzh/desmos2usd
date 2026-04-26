@@ -1,107 +1,17 @@
 {
   "acceptance_success": false,
-  "classified_expression_count": 196,
+  "classified_expression_count": 211,
   "complete": false,
   "fixture": "[4B] 3D Diagram - S2-06 Group B.json",
   "fixture_path": "fixtures/states/[4B] 3D Diagram - S2-06 Group B.json",
   "graph_hash": null,
   "output": "artifacts/fixture_usdz/[4B] 3D Diagram - S2-06 Group B.usda",
-  "prim_count": 192,
+  "prim_count": 196,
   "renderable_expression_count": 223,
   "resolution": 8,
   "status": "partial",
   "title": "Desmos graph",
   "unsupported": [
-    {
-      "expr_id": "244",
-      "kind": "classification",
-      "latex": "\\left(x\\ -15.5\\right)^{2}\\ +\\ \\left(y\\ \\ -\\ 8\\ \\right)^{2}+\\ \\left(z\\ -18\\right)^{2}\\ =\\ 15\\left\\{z>15.25\\right\\}",
-      "reason": "not a supported renderable geometry form"
-    },
-    {
-      "expr_id": "248",
-      "kind": "classification",
-      "latex": "\\left(x\\ -15.5\\right)^{2}\\ +\\ \\left(y\\ \\ -\\ 8\\ \\right)^{2}+\\ \\left(z\\ -20\\right)^{2}\\ =\\ 7\\left\\{z>15.25\\right\\}",
-      "reason": "not a supported renderable geometry form"
-    },
-    {
-      "expr_id": "249",
-      "kind": "classification",
-      "latex": "\\left(x\\ -15.5\\right)^{2}\\ +\\ \\left(y\\ \\ -\\ 8\\ \\right)^{2}+\\ \\left(z\\ -21.75\\right)^{2}\\ =\\ 2\\left\\{z>15.25\\right\\}",
-      "reason": "not a supported renderable geometry form"
-    },
-    {
-      "expr_id": "227",
-      "kind": "classification",
-      "latex": "\\left(x\\ -15.5\\right)^{2}\\ +\\ \\left(y\\ \\ +\\ 8\\ \\right)^{2}+\\ \\left(z\\ -18\\right)^{2}\\ =\\ 15\\left\\{z>15.25\\right\\}",
-      "reason": "not a supported renderable geometry form"
-    },
-    {
-      "expr_id": "231",
-      "kind": "classification",
-      "latex": "\\left(x\\ -15.5\\right)^{2}\\ +\\ \\left(y\\ \\ +\\ 8\\ \\right)^{2}+\\ \\left(z\\ -20\\right)^{2}\\ =\\ 7\\left\\{z>15.25\\right\\}",
-      "reason": "not a supported renderable geometry form"
-    },
-    {
-      "expr_id": "232",
-      "kind": "classification",
-      "latex": "\\left(x\\ -15.5\\right)^{2}\\ +\\ \\left(y\\ \\ +\\ 8\\ \\right)^{2}+\\ \\left(z\\ -21.75\\right)^{2}\\ =\\ 2\\left\\{z>15.25\\right\\}",
-      "reason": "not a supported renderable geometry form"
-    },
-    {
-      "expr_id": "193",
-      "kind": "classification",
-      "latex": "\\left(x\\ -0.5\\right)^{2}\\ +\\ \\left(y\\ \\ +\\ 8\\ \\right)^{2}+\\ \\left(z\\ -18\\right)^{2}\\ =\\ 15\\left\\{z>15.25\\right\\}",
-      "reason": "not a supported renderable geometry form"
-    },
-    {
-      "expr_id": "197",
-      "kind": "classification",
-      "latex": "\\left(x\\ -0.5\\right)^{2}\\ +\\ \\left(y\\ \\ +\\ 8\\ \\right)^{2}+\\ \\left(z\\ -20\\right)^{2}\\ =\\ 7\\left\\{z>15.25\\right\\}",
-      "reason": "not a supported renderable geometry form"
-    },
-    {
-      "expr_id": "198",
-      "kind": "classification",
-      "latex": "\\left(x\\ -0.5\\right)^{2}\\ +\\ \\left(y\\ \\ +\\ 8\\ \\right)^{2}+\\ \\left(z\\ -21.75\\right)^{2}\\ =\\ 2\\left\\{z>15.25\\right\\}",
-      "reason": "not a supported renderable geometry form"
-    },
-    {
-      "expr_id": "176",
-      "kind": "classification",
-      "latex": "\\left(x\\ -0.5\\right)^{2}\\ +\\ \\left(y\\ \\ -\\ 8\\ \\right)^{2}+\\ \\left(z\\ -18\\right)^{2}\\ =\\ 15\\left\\{z>15.25\\right\\}",
-      "reason": "not a supported renderable geometry form"
-    },
-    {
-      "expr_id": "179",
-      "kind": "classification",
-      "latex": "\\left(x\\ -0.5\\right)^{2}\\ +\\ \\left(y\\ \\ -\\ 8\\ \\right)^{2}+\\ \\left(z\\ -20\\right)^{2}\\ =\\ 7\\left\\{z>15.25\\right\\}",
-      "reason": "not a supported renderable geometry form"
-    },
-    {
-      "expr_id": "181",
-      "kind": "classification",
-      "latex": "\\left(x\\ -0.5\\right)^{2}\\ +\\ \\left(y\\ \\ -\\ 8\\ \\right)^{2}+\\ \\left(z\\ -21.75\\right)^{2}\\ =\\ 2\\left\\{z>15.25\\right\\}",
-      "reason": "not a supported renderable geometry form"
-    },
-    {
-      "expr_id": "153",
-      "kind": "classification",
-      "latex": "\\left(x\\ -8\\right)^{2}\\ +\\ \\left(y\\ \\ -\\ 0\\ \\right)^{2}+\\ \\left(z\\ -20\\right)^{2}\\ =\\ 42.5\\left\\{z>15.25\\right\\}",
-      "reason": "not a supported renderable geometry form"
-    },
-    {
-      "expr_id": "161",
-      "kind": "classification",
-      "latex": "\\left(x\\ -8\\right)^{2}\\ +\\ \\left(y\\ \\ -\\ 0\\ \\right)^{2}+\\ \\left(z\\ -23\\right)^{2}\\ =\\ 22.5\\left\\{z>25.25\\right\\}",
-      "reason": "not a supported renderable geometry form"
-    },
-    {
-      "expr_id": "162",
-      "kind": "classification",
-      "latex": "\\left(x\\ -8\\right)^{2}\\ +\\ \\left(y\\ \\ -\\ 0\\ \\right)^{2}+\\ \\left(z\\ -26.5\\right)^{2}\\ =\\ 4\\left\\{z>25.25\\right\\}",
-      "reason": "not a supported renderable geometry form"
-    },
     {
       "expr_id": "87",
       "kind": "classification",
@@ -175,31 +85,97 @@
       "reason": "Could not parse '7{0' as '7*(0': '(' was never closed (<unknown>, line 1)"
     },
     {
-      "expr_id": "325",
-      "kind": "inequality_region",
-      "latex": "\\frac{\\left(x\\ -21\\right)^{2}}{1^{2}}\\ +\\ \\frac{\\left(y\\ +\\ 20.7\\right)\\ ^{2\\ }}{1\\ ^{2}}<0.1\\left\\{26.25<z<28.5\\right\\}",
-      "reason": "Inequality region for 325 did not resolve to sampled cells"
+      "expr_id": "244",
+      "kind": "implicit_surface",
+      "latex": "\\left(x\\ -15.5\\right)^{2}\\ +\\ \\left(y\\ \\ -\\ 8\\ \\right)^{2}+\\ \\left(z\\ -18\\right)^{2}\\ =\\ 15\\left\\{z>15.25\\right\\}",
+      "reason": "implicit surface requires a supported bounded three-axis form"
     },
     {
-      "expr_id": "298",
-      "kind": "inequality_region",
-      "latex": "\\frac{\\left(x\\ -21\\right)^{2}}{1^{2}}\\ +\\ \\frac{\\left(y\\ -\\ 20.7\\right)\\ ^{2\\ }}{1\\ ^{2}}<0.1\\left\\{26.25<z<28.5\\right\\}",
-      "reason": "Inequality region for 298 did not resolve to sampled cells"
+      "expr_id": "248",
+      "kind": "implicit_surface",
+      "latex": "\\left(x\\ -15.5\\right)^{2}\\ +\\ \\left(y\\ \\ -\\ 8\\ \\right)^{2}+\\ \\left(z\\ -20\\right)^{2}\\ =\\ 7\\left\\{z>15.25\\right\\}",
+      "reason": "implicit surface requires a supported bounded three-axis form"
     },
     {
-      "expr_id": "251",
-      "kind": "inequality_region",
-      "latex": "\\frac{\\left(x-15.5\\right)^{2}}{1^{2}}\\ +\\ \\frac{\\left(y\\ -\\ 8\\right)\\ ^{2\\ }}{1\\ ^{2}}<0.1\\left\\{20.75<z<25\\right\\}",
-      "reason": "Inequality region for 251 did not resolve to sampled cells"
+      "expr_id": "249",
+      "kind": "implicit_surface",
+      "latex": "\\left(x\\ -15.5\\right)^{2}\\ +\\ \\left(y\\ \\ -\\ 8\\ \\right)^{2}+\\ \\left(z\\ -21.75\\right)^{2}\\ =\\ 2\\left\\{z>15.25\\right\\}",
+      "reason": "implicit surface requires a supported bounded three-axis form"
     },
     {
-      "expr_id": "234",
-      "kind": "inequality_region",
-      "latex": "\\frac{\\left(x-15.5\\right)^{2}}{1^{2}}\\ +\\ \\frac{\\left(y\\ +\\ 8\\right)\\ ^{2\\ }}{1\\ ^{2}}<0.1\\left\\{20.75<z<25\\right\\}",
-      "reason": "Inequality region for 234 did not resolve to sampled cells"
+      "expr_id": "227",
+      "kind": "implicit_surface",
+      "latex": "\\left(x\\ -15.5\\right)^{2}\\ +\\ \\left(y\\ \\ +\\ 8\\ \\right)^{2}+\\ \\left(z\\ -18\\right)^{2}\\ =\\ 15\\left\\{z>15.25\\right\\}",
+      "reason": "implicit surface requires a supported bounded three-axis form"
+    },
+    {
+      "expr_id": "231",
+      "kind": "implicit_surface",
+      "latex": "\\left(x\\ -15.5\\right)^{2}\\ +\\ \\left(y\\ \\ +\\ 8\\ \\right)^{2}+\\ \\left(z\\ -20\\right)^{2}\\ =\\ 7\\left\\{z>15.25\\right\\}",
+      "reason": "implicit surface requires a supported bounded three-axis form"
+    },
+    {
+      "expr_id": "232",
+      "kind": "implicit_surface",
+      "latex": "\\left(x\\ -15.5\\right)^{2}\\ +\\ \\left(y\\ \\ +\\ 8\\ \\right)^{2}+\\ \\left(z\\ -21.75\\right)^{2}\\ =\\ 2\\left\\{z>15.25\\right\\}",
+      "reason": "implicit surface requires a supported bounded three-axis form"
+    },
+    {
+      "expr_id": "193",
+      "kind": "implicit_surface",
+      "latex": "\\left(x\\ -0.5\\right)^{2}\\ +\\ \\left(y\\ \\ +\\ 8\\ \\right)^{2}+\\ \\left(z\\ -18\\right)^{2}\\ =\\ 15\\left\\{z>15.25\\right\\}",
+      "reason": "implicit surface requires a supported bounded three-axis form"
+    },
+    {
+      "expr_id": "197",
+      "kind": "implicit_surface",
+      "latex": "\\left(x\\ -0.5\\right)^{2}\\ +\\ \\left(y\\ \\ +\\ 8\\ \\right)^{2}+\\ \\left(z\\ -20\\right)^{2}\\ =\\ 7\\left\\{z>15.25\\right\\}",
+      "reason": "implicit surface requires a supported bounded three-axis form"
+    },
+    {
+      "expr_id": "198",
+      "kind": "implicit_surface",
+      "latex": "\\left(x\\ -0.5\\right)^{2}\\ +\\ \\left(y\\ \\ +\\ 8\\ \\right)^{2}+\\ \\left(z\\ -21.75\\right)^{2}\\ =\\ 2\\left\\{z>15.25\\right\\}",
+      "reason": "implicit surface requires a supported bounded three-axis form"
+    },
+    {
+      "expr_id": "176",
+      "kind": "implicit_surface",
+      "latex": "\\left(x\\ -0.5\\right)^{2}\\ +\\ \\left(y\\ \\ -\\ 8\\ \\right)^{2}+\\ \\left(z\\ -18\\right)^{2}\\ =\\ 15\\left\\{z>15.25\\right\\}",
+      "reason": "implicit surface requires a supported bounded three-axis form"
+    },
+    {
+      "expr_id": "179",
+      "kind": "implicit_surface",
+      "latex": "\\left(x\\ -0.5\\right)^{2}\\ +\\ \\left(y\\ \\ -\\ 8\\ \\right)^{2}+\\ \\left(z\\ -20\\right)^{2}\\ =\\ 7\\left\\{z>15.25\\right\\}",
+      "reason": "implicit surface requires a supported bounded three-axis form"
+    },
+    {
+      "expr_id": "181",
+      "kind": "implicit_surface",
+      "latex": "\\left(x\\ -0.5\\right)^{2}\\ +\\ \\left(y\\ \\ -\\ 8\\ \\right)^{2}+\\ \\left(z\\ -21.75\\right)^{2}\\ =\\ 2\\left\\{z>15.25\\right\\}",
+      "reason": "implicit surface requires a supported bounded three-axis form"
+    },
+    {
+      "expr_id": "153",
+      "kind": "implicit_surface",
+      "latex": "\\left(x\\ -8\\right)^{2}\\ +\\ \\left(y\\ \\ -\\ 0\\ \\right)^{2}+\\ \\left(z\\ -20\\right)^{2}\\ =\\ 42.5\\left\\{z>15.25\\right\\}",
+      "reason": "implicit surface requires a supported bounded three-axis form"
+    },
+    {
+      "expr_id": "161",
+      "kind": "implicit_surface",
+      "latex": "\\left(x\\ -8\\right)^{2}\\ +\\ \\left(y\\ \\ -\\ 0\\ \\right)^{2}+\\ \\left(z\\ -23\\right)^{2}\\ =\\ 22.5\\left\\{z>25.25\\right\\}",
+      "reason": "implicit surface requires a supported bounded three-axis form"
+    },
+    {
+      "expr_id": "162",
+      "kind": "implicit_surface",
+      "latex": "\\left(x\\ -8\\right)^{2}\\ +\\ \\left(y\\ \\ -\\ 0\\ \\right)^{2}+\\ \\left(z\\ -26.5\\right)^{2}\\ =\\ 4\\left\\{z>25.25\\right\\}",
+      "reason": "implicit surface requires a supported bounded three-axis form"
     }
   ],
-  "unsupported_count": 31,
+  "unsupported_count": 27,
   "usda_exists": true,
   "usdz_exists": true,
   "usdz_output": "artifacts/fixture_usdz/[4B] 3D Diagram - S2-06 Group B.usdz",
@@ -292,400 +268,430 @@
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "315",
-      "face_count": 1620,
+      "face_count": 544,
       "kind": "inequality_region",
       "max_residual": null,
-      "point_count": 2160,
+      "point_count": 514,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "316",
-      "face_count": 1620,
+      "face_count": 544,
       "kind": "inequality_region",
       "max_residual": null,
-      "point_count": 2160,
+      "point_count": 514,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "317",
-      "face_count": 1782,
+      "face_count": 544,
       "kind": "inequality_region",
       "max_residual": null,
-      "point_count": 2376,
+      "point_count": 514,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "318",
-      "face_count": 1782,
+      "face_count": 544,
       "kind": "inequality_region",
       "max_residual": null,
-      "point_count": 2376,
+      "point_count": 514,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "319",
-      "face_count": 1920,
+      "face_count": 544,
       "kind": "inequality_region",
       "max_residual": null,
-      "point_count": 2560,
+      "point_count": 514,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "320",
-      "face_count": 1554,
+      "face_count": 544,
       "kind": "inequality_region",
       "max_residual": null,
-      "point_count": 2072,
+      "point_count": 514,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "321",
-      "face_count": 1554,
+      "face_count": 544,
       "kind": "inequality_region",
       "max_residual": null,
-      "point_count": 2072,
+      "point_count": 514,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "324",
-      "face_count": 1584,
+      "face_count": 544,
       "kind": "inequality_region",
       "max_residual": null,
-      "point_count": 2112,
+      "point_count": 514,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "325",
+      "face_count": 544,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 514,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "287",
-      "face_count": 1620,
+      "face_count": 544,
       "kind": "inequality_region",
       "max_residual": null,
-      "point_count": 2160,
+      "point_count": 514,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "288",
-      "face_count": 1620,
+      "face_count": 544,
       "kind": "inequality_region",
       "max_residual": null,
-      "point_count": 2160,
+      "point_count": 514,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "290",
-      "face_count": 1782,
+      "face_count": 544,
       "kind": "inequality_region",
       "max_residual": null,
-      "point_count": 2376,
+      "point_count": 514,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "291",
-      "face_count": 1782,
+      "face_count": 544,
       "kind": "inequality_region",
       "max_residual": null,
-      "point_count": 2376,
+      "point_count": 514,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "292",
-      "face_count": 1920,
+      "face_count": 544,
       "kind": "inequality_region",
       "max_residual": null,
-      "point_count": 2560,
+      "point_count": 514,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "293",
-      "face_count": 1554,
+      "face_count": 544,
       "kind": "inequality_region",
       "max_residual": null,
-      "point_count": 2072,
+      "point_count": 514,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "294",
-      "face_count": 1554,
+      "face_count": 544,
       "kind": "inequality_region",
       "max_residual": null,
-      "point_count": 2072,
+      "point_count": 514,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "297",
-      "face_count": 1584,
+      "face_count": 544,
       "kind": "inequality_region",
       "max_residual": null,
-      "point_count": 2112,
+      "point_count": 514,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "298",
+      "face_count": 544,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 514,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "256",
-      "face_count": 1992,
+      "face_count": 544,
       "kind": "inequality_region",
       "max_residual": null,
-      "point_count": 2656,
+      "point_count": 514,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "270",
-      "face_count": 1992,
+      "face_count": 544,
       "kind": "inequality_region",
       "max_residual": null,
-      "point_count": 2656,
+      "point_count": 514,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "257",
-      "face_count": 1830,
+      "face_count": 544,
       "kind": "inequality_region",
       "max_residual": null,
-      "point_count": 2440,
+      "point_count": 514,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "269",
-      "face_count": 1830,
+      "face_count": 544,
       "kind": "inequality_region",
       "max_residual": null,
-      "point_count": 2440,
+      "point_count": 514,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "258",
-      "face_count": 1632,
+      "face_count": 544,
       "kind": "inequality_region",
       "max_residual": null,
-      "point_count": 2176,
+      "point_count": 514,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "259",
-      "face_count": 1584,
+      "face_count": 544,
       "kind": "inequality_region",
       "max_residual": null,
-      "point_count": 2112,
+      "point_count": 514,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "262",
-      "face_count": 1584,
+      "face_count": 544,
       "kind": "inequality_region",
       "max_residual": null,
-      "point_count": 2112,
+      "point_count": 514,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "265",
-      "face_count": 1632,
+      "face_count": 544,
       "kind": "inequality_region",
       "max_residual": null,
-      "point_count": 2176,
+      "point_count": 514,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "266",
-      "face_count": 354,
+      "face_count": 544,
       "kind": "inequality_region",
       "max_residual": null,
-      "point_count": 472,
+      "point_count": 514,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "273",
-      "face_count": 1992,
+      "face_count": 544,
       "kind": "inequality_region",
       "max_residual": null,
-      "point_count": 2656,
+      "point_count": 514,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "275",
-      "face_count": 1992,
+      "face_count": 544,
       "kind": "inequality_region",
       "max_residual": null,
-      "point_count": 2656,
+      "point_count": 514,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "276",
-      "face_count": 1830,
+      "face_count": 544,
       "kind": "inequality_region",
       "max_residual": null,
-      "point_count": 2440,
+      "point_count": 514,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "277",
-      "face_count": 1830,
+      "face_count": 544,
       "kind": "inequality_region",
       "max_residual": null,
-      "point_count": 2440,
+      "point_count": 514,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "278",
-      "face_count": 1632,
+      "face_count": 544,
       "kind": "inequality_region",
       "max_residual": null,
-      "point_count": 2176,
+      "point_count": 514,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "279",
-      "face_count": 1584,
+      "face_count": 544,
       "kind": "inequality_region",
       "max_residual": null,
-      "point_count": 2112,
+      "point_count": 514,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "280",
-      "face_count": 1584,
+      "face_count": 544,
       "kind": "inequality_region",
       "max_residual": null,
-      "point_count": 2112,
+      "point_count": 514,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "283",
-      "face_count": 1632,
+      "face_count": 544,
       "kind": "inequality_region",
       "max_residual": null,
-      "point_count": 2176,
+      "point_count": 514,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "284",
-      "face_count": 354,
+      "face_count": 544,
       "kind": "inequality_region",
       "max_residual": null,
-      "point_count": 472,
+      "point_count": 514,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "241",
-      "face_count": 2106,
+      "face_count": 544,
       "kind": "inequality_region",
       "max_residual": null,
-      "point_count": 2808,
+      "point_count": 514,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "242",
-      "face_count": 1962,
+      "face_count": 544,
       "kind": "inequality_region",
       "max_residual": null,
-      "point_count": 2616,
+      "point_count": 514,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "245",
-      "face_count": 2106,
+      "face_count": 544,
       "kind": "inequality_region",
       "max_residual": null,
-      "point_count": 2808,
+      "point_count": 514,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "246",
-      "face_count": 2004,
+      "face_count": 544,
       "kind": "inequality_region",
       "max_residual": null,
-      "point_count": 2672,
+      "point_count": 514,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "247",
-      "face_count": 1860,
+      "face_count": 544,
       "kind": "inequality_region",
       "max_residual": null,
-      "point_count": 2480,
+      "point_count": 514,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "250",
-      "face_count": 2082,
+      "face_count": 544,
       "kind": "inequality_region",
       "max_residual": null,
-      "point_count": 2776,
+      "point_count": 514,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "251",
+      "face_count": 544,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 514,
       "valid": true
     },
     {
@@ -712,60 +718,70 @@
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "225",
-      "face_count": 2106,
+      "face_count": 544,
       "kind": "inequality_region",
       "max_residual": null,
-      "point_count": 2808,
+      "point_count": 514,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "226",
-      "face_count": 1962,
+      "face_count": 544,
       "kind": "inequality_region",
       "max_residual": null,
-      "point_count": 2616,
+      "point_count": 514,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "228",
-      "face_count": 2106,
+      "face_count": 544,
       "kind": "inequality_region",
       "max_residual": null,
-      "point_count": 2808,
+      "point_count": 514,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "229",
-      "face_count": 2004,
+      "face_count": 544,
       "kind": "inequality_region",
       "max_residual": null,
-      "point_count": 2672,
+      "point_count": 514,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "230",
-      "face_count": 1860,
+      "face_count": 544,
       "kind": "inequality_region",
       "max_residual": null,
-      "point_count": 2480,
+      "point_count": 514,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "233",
-      "face_count": 2082,
+      "face_count": 544,
       "kind": "inequality_region",
       "max_residual": null,
-      "point_count": 2776,
+      "point_count": 514,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "234",
+      "face_count": 544,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 514,
       "valid": true
     },
     {
@@ -792,70 +808,70 @@
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "191",
-      "face_count": 2094,
+      "face_count": 544,
       "kind": "inequality_region",
       "max_residual": null,
-      "point_count": 2792,
+      "point_count": 514,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "192",
-      "face_count": 2100,
+      "face_count": 544,
       "kind": "inequality_region",
       "max_residual": null,
-      "point_count": 2800,
+      "point_count": 514,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "194",
-      "face_count": 2094,
+      "face_count": 544,
       "kind": "inequality_region",
       "max_residual": null,
-      "point_count": 2792,
+      "point_count": 514,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "195",
-      "face_count": 2016,
+      "face_count": 544,
       "kind": "inequality_region",
       "max_residual": null,
-      "point_count": 2688,
+      "point_count": 514,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "196",
-      "face_count": 2166,
+      "face_count": 544,
       "kind": "inequality_region",
       "max_residual": null,
-      "point_count": 2888,
+      "point_count": 514,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "199",
-      "face_count": 1932,
+      "face_count": 544,
       "kind": "inequality_region",
       "max_residual": null,
-      "point_count": 2576,
+      "point_count": 514,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "200",
-      "face_count": 1188,
+      "face_count": 544,
       "kind": "inequality_region",
       "max_residual": null,
-      "point_count": 1584,
+      "point_count": 514,
       "valid": true
     },
     {
@@ -882,70 +898,70 @@
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "174",
-      "face_count": 2094,
+      "face_count": 544,
       "kind": "inequality_region",
       "max_residual": null,
-      "point_count": 2792,
+      "point_count": 514,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "175",
-      "face_count": 2100,
+      "face_count": 544,
       "kind": "inequality_region",
       "max_residual": null,
-      "point_count": 2800,
+      "point_count": 514,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "177",
-      "face_count": 2094,
+      "face_count": 544,
       "kind": "inequality_region",
       "max_residual": null,
-      "point_count": 2792,
+      "point_count": 514,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "178",
-      "face_count": 2016,
+      "face_count": 544,
       "kind": "inequality_region",
       "max_residual": null,
-      "point_count": 2688,
+      "point_count": 514,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "180",
-      "face_count": 2166,
+      "face_count": 544,
       "kind": "inequality_region",
       "max_residual": null,
-      "point_count": 2888,
+      "point_count": 514,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "182",
-      "face_count": 1932,
+      "face_count": 544,
       "kind": "inequality_region",
       "max_residual": null,
-      "point_count": 2576,
+      "point_count": 514,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "183",
-      "face_count": 1188,
+      "face_count": 544,
       "kind": "inequality_region",
       "max_residual": null,
-      "point_count": 1584,
+      "point_count": 514,
       "valid": true
     },
     {
@@ -972,110 +988,110 @@
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "154",
-      "face_count": 1932,
+      "face_count": 544,
       "kind": "inequality_region",
       "max_residual": null,
-      "point_count": 2576,
+      "point_count": 514,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "157",
-      "face_count": 2076,
+      "face_count": 544,
       "kind": "inequality_region",
       "max_residual": null,
-      "point_count": 2768,
+      "point_count": 514,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "155",
-      "face_count": 1944,
+      "face_count": 544,
       "kind": "inequality_region",
       "max_residual": null,
-      "point_count": 2592,
+      "point_count": 514,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "156",
-      "face_count": 1932,
+      "face_count": 544,
       "kind": "inequality_region",
       "max_residual": null,
-      "point_count": 2576,
+      "point_count": 514,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "158",
-      "face_count": 2076,
+      "face_count": 544,
       "kind": "inequality_region",
       "max_residual": null,
-      "point_count": 2768,
+      "point_count": 514,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "163",
-      "face_count": 1188,
+      "face_count": 544,
       "kind": "inequality_region",
       "max_residual": null,
-      "point_count": 1584,
+      "point_count": 514,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "167",
-      "face_count": 852,
+      "face_count": 544,
       "kind": "inequality_region",
       "max_residual": null,
-      "point_count": 1136,
+      "point_count": 514,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "164",
-      "face_count": 1836,
+      "face_count": 544,
       "kind": "inequality_region",
       "max_residual": null,
-      "point_count": 2448,
+      "point_count": 514,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "165",
-      "face_count": 2244,
+      "face_count": 544,
       "kind": "inequality_region",
       "max_residual": null,
-      "point_count": 2992,
+      "point_count": 514,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "166",
-      "face_count": 2052,
+      "face_count": 544,
       "kind": "inequality_region",
       "max_residual": null,
-      "point_count": 2736,
+      "point_count": 514,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "168",
-      "face_count": 2040,
+      "face_count": 544,
       "kind": "inequality_region",
       "max_residual": null,
-      "point_count": 2720,
+      "point_count": 514,
       "valid": true
     },
     {

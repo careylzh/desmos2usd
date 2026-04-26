@@ -1,6 +1,6 @@
 {
   "acceptance_success": false,
-  "classified_expression_count": 52,
+  "classified_expression_count": 56,
   "complete": false,
   "fixture": "[4B] 3D Diagram - S2-04 Group G.json",
   "fixture_path": "fixtures/states/[4B] 3D Diagram - S2-04 Group G.json",
@@ -29,24 +29,6 @@
       "kind": "definition",
       "latex": "c_{3}=\\operatorname{okhsv}(72,0.243,0.99)",
       "reason": "Failed to parse definition: Unsupported expression node Tuple"
-    },
-    {
-      "expr_id": "25",
-      "kind": "classification",
-      "latex": "\\frac{x}{\\infty}=z-90\\left\\{60>y>-60\\right\\}\\left\\{30>x>-30\\right\\}",
-      "reason": "not a supported renderable geometry form"
-    },
-    {
-      "expr_id": "26",
-      "kind": "classification",
-      "latex": "\\frac{x}{\\infty}=z-90\\left\\{60>x>-60\\right\\}\\left\\{30>y>-30\\right\\}",
-      "reason": "not a supported renderable geometry form"
-    },
-    {
-      "expr_id": "49",
-      "kind": "classification",
-      "latex": "\\frac{x}{\\infty}=z-1\\left\\{30>y>-30\\right\\}\\left\\{120<x<370\\right\\}",
-      "reason": "not a supported renderable geometry form"
     },
     {
       "expr_id": "53",
@@ -100,12 +82,6 @@
       "expr_id": "79",
       "kind": "classification",
       "latex": "\\operatorname{sphere}\\left(\\left(s,-d,p\\right),o\\right)",
-      "reason": "not a supported renderable geometry form"
-    },
-    {
-      "expr_id": "93",
-      "kind": "classification",
-      "latex": "\\frac{x}{\\infty}=z-90\\left\\{60>x>-60\\right\\}\\left\\{30>y>-30\\right\\}",
       "reason": "not a supported renderable geometry form"
     },
     {
@@ -179,6 +155,30 @@
       "kind": "classification",
       "latex": "\\operatorname{sphere}\\left(\\left(-37,-37,99\\right),13.1\\right)",
       "reason": "not a supported renderable geometry form"
+    },
+    {
+      "expr_id": "25",
+      "kind": "implicit_surface",
+      "latex": "\\frac{x}{\\infty}=z-90\\left\\{60>y>-60\\right\\}\\left\\{30>x>-30\\right\\}",
+      "reason": "implicit surface requires a supported bounded three-axis form"
+    },
+    {
+      "expr_id": "26",
+      "kind": "implicit_surface",
+      "latex": "\\frac{x}{\\infty}=z-90\\left\\{60>x>-60\\right\\}\\left\\{30>y>-30\\right\\}",
+      "reason": "implicit surface requires a supported bounded three-axis form"
+    },
+    {
+      "expr_id": "49",
+      "kind": "implicit_surface",
+      "latex": "\\frac{x}{\\infty}=z-1\\left\\{30>y>-30\\right\\}\\left\\{120<x<370\\right\\}",
+      "reason": "implicit surface requires a supported bounded three-axis form"
+    },
+    {
+      "expr_id": "93",
+      "kind": "implicit_surface",
+      "latex": "\\frac{x}{\\infty}=z-90\\left\\{60>x>-60\\right\\}\\left\\{30>y>-30\\right\\}",
+      "reason": "implicit surface requires a supported bounded three-axis form"
     },
     {
       "expr_id": "110",

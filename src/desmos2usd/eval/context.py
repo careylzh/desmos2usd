@@ -13,6 +13,7 @@ class FunctionDef:
 
 @dataclass
 class EvalContext:
+    degree_mode: bool = False
     scalars: dict[str, float] = field(default_factory=dict)
     lists: dict[str, tuple[float, ...]] = field(default_factory=dict)
     vectors: dict[str, tuple[float, float, float]] = field(default_factory=dict)

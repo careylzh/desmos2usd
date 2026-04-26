@@ -58,7 +58,7 @@ class ClassificationResult:
 
 
 def classify_graph(graph: GraphIR) -> ClassificationResult:
-    context = EvalContext()
+    context = EvalContext(degree_mode=bool(graph.source.view_metadata.get("degree_mode")))
     classified: list[ClassifiedExpression] = []
     definitions: list[ExpressionIR] = []
     definition_ids: set[str] = set()
@@ -222,7 +222,7 @@ def classify_expression(expr: ExpressionIR, context: EvalContext) -> ClassifiedE
             )
         residual = LatexExpression.parse(f"({lhs})-({rhs})")
         residual_axes = residual.identifiers & {"x", "y", "z"}
-        if len(residual_axes) == 2:
+        if 2 <= len(residual_axes) <= 3:
             return ClassifiedExpression(
                 ir=expr,
                 kind="implicit_surface",

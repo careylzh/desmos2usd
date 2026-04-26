@@ -6,7 +6,7 @@
   "fixture_path": "fixtures/states/[4B] 3D Diagram - S2-10 Group G.json",
   "graph_hash": null,
   "output": "artifacts/fixture_usdz/[4B] 3D Diagram - S2-10 Group G.usda",
-  "prim_count": 41,
+  "prim_count": 45,
   "renderable_expression_count": 51,
   "resolution": 8,
   "status": "partial",
@@ -47,33 +47,9 @@
       "kind": "explicit_surface",
       "latex": "z=T\\left(x,y\\right)+80\\left\\{0\\le T\\left(x,y\\right)\\le13\\right\\}\\left\\{-13\\le x\\le13\\right\\}\\left\\{-13\\le y\\le13\\right\\}",
       "reason": "Could not evaluate 'T(x,y)+80' with variables {'x': -13.0, 'y': -13.0}: name 'T' is not defined"
-    },
-    {
-      "expr_id": "54",
-      "kind": "inequality_region",
-      "latex": "\\left(z-77\\right)^{2}+\\left(x-11\\right)^{2\\ }\\le1^{2}\\ \\left\\{-13.5\\le y\\le13.5\\right\\}",
-      "reason": "Inequality region for 54 did not resolve to sampled cells"
-    },
-    {
-      "expr_id": "55",
-      "kind": "inequality_region",
-      "latex": "\\left(z-77\\right)^{2}+\\left(x--11\\right)^{2\\ }\\le1^{2}\\ \\left\\{-13.5\\le y\\le13.5\\right\\}",
-      "reason": "Inequality region for 55 did not resolve to sampled cells"
-    },
-    {
-      "expr_id": "60",
-      "kind": "inequality_region",
-      "latex": "\\left(z-77\\right)^{2}+\\left(y-11\\right)^{2\\ }\\le1^{2}\\ \\left\\{-13.5\\le x\\le13.5\\right\\}",
-      "reason": "Inequality region for 60 did not resolve to sampled cells"
-    },
-    {
-      "expr_id": "61",
-      "kind": "inequality_region",
-      "latex": "\\left(z-77\\right)^{2}+\\left(y+11\\right)^{2\\ }\\le1^{2}\\ \\left\\{-13.5\\le x\\le13.5\\right\\}",
-      "reason": "Inequality region for 61 did not resolve to sampled cells"
     }
   ],
-  "unsupported_count": 10,
+  "unsupported_count": 6,
   "usda_exists": true,
   "usdz_exists": true,
   "usdz_output": "artifacts/fixture_usdz/[4B] 3D Diagram - S2-10 Group G.usdz",
@@ -106,20 +82,20 @@
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "3",
-      "face_count": 2148,
+      "face_count": 544,
       "kind": "inequality_region",
       "max_residual": null,
-      "point_count": 2864,
+      "point_count": 514,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "7",
-      "face_count": 2148,
+      "face_count": 544,
       "kind": "inequality_region",
       "max_residual": null,
-      "point_count": 2864,
+      "point_count": 514,
       "valid": true
     },
     {
@@ -136,20 +112,20 @@
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "14",
-      "face_count": 588,
+      "face_count": 544,
       "kind": "inequality_region",
       "max_residual": null,
-      "point_count": 784,
+      "point_count": 514,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "17",
-      "face_count": 588,
+      "face_count": 544,
       "kind": "inequality_region",
       "max_residual": null,
-      "point_count": 784,
+      "point_count": 514,
       "valid": true
     },
     {
@@ -375,41 +351,81 @@
     {
       "constraint_violation_count": 0,
       "errors": [],
-      "expr_id": "56",
-      "face_count": 570,
+      "expr_id": "54",
+      "face_count": 544,
       "kind": "inequality_region",
       "max_residual": null,
-      "point_count": 760,
+      "point_count": 514,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "55",
+      "face_count": 544,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 514,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "56",
+      "face_count": 544,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 514,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "57",
-      "face_count": 570,
+      "face_count": 544,
       "kind": "inequality_region",
       "max_residual": null,
-      "point_count": 760,
+      "point_count": 514,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "58",
-      "face_count": 570,
+      "face_count": 544,
       "kind": "inequality_region",
       "max_residual": null,
-      "point_count": 760,
+      "point_count": 514,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "59",
-      "face_count": 570,
+      "face_count": 544,
       "kind": "inequality_region",
       "max_residual": null,
-      "point_count": 760,
+      "point_count": 514,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "60",
+      "face_count": 544,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 514,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "61",
+      "face_count": 544,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 514,
       "valid": true
     },
     {

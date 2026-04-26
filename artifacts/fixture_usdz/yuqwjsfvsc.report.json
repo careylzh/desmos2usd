@@ -2415,20 +2415,20 @@
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "379",
-      "face_count": 1656,
+      "face_count": 544,
       "kind": "inequality_region",
       "max_residual": null,
-      "point_count": 2208,
+      "point_count": 514,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "387",
-      "face_count": 1536,
+      "face_count": 544,
       "kind": "inequality_region",
       "max_residual": null,
-      "point_count": 2048,
+      "point_count": 514,
       "valid": true
     },
     {
@@ -2935,20 +2935,20 @@
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "417",
-      "face_count": 1656,
+      "face_count": 544,
       "kind": "inequality_region",
       "max_residual": null,
-      "point_count": 2208,
+      "point_count": 514,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "418",
-      "face_count": 1536,
+      "face_count": 544,
       "kind": "inequality_region",
       "max_residual": null,
-      "point_count": 2048,
+      "point_count": 514,
       "valid": true
     },
     {

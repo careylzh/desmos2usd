@@ -1,6 +1,6 @@
 {
   "acceptance_success": false,
-  "classified_expression_count": 1238,
+  "classified_expression_count": 1239,
   "complete": false,
   "fixture": "[4B] 3D Diagram - S2-08 Group G.json",
   "fixture_path": "fixtures/states/[4B] 3D Diagram - S2-08 Group G.json",
@@ -83,12 +83,6 @@
       "kind": "classification",
       "latex": "\\left(\\left[-S,-S+\\frac{S+S}{80}...S\\right],-S,-107.5+t\\right)\\left\\{0<t<1\\right\\}",
       "reason": "Unsupported expression node Tuple"
-    },
-    {
-      "expr_id": "761",
-      "kind": "classification",
-      "latex": "x^{2}+y^{2}+\\left(z-123\\right)^{2}=80\\left\\{z>122.5\\right\\}",
-      "reason": "not a supported renderable geometry form"
     },
     {
       "expr_id": "1935",
@@ -251,6 +245,12 @@
       "kind": "inequality_region",
       "latex": "-14.35\\le y\\le14.35\\left\\{-52<z<-49.27\\right\\}\\left\\{x=14.3\\right\\}",
       "reason": "Inequality region for 237 did not resolve to sampled cells"
+    },
+    {
+      "expr_id": "761",
+      "kind": "implicit_surface",
+      "latex": "x^{2}+y^{2}+\\left(z-123\\right)^{2}=80\\left\\{z>122.5\\right\\}",
+      "reason": "implicit surface requires a supported bounded three-axis form"
     },
     {
       "expr_id": "800",

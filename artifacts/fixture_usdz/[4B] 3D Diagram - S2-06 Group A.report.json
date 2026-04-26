@@ -714,10 +714,10 @@
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "325",
-      "face_count": 1932,
+      "face_count": 544,
       "kind": "inequality_region",
       "max_residual": null,
-      "point_count": 2576,
+      "point_count": 514,
       "valid": true
     },
     {
@@ -834,10 +834,10 @@
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "913",
-      "face_count": 1944,
+      "face_count": 544,
       "kind": "inequality_region",
       "max_residual": null,
-      "point_count": 2592,
+      "point_count": 514,
       "valid": true
     },
     {

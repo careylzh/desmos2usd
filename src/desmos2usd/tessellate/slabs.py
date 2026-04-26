@@ -6,6 +6,7 @@ from desmos2usd.eval.context import EvalContext
 from desmos2usd.parse.classify import ClassifiedExpression
 from desmos2usd.parse.latex_subset import LatexExpression
 from desmos2usd.parse.predicates import ComparisonPredicate, collect_constant_bounds, single_identifier
+from desmos2usd.tessellate.cylinders import tessellate_circular_inequality_extrusion
 from desmos2usd.tessellate.mesh import GeometryData, Point, linspace
 from desmos2usd.tessellate.surfaces import (
     DEFAULT_BOUNDS,
@@ -23,6 +24,9 @@ def tessellate_inequality_region(item: ClassifiedExpression, context: EvalContex
     flat = _flat_region_geometry(item, context, resolution)
     if flat is not None:
         return flat
+    circular = tessellate_circular_inequality_extrusion(item, context, resolution=max(16, resolution * 4))
+    if circular is not None and mesh_vertices_satisfy_predicates(item, context, circular):
+        return circular
     band = extract_band(item.inequality)
     if band:
         axis, lower, upper, lower_closed, upper_closed = band

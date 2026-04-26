@@ -102,6 +102,88 @@ class StudentFixtureRegressionTests(unittest.TestCase):
         self.assertEqual(geometry.kind, "Mesh")
         self.assertGreater(geometry.face_count, 0)
 
+    def test_degree_mode_slanted_cylinder_inequality_tessellates(self) -> None:
+        source = SourceInfo(
+            "",
+            "",
+            "",
+            "",
+            viewport_bounds={"x": (-40.0, 40.0), "y": (-40.0, 40.0), "z": (0.0, 120.0)},
+            view_metadata={"degree_mode": True},
+        )
+        context = EvalContext(degree_mode=True)
+        item = classify_expression(
+            ExpressionIR(
+                source,
+                "1",
+                0,
+                r"\left(x-z\tan\left(5.5\right)-6\right)^{2}+y^{2}<10\left\{107<z<113\right\}",
+            ),
+            context,
+        )
+
+        geometry = tessellate(item, context, resolution=8)
+        xs = [point[0] for point in geometry.points]
+
+        self.assertEqual(item.kind, "inequality_region")
+        self.assertEqual(geometry.kind, "Mesh")
+        self.assertGreater(geometry.face_count, 0)
+        self.assertGreater(min(xs), -5.0)
+        self.assertLess(max(xs), 25.0)
+
+    def test_degree_mode_slanted_cylinder_equality_tessellates(self) -> None:
+        source = SourceInfo(
+            "",
+            "",
+            "",
+            "",
+            viewport_bounds={"x": (-40.0, 40.0), "y": (-40.0, 40.0), "z": (0.0, 120.0)},
+            view_metadata={"degree_mode": True},
+        )
+        context = EvalContext(degree_mode=True)
+        item = classify_expression(
+            ExpressionIR(
+                source,
+                "1",
+                0,
+                r"\left(x-z\tan\left(5.5\right)\right)^{2}+y^{2}=260\left\{20<z<80\right\}",
+            ),
+            context,
+        )
+
+        geometry = tessellate(item, context, resolution=8)
+
+        self.assertEqual(item.kind, "implicit_surface")
+        self.assertEqual(geometry.kind, "Mesh")
+        self.assertGreater(geometry.face_count, 0)
+
+    def test_tolerant_fixture_classification_uses_graph_degree_mode(self) -> None:
+        source = SourceInfo(
+            "",
+            "",
+            "",
+            "",
+            viewport_bounds={"x": (-10.0, 10.0), "y": (-10.0, 10.0), "z": (0.0, 10.0)},
+            view_metadata={"degree_mode": True},
+        )
+        graph = GraphIR(
+            source=source,
+            expressions=[
+                ExpressionIR(
+                    source,
+                    "1",
+                    0,
+                    r"\left(x-z\tan\left(45\right)\right)^{2}+y^{2}<4\left\{0<z<2\right\}",
+                )
+            ],
+            raw_state={},
+        )
+
+        classification, unsupported = classify_graph_tolerant(graph)
+
+        self.assertEqual(len(unsupported), 0)
+        self.assertTrue(classification.context.degree_mode)
+
     def test_tolerant_fixture_classification_keeps_supported_prims_after_unsupported_expr(self) -> None:
         graph = GraphIR(
             source=SOURCE,

@@ -16,6 +16,15 @@ class LatexSyntaxError(ValueError):
 
 FUNCTION_NAMES = set(ALLOWED_FUNCTIONS)
 
+DEGREE_MODE_FUNCTIONS = {
+    "acos": lambda value: math.degrees(math.acos(value)),
+    "asin": lambda value: math.degrees(math.asin(value)),
+    "atan": lambda value: math.degrees(math.atan(value)),
+    "cos": lambda value: math.cos(math.radians(value)),
+    "sin": lambda value: math.sin(math.radians(value)),
+    "tan": lambda value: math.tan(math.radians(value)),
+}
+
 
 def normalize_latex_delimiters(text: str) -> str:
     value = text.strip()
@@ -342,6 +351,8 @@ class LatexExpression:
         ctx = context or EvalContext()
         env: dict[str, Any] = {}
         env.update(ALLOWED_FUNCTIONS)
+        if ctx.degree_mode:
+            env.update(DEGREE_MODE_FUNCTIONS)
         env.update(CONSTANTS)
         env.update(ctx.function_callables())
         env.update(ctx.scalars)

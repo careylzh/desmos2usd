@@ -1,6 +1,6 @@
 {
   "acceptance_success": false,
-  "classified_expression_count": 54,
+  "classified_expression_count": 55,
   "complete": false,
   "fixture": "[4B] 3D Diagram - S2-02 Group E.json",
   "fixture_path": "fixtures/states/[4B] 3D Diagram - S2-02 Group E.json",
@@ -12,12 +12,6 @@
   "status": "partial",
   "title": "Desmos graph",
   "unsupported": [
-    {
-      "expr_id": "64",
-      "kind": "classification",
-      "latex": "\\frac{x^{2}}{2.46^{2}}+\\frac{y^{2}}{3^{2}}+\\frac{\\left(z-5\\right)^{2}}{2.9^{2}}=1\\left\\{5\\le z\\le10\\right\\}",
-      "reason": "not a supported renderable geometry form"
-    },
     {
       "expr_id": "73",
       "kind": "classification",
@@ -47,6 +41,12 @@
       "kind": "inequality_region",
       "latex": "5\\le y\\le2.5\\left\\{5\\le x\\le2.5\\right\\}\\left\\{7\\le x\\le8\\right\\}",
       "reason": "Inequality region for 22 did not resolve to sampled cells"
+    },
+    {
+      "expr_id": "64",
+      "kind": "implicit_surface",
+      "latex": "\\frac{x^{2}}{2.46^{2}}+\\frac{y^{2}}{3^{2}}+\\frac{\\left(z-5\\right)^{2}}{2.9^{2}}=1\\left\\{5\\le z\\le10\\right\\}",
+      "reason": "implicit surface requires a supported bounded three-axis form"
     }
   ],
   "unsupported_count": 6,

@@ -176,10 +176,10 @@
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "70",
-      "face_count": 984,
+      "face_count": 544,
       "kind": "inequality_region",
       "max_residual": null,
-      "point_count": 1312,
+      "point_count": 514,
       "valid": true
     },
     {

@@ -1,6 +1,6 @@
 {
   "acceptance_success": false,
-  "classified_expression_count": 25,
+  "classified_expression_count": 35,
   "complete": false,
   "fixture": "[4B] 3D Diagram - S2-09 Group E.json",
   "fixture_path": "fixtures/states/[4B] 3D Diagram - S2-09 Group E.json",
@@ -12,66 +12,6 @@
   "status": "partial",
   "title": "Desmos graph",
   "unsupported": [
-    {
-      "expr_id": "38",
-      "kind": "classification",
-      "latex": "\\frac{1}{3.5}\\left(x^{2}+y^{2}+z^{2}\\right)=1\\left\\{z\\ge0\\right\\}\\left\\{x\\le0\\right\\}",
-      "reason": "not a supported renderable geometry form"
-    },
-    {
-      "expr_id": "39",
-      "kind": "classification",
-      "latex": "\\frac{1}{3.5}\\left(x^{2}+y^{2}+z^{2}\\right)=1\\left\\{z\\ge0\\right\\}\\left\\{x\\ge0\\right\\}",
-      "reason": "not a supported renderable geometry form"
-    },
-    {
-      "expr_id": "61",
-      "kind": "classification",
-      "latex": "\\left(x\\ -0\\right)^{2}+\\left(y-1.5\\right)^{2}+\\left(z-4\\right)^{2}\\ =\\ 2.5z^{1}\\ \\left\\{z\\ <\\ 2\\right\\}",
-      "reason": "not a supported renderable geometry form"
-    },
-    {
-      "expr_id": "62",
-      "kind": "classification",
-      "latex": "\\left(x\\ -0\\right)^{2}+\\left(y+\\ 1.5\\right)^{2}+\\left(z-4\\right)^{2}\\ =\\ 2.5z^{1}\\ \\left\\{z\\ <\\ 2\\right\\}",
-      "reason": "not a supported renderable geometry form"
-    },
-    {
-      "expr_id": "63",
-      "kind": "classification",
-      "latex": "\\left(x\\ -1.5\\right)^{2}+\\left(y-0\\right)^{2}+\\left(z-4\\right)^{2}\\ =\\ 2.5z^{1}\\ \\left\\{z\\ <\\ 2\\right\\}",
-      "reason": "not a supported renderable geometry form"
-    },
-    {
-      "expr_id": "64",
-      "kind": "classification",
-      "latex": "\\left(x\\ +1.5\\right)^{2}+\\left(y-0\\right)^{2}+\\left(z-4\\right)^{2}\\ =\\ 2.5z^{1}\\ \\left\\{z\\ <\\ 2\\right\\}",
-      "reason": "not a supported renderable geometry form"
-    },
-    {
-      "expr_id": "65",
-      "kind": "classification",
-      "latex": "\\left(x\\ -1\\right)^{2}+\\left(y-1\\right)^{2}+\\left(z-4\\right)^{2}\\ =\\ 2.5z^{1}\\ \\left\\{z\\ <\\ 2\\right\\}",
-      "reason": "not a supported renderable geometry form"
-    },
-    {
-      "expr_id": "66",
-      "kind": "classification",
-      "latex": "\\left(x\\ +1\\right)^{2}+\\left(y-1\\right)^{2}+\\left(z-4\\right)^{2}\\ =\\ 2.5z^{1}\\ \\left\\{z\\ <\\ 2\\right\\}",
-      "reason": "not a supported renderable geometry form"
-    },
-    {
-      "expr_id": "67",
-      "kind": "classification",
-      "latex": "\\left(x\\ -1\\right)^{2}+\\left(y+1\\right)^{2}+\\left(z-4\\right)^{2}\\ =\\ 2.5z^{1}\\ \\left\\{z\\ <\\ 2\\right\\}",
-      "reason": "not a supported renderable geometry form"
-    },
-    {
-      "expr_id": "68",
-      "kind": "classification",
-      "latex": "\\left(x\\ +1\\right)^{2}+\\left(y+1\\right)^{2}+\\left(z-4\\right)^{2}\\ =\\ 2.5z^{1}\\ \\left\\{z\\ <\\ 2\\right\\}",
-      "reason": "not a supported renderable geometry form"
-    },
     {
       "expr_id": "8",
       "kind": "explicit_surface",
@@ -89,6 +29,66 @@
       "kind": "inequality_region",
       "latex": "-8.1\\sqrt{x^{2}+y^{2}}>z-10\\left\\{0<z\\right\\}",
       "reason": "Inequality region for 33 did not resolve to sampled cells"
+    },
+    {
+      "expr_id": "38",
+      "kind": "implicit_surface",
+      "latex": "\\frac{1}{3.5}\\left(x^{2}+y^{2}+z^{2}\\right)=1\\left\\{z\\ge0\\right\\}\\left\\{x\\le0\\right\\}",
+      "reason": "implicit surface requires a supported bounded three-axis form"
+    },
+    {
+      "expr_id": "39",
+      "kind": "implicit_surface",
+      "latex": "\\frac{1}{3.5}\\left(x^{2}+y^{2}+z^{2}\\right)=1\\left\\{z\\ge0\\right\\}\\left\\{x\\ge0\\right\\}",
+      "reason": "implicit surface requires a supported bounded three-axis form"
+    },
+    {
+      "expr_id": "61",
+      "kind": "implicit_surface",
+      "latex": "\\left(x\\ -0\\right)^{2}+\\left(y-1.5\\right)^{2}+\\left(z-4\\right)^{2}\\ =\\ 2.5z^{1}\\ \\left\\{z\\ <\\ 2\\right\\}",
+      "reason": "implicit surface requires a supported bounded three-axis form"
+    },
+    {
+      "expr_id": "62",
+      "kind": "implicit_surface",
+      "latex": "\\left(x\\ -0\\right)^{2}+\\left(y+\\ 1.5\\right)^{2}+\\left(z-4\\right)^{2}\\ =\\ 2.5z^{1}\\ \\left\\{z\\ <\\ 2\\right\\}",
+      "reason": "implicit surface requires a supported bounded three-axis form"
+    },
+    {
+      "expr_id": "63",
+      "kind": "implicit_surface",
+      "latex": "\\left(x\\ -1.5\\right)^{2}+\\left(y-0\\right)^{2}+\\left(z-4\\right)^{2}\\ =\\ 2.5z^{1}\\ \\left\\{z\\ <\\ 2\\right\\}",
+      "reason": "implicit surface requires a supported bounded three-axis form"
+    },
+    {
+      "expr_id": "64",
+      "kind": "implicit_surface",
+      "latex": "\\left(x\\ +1.5\\right)^{2}+\\left(y-0\\right)^{2}+\\left(z-4\\right)^{2}\\ =\\ 2.5z^{1}\\ \\left\\{z\\ <\\ 2\\right\\}",
+      "reason": "implicit surface requires a supported bounded three-axis form"
+    },
+    {
+      "expr_id": "65",
+      "kind": "implicit_surface",
+      "latex": "\\left(x\\ -1\\right)^{2}+\\left(y-1\\right)^{2}+\\left(z-4\\right)^{2}\\ =\\ 2.5z^{1}\\ \\left\\{z\\ <\\ 2\\right\\}",
+      "reason": "implicit surface requires a supported bounded three-axis form"
+    },
+    {
+      "expr_id": "66",
+      "kind": "implicit_surface",
+      "latex": "\\left(x\\ +1\\right)^{2}+\\left(y-1\\right)^{2}+\\left(z-4\\right)^{2}\\ =\\ 2.5z^{1}\\ \\left\\{z\\ <\\ 2\\right\\}",
+      "reason": "implicit surface requires a supported bounded three-axis form"
+    },
+    {
+      "expr_id": "67",
+      "kind": "implicit_surface",
+      "latex": "\\left(x\\ -1\\right)^{2}+\\left(y+1\\right)^{2}+\\left(z-4\\right)^{2}\\ =\\ 2.5z^{1}\\ \\left\\{z\\ <\\ 2\\right\\}",
+      "reason": "implicit surface requires a supported bounded three-axis form"
+    },
+    {
+      "expr_id": "68",
+      "kind": "implicit_surface",
+      "latex": "\\left(x\\ +1\\right)^{2}+\\left(y+1\\right)^{2}+\\left(z-4\\right)^{2}\\ =\\ 2.5z^{1}\\ \\left\\{z\\ <\\ 2\\right\\}",
+      "reason": "implicit surface requires a supported bounded three-axis form"
     }
   ],
   "unsupported_count": 13,
@@ -284,10 +284,10 @@
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "69",
-      "face_count": 1944,
+      "face_count": 544,
       "kind": "inequality_region",
       "max_residual": null,
-      "point_count": 2592,
+      "point_count": 514,
       "valid": true
     },
     {

@@ -1,6 +1,6 @@
 {
   "acceptance_success": false,
-  "classified_expression_count": 89,
+  "classified_expression_count": 109,
   "complete": false,
   "fixture": "[4B] 3D Diagram - S2-09 Group D.json",
   "fixture_path": "fixtures/states/[4B] 3D Diagram - S2-09 Group D.json",
@@ -49,130 +49,22 @@
       "reason": "Predicate has no comparison operator: (\\sqrt{67}+6.7-y)(6(x-6-7)+(6-6)\\sqrt{(\\frac{6}{6}+\\frac{7}{7})(\\sqrt{67}-\\frac{\\sqrt{7.6}}{6})-x}\\sqrt{y+\\sqrt{67}}-y)"
     },
     {
-      "expr_id": "91",
-      "kind": "classification",
-      "latex": "\\frac{\\left(-y+46\\right)^{2}}{16^{2}}+\\frac{\\left(-x-80\\right)^{2}}{52^{2}}+\\frac{\\left(z-10\\right)^{2}}{32^{2}}=1\\left\\{z>0\\right\\}\\left\\{z>-4x-220\\right\\}",
-      "reason": "not a supported renderable geometry form"
-    },
-    {
-      "expr_id": "107",
-      "kind": "classification",
-      "latex": "\\frac{\\left(-y+46\\right)^{2}}{16^{2}}+\\frac{\\left(-x-80\\right)^{2}}{52^{2}}+\\frac{\\left(z-10\\right)^{2}}{32^{2}}=0.9\\left\\{z>0\\right\\}\\left\\{z>-4x-220\\right\\}",
-      "reason": "not a supported renderable geometry form"
-    },
-    {
-      "expr_id": "92",
-      "kind": "classification",
-      "latex": "\\frac{\\left(-y+46\\right)^{2}}{15^{2}}+\\frac{\\left(-x-40\\right)^{2}}{33^{2}}+\\frac{\\left(z-18\\right)^{2}}{22^{2}}=1\\left\\{z>0\\right\\}\\left\\{z>-2x-50\\right\\}",
-      "reason": "not a supported renderable geometry form"
-    },
-    {
-      "expr_id": "109",
-      "kind": "classification",
-      "latex": "\\frac{\\left(-y+46\\right)^{2}}{15^{2}}+\\frac{\\left(-x-40\\right)^{2}}{33^{2}}+\\frac{\\left(z-18\\right)^{2}}{22^{2}}=0.9\\left\\{z>0\\right\\}\\left\\{z>-2x-50\\right\\}",
-      "reason": "not a supported renderable geometry form"
-    },
-    {
-      "expr_id": "93",
-      "kind": "classification",
-      "latex": "\\frac{\\left(-y+46\\right)^{2}}{20^{2}}+\\frac{\\left(-x-50\\right)^{2}}{54^{2}}+\\frac{\\left(z-18\\right)^{2}}{37^{2}}=1\\left\\{z>0\\right\\}\\left\\{z>-4x-40\\right\\}",
-      "reason": "not a supported renderable geometry form"
-    },
-    {
-      "expr_id": "111",
-      "kind": "classification",
-      "latex": "\\frac{\\left(-y+46\\right)^{2}}{20^{2}}+\\frac{\\left(-x-50\\right)^{2}}{54^{2}}+\\frac{\\left(z-18\\right)^{2}}{37^{2}}=0.9\\left\\{z>0\\right\\}\\left\\{z>-4x-40\\right\\}",
-      "reason": "not a supported renderable geometry form"
-    },
-    {
-      "expr_id": "94",
-      "kind": "classification",
-      "latex": "\\frac{\\left(y-46\\right)^{2}}{10^{2}}+\\frac{\\left(x-30\\right)^{2}}{42^{2}}+\\frac{\\left(z-18\\right)^{2}}{22^{2}}=1\\left\\{z>0\\right\\}\\left\\{z>4x-50\\right\\}",
-      "reason": "not a supported renderable geometry form"
-    },
-    {
-      "expr_id": "113",
-      "kind": "classification",
-      "latex": "\\frac{\\left(y-46\\right)^{2}}{10^{2}}+\\frac{\\left(x-30\\right)^{2}}{42^{2}}+\\frac{\\left(z-18\\right)^{2}}{22^{2}}=0.9\\left\\{z>0\\right\\}\\left\\{z>4x-50\\right\\}",
-      "reason": "not a supported renderable geometry form"
-    },
-    {
-      "expr_id": "95",
-      "kind": "classification",
-      "latex": "\\frac{\\left(-y-16\\right)^{2}}{15^{2}}+\\frac{\\left(-x-80\\right)^{2}}{33^{2}}+\\frac{\\left(z-18\\right)^{2}}{22^{2}}=1\\left\\{z>0\\right\\}\\left\\{z>-2x-110\\right\\}",
-      "reason": "not a supported renderable geometry form"
-    },
-    {
-      "expr_id": "116",
-      "kind": "classification",
-      "latex": "\\frac{\\left(-y-16\\right)^{2}}{15^{2}}+\\frac{\\left(-x-80\\right)^{2}}{33^{2}}+\\frac{\\left(z-18\\right)^{2}}{22^{2}}=0.9\\left\\{z>0\\right\\}\\left\\{z>-2x-110\\right\\}",
-      "reason": "not a supported renderable geometry form"
-    },
-    {
-      "expr_id": "97",
-      "kind": "classification",
-      "latex": "\\frac{\\left(-y-15\\right)^{2}}{20^{2}}+\\frac{\\left(-x-80\\right)^{2}}{52^{2}}+\\frac{\\left(z-18\\right)^{2}}{32^{2}}=1\\left\\{z>0\\right\\}\\left\\{z>-4x-180\\right\\}",
-      "reason": "not a supported renderable geometry form"
-    },
-    {
-      "expr_id": "118",
-      "kind": "classification",
-      "latex": "\\frac{\\left(-y-15\\right)^{2}}{20^{2}}+\\frac{\\left(-x-80\\right)^{2}}{52^{2}}+\\frac{\\left(z-18\\right)^{2}}{32^{2}}=0.9\\left\\{z>0\\right\\}\\left\\{z>-4x-180\\right\\}",
-      "reason": "not a supported renderable geometry form"
-    },
-    {
-      "expr_id": "98",
-      "kind": "classification",
-      "latex": "\\frac{\\left(-y-16\\right)^{2}}{20^{2}}+\\frac{\\left(-x-50\\right)^{2}}{40^{2}}+\\frac{\\left(z-18\\right)^{2}}{45^{2}}=1\\left\\{z>0\\right\\}\\left\\{z>-10x-330\\right\\}",
-      "reason": "not a supported renderable geometry form"
-    },
-    {
-      "expr_id": "120",
-      "kind": "classification",
-      "latex": "\\frac{\\left(-y-16\\right)^{2}}{20^{2}}+\\frac{\\left(-x-50\\right)^{2}}{40^{2}}+\\frac{\\left(z-18\\right)^{2}}{45^{2}}=0.9\\left\\{z>0\\right\\}\\left\\{z>-10x-330\\right\\}",
-      "reason": "not a supported renderable geometry form"
-    },
-    {
-      "expr_id": "99",
-      "kind": "classification",
-      "latex": "\\frac{\\left(y+15\\right)^{2}}{20^{2}}+\\frac{\\left(x-30\\right)^{2}}{52^{2}}+\\frac{\\left(z-18\\right)^{2}}{32^{2}}=1\\left\\{z>20\\right\\}\\left\\{z>4x+5\\right\\}",
-      "reason": "not a supported renderable geometry form"
-    },
-    {
-      "expr_id": "122",
-      "kind": "classification",
-      "latex": "\\frac{\\left(y+15\\right)^{2}}{20^{2}}+\\frac{\\left(x-30\\right)^{2}}{52^{2}}+\\frac{\\left(z-18\\right)^{2}}{32^{2}}=0.9\\left\\{z>20\\right\\}\\left\\{z>4x+5\\right\\}",
-      "reason": "not a supported renderable geometry form"
-    },
-    {
-      "expr_id": "100",
-      "kind": "classification",
-      "latex": "\\frac{\\left(y+9\\right)^{2}}{10^{2}}+\\frac{\\left(x-19\\right)^{2}}{15^{2}}+\\frac{\\left(z-18\\right)^{2}}{17^{2}}=1\\left\\{z>0\\right\\}\\left\\{z>-2x+60\\right\\}",
-      "reason": "not a supported renderable geometry form"
-    },
-    {
-      "expr_id": "124",
-      "kind": "classification",
-      "latex": "\\frac{\\left(y+9\\right)^{2}}{10^{2}}+\\frac{\\left(x-19\\right)^{2}}{15^{2}}+\\frac{\\left(z-18\\right)^{2}}{17^{2}}=0.9\\left\\{z>0\\right\\}\\left\\{z>-2x+60\\right\\}",
-      "reason": "not a supported renderable geometry form"
-    },
-    {
-      "expr_id": "101",
-      "kind": "classification",
-      "latex": "\\frac{\\left(y+9\\right)^{2}}{8^{2}}+\\frac{\\left(x-40\\right)^{2}}{19^{2}}+\\frac{\\left(z-18\\right)^{2}}{17^{2}}=1\\left\\{z>0\\right\\}\\left\\{z>x-20\\right\\}",
-      "reason": "not a supported renderable geometry form"
-    },
-    {
-      "expr_id": "96",
-      "kind": "classification",
-      "latex": "\\frac{\\left(y+9\\right)^{2}}{8^{2}}+\\frac{\\left(x-40\\right)^{2}}{19^{2}}+\\frac{\\left(z-18\\right)^{2}}{17^{2}}=0.9\\left\\{z>0\\right\\}\\left\\{z>x-20\\right\\}",
-      "reason": "not a supported renderable geometry form"
-    },
-    {
       "expr_id": "148",
       "kind": "inequality_region",
       "latex": "-90-30\\sqrt{1-\\frac{\\left(y-10\\right)^{2}}{70^{2}}}\\le x\\le-90\\left\\{z=0\\right\\}",
       "reason": "Could not evaluate '-90-30\\\\sqrt{1-\\\\frac{(y-10)^{2}}{70^{2}}}' with variables {'y': -159.9999999999945, 'z': -159.9999999999955}: expected a nonnegative input, got -4.897959183673087"
+    },
+    {
+      "expr_id": "91",
+      "kind": "implicit_surface",
+      "latex": "\\frac{\\left(-y+46\\right)^{2}}{16^{2}}+\\frac{\\left(-x-80\\right)^{2}}{52^{2}}+\\frac{\\left(z-10\\right)^{2}}{32^{2}}=1\\left\\{z>0\\right\\}\\left\\{z>-4x-220\\right\\}",
+      "reason": "implicit surface requires a supported bounded three-axis form"
+    },
+    {
+      "expr_id": "107",
+      "kind": "implicit_surface",
+      "latex": "\\frac{\\left(-y+46\\right)^{2}}{16^{2}}+\\frac{\\left(-x-80\\right)^{2}}{52^{2}}+\\frac{\\left(z-10\\right)^{2}}{32^{2}}=0.9\\left\\{z>0\\right\\}\\left\\{z>-4x-220\\right\\}",
+      "reason": "implicit surface requires a supported bounded three-axis form"
     },
     {
       "expr_id": "108",
@@ -181,10 +73,34 @@
       "reason": "Inequality region for 108 did not resolve to sampled cells"
     },
     {
+      "expr_id": "92",
+      "kind": "implicit_surface",
+      "latex": "\\frac{\\left(-y+46\\right)^{2}}{15^{2}}+\\frac{\\left(-x-40\\right)^{2}}{33^{2}}+\\frac{\\left(z-18\\right)^{2}}{22^{2}}=1\\left\\{z>0\\right\\}\\left\\{z>-2x-50\\right\\}",
+      "reason": "implicit surface requires a supported bounded three-axis form"
+    },
+    {
+      "expr_id": "109",
+      "kind": "implicit_surface",
+      "latex": "\\frac{\\left(-y+46\\right)^{2}}{15^{2}}+\\frac{\\left(-x-40\\right)^{2}}{33^{2}}+\\frac{\\left(z-18\\right)^{2}}{22^{2}}=0.9\\left\\{z>0\\right\\}\\left\\{z>-2x-50\\right\\}",
+      "reason": "implicit surface requires a supported bounded three-axis form"
+    },
+    {
       "expr_id": "110",
       "kind": "inequality_region",
       "latex": "0.9<\\frac{\\left(-y+46\\right)^{2}}{15^{2}}+\\frac{\\left(-x-40\\right)^{2}}{33^{2}}+\\frac{\\left(z-18\\right)^{2}}{22^{2}}<1\\ \\left\\{z>0\\right\\}\\left\\{z>-2x-50\\right\\}",
       "reason": "Inequality region for 110 did not resolve to sampled cells"
+    },
+    {
+      "expr_id": "93",
+      "kind": "implicit_surface",
+      "latex": "\\frac{\\left(-y+46\\right)^{2}}{20^{2}}+\\frac{\\left(-x-50\\right)^{2}}{54^{2}}+\\frac{\\left(z-18\\right)^{2}}{37^{2}}=1\\left\\{z>0\\right\\}\\left\\{z>-4x-40\\right\\}",
+      "reason": "implicit surface requires a supported bounded three-axis form"
+    },
+    {
+      "expr_id": "111",
+      "kind": "implicit_surface",
+      "latex": "\\frac{\\left(-y+46\\right)^{2}}{20^{2}}+\\frac{\\left(-x-50\\right)^{2}}{54^{2}}+\\frac{\\left(z-18\\right)^{2}}{37^{2}}=0.9\\left\\{z>0\\right\\}\\left\\{z>-4x-40\\right\\}",
+      "reason": "implicit surface requires a supported bounded three-axis form"
     },
     {
       "expr_id": "112",
@@ -193,10 +109,34 @@
       "reason": "Inequality region for 112 did not resolve to sampled cells"
     },
     {
+      "expr_id": "94",
+      "kind": "implicit_surface",
+      "latex": "\\frac{\\left(y-46\\right)^{2}}{10^{2}}+\\frac{\\left(x-30\\right)^{2}}{42^{2}}+\\frac{\\left(z-18\\right)^{2}}{22^{2}}=1\\left\\{z>0\\right\\}\\left\\{z>4x-50\\right\\}",
+      "reason": "implicit surface requires a supported bounded three-axis form"
+    },
+    {
+      "expr_id": "113",
+      "kind": "implicit_surface",
+      "latex": "\\frac{\\left(y-46\\right)^{2}}{10^{2}}+\\frac{\\left(x-30\\right)^{2}}{42^{2}}+\\frac{\\left(z-18\\right)^{2}}{22^{2}}=0.9\\left\\{z>0\\right\\}\\left\\{z>4x-50\\right\\}",
+      "reason": "implicit surface requires a supported bounded three-axis form"
+    },
+    {
       "expr_id": "114",
       "kind": "inequality_region",
       "latex": "0.9<\\frac{\\left(y-46\\right)^{2}}{10^{2}}+\\frac{\\left(x-30\\right)^{2}}{42^{2}}+\\frac{\\left(z-18\\right)^{2}}{22^{2}}<1\\ \\left\\{z>0\\right\\}\\left\\{z>4x-50\\right\\}",
       "reason": "Inequality region for 114 did not resolve to sampled cells"
+    },
+    {
+      "expr_id": "95",
+      "kind": "implicit_surface",
+      "latex": "\\frac{\\left(-y-16\\right)^{2}}{15^{2}}+\\frac{\\left(-x-80\\right)^{2}}{33^{2}}+\\frac{\\left(z-18\\right)^{2}}{22^{2}}=1\\left\\{z>0\\right\\}\\left\\{z>-2x-110\\right\\}",
+      "reason": "implicit surface requires a supported bounded three-axis form"
+    },
+    {
+      "expr_id": "116",
+      "kind": "implicit_surface",
+      "latex": "\\frac{\\left(-y-16\\right)^{2}}{15^{2}}+\\frac{\\left(-x-80\\right)^{2}}{33^{2}}+\\frac{\\left(z-18\\right)^{2}}{22^{2}}=0.9\\left\\{z>0\\right\\}\\left\\{z>-2x-110\\right\\}",
+      "reason": "implicit surface requires a supported bounded three-axis form"
     },
     {
       "expr_id": "117",
@@ -205,10 +145,34 @@
       "reason": "Inequality region for 117 did not resolve to sampled cells"
     },
     {
+      "expr_id": "97",
+      "kind": "implicit_surface",
+      "latex": "\\frac{\\left(-y-15\\right)^{2}}{20^{2}}+\\frac{\\left(-x-80\\right)^{2}}{52^{2}}+\\frac{\\left(z-18\\right)^{2}}{32^{2}}=1\\left\\{z>0\\right\\}\\left\\{z>-4x-180\\right\\}",
+      "reason": "implicit surface requires a supported bounded three-axis form"
+    },
+    {
+      "expr_id": "118",
+      "kind": "implicit_surface",
+      "latex": "\\frac{\\left(-y-15\\right)^{2}}{20^{2}}+\\frac{\\left(-x-80\\right)^{2}}{52^{2}}+\\frac{\\left(z-18\\right)^{2}}{32^{2}}=0.9\\left\\{z>0\\right\\}\\left\\{z>-4x-180\\right\\}",
+      "reason": "implicit surface requires a supported bounded three-axis form"
+    },
+    {
       "expr_id": "119",
       "kind": "inequality_region",
       "latex": "0.9<\\frac{\\left(-y-15\\right)^{2}}{20^{2}}+\\frac{\\left(-x-80\\right)^{2}}{52^{2}}+\\frac{\\left(z-18\\right)^{2}}{32^{2}}<1\\ \\left\\{z>0\\right\\}\\left\\{z>-4x-180\\right\\}",
       "reason": "Inequality region for 119 did not resolve to sampled cells"
+    },
+    {
+      "expr_id": "98",
+      "kind": "implicit_surface",
+      "latex": "\\frac{\\left(-y-16\\right)^{2}}{20^{2}}+\\frac{\\left(-x-50\\right)^{2}}{40^{2}}+\\frac{\\left(z-18\\right)^{2}}{45^{2}}=1\\left\\{z>0\\right\\}\\left\\{z>-10x-330\\right\\}",
+      "reason": "implicit surface requires a supported bounded three-axis form"
+    },
+    {
+      "expr_id": "120",
+      "kind": "implicit_surface",
+      "latex": "\\frac{\\left(-y-16\\right)^{2}}{20^{2}}+\\frac{\\left(-x-50\\right)^{2}}{40^{2}}+\\frac{\\left(z-18\\right)^{2}}{45^{2}}=0.9\\left\\{z>0\\right\\}\\left\\{z>-10x-330\\right\\}",
+      "reason": "implicit surface requires a supported bounded three-axis form"
     },
     {
       "expr_id": "121",
@@ -217,16 +181,52 @@
       "reason": "Inequality region for 121 did not resolve to sampled cells"
     },
     {
+      "expr_id": "99",
+      "kind": "implicit_surface",
+      "latex": "\\frac{\\left(y+15\\right)^{2}}{20^{2}}+\\frac{\\left(x-30\\right)^{2}}{52^{2}}+\\frac{\\left(z-18\\right)^{2}}{32^{2}}=1\\left\\{z>20\\right\\}\\left\\{z>4x+5\\right\\}",
+      "reason": "implicit surface requires a supported bounded three-axis form"
+    },
+    {
+      "expr_id": "122",
+      "kind": "implicit_surface",
+      "latex": "\\frac{\\left(y+15\\right)^{2}}{20^{2}}+\\frac{\\left(x-30\\right)^{2}}{52^{2}}+\\frac{\\left(z-18\\right)^{2}}{32^{2}}=0.9\\left\\{z>20\\right\\}\\left\\{z>4x+5\\right\\}",
+      "reason": "implicit surface requires a supported bounded three-axis form"
+    },
+    {
       "expr_id": "123",
       "kind": "inequality_region",
       "latex": "0.9<\\frac{\\left(y+15\\right)^{2}}{20^{2}}+\\frac{\\left(x-30\\right)^{2}}{52^{2}}+\\frac{\\left(z-18\\right)^{2}}{32^{2}}<1\\ \\left\\{z>20\\right\\}\\left\\{z>4x+5\\right\\}",
       "reason": "Inequality region for 123 did not resolve to sampled cells"
     },
     {
+      "expr_id": "100",
+      "kind": "implicit_surface",
+      "latex": "\\frac{\\left(y+9\\right)^{2}}{10^{2}}+\\frac{\\left(x-19\\right)^{2}}{15^{2}}+\\frac{\\left(z-18\\right)^{2}}{17^{2}}=1\\left\\{z>0\\right\\}\\left\\{z>-2x+60\\right\\}",
+      "reason": "implicit surface requires a supported bounded three-axis form"
+    },
+    {
+      "expr_id": "124",
+      "kind": "implicit_surface",
+      "latex": "\\frac{\\left(y+9\\right)^{2}}{10^{2}}+\\frac{\\left(x-19\\right)^{2}}{15^{2}}+\\frac{\\left(z-18\\right)^{2}}{17^{2}}=0.9\\left\\{z>0\\right\\}\\left\\{z>-2x+60\\right\\}",
+      "reason": "implicit surface requires a supported bounded three-axis form"
+    },
+    {
       "expr_id": "125",
       "kind": "inequality_region",
       "latex": "0.9<\\frac{\\left(y+9\\right)^{2}}{10^{2}}+\\frac{\\left(x-19\\right)^{2}}{15^{2}}+\\frac{\\left(z-18\\right)^{2}}{17^{2}}<1\\ \\left\\{z>0\\right\\}\\left\\{z>-2x+60\\right\\}",
       "reason": "Inequality region for 125 did not resolve to sampled cells"
+    },
+    {
+      "expr_id": "101",
+      "kind": "implicit_surface",
+      "latex": "\\frac{\\left(y+9\\right)^{2}}{8^{2}}+\\frac{\\left(x-40\\right)^{2}}{19^{2}}+\\frac{\\left(z-18\\right)^{2}}{17^{2}}=1\\left\\{z>0\\right\\}\\left\\{z>x-20\\right\\}",
+      "reason": "implicit surface requires a supported bounded three-axis form"
+    },
+    {
+      "expr_id": "96",
+      "kind": "implicit_surface",
+      "latex": "\\frac{\\left(y+9\\right)^{2}}{8^{2}}+\\frac{\\left(x-40\\right)^{2}}{19^{2}}+\\frac{\\left(z-18\\right)^{2}}{17^{2}}=0.9\\left\\{z>0\\right\\}\\left\\{z>x-20\\right\\}",
+      "reason": "implicit surface requires a supported bounded three-axis form"
     },
     {
       "expr_id": "126",

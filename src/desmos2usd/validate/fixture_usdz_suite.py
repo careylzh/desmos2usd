@@ -84,7 +84,7 @@ def artifact_display_path(path: Path, project_root: Path) -> str:
 
 
 def classify_graph_tolerant(graph: GraphIR) -> tuple[ClassificationResult, list[UnsupportedExpression]]:
-    context = EvalContext()
+    context = EvalContext(degree_mode=bool(graph.source.view_metadata.get("degree_mode")))
     classified = []
     definitions = []
     definition_ids: set[str] = set()

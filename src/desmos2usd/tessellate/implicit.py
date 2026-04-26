@@ -3,6 +3,7 @@ from __future__ import annotations
 from desmos2usd.eval.context import EvalContext
 from desmos2usd.parse.classify import ClassifiedExpression
 from desmos2usd.parse.predicates import collect_constant_bounds
+from desmos2usd.tessellate.cylinders import tessellate_circular_implicit_surface
 from desmos2usd.tessellate.mesh import GeometryData, Point, linspace
 from desmos2usd.tessellate.surfaces import axis_bounds, point_from_variables
 
@@ -14,6 +15,11 @@ def tessellate_implicit_surface(item: ClassifiedExpression, context: EvalContext
     if item.expression is None:
         raise ValueError("implicit surface missing residual expression")
     residual_axes = tuple(axis for axis in AXES if axis in item.expression.identifiers)
+    if len(residual_axes) == 3:
+        geometry = tessellate_circular_implicit_surface(item, context, resolution=max(8, resolution * 2))
+        if geometry is not None:
+            return geometry
+        raise ValueError("implicit surface requires a supported bounded three-axis form")
     if len(residual_axes) != 2:
         raise ValueError("implicit surface extrusion requires exactly two equation axes")
     extrude_axis = next(axis for axis in AXES if axis not in residual_axes)

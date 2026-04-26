@@ -246,10 +246,10 @@
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "48",
-      "face_count": 1800,
+      "face_count": 544,
       "kind": "inequality_region",
       "max_residual": null,
-      "point_count": 2400,
+      "point_count": 514,
       "valid": true
     },
     {
@@ -266,10 +266,10 @@
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "51",
-      "face_count": 2400,
+      "face_count": 544,
       "kind": "inequality_region",
       "max_residual": null,
-      "point_count": 3200,
+      "point_count": 514,
       "valid": true
     },
     {
@@ -756,20 +756,20 @@
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "114",
-      "face_count": 1800,
+      "face_count": 544,
       "kind": "inequality_region",
       "max_residual": null,
-      "point_count": 2400,
+      "point_count": 514,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "115",
-      "face_count": 1992,
+      "face_count": 544,
       "kind": "inequality_region",
       "max_residual": null,
-      "point_count": 2656,
+      "point_count": 514,
       "valid": true
     },
     {
@@ -786,10 +786,10 @@
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "117",
-      "face_count": 1944,
+      "face_count": 544,
       "kind": "inequality_region",
       "max_residual": null,
-      "point_count": 2592,
+      "point_count": 514,
       "valid": true
     },
     {
@@ -956,20 +956,20 @@
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "141",
-      "face_count": 1992,
+      "face_count": 544,
       "kind": "inequality_region",
       "max_residual": null,
-      "point_count": 2656,
+      "point_count": 514,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "142",
-      "face_count": 1944,
+      "face_count": 544,
       "kind": "inequality_region",
       "max_residual": null,
-      "point_count": 2592,
+      "point_count": 514,
       "valid": true
     },
     {

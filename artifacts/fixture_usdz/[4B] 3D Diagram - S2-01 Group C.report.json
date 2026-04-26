@@ -6,7 +6,7 @@
   "fixture_path": "fixtures/states/[4B] 3D Diagram - S2-01 Group C.json",
   "graph_hash": null,
   "output": "artifacts/fixture_usdz/[4B] 3D Diagram - S2-01 Group C.usda",
-  "prim_count": 12,
+  "prim_count": 13,
   "renderable_expression_count": 19,
   "resolution": 8,
   "status": "partial",
@@ -31,12 +31,6 @@
       "reason": "Inequality region for 28 did not resolve to sampled cells"
     },
     {
-      "expr_id": "30",
-      "kind": "inequality_region",
-      "latex": "x^{2}+y^{2}<0.01\\left\\{z>4.5\\right\\}\\left\\{z<5.5\\right\\}",
-      "reason": "Inequality region for 30 did not resolve to sampled cells"
-    },
-    {
       "expr_id": "40",
       "kind": "inequality_region",
       "latex": "(x+2.5)^{2}+(y+3n)^{2}<0.2\\left\\{0<z<1.5\\right\\}",
@@ -55,7 +49,7 @@
       "reason": "Inequality region for 51 did not resolve to sampled cells"
     }
   ],
-  "unsupported_count": 7,
+  "unsupported_count": 6,
   "usda_exists": true,
   "usdz_exists": true,
   "usdz_output": "artifacts/fixture_usdz/[4B] 3D Diagram - S2-01 Group C.usdz",
@@ -98,40 +92,40 @@
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "23",
-      "face_count": 2448,
+      "face_count": 544,
       "kind": "inequality_region",
       "max_residual": null,
-      "point_count": 3264,
+      "point_count": 514,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "24",
-      "face_count": 2448,
+      "face_count": 544,
       "kind": "inequality_region",
       "max_residual": null,
-      "point_count": 3264,
+      "point_count": 514,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "25",
-      "face_count": 2448,
+      "face_count": 544,
       "kind": "inequality_region",
       "max_residual": null,
-      "point_count": 3264,
+      "point_count": 514,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "26",
-      "face_count": 2448,
+      "face_count": 544,
       "kind": "inequality_region",
       "max_residual": null,
-      "point_count": 3264,
+      "point_count": 514,
       "valid": true
     },
     {
@@ -142,6 +136,16 @@
       "kind": "inequality_region",
       "max_residual": null,
       "point_count": 2976,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "30",
+      "face_count": 544,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 514,
       "valid": true
     },
     {

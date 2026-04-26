@@ -6,7 +6,7 @@
   "fixture_path": "fixtures/states/[4B] 3D Diagram - S2-02 Group F.json",
   "graph_hash": null,
   "output": "artifacts/fixture_usdz/[4B] 3D Diagram - S2-02 Group F.usda",
-  "prim_count": 62,
+  "prim_count": 73,
   "renderable_expression_count": 114,
   "resolution": 8,
   "status": "partial",
@@ -29,30 +29,6 @@
       "kind": "classification",
       "latex": "(y-[0.2,0.4...1.8])^{2}\\le0.00250\\le z\\le13.2-0.03\\le x\\le2.03",
       "reason": "Could not parse '(y-[0.2,0.4...1.8])^{2}' as '(y-0.2,0.4.1.8)**(2)': invalid syntax. Perhaps you forgot a comma? (<unknown>, line 1)"
-    },
-    {
-      "expr_id": "77",
-      "kind": "inequality_region",
-      "latex": "(x-0.96)^{2}+(y-1.04)^{2}\\le0.0005\\left\\{13.3\\le z\\le14.5\\right\\}",
-      "reason": "Inequality region for 77 did not resolve to sampled cells"
-    },
-    {
-      "expr_id": "79",
-      "kind": "inequality_region",
-      "latex": "(x-1.04)^{2}+(y-1.04)^{2}\\le0.0005\\left\\{13.3\\le z\\le14.5\\right\\}",
-      "reason": "Inequality region for 79 did not resolve to sampled cells"
-    },
-    {
-      "expr_id": "81",
-      "kind": "inequality_region",
-      "latex": "(x-1.04)^{2}+(y-0.96)^{2}\\le0.0005\\left\\{13.3\\le z\\le14.5\\right\\}",
-      "reason": "Inequality region for 81 did not resolve to sampled cells"
-    },
-    {
-      "expr_id": "89",
-      "kind": "inequality_region",
-      "latex": "(x-1)^{2}+(y-1)^{2}\\le0.002\\left\\{14.5\\le z\\le15.5\\right\\}",
-      "reason": "Inequality region for 89 did not resolve to sampled cells"
     },
     {
       "expr_id": "90_0",
@@ -181,36 +157,6 @@
       "reason": "point 0 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 1 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 2 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 3 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 4 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 5 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 6 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 7 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 8 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 9 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 10 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 11 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 12 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 13 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 14 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 15 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 16 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 17 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 18 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 19 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'"
     },
     {
-      "expr_id": "92",
-      "kind": "inequality_region",
-      "latex": "(x-1)^{2}+(y-1)^{2}\\le0.00125\\left\\{15.5\\le z\\le16.5\\right\\}",
-      "reason": "Inequality region for 92 did not resolve to sampled cells"
-    },
-    {
-      "expr_id": "94",
-      "kind": "inequality_region",
-      "latex": "(x-1)^{2}+(y-1)^{2}\\le0.0018\\left\\{16.5\\le z\\le17\\right\\}",
-      "reason": "Inequality region for 94 did not resolve to sampled cells"
-    },
-    {
-      "expr_id": "95",
-      "kind": "inequality_region",
-      "latex": "(x-1)^{2}+(y-1)^{2}\\le0.0012\\left\\{17\\le z\\le17.5\\right\\}",
-      "reason": "Inequality region for 95 did not resolve to sampled cells"
-    },
-    {
-      "expr_id": "96",
-      "kind": "inequality_region",
-      "latex": "(x-1)^{2}+(y-1)^{2}\\le0.0008\\left\\{17.5\\le z\\le18\\right\\}",
-      "reason": "Inequality region for 96 did not resolve to sampled cells"
-    },
-    {
-      "expr_id": "97",
-      "kind": "inequality_region",
-      "latex": "(x-1)^{2}+(y-1)^{2}\\le0.0004\\left\\{18\\le z\\le18.5\\right\\}",
-      "reason": "Inequality region for 97 did not resolve to sampled cells"
-    },
-    {
       "expr_id": "98_0",
       "kind": "explicit_surface",
       "latex": "z=18.0\\left\\{(x-1)^{2}+(y-1)^{2}\\le0.001\\right\\}",
@@ -311,21 +257,9 @@
       "kind": "explicit_surface",
       "latex": "z=18.48\\left\\{(x-1)^{2}+(y-1)^{2}\\le0.001\\right\\}",
       "reason": "point 0 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 1 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 2 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 3 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 4 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 5 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 6 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 7 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 8 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 9 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 10 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 11 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 12 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 13 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 14 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 15 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 16 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 17 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 18 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 19 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'"
-    },
-    {
-      "expr_id": "99",
-      "kind": "inequality_region",
-      "latex": "(x-1)^{2}+(y-1)^{2}\\le0.0001\\left\\{18.5\\le z\\le18.7\\right\\}",
-      "reason": "Inequality region for 99 did not resolve to sampled cells"
-    },
-    {
-      "expr_id": "103",
-      "kind": "inequality_region",
-      "latex": "(x-5)^{2}+(y-1)^{2}\\le0.002\\left\\{13.2\\le z\\le14.5\\right\\}",
-      "reason": "Inequality region for 103 did not resolve to sampled cells"
     }
   ],
-  "unsupported_count": 52,
+  "unsupported_count": 41,
   "usda_exists": true,
   "usdz_exists": true,
   "usdz_output": "artifacts/fixture_usdz/[4B] 3D Diagram - S2-02 Group F.usdz",
@@ -757,11 +691,41 @@
     {
       "constraint_violation_count": 0,
       "errors": [],
-      "expr_id": "80",
-      "face_count": 6,
+      "expr_id": "77",
+      "face_count": 544,
       "kind": "inequality_region",
       "max_residual": null,
-      "point_count": 8,
+      "point_count": 514,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "79",
+      "face_count": 544,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 514,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "80",
+      "face_count": 544,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 514,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "81",
+      "face_count": 544,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 514,
       "valid": true
     },
     {
@@ -962,6 +926,86 @@
       "kind": "explicit_surface",
       "max_residual": 0.0,
       "point_count": 100,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "89",
+      "face_count": 544,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 514,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "92",
+      "face_count": 544,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 514,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "94",
+      "face_count": 544,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 514,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "95",
+      "face_count": 544,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 514,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "96",
+      "face_count": 544,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 514,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "97",
+      "face_count": 544,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 514,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "99",
+      "face_count": 544,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 514,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "103",
+      "face_count": 544,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 514,
       "valid": true
     }
   ]

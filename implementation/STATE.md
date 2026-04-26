@@ -1,6 +1,6 @@
 # Implementation State
 
-Last updated: 2026-04-26 09:54 SGT
+Last updated: 2026-04-26 11:20 SGT
 
 ## Loop Mode
 - cadence: 10 one-shot cron wakes, 30 minutes apart
@@ -61,19 +61,25 @@ Last updated: 2026-04-26 09:54 SGT
   - lowest-prim partial risk starts with `S2-05 Group A` (`2` prims), then `S2-09 Group F` (`3` prims, `24` unsupported), `S2-10 Group C` (`3` prims)
 - Comparison report commit `e9623ba` (`Add CSV fixture comparison report`) has been pushed to `chektien:fix/student-fixture-usdz-export`.
 - Current parser fix supports built-in function calls adjacent to preceding variables/symbols before concatenated-symbol splitting, e.g. `z\tan(...)`, `x\cos(a)`, and `y\sin(a)`.
-- Full fixture sweep after the parser fix reports:
+- Full fixture sweep after the degree-mode/circular-extrusion fix reports:
   - `fixture_count=71`
   - `fixtures_with_usdz_count=71`
   - `error_count=0`
-  - `success_count=20`
-  - `partial_count=51`
+  - `success_count=21`
+  - `partial_count=50`
 - Target fixture result:
-  - `S2-09 Group F` (`umjxv6ahck`) improved from `0` prims, `27` unsupported to `3` prims, `24` unsupported.
-  - The prior `name 't' is not defined` failures for `z\tan(...)` are gone; exported regions now include exprs `2`, `4`, and `5`.
-  - Remaining blockers are `23` `inequality_region` sampled-cell misses plus `1` unsupported classification for the slanted equality cylinder.
-- Additional same-parser-category result:
-  - `S2-03 Group B` (`dstsug13q6`) improved from partial to success, unsupported `1 -> 0`, prims `11 -> 12`, due `x\cos(a)`/`y\sin(a)` adjacency support.
-- Live Desmos visual comparison was not available in this wake: `curl -I --max-time 10 https://www.desmos.com/3d/cvggvbbe73` failed with `curl: (6) Could not resolve host: www.desmos.com`. The report records structural/frozen-state evidence only and does not claim live visual parity.
+  - `S2-03 Group B` (`dstsug13q6`) remains structural success: `12` classified, `12` prims, `0` unsupported. Current local evidence shows the ground/slab regions and fin surfaces are exported; live visual parity is unverified.
+  - `S2-05 Group D` (`5jh9zwy75e`) remains structural success: `150` classified, `150` prims, `0` unsupported, including `25` mesh surface prims and `125` curve prims; live visual parity is unverified.
+  - `S2-09 Group F` (`umjxv6ahck`) improved from partial to success: `27` classified, `27` prims, `0` unsupported. The fix combines graph `degreeMode` trig evaluation with circular extrusion for bounded slanted cylinder solids/surfaces.
+- CSV comparison report now maps all 66 URLs and reports `17` success, `49` partial, `0` error.
+- Live Desmos/browser visual comparison was not available in this wake:
+  - Playwright/Chrome DevTools calls were cancelled before navigation.
+  - `curl -I --max-time 10` for `dstsug13q6`, `5jh9zwy75e`, and `umjxv6ahck` failed with `curl: (6) Could not resolve host: www.desmos.com`.
+  - The report records structural/frozen-state/local projection evidence only and does not claim live visual parity.
+- Local visual/evidence artifacts:
+  - `artifacts/fixture_usdz/review_evidence/20260426_user_review/S2-03_Group_B_local_projection.png`
+  - `artifacts/fixture_usdz/review_evidence/20260426_user_review/S2-05_Group_D_local_projection.png`
+  - `artifacts/fixture_usdz/review_evidence/20260426_user_review/S2-09_Group_F_local_projection.png`
 - Changed URL evidence from the CSV was recorded for eight affected student fixtures:
   - `https://www.desmos.com/3d/27v0xuv64m` (`S2-01 Group B`): classified `18 -> 116`, prims `15 -> 115`
   - `https://www.desmos.com/3d/1zpiejy9c9` (`S2-02 Group F`): classified `15 -> 111`, prims `4 -> 62`
@@ -90,5 +96,10 @@ Last updated: 2026-04-26 09:54 SGT
 - Main checkout Git index writes may be blocked in Codex sandbox runs; use a writable temporary clone for commit/push if needed.
 
 ## Last Wake
-- timestamp: 2026-04-26 09:54 SGT
-- result: fixed variable-adjacent built-in function parsing, regenerated full fixture artifacts/report evidence, and pushed commit `41147b6`
+- timestamp: 2026-04-26 11:20 SGT
+- result: fixed degree-mode trig evaluation and bounded circular extrusion, regenerated full fixture artifacts/report evidence, and prepared commit/push from a temporary clone because the main checkout cannot write `.git/index.lock`
+- validation:
+  - `PYTHONPATH=src python3 -m desmos2usd.validate.fixture_usdz_suite --out artifacts/fixture_usdz --resolution 8 --no-validate-usdz` passed: 71 fixtures, 21 success, 50 partial, 0 error, 71 USDZ present.
+  - `PYTHONPATH=src python3 -m desmos2usd.validate.csv_fixture_report --expect-rows 66 --live-note ...` passed: 66 CSV rows, 17 success, 49 partial, 66 USDZ present.
+  - `PYTHONPATH=src:tests python3 -m unittest discover -s tests` passed: 91 tests, OK.
+  - `git diff --check` passed.
