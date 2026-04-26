@@ -47,7 +47,18 @@
     "stdout": "",
     "tool": "usdzip"
   },
-  "usdz_validation": null,
+  "usdz_validation": {
+    "command": [
+      "/usr/bin/usdchecker",
+      "--arkit",
+      "/Users/chek/repos/desmos2usd-carey/artifacts/fixture_usdz/[4B] 3D Diagram - S2-02 Group A.usdz"
+    ],
+    "cwd": null,
+    "returncode": 0,
+    "stderr": "",
+    "stdout": "\nValidation Result with no explicit variants set\nSuccess!\n",
+    "tool": "usdchecker"
+  },
   "valid": true,
   "validations": [
     {
@@ -174,20 +185,20 @@
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "14",
-      "face_count": 4,
+      "face_count": 20,
       "kind": "implicit_surface",
       "max_residual": null,
-      "point_count": 16,
+      "point_count": 80,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "15",
-      "face_count": 4,
+      "face_count": 20,
       "kind": "implicit_surface",
       "max_residual": null,
-      "point_count": 16,
+      "point_count": 80,
       "valid": true
     },
     {
@@ -664,20 +675,20 @@
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "64",
-      "face_count": 0,
+      "face_count": 24,
       "kind": "implicit_surface",
       "max_residual": null,
-      "point_count": 0,
+      "point_count": 96,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "68",
-      "face_count": 0,
+      "face_count": 24,
       "kind": "implicit_surface",
       "max_residual": null,
-      "point_count": 0,
+      "point_count": 96,
       "valid": true
     },
     {

@@ -41,17 +41,28 @@
     "stdout": "",
     "tool": "usdzip"
   },
-  "usdz_validation": null,
+  "usdz_validation": {
+    "command": [
+      "/usr/bin/usdchecker",
+      "--arkit",
+      "/Users/chek/repos/desmos2usd-carey/artifacts/fixture_usdz/[4B] 3D Diagram - S2-08 Group D.usdz"
+    ],
+    "cwd": null,
+    "returncode": 0,
+    "stderr": "",
+    "stdout": "\nValidation Result with no explicit variants set\nSuccess!\n",
+    "tool": "usdchecker"
+  },
   "valid": true,
   "validations": [
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "1",
-      "face_count": 24,
+      "face_count": 36,
       "kind": "implicit_surface",
       "max_residual": null,
-      "point_count": 96,
+      "point_count": 144,
       "valid": true
     },
     {
@@ -88,10 +99,10 @@
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "10",
-      "face_count": 11,
+      "face_count": 18,
       "kind": "implicit_surface",
       "max_residual": null,
-      "point_count": 44,
+      "point_count": 72,
       "valid": true
     },
     {
@@ -188,10 +199,10 @@
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "23",
-      "face_count": 0,
+      "face_count": 4,
       "kind": "implicit_surface",
       "max_residual": null,
-      "point_count": 0,
+      "point_count": 16,
       "valid": true
     },
     {
@@ -208,10 +219,10 @@
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "25",
-      "face_count": 0,
+      "face_count": 4,
       "kind": "implicit_surface",
       "max_residual": null,
-      "point_count": 0,
+      "point_count": 16,
       "valid": true
     },
     {
@@ -338,10 +349,10 @@
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "40",
-      "face_count": 0,
+      "face_count": 4,
       "kind": "implicit_surface",
       "max_residual": null,
-      "point_count": 0,
+      "point_count": 16,
       "valid": true
     },
     {
@@ -358,10 +369,10 @@
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "42",
-      "face_count": 0,
+      "face_count": 4,
       "kind": "implicit_surface",
       "max_residual": null,
-      "point_count": 0,
+      "point_count": 16,
       "valid": true
     },
     {
@@ -608,20 +619,20 @@
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "74",
-      "face_count": 0,
+      "face_count": 4,
       "kind": "implicit_surface",
       "max_residual": null,
-      "point_count": 0,
+      "point_count": 16,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "76",
-      "face_count": 0,
+      "face_count": 4,
       "kind": "implicit_surface",
       "max_residual": null,
-      "point_count": 0,
+      "point_count": 16,
       "valid": true
     },
     {

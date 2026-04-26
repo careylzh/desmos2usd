@@ -28,7 +28,18 @@
     "stdout": "",
     "tool": "usdzip"
   },
-  "usdz_validation": null,
+  "usdz_validation": {
+    "command": [
+      "/usr/bin/usdchecker",
+      "--arkit",
+      "/Users/chek/repos/desmos2usd-carey/artifacts/fixture_usdz/[4B] 3D Diagram - S2-07 Group A.usdz"
+    ],
+    "cwd": null,
+    "returncode": 0,
+    "stderr": "Coding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\n",
+    "stdout": "\nValidation Result with no explicit variants set\nSuccess!\n",
+    "tool": "usdchecker"
+  },
   "valid": true,
   "validations": [
     {
@@ -235,40 +246,40 @@
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "85",
-      "face_count": 169,
+      "face_count": 182,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 196,
+      "point_count": 210,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "86",
-      "face_count": 169,
+      "face_count": 182,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 196,
+      "point_count": 210,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "87",
-      "face_count": 169,
+      "face_count": 182,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 196,
+      "point_count": 210,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "88",
-      "face_count": 169,
+      "face_count": 182,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 196,
+      "point_count": 210,
       "valid": true
     },
     {
@@ -315,40 +326,40 @@
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "103",
-      "face_count": 169,
+      "face_count": 182,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 196,
+      "point_count": 210,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "104",
-      "face_count": 169,
+      "face_count": 182,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 196,
+      "point_count": 210,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "105",
-      "face_count": 169,
+      "face_count": 182,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 196,
+      "point_count": 210,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "106",
-      "face_count": 169,
+      "face_count": 182,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 196,
+      "point_count": 210,
       "valid": true
     },
     {
@@ -395,40 +406,40 @@
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "120",
-      "face_count": 169,
+      "face_count": 182,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 196,
+      "point_count": 210,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "121",
-      "face_count": 169,
+      "face_count": 182,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 196,
+      "point_count": 210,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "122",
-      "face_count": 169,
+      "face_count": 182,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 196,
+      "point_count": 210,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "123",
-      "face_count": 169,
+      "face_count": 182,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 196,
+      "point_count": 210,
       "valid": true
     },
     {
@@ -475,40 +486,40 @@
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "135",
-      "face_count": 169,
+      "face_count": 182,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 196,
+      "point_count": 210,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "136",
-      "face_count": 169,
+      "face_count": 182,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 196,
+      "point_count": 210,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "137",
-      "face_count": 169,
+      "face_count": 182,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 196,
+      "point_count": 210,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "138",
-      "face_count": 169,
+      "face_count": 182,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 196,
+      "point_count": 210,
       "valid": true
     },
     {

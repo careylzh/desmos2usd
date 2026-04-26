@@ -52,7 +52,7 @@
       "expr_id": "148",
       "kind": "inequality_region",
       "latex": "-90-30\\sqrt{1-\\frac{\\left(y-10\\right)^{2}}{70^{2}}}\\le x\\le-90\\left\\{z=0\\right\\}",
-      "reason": "Could not evaluate '-90-30\\\\sqrt{1-\\\\frac{(y-10)^{2}}{70^{2}}}' with variables {'y': -159.9999999999945, 'z': 0.0}: expected a nonnegative input, got -4.897959183673087"
+      "reason": "Could not evaluate '-90-30\\\\sqrt{1-\\\\frac{(y-10)^{2}}{70^{2}}}' with variables {'x': -112.5, 'y': -112.5, 'z': 0.0}: expected a nonnegative input, got -2.0625"
     },
     {
       "expr_id": "91",
@@ -251,7 +251,18 @@
     "stdout": "",
     "tool": "usdzip"
   },
-  "usdz_validation": null,
+  "usdz_validation": {
+    "command": [
+      "/usr/bin/usdchecker",
+      "--arkit",
+      "/Users/chek/repos/desmos2usd-carey/artifacts/fixture_usdz/[4B] 3D Diagram - S2-09 Group D.usdz"
+    ],
+    "cwd": null,
+    "returncode": 0,
+    "stderr": "",
+    "stdout": "\nValidation Result with no explicit variants set\nSuccess!\n",
+    "tool": "usdchecker"
+  },
   "valid": true,
   "validations": [
     {

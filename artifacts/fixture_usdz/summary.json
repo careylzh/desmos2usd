@@ -314,7 +314,18 @@
         "stdout": "",
         "tool": "usdzip"
       },
-      "usdz_validation": null,
+      "usdz_validation": {
+        "command": [
+          "/usr/bin/usdchecker",
+          "--arkit",
+          "/Users/chek/repos/desmos2usd-carey/artifacts/fixture_usdz/[4B] 3D Diagram - S2-01 Group A.usdz"
+        ],
+        "cwd": null,
+        "returncode": 0,
+        "stderr": "",
+        "stdout": "\nValidation Result with no explicit variants set\nSuccess!\n",
+        "tool": "usdchecker"
+      },
       "valid": true,
       "validations": [
         {
@@ -331,50 +342,50 @@
           "constraint_violation_count": 0,
           "errors": [],
           "expr_id": "241",
-          "face_count": 49,
+          "face_count": 225,
           "kind": "inequality_region",
           "max_residual": null,
-          "point_count": 64,
+          "point_count": 256,
           "valid": true
         },
         {
           "constraint_violation_count": 0,
           "errors": [],
           "expr_id": "239",
-          "face_count": 49,
+          "face_count": 225,
           "kind": "inequality_region",
           "max_residual": null,
-          "point_count": 64,
+          "point_count": 256,
           "valid": true
         },
         {
           "constraint_violation_count": 0,
           "errors": [],
           "expr_id": "237",
-          "face_count": 49,
+          "face_count": 225,
           "kind": "inequality_region",
           "max_residual": null,
-          "point_count": 64,
+          "point_count": 256,
           "valid": true
         },
         {
           "constraint_violation_count": 0,
           "errors": [],
           "expr_id": "238",
-          "face_count": 49,
+          "face_count": 225,
           "kind": "inequality_region",
           "max_residual": null,
-          "point_count": 64,
+          "point_count": 256,
           "valid": true
         },
         {
           "constraint_violation_count": 0,
           "errors": [],
           "expr_id": "240",
-          "face_count": 49,
+          "face_count": 225,
           "kind": "inequality_region",
           "max_residual": null,
-          "point_count": 64,
+          "point_count": 256,
           "valid": true
         },
         {
@@ -2165,7 +2176,18 @@
         "stdout": "",
         "tool": "usdzip"
       },
-      "usdz_validation": null,
+      "usdz_validation": {
+        "command": [
+          "/usr/bin/usdchecker",
+          "--arkit",
+          "/Users/chek/repos/desmos2usd-carey/artifacts/fixture_usdz/[4B] 3D Diagram - S2-01 Group B.usdz"
+        ],
+        "cwd": null,
+        "returncode": 0,
+        "stderr": "",
+        "stdout": "\nValidation Result with no explicit variants set\nSuccess!\n",
+        "tool": "usdchecker"
+      },
       "valid": true,
       "validations": [
         {
@@ -3408,7 +3430,18 @@
         "stdout": "",
         "tool": "usdzip"
       },
-      "usdz_validation": null,
+      "usdz_validation": {
+        "command": [
+          "/usr/bin/usdchecker",
+          "--arkit",
+          "/Users/chek/repos/desmos2usd-carey/artifacts/fixture_usdz/[4B] 3D Diagram - S2-01 Group C.usdz"
+        ],
+        "cwd": null,
+        "returncode": 0,
+        "stderr": "Coding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\n",
+        "stdout": "\nValidation Result with no explicit variants set\nSuccess!\n",
+        "tool": "usdchecker"
+      },
       "valid": true,
       "validations": [
         {
@@ -3627,7 +3660,18 @@
         "stdout": "",
         "tool": "usdzip"
       },
-      "usdz_validation": null,
+      "usdz_validation": {
+        "command": [
+          "/usr/bin/usdchecker",
+          "--arkit",
+          "/Users/chek/repos/desmos2usd-carey/artifacts/fixture_usdz/[4B] 3D Diagram - S2-01 Group D.usdz"
+        ],
+        "cwd": null,
+        "returncode": 0,
+        "stderr": "Coding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'BasisCurves' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'BasisCurves' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'BasisCurves' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'BasisCurves' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'BasisCurves' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'BasisCurves' type and apischemas.\n",
+        "stdout": "\nValidation Result with no explicit variants set\nSuccess!\n",
+        "tool": "usdchecker"
+      },
       "valid": true,
       "validations": [
         {
@@ -4027,87 +4071,98 @@
         "stdout": "",
         "tool": "usdzip"
       },
-      "usdz_validation": null,
+      "usdz_validation": {
+        "command": [
+          "/usr/bin/usdchecker",
+          "--arkit",
+          "/Users/chek/repos/desmos2usd-carey/artifacts/fixture_usdz/[4B] 3D Diagram - S2-01 Group E.usdz"
+        ],
+        "cwd": null,
+        "returncode": 0,
+        "stderr": "",
+        "stdout": "\nValidation Result with no explicit variants set\nSuccess!\n",
+        "tool": "usdchecker"
+      },
       "valid": true,
       "validations": [
         {
           "constraint_violation_count": 0,
           "errors": [],
           "expr_id": "87",
-          "face_count": 156,
+          "face_count": 168,
           "kind": "explicit_surface",
           "max_residual": 0.0,
-          "point_count": 196,
+          "point_count": 210,
           "valid": true
         },
         {
           "constraint_violation_count": 0,
           "errors": [],
           "expr_id": "90",
-          "face_count": 156,
+          "face_count": 168,
           "kind": "explicit_surface",
           "max_residual": 0.0,
-          "point_count": 196,
+          "point_count": 210,
           "valid": true
         },
         {
           "constraint_violation_count": 0,
           "errors": [],
           "expr_id": "44",
-          "face_count": 156,
+          "face_count": 168,
           "kind": "explicit_surface",
           "max_residual": 0.0,
-          "point_count": 196,
+          "point_count": 210,
           "valid": true
         },
         {
           "constraint_violation_count": 0,
           "errors": [],
           "expr_id": "45",
-          "face_count": 156,
+          "face_count": 168,
           "kind": "explicit_surface",
           "max_residual": 0.0,
-          "point_count": 196,
+          "point_count": 210,
           "valid": true
         },
         {
           "constraint_violation_count": 0,
           "errors": [],
           "expr_id": "8",
-          "face_count": 156,
+          "face_count": 168,
           "kind": "explicit_surface",
           "max_residual": 0.0,
-          "point_count": 196,
+          "point_count": 210,
           "valid": true
         },
         {
           "constraint_violation_count": 0,
           "errors": [],
           "expr_id": "75",
-          "face_count": 156,
+          "face_count": 168,
           "kind": "explicit_surface",
           "max_residual": 0.0,
-          "point_count": 196,
+          "point_count": 210,
           "valid": true
         },
         {
           "constraint_violation_count": 0,
           "errors": [],
           "expr_id": "99",
-          "face_count": 156,
+          "face_count": 168,
           "kind": "explicit_surface",
           "max_residual": 0.0,
-          "point_count": 196,
+          "point_count": 210,
           "valid": true
         },
         {
           "constraint_violation_count": 0,
           "errors": [],
           "expr_id": "102",
-          "face_count": 156,
+          "face_count": 168,
           "kind": "explicit_surface",
           "max_residual": 0.0,
-          "point_count": 196,
+          "point_count": 210,
           "valid": true
         },
         {
@@ -4325,7 +4380,18 @@
         "stdout": "",
         "tool": "usdzip"
       },
-      "usdz_validation": null,
+      "usdz_validation": {
+        "command": [
+          "/usr/bin/usdchecker",
+          "--arkit",
+          "/Users/chek/repos/desmos2usd-carey/artifacts/fixture_usdz/[4B] 3D Diagram - S2-01 Group F.usdz"
+        ],
+        "cwd": null,
+        "returncode": 0,
+        "stderr": "Coding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\n",
+        "stdout": "\nValidation Result with no explicit variants set\nSuccess!\n",
+        "tool": "usdchecker"
+      },
       "valid": true,
       "validations": [
         {
@@ -4493,7 +4559,18 @@
         "stdout": "",
         "tool": "usdzip"
       },
-      "usdz_validation": null,
+      "usdz_validation": {
+        "command": [
+          "/usr/bin/usdchecker",
+          "--arkit",
+          "/Users/chek/repos/desmos2usd-carey/artifacts/fixture_usdz/[4B] 3D Diagram - S2-01 Group G.usdz"
+        ],
+        "cwd": null,
+        "returncode": 0,
+        "stderr": "Coding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'BasisCurves' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'BasisCurves' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'BasisCurves' type and apischemas.\n",
+        "stdout": "\nValidation Result with no explicit variants set\nSuccess!\n",
+        "tool": "usdchecker"
+      },
       "valid": true,
       "validations": [
         {
@@ -5870,7 +5947,18 @@
         "stdout": "",
         "tool": "usdzip"
       },
-      "usdz_validation": null,
+      "usdz_validation": {
+        "command": [
+          "/usr/bin/usdchecker",
+          "--arkit",
+          "/Users/chek/repos/desmos2usd-carey/artifacts/fixture_usdz/[4B] 3D Diagram - S2-02 Group A.usdz"
+        ],
+        "cwd": null,
+        "returncode": 0,
+        "stderr": "",
+        "stdout": "\nValidation Result with no explicit variants set\nSuccess!\n",
+        "tool": "usdchecker"
+      },
       "valid": true,
       "validations": [
         {
@@ -5997,20 +6085,20 @@
           "constraint_violation_count": 0,
           "errors": [],
           "expr_id": "14",
-          "face_count": 4,
+          "face_count": 20,
           "kind": "implicit_surface",
           "max_residual": null,
-          "point_count": 16,
+          "point_count": 80,
           "valid": true
         },
         {
           "constraint_violation_count": 0,
           "errors": [],
           "expr_id": "15",
-          "face_count": 4,
+          "face_count": 20,
           "kind": "implicit_surface",
           "max_residual": null,
-          "point_count": 16,
+          "point_count": 80,
           "valid": true
         },
         {
@@ -6487,20 +6575,20 @@
           "constraint_violation_count": 0,
           "errors": [],
           "expr_id": "64",
-          "face_count": 0,
+          "face_count": 24,
           "kind": "implicit_surface",
           "max_residual": null,
-          "point_count": 0,
+          "point_count": 96,
           "valid": true
         },
         {
           "constraint_violation_count": 0,
           "errors": [],
           "expr_id": "68",
-          "face_count": 0,
+          "face_count": 24,
           "kind": "implicit_surface",
           "max_residual": null,
-          "point_count": 0,
+          "point_count": 96,
           "valid": true
         },
         {
@@ -6595,7 +6683,18 @@
         "stdout": "",
         "tool": "usdzip"
       },
-      "usdz_validation": null,
+      "usdz_validation": {
+        "command": [
+          "/usr/bin/usdchecker",
+          "--arkit",
+          "/Users/chek/repos/desmos2usd-carey/artifacts/fixture_usdz/[4B] 3D Diagram - S2-02 Group B.usdz"
+        ],
+        "cwd": null,
+        "returncode": 0,
+        "stderr": "Coding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\n",
+        "stdout": "\nValidation Result with no explicit variants set\nSuccess!\n",
+        "tool": "usdchecker"
+      },
       "valid": true,
       "validations": [
         {
@@ -6722,10 +6821,10 @@
           "constraint_violation_count": 0,
           "errors": [],
           "expr_id": "6",
-          "face_count": 6144,
+          "face_count": 121,
           "kind": "inequality_region",
           "max_residual": null,
-          "point_count": 8192,
+          "point_count": 256,
           "valid": true
         },
         {
@@ -7090,7 +7189,18 @@
         "stdout": "",
         "tool": "usdzip"
       },
-      "usdz_validation": null,
+      "usdz_validation": {
+        "command": [
+          "/usr/bin/usdchecker",
+          "--arkit",
+          "/Users/chek/repos/desmos2usd-carey/artifacts/fixture_usdz/[4B] 3D Diagram - S2-02 Group C.usdz"
+        ],
+        "cwd": null,
+        "returncode": 0,
+        "stderr": "",
+        "stdout": "\nValidation Result with no explicit variants set\nSuccess!\n",
+        "tool": "usdchecker"
+      },
       "valid": true,
       "validations": [
         {
@@ -8488,7 +8598,18 @@
         "stdout": "",
         "tool": "usdzip"
       },
-      "usdz_validation": null,
+      "usdz_validation": {
+        "command": [
+          "/usr/bin/usdchecker",
+          "--arkit",
+          "/Users/chek/repos/desmos2usd-carey/artifacts/fixture_usdz/[4B] 3D Diagram - S2-02 Group D.usdz"
+        ],
+        "cwd": null,
+        "returncode": 0,
+        "stderr": "",
+        "stdout": "\nValidation Result with no explicit variants set\nSuccess!\n",
+        "tool": "usdchecker"
+      },
       "valid": true,
       "validations": [
         {
@@ -9217,7 +9338,18 @@
         "stdout": "",
         "tool": "usdzip"
       },
-      "usdz_validation": null,
+      "usdz_validation": {
+        "command": [
+          "/usr/bin/usdchecker",
+          "--arkit",
+          "/Users/chek/repos/desmos2usd-carey/artifacts/fixture_usdz/[4B] 3D Diagram - S2-02 Group E.usdz"
+        ],
+        "cwd": null,
+        "returncode": 0,
+        "stderr": "",
+        "stdout": "\nValidation Result with no explicit variants set\nSuccess!\n",
+        "tool": "usdchecker"
+      },
       "valid": true,
       "validations": [
         {
@@ -9294,40 +9426,40 @@
           "constraint_violation_count": 0,
           "errors": [],
           "expr_id": "19",
-          "face_count": 4,
+          "face_count": 20,
           "kind": "implicit_surface",
           "max_residual": null,
-          "point_count": 16,
+          "point_count": 80,
           "valid": true
         },
         {
           "constraint_violation_count": 0,
           "errors": [],
           "expr_id": "38",
-          "face_count": 4,
+          "face_count": 20,
           "kind": "implicit_surface",
           "max_residual": null,
-          "point_count": 16,
+          "point_count": 80,
           "valid": true
         },
         {
           "constraint_violation_count": 0,
           "errors": [],
           "expr_id": "40",
-          "face_count": 4,
+          "face_count": 20,
           "kind": "implicit_surface",
           "max_residual": null,
-          "point_count": 16,
+          "point_count": 80,
           "valid": true
         },
         {
           "constraint_violation_count": 0,
           "errors": [],
           "expr_id": "39",
-          "face_count": 4,
+          "face_count": 20,
           "kind": "implicit_surface",
           "max_residual": null,
-          "point_count": 16,
+          "point_count": 80,
           "valid": true
         },
         {
@@ -10072,7 +10204,18 @@
         "stdout": "",
         "tool": "usdzip"
       },
-      "usdz_validation": null,
+      "usdz_validation": {
+        "command": [
+          "/usr/bin/usdchecker",
+          "--arkit",
+          "/Users/chek/repos/desmos2usd-carey/artifacts/fixture_usdz/[4B] 3D Diagram - S2-02 Group F.usdz"
+        ],
+        "cwd": null,
+        "returncode": 0,
+        "stderr": "Coding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\n",
+        "stdout": "\nValidation Result with no explicit variants set\nSuccess!\n",
+        "tool": "usdchecker"
+      },
       "valid": true,
       "validations": [
         {
@@ -10870,7 +11013,18 @@
         "stdout": "",
         "tool": "usdzip"
       },
-      "usdz_validation": null,
+      "usdz_validation": {
+        "command": [
+          "/usr/bin/usdchecker",
+          "--arkit",
+          "/Users/chek/repos/desmos2usd-carey/artifacts/fixture_usdz/[4B] 3D Diagram - S2-02 Group G.usdz"
+        ],
+        "cwd": null,
+        "returncode": 0,
+        "stderr": "Coding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\n",
+        "stdout": "\nValidation Result with no explicit variants set\nSuccess!\n",
+        "tool": "usdchecker"
+      },
       "valid": true,
       "validations": [
         {
@@ -11051,7 +11205,18 @@
         "stdout": "",
         "tool": "usdzip"
       },
-      "usdz_validation": null,
+      "usdz_validation": {
+        "command": [
+          "/usr/bin/usdchecker",
+          "--arkit",
+          "/Users/chek/repos/desmos2usd-carey/artifacts/fixture_usdz/[4B] 3D Diagram - S2-03 Group A.usdz"
+        ],
+        "cwd": null,
+        "returncode": 0,
+        "stderr": "Coding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\n",
+        "stdout": "\nValidation Result with no explicit variants set\nSuccess!\n",
+        "tool": "usdchecker"
+      },
       "valid": true,
       "validations": [
         {
@@ -12219,7 +12384,18 @@
         "stdout": "",
         "tool": "usdzip"
       },
-      "usdz_validation": null,
+      "usdz_validation": {
+        "command": [
+          "/usr/bin/usdchecker",
+          "--arkit",
+          "/Users/chek/repos/desmos2usd-carey/artifacts/fixture_usdz/[4B] 3D Diagram - S2-03 Group B.usdz"
+        ],
+        "cwd": null,
+        "returncode": 0,
+        "stderr": "Coding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\n",
+        "stdout": "\nValidation Result with no explicit variants set\nSuccess!\n",
+        "tool": "usdchecker"
+      },
       "valid": true,
       "validations": [
         {
@@ -12462,7 +12638,18 @@
         "stdout": "",
         "tool": "usdzip"
       },
-      "usdz_validation": null,
+      "usdz_validation": {
+        "command": [
+          "/usr/bin/usdchecker",
+          "--arkit",
+          "/Users/chek/repos/desmos2usd-carey/artifacts/fixture_usdz/[4B] 3D Diagram - S2-03 Group C.usdz"
+        ],
+        "cwd": null,
+        "returncode": 0,
+        "stderr": "",
+        "stdout": "\nValidation Result with no explicit variants set\nSuccess!\n",
+        "tool": "usdchecker"
+      },
       "valid": true,
       "validations": [
         {
@@ -14483,7 +14670,18 @@
         "stdout": "",
         "tool": "usdzip"
       },
-      "usdz_validation": null,
+      "usdz_validation": {
+        "command": [
+          "/usr/bin/usdchecker",
+          "--arkit",
+          "/Users/chek/repos/desmos2usd-carey/artifacts/fixture_usdz/[4B] 3D Diagram - S2-03 Group D.usdz"
+        ],
+        "cwd": null,
+        "returncode": 0,
+        "stderr": "",
+        "stdout": "\nValidation Result with no explicit variants set\nSuccess!\n",
+        "tool": "usdchecker"
+      },
       "valid": true,
       "validations": [
         {
@@ -14840,40 +15038,40 @@
           "constraint_violation_count": 0,
           "errors": [],
           "expr_id": "90",
-          "face_count": 0,
+          "face_count": 12,
           "kind": "implicit_surface",
           "max_residual": null,
-          "point_count": 0,
+          "point_count": 48,
           "valid": true
         },
         {
           "constraint_violation_count": 0,
           "errors": [],
           "expr_id": "195",
-          "face_count": 0,
+          "face_count": 12,
           "kind": "implicit_surface",
           "max_residual": null,
-          "point_count": 0,
+          "point_count": 48,
           "valid": true
         },
         {
           "constraint_violation_count": 0,
           "errors": [],
           "expr_id": "160",
-          "face_count": 0,
+          "face_count": 10,
           "kind": "implicit_surface",
           "max_residual": null,
-          "point_count": 0,
+          "point_count": 40,
           "valid": true
         },
         {
           "constraint_violation_count": 0,
           "errors": [],
           "expr_id": "196",
-          "face_count": 0,
+          "face_count": 10,
           "kind": "implicit_surface",
           "max_residual": null,
-          "point_count": 0,
+          "point_count": 40,
           "valid": true
         },
         {
@@ -17102,7 +17300,18 @@
         "stdout": "",
         "tool": "usdzip"
       },
-      "usdz_validation": null,
+      "usdz_validation": {
+        "command": [
+          "/usr/bin/usdchecker",
+          "--arkit",
+          "/Users/chek/repos/desmos2usd-carey/artifacts/fixture_usdz/[4B] 3D Diagram - S2-03 Group E.usdz"
+        ],
+        "cwd": null,
+        "returncode": 0,
+        "stderr": "Coding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\n",
+        "stdout": "\nValidation Result with no explicit variants set\nSuccess!\n",
+        "tool": "usdchecker"
+      },
       "valid": true,
       "validations": [
         {
@@ -18280,7 +18489,18 @@
         "stdout": "",
         "tool": "usdzip"
       },
-      "usdz_validation": null,
+      "usdz_validation": {
+        "command": [
+          "/usr/bin/usdchecker",
+          "--arkit",
+          "/Users/chek/repos/desmos2usd-carey/artifacts/fixture_usdz/[4B] 3D Diagram - S2-03 Group F.usdz"
+        ],
+        "cwd": null,
+        "returncode": 0,
+        "stderr": "",
+        "stdout": "\nValidation Result with no explicit variants set\nSuccess!\n",
+        "tool": "usdchecker"
+      },
       "valid": true,
       "validations": [
         {
@@ -18868,7 +19088,18 @@
         "stdout": "",
         "tool": "usdzip"
       },
-      "usdz_validation": null,
+      "usdz_validation": {
+        "command": [
+          "/usr/bin/usdchecker",
+          "--arkit",
+          "/Users/chek/repos/desmos2usd-carey/artifacts/fixture_usdz/[4B] 3D Diagram - S2-04 Group A.usdz"
+        ],
+        "cwd": null,
+        "returncode": 0,
+        "stderr": "",
+        "stdout": "\nValidation Result with no explicit variants set\nSuccess!\n",
+        "tool": "usdchecker"
+      },
       "valid": true,
       "validations": [
         {
@@ -19336,7 +19567,18 @@
         "stdout": "",
         "tool": "usdzip"
       },
-      "usdz_validation": null,
+      "usdz_validation": {
+        "command": [
+          "/usr/bin/usdchecker",
+          "--arkit",
+          "/Users/chek/repos/desmos2usd-carey/artifacts/fixture_usdz/[4B] 3D Diagram - S2-04 Group B.usdz"
+        ],
+        "cwd": null,
+        "returncode": 0,
+        "stderr": "",
+        "stdout": "\nValidation Result with no explicit variants set\nSuccess!\n",
+        "tool": "usdchecker"
+      },
       "valid": true,
       "validations": [
         {
@@ -20522,24 +20764,12 @@
       "fixture_path": "fixtures/states/[4B] 3D Diagram - S2-04 Group C.json",
       "graph_hash": null,
       "output": "artifacts/fixture_usdz/[4B] 3D Diagram - S2-04 Group C.usda",
-      "prim_count": 19,
+      "prim_count": 21,
       "renderable_expression_count": 22,
       "resolution": 12,
       "status": "partial",
       "title": "Desmos graph",
       "unsupported": [
-        {
-          "expr_id": "315",
-          "kind": "inequality_region",
-          "latex": "x^{2}+y^{2}\\le1.2^{2}\\left\\{z=0\\right\\}",
-          "reason": "Inequality region for 315 did not resolve to sampled cells"
-        },
-        {
-          "expr_id": "330",
-          "kind": "inequality_region",
-          "latex": "x^{2}+y^{2}\\le1.2^{2}\\left\\{z=0\\right\\}",
-          "reason": "Inequality region for 330 did not resolve to sampled cells"
-        },
         {
           "expr_id": "334",
           "kind": "inequality_region",
@@ -20547,7 +20777,7 @@
           "reason": "Inequality region for 334 did not resolve to sampled cells"
         }
       ],
-      "unsupported_count": 3,
+      "unsupported_count": 1,
       "usda_exists": true,
       "usdz_exists": true,
       "usdz_output": "artifacts/fixture_usdz/[4B] 3D Diagram - S2-04 Group C.usdz",
@@ -20563,9 +20793,30 @@
         "stdout": "",
         "tool": "usdzip"
       },
-      "usdz_validation": null,
+      "usdz_validation": {
+        "command": [
+          "/usr/bin/usdchecker",
+          "--arkit",
+          "/Users/chek/repos/desmos2usd-carey/artifacts/fixture_usdz/[4B] 3D Diagram - S2-04 Group C.usdz"
+        ],
+        "cwd": null,
+        "returncode": 0,
+        "stderr": "",
+        "stdout": "\nValidation Result with no explicit variants set\nSuccess!\n",
+        "tool": "usdchecker"
+      },
       "valid": true,
       "validations": [
+        {
+          "constraint_violation_count": 0,
+          "errors": [],
+          "expr_id": "315",
+          "face_count": 113,
+          "kind": "inequality_region",
+          "max_residual": null,
+          "point_count": 256,
+          "valid": true
+        },
         {
           "constraint_violation_count": 0,
           "errors": [],
@@ -20664,6 +20915,16 @@
           "kind": "implicit_surface",
           "max_residual": null,
           "point_count": 0,
+          "valid": true
+        },
+        {
+          "constraint_violation_count": 0,
+          "errors": [],
+          "expr_id": "330",
+          "face_count": 113,
+          "kind": "inequality_region",
+          "max_residual": null,
+          "point_count": 256,
           "valid": true
         },
         {
@@ -20828,7 +21089,18 @@
         "stdout": "",
         "tool": "usdzip"
       },
-      "usdz_validation": null,
+      "usdz_validation": {
+        "command": [
+          "/usr/bin/usdchecker",
+          "--arkit",
+          "/Users/chek/repos/desmos2usd-carey/artifacts/fixture_usdz/[4B] 3D Diagram - S2-04 Group D.usdz"
+        ],
+        "cwd": null,
+        "returncode": 0,
+        "stderr": "",
+        "stdout": "\nValidation Result with no explicit variants set\nSuccess!\n",
+        "tool": "usdchecker"
+      },
       "valid": true,
       "validations": [
         {
@@ -21096,87 +21368,98 @@
         "stdout": "",
         "tool": "usdzip"
       },
-      "usdz_validation": null,
+      "usdz_validation": {
+        "command": [
+          "/usr/bin/usdchecker",
+          "--arkit",
+          "/Users/chek/repos/desmos2usd-carey/artifacts/fixture_usdz/[4B] 3D Diagram - S2-04 Group E.usdz"
+        ],
+        "cwd": null,
+        "returncode": 0,
+        "stderr": "Coding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\n",
+        "stdout": "\nValidation Result with no explicit variants set\nSuccess!\n",
+        "tool": "usdchecker"
+      },
       "valid": true,
       "validations": [
         {
           "constraint_violation_count": 0,
           "errors": [],
           "expr_id": "1",
-          "face_count": 0,
+          "face_count": 14,
           "kind": "implicit_surface",
           "max_residual": null,
-          "point_count": 0,
+          "point_count": 56,
           "valid": true
         },
         {
           "constraint_violation_count": 0,
           "errors": [],
           "expr_id": "4",
-          "face_count": 0,
+          "face_count": 12,
           "kind": "implicit_surface",
           "max_residual": null,
-          "point_count": 0,
+          "point_count": 48,
           "valid": true
         },
         {
           "constraint_violation_count": 0,
           "errors": [],
           "expr_id": "6",
-          "face_count": 0,
+          "face_count": 10,
           "kind": "implicit_surface",
           "max_residual": null,
-          "point_count": 0,
+          "point_count": 40,
           "valid": true
         },
         {
           "constraint_violation_count": 0,
           "errors": [],
           "expr_id": "7",
-          "face_count": 0,
+          "face_count": 8,
           "kind": "implicit_surface",
           "max_residual": null,
-          "point_count": 0,
+          "point_count": 32,
           "valid": true
         },
         {
           "constraint_violation_count": 0,
           "errors": [],
           "expr_id": "22",
-          "face_count": 0,
+          "face_count": 14,
           "kind": "implicit_surface",
           "max_residual": null,
-          "point_count": 0,
+          "point_count": 56,
           "valid": true
         },
         {
           "constraint_violation_count": 0,
           "errors": [],
           "expr_id": "23",
-          "face_count": 0,
+          "face_count": 10,
           "kind": "implicit_surface",
           "max_residual": null,
-          "point_count": 0,
+          "point_count": 40,
           "valid": true
         },
         {
           "constraint_violation_count": 0,
           "errors": [],
           "expr_id": "24",
-          "face_count": 0,
+          "face_count": 8,
           "kind": "implicit_surface",
           "max_residual": null,
-          "point_count": 0,
+          "point_count": 32,
           "valid": true
         },
         {
           "constraint_violation_count": 0,
           "errors": [],
           "expr_id": "25",
-          "face_count": 0,
+          "face_count": 8,
           "kind": "implicit_surface",
           "max_residual": null,
-          "point_count": 0,
+          "point_count": 32,
           "valid": true
         },
         {
@@ -21369,7 +21652,18 @@
         "stdout": "",
         "tool": "usdzip"
       },
-      "usdz_validation": null,
+      "usdz_validation": {
+        "command": [
+          "/usr/bin/usdchecker",
+          "--arkit",
+          "/Users/chek/repos/desmos2usd-carey/artifacts/fixture_usdz/[4B] 3D Diagram - S2-04 Group F.usdz"
+        ],
+        "cwd": null,
+        "returncode": 0,
+        "stderr": "",
+        "stdout": "\nValidation Result with no explicit variants set\nSuccess!\n",
+        "tool": "usdchecker"
+      },
       "valid": true,
       "validations": [
         {
@@ -22485,7 +22779,7 @@
       "fixture_path": "fixtures/states/[4B] 3D Diagram - S2-04 Group G.json",
       "graph_hash": null,
       "output": "artifacts/fixture_usdz/[4B] 3D Diagram - S2-04 Group G.usda",
-      "prim_count": 39,
+      "prim_count": 44,
       "renderable_expression_count": 80,
       "resolution": 12,
       "status": "partial",
@@ -22706,39 +23000,9 @@
           "kind": "explicit_surface",
           "latex": "x=\\frac{z}{\\infty}-60\\ \\left\\{70>z>10\\right\\}\\left\\{15<y<18\\right\\}",
           "reason": "Could not evaluate '\\\\frac{z}{\\\\infty}-60' with variables {'y': 15.0, 'z': 10.0}: name 'n' is not defined"
-        },
-        {
-          "expr_id": "177",
-          "kind": "inequality_region",
-          "latex": "15^{2}\\le x^{2}+\\left(z-70\\right)^{2}\\le18^{2}\\left\\{y=60\\right\\}\\left\\{z\\ge70\\right\\}",
-          "reason": "Inequality region for 177 did not resolve to sampled cells"
-        },
-        {
-          "expr_id": "178",
-          "kind": "inequality_region",
-          "latex": "15^{2}\\le y^{2}+\\left(z-70\\right)^{2}\\le18^{2}\\left\\{x=60\\right\\}\\left\\{z\\ge70\\right\\}",
-          "reason": "Inequality region for 178 did not resolve to sampled cells"
-        },
-        {
-          "expr_id": "179",
-          "kind": "inequality_region",
-          "latex": "15^{2}\\le y^{2}+\\left(z-70\\right)^{2}\\le18^{2}\\left\\{x=60\\right\\}\\left\\{z\\ge70\\right\\}",
-          "reason": "Inequality region for 179 did not resolve to sampled cells"
-        },
-        {
-          "expr_id": "194",
-          "kind": "inequality_region",
-          "latex": "15^{2}\\le y^{2}+\\left(z-70\\right)^{2}\\le18^{2}\\left\\{x=-60\\right\\}\\left\\{z\\ge70\\right\\}",
-          "reason": "Inequality region for 194 did not resolve to sampled cells"
-        },
-        {
-          "expr_id": "195",
-          "kind": "inequality_region",
-          "latex": "15^{2}\\le x^{2}+\\left(z-70\\right)^{2}\\le18^{2}\\left\\{y=-60\\right\\}\\left\\{z\\ge70\\right\\}",
-          "reason": "Inequality region for 195 did not resolve to sampled cells"
         }
       ],
-      "unsupported_count": 41,
+      "unsupported_count": 36,
       "usda_exists": true,
       "usdz_exists": true,
       "usdz_output": "artifacts/fixture_usdz/[4B] 3D Diagram - S2-04 Group G.usdz",
@@ -22754,7 +23018,18 @@
         "stdout": "",
         "tool": "usdzip"
       },
-      "usdz_validation": null,
+      "usdz_validation": {
+        "command": [
+          "/usr/bin/usdchecker",
+          "--arkit",
+          "/Users/chek/repos/desmos2usd-carey/artifacts/fixture_usdz/[4B] 3D Diagram - S2-04 Group G.usdz"
+        ],
+        "cwd": null,
+        "returncode": 0,
+        "stderr": "",
+        "stdout": "\nValidation Result with no explicit variants set\nSuccess!\n",
+        "tool": "usdchecker"
+      },
       "valid": true,
       "validations": [
         {
@@ -22901,40 +23176,40 @@
           "constraint_violation_count": 0,
           "errors": [],
           "expr_id": "27",
-          "face_count": 4,
+          "face_count": 12,
           "kind": "implicit_surface",
           "max_residual": null,
-          "point_count": 16,
+          "point_count": 48,
           "valid": true
         },
         {
           "constraint_violation_count": 0,
           "errors": [],
           "expr_id": "32",
-          "face_count": 4,
+          "face_count": 10,
           "kind": "implicit_surface",
           "max_residual": null,
-          "point_count": 16,
+          "point_count": 40,
           "valid": true
         },
         {
           "constraint_violation_count": 0,
           "errors": [],
           "expr_id": "33",
-          "face_count": 4,
+          "face_count": 10,
           "kind": "implicit_surface",
           "max_residual": null,
-          "point_count": 16,
+          "point_count": 40,
           "valid": true
         },
         {
           "constraint_violation_count": 0,
           "errors": [],
           "expr_id": "34",
-          "face_count": 4,
+          "face_count": 8,
           "kind": "implicit_surface",
           "max_residual": null,
-          "point_count": 16,
+          "point_count": 32,
           "valid": true
         },
         {
@@ -22961,10 +23236,10 @@
           "constraint_violation_count": 0,
           "errors": [],
           "expr_id": "39",
-          "face_count": 0,
+          "face_count": 4,
           "kind": "implicit_surface",
           "max_residual": null,
-          "point_count": 0,
+          "point_count": 16,
           "valid": true
         },
         {
@@ -23011,10 +23286,10 @@
           "constraint_violation_count": 0,
           "errors": [],
           "expr_id": "44",
-          "face_count": 0,
+          "face_count": 4,
           "kind": "implicit_surface",
           "max_residual": null,
-          "point_count": 0,
+          "point_count": 16,
           "valid": true
         },
         {
@@ -23081,56 +23356,46 @@
           "constraint_violation_count": 0,
           "errors": [],
           "expr_id": "83",
-          "face_count": 0,
+          "face_count": 16,
           "kind": "implicit_surface",
           "max_residual": null,
-          "point_count": 0,
+          "point_count": 64,
           "valid": true
         },
         {
           "constraint_violation_count": 0,
           "errors": [],
           "expr_id": "87",
-          "face_count": 0,
+          "face_count": 16,
           "kind": "implicit_surface",
           "max_residual": null,
-          "point_count": 0,
+          "point_count": 64,
           "valid": true
         },
         {
           "constraint_violation_count": 0,
           "errors": [],
           "expr_id": "88",
-          "face_count": 0,
+          "face_count": 16,
           "kind": "implicit_surface",
           "max_residual": null,
-          "point_count": 0,
+          "point_count": 64,
           "valid": true
         },
         {
           "constraint_violation_count": 0,
           "errors": [],
           "expr_id": "89",
-          "face_count": 0,
+          "face_count": 16,
           "kind": "implicit_surface",
           "max_residual": null,
-          "point_count": 0,
+          "point_count": 64,
           "valid": true
         },
         {
           "constraint_violation_count": 0,
           "errors": [],
           "expr_id": "90",
-          "face_count": 4,
-          "kind": "implicit_surface",
-          "max_residual": null,
-          "point_count": 16,
-          "valid": true
-        },
-        {
-          "constraint_violation_count": 0,
-          "errors": [],
-          "expr_id": "127",
           "face_count": 8,
           "kind": "implicit_surface",
           "max_residual": null,
@@ -23140,11 +23405,71 @@
         {
           "constraint_violation_count": 0,
           "errors": [],
-          "expr_id": "181",
-          "face_count": 0,
+          "expr_id": "127",
+          "face_count": 28,
           "kind": "implicit_surface",
           "max_residual": null,
-          "point_count": 0,
+          "point_count": 112,
+          "valid": true
+        },
+        {
+          "constraint_violation_count": 0,
+          "errors": [],
+          "expr_id": "177",
+          "face_count": 1,
+          "kind": "inequality_region",
+          "max_residual": null,
+          "point_count": 256,
+          "valid": true
+        },
+        {
+          "constraint_violation_count": 0,
+          "errors": [],
+          "expr_id": "178",
+          "face_count": 1,
+          "kind": "inequality_region",
+          "max_residual": null,
+          "point_count": 256,
+          "valid": true
+        },
+        {
+          "constraint_violation_count": 0,
+          "errors": [],
+          "expr_id": "179",
+          "face_count": 1,
+          "kind": "inequality_region",
+          "max_residual": null,
+          "point_count": 256,
+          "valid": true
+        },
+        {
+          "constraint_violation_count": 0,
+          "errors": [],
+          "expr_id": "181",
+          "face_count": 16,
+          "kind": "implicit_surface",
+          "max_residual": null,
+          "point_count": 64,
+          "valid": true
+        },
+        {
+          "constraint_violation_count": 0,
+          "errors": [],
+          "expr_id": "194",
+          "face_count": 1,
+          "kind": "inequality_region",
+          "max_residual": null,
+          "point_count": 256,
+          "valid": true
+        },
+        {
+          "constraint_violation_count": 0,
+          "errors": [],
+          "expr_id": "195",
+          "face_count": 1,
+          "kind": "inequality_region",
+          "max_residual": null,
+          "point_count": 256,
           "valid": true
         }
       ],
@@ -23212,7 +23537,18 @@
         "stdout": "",
         "tool": "usdzip"
       },
-      "usdz_validation": null,
+      "usdz_validation": {
+        "command": [
+          "/usr/bin/usdchecker",
+          "--arkit",
+          "/Users/chek/repos/desmos2usd-carey/artifacts/fixture_usdz/[4B] 3D Diagram - S2-05 Group A.usdz"
+        ],
+        "cwd": null,
+        "returncode": 0,
+        "stderr": "Coding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\n",
+        "stdout": "\nValidation Result with no explicit variants set\nSuccess!\n",
+        "tool": "usdchecker"
+      },
       "valid": true,
       "validations": [
         {
@@ -23343,7 +23679,18 @@
         "stdout": "",
         "tool": "usdzip"
       },
-      "usdz_validation": null,
+      "usdz_validation": {
+        "command": [
+          "/usr/bin/usdchecker",
+          "--arkit",
+          "/Users/chek/repos/desmos2usd-carey/artifacts/fixture_usdz/[4B] 3D Diagram - S2-05 Group B.usdz"
+        ],
+        "cwd": null,
+        "returncode": 0,
+        "stderr": "Coding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\n",
+        "stdout": "\nValidation Result with no explicit variants set\nSuccess!\n",
+        "tool": "usdchecker"
+      },
       "valid": true,
       "validations": [
         {
@@ -23822,7 +24169,18 @@
         "stdout": "",
         "tool": "usdzip"
       },
-      "usdz_validation": null,
+      "usdz_validation": {
+        "command": [
+          "/usr/bin/usdchecker",
+          "--arkit",
+          "/Users/chek/repos/desmos2usd-carey/artifacts/fixture_usdz/[4B] 3D Diagram - S2-05 Group C.usdz"
+        ],
+        "cwd": null,
+        "returncode": 0,
+        "stderr": "",
+        "stdout": "\nValidation Result with no explicit variants set\nSuccess!\n",
+        "tool": "usdchecker"
+      },
       "valid": true,
       "validations": [
         {
@@ -24190,7 +24548,18 @@
         "stdout": "",
         "tool": "usdzip"
       },
-      "usdz_validation": null,
+      "usdz_validation": {
+        "command": [
+          "/usr/bin/usdchecker",
+          "--arkit",
+          "/Users/chek/repos/desmos2usd-carey/artifacts/fixture_usdz/[4B] 3D Diagram - S2-05 Group D.usdz"
+        ],
+        "cwd": null,
+        "returncode": 0,
+        "stderr": "Coding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'BasisCurves' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'BasisCurves' type and apischemas.\n",
+        "stdout": "\nValidation Result with no explicit variants set\nSuccess!\n",
+        "tool": "usdchecker"
+      },
       "valid": true,
       "validations": [
         {
@@ -25758,7 +26127,18 @@
         "stdout": "",
         "tool": "usdzip"
       },
-      "usdz_validation": null,
+      "usdz_validation": {
+        "command": [
+          "/usr/bin/usdchecker",
+          "--arkit",
+          "/Users/chek/repos/desmos2usd-carey/artifacts/fixture_usdz/[4B] 3D Diagram - S2-05 Group E.usdz"
+        ],
+        "cwd": null,
+        "returncode": 0,
+        "stderr": "",
+        "stdout": "\nValidation Result with no explicit variants set\nSuccess!\n",
+        "tool": "usdchecker"
+      },
       "valid": true,
       "validations": [
         {
@@ -25945,10 +26325,10 @@
           "constraint_violation_count": 0,
           "errors": [],
           "expr_id": "1073",
-          "face_count": 126,
+          "face_count": 225,
           "kind": "inequality_region",
           "max_residual": null,
-          "point_count": 128,
+          "point_count": 256,
           "valid": true
         },
         {
@@ -26517,7 +26897,18 @@
         "stdout": "",
         "tool": "usdzip"
       },
-      "usdz_validation": null,
+      "usdz_validation": {
+        "command": [
+          "/usr/bin/usdchecker",
+          "--arkit",
+          "/Users/chek/repos/desmos2usd-carey/artifacts/fixture_usdz/[4B] 3D Diagram - S2-05 Group F.usdz"
+        ],
+        "cwd": null,
+        "returncode": 0,
+        "stderr": "",
+        "stdout": "\nValidation Result with no explicit variants set\nSuccess!\n",
+        "tool": "usdchecker"
+      },
       "valid": true,
       "validations": [
         {
@@ -26594,40 +26985,40 @@
           "constraint_violation_count": 0,
           "errors": [],
           "expr_id": "15",
-          "face_count": 4512,
+          "face_count": 121,
           "kind": "inequality_region",
           "max_residual": null,
-          "point_count": 6016,
+          "point_count": 256,
           "valid": true
         },
         {
           "constraint_violation_count": 0,
           "errors": [],
           "expr_id": "41",
-          "face_count": 49,
+          "face_count": 225,
           "kind": "inequality_region",
           "max_residual": null,
-          "point_count": 64,
+          "point_count": 256,
           "valid": true
         },
         {
           "constraint_violation_count": 0,
           "errors": [],
           "expr_id": "36",
-          "face_count": 49,
+          "face_count": 225,
           "kind": "inequality_region",
           "max_residual": null,
-          "point_count": 64,
+          "point_count": 256,
           "valid": true
         },
         {
           "constraint_violation_count": 0,
           "errors": [],
           "expr_id": "42",
-          "face_count": 49,
+          "face_count": 225,
           "kind": "inequality_region",
           "max_residual": null,
-          "point_count": 64,
+          "point_count": 256,
           "valid": true
         }
       ],
@@ -26942,7 +27333,18 @@
         "stdout": "",
         "tool": "usdzip"
       },
-      "usdz_validation": null,
+      "usdz_validation": {
+        "command": [
+          "/usr/bin/usdchecker",
+          "--arkit",
+          "/Users/chek/repos/desmos2usd-carey/artifacts/fixture_usdz/[4B] 3D Diagram - S2-06 Group A.usdz"
+        ],
+        "cwd": null,
+        "returncode": 0,
+        "stderr": "Coding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\n",
+        "stdout": "\nValidation Result with no explicit variants set\nSuccess!\n",
+        "tool": "usdchecker"
+      },
       "valid": true,
       "validations": [
         {
@@ -31933,7 +32335,18 @@
         "stdout": "",
         "tool": "usdzip"
       },
-      "usdz_validation": null,
+      "usdz_validation": {
+        "command": [
+          "/usr/bin/usdchecker",
+          "--arkit",
+          "/Users/chek/repos/desmos2usd-carey/artifacts/fixture_usdz/[4B] 3D Diagram - S2-06 Group B.usdz"
+        ],
+        "cwd": null,
+        "returncode": 0,
+        "stderr": "",
+        "stdout": "\nValidation Result with no explicit variants set\nSuccess!\n",
+        "tool": "usdchecker"
+      },
       "valid": true,
       "validations": [
         {
@@ -33961,7 +34374,18 @@
         "stdout": "",
         "tool": "usdzip"
       },
-      "usdz_validation": null,
+      "usdz_validation": {
+        "command": [
+          "/usr/bin/usdchecker",
+          "--arkit",
+          "/Users/chek/repos/desmos2usd-carey/artifacts/fixture_usdz/[4B] 3D Diagram - S2-06 Group C.usdz"
+        ],
+        "cwd": null,
+        "returncode": 0,
+        "stderr": "Coding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\n",
+        "stdout": "\nValidation Result with no explicit variants set\nSuccess!\n",
+        "tool": "usdchecker"
+      },
       "valid": true,
       "validations": [
         {
@@ -34469,7 +34893,18 @@
         "stdout": "",
         "tool": "usdzip"
       },
-      "usdz_validation": null,
+      "usdz_validation": {
+        "command": [
+          "/usr/bin/usdchecker",
+          "--arkit",
+          "/Users/chek/repos/desmos2usd-carey/artifacts/fixture_usdz/[4B] 3D Diagram - S2-06 Group D.usdz"
+        ],
+        "cwd": null,
+        "returncode": 0,
+        "stderr": "Coding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\n",
+        "stdout": "\nValidation Result with no explicit variants set\nSuccess!\n",
+        "tool": "usdchecker"
+      },
       "valid": true,
       "validations": [
         {
@@ -36929,43 +37364,43 @@
           "expr_id": "214",
           "kind": "inequality_region",
           "latex": "e^{-\\frac{\\left(x-\\operatorname{random}\\left(1000\\right)\\cdot1000+500\\right)^{2}+\\left(y-\\operatorname{random}\\left(1000\\right)\\cdot600+300\\right)^{2}}{1.1}}>0.0000001\\left\\{-\\sqrt{100000\\left(1-\\frac{x^{2}}{200000}\\right)}<y<\\sqrt{100000\\left(1-\\frac{x^{2}}{200000}\\right)}\\right\\}",
-          "reason": "Could not evaluate 'e^{-\\\\frac{(x-\\\\operatorname{random}(1000)\\\\cdot1000+500)^{2}+(y-\\\\operatorname{random}(1000)\\\\cdot600+300)^{2}}{1.1}}' with variables {'x': -562.4523117311907, 'y': -597.2364941883797, 'z': -588.2531271137204}: name 'r' is not defined"
+          "reason": "Could not evaluate 'e^{-\\\\frac{(x-\\\\operatorname{random}(1000)\\\\cdot1000+500)^{2}+(y-\\\\operatorname{random}(1000)\\\\cdot600+300)^{2}}{1.1}}' with variables {'x': -250000.0, 'y': -250000.0, 'z': 0.0}: name 'r' is not defined"
         },
         {
           "expr_id": "217",
           "kind": "inequality_region",
           "latex": "e^{-\\frac{\\left(x-\\operatorname{random}\\left(1000\\right)\\cdot1000+500\\right)^{2}+\\left(y-\\operatorname{random}\\left(1000\\right)\\cdot600+300\\right)^{2}}{1.1}}>0.0000001\\left\\{-\\sqrt{100000\\left(1-\\frac{x^{2}}{200000}\\right)}<y<\\sqrt{100000\\left(1-\\frac{x^{2}}{200000}\\right)}\\right\\}",
-          "reason": "Could not evaluate 'e^{-\\\\frac{(x-\\\\operatorname{random}(1000)\\\\cdot1000+500)^{2}+(y-\\\\operatorname{random}(1000)\\\\cdot600+300)^{2}}{1.1}}' with variables {'x': -562.4523117311907, 'y': -597.2364941883797, 'z': -588.2531271137204}: name 'r' is not defined"
+          "reason": "Could not evaluate 'e^{-\\\\frac{(x-\\\\operatorname{random}(1000)\\\\cdot1000+500)^{2}+(y-\\\\operatorname{random}(1000)\\\\cdot600+300)^{2}}{1.1}}' with variables {'x': -250000.0, 'y': -250000.0, 'z': 0.0}: name 'r' is not defined"
         },
         {
           "expr_id": "218",
           "kind": "inequality_region",
           "latex": "e^{-\\frac{\\left(x-\\operatorname{random}\\left(1000\\right)\\cdot1000+500\\right)^{2}+\\left(y-\\operatorname{random}\\left(1000\\right)\\cdot600+300\\right)^{2}}{1.1}}>0.0000001\\left\\{-\\sqrt{100000\\left(1-\\frac{x^{2}}{200000}\\right)}<y<\\sqrt{100000\\left(1-\\frac{x^{2}}{200000}\\right)}\\right\\}",
-          "reason": "Could not evaluate 'e^{-\\\\frac{(x-\\\\operatorname{random}(1000)\\\\cdot1000+500)^{2}+(y-\\\\operatorname{random}(1000)\\\\cdot600+300)^{2}}{1.1}}' with variables {'x': -562.4523117311907, 'y': -597.2364941883797, 'z': -588.2531271137204}: name 'r' is not defined"
+          "reason": "Could not evaluate 'e^{-\\\\frac{(x-\\\\operatorname{random}(1000)\\\\cdot1000+500)^{2}+(y-\\\\operatorname{random}(1000)\\\\cdot600+300)^{2}}{1.1}}' with variables {'x': -250000.0, 'y': -250000.0, 'z': 0.0}: name 'r' is not defined"
         },
         {
           "expr_id": "222",
           "kind": "inequality_region",
           "latex": "e^{-\\frac{\\left(x-\\operatorname{random}\\left(1000\\right)\\cdot1000+500\\right)^{2}+\\left(y-\\operatorname{random}\\left(1000\\right)\\cdot600+300\\right)^{2}}{1.1}}>0.0000001\\left\\{-\\sqrt{100000\\left(1-\\frac{x^{2}}{200000}\\right)}<y<\\sqrt{100000\\left(1-\\frac{x^{2}}{200000}\\right)}\\right\\}",
-          "reason": "Could not evaluate 'e^{-\\\\frac{(x-\\\\operatorname{random}(1000)\\\\cdot1000+500)^{2}+(y-\\\\operatorname{random}(1000)\\\\cdot600+300)^{2}}{1.1}}' with variables {'x': -562.4523117311907, 'y': -597.2364941883797, 'z': -588.2531271137204}: name 'r' is not defined"
+          "reason": "Could not evaluate 'e^{-\\\\frac{(x-\\\\operatorname{random}(1000)\\\\cdot1000+500)^{2}+(y-\\\\operatorname{random}(1000)\\\\cdot600+300)^{2}}{1.1}}' with variables {'x': -250000.0, 'y': -250000.0, 'z': 0.0}: name 'r' is not defined"
         },
         {
           "expr_id": "230",
           "kind": "inequality_region",
           "latex": "e^{-\\frac{\\left(x-\\operatorname{random}\\left(1000\\right)\\cdot1000+500\\right)^{2}+\\left(y-\\operatorname{random}\\left(1000\\right)\\cdot600+300\\right)^{2}}{1.1}}>0.0000001\\left\\{-\\sqrt{100000\\left(1-\\frac{x^{2}}{200000}\\right)}<y<\\sqrt{100000\\left(1-\\frac{x^{2}}{200000}\\right)}\\right\\}",
-          "reason": "Could not evaluate 'e^{-\\\\frac{(x-\\\\operatorname{random}(1000)\\\\cdot1000+500)^{2}+(y-\\\\operatorname{random}(1000)\\\\cdot600+300)^{2}}{1.1}}' with variables {'x': -562.4523117311907, 'y': -597.2364941883797, 'z': -588.2531271137204}: name 'r' is not defined"
+          "reason": "Could not evaluate 'e^{-\\\\frac{(x-\\\\operatorname{random}(1000)\\\\cdot1000+500)^{2}+(y-\\\\operatorname{random}(1000)\\\\cdot600+300)^{2}}{1.1}}' with variables {'x': -250000.0, 'y': -250000.0, 'z': 0.0}: name 'r' is not defined"
         },
         {
           "expr_id": "248",
           "kind": "inequality_region",
           "latex": "e^{-\\frac{\\left(x-\\operatorname{random}\\left(1000\\right)\\cdot1000+500\\right)^{2}+\\left(y-\\operatorname{random}\\left(1000\\right)\\cdot600+300\\right)^{2}}{1.1}}>0.0000001\\left\\{-\\sqrt{100000\\left(1-\\frac{x^{2}}{200000}\\right)}<y<\\sqrt{100000\\left(1-\\frac{x^{2}}{200000}\\right)}\\right\\}",
-          "reason": "Could not evaluate 'e^{-\\\\frac{(x-\\\\operatorname{random}(1000)\\\\cdot1000+500)^{2}+(y-\\\\operatorname{random}(1000)\\\\cdot600+300)^{2}}{1.1}}' with variables {'x': -562.4523117311907, 'y': -597.2364941883797, 'z': -588.2531271137204}: name 'r' is not defined"
+          "reason": "Could not evaluate 'e^{-\\\\frac{(x-\\\\operatorname{random}(1000)\\\\cdot1000+500)^{2}+(y-\\\\operatorname{random}(1000)\\\\cdot600+300)^{2}}{1.1}}' with variables {'x': -250000.0, 'y': -250000.0, 'z': 0.0}: name 'r' is not defined"
         },
         {
           "expr_id": "246",
           "kind": "inequality_region",
           "latex": "e^{-\\frac{\\left(x-\\operatorname{random}\\left(10000\\right)\\cdot1000+500\\right)^{2}+\\left(y-\\operatorname{random}\\left(10000\\right)\\cdot600+300\\right)^{2}}{1.1}}>0.0000001\\left\\{-\\sqrt{100000\\left(1-\\frac{x^{2}}{200000}\\right)}<y<\\sqrt{100000\\left(1-\\frac{x^{2}}{200000}\\right)}\\right\\}",
-          "reason": "Could not evaluate 'e^{-\\\\frac{(x-\\\\operatorname{random}(10000)\\\\cdot1000+500)^{2}+(y-\\\\operatorname{random}(10000)\\\\cdot600+300)^{2}}{1.1}}' with variables {'x': -562.4523117311907, 'y': -597.2364941883797, 'z': -588.2531271137204}: name 'r' is not defined"
+          "reason": "Could not evaluate 'e^{-\\\\frac{(x-\\\\operatorname{random}(10000)\\\\cdot1000+500)^{2}+(y-\\\\operatorname{random}(10000)\\\\cdot600+300)^{2}}{1.1}}' with variables {'x': -250000.0, 'y': -250000.0, 'z': 0.0}: name 'r' is not defined"
         }
       ],
       "unsupported_count": 321,
@@ -36984,7 +37419,18 @@
         "stdout": "",
         "tool": "usdzip"
       },
-      "usdz_validation": null,
+      "usdz_validation": {
+        "command": [
+          "/usr/bin/usdchecker",
+          "--arkit",
+          "/Users/chek/repos/desmos2usd-carey/artifacts/fixture_usdz/[4B] 3D Diagram - S2-06 Group E.usdz"
+        ],
+        "cwd": null,
+        "returncode": 0,
+        "stderr": "",
+        "stdout": "\nValidation Result with no explicit variants set\nSuccess!\n",
+        "tool": "usdchecker"
+      },
       "valid": true,
       "validations": [
         {
@@ -37001,20 +37447,20 @@
           "constraint_violation_count": 0,
           "errors": [],
           "expr_id": "1",
-          "face_count": 30,
+          "face_count": 36,
           "kind": "implicit_surface",
           "max_residual": null,
-          "point_count": 120,
+          "point_count": 144,
           "valid": true
         },
         {
           "constraint_violation_count": 0,
           "errors": [],
           "expr_id": "150",
-          "face_count": 30,
+          "face_count": 36,
           "kind": "implicit_surface",
           "max_residual": null,
-          "point_count": 120,
+          "point_count": 144,
           "valid": true
         },
         {
@@ -41467,7 +41913,18 @@
         "stdout": "",
         "tool": "usdzip"
       },
-      "usdz_validation": null,
+      "usdz_validation": {
+        "command": [
+          "/usr/bin/usdchecker",
+          "--arkit",
+          "/Users/chek/repos/desmos2usd-carey/artifacts/fixture_usdz/[4B] 3D Diagram - S2-06 Group F.usdz"
+        ],
+        "cwd": null,
+        "returncode": 0,
+        "stderr": "Coding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\n",
+        "stdout": "\nValidation Result with no explicit variants set\nSuccess!\n",
+        "tool": "usdchecker"
+      },
       "valid": true,
       "validations": [
         {
@@ -42035,7 +42492,18 @@
         "stdout": "",
         "tool": "usdzip"
       },
-      "usdz_validation": null,
+      "usdz_validation": {
+        "command": [
+          "/usr/bin/usdchecker",
+          "--arkit",
+          "/Users/chek/repos/desmos2usd-carey/artifacts/fixture_usdz/[4B] 3D Diagram - S2-06 Group G.usdz"
+        ],
+        "cwd": null,
+        "returncode": 0,
+        "stderr": "Coding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\n",
+        "stdout": "\nValidation Result with no explicit variants set\nSuccess!\n",
+        "tool": "usdchecker"
+      },
       "valid": true,
       "validations": [
         {
@@ -42593,7 +43061,18 @@
         "stdout": "",
         "tool": "usdzip"
       },
-      "usdz_validation": null,
+      "usdz_validation": {
+        "command": [
+          "/usr/bin/usdchecker",
+          "--arkit",
+          "/Users/chek/repos/desmos2usd-carey/artifacts/fixture_usdz/[4B] 3D Diagram - S2-07 Group A.usdz"
+        ],
+        "cwd": null,
+        "returncode": 0,
+        "stderr": "Coding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\n",
+        "stdout": "\nValidation Result with no explicit variants set\nSuccess!\n",
+        "tool": "usdchecker"
+      },
       "valid": true,
       "validations": [
         {
@@ -42800,40 +43279,40 @@
           "constraint_violation_count": 0,
           "errors": [],
           "expr_id": "85",
-          "face_count": 169,
+          "face_count": 182,
           "kind": "explicit_surface",
           "max_residual": 0.0,
-          "point_count": 196,
+          "point_count": 210,
           "valid": true
         },
         {
           "constraint_violation_count": 0,
           "errors": [],
           "expr_id": "86",
-          "face_count": 169,
+          "face_count": 182,
           "kind": "explicit_surface",
           "max_residual": 0.0,
-          "point_count": 196,
+          "point_count": 210,
           "valid": true
         },
         {
           "constraint_violation_count": 0,
           "errors": [],
           "expr_id": "87",
-          "face_count": 169,
+          "face_count": 182,
           "kind": "explicit_surface",
           "max_residual": 0.0,
-          "point_count": 196,
+          "point_count": 210,
           "valid": true
         },
         {
           "constraint_violation_count": 0,
           "errors": [],
           "expr_id": "88",
-          "face_count": 169,
+          "face_count": 182,
           "kind": "explicit_surface",
           "max_residual": 0.0,
-          "point_count": 196,
+          "point_count": 210,
           "valid": true
         },
         {
@@ -42880,40 +43359,40 @@
           "constraint_violation_count": 0,
           "errors": [],
           "expr_id": "103",
-          "face_count": 169,
+          "face_count": 182,
           "kind": "explicit_surface",
           "max_residual": 0.0,
-          "point_count": 196,
+          "point_count": 210,
           "valid": true
         },
         {
           "constraint_violation_count": 0,
           "errors": [],
           "expr_id": "104",
-          "face_count": 169,
+          "face_count": 182,
           "kind": "explicit_surface",
           "max_residual": 0.0,
-          "point_count": 196,
+          "point_count": 210,
           "valid": true
         },
         {
           "constraint_violation_count": 0,
           "errors": [],
           "expr_id": "105",
-          "face_count": 169,
+          "face_count": 182,
           "kind": "explicit_surface",
           "max_residual": 0.0,
-          "point_count": 196,
+          "point_count": 210,
           "valid": true
         },
         {
           "constraint_violation_count": 0,
           "errors": [],
           "expr_id": "106",
-          "face_count": 169,
+          "face_count": 182,
           "kind": "explicit_surface",
           "max_residual": 0.0,
-          "point_count": 196,
+          "point_count": 210,
           "valid": true
         },
         {
@@ -42960,40 +43439,40 @@
           "constraint_violation_count": 0,
           "errors": [],
           "expr_id": "120",
-          "face_count": 169,
+          "face_count": 182,
           "kind": "explicit_surface",
           "max_residual": 0.0,
-          "point_count": 196,
+          "point_count": 210,
           "valid": true
         },
         {
           "constraint_violation_count": 0,
           "errors": [],
           "expr_id": "121",
-          "face_count": 169,
+          "face_count": 182,
           "kind": "explicit_surface",
           "max_residual": 0.0,
-          "point_count": 196,
+          "point_count": 210,
           "valid": true
         },
         {
           "constraint_violation_count": 0,
           "errors": [],
           "expr_id": "122",
-          "face_count": 169,
+          "face_count": 182,
           "kind": "explicit_surface",
           "max_residual": 0.0,
-          "point_count": 196,
+          "point_count": 210,
           "valid": true
         },
         {
           "constraint_violation_count": 0,
           "errors": [],
           "expr_id": "123",
-          "face_count": 169,
+          "face_count": 182,
           "kind": "explicit_surface",
           "max_residual": 0.0,
-          "point_count": 196,
+          "point_count": 210,
           "valid": true
         },
         {
@@ -43040,40 +43519,40 @@
           "constraint_violation_count": 0,
           "errors": [],
           "expr_id": "135",
-          "face_count": 169,
+          "face_count": 182,
           "kind": "explicit_surface",
           "max_residual": 0.0,
-          "point_count": 196,
+          "point_count": 210,
           "valid": true
         },
         {
           "constraint_violation_count": 0,
           "errors": [],
           "expr_id": "136",
-          "face_count": 169,
+          "face_count": 182,
           "kind": "explicit_surface",
           "max_residual": 0.0,
-          "point_count": 196,
+          "point_count": 210,
           "valid": true
         },
         {
           "constraint_violation_count": 0,
           "errors": [],
           "expr_id": "137",
-          "face_count": 169,
+          "face_count": 182,
           "kind": "explicit_surface",
           "max_residual": 0.0,
-          "point_count": 196,
+          "point_count": 210,
           "valid": true
         },
         {
           "constraint_violation_count": 0,
           "errors": [],
           "expr_id": "138",
-          "face_count": 169,
+          "face_count": 182,
           "kind": "explicit_surface",
           "max_residual": 0.0,
-          "point_count": 196,
+          "point_count": 210,
           "valid": true
         },
         {
@@ -43176,7 +43655,18 @@
         "stdout": "",
         "tool": "usdzip"
       },
-      "usdz_validation": null,
+      "usdz_validation": {
+        "command": [
+          "/usr/bin/usdchecker",
+          "--arkit",
+          "/Users/chek/repos/desmos2usd-carey/artifacts/fixture_usdz/[4B] 3D Diagram - S2-07 Group B.usdz"
+        ],
+        "cwd": null,
+        "returncode": 0,
+        "stderr": "Coding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\n",
+        "stdout": "\nValidation Result with no explicit variants set\nSuccess!\n",
+        "tool": "usdchecker"
+      },
       "valid": true,
       "validations": [
         {
@@ -43853,7 +44343,18 @@
         "stdout": "",
         "tool": "usdzip"
       },
-      "usdz_validation": null,
+      "usdz_validation": {
+        "command": [
+          "/usr/bin/usdchecker",
+          "--arkit",
+          "/Users/chek/repos/desmos2usd-carey/artifacts/fixture_usdz/[4B] 3D Diagram - S2-07 Group C.usdz"
+        ],
+        "cwd": null,
+        "returncode": 0,
+        "stderr": "Coding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\n",
+        "stdout": "\nValidation Result with no explicit variants set\nSuccess!\n",
+        "tool": "usdchecker"
+      },
       "valid": true,
       "validations": [
         {
@@ -44170,7 +44671,18 @@
         "stdout": "",
         "tool": "usdzip"
       },
-      "usdz_validation": null,
+      "usdz_validation": {
+        "command": [
+          "/usr/bin/usdchecker",
+          "--arkit",
+          "/Users/chek/repos/desmos2usd-carey/artifacts/fixture_usdz/[4B] 3D Diagram - S2-07 Group D.usdz"
+        ],
+        "cwd": null,
+        "returncode": 0,
+        "stderr": "",
+        "stdout": "\nValidation Result with no explicit variants set\nSuccess!\n",
+        "tool": "usdchecker"
+      },
       "valid": true,
       "validations": [
         {
@@ -44605,7 +45117,18 @@
         "stdout": "",
         "tool": "usdzip"
       },
-      "usdz_validation": null,
+      "usdz_validation": {
+        "command": [
+          "/usr/bin/usdchecker",
+          "--arkit",
+          "/Users/chek/repos/desmos2usd-carey/artifacts/fixture_usdz/[4B] 3D Diagram - S2-07 Group E.usdz"
+        ],
+        "cwd": null,
+        "returncode": 0,
+        "stderr": "",
+        "stdout": "\nValidation Result with no explicit variants set\nSuccess!\n",
+        "tool": "usdchecker"
+      },
       "valid": true,
       "validations": [
         {
@@ -45428,7 +45951,18 @@
         "stdout": "",
         "tool": "usdzip"
       },
-      "usdz_validation": null,
+      "usdz_validation": {
+        "command": [
+          "/usr/bin/usdchecker",
+          "--arkit",
+          "/Users/chek/repos/desmos2usd-carey/artifacts/fixture_usdz/[4B] 3D Diagram - S2-07 Group F.usdz"
+        ],
+        "cwd": null,
+        "returncode": 0,
+        "stderr": "",
+        "stdout": "\nValidation Result with no explicit variants set\nSuccess!\n",
+        "tool": "usdchecker"
+      },
       "valid": true,
       "validations": [
         {
@@ -45856,7 +46390,18 @@
         "stdout": "",
         "tool": "usdzip"
       },
-      "usdz_validation": null,
+      "usdz_validation": {
+        "command": [
+          "/usr/bin/usdchecker",
+          "--arkit",
+          "/Users/chek/repos/desmos2usd-carey/artifacts/fixture_usdz/[4B] 3D Diagram - S2-08 Group A.usdz"
+        ],
+        "cwd": null,
+        "returncode": 0,
+        "stderr": "Coding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'BasisCurves' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'BasisCurves' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'BasisCurves' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'BasisCurves' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'BasisCurves' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'BasisCurves' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'BasisCurves' type and apischemas.\n",
+        "stdout": "\nValidation Result with no explicit variants set\nSuccess!\n",
+        "tool": "usdchecker"
+      },
       "valid": true,
       "validations": [
         {
@@ -47227,7 +47772,18 @@
         "stdout": "",
         "tool": "usdzip"
       },
-      "usdz_validation": null,
+      "usdz_validation": {
+        "command": [
+          "/usr/bin/usdchecker",
+          "--arkit",
+          "/Users/chek/repos/desmos2usd-carey/artifacts/fixture_usdz/[4B] 3D Diagram - S2-08 Group B.usdz"
+        ],
+        "cwd": null,
+        "returncode": 0,
+        "stderr": "Coding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\n",
+        "stdout": "\nValidation Result with no explicit variants set\nSuccess!\n",
+        "tool": "usdchecker"
+      },
       "valid": true,
       "validations": [
         {
@@ -47274,40 +47830,40 @@
           "constraint_violation_count": 0,
           "errors": [],
           "expr_id": "19",
-          "face_count": 4,
+          "face_count": 22,
           "kind": "implicit_surface",
           "max_residual": null,
-          "point_count": 16,
+          "point_count": 88,
           "valid": true
         },
         {
           "constraint_violation_count": 0,
           "errors": [],
           "expr_id": "20",
-          "face_count": 4,
+          "face_count": 22,
           "kind": "implicit_surface",
           "max_residual": null,
-          "point_count": 16,
+          "point_count": 88,
           "valid": true
         },
         {
           "constraint_violation_count": 0,
           "errors": [],
           "expr_id": "24",
-          "face_count": 2,
+          "face_count": 20,
           "kind": "implicit_surface",
           "max_residual": null,
-          "point_count": 8,
+          "point_count": 80,
           "valid": true
         },
         {
           "constraint_violation_count": 0,
           "errors": [],
           "expr_id": "29",
-          "face_count": 2,
+          "face_count": 20,
           "kind": "implicit_surface",
           "max_residual": null,
-          "point_count": 8,
+          "point_count": 80,
           "valid": true
         },
         {
@@ -47462,7 +48018,18 @@
         "stdout": "",
         "tool": "usdzip"
       },
-      "usdz_validation": null,
+      "usdz_validation": {
+        "command": [
+          "/usr/bin/usdchecker",
+          "--arkit",
+          "/Users/chek/repos/desmos2usd-carey/artifacts/fixture_usdz/[4B] 3D Diagram - S2-08 Group C.usdz"
+        ],
+        "cwd": null,
+        "returncode": 0,
+        "stderr": "Coding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\n",
+        "stdout": "\nValidation Result with no explicit variants set\nSuccess!\n",
+        "tool": "usdchecker"
+      },
       "valid": true,
       "validations": [
         {
@@ -47663,17 +48230,28 @@
         "stdout": "",
         "tool": "usdzip"
       },
-      "usdz_validation": null,
+      "usdz_validation": {
+        "command": [
+          "/usr/bin/usdchecker",
+          "--arkit",
+          "/Users/chek/repos/desmos2usd-carey/artifacts/fixture_usdz/[4B] 3D Diagram - S2-08 Group D.usdz"
+        ],
+        "cwd": null,
+        "returncode": 0,
+        "stderr": "",
+        "stdout": "\nValidation Result with no explicit variants set\nSuccess!\n",
+        "tool": "usdchecker"
+      },
       "valid": true,
       "validations": [
         {
           "constraint_violation_count": 0,
           "errors": [],
           "expr_id": "1",
-          "face_count": 24,
+          "face_count": 36,
           "kind": "implicit_surface",
           "max_residual": null,
-          "point_count": 96,
+          "point_count": 144,
           "valid": true
         },
         {
@@ -47710,10 +48288,10 @@
           "constraint_violation_count": 0,
           "errors": [],
           "expr_id": "10",
-          "face_count": 11,
+          "face_count": 18,
           "kind": "implicit_surface",
           "max_residual": null,
-          "point_count": 44,
+          "point_count": 72,
           "valid": true
         },
         {
@@ -47810,10 +48388,10 @@
           "constraint_violation_count": 0,
           "errors": [],
           "expr_id": "23",
-          "face_count": 0,
+          "face_count": 4,
           "kind": "implicit_surface",
           "max_residual": null,
-          "point_count": 0,
+          "point_count": 16,
           "valid": true
         },
         {
@@ -47830,10 +48408,10 @@
           "constraint_violation_count": 0,
           "errors": [],
           "expr_id": "25",
-          "face_count": 0,
+          "face_count": 4,
           "kind": "implicit_surface",
           "max_residual": null,
-          "point_count": 0,
+          "point_count": 16,
           "valid": true
         },
         {
@@ -47960,10 +48538,10 @@
           "constraint_violation_count": 0,
           "errors": [],
           "expr_id": "40",
-          "face_count": 0,
+          "face_count": 4,
           "kind": "implicit_surface",
           "max_residual": null,
-          "point_count": 0,
+          "point_count": 16,
           "valid": true
         },
         {
@@ -47980,10 +48558,10 @@
           "constraint_violation_count": 0,
           "errors": [],
           "expr_id": "42",
-          "face_count": 0,
+          "face_count": 4,
           "kind": "implicit_surface",
           "max_residual": null,
-          "point_count": 0,
+          "point_count": 16,
           "valid": true
         },
         {
@@ -48230,20 +48808,20 @@
           "constraint_violation_count": 0,
           "errors": [],
           "expr_id": "74",
-          "face_count": 0,
+          "face_count": 4,
           "kind": "implicit_surface",
           "max_residual": null,
-          "point_count": 0,
+          "point_count": 16,
           "valid": true
         },
         {
           "constraint_violation_count": 0,
           "errors": [],
           "expr_id": "76",
-          "face_count": 0,
+          "face_count": 4,
           "kind": "implicit_surface",
           "max_residual": null,
-          "point_count": 0,
+          "point_count": 16,
           "valid": true
         },
         {
@@ -48319,7 +48897,7 @@
       "fixture_path": "fixtures/states/[4B] 3D Diagram - S2-08 Group E.json",
       "graph_hash": null,
       "output": "artifacts/fixture_usdz/[4B] 3D Diagram - S2-08 Group E.usda",
-      "prim_count": 78,
+      "prim_count": 81,
       "renderable_expression_count": 83,
       "resolution": 12,
       "status": "partial",
@@ -48336,27 +48914,9 @@
           "kind": "classification",
           "latex": "\\operatorname{abs}(y)+\\operatorname{abs}(y)=1.7\\left\\{1.3^{2}\\le\\ x^{2}+y^{2}\\le1.8^{2\\ }\\right\\}",
           "reason": "not a supported renderable geometry form"
-        },
-        {
-          "expr_id": "80",
-          "kind": "inequality_region",
-          "latex": "x^{2}+y^{2}\\le4\\left\\{z=0\\right\\}",
-          "reason": "Inequality region for 80 did not resolve to sampled cells"
-        },
-        {
-          "expr_id": "93",
-          "kind": "inequality_region",
-          "latex": "x^{2}+y^{2}+0.5\\le4\\left\\{z=0\\right\\}",
-          "reason": "Inequality region for 93 did not resolve to sampled cells"
-        },
-        {
-          "expr_id": "108",
-          "kind": "inequality_region",
-          "latex": "x^{2}+y^{2}+x\\le1.5\\left\\{z=8\\right\\}",
-          "reason": "Inequality region for 108 did not resolve to sampled cells"
         }
       ],
-      "unsupported_count": 5,
+      "unsupported_count": 2,
       "usda_exists": true,
       "usdz_exists": true,
       "usdz_output": "artifacts/fixture_usdz/[4B] 3D Diagram - S2-08 Group E.usdz",
@@ -48372,7 +48932,18 @@
         "stdout": "",
         "tool": "usdzip"
       },
-      "usdz_validation": null,
+      "usdz_validation": {
+        "command": [
+          "/usr/bin/usdchecker",
+          "--arkit",
+          "/Users/chek/repos/desmos2usd-carey/artifacts/fixture_usdz/[4B] 3D Diagram - S2-08 Group E.usdz"
+        ],
+        "cwd": null,
+        "returncode": 0,
+        "stderr": "",
+        "stdout": "\nValidation Result with no explicit variants set\nSuccess!\n",
+        "tool": "usdchecker"
+      },
       "valid": true,
       "validations": [
         {
@@ -48453,6 +49024,26 @@
           "kind": "implicit_surface",
           "max_residual": null,
           "point_count": 80,
+          "valid": true
+        },
+        {
+          "constraint_violation_count": 0,
+          "errors": [],
+          "expr_id": "80",
+          "face_count": 97,
+          "kind": "inequality_region",
+          "max_residual": null,
+          "point_count": 256,
+          "valid": true
+        },
+        {
+          "constraint_violation_count": 0,
+          "errors": [],
+          "expr_id": "93",
+          "face_count": 89,
+          "kind": "inequality_region",
+          "max_residual": null,
+          "point_count": 256,
           "valid": true
         },
         {
@@ -48543,6 +49134,16 @@
           "kind": "implicit_surface",
           "max_residual": null,
           "point_count": 56,
+          "valid": true
+        },
+        {
+          "constraint_violation_count": 0,
+          "errors": [],
+          "expr_id": "108",
+          "face_count": 44,
+          "kind": "inequality_region",
+          "max_residual": null,
+          "point_count": 256,
           "valid": true
         },
         {
@@ -49049,10 +49650,10 @@
           "constraint_violation_count": 0,
           "errors": [],
           "expr_id": "188",
-          "face_count": 0,
+          "face_count": 4,
           "kind": "implicit_surface",
           "max_residual": null,
-          "point_count": 0,
+          "point_count": 16,
           "valid": true
         },
         {
@@ -49129,20 +49730,20 @@
           "constraint_violation_count": 0,
           "errors": [],
           "expr_id": "198",
-          "face_count": 8,
+          "face_count": 4,
           "kind": "implicit_surface",
           "max_residual": null,
-          "point_count": 32,
+          "point_count": 16,
           "valid": true
         },
         {
           "constraint_violation_count": 0,
           "errors": [],
           "expr_id": "199",
-          "face_count": 8,
+          "face_count": 4,
           "kind": "implicit_surface",
           "max_residual": null,
-          "point_count": 32,
+          "point_count": 16,
           "valid": true
         },
         {
@@ -49359,7 +49960,18 @@
         "stdout": "",
         "tool": "usdzip"
       },
-      "usdz_validation": null,
+      "usdz_validation": {
+        "command": [
+          "/usr/bin/usdchecker",
+          "--arkit",
+          "/Users/chek/repos/desmos2usd-carey/artifacts/fixture_usdz/[4B] 3D Diagram - S2-08 Group G.usdz"
+        ],
+        "cwd": null,
+        "returncode": 0,
+        "stderr": "Coding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'BasisCurves' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'BasisCurves' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'BasisCurves' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'BasisCurves' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'BasisCurves' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'BasisCurves' type and apischemas.\n",
+        "stdout": "\nValidation Result with no explicit variants set\nSuccess!\n",
+        "tool": "usdchecker"
+      },
       "valid": true,
       "validations": [
         {
@@ -49486,80 +50098,80 @@
           "constraint_violation_count": 0,
           "errors": [],
           "expr_id": "9",
-          "face_count": 126,
+          "face_count": 225,
           "kind": "inequality_region",
           "max_residual": null,
-          "point_count": 128,
+          "point_count": 256,
           "valid": true
         },
         {
           "constraint_violation_count": 0,
           "errors": [],
           "expr_id": "500",
-          "face_count": 126,
+          "face_count": 225,
           "kind": "inequality_region",
           "max_residual": null,
-          "point_count": 128,
+          "point_count": 256,
           "valid": true
         },
         {
           "constraint_violation_count": 0,
           "errors": [],
           "expr_id": "218",
-          "face_count": 126,
+          "face_count": 225,
           "kind": "inequality_region",
           "max_residual": null,
-          "point_count": 128,
+          "point_count": 256,
           "valid": true
         },
         {
           "constraint_violation_count": 0,
           "errors": [],
           "expr_id": "501",
-          "face_count": 126,
+          "face_count": 225,
           "kind": "inequality_region",
           "max_residual": null,
-          "point_count": 128,
+          "point_count": 256,
           "valid": true
         },
         {
           "constraint_violation_count": 0,
           "errors": [],
           "expr_id": "220",
-          "face_count": 126,
+          "face_count": 225,
           "kind": "inequality_region",
           "max_residual": null,
-          "point_count": 128,
+          "point_count": 256,
           "valid": true
         },
         {
           "constraint_violation_count": 0,
           "errors": [],
           "expr_id": "503",
-          "face_count": 126,
+          "face_count": 225,
           "kind": "inequality_region",
           "max_residual": null,
-          "point_count": 128,
+          "point_count": 256,
           "valid": true
         },
         {
           "constraint_violation_count": 0,
           "errors": [],
           "expr_id": "219",
-          "face_count": 126,
+          "face_count": 225,
           "kind": "inequality_region",
           "max_residual": null,
-          "point_count": 128,
+          "point_count": 256,
           "valid": true
         },
         {
           "constraint_violation_count": 0,
           "errors": [],
           "expr_id": "546",
-          "face_count": 126,
+          "face_count": 225,
           "kind": "inequality_region",
           "max_residual": null,
-          "point_count": 128,
+          "point_count": 256,
           "valid": true
         },
         {
@@ -49606,60 +50218,60 @@
           "constraint_violation_count": 0,
           "errors": [],
           "expr_id": "223",
-          "face_count": 126,
+          "face_count": 225,
           "kind": "inequality_region",
           "max_residual": null,
-          "point_count": 128,
+          "point_count": 256,
           "valid": true
         },
         {
           "constraint_violation_count": 0,
           "errors": [],
           "expr_id": "224",
-          "face_count": 126,
+          "face_count": 225,
           "kind": "inequality_region",
           "max_residual": null,
-          "point_count": 128,
+          "point_count": 256,
           "valid": true
         },
         {
           "constraint_violation_count": 0,
           "errors": [],
           "expr_id": "225",
-          "face_count": 126,
+          "face_count": 225,
           "kind": "inequality_region",
           "max_residual": null,
-          "point_count": 128,
+          "point_count": 256,
           "valid": true
         },
         {
           "constraint_violation_count": 0,
           "errors": [],
           "expr_id": "226",
-          "face_count": 126,
+          "face_count": 225,
           "kind": "inequality_region",
           "max_residual": null,
-          "point_count": 128,
+          "point_count": 256,
           "valid": true
         },
         {
           "constraint_violation_count": 0,
           "errors": [],
           "expr_id": "11",
-          "face_count": 126,
+          "face_count": 225,
           "kind": "inequality_region",
           "max_residual": null,
-          "point_count": 128,
+          "point_count": 256,
           "valid": true
         },
         {
           "constraint_violation_count": 0,
           "errors": [],
           "expr_id": "655",
-          "face_count": 126,
+          "face_count": 225,
           "kind": "inequality_region",
           "max_residual": null,
-          "point_count": 128,
+          "point_count": 256,
           "valid": true
         },
         {
@@ -49876,10 +50488,10 @@
           "constraint_violation_count": 0,
           "errors": [],
           "expr_id": "644",
-          "face_count": 126,
+          "face_count": 225,
           "kind": "inequality_region",
           "max_residual": null,
-          "point_count": 128,
+          "point_count": 256,
           "valid": true
         },
         {
@@ -50176,40 +50788,40 @@
           "constraint_violation_count": 0,
           "errors": [],
           "expr_id": "234",
-          "face_count": 126,
+          "face_count": 225,
           "kind": "inequality_region",
           "max_residual": null,
-          "point_count": 128,
+          "point_count": 256,
           "valid": true
         },
         {
           "constraint_violation_count": 0,
           "errors": [],
           "expr_id": "235",
-          "face_count": 126,
+          "face_count": 225,
           "kind": "inequality_region",
           "max_residual": null,
-          "point_count": 128,
+          "point_count": 256,
           "valid": true
         },
         {
           "constraint_violation_count": 0,
           "errors": [],
           "expr_id": "236",
-          "face_count": 126,
+          "face_count": 225,
           "kind": "inequality_region",
           "max_residual": null,
-          "point_count": 128,
+          "point_count": 256,
           "valid": true
         },
         {
           "constraint_violation_count": 0,
           "errors": [],
           "expr_id": "237",
-          "face_count": 126,
+          "face_count": 225,
           "kind": "inequality_region",
           "max_residual": null,
-          "point_count": 128,
+          "point_count": 256,
           "valid": true
         },
         {
@@ -62034,7 +62646,18 @@
         "stdout": "",
         "tool": "usdzip"
       },
-      "usdz_validation": null,
+      "usdz_validation": {
+        "command": [
+          "/usr/bin/usdchecker",
+          "--arkit",
+          "/Users/chek/repos/desmos2usd-carey/artifacts/fixture_usdz/[4B] 3D Diagram - S2-09 Group A.usdz"
+        ],
+        "cwd": null,
+        "returncode": 0,
+        "stderr": "",
+        "stdout": "\nValidation Result with no explicit variants set\nSuccess!\n",
+        "tool": "usdchecker"
+      },
       "valid": true,
       "validations": [
         {
@@ -62344,7 +62967,18 @@
         "stdout": "",
         "tool": "usdzip"
       },
-      "usdz_validation": null,
+      "usdz_validation": {
+        "command": [
+          "/usr/bin/usdchecker",
+          "--arkit",
+          "/Users/chek/repos/desmos2usd-carey/artifacts/fixture_usdz/[4B] 3D Diagram - S2-09 Group B.usdz"
+        ],
+        "cwd": null,
+        "returncode": 0,
+        "stderr": "Coding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\n",
+        "stdout": "\nValidation Result with no explicit variants set\nSuccess!\n",
+        "tool": "usdchecker"
+      },
       "valid": true,
       "validations": [
         {
@@ -62461,10 +63095,10 @@
           "constraint_violation_count": 0,
           "errors": [],
           "expr_id": "57",
-          "face_count": 126,
+          "face_count": 225,
           "kind": "inequality_region",
           "max_residual": null,
-          "point_count": 128,
+          "point_count": 256,
           "valid": true
         },
         {
@@ -63025,7 +63659,18 @@
         "stdout": "",
         "tool": "usdzip"
       },
-      "usdz_validation": null,
+      "usdz_validation": {
+        "command": [
+          "/usr/bin/usdchecker",
+          "--arkit",
+          "/Users/chek/repos/desmos2usd-carey/artifacts/fixture_usdz/[4B] 3D Diagram - S2-09 Group C.usdz"
+        ],
+        "cwd": null,
+        "returncode": 0,
+        "stderr": "Coding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\n",
+        "stdout": "\nValidation Result with no explicit variants set\nSuccess!\n",
+        "tool": "usdchecker"
+      },
       "valid": true,
       "validations": [
         {
@@ -63132,10 +63777,10 @@
           "constraint_violation_count": 0,
           "errors": [],
           "expr_id": "36",
-          "face_count": 0,
+          "face_count": 4,
           "kind": "implicit_surface",
           "max_residual": null,
-          "point_count": 0,
+          "point_count": 16,
           "valid": true
         },
         {
@@ -63182,10 +63827,10 @@
           "constraint_violation_count": 0,
           "errors": [],
           "expr_id": "41",
-          "face_count": 0,
+          "face_count": 4,
           "kind": "implicit_surface",
           "max_residual": null,
-          "point_count": 0,
+          "point_count": 16,
           "valid": true
         },
         {
@@ -63212,10 +63857,10 @@
           "constraint_violation_count": 0,
           "errors": [],
           "expr_id": "24",
-          "face_count": 0,
+          "face_count": 4,
           "kind": "implicit_surface",
           "max_residual": null,
-          "point_count": 0,
+          "point_count": 16,
           "valid": true
         },
         {
@@ -63262,10 +63907,10 @@
           "constraint_violation_count": 0,
           "errors": [],
           "expr_id": "25",
-          "face_count": 0,
+          "face_count": 4,
           "kind": "implicit_surface",
           "max_residual": null,
-          "point_count": 0,
+          "point_count": 16,
           "valid": true
         },
         {
@@ -63282,10 +63927,10 @@
           "constraint_violation_count": 0,
           "errors": [],
           "expr_id": "42",
-          "face_count": 0,
+          "face_count": 4,
           "kind": "implicit_surface",
           "max_residual": null,
-          "point_count": 0,
+          "point_count": 16,
           "valid": true
         },
         {
@@ -63302,10 +63947,10 @@
           "constraint_violation_count": 0,
           "errors": [],
           "expr_id": "44",
-          "face_count": 0,
+          "face_count": 6,
           "kind": "implicit_surface",
           "max_residual": null,
-          "point_count": 0,
+          "point_count": 24,
           "valid": true
         },
         {
@@ -63322,10 +63967,10 @@
           "constraint_violation_count": 0,
           "errors": [],
           "expr_id": "46",
-          "face_count": 0,
+          "face_count": 6,
           "kind": "implicit_surface",
           "max_residual": null,
-          "point_count": 0,
+          "point_count": 24,
           "valid": true
         },
         {
@@ -63342,10 +63987,10 @@
           "constraint_violation_count": 0,
           "errors": [],
           "expr_id": "48",
-          "face_count": 0,
+          "face_count": 4,
           "kind": "implicit_surface",
           "max_residual": null,
-          "point_count": 0,
+          "point_count": 16,
           "valid": true
         },
         {
@@ -63362,10 +64007,10 @@
           "constraint_violation_count": 0,
           "errors": [],
           "expr_id": "50",
-          "face_count": 0,
+          "face_count": 4,
           "kind": "implicit_surface",
           "max_residual": null,
-          "point_count": 0,
+          "point_count": 16,
           "valid": true
         },
         {
@@ -63382,10 +64027,10 @@
           "constraint_violation_count": 0,
           "errors": [],
           "expr_id": "52",
-          "face_count": 0,
+          "face_count": 6,
           "kind": "implicit_surface",
           "max_residual": null,
-          "point_count": 0,
+          "point_count": 24,
           "valid": true
         },
         {
@@ -63402,10 +64047,10 @@
           "constraint_violation_count": 0,
           "errors": [],
           "expr_id": "54",
-          "face_count": 0,
+          "face_count": 4,
           "kind": "implicit_surface",
           "max_residual": null,
-          "point_count": 0,
+          "point_count": 16,
           "valid": true
         },
         {
@@ -63422,20 +64067,20 @@
           "constraint_violation_count": 0,
           "errors": [],
           "expr_id": "56",
-          "face_count": 0,
+          "face_count": 4,
           "kind": "implicit_surface",
           "max_residual": null,
-          "point_count": 0,
+          "point_count": 16,
           "valid": true
         },
         {
           "constraint_violation_count": 0,
           "errors": [],
           "expr_id": "59",
-          "face_count": 0,
+          "face_count": 4,
           "kind": "implicit_surface",
           "max_residual": null,
-          "point_count": 0,
+          "point_count": 16,
           "valid": true
         },
         {
@@ -63452,10 +64097,10 @@
           "constraint_violation_count": 0,
           "errors": [],
           "expr_id": "63",
-          "face_count": 0,
+          "face_count": 4,
           "kind": "implicit_surface",
           "max_residual": null,
-          "point_count": 0,
+          "point_count": 16,
           "valid": true
         },
         {
@@ -63472,10 +64117,10 @@
           "constraint_violation_count": 0,
           "errors": [],
           "expr_id": "66",
-          "face_count": 0,
+          "face_count": 6,
           "kind": "implicit_surface",
           "max_residual": null,
-          "point_count": 0,
+          "point_count": 24,
           "valid": true
         },
         {
@@ -63492,10 +64137,10 @@
           "constraint_violation_count": 0,
           "errors": [],
           "expr_id": "68",
-          "face_count": 0,
+          "face_count": 6,
           "kind": "implicit_surface",
           "max_residual": null,
-          "point_count": 0,
+          "point_count": 24,
           "valid": true
         },
         {
@@ -63512,10 +64157,10 @@
           "constraint_violation_count": 0,
           "errors": [],
           "expr_id": "70",
-          "face_count": 0,
+          "face_count": 4,
           "kind": "implicit_surface",
           "max_residual": null,
-          "point_count": 0,
+          "point_count": 16,
           "valid": true
         },
         {
@@ -63532,10 +64177,10 @@
           "constraint_violation_count": 0,
           "errors": [],
           "expr_id": "72",
-          "face_count": 0,
+          "face_count": 6,
           "kind": "implicit_surface",
           "max_residual": null,
-          "point_count": 0,
+          "point_count": 24,
           "valid": true
         },
         {
@@ -63552,10 +64197,10 @@
           "constraint_violation_count": 0,
           "errors": [],
           "expr_id": "75",
-          "face_count": 0,
+          "face_count": 6,
           "kind": "implicit_surface",
           "max_residual": null,
-          "point_count": 0,
+          "point_count": 24,
           "valid": true
         },
         {
@@ -63572,10 +64217,10 @@
           "constraint_violation_count": 0,
           "errors": [],
           "expr_id": "77",
-          "face_count": 0,
+          "face_count": 4,
           "kind": "implicit_surface",
           "max_residual": null,
-          "point_count": 0,
+          "point_count": 16,
           "valid": true
         },
         {
@@ -63857,7 +64502,7 @@
           "expr_id": "148",
           "kind": "inequality_region",
           "latex": "-90-30\\sqrt{1-\\frac{\\left(y-10\\right)^{2}}{70^{2}}}\\le x\\le-90\\left\\{z=0\\right\\}",
-          "reason": "Could not evaluate '-90-30\\\\sqrt{1-\\\\frac{(y-10)^{2}}{70^{2}}}' with variables {'y': -159.9999999999945, 'z': 0.0}: expected a nonnegative input, got -4.897959183673087"
+          "reason": "Could not evaluate '-90-30\\\\sqrt{1-\\\\frac{(y-10)^{2}}{70^{2}}}' with variables {'x': -112.5, 'y': -112.5, 'z': 0.0}: expected a nonnegative input, got -2.0625"
         },
         {
           "expr_id": "91",
@@ -64056,7 +64701,18 @@
         "stdout": "",
         "tool": "usdzip"
       },
-      "usdz_validation": null,
+      "usdz_validation": {
+        "command": [
+          "/usr/bin/usdchecker",
+          "--arkit",
+          "/Users/chek/repos/desmos2usd-carey/artifacts/fixture_usdz/[4B] 3D Diagram - S2-09 Group D.usdz"
+        ],
+        "cwd": null,
+        "returncode": 0,
+        "stderr": "",
+        "stdout": "\nValidation Result with no explicit variants set\nSuccess!\n",
+        "tool": "usdchecker"
+      },
       "valid": true,
       "validations": [
         {
@@ -64977,7 +65633,18 @@
         "stdout": "",
         "tool": "usdzip"
       },
-      "usdz_validation": null,
+      "usdz_validation": {
+        "command": [
+          "/usr/bin/usdchecker",
+          "--arkit",
+          "/Users/chek/repos/desmos2usd-carey/artifacts/fixture_usdz/[4B] 3D Diagram - S2-09 Group E.usdz"
+        ],
+        "cwd": null,
+        "returncode": 0,
+        "stderr": "Coding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\n",
+        "stdout": "\nValidation Result with no explicit variants set\nSuccess!\n",
+        "tool": "usdchecker"
+      },
       "valid": true,
       "validations": [
         {
@@ -65014,20 +65681,20 @@
           "constraint_violation_count": 0,
           "errors": [],
           "expr_id": "36",
-          "face_count": 0,
+          "face_count": 16,
           "kind": "implicit_surface",
           "max_residual": null,
-          "point_count": 0,
+          "point_count": 64,
           "valid": true
         },
         {
           "constraint_violation_count": 0,
           "errors": [],
           "expr_id": "37",
-          "face_count": 0,
+          "face_count": 14,
           "kind": "implicit_surface",
           "max_residual": null,
-          "point_count": 0,
+          "point_count": 56,
           "valid": true
         },
         {
@@ -65074,40 +65741,40 @@
           "constraint_violation_count": 0,
           "errors": [],
           "expr_id": "44",
-          "face_count": 4,
+          "face_count": 20,
           "kind": "implicit_surface",
           "max_residual": null,
-          "point_count": 16,
+          "point_count": 80,
           "valid": true
         },
         {
           "constraint_violation_count": 0,
           "errors": [],
           "expr_id": "45",
-          "face_count": 4,
+          "face_count": 20,
           "kind": "implicit_surface",
           "max_residual": null,
-          "point_count": 16,
+          "point_count": 80,
           "valid": true
         },
         {
           "constraint_violation_count": 0,
           "errors": [],
           "expr_id": "46",
-          "face_count": 4,
+          "face_count": 20,
           "kind": "implicit_surface",
           "max_residual": null,
-          "point_count": 16,
+          "point_count": 80,
           "valid": true
         },
         {
           "constraint_violation_count": 0,
           "errors": [],
           "expr_id": "47",
-          "face_count": 4,
+          "face_count": 16,
           "kind": "implicit_surface",
           "max_residual": null,
-          "point_count": 16,
+          "point_count": 64,
           "valid": true
         },
         {
@@ -65144,20 +65811,20 @@
           "constraint_violation_count": 0,
           "errors": [],
           "expr_id": "52",
-          "face_count": 11520,
+          "face_count": 21,
           "kind": "inequality_region",
           "max_residual": null,
-          "point_count": 15360,
+          "point_count": 256,
           "valid": true
         },
         {
           "constraint_violation_count": 0,
           "errors": [],
           "expr_id": "55",
-          "face_count": 49,
+          "face_count": 225,
           "kind": "inequality_region",
           "max_residual": null,
-          "point_count": 64,
+          "point_count": 256,
           "valid": true
         },
         {
@@ -65275,7 +65942,18 @@
         "stdout": "",
         "tool": "usdzip"
       },
-      "usdz_validation": null,
+      "usdz_validation": {
+        "command": [
+          "/usr/bin/usdchecker",
+          "--arkit",
+          "/Users/chek/repos/desmos2usd-carey/artifacts/fixture_usdz/[4B] 3D Diagram - S2-09 Group F.usdz"
+        ],
+        "cwd": null,
+        "returncode": 0,
+        "stderr": "",
+        "stdout": "\nValidation Result with no explicit variants set\nSuccess!\n",
+        "tool": "usdchecker"
+      },
       "valid": true,
       "validations": [
         {
@@ -65651,7 +66329,18 @@
         "stdout": "",
         "tool": "usdzip"
       },
-      "usdz_validation": null,
+      "usdz_validation": {
+        "command": [
+          "/usr/bin/usdchecker",
+          "--arkit",
+          "/Users/chek/repos/desmos2usd-carey/artifacts/fixture_usdz/[4B] 3D Diagram - S2-09 Group G.usdz"
+        ],
+        "cwd": null,
+        "returncode": 0,
+        "stderr": "Coding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\n",
+        "stdout": "\nValidation Result with no explicit variants set\nSuccess!\n",
+        "tool": "usdchecker"
+      },
       "valid": true,
       "validations": [
         {
@@ -66578,7 +67267,18 @@
         "stdout": "",
         "tool": "usdzip"
       },
-      "usdz_validation": null,
+      "usdz_validation": {
+        "command": [
+          "/usr/bin/usdchecker",
+          "--arkit",
+          "/Users/chek/repos/desmos2usd-carey/artifacts/fixture_usdz/[4B] 3D Diagram - S2-10 Group A.usdz"
+        ],
+        "cwd": null,
+        "returncode": 0,
+        "stderr": "Coding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\n",
+        "stdout": "\nValidation Result with no explicit variants set\nSuccess!\n",
+        "tool": "usdchecker"
+      },
       "valid": true,
       "validations": [
         {
@@ -66974,7 +67674,18 @@
         "stdout": "",
         "tool": "usdzip"
       },
-      "usdz_validation": null,
+      "usdz_validation": {
+        "command": [
+          "/usr/bin/usdchecker",
+          "--arkit",
+          "/Users/chek/repos/desmos2usd-carey/artifacts/fixture_usdz/[4B] 3D Diagram - S2-10 Group B.usdz"
+        ],
+        "cwd": null,
+        "returncode": 0,
+        "stderr": "",
+        "stdout": "\nValidation Result with no explicit variants set\nSuccess!\n",
+        "tool": "usdchecker"
+      },
       "valid": true,
       "validations": [
         {
@@ -68223,7 +68934,18 @@
         "stdout": "",
         "tool": "usdzip"
       },
-      "usdz_validation": null,
+      "usdz_validation": {
+        "command": [
+          "/usr/bin/usdchecker",
+          "--arkit",
+          "/Users/chek/repos/desmos2usd-carey/artifacts/fixture_usdz/[4B] 3D Diagram - S2-10 Group C.usdz"
+        ],
+        "cwd": null,
+        "returncode": 0,
+        "stderr": "Coding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\n",
+        "stdout": "\nValidation Result with no explicit variants set\nSuccess!\n",
+        "tool": "usdchecker"
+      },
       "valid": true,
       "validations": [
         {
@@ -68346,7 +69068,18 @@
         "stdout": "",
         "tool": "usdzip"
       },
-      "usdz_validation": null,
+      "usdz_validation": {
+        "command": [
+          "/usr/bin/usdchecker",
+          "--arkit",
+          "/Users/chek/repos/desmos2usd-carey/artifacts/fixture_usdz/[4B] 3D Diagram - S2-10 Group D.usdz"
+        ],
+        "cwd": null,
+        "returncode": 0,
+        "stderr": "Coding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\n",
+        "stdout": "\nValidation Result with no explicit variants set\nSuccess!\n",
+        "tool": "usdchecker"
+      },
       "valid": true,
       "validations": [
         {
@@ -68685,7 +69418,18 @@
         "stdout": "",
         "tool": "usdzip"
       },
-      "usdz_validation": null,
+      "usdz_validation": {
+        "command": [
+          "/usr/bin/usdchecker",
+          "--arkit",
+          "/Users/chek/repos/desmos2usd-carey/artifacts/fixture_usdz/[4B] 3D Diagram - S2-10 Group E.usdz"
+        ],
+        "cwd": null,
+        "returncode": 0,
+        "stderr": "",
+        "stdout": "\nValidation Result with no explicit variants set\nSuccess!\n",
+        "tool": "usdchecker"
+      },
       "valid": true,
       "validations": [
         {
@@ -71527,7 +72271,18 @@
         "stdout": "",
         "tool": "usdzip"
       },
-      "usdz_validation": null,
+      "usdz_validation": {
+        "command": [
+          "/usr/bin/usdchecker",
+          "--arkit",
+          "/Users/chek/repos/desmos2usd-carey/artifacts/fixture_usdz/[4B] 3D Diagram - S2-10 Group F.usdz"
+        ],
+        "cwd": null,
+        "returncode": 0,
+        "stderr": "Coding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\n",
+        "stdout": "\nValidation Result with no explicit variants set\nSuccess!\n",
+        "tool": "usdchecker"
+      },
       "valid": true,
       "validations": [
         {
@@ -72832,7 +73587,18 @@
         "stdout": "",
         "tool": "usdzip"
       },
-      "usdz_validation": null,
+      "usdz_validation": {
+        "command": [
+          "/usr/bin/usdchecker",
+          "--arkit",
+          "/Users/chek/repos/desmos2usd-carey/artifacts/fixture_usdz/[4B] 3D Diagram - S2-10 Group G.usdz"
+        ],
+        "cwd": null,
+        "returncode": 0,
+        "stderr": "",
+        "stdout": "\nValidation Result with no explicit variants set\nSuccess!\n",
+        "tool": "usdchecker"
+      },
       "valid": true,
       "validations": [
         {
@@ -73350,7 +74116,18 @@
         "stdout": "",
         "tool": "usdzip"
       },
-      "usdz_validation": null,
+      "usdz_validation": {
+        "command": [
+          "/usr/bin/usdchecker",
+          "--arkit",
+          "/Users/chek/repos/desmos2usd-carey/artifacts/fixture_usdz/ghnr7txz47.usdz"
+        ],
+        "cwd": null,
+        "returncode": 0,
+        "stderr": "Coding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'BasisCurves' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'BasisCurves' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'BasisCurves' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'BasisCurves' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'BasisCurves' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'BasisCurves' type and apischemas.\n",
+        "stdout": "\nValidation Result with no explicit variants set\nSuccess!\n",
+        "tool": "usdchecker"
+      },
       "valid": true,
       "validations": [
         {
@@ -79588,7 +80365,18 @@
         "stdout": "",
         "tool": "usdzip"
       },
-      "usdz_validation": null,
+      "usdz_validation": {
+        "command": [
+          "/usr/bin/usdchecker",
+          "--arkit",
+          "/Users/chek/repos/desmos2usd-carey/artifacts/fixture_usdz/k0fbxxwkqf.usdz"
+        ],
+        "cwd": null,
+        "returncode": 0,
+        "stderr": "",
+        "stdout": "\nValidation Result with no explicit variants set\nSuccess!\n",
+        "tool": "usdchecker"
+      },
       "valid": true,
       "validations": [
         {
@@ -79615,10 +80403,10 @@
           "constraint_violation_count": 0,
           "errors": [],
           "expr_id": "13",
-          "face_count": 49,
+          "face_count": 225,
           "kind": "inequality_region",
           "max_residual": null,
-          "point_count": 64,
+          "point_count": 256,
           "valid": true
         },
         {
@@ -81427,7 +82215,18 @@
         "stdout": "",
         "tool": "usdzip"
       },
-      "usdz_validation": null,
+      "usdz_validation": {
+        "command": [
+          "/usr/bin/usdchecker",
+          "--arkit",
+          "/Users/chek/repos/desmos2usd-carey/artifacts/fixture_usdz/vyp9ogyimt.usdz"
+        ],
+        "cwd": null,
+        "returncode": 0,
+        "stderr": "Coding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\n",
+        "stdout": "\nValidation Result with no explicit variants set\nSuccess!\n",
+        "tool": "usdchecker"
+      },
       "valid": true,
       "validations": [
         {
@@ -87025,7 +87824,18 @@
         "stdout": "",
         "tool": "usdzip"
       },
-      "usdz_validation": null,
+      "usdz_validation": {
+        "command": [
+          "/usr/bin/usdchecker",
+          "--arkit",
+          "/Users/chek/repos/desmos2usd-carey/artifacts/fixture_usdz/yuqwjsfvsc.usdz"
+        ],
+        "cwd": null,
+        "returncode": 0,
+        "stderr": "",
+        "stdout": "\nValidation Result with no explicit variants set\nSuccess!\n",
+        "tool": "usdchecker"
+      },
       "valid": true,
       "validations": [
         {
@@ -90503,7 +91313,18 @@
         "stdout": "",
         "tool": "usdzip"
       },
-      "usdz_validation": null,
+      "usdz_validation": {
+        "command": [
+          "/usr/bin/usdchecker",
+          "--arkit",
+          "/Users/chek/repos/desmos2usd-carey/artifacts/fixture_usdz/zaqxhna15w.usdz"
+        ],
+        "cwd": null,
+        "returncode": 0,
+        "stderr": "",
+        "stdout": "\nValidation Result with no explicit variants set\nSuccess!\n",
+        "tool": "usdchecker"
+      },
       "valid": true,
       "validations": [
         {

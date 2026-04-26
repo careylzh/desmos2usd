@@ -28,7 +28,18 @@
     "stdout": "",
     "tool": "usdzip"
   },
-  "usdz_validation": null,
+  "usdz_validation": {
+    "command": [
+      "/usr/bin/usdchecker",
+      "--arkit",
+      "/Users/chek/repos/desmos2usd-carey/artifacts/fixture_usdz/[4B] 3D Diagram - S2-05 Group E.usdz"
+    ],
+    "cwd": null,
+    "returncode": 0,
+    "stderr": "",
+    "stdout": "\nValidation Result with no explicit variants set\nSuccess!\n",
+    "tool": "usdchecker"
+  },
   "valid": true,
   "validations": [
     {
@@ -215,10 +226,10 @@
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "1073",
-      "face_count": 126,
+      "face_count": 225,
       "kind": "inequality_region",
       "max_residual": null,
-      "point_count": 128,
+      "point_count": 256,
       "valid": true
     },
     {
