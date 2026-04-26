@@ -14,7 +14,7 @@ from desmos2usd.parse.classify import (
     ClassificationResult,
     classify_expression,
     expand_list_expression,
-    register_definition,
+    register_definitions,
     resolve_color_latex,
 )
 from desmos2usd.usd.package import package_usdz, validate_usdz_arkit
@@ -86,29 +86,21 @@ def artifact_display_path(path: Path, project_root: Path) -> str:
 def classify_graph_tolerant(graph: GraphIR) -> tuple[ClassificationResult, list[UnsupportedExpression]]:
     context = EvalContext(degree_mode=bool(graph.source.view_metadata.get("degree_mode")))
     classified = []
-    definitions = []
-    definition_ids: set[str] = set()
     unsupported: list[UnsupportedExpression] = []
 
-    for expr in graph.expressions:
-        if expr.type != "expression" or not expr.latex.strip():
-            continue
-        try:
-            if register_definition(expr, context):
-                definition_ids.add(expr.expr_id)
-                if expr.renderable_candidate:
-                    definitions.append(expr)
-        except Exception as exc:
-            if expr.renderable_candidate:
-                definition_ids.add(expr.expr_id)
-                unsupported.append(
-                    UnsupportedExpression(
-                        expr_id=expr.expr_id,
-                        kind="definition",
-                        latex=expr.latex,
-                        reason=f"Failed to parse definition: {exc}",
-                    )
+    registration = register_definitions(graph.expressions, context)
+    definition_ids = set(registration.definition_ids)
+    for expr, exc in registration.failures:
+        if expr.renderable_candidate:
+            definition_ids.add(expr.expr_id)
+            unsupported.append(
+                UnsupportedExpression(
+                    expr_id=expr.expr_id,
+                    kind="definition",
+                    latex=expr.latex,
+                    reason=f"Failed to parse definition: {exc}",
                 )
+            )
 
     for expr in graph.expressions:
         if not expr.renderable_candidate or expr.expr_id in definition_ids:
@@ -150,7 +142,7 @@ def classify_graph_tolerant(graph: GraphIR) -> tuple[ClassificationResult, list[
                 )
             )
 
-    return ClassificationResult(context=context, classified=classified, definitions=definitions), unsupported
+    return ClassificationResult(context=context, classified=classified, definitions=registration.definitions), unsupported
 
 
 def process_fixture(

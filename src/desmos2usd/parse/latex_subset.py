@@ -31,6 +31,7 @@ def normalize_latex_delimiters(text: str) -> str:
     value = value.replace("\\left", "").replace("\\right", "")
     value = value.replace("\\{", "{").replace("\\}", "}")
     value = re.sub(r"\\[ ,;:!]", "", value)
+    value = re.sub(r"\\+$", "", value).strip()
     return value
 
 
@@ -271,6 +272,7 @@ def convert_latex_to_python(latex: str) -> str:
     text = text.replace("\\cdot", "*").replace("\\times", "*")
     text = text.replace("\\le", "<=").replace("\\ge", ">=")
     text = text.replace("≤", "<=").replace("≥", ">=")
+    text = re.sub(r"\\pi(?=(?:\\operatorname|\\[A-Za-z]|[A-Za-z_]))", "pi*", text)
     text = text.replace("\\pi", "pi")
     text = text.replace("\\operatorname{ln}", "ln")
     text = text.replace("\\operatorname{log}", "log")
@@ -281,11 +283,11 @@ def convert_latex_to_python(latex: str) -> str:
     for command in ["sin", "cos", "tan", "arcsin", "arccos", "arctan", "sinh", "cosh", "tanh"]:
         py_name = {"arcsin": "asin", "arccos": "acos", "arctan": "atan"}.get(command, command)
         text = text.replace(f"\\{command}", py_name)
-    text = re.sub(r"pi(?=[A-Za-z_])", "pi*", text)
     text = replace_abs_bars(text)
     text = re.sub(r"([A-Za-z]_\{[^{}]+\})(?=[A-Za-z])", lambda m: normalize_identifier(m.group(1)) + "*", text)
     text = re.sub(r"([A-Za-z])_\{([^{}]+)\}", lambda m: normalize_identifier(m.group(0)), text)
     text = re.sub(r"([A-Za-z])_([A-Za-z0-9]+)", lambda m: normalize_identifier(m.group(0)), text)
+    text = re.sub(r"([A-Za-z][A-Za-z0-9_]*)\.(x|y|z)\b", r"\1_\2", text)
     text = re.sub(r"([A-Za-z]_[0-9]+)(?=[A-Za-z])", r"\1*", text)
     text = text.replace("{", "(").replace("}", ")")
     text = convert_powers(text)
@@ -327,6 +329,13 @@ class SafeExpressionValidator(ast.NodeVisitor):
             raise LatexSyntaxError("Keyword arguments are not supported")
 
 
+class CallableScalar(float):
+    def __call__(self, *args: float) -> float:
+        if len(args) != 1:
+            raise TypeError(f"Scalar multiplication expected 1 argument, got {len(args)}")
+        return float(self) * float(args[0])
+
+
 @dataclass(frozen=True)
 class LatexExpression:
     latex: str
@@ -355,7 +364,7 @@ class LatexExpression:
             env.update(DEGREE_MODE_FUNCTIONS)
         env.update(CONSTANTS)
         env.update(ctx.function_callables())
-        env.update(ctx.scalars)
+        env.update({name: CallableScalar(value) for name, value in ctx.scalars.items()})
         if variables:
             env.update(variables)
         try:

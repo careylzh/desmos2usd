@@ -13,8 +13,12 @@ from desmos2usd.parse.latex_subset import (
     normalize_identifier,
     normalize_latex_delimiters,
     split_top_level,
+    strip_wrapping_parens,
 )
 from desmos2usd.parse.predicates import ComparisonPredicate, looks_like_restriction, parse_predicate, parse_predicates, split_restrictions
+
+
+GRAPH_VARIABLES = {"x", "y", "z", "t", "u", "v"}
 
 
 @dataclass
@@ -59,26 +63,23 @@ class ClassificationResult:
     definitions: list[ExpressionIR]
 
 
+@dataclass
+class DefinitionRegistrationResult:
+    definitions: list[ExpressionIR]
+    definition_ids: set[str]
+    failures: list[tuple[ExpressionIR, Exception]]
+
+
 def classify_graph(graph: GraphIR) -> ClassificationResult:
     context = EvalContext(degree_mode=bool(graph.source.view_metadata.get("degree_mode")))
     classified: list[ClassifiedExpression] = []
-    definitions: list[ExpressionIR] = []
-    definition_ids: set[str] = set()
+    registration = register_definitions(graph.expressions, context)
+    for expr, exc in registration.failures:
+        if expr.renderable_candidate:
+            raise ValueError(f"Failed to parse definition {expr.expr_id} {expr.latex!r}: {exc}") from exc
 
     for expr in graph.expressions:
-        if expr.type != "expression" or not expr.latex.strip():
-            continue
-        try:
-            if register_definition(expr, context):
-                definition_ids.add(expr.expr_id)
-                if expr.renderable_candidate:
-                    definitions.append(expr)
-        except Exception as exc:
-            if expr.renderable_candidate:
-                raise ValueError(f"Failed to parse definition {expr.expr_id} {expr.latex!r}: {exc}") from exc
-
-    for expr in graph.expressions:
-        if not expr.renderable_candidate or expr.expr_id in definition_ids:
+        if not expr.renderable_candidate or expr.expr_id in registration.definition_ids:
             continue
         resolved = resolve_color_latex(expr.color_latex, context)
         effective_color = f"#{resolved[0]:02x}{resolved[1]:02x}{resolved[2]:02x}" if resolved else expr.color
@@ -100,7 +101,38 @@ def classify_graph(graph: GraphIR) -> ClassificationResult:
             except Exception as exc:
                 raise ValueError(f"Unsupported expression {expanded.expr_id} {expanded.latex!r}: {exc}") from exc
 
-    return ClassificationResult(context=context, classified=classified, definitions=definitions)
+    return ClassificationResult(context=context, classified=classified, definitions=registration.definitions)
+
+
+def register_definitions(expressions: list[ExpressionIR], context: EvalContext) -> DefinitionRegistrationResult:
+    pending = [expr for expr in expressions if expr.type == "expression" and expr.latex.strip()]
+    definitions: list[ExpressionIR] = []
+    definition_ids: set[str] = set()
+    failures: dict[str, tuple[ExpressionIR, Exception]] = {}
+
+    while pending:
+        next_pending: list[ExpressionIR] = []
+        progressed = False
+        for expr in pending:
+            try:
+                registered = register_definition(expr, context)
+            except Exception as exc:
+                failures[expr.expr_id] = (expr, exc)
+                next_pending.append(expr)
+                continue
+            failures.pop(expr.expr_id, None)
+            if registered:
+                definition_ids.add(expr.expr_id)
+                if expr.renderable_candidate:
+                    definitions.append(expr)
+                progressed = True
+        if not next_pending or not progressed:
+            break
+        pending = next_pending
+
+    unresolved_ids = {expr.expr_id for expr in pending}
+    unresolved_failures = [failure for expr_id, failure in failures.items() if expr_id in unresolved_ids]
+    return DefinitionRegistrationResult(definitions=definitions, definition_ids=definition_ids, failures=unresolved_failures)
 
 
 def register_definition(expr: ExpressionIR, context: EvalContext) -> bool:
@@ -120,26 +152,93 @@ def register_definition(expr: ExpressionIR, context: EvalContext) -> bool:
             return False
         context.functions[name] = FunctionDef(name=name, params=params, body=LatexExpression.parse(rhs))
         return True
+    if not looks_like_definition_identifier(lhs):
+        return False
     name = normalize_identifier(lhs)
     if name in {"x", "y", "z"}:
         return False
-    if looks_like_vector(rhs):
-        vector = parse_vector(rhs, context)
-        context.vectors[name] = vector.eval(context, {})
+
+    tuple_components = parse_tuple_definition_components(rhs)
+    if tuple_components is not None:
+        register_component_definition(name, tuple_components, context)
         return True
-    if looks_like_scalar_list(rhs):
-        context.lists[name] = parse_scalar_list(rhs, context)
+
+    point_list = parse_point_list_definition(rhs, context)
+    if point_list is not None:
+        register_point_list_definition(name, point_list, context)
         return True
+
     if looks_like_ignored_definition(rhs):
         rgb = parse_rgb_definition(rhs, context)
         if rgb is not None:
             context.colors[name] = rgb
         return True
-    parsed = LatexExpression.parse(rhs)
+
+    try:
+        value = eval_numeric_sequence(rhs, context)
+    except GraphVariableDependency:
+        return False
+    if isinstance(value, tuple):
+        context.lists[name] = value
+        return True
+    context.scalars[name] = value
+    return True
+
+
+def looks_like_definition_identifier(text: str) -> bool:
+    normalized = normalize_latex_delimiters(text).strip()
+    return re.fullmatch(r"[A-Za-z\\][A-Za-z0-9_\\{}]*", normalized) is not None
+
+
+NumericSequence = float | tuple[float, ...]
+
+
+class GraphVariableDependency(ValueError):
+    pass
+
+
+def eval_numeric_sequence(text: str, context: EvalContext) -> NumericSequence:
+    stripped = strip_wrapping_parens(normalize_latex_delimiters(text).strip())
+    stripped = stripped.replace("\\cdot", "*").replace("\\times", "*")
+    if not stripped:
+        raise ValueError("Empty numeric definition")
+
+    split_at = find_top_level_numeric_operator(stripped, "+-")
+    if split_at > 0:
+        left = eval_numeric_sequence(stripped[:split_at], context)
+        right = eval_numeric_sequence(stripped[split_at + 1 :], context)
+        return apply_sequence_operator(left, right, stripped[split_at])
+
+    split_at = find_top_level_numeric_operator(stripped, "*/")
+    if split_at > 0:
+        left = eval_numeric_sequence(stripped[:split_at], context)
+        right = eval_numeric_sequence(stripped[split_at + 1 :], context)
+        return apply_sequence_operator(left, right, stripped[split_at])
+
+    if stripped.startswith("+"):
+        return eval_numeric_sequence(stripped[1:], context)
+    if stripped.startswith("-"):
+        return negate_sequence(eval_numeric_sequence(stripped[1:], context))
+
+    if looks_like_scalar_list(stripped):
+        return parse_scalar_list(stripped, context)
+
+    join_args = parse_join_call_args(stripped)
+    if join_args is not None:
+        values: list[float] = []
+        for arg in join_args:
+            value = eval_numeric_sequence(arg, context)
+            if isinstance(value, tuple):
+                values.extend(value)
+            else:
+                values.append(value)
+        return tuple(values)
+
+    parsed = LatexExpression.parse(stripped)
+    if parsed.identifiers & GRAPH_VARIABLES:
+        raise GraphVariableDependency(f"Definition depends on graph variables: {stripped!r}")
     list_names = parsed.identifiers & set(context.lists)
     if list_names:
-        if parsed.identifiers & {"x", "y", "z", "t", "u", "v"}:
-            return False
         lengths = {len(context.lists[list_name]) for list_name in list_names}
         if len(lengths) != 1:
             raise ValueError(f"List definition references lists with mismatched lengths: {', '.join(sorted(list_names))}")
@@ -148,12 +247,148 @@ def register_definition(expr: ExpressionIR, context: EvalContext) -> bool:
         for index in range(count):
             variables = {list_name: context.lists[list_name][index] for list_name in list_names}
             values.append(parsed.eval(context, variables))
-        context.lists[name] = tuple(values)
+        return tuple(values)
+    return parsed.eval(context, {})
+
+
+def find_top_level_numeric_operator(text: str, operators: str) -> int:
+    depth = 0
+    for index in range(len(text) - 1, -1, -1):
+        char = text[index]
+        if char in ")}]":
+            depth += 1
+        elif char in "({[":
+            depth -= 1
+        elif depth == 0 and char in operators:
+            if char in "+-" and is_unary_numeric_operator(text, index):
+                continue
+            return index
+    return -1
+
+
+def is_unary_numeric_operator(text: str, index: int) -> bool:
+    if index == 0:
         return True
-    if parsed.identifiers & {"x", "y", "z", "t", "u", "v"}:
-        return False
-    context.scalars[name] = parsed.eval(context, {})
-    return True
+    previous = text[index - 1]
+    return previous in "+-*/("
+
+
+def apply_sequence_operator(left: NumericSequence, right: NumericSequence, op: str) -> NumericSequence:
+    if isinstance(left, tuple) or isinstance(right, tuple):
+        if isinstance(left, tuple) and isinstance(right, tuple):
+            if len(left) != len(right):
+                raise ValueError("List operation references lists with mismatched lengths")
+            left_values = left
+            right_values = right
+        elif isinstance(left, tuple):
+            left_values = left
+            right_values = tuple(float(right) for _ in left)
+        else:
+            right_values = right
+            left_values = tuple(float(left) for _ in right)
+        return tuple(apply_scalar_operator(a, b, op) for a, b in zip(left_values, right_values, strict=True))
+    return apply_scalar_operator(left, right, op)
+
+
+def apply_scalar_operator(left: float, right: float, op: str) -> float:
+    if op == "+":
+        return float(left) + float(right)
+    if op == "-":
+        return float(left) - float(right)
+    if op == "*":
+        return float(left) * float(right)
+    if op == "/":
+        return float(left) / float(right)
+    raise ValueError(f"Unsupported numeric operator {op!r}")
+
+
+def negate_sequence(value: NumericSequence) -> NumericSequence:
+    if isinstance(value, tuple):
+        return tuple(-item for item in value)
+    return -value
+
+
+def parse_join_call_args(text: str) -> list[str] | None:
+    normalized = normalize_latex_delimiters(text).strip()
+    prefixes = ("\\operatorname{join}", "join")
+    prefix = next((candidate for candidate in prefixes if normalized.startswith(candidate)), None)
+    if prefix is None:
+        return None
+    open_at = len(prefix)
+    while open_at < len(normalized) and normalized[open_at].isspace():
+        open_at += 1
+    if open_at >= len(normalized) or normalized[open_at] != "(":
+        return None
+    close_at = matching_paren(normalized, open_at)
+    if normalized[close_at + 1 :].strip():
+        return None
+    return split_top_level(normalized[open_at + 1 : close_at], ",")
+
+
+def parse_tuple_definition_components(text: str) -> list[str] | None:
+    stripped = strip_extra_trailing_closing_parens(normalize_latex_delimiters(text).strip())
+    while stripped.startswith("("):
+        try:
+            close_at = matching_paren(stripped, 0)
+        except ValueError:
+            return None
+        if close_at != len(stripped) - 1:
+            return None
+        inner = stripped[1:close_at].strip()
+        parts = split_top_level(inner, ",")
+        if len(parts) in {2, 3}:
+            return parts
+        stripped = inner
+    return None
+
+
+def register_component_definition(name: str, components: list[str], context: EvalContext) -> None:
+    values = [eval_numeric_sequence(component, context) for component in components]
+    lengths = {len(value) for value in values if isinstance(value, tuple)}
+    if len(lengths) > 1:
+        raise ValueError(f"Point definition {name} references lists with mismatched lengths")
+    axes = "xyz"[: len(values)]
+    if not lengths:
+        for axis, value in zip(axes, values, strict=True):
+            context.scalars[f"{name}_{axis}"] = float(value)
+        if len(values) == 3:
+            context.vectors[name] = tuple(float(value) for value in values)  # type: ignore[arg-type]
+        return
+    count = lengths.pop()
+    for axis, value in zip(axes, values, strict=True):
+        if isinstance(value, tuple):
+            context.lists[f"{name}_{axis}"] = value
+        else:
+            context.lists[f"{name}_{axis}"] = tuple(float(value) for _ in range(count))
+
+
+def parse_point_list_definition(text: str, context: EvalContext) -> list[tuple[float, ...]] | None:
+    stripped = normalize_latex_delimiters(text).strip()
+    if not (stripped.startswith("[") and stripped.endswith("]")):
+        return None
+    points: list[tuple[float, ...]] = []
+    for part in split_top_level(stripped[1:-1], ","):
+        if not part:
+            continue
+        components = parse_tuple_definition_components(part)
+        if components is None:
+            return None
+        values = [eval_numeric_sequence(component, context) for component in components]
+        if any(isinstance(value, tuple) for value in values):
+            raise ValueError(f"Point list entry references nested lists: {part!r}")
+        points.append(tuple(float(value) for value in values))
+    return points
+
+
+def register_point_list_definition(name: str, points: list[tuple[float, ...]], context: EvalContext) -> None:
+    if not points:
+        return
+    widths = {len(point) for point in points}
+    if len(widths) != 1:
+        raise ValueError(f"Point list {name} has inconsistent tuple sizes")
+    axes = "xyz"[: widths.pop()]
+    for axis_index, axis in enumerate(axes):
+        context.lists[f"{name}_{axis}"] = tuple(point[axis_index] for point in points)
 
 
 def classify_expression(expr: ExpressionIR, context: EvalContext) -> ClassifiedExpression:
@@ -713,6 +948,17 @@ def replace_latex_identifier(text: str, identifier: str, replacement: str) -> st
 
 
 def latex_identifier_raw_pattern(identifier: str) -> str:
+    property_match = re.match(r"^(.+)_([xyz])$", identifier)
+    if property_match:
+        base = property_match.group(1)
+        component = property_match.group(2)
+        base_raw = latex_identifier_raw_pattern(base)
+        normal_raw = latex_identifier_raw_pattern_no_property(identifier)
+        return rf"(?:{normal_raw}|{base_raw}\s*\.\s*{component})"
+    return latex_identifier_raw_pattern_no_property(identifier)
+
+
+def latex_identifier_raw_pattern_no_property(identifier: str) -> str:
     if re.match(r"^[A-Za-z]_[A-Za-z0-9]+$", identifier):
         base, sub = identifier.split("_", 1)
         return rf"{re.escape(base)}(?:_\{{{re.escape(sub)}\}}|_{re.escape(sub)})"
@@ -721,7 +967,7 @@ def latex_identifier_raw_pattern(identifier: str) -> str:
 
 def latex_identifier_pattern(identifier: str) -> str:
     raw = latex_identifier_raw_pattern(identifier)
-    return rf"(?<![A-Za-z0-9_\\]){raw}(?![A-Za-z0-9_\[])"
+    return rf"(?:(?<![A-Za-z0-9_\\])|(?<=\\le)|(?<=\\ge)|(?<=\\lt)|(?<=\\gt)){raw}(?![A-Za-z0-9_\[])"
 
 
 def latex_identifier_index_pattern(identifier: str) -> str:

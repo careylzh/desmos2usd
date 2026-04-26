@@ -10,6 +10,7 @@ from desmos2usd.converter import export_graph
 from desmos2usd.eval.context import EvalContext
 from desmos2usd.ir import ExpressionIR, GraphIR, SourceInfo
 from desmos2usd.parse.classify import classify_expression, classify_graph, register_definition
+from desmos2usd.parse.latex_subset import LatexExpression
 from desmos2usd.tessellate import tessellate
 from desmos2usd.validate.fixture_usdz_suite import classify_graph_tolerant
 
@@ -329,6 +330,72 @@ class StudentFixtureRegressionTests(unittest.TestCase):
                 "(0.0,0,t)",
             ],
         )
+
+    def test_forward_point_fields_and_list_arithmetic_expand(self) -> None:
+        graph = GraphIR(
+            source=SOURCE,
+            expressions=[
+                expr("1", r"f_{1}=(h+a,k)", hidden=True),
+                expr("2", r"s_{sidelength}=2a(\sqrt{2}-1)"),
+                expr(
+                    "3",
+                    r"f_{1}.x\le x\le f_{1}.x+0.2"
+                    r"\left\{f_{1}.y\le y\le f_{1}.y+0.2\right\}"
+                    r"\left\{0\le z\le1\right\}",
+                ),
+                expr("4", "h=[20,-20]", hidden=True),
+                expr("5", "k=[10,30]", hidden=True),
+                expr("6", "a=2", hidden=True),
+                expr("7", r"p_{pattern}=s_{sidelength}\cdot[0...2]"),
+                expr("8", r"0\le x\le p_{pattern}\left\{0\le y\le1\right\}\left\{0\le z\le1\right\}"),
+            ],
+            raw_state={},
+        )
+
+        classification, unsupported = classify_graph_tolerant(graph)
+
+        self.assertEqual(len(unsupported), 0)
+        self.assertEqual([item.ir.expr_id for item in classification.classified], ["3_0", "3_1", "8_0", "8_1", "8_2"])
+        self.assertIn("22.0\\le x\\le 22.0+0.2", classification.classified[0].ir.latex)
+        self.assertEqual(classification.context.lists["p_pattern"][2], 2 * classification.context.scalars["s_sidelength"])
+
+    def test_point_list_property_references_expand(self) -> None:
+        graph = GraphIR(
+            source=SOURCE,
+            expressions=[
+                expr("1", "w=7", hidden=True),
+                expr("2", "p_{points}=[(11,w),(w,-11)]\\", hidden=True),
+                expr(
+                    "3",
+                    r"(x-p_{points}.x)^{2}+(y-p_{points}.y)^{2}<1"
+                    r"\left\{0\le z\le1\right\}",
+                ),
+            ],
+            raw_state={},
+        )
+
+        classification, unsupported = classify_graph_tolerant(graph)
+
+        self.assertEqual(len(unsupported), 0)
+        self.assertEqual([item.ir.expr_id for item in classification.classified], ["3_0", "3_1"])
+        self.assertIn("(x-11.0)^{2}+(y-7.0)^{2}", classification.classified[0].ir.latex)
+
+    def test_identifier_containing_pi_is_not_rewritten_as_constant(self) -> None:
+        context = EvalContext()
+        self.assertTrue(register_definition(expr("1", r"r_{pil}=0.3", hidden=True), context))
+
+        value = LatexExpression.parse(r"(r_{pil}-0.1)^{2}").eval(context, {})
+
+        self.assertAlmostEqual(value, 0.04)
+
+    def test_failed_geometric_equation_is_not_reported_as_definition(self) -> None:
+        context = EvalContext()
+        self.assertTrue(register_definition(expr("1", "c=1.5", hidden=True), context))
+
+        registered = register_definition(expr("2", r"(x-s)^{2}+(y-q)^{2}+(z-17.8)^{2}=c^{2}"), context)
+
+        self.assertFalse(registered)
+        self.assertEqual(set(context.scalars), {"c"})
 
     def test_tolerant_fixture_classification_reports_failed_definition_once(self) -> None:
         graph = GraphIR(
