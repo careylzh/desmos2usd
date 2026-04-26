@@ -1,3 +1,51 @@
+# Handoff: 2026-04-26 19:30 SGT — S2-08E Pass 2
+
+## Active Task
+
+Fix S2-08 Group E rotated leaning-tower cylinders (broken: viewer shows thin
+strips instead of leaning circular bands), then triage other remaining partial
+fixtures.
+
+## What Changed
+
+- `src/desmos2usd/tessellate/implicit.py`: added `tessellate_implicit_surface_3axis_marching` as a fallback when the existing circle-fit `tessellate_circular_implicit_surface` cannot match the slice cross-section. The fallback marches squares at each predicate-bounded slice and stitches adjacent slices via nearest-segment matching. Includes `_refine_3axis_bbox` (two-stage scan: coarse sign-change, then zoom around argmin |residual|) so tiny features (e.g. radius 0.06 in viewport ±12) are not invisible to a fixed-resolution grid.
+- `src/desmos2usd/parse/predicates.py`: extended `variable_bounds` to handle `axis = constant` predicates as degenerate bounds `(N, N)`. Lets the 3-axis tessellator pick a slicing axis even when the predicate is exact equality (e.g. `z=8`).
+- `src/desmos2usd/tessellate/slabs.py`: added `_refine_inequality_bbox` so the voxel sampler (`tessellate_sampled_inequality_region`) coarse-scans the predicate region first; small inequality regions in large viewports now produce voxels.
+- `tests/test_student_fixture_regressions.py`: 4 new regression tests covering the rotated tilted cylinder, the small-offset variant, the equality-predicate bound, and the inequality bbox refinement.
+
+## Validation
+
+- `PYTHONPATH=src:tests python3 -m unittest discover tests` → 102 tests, OK (~5 min).
+- Full `[4B]` fixture sweep at resolution=12: 24 success / 47 partial / 0 error (was 21 / 50 / 0). 18 fixtures improved, no fixture regressed.
+- Per-fixture deltas:
+  - **S2-08 Group E**: 38 → 78 prims, 45 → 5 unsupported. (PRIMARY TARGET.)
+  - **S2-09 Group F**: 27 → 27 prims, 0 → 0 unsupported (regression guard intact).
+  - **S2-10 Group F**: 85 → 120 prims, 82 → 47 unsupported.
+  - **S2-07 Group E**: 15 → 34 prims, 20 → 1 unsupported.
+  - **S2-08 Group G**: 1217 → 1236 prims, 42 → 23 unsupported.
+  - **S2-09 Group B**: 52 → 60 prims, 13 → 5 unsupported.
+  - Plus 12 more fixtures with smaller gains.
+  - **Promoted partial → success** (+3): S2-05 Group A, S2-05 Group E, S2-06 Group C.
+
+## Risks or Open Questions
+
+- [ ] Live browser visual capture not possible from chekbook in this dispatched session (viewer is on chekstool). The generated USDA/USDZ files are the "after" artifacts; main agent on chekstool needs to refresh the live viewer screenshot at the URL in the original task brief and place it as `viewer_after_pass2.png` in `artifacts/fixture_usdz/review_evidence/20260426_s208_group_e_pass2/`.
+- [ ] S2-08E remaining 5 unsupported are edge cases:
+  - 2 single-axis `abs(x)+abs(x) = N` (likely fixture authoring typo for `abs(x)+abs(y) = N`; classifier legitimately rejects single-axis equation).
+  - 3 flat disks `x^2+y^2 <= N {z=N}` — voxel sampler cannot fill a single-z slice; needs a flat-disk render path.
+- [ ] S2-09F-style large tilted inequality cylinders with `(x - z*tan(theta))^2 + y^2 < r^2` over wide z range still under-resolve because the cylinder slides across voxel cells faster than the voxel can capture. Would need voxel grid aligned to the cylinder axis, or octree refinement.
+- [ ] Top remaining sweep blocker categories (post pass 2): predicate violations (~41 occurrences), `Unsupported expression node Tuple` (~81), various Desmos restriction parse edge cases (`7{0`, `1{2.7`, etc.).
+
+## Recommended Next Wake
+
+Either: (a) add a flat-disk render path for `inequality_region` when one axis has a degenerate (low==high) bound, OR (b) tackle the `Unsupported expression node Tuple` family (~81 occurrences) which appears to be parametric u/v Tuple AST handling.
+
+## User-Facing Update
+
+S2-08 Group E unsupported expressions dropped from 45 to 5 (-89%); prim count doubled (38 → 78). Full sweep gained 3 success promotions and improved 18 fixtures with no regressions.
+
+---
+
 # Handoff: 2026-04-26 16:30 SGT — Visual Parity Pass
 
 ## Active Task

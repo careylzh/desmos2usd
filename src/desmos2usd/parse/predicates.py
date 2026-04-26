@@ -86,6 +86,10 @@ class ComparisonPredicate:
                 bounds[right_id] = (self.terms[0], None)
             elif right_id and op in {">=", ">"}:
                 bounds[right_id] = (None, self.terms[0])
+            elif left_id and op == "=" and not self.terms[1].identifiers:
+                bounds[left_id] = (self.terms[1], self.terms[1])
+            elif right_id and op == "=" and not self.terms[0].identifiers:
+                bounds[right_id] = (self.terms[0], self.terms[0])
         return bounds
 
 

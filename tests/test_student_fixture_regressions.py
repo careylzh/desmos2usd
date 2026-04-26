@@ -350,6 +350,73 @@ class StudentFixtureRegressionTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             classify_expression(expr("1", "x^{2}=1"), EvalContext())
 
+    def test_rotated_coordinate_tilted_cylinder_falls_back_to_marching_squares(self) -> None:
+        """S2-08 Group E: `(x*cos(theta)+z*sin(theta))^2 + y^2 = r^2 {z range}` produces an
+        elliptic cross-section (squashed by cos(theta)) that the circle-fit fast path in
+        `tessellate_circular_implicit_surface` rejects. The marching-squares fallback must
+        still produce non-empty geometry for these tilted cylinder shells.
+        """
+        source = SourceInfo("", "", "", "", viewport_bounds={"x": (-12.0, 12.0), "y": (-12.0, 12.0), "z": (-12.0, 12.0)})
+        item = classify_expression(
+            ExpressionIR(source, "1", 0, r"(x\cos(0.07)+z\sin(0.07))^{2}+y^{2}=1.3^{2}\left\{0\le z\le2\right\}"),
+            EvalContext(),
+        )
+
+        self.assertEqual(item.kind, "implicit_surface")
+        self.assertEqual(item.expression.identifiers, frozenset({"x", "y", "z"}))
+        geometry = tessellate(item, EvalContext(), resolution=12)
+        self.assertGreater(geometry.face_count, 0)
+
+    def test_small_offset_tilted_cylinder_uses_adaptive_bbox(self) -> None:
+        """S2-08 Group E: tiny tilted-cylinder shell (radius 0.06 in viewport ±12) is
+        invisible to a fixed-resolution marching grid. The 3-axis fallback must adaptively
+        refine its bbox before contouring.
+        """
+        source = SourceInfo("", "", "", "", viewport_bounds={"x": (-12.0, 12.0), "y": (-12.0, 12.0), "z": (-12.0, 12.0)})
+        item = classify_expression(
+            ExpressionIR(
+                source,
+                "1",
+                0,
+                r"(x\cos(0.07)+z\sin(0.07)-1.36\cos(1\pi/6))^{2}+(y-1.36\sin(1\pi/6))^{2}=0.06^{2}\left\{0\le z\le8\right\}",
+            ),
+            EvalContext(),
+        )
+
+        self.assertEqual(item.kind, "implicit_surface")
+        geometry = tessellate(item, EvalContext(), resolution=12)
+        self.assertGreater(geometry.face_count, 0)
+
+    def test_equality_predicate_yields_degenerate_axis_bound(self) -> None:
+        """`z = N` with N constant should be reported by `variable_bounds` as a degenerate
+        bound (low == high). Without this, downstream tessellators treat such a
+        single-slice predicate as "no z bound" and fall back to viewport bounds.
+        """
+        from desmos2usd.parse.predicates import parse_predicate
+        predicate = parse_predicate("z=8")
+        bounds = predicate.variable_bounds()
+        self.assertIn("z", bounds)
+        low, high = bounds["z"]
+        self.assertIsNotNone(low)
+        self.assertIsNotNone(high)
+        self.assertAlmostEqual(low.eval(EvalContext(), {}), 8.0)
+        self.assertAlmostEqual(high.eval(EvalContext(), {}), 8.0)
+
+    def test_inequality_voxel_sampler_refines_bbox_for_small_region(self) -> None:
+        """`tessellate_sampled_inequality_region` must coarse-scan to find the predicate
+        region before voxelizing. Without bbox refinement, a small inequality region in a
+        large viewport produces zero satisfied cells.
+        """
+        source = SourceInfo("", "", "", "", viewport_bounds={"x": (-100.0, 100.0), "y": (-100.0, 100.0), "z": (0.0, 100.0)})
+        item = classify_expression(
+            ExpressionIR(source, "1", 0, r"x^{2}+y^{2}<10\left\{1<z<5\right\}"),
+            EvalContext(),
+        )
+
+        self.assertEqual(item.kind, "inequality_region")
+        geometry = tessellate(item, EvalContext(), resolution=12)
+        self.assertGreater(geometry.face_count, 0)
+
     def test_usda_writes_display_color_for_usdz_viewers(self) -> None:
         graph = GraphIR(
             source=SOURCE,

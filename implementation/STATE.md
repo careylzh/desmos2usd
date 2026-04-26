@@ -1,6 +1,6 @@
 # Implementation State
 
-Last updated: 2026-04-26 15:46 SGT
+Last updated: 2026-04-26 19:30 SGT (pass 2)
 
 ## Loop Mode
 - cadence: 10 one-shot cron wakes, 30 minutes apart
@@ -164,6 +164,37 @@ Last updated: 2026-04-26 15:46 SGT
   - Implementation commit: `6e77fe1` (`Use saved Desmos view metadata in viewer`)
   - Push command attempted three times: `git push chektien HEAD:fix/student-fixture-usdz-export`
   - Push result: blocked, `ssh: Could not resolve hostname github.com: -65563`
+
+## S2-08 Group E Pass 2 — 2026-04-26 ~19:30 SGT
+- task: fix S2-08 Group E rotated leaning-tower cylinders, then triage other partial fixtures.
+- diagnosis:
+  - S2-08 Group E uses tilted-cylinder shells `(x*cos(0.07) + z*sin(0.07))^2 + y^2 = r^2 {z range}` and small offset variants. Pass-1's `tessellate_circular_implicit_surface` (cylinders.py) requires the per-slice cross-section to be a true circle; the `cos(0.07) ≈ 0.995` factor squashes it into a slight ellipse and fails `circle_boundary_matches`. Result: 38 prims, 45 unsupported (40 of "implicit surface requires a supported bounded three-axis form").
+  - Tiny `0.06`-radius variants are also invisible to a fixed-resolution marching grid in viewport ±12 (cell width >> feature width), even when the fallback runs.
+  - Inequality voxel sampler had the same scale problem for small inequality regions.
+  - `=` predicate (e.g. `z=N`) didn't yield a `variable_bounds` entry, so the 3-axis path couldn't pick a slicing axis when the predicate was an exact equality.
+- code changes:
+  - `src/desmos2usd/tessellate/implicit.py`: added `tessellate_implicit_surface_3axis_marching` + `_refine_3axis_bbox` (two-stage scan: coarse sign-change, then zoom around argmin |residual|) + helpers (`_pick_3axis_extrude_axis`, `_scan_for_sign_change`, `_argmin_abs_residual`, `_contour_segments_at_slice`, `_nearest_segment`, `_orient_to`). Used as fallback when `tessellate_circular_implicit_surface` returns None or zero faces. Picks shortest constant-bounded predicate axis, marches squares at each slice, stitches adjacent slices via nearest-segment matching.
+  - `src/desmos2usd/parse/predicates.py`: extended `variable_bounds` to handle `axis = constant` predicates as degenerate bounds `(N, N)`.
+  - `src/desmos2usd/tessellate/slabs.py`: added `_refine_inequality_bbox` that coarse-scans the predicate region before the voxel sampler runs, so small inequality regions in large viewports produce voxels.
+- artifacts:
+  - All `[4B]` fixtures regenerated at resolution=12. `summary.json` rebuilt by suite.
+- evidence:
+  - `artifacts/fixture_usdz/review_evidence/20260426_s208_group_e_pass2/notes.md`
+- target results:
+  - S2-08 Group E: 38 → 78 prims (+40, ~2x), 45 → 5 unsupported (-40, 9x reduction). Status partial→partial. Remaining 5: 2 single-axis `abs(x)+abs(x)=N` (likely fixture authoring typo), 3 flat-disk `x^2+y^2 <= N {z=N}` (voxel sampler can't fill at degenerate z, would need a flat-disk render path).
+  - S2-09 Group F: regression guard held — 27 prims, 0 unsupported, success.
+  - Sweep: success 21 → 24 (+3 promotions: S2-05 Group A, S2-05 Group E, S2-06 Group C); partial 50 → 47; error 0 → 0.
+  - Other large improvements: S2-10 Group F (85→120 prims, -35 unsupported), S2-07 Group E (15→34 prims, -19 unsupported), S2-08 Group G (1217→1236 prims, -19 unsupported), S2-09 Group B (52→60 prims, -8 unsupported), 11 more fixtures with smaller gains.
+- tests:
+  - 4 new regression tests added to `tests/test_student_fixture_regressions.py`: `test_rotated_coordinate_tilted_cylinder_falls_back_to_marching_squares`, `test_small_offset_tilted_cylinder_uses_adaptive_bbox`, `test_equality_predicate_yields_degenerate_axis_bound`, `test_inequality_voxel_sampler_refines_bbox_for_small_region`.
+  - Full `python3 -m unittest discover tests` (102 tests) passes.
+- visual evidence:
+  - Browser screenshot capture not available from chekbook in this dispatched session (viewer is served from chekstool). Pass-1 probe screenshots remain the canonical "before"; current `*.usda`/`*.usdz` artifacts are the "after". Live browser parity capture must be done by main agent on chekstool against the refreshed branch.
+- remaining blockers:
+  - S2-08E flat disks (`x^2+y^2 <= 4 {z=0}`): need a flat-disk render path for voxel sampler at degenerate z bound; current voxel sampler fundamentally can't fill a single-z slice.
+  - S2-08E single-axis `abs(x)+abs(x) = N`: classifier rejects single-axis equation; may be a Desmos authoring typo for `abs(x)+abs(y)=N`.
+  - S2-09F-style tilted inequality cylinders with shift larger than voxel cell width still under-resolve (my pass-1 fix didn't change S2-09F because it was already success); further work would need axis-aligned voxel grid replaced by tilted/octree refinement.
+  - High-frequency remaining issues across sweep: `point N violates predicate '...'` (predicate-tolerance after refined boundary, ~24+17 occurrences), `Unsupported expression node Tuple` (~81 occurrences, parametric u/v Tuple AST nodes not handled), various parse failures for unusual Desmos restriction syntax.
 
 ## Visual Parity Pass — 2026-04-26 ~16:30 SGT
 - task: visual parity repair for S2-05 Group D wireframe + S2-03 Group B fin artifacts, then triage all fixtures.

@@ -717,6 +717,7 @@ def tessellate_sampled_inequality_region(item: ClassifiedExpression, context: Ev
     xb = axis_bounds("x", bounds, fallback_bounds)
     yb = axis_bounds("y", bounds, fallback_bounds)
     zb = axis_bounds("z", bounds, fallback_bounds)
+    xb, yb, zb = _refine_inequality_bbox(item, context, xb, yb, zb)
     xs = linspace(xb[0], xb[1], resolution + 1)
     ys = linspace(yb[0], yb[1], resolution + 1)
     zs = linspace(zb[0], zb[1], resolution + 1)
@@ -746,6 +747,54 @@ def tessellate_sampled_inequality_region(item: ClassifiedExpression, context: Ev
 def point_satisfies_predicates(point: Point, item: ClassifiedExpression, context: EvalContext) -> bool:
     variables = {"x": point[0], "y": point[1], "z": point[2]}
     return all(predicate.evaluate(context, variables, tol=1e-5) for predicate in item.predicates)
+
+
+def _refine_inequality_bbox(
+    item: ClassifiedExpression,
+    context: EvalContext,
+    xb: tuple[float, float],
+    yb: tuple[float, float],
+    zb: tuple[float, float],
+) -> tuple[tuple[float, float], tuple[float, float], tuple[float, float]]:
+    """Coarse-scan the predicate region for inequality voxel sampling.
+
+    Without this, a small inequality region (e.g. radius 3 in viewport ±100) is missed
+    because each voxel cell width is larger than the region. We sample a 24x24x24 grid;
+    if any point satisfies all predicates, we tighten the bbox to the satisfied region
+    plus a small pad. When nothing satisfies, returns the original bounds so the caller
+    still raises the existing "did not resolve" error.
+    """
+    scan = 24
+    xs = linspace(xb[0], xb[1], scan)
+    ys = linspace(yb[0], yb[1], scan)
+    zs = linspace(zb[0], zb[1], scan)
+    x_min: float | None = None
+    x_max: float | None = None
+    y_min: float | None = None
+    y_max: float | None = None
+    z_min: float | None = None
+    z_max: float | None = None
+    for z in zs:
+        for y in ys:
+            for x in xs:
+                if point_satisfies_predicates((x, y, z), item, context):
+                    x_min = x if x_min is None else min(x_min, x)
+                    x_max = x if x_max is None else max(x_max, x)
+                    y_min = y if y_min is None else min(y_min, y)
+                    y_max = y if y_max is None else max(y_max, y)
+                    z_min = z if z_min is None else min(z_min, z)
+                    z_max = z if z_max is None else max(z_max, z)
+    if x_min is None:
+        return xb, yb, zb
+    pad_x = (xb[1] - xb[0]) / max(1, scan - 1)
+    pad_y = (yb[1] - yb[0]) / max(1, scan - 1)
+    pad_z = (zb[1] - zb[0]) / max(1, scan - 1)
+    new_xb = (max(xb[0], x_min - 2 * pad_x), min(xb[1], x_max + 2 * pad_x))
+    new_yb = (max(yb[0], y_min - 2 * pad_y), min(yb[1], y_max + 2 * pad_y))
+    new_zb = (max(zb[0], z_min - 2 * pad_z), min(zb[1], z_max + 2 * pad_z))
+    if new_xb[1] - new_xb[0] < 1e-6 or new_yb[1] - new_yb[0] < 1e-6 or new_zb[1] - new_zb[0] < 1e-6:
+        return xb, yb, zb
+    return new_xb, new_yb, new_zb
 
 
 def add_box(points: list[Point], counts: list[int], indices: list[int], corners: list[Point]) -> None:
