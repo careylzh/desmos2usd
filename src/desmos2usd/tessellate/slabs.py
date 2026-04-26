@@ -1,7 +1,8 @@
 from __future__ import annotations
 
 import ast
-from math import isfinite
+from dataclasses import dataclass, replace
+from math import ceil, floor, isfinite
 
 from desmos2usd.eval.context import EvalContext
 from desmos2usd.eval.numeric import CONSTANTS
@@ -26,6 +27,9 @@ def tessellate_inequality_region(item: ClassifiedExpression, context: EvalContex
     flat = _flat_region_geometry(item, context, resolution)
     if flat is not None:
         return flat
+    modulo = tessellate_modulo_repeated_region(item, context, resolution)
+    if modulo is not None:
+        return modulo
     circular = tessellate_circular_inequality_extrusion(item, context, resolution=max(16, resolution * 4))
     if circular is not None and mesh_vertices_satisfy_predicates(item, context, circular):
         return circular
@@ -390,6 +394,212 @@ def predicate_identifiers(predicate: ComparisonPredicate) -> set[str]:
     for term in predicate.terms:
         identifiers.update(term.identifiers & {"x", "y", "z"})
     return identifiers
+
+
+@dataclass(frozen=True)
+class ModuloStripe:
+    predicate: ComparisonPredicate
+    axis: str
+    coefficient: float
+    intercept: float
+    period: float
+    width: float
+
+
+def tessellate_modulo_repeated_region(
+    item: ClassifiedExpression,
+    context: EvalContext,
+    resolution: int,
+) -> GeometryData | None:
+    stripe = first_modulo_stripe(item, context)
+    if stripe is None:
+        return None
+
+    bounds = collect_constant_bounds(item.predicates, context)
+    axis_low, axis_high = axis_bounds(stripe.axis, bounds, item.ir.source.viewport_bounds)
+    if axis_low >= axis_high:
+        return None
+    intervals = modulo_axis_intervals(stripe, axis_low, axis_high)
+    if not intervals:
+        return None
+
+    geometries: list[GeometryData] = []
+    for low, high in intervals:
+        narrowed = item_with_axis_interval(item, stripe.axis, low, high)
+        geometry = tessellate_modulo_interval_region(
+            item,
+            narrowed,
+            context,
+            stripe,
+            resolution,
+        )
+        if geometry is not None and geometry.kind == "Mesh" and geometry.face_count:
+            geometries.append(geometry)
+    if not geometries:
+        return None
+    return combine_meshes(geometries)
+
+
+def tessellate_modulo_interval_region(
+    original: ClassifiedExpression,
+    narrowed: ClassifiedExpression,
+    context: EvalContext,
+    stripe: ModuloStripe,
+    resolution: int,
+) -> GeometryData | None:
+    if narrowed.inequality is not stripe.predicate:
+        circular = tessellate_circular_inequality_extrusion(narrowed, context, resolution=max(16, resolution * 4))
+        if circular is not None and mesh_vertices_satisfy_predicates(original, context, circular):
+            return circular
+    try:
+        box = tessellate_box(narrowed, context)
+        if box.face_count and mesh_vertices_satisfy_predicates(original, context, box):
+            return box
+    except Exception:
+        pass
+    try:
+        extruded = tessellate_extruded_2d_region(narrowed, context, resolution=max(16, resolution * 4))
+        if extruded.face_count and mesh_vertices_satisfy_predicates(original, context, extruded):
+            return extruded
+    except Exception:
+        pass
+    return None
+
+
+def first_modulo_stripe(item: ClassifiedExpression, context: EvalContext) -> ModuloStripe | None:
+    for predicate in item.predicates:
+        stripe = modulo_stripe_from_predicate(predicate, context)
+        if stripe is not None:
+            return stripe
+    return None
+
+
+def modulo_stripe_from_predicate(predicate: ComparisonPredicate, context: EvalContext) -> ModuloStripe | None:
+    if len(predicate.terms) != 2 or len(predicate.ops) != 1:
+        return None
+    left, right = predicate.terms
+    op = predicate.ops[0]
+    if op in {"<", "<="}:
+        modulo = modulo_term_info(left, context)
+        width = constant_expression_value(right, context)
+    elif op in {">", ">="}:
+        modulo = modulo_term_info(right, context)
+        width = constant_expression_value(left, context)
+    else:
+        return None
+    if modulo is None or width is None:
+        return None
+    axis, coefficient, intercept, period = modulo
+    if abs(coefficient) <= 1e-12 or period <= 0.0 or width <= 0.0 or width >= period:
+        return None
+    return ModuloStripe(
+        predicate=predicate,
+        axis=axis,
+        coefficient=coefficient,
+        intercept=intercept,
+        period=period,
+        width=width,
+    )
+
+
+def modulo_term_info(
+    expression: LatexExpression,
+    context: EvalContext,
+) -> tuple[str, float, float, float] | None:
+    node = expression.tree.body
+    if not isinstance(node, ast.Call) or not isinstance(node.func, ast.Name) or node.func.id != "mod":
+        return None
+    if len(node.args) != 2:
+        return None
+    graph_axes = expression.identifiers & {"x", "y", "z"}
+    if len(graph_axes) != 1:
+        return None
+    axis = next(iter(graph_axes))
+    affine = affine_node_coefficients(node.args[0], context, axis)
+    period = constant_node_value(node.args[1], context, axis)
+    if affine is None or period is None:
+        return None
+    coefficient, intercept = affine
+    return axis, coefficient, intercept, period
+
+
+def constant_expression_value(expression: LatexExpression, context: EvalContext) -> float | None:
+    if expression.identifiers & {"x", "y", "z"}:
+        return None
+    try:
+        value = expression.eval(context, {})
+    except Exception:
+        return None
+    return value if isfinite(value) else None
+
+
+def constant_node_value(node: ast.AST, context: EvalContext, variable: str) -> float | None:
+    coeffs = affine_node_coefficients(node, context, variable)
+    if coeffs is None or abs(coeffs[0]) > 1e-12 or not isfinite(coeffs[1]):
+        return None
+    return coeffs[1]
+
+
+def modulo_axis_intervals(stripe: ModuloStripe, axis_low: float, axis_high: float) -> list[tuple[float, float]]:
+    u0 = stripe.coefficient * axis_low + stripe.intercept
+    u1 = stripe.coefficient * axis_high + stripe.intercept
+    u_low, u_high = (min(u0, u1), max(u0, u1))
+    first_k = floor((u_low - stripe.width) / stripe.period) - 1
+    last_k = ceil(u_high / stripe.period) + 1
+    intervals: list[tuple[float, float]] = []
+    for k in range(first_k, last_k + 1):
+        active_low = k * stripe.period
+        active_high = active_low + stripe.width
+        endpoint_a = (active_low - stripe.intercept) / stripe.coefficient
+        endpoint_b = (active_high - stripe.intercept) / stripe.coefficient
+        low = max(axis_low, min(endpoint_a, endpoint_b))
+        high = min(axis_high, max(endpoint_a, endpoint_b))
+        if high - low > 1e-9:
+            intervals.append((low, high))
+    intervals.sort()
+    return intervals
+
+
+def item_with_axis_interval(
+    item: ClassifiedExpression,
+    axis: str,
+    low: float,
+    high: float,
+) -> ClassifiedExpression:
+    return replace(
+        item,
+        predicates=[*item.predicates, axis_interval_predicate(axis, low, high)],
+    )
+
+
+def axis_interval_predicate(axis: str, low: float, high: float) -> ComparisonPredicate:
+    raw = f"{low:.17g}<={axis}<={high:.17g}"
+    return ComparisonPredicate(
+        raw=raw,
+        terms=(
+            LatexExpression.parse(f"{low:.17g}"),
+            LatexExpression.parse(axis),
+            LatexExpression.parse(f"{high:.17g}"),
+        ),
+        ops=("<=", "<="),
+    )
+
+
+def combine_meshes(geometries: list[GeometryData]) -> GeometryData:
+    points: list[Point] = []
+    counts: list[int] = []
+    indices: list[int] = []
+    sample_parameters: list[dict[str, float]] = []
+    include_samples = any(geometry.sample_parameters for geometry in geometries)
+    for geometry in geometries:
+        offset = len(points)
+        points.extend(geometry.points)
+        counts.extend(geometry.face_vertex_counts)
+        indices.extend(offset + index for index in geometry.face_vertex_indices)
+        if include_samples:
+            sample_parameters.extend(geometry.sample_parameters)
+            sample_parameters.extend({} for _ in range(len(geometry.points) - len(geometry.sample_parameters)))
+    return GeometryData(kind="Mesh", points=points, face_vertex_counts=counts, face_vertex_indices=indices, sample_parameters=sample_parameters)
 
 
 def _referenced_axes(item: ClassifiedExpression) -> set[str]:

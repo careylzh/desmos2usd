@@ -206,6 +206,57 @@ class StudentFixtureRegressionTests(unittest.TestCase):
         self.assertEqual(geometry.kind, "Mesh")
         self.assertGreater(geometry.face_count, 0)
 
+    def test_modulo_z_repeated_cylinder_inequality_tessellates(self) -> None:
+        source = SourceInfo("", "", "", "", viewport_bounds={"x": (-10.0, 10.0), "y": (-6.0, 6.0), "z": (0.0, 1.0)})
+        context = EvalContext()
+        item = classify_expression(
+            ExpressionIR(
+                source,
+                "1",
+                0,
+                r"\left(x-2\right)^{2}+\left(y+1\right)^{2}<0.4^{2}"
+                r"\left\{0<z<1\right\}\left\{\operatorname{mod}\left(z,0.4\right)<0.1\right\}",
+            ),
+            context,
+        )
+
+        geometry = tessellate(item, context, resolution=8)
+        z_values = [point[2] for point in geometry.points]
+
+        self.assertEqual(item.kind, "inequality_region")
+        self.assertEqual(geometry.kind, "Mesh")
+        self.assertGreater(geometry.face_count, 0)
+        self.assertLessEqual(max(z_values), 0.900001)
+        self.assertGreater(sum(1 for value in z_values if 0.3999 <= value <= 0.5001), 0)
+        for point in geometry.points:
+            variables = {"x": point[0], "y": point[1], "z": point[2]}
+            self.assertTrue(all(predicate.evaluate(context, variables, tol=1e-4) for predicate in item.predicates))
+
+    def test_main_modulo_inequality_tessellates_repeated_boxes(self) -> None:
+        source = SourceInfo("", "", "", "", viewport_bounds={"x": (-2.0, 2.0), "y": (-2.0, 2.0), "z": (0.0, 0.7)})
+        context = EvalContext()
+        item = classify_expression(
+            ExpressionIR(
+                source,
+                "1",
+                0,
+                r"\operatorname{mod}\left(z,0.2\right)<0.05"
+                r"\left\{0<z<0.7\right\}\left\{-1<x<1\right\}\left\{-1<y<1\right\}",
+            ),
+            context,
+        )
+
+        geometry = tessellate(item, context, resolution=8)
+        z_values = [point[2] for point in geometry.points]
+
+        self.assertEqual(item.kind, "inequality_region")
+        self.assertEqual(geometry.kind, "Mesh")
+        self.assertGreater(geometry.face_count, 0)
+        self.assertGreater(sum(1 for value in z_values if 0.1999 <= value <= 0.2501), 0)
+        for point in geometry.points:
+            variables = {"x": point[0], "y": point[1], "z": point[2]}
+            self.assertTrue(all(predicate.evaluate(context, variables, tol=1e-4) for predicate in item.predicates))
+
     def test_degree_mode_slanted_cylinder_inequality_tessellates(self) -> None:
         source = SourceInfo(
             "",
