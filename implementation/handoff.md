@@ -53,6 +53,7 @@ After-change browser screenshots were not captured:
 
 ## Commit / Push
 
-- Commit/push pending from this working tree.
+- Implementation commit created in writable temp clone: `e78806b` (`Fix S2-03 slab and S2-05 parametric domains`).
+- Push pending from `/tmp/desmos2usd-s203-s205-domain-caps.RbZp4Y/repo`.
 - Required remote: `git@github.com:chektien/desmos2usd.git`
 - Required branch: `fix/student-fixture-usdz-export`
