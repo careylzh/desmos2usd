@@ -53,7 +53,8 @@ Browser recapture is still blocked in this sandbox:
 ## Commit / Push
 
 - Implementation commit created in writable temp clone `/tmp/desmos2usd-view-basis.VY6FQS/repo`: `76fb0c4` (`Fix Desmos view rotation basis in viewer`).
-- Push attempted with `git push chektien HEAD:fix/student-fixture-usdz-export`.
-- Push blocked by DNS: `ssh: Could not resolve hostname github.com: -65563`.
+- Handoff status commit created in writable temp clone: `697563a` (`Record S2-03 S2-05 view basis handoff status`).
+- Push attempted twice with `git push chektien HEAD:fix/student-fixture-usdz-export`.
+- Push blocked by DNS both times: `ssh: Could not resolve hostname github.com: -65563`.
 - Required remote: `git@github.com:chektien/desmos2usd.git`
 - Required branch: `fix/student-fixture-usdz-export`
