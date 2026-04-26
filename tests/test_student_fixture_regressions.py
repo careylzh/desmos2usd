@@ -792,6 +792,33 @@ class StudentFixtureRegressionTests(unittest.TestCase):
         self.assertGreater(min(used_x_values), -1.05)
         self.assertLess(max(used_x_values), 1.05)
 
+    def test_explicit_surface_sqrt_restriction_infers_narrow_chord_bounds(self) -> None:
+        """S2-06 Group E has tangent ellipse wall strips whose valid x interval is too
+        narrow to hit with a coarse viewport-wide grid. The domain inference should solve
+        the sqrt-bounded chord interval instead of exporting an unsupported empty mesh.
+        """
+        source = SourceInfo(
+            "", "", "", "", viewport_bounds={"x": (-100.0, 100.0), "y": (-100.0, 100.0), "z": (0.0, 1.0)}
+        )
+        item = classify_expression(
+            ExpressionIR(
+                source,
+                "1",
+                0,
+                r"y=0.99+0.02x\left\{-\sqrt{1-x^{2}}<y<\sqrt{1-x^{2}}\right\}\left\{0<z<1\right\}",
+            ),
+            EvalContext(),
+        )
+
+        geometry = tessellate(item, EvalContext(), resolution=12)
+        used_indices = set(geometry.face_vertex_indices)
+        used_x_values = [geometry.points[index][0] for index in used_indices]
+
+        self.assertEqual(item.kind, "explicit_surface")
+        self.assertGreater(geometry.face_count, 0)
+        self.assertGreater(min(used_x_values), -0.25)
+        self.assertLess(max(used_x_values), 0.2)
+
     def test_explicit_surface_expression_undefined_samples_are_outside_domain(self) -> None:
         """An explicit function's natural domain should clip the mesh just like Desmos.
         Pre-fix, z=sqrt(1-x^2-y^2) over a larger viewport raised on the first outside

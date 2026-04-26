@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import ast
+from math import isfinite, sqrt
 
 from desmos2usd.eval.context import EvalContext
 from desmos2usd.parse.classify import ClassifiedExpression
@@ -322,14 +323,20 @@ def infer_explicit_domain_bounds(
     if all(axis_has_complete_bounds(axis, inferred) for axis in domain_axes):
         return inferred
 
+    sqrt_bounds = infer_single_axis_symmetric_sqrt_bounds(item, context, domain_axes, inferred)
+    if sqrt_bounds is not None:
+        return sqrt_bounds
+
     constants = numeric_constants_for_item(item)
     broad_low, broad_high = broad_bounds_from_constants(constants)
     ranges: dict[str, tuple[float, float]] = {}
     steps: dict[str, float] = {}
+    viewport_bounds = item.ir.source.viewport_bounds or {}
     for axis in domain_axes:
         low, high = inferred.get(axis, (None, None))
-        sample_low = broad_low if low is None else low
-        sample_high = broad_high if high is None else high
+        viewport = viewport_bounds.get(axis)
+        sample_low = (viewport[0] if viewport is not None else broad_low) if low is None else low
+        sample_high = (viewport[1] if viewport is not None else broad_high) if high is None else high
         if low is None and high is not None and sample_low >= high:
             sample_low = high - max(5.0, abs(high) * 0.75)
         if high is None and low is not None and sample_high <= low:
@@ -430,6 +437,201 @@ def _explicit_flat_axis(
         if (high - low) <= z_span * FLAT_AXIS_RANGE_FRACTION:
             return "z"
     return None
+
+
+POLYNOMIAL_FIT_TOLERANCE = 1e-7
+QUADRATIC_SOLVE_TOLERANCE = 1e-12
+
+
+def infer_single_axis_symmetric_sqrt_bounds(
+    item: ClassifiedExpression,
+    context: EvalContext,
+    domain_axes: list[str],
+    bounds: dict[str, tuple[float | None, float | None]],
+) -> dict[str, tuple[float | None, float | None]] | None:
+    """Infer a missing domain interval from sqrt-bounded solved-axis restrictions.
+
+    Fixtures often contain generated chord surfaces such as
+    ``y=m*x+c {-sqrt(r^2-x^2)<y<sqrt(r^2-x^2)} {z0<z<z1}``.
+    A uniform scan over the full viewport can miss these when the chord is tangent
+    and only a sub-unit x interval is visible.  When the solved-axis bounds are a
+    symmetric sqrt band, solve the equivalent quadratic interval analytically.
+    """
+    if not item.axis or not item.expression:
+        return None
+    missing_axes = [axis for axis in domain_axes if not axis_has_complete_bounds(axis, bounds)]
+    if len(missing_axes) != 1:
+        return None
+    axis = missing_axes[0]
+    surface_affine = affine_fit_for_axis(item.expression, context, axis)
+    if surface_affine is None:
+        return None
+    surface_slope, surface_intercept = surface_affine
+    inferred = dict(bounds)
+    for predicate in item.predicates:
+        if len(predicate.terms) != 3 or len(predicate.ops) != 2:
+            continue
+        if predicate.ops[0] not in {"<", "<="} or predicate.ops[1] not in {"<", "<="}:
+            continue
+        if predicate.terms[1].python != item.axis:
+            continue
+        if predicate_identifiers_outside_axis(predicate.terms[0], axis) or predicate_identifiers_outside_axis(predicate.terms[2], axis):
+            continue
+        band = sqrt_band_fit(predicate.terms[0], predicate.terms[2], context, axis)
+        if band is None:
+            continue
+        center_slope, center_intercept, radius_a, radius_b, radius_c = band
+        interval = solve_quadratic_less_than_zero(
+            (surface_slope - center_slope) ** 2 - radius_a,
+            2.0 * (surface_slope - center_slope) * (surface_intercept - center_intercept) - radius_b,
+            (surface_intercept - center_intercept) ** 2 - radius_c,
+        )
+        if interval is None:
+            continue
+        low, high = interval
+        previous_low, previous_high = inferred.get(axis, (None, None))
+        if previous_low is not None:
+            low = max(low, previous_low)
+        if previous_high is not None:
+            high = min(high, previous_high)
+        viewport = (item.ir.source.viewport_bounds or {}).get(axis)
+        if viewport is not None:
+            low = max(low, viewport[0])
+            high = min(high, viewport[1])
+        if low < high:
+            inferred[axis] = (low, high)
+            return inferred
+    return None
+
+
+def predicate_identifiers_outside_axis(expression: LatexExpression, axis: str) -> bool:
+    return bool((expression.identifiers & {"x", "y", "z"}) - {axis})
+
+
+def sqrt_band_fit(
+    lower: LatexExpression,
+    upper: LatexExpression,
+    context: EvalContext,
+    axis: str,
+) -> tuple[float, float, float, float, float] | None:
+    sample_sets = (
+        (-1.0, 0.0, 1.0, -0.5, 0.5),
+        (-0.5, 0.0, 0.5, -0.25, 0.25),
+        (-2.0, 0.0, 2.0, -1.0, 1.0),
+        (-0.25, 0.0, 0.25, -0.125, 0.125),
+    )
+    for samples in sample_sets:
+        center_samples: list[tuple[float, float]] = []
+        radius_samples: list[tuple[float, float]] = []
+        for value in samples:
+            try:
+                low = float(lower.eval(context, {axis: value}))
+                high = float(upper.eval(context, {axis: value}))
+            except Exception:
+                break
+            if not all(isfinite(candidate) for candidate in (low, high)) or low > high:
+                break
+            center = (low + high) / 2.0
+            half_width = (high - low) / 2.0
+            center_samples.append((value, center))
+            radius_samples.append((value, half_width * half_width))
+        else:
+            center = fit_affine_samples(center_samples)
+            radius = fit_quadratic_samples(radius_samples)
+            if center is None or radius is None:
+                continue
+            if all(
+                abs((center[0] * value + center[1]) - observed) <= POLYNOMIAL_FIT_TOLERANCE * max(1.0, abs(observed))
+                for value, observed in center_samples
+            ) and all(
+                abs((radius[0] * value * value + radius[1] * value + radius[2]) - observed)
+                <= POLYNOMIAL_FIT_TOLERANCE * max(1.0, abs(observed))
+                for value, observed in radius_samples
+            ):
+                return (center[0], center[1], radius[0], radius[1], radius[2])
+    return None
+
+
+def affine_fit_for_axis(
+    expression: LatexExpression,
+    context: EvalContext,
+    axis: str,
+) -> tuple[float, float] | None:
+    if predicate_identifiers_outside_axis(expression, axis):
+        return None
+    samples = [(-2.0, None), (-1.0, None), (0.0, None), (1.0, None), (2.0, None)]
+    observed: list[tuple[float, float]] = []
+    for value, _ in samples:
+        try:
+            evaluated = float(expression.eval(context, {axis: value}))
+        except Exception:
+            return None
+        if not isfinite(evaluated):
+            return None
+        observed.append((value, evaluated))
+    return fit_affine_samples(observed)
+
+
+def fit_affine_samples(samples: list[tuple[float, float]]) -> tuple[float, float] | None:
+    if len(samples) < 2:
+        return None
+    x0, y0 = samples[0]
+    x1, y1 = next(((x, y) for x, y in samples[1:] if abs(x - x0) > QUADRATIC_SOLVE_TOLERANCE), (x0, y0))
+    if abs(x1 - x0) <= QUADRATIC_SOLVE_TOLERANCE:
+        return None
+    slope = (y1 - y0) / (x1 - x0)
+    intercept = y0 - slope * x0
+    for x, y in samples:
+        if abs((slope * x + intercept) - y) > POLYNOMIAL_FIT_TOLERANCE * max(1.0, abs(y)):
+            return None
+    return (slope, intercept)
+
+
+def fit_quadratic_samples(samples: list[tuple[float, float]]) -> tuple[float, float, float] | None:
+    if len(samples) < 3:
+        return None
+    x0, y0 = samples[0]
+    x1, y1 = samples[1]
+    x2, y2 = samples[2]
+    denominator = (x0 - x1) * (x0 - x2) * (x1 - x2)
+    if abs(denominator) <= QUADRATIC_SOLVE_TOLERANCE:
+        return None
+    a = (x2 * (y1 - y0) + x1 * (y0 - y2) + x0 * (y2 - y1)) / denominator
+    b = (x2 * x2 * (y0 - y1) + x1 * x1 * (y2 - y0) + x0 * x0 * (y1 - y2)) / denominator
+    c = (
+        x1 * x2 * (x1 - x2) * y0
+        + x2 * x0 * (x2 - x0) * y1
+        + x0 * x1 * (x0 - x1) * y2
+    ) / denominator
+    for x, y in samples:
+        predicted = a * x * x + b * x + c
+        if abs(predicted - y) > POLYNOMIAL_FIT_TOLERANCE * max(1.0, abs(y)):
+            return None
+    return (a, b, c)
+
+
+def solve_quadratic_less_than_zero(
+    a: float,
+    b: float,
+    c: float,
+) -> tuple[float, float] | None:
+    if abs(a) <= QUADRATIC_SOLVE_TOLERANCE:
+        if abs(b) <= QUADRATIC_SOLVE_TOLERANCE:
+            return None
+        root = -c / b
+        if b > 0:
+            return (-float("inf"), root)
+        return (root, float("inf"))
+    discriminant = b * b - 4.0 * a * c
+    if discriminant <= QUADRATIC_SOLVE_TOLERANCE:
+        return None
+    root_span = sqrt(discriminant)
+    root_a = (-b - root_span) / (2.0 * a)
+    root_b = (-b + root_span) / (2.0 * a)
+    low, high = (root_a, root_b) if root_a <= root_b else (root_b, root_a)
+    if a < 0:
+        return None
+    return (low, high)
 
 
 def infer_single_missing_axis_bounds(
