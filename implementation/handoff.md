@@ -1,7 +1,7 @@
-## Handoff: 2026-04-26 11:20 SGT
+## Handoff: 2026-04-26 11:35 SGT
 
 ### Active Task
-- Continue after the user-reviewed three-fixture repair pass. The code/artifacts/report updates were committed from a writable temporary clone as `8dcdd14`, but the GitHub push is still blocked by DNS resolution for `github.com`.
+- Continue after the user-reviewed three-fixture repair pass. The code/artifacts/report updates were committed from a writable temporary clone as `8dcdd14` and pushed to `chektien:fix/student-fixture-usdz-export`.
 
 ### What Changed
 - Added graph `degreeMode` support for trig evaluation (`sin`/`cos`/`tan` inputs and inverse trig outputs in degrees).
@@ -36,7 +36,8 @@
 - Stage only semantic changes in the temporary clone. The main checkout contains some `.usdz` repack churn from the sweep; avoid committing USDZ files whose paired `.usda`/report content did not change.
 - Temporary clone path: `/tmp/desmos2usd-degree-commit.wTB39I/repo`.
 - Commit created there: `8dcdd14` (`Support degree-mode circular fixture exports`).
-- Push attempted from that clone with `git push chektien HEAD:fix/student-fixture-usdz-export`, but failed with `ssh: Could not resolve hostname github.com: -65563`.
+- Handoff/status commit: `3f7ec14` (`Record degree fixture handoff status`).
+- Push later succeeded from that clone with `git push chektien HEAD:fix/student-fixture-usdz-export`.
 
 ### Risks or Open Questions
 - [ ] Direct live Desmos visual comparison may remain DNS-blocked/browser-blocked; record exact failure modes and do not claim live visual parity without a real check.
@@ -44,8 +45,7 @@
 - [ ] Highest unsupported rows are still dominated by `explicit_surface`, `inequality_region`, and `classification`; choose one bounded, testable category only.
 
 ### Recommended Next Wake
-- Retry pushing the temporary clone branch from `/tmp/desmos2usd-degree-commit.wTB39I/repo` to `chektien:fix/student-fixture-usdz-export` once DNS/network access to `github.com` is available.
-- After that, start from `artifacts/fixture_usdz/url_fixture_comparison.md` and pick the next bounded partial/high-risk category.
+- Start from `artifacts/fixture_usdz/url_fixture_comparison.md` and pick the next bounded partial/high-risk category.
 
 ### User-Facing Update
 - The three user-reviewed fixtures are now local structural successes. Live Desmos visual parity is blocked by browser/DNS failures, but local projection evidence and regenerated fixture reports are available under `artifacts/fixture_usdz/`.
