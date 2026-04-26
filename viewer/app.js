@@ -498,11 +498,53 @@ ${url}`;
       prims.push(primInfo);
     }
 
-    normalizeNormals(normals);
     if (!Number.isFinite(bounds.min[0])) {
       expandBounds(bounds, [-1, -1, -1]);
       expandBounds(bounds, [1, 1, 1]);
     }
+
+    // Generate solid hexagonal tubes around every BasisCurves polyline so that
+    // curve-heavy scenes (e.g. Eiffel-tower truss diagrams) don't render as a
+    // 1-pixel skeleton. WebGL ignores gl.lineWidth > 1 on virtually every
+    // browser/driver, so polylines alone look skeletal regardless of the
+    // requested line width. Tubes give curves visual weight that matches the
+    // way Desmos draws them, without changing the underlying USDA artifact.
+    const sceneDiagonal = Math.hypot(
+      bounds.max[0] - bounds.min[0],
+      bounds.max[1] - bounds.min[1],
+      bounds.max[2] - bounds.min[2],
+    );
+    // Tube radius is a small fraction of the scene diagonal so curves keep visual
+    // weight regardless of scene scale. The fraction was tuned against Desmos' own
+    // default curve thickness on tower-like scenes (S2-05 Group D); too small and
+    // curves still look like a 1-pixel skeleton, too large and adjacent legs fuse.
+    const tubeRadius = clamp(sceneDiagonal * 0.006, 0.015, sceneDiagonal * 0.025);
+    const tubeSides = 6;
+    const tubeRanges = [];
+    for (const range of lineRanges) {
+      const prim = prims[range.primIndex];
+      if (!prim) continue;
+      const tubeColor = prim.color;
+      const tubeAlpha = Math.round(prim.sourceAlpha * 255);
+      const tubeIndexStart = indices.length;
+      const polyline = [];
+      for (let i = 0; i < range.count; i += 1) {
+        const base = (range.start + i) * 3;
+        polyline.push([linePositions[base], linePositions[base + 1], linePositions[base + 2]]);
+      }
+      appendTubeGeometry(positions, colors, normals, indices, polyline, tubeColor, tubeAlpha, tubeRadius, tubeSides);
+      const tubeIndexCount = indices.length - tubeIndexStart;
+      if (tubeIndexCount > 0) {
+        const tubeRange = { primIndex: prim.index, start: tubeIndexStart, count: tubeIndexCount };
+        prim.tubeRanges = prim.tubeRanges || [];
+        prim.tubeRanges.push(tubeRange);
+        tubeRanges.push(tubeRange);
+        prim.triangleCount += tubeIndexCount / 3;
+        stats.triangleCount += tubeIndexCount / 3;
+      }
+    }
+
+    normalizeNormals(normals);
     annotateReviewSurfaces(prims, bounds);
     stats.reviewMutedCount = prims.filter((prim) => prim.reviewMuted).length;
 
@@ -541,6 +583,7 @@ ${url}`;
       },
       meshRanges,
       lineRanges,
+      tubeRanges,
       meshIndexCount: indices.length,
       lineVertexCount: linePositions.length / 3,
     };
@@ -595,6 +638,115 @@ ${url}`;
         normals[i] = x / length;
         normals[i + 1] = y / length;
         normals[i + 2] = z / length;
+      }
+    }
+  }
+
+  function appendTubeGeometry(positions, colors, normals, indices, polyline, color, alpha, radius, sides) {
+    const points = [];
+    for (const point of polyline) {
+      if (!point) continue;
+      const last = points.length ? points[points.length - 1] : null;
+      if (last && Math.hypot(point[0] - last[0], point[1] - last[1], point[2] - last[2]) < 1e-9) continue;
+      points.push([point[0], point[1], point[2]]);
+    }
+    if (points.length < 2 || radius <= 0) return;
+
+    const n = points.length;
+    const tangents = new Array(n);
+    for (let i = 0; i < n; i += 1) {
+      let dx;
+      let dy;
+      let dz;
+      if (i === 0) {
+        dx = points[1][0] - points[0][0];
+        dy = points[1][1] - points[0][1];
+        dz = points[1][2] - points[0][2];
+      } else if (i === n - 1) {
+        dx = points[n - 1][0] - points[n - 2][0];
+        dy = points[n - 1][1] - points[n - 2][1];
+        dz = points[n - 1][2] - points[n - 2][2];
+      } else {
+        dx = points[i + 1][0] - points[i - 1][0];
+        dy = points[i + 1][1] - points[i - 1][1];
+        dz = points[i + 1][2] - points[i - 1][2];
+      }
+      let len = Math.hypot(dx, dy, dz);
+      if (len < 1e-12) {
+        tangents[i] = [0, 0, 1];
+      } else {
+        tangents[i] = [dx / len, dy / len, dz / len];
+      }
+    }
+
+    function cross(a, b) {
+      return [a[1] * b[2] - a[2] * b[1], a[2] * b[0] - a[0] * b[2], a[0] * b[1] - a[1] * b[0]];
+    }
+    function normalize(v) {
+      const len = Math.hypot(v[0], v[1], v[2]);
+      if (len < 1e-12) return [0, 0, 0];
+      return [v[0] / len, v[1] / len, v[2] / len];
+    }
+
+    let normal = normalize(cross(tangents[0], [0, 0, 1]));
+    if (Math.hypot(normal[0], normal[1], normal[2]) < 0.5) {
+      normal = normalize(cross(tangents[0], [1, 0, 0]));
+    }
+    if (Math.hypot(normal[0], normal[1], normal[2]) < 0.5) {
+      normal = normalize(cross(tangents[0], [0, 1, 0]));
+    }
+    let binormal = normalize(cross(tangents[0], normal));
+    if (Math.hypot(binormal[0], binormal[1], binormal[2]) < 0.5) {
+      // Final fallback: pick any orthonormal basis (tangent is degenerate).
+      normal = [1, 0, 0];
+      binormal = [0, 1, 0];
+    }
+
+    const frames = [{ n: normal, b: binormal }];
+    for (let i = 1; i < n; i += 1) {
+      const prev = frames[i - 1];
+      // Project the previous normal onto the plane perpendicular to the new tangent
+      // (rotation-minimizing frame via simple projection — keeps tube roll continuous).
+      const t = tangents[i];
+      const dot = prev.n[0] * t[0] + prev.n[1] * t[1] + prev.n[2] * t[2];
+      let newN = normalize([prev.n[0] - dot * t[0], prev.n[1] - dot * t[1], prev.n[2] - dot * t[2]]);
+      if (Math.hypot(newN[0], newN[1], newN[2]) < 0.5) {
+        newN = prev.n;
+      }
+      const newB = normalize(cross(t, newN));
+      frames.push({ n: newN, b: newB });
+    }
+
+    const baseVertex = positions.length / 3;
+    for (let i = 0; i < n; i += 1) {
+      const frame = frames[i];
+      for (let s = 0; s < sides; s += 1) {
+        const angle = (s / sides) * Math.PI * 2;
+        const cs = Math.cos(angle);
+        const sn = Math.sin(angle);
+        const ox = (frame.n[0] * cs + frame.b[0] * sn) * radius;
+        const oy = (frame.n[1] * cs + frame.b[1] * sn) * radius;
+        const oz = (frame.n[2] * cs + frame.b[2] * sn) * radius;
+        positions.push(points[i][0] + ox, points[i][1] + oy, points[i][2] + oz);
+        colors.push(color[0], color[1], color[2], alpha);
+        // Outward radial direction is the surface normal.
+        const nlen = Math.hypot(ox, oy, oz);
+        if (nlen < 1e-12) {
+          normals.push(0, 0, 0);
+        } else {
+          normals.push(ox / nlen, oy / nlen, oz / nlen);
+        }
+      }
+    }
+
+    for (let i = 0; i < n - 1; i += 1) {
+      for (let s = 0; s < sides; s += 1) {
+        const sNext = (s + 1) % sides;
+        const a = baseVertex + i * sides + s;
+        const b = baseVertex + i * sides + sNext;
+        const c = baseVertex + (i + 1) * sides + sNext;
+        const d = baseVertex + (i + 1) * sides + s;
+        indices.push(a, b, c, a, c, d);
       }
     }
   }
@@ -741,37 +893,50 @@ ${url}`;
       gl.disable(gl.BLEND);
       gl.depthMask(true);
       for (const prim of scene.prims) {
-        if (!prim.meshRange || !shouldDrawPrim(prim) || isTranslucentPrim(prim)) continue;
+        if (!shouldDrawPrim(prim) || isTranslucentPrim(prim)) continue;
         gl.uniform1f(gl.getUniformLocation(state.programs.mesh, "uAlphaScale"), 1);
-        drawMeshRange(prim.meshRange);
+        if (prim.meshRange) drawMeshRange(prim.meshRange);
+        if (prim.tubeRanges) {
+          for (const tube of prim.tubeRanges) drawMeshRange(tube);
+        }
       }
 
       gl.enable(gl.BLEND);
       gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA);
       gl.depthMask(false);
       for (const prim of scene.prims) {
-        if (!prim.meshRange || !shouldDrawPrim(prim) || !isTranslucentPrim(prim)) continue;
+        if (!shouldDrawPrim(prim) || !isTranslucentPrim(prim)) continue;
         gl.uniform1f(gl.getUniformLocation(state.programs.mesh, "uAlphaScale"), primAlphaScale(prim));
-        drawMeshRange(prim.meshRange);
+        if (prim.meshRange) drawMeshRange(prim.meshRange);
+        if (prim.tubeRanges) {
+          for (const tube of prim.tubeRanges) drawMeshRange(tube);
+        }
       }
       gl.depthMask(true);
       gl.disable(gl.BLEND);
 
       const selected = scene.prims[state.selectedPrim];
-      if (selected && selected.meshRange && shouldDrawPrim(selected)) {
+      if (selected && shouldDrawPrim(selected)) {
         gl.enable(gl.BLEND);
         gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA);
         gl.enable(gl.POLYGON_OFFSET_FILL);
         gl.polygonOffset(-1, -1);
         gl.uniform1f(gl.getUniformLocation(state.programs.mesh, "uAlphaScale"), 1);
         gl.uniform4f(gl.getUniformLocation(state.programs.mesh, "uOverrideColor"), 0.96, 0.82, 0.25, 0.42);
-        drawMeshRange(selected.meshRange);
+        if (selected.meshRange) drawMeshRange(selected.meshRange);
+        if (selected.tubeRanges) {
+          for (const tube of selected.tubeRanges) drawMeshRange(tube);
+        }
         gl.uniform4f(gl.getUniformLocation(state.programs.mesh, "uOverrideColor"), 0, 0, 0, -1);
         gl.disable(gl.POLYGON_OFFSET_FILL);
         gl.disable(gl.BLEND);
       }
     }
 
+    // Draw the original BasisCurves polylines as a thin overlay only when the
+    // tube generator skipped a prim (degenerate or zero-radius curve). Tubes
+    // already provide visible weight for normal cases, so skipping the line
+    // pass avoids redundant darker silhouettes on top of the lit cylinders.
     if (scene.lineVertexCount > 0) {
       gl.useProgram(state.programs.line);
       gl.bindVertexArray(scene.buffers.lineVao);
@@ -780,6 +945,7 @@ ${url}`;
       for (const range of scene.lineRanges) {
         const prim = scene.prims[range.primIndex];
         if (!prim || !shouldDrawPrim(prim)) continue;
+        if (prim.tubeRanges && prim.tubeRanges.length > 0) continue;
         gl.uniform1f(gl.getUniformLocation(state.programs.line, "uAlphaScale"), prim.sourceAlpha);
         gl.drawArrays(gl.LINE_STRIP, range.start, range.count);
       }
@@ -799,6 +965,15 @@ ${url}`;
         gl.uniform4f(gl.getUniformLocation(state.programs.pickMesh, "uPickColor"), color[0], color[1], color[2], 1);
         drawMeshRange(range);
       }
+      // Tubes are part of the same index buffer; pick them as triangle meshes
+      // so that hit areas match their visible silhouette.
+      for (const range of scene.tubeRanges || []) {
+        const prim = scene.prims[range.primIndex];
+        if (!prim || !shouldDrawPrim(prim)) continue;
+        const color = encodePickColor(range.primIndex + 1);
+        gl.uniform4f(gl.getUniformLocation(state.programs.pickMesh, "uPickColor"), color[0], color[1], color[2], 1);
+        drawMeshRange(range);
+      }
     }
 
     if (scene.lineVertexCount > 0) {
@@ -809,6 +984,7 @@ ${url}`;
       for (const range of scene.lineRanges) {
         const prim = scene.prims[range.primIndex];
         if (!prim || !shouldDrawPrim(prim)) continue;
+        if (prim.tubeRanges && prim.tubeRanges.length > 0) continue;
         const color = encodePickColor(range.primIndex + 1);
         gl.uniform4f(gl.getUniformLocation(state.programs.pickLine, "uPickColor"), color[0], color[1], color[2], 1);
         gl.drawArrays(gl.LINE_STRIP, range.start, range.count);

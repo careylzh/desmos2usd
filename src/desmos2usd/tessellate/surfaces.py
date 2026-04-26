@@ -13,6 +13,7 @@ DEFAULT_BOUNDS = (-5.0, 5.0)
 INFERENCE_SAMPLES = 64
 SINGLE_AXIS_INFERENCE_SAMPLES = 1024
 BOUNDARY_REFINE_ITERATIONS = 60
+QUAD_BOUNDARY_REFINE_ITERATIONS = 8
 HALF_OPEN_TOL = 1e-5
 BOUNDARY_NUDGE = 2e-5
 
@@ -44,7 +45,23 @@ def tessellate_explicit_surface(
             points.append(point)
             row_valid.append(all(predicate.evaluate_half_open(context, variables, tol=HALF_OPEN_TOL) for predicate in item.predicates))
         valid_grid.append(row_valid)
-    counts, indices = quad_faces(len(a_values), len(b_values), valid_grid)
+    if _surface_predicates_constrain_solved_axis(item):
+        points, counts, indices = refined_quad_faces(
+            item,
+            context,
+            domain_axes[0],
+            a_values,
+            domain_axes[1],
+            b_values,
+            points,
+            valid_grid,
+        )
+    else:
+        # Predicates only restrict the domain axes (or are absent), so the surface
+        # boundary already aligns with the grid edges where the constraints become
+        # active. Bisecting individual cells would not refine that boundary, so
+        # skip the refinement to keep this fast.
+        counts, indices = quad_faces(len(a_values), len(b_values), valid_grid)
     if not counts and resolution < 64:
         return tessellate_explicit_surface(
             item,
@@ -55,6 +72,161 @@ def tessellate_explicit_surface(
     if counts and _solved_axis_entirely_outside_viewport(item, points, indices):
         return GeometryData(kind="Mesh", points=[], face_vertex_counts=[], face_vertex_indices=[])
     return GeometryData(kind="Mesh", points=points, face_vertex_counts=counts, face_vertex_indices=indices)
+
+
+def _surface_predicates_constrain_solved_axis(item: ClassifiedExpression) -> bool:
+    """True if any predicate references ``item.axis`` (the dependent variable).
+
+    When the only restrictions are on domain axes, cell boundaries already follow
+    the constraint edges and bisecting mixed cells gives no improvement. The
+    expensive marching-squares refinement only earns its keep when the predicate
+    is a constraint on the dependent axis itself (e.g. ``z>3`` clipping a
+    paraboloid cap), where the true boundary is a contour curve in the (a, b)
+    domain rather than an axis-aligned grid edge.
+    """
+    if not item.axis:
+        return False
+    for predicate in item.predicates:
+        for term in predicate.terms:
+            if item.axis in term.identifiers:
+                return True
+    return False
+
+
+def refined_quad_faces(
+    item: ClassifiedExpression,
+    context: EvalContext,
+    a_axis: str,
+    a_values: list[float],
+    b_axis: str,
+    b_values: list[float],
+    points: list[Point],
+    valid_grid: list[list[bool]],
+) -> tuple[list[Point], list[int], list[int]]:
+    """Like quad_faces but emits boundary-refined triangles for partial-valid quads.
+
+    For grid cells whose four corners straddle the predicate boundary (e.g. the rim of
+    a paraboloid cap clipped by ``z>3``), bisect along each mixed-validity edge to find
+    the predicate transition, then emit triangles connecting valid corners and the
+    boundary points. Without this, the surface boundary follows the grid edges and
+    appears as scattered 'fins' at low resolution. The bisection cost is O(mixed cells)
+    per surface and is bounded by ``QUAD_BOUNDARY_REFINE_ITERATIONS``.
+    """
+    width = len(a_values)
+    height = len(b_values)
+    refined_points = list(points)
+    counts: list[int] = []
+    indices: list[int] = []
+    # Fast path: if every grid corner is valid, no cell needs the bisection
+    # branch and we can skip the per-cell setup work. Common for unconstrained
+    # surfaces and for surfaces whose domain is already clipped exactly to the
+    # validity region (so all corners pass).
+    all_valid = all(all(row) for row in valid_grid)
+    if all_valid:
+        for row in range(height - 1):
+            for col in range(width - 1):
+                a = row * width + col
+                counts.append(4)
+                indices.extend([a, a + 1, a + width + 1, a + width])
+        return refined_points, counts, indices
+    for row in range(height - 1):
+        for col in range(width - 1):
+            corner_grid = [
+                (col, row),
+                (col + 1, row),
+                (col + 1, row + 1),
+                (col, row + 1),
+            ]
+            corner_indices = [r * width + c for c, r in corner_grid]
+            valid_flags = [valid_grid[r][c] for c, r in corner_grid]
+            valid_count = sum(1 for flag in valid_flags if flag)
+            if valid_count == 0:
+                continue
+            if valid_count == 4:
+                counts.append(4)
+                indices.extend(corner_indices)
+                continue
+            edge_points: dict[int, int] = {}
+            for i in range(4):
+                j = (i + 1) % 4
+                if valid_flags[i] == valid_flags[j]:
+                    continue
+                if valid_flags[i]:
+                    valid_corner = corner_grid[i]
+                    invalid_corner = corner_grid[j]
+                else:
+                    valid_corner = corner_grid[j]
+                    invalid_corner = corner_grid[i]
+                crossing = _bisect_predicate_crossing(
+                    item,
+                    context,
+                    a_axis,
+                    b_axis,
+                    a_values[valid_corner[0]],
+                    b_values[valid_corner[1]],
+                    a_values[invalid_corner[0]],
+                    b_values[invalid_corner[1]],
+                )
+                if crossing is None:
+                    continue
+                refined_points.append(crossing)
+                edge_points[i] = len(refined_points) - 1
+            polygon: list[int] = []
+            for i in range(4):
+                if valid_flags[i]:
+                    polygon.append(corner_indices[i])
+                if i in edge_points:
+                    polygon.append(edge_points[i])
+            if len(polygon) < 3:
+                continue
+            for k in range(1, len(polygon) - 1):
+                counts.append(3)
+                indices.extend([polygon[0], polygon[k], polygon[k + 1]])
+    return refined_points, counts, indices
+
+
+def _bisect_predicate_crossing(
+    item: ClassifiedExpression,
+    context: EvalContext,
+    a_axis: str,
+    b_axis: str,
+    valid_a: float,
+    valid_b: float,
+    invalid_a: float,
+    invalid_b: float,
+) -> Point | None:
+    """Bisect along the segment from a valid sample to an invalid one until the predicate
+    transition is localized; return the last sample that still satisfies the predicate."""
+    if not item.axis or not item.expression:
+        return None
+    inside_a, inside_b = valid_a, valid_b
+    outside_a, outside_b = invalid_a, invalid_b
+    last_valid_point: Point | None = None
+    for _ in range(QUAD_BOUNDARY_REFINE_ITERATIONS):
+        mid_a = (inside_a + outside_a) / 2.0
+        mid_b = (inside_b + outside_b) / 2.0
+        variables: dict[str, float] = {a_axis: mid_a, b_axis: mid_b}
+        try:
+            target = item.expression.eval(context, variables)
+        except Exception:
+            return None
+        variables[item.axis] = target
+        if all(predicate.evaluate_half_open(context, variables, tol=HALF_OPEN_TOL) for predicate in item.predicates):
+            inside_a, inside_b = mid_a, mid_b
+            last_valid_point = point_from_variables(variables)
+        else:
+            outside_a, outside_b = mid_a, mid_b
+    if last_valid_point is None:
+        # Fall back to the originally-valid corner sample so the boundary at least
+        # tracks the cell edge instead of degenerating to a missing fin.
+        variables = {a_axis: valid_a, b_axis: valid_b}
+        try:
+            target = item.expression.eval(context, variables)
+        except Exception:
+            return None
+        variables[item.axis] = target
+        last_valid_point = point_from_variables(variables)
+    return last_valid_point
 
 
 def explicit_surface_domain_bounds(
