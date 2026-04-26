@@ -13,7 +13,7 @@ from desmos2usd.parse.latex_subset import (
     normalize_latex_delimiters,
     split_top_level,
 )
-from desmos2usd.parse.predicates import ComparisonPredicate, parse_predicate, parse_predicates, split_restrictions
+from desmos2usd.parse.predicates import ComparisonPredicate, looks_like_restriction, parse_predicate, parse_predicates, split_restrictions
 
 
 @dataclass
@@ -418,33 +418,139 @@ def parse_literal_scalar_list(text: str, context: EvalContext) -> tuple[float, .
         return None
 
 
+def replace_list_index_references(text: str, context: EvalContext) -> str:
+    resolved = normalize_latex_delimiters(text)
+    changed = False
+    for name in sorted(context.lists, key=len, reverse=True):
+        pattern = latex_identifier_index_pattern(name)
+
+        def replace(match: re.Match[str]) -> str:
+            nonlocal changed
+            index_text = match.group(1)
+            try:
+                value = LatexExpression.parse(index_text).eval(context, {})
+            except Exception:
+                return match.group(0)
+            index = int(round(value))
+            if abs(value - index) > 1e-9:
+                return match.group(0)
+            zero_based = index - 1
+            values = context.lists[name]
+            if zero_based < 0 or zero_based >= len(values):
+                raise ValueError(f"List index {index} out of range for {name}")
+            changed = True
+            return repr(values[zero_based])
+
+        resolved = re.sub(pattern, replace, resolved)
+    return resolved if changed else text
+
+
+def literal_scalar_list_spans(text: str, context: EvalContext) -> list[tuple[int, int, tuple[float, ...]]]:
+    spans: list[tuple[int, int, tuple[float, ...]]] = []
+    index = 0
+    while index < len(text):
+        if text[index] != "[":
+            index += 1
+            continue
+        end = find_matching_square_bracket(text, index)
+        if end < 0:
+            index += 1
+            continue
+        values = parse_literal_scalar_list(text[index : end + 1], context)
+        if values is not None:
+            spans.append((index, end + 1, values))
+            index = end + 1
+            continue
+        index += 1
+    return spans
+
+
+def find_matching_square_bracket(text: str, start: int) -> int:
+    depth = 0
+    for index in range(start, len(text)):
+        char = text[index]
+        if char == "[":
+            depth += 1
+        elif char == "]":
+            depth -= 1
+            if depth == 0:
+                return index
+    return -1
+
+
+def replace_literal_scalar_lists(text: str, spans: list[tuple[int, int, tuple[float, ...]]], list_index: int) -> str:
+    if not spans:
+        return text
+    output: list[str] = []
+    cursor = 0
+    for start, end, values in spans:
+        output.append(text[cursor:start])
+        output.append(repr(values[list_index]))
+        cursor = end
+    output.append(text[cursor:])
+    return "".join(output)
+
+
+def join_latex_with_restrictions(main: str, restrictions: list[str]) -> str:
+    return main + "".join(r"\left\{" + restriction + r"\right\}" for restriction in restrictions)
+
+
+def select_broadcast_restriction(restriction: str, index: int, count: int) -> str:
+    parts = restriction_alternative_parts(restriction)
+    if parts is not None and len(parts) == count:
+        return parts[index]
+    return restriction
+
+
+def restriction_alternative_parts(restriction: str) -> list[str] | None:
+    parts = [part for part in split_top_level(restriction, ",") if part]
+    if len(parts) < 2 or not all(looks_like_restriction(part) for part in parts):
+        return None
+    variables: set[str] = set()
+    for part in parts:
+        try:
+            predicates = parse_predicates(part)
+        except Exception:
+            return None
+        part_variables: set[str] = set()
+        for predicate in predicates:
+            part_variables.update(predicate.variable_bounds())
+        if len(part_variables) != 1:
+            return None
+        variables.update(part_variables)
+    if len(variables) != 1:
+        return None
+    return parts
+
+
 def expand_literal_list_expression(expr: ExpressionIR, context: EvalContext) -> list[ExpressionIR]:
     main, restriction_texts = split_restrictions(expr.latex)
-    equals = find_top_level(main, "=")
-    if equals < 0:
+    main_spans = literal_scalar_list_spans(main, context)
+    restriction_spans = [literal_scalar_list_spans(restriction, context) for restriction in restriction_texts]
+    lengths = {len(values) for _, _, values in main_spans}
+    for spans in restriction_spans:
+        lengths.update(len(values) for _, _, values in spans)
+    if not lengths:
         return [expr]
-    lhs = main[:equals].strip()
-    rhs = main[equals + 1 :].strip()
-    lhs_list = parse_literal_scalar_list(lhs, context)
-    rhs_list = parse_literal_scalar_list(rhs, context)
-    if lhs_list is None and rhs_list is None:
-        return [expr]
-    values = lhs_list if lhs_list is not None else rhs_list
-    assert values is not None
-    template_lhs = "{}" if lhs_list is not None else lhs
-    template_rhs = rhs if lhs_list is not None else "{}"
-    restrictions = "".join(r"\left\{" + restriction + r"\right\}" for restriction in restriction_texts)
+    if len(lengths) != 1:
+        raise ValueError("Literal scalar lists in expression have mismatched lengths")
+    count = lengths.pop()
     expanded: list[ExpressionIR] = []
-    for index, value in enumerate(values):
+    for index in range(count):
+        expanded_main = replace_literal_scalar_lists(main, main_spans, index)
+        expanded_restrictions = [
+            select_broadcast_restriction(replace_literal_scalar_lists(restriction, spans, index), index, count)
+            for restriction, spans in zip(restriction_texts, restriction_spans, strict=True)
+        ]
         raw = dict(expr.raw)
-        raw["expandedFromListExpression"] = expr.expr_id
+        raw["expandedFromLiteralListExpression"] = expr.expr_id
         raw["listIndex"] = index
         expanded.append(
             ExpressionIR(
                 source=expr.source,
                 expr_id=f"{expr.expr_id}_{index}",
                 order=expr.order,
-                latex=f"{template_lhs.format(repr(value))}={template_rhs.format(repr(value))}{restrictions}",
+                latex=join_latex_with_restrictions(expanded_main, expanded_restrictions),
                 color=expr.color,
                 color_latex=expr.color_latex,
                 hidden=expr.hidden,
@@ -457,6 +563,22 @@ def expand_literal_list_expression(expr: ExpressionIR, context: EvalContext) -> 
 
 
 def expand_list_expression(expr: ExpressionIR, context: EvalContext) -> list[ExpressionIR]:
+    resolved_latex = replace_list_index_references(expr.latex, context)
+    if resolved_latex != expr.latex:
+        raw = dict(expr.raw)
+        raw["resolvedListIndexReferences"] = True
+        expr = ExpressionIR(
+            source=expr.source,
+            expr_id=expr.expr_id,
+            order=expr.order,
+            latex=resolved_latex,
+            color=expr.color,
+            color_latex=expr.color_latex,
+            hidden=expr.hidden,
+            folder_id=expr.folder_id,
+            type=expr.type,
+            raw=raw,
+        )
     names = [name for name in context.lists if latex_identifier_present(expr.latex, name)]
     if not names:
         return expand_literal_list_expression(expr, context)
@@ -466,31 +588,45 @@ def expand_list_expression(expr: ExpressionIR, context: EvalContext) -> list[Exp
     count = lengths.pop()
     expanded: list[ExpressionIR] = []
     for index in range(count):
-        latex = expr.latex
+        main, restriction_texts = split_restrictions(expr.latex)
+        latex = main
         for name in names:
             latex = replace_latex_identifier(latex, name, repr(context.lists[name][index]))
+        expanded_restrictions: list[str] = []
+        for restriction in restriction_texts:
+            replaced_restriction = restriction
+            for name in names:
+                replaced_restriction = replace_latex_identifier(replaced_restriction, name, repr(context.lists[name][index]))
+            expanded_restrictions.append(select_broadcast_restriction(replaced_restriction, index, count))
         raw = dict(expr.raw)
         raw["expandedFromListExpression"] = expr.expr_id
         raw["listIndex"] = index
-        expanded.append(
-            ExpressionIR(
-                source=expr.source,
-                expr_id=f"{expr.expr_id}_{index}",
-                order=expr.order,
-                latex=latex,
-                color=expr.color,
-                color_latex=expr.color_latex,
-                hidden=expr.hidden,
-                folder_id=expr.folder_id,
-                type=expr.type,
-                raw=raw,
+        expanded.extend(
+            expand_literal_list_expression(
+                ExpressionIR(
+                    source=expr.source,
+                    expr_id=f"{expr.expr_id}_{index}",
+                    order=expr.order,
+                    latex=join_latex_with_restrictions(latex, expanded_restrictions),
+                    color=expr.color,
+                    color_latex=expr.color_latex,
+                    hidden=expr.hidden,
+                    folder_id=expr.folder_id,
+                    type=expr.type,
+                    raw=raw,
+                ),
+                context,
             )
         )
     return expanded
 
 
 def latex_identifier_present(text: str, identifier: str) -> bool:
-    return re.search(latex_identifier_pattern(identifier), text) is not None
+    if re.search(latex_identifier_pattern(identifier), text) is not None:
+        return True
+    if re.match(r"^[a-z]$", identifier):
+        return re.search(rf"(?<![A-Za-z0-9_\\{{]){re.escape(identifier)}(?=[A-Za-z\\])", text) is not None
+    return False
 
 
 def replace_latex_identifier(text: str, identifier: str, replacement: str) -> str:
@@ -499,17 +635,25 @@ def replace_latex_identifier(text: str, identifier: str, replacement: str) -> st
         # Desmos commonly writes products such as `nh` without `*`.  The normal
         # identifier boundary intentionally avoids replacing inside longer names,
         # so add the narrow single-letter implicit-multiplication case here.
-        replaced = re.sub(rf"(?<![A-Za-z0-9_\\]){re.escape(identifier)}(?=[A-Za-z\\])", replacement, replaced)
+        replaced = re.sub(rf"(?<![A-Za-z0-9_\\{{]){re.escape(identifier)}(?=[A-Za-z\\])", replacement, replaced)
     return replaced
 
 
-def latex_identifier_pattern(identifier: str) -> str:
+def latex_identifier_raw_pattern(identifier: str) -> str:
     if re.match(r"^[A-Za-z]_[A-Za-z0-9]+$", identifier):
         base, sub = identifier.split("_", 1)
-        raw = rf"{re.escape(base)}(?:_\{{{re.escape(sub)}\}}|_{re.escape(sub)})"
-    else:
-        raw = re.escape(identifier)
-    return rf"(?<![A-Za-z0-9_\\]){raw}(?![A-Za-z0-9_])"
+        return rf"{re.escape(base)}(?:_\{{{re.escape(sub)}\}}|_{re.escape(sub)})"
+    return re.escape(identifier)
+
+
+def latex_identifier_pattern(identifier: str) -> str:
+    raw = latex_identifier_raw_pattern(identifier)
+    return rf"(?<![A-Za-z0-9_\\]){raw}(?![A-Za-z0-9_\[])"
+
+
+def latex_identifier_index_pattern(identifier: str) -> str:
+    raw = latex_identifier_raw_pattern(identifier)
+    return rf"(?<![A-Za-z0-9_\\]){raw}\[([^\[\]]+)\]"
 
 
 def has_top_level_comparison(text: str) -> bool:

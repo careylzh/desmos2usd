@@ -347,6 +347,94 @@ class StudentFixtureRegressionTests(unittest.TestCase):
         self.assertEqual(unsupported[0].expr_id, "1")
         self.assertEqual(unsupported[0].kind, "definition")
 
+    def test_inline_literal_list_bounds_expand_with_matching_restriction_alternatives(self) -> None:
+        graph = GraphIR(
+            source=SOURCE,
+            expressions=[
+                expr(
+                    "1",
+                    r"\left[2.7,-4.3\right]\le x\le\left[4.3,-2.7\right]"
+                    r"\left\{4.2>y>3\right\}\left\{0\le z\le1,2\le z\le3\right\}",
+                )
+            ],
+            raw_state={},
+        )
+
+        classification, unsupported = classify_graph_tolerant(graph)
+
+        self.assertEqual(len(unsupported), 0)
+        self.assertEqual([item.ir.expr_id for item in classification.classified], ["1_0", "1_1"])
+        self.assertEqual(classification.classified[0].ir.latex, r"2.7\le x\le4.3\left\{4.2>y>3\right\}\left\{0\le z\le1\right\}")
+        self.assertEqual(classification.classified[1].ir.latex, r"-4.3\le x\le-2.7\left\{4.2>y>3\right\}\left\{2\le z\le3\right\}")
+
+    def test_same_axis_comma_restriction_without_list_context_remains_conjunctive(self) -> None:
+        graph = GraphIR(
+            source=SOURCE,
+            expressions=[expr("1", r"y=5.2\left\{2.7<x<4.3\right\}\left\{0\le z\le1,2\le z\le3\right\}")],
+            raw_state={},
+        )
+
+        classification, unsupported = classify_graph_tolerant(graph)
+
+        self.assertEqual(len(unsupported), 0)
+        self.assertEqual([item.ir.expr_id for item in classification.classified], ["1"])
+        self.assertEqual(len(classification.classified[0].predicates), 3)
+
+    def test_mixed_axis_comma_restriction_remains_conjunctive(self) -> None:
+        graph = GraphIR(
+            source=SOURCE,
+            expressions=[expr("1", r"z=0\left\{0\le x\le1,0\le y\le1\right\}")],
+            raw_state={},
+        )
+
+        classification, unsupported = classify_graph_tolerant(graph)
+
+        self.assertEqual(len(unsupported), 0)
+        self.assertEqual([item.ir.expr_id for item in classification.classified], ["1"])
+        self.assertEqual(len(classification.classified[0].predicates), 2)
+
+    def test_list_index_references_resolve_before_literal_list_expansion(self) -> None:
+        graph = GraphIR(
+            source=SOURCE,
+            expressions=[
+                expr("1", "j=[2,-2,2,-2]"),
+                expr("2", "d=[-3.4,-3.4,10.6,10.6]"),
+                expr(
+                    "3",
+                    r"y\ge\left[j\left[3\right],j\left[4\right]\right]x+\left[d\left[3\right],d\left[4\right]\right]"
+                    r"\left\{\left[0,3.5\right]\ge x\ge\left[-3.5,0\right]\right\}"
+                    r"\left\{0\le z\le1,2\le z\le3\right\}",
+                ),
+            ],
+            raw_state={},
+        )
+
+        classification, unsupported = classify_graph_tolerant(graph)
+
+        self.assertEqual(len(unsupported), 0)
+        self.assertEqual([item.ir.expr_id for item in classification.classified], ["3_0", "3_1"])
+        self.assertIn(r"y\ge2.0x+10.6", classification.classified[0].ir.latex)
+        self.assertIn(r"\left\{0\le z\le1\right\}", classification.classified[0].ir.latex)
+        self.assertIn(r"y\ge-2.0x+10.6", classification.classified[1].ir.latex)
+        self.assertIn(r"\left\{2\le z\le3\right\}", classification.classified[1].ir.latex)
+
+    def test_single_letter_list_expansion_does_not_rewrite_braced_subscripts(self) -> None:
+        graph = GraphIR(
+            source=SOURCE,
+            expressions=[
+                expr("1", "h=[20,30]"),
+                expr("2", "d_{height}=2"),
+                expr("3", r"z=d_{height}x\left\{0<y<1\right\}"),
+            ],
+            raw_state={},
+        )
+
+        classification, unsupported = classify_graph_tolerant(graph)
+
+        self.assertEqual(len(unsupported), 0)
+        self.assertEqual([item.ir.expr_id for item in classification.classified], ["3"])
+        self.assertEqual(classification.classified[0].ir.latex, r"z=d_{height}x\left\{0<y<1\right\}")
+
     def test_one_axis_equation_is_not_implicit_surface(self) -> None:
         with self.assertRaises(ValueError):
             classify_expression(expr("1", "x^{2}=1"), EvalContext())

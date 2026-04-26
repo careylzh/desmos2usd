@@ -1,347 +1,17 @@
 {
   "acceptance_success": false,
-  "classified_expression_count": 271,
+  "classified_expression_count": 361,
   "complete": false,
   "fixture": "[4B] 3D Diagram - S2-03 Group D.json",
   "fixture_path": "fixtures/states/[4B] 3D Diagram - S2-03 Group D.json",
   "graph_hash": null,
   "output": "artifacts/fixture_usdz/[4B] 3D Diagram - S2-03 Group D.usda",
-  "prim_count": 204,
-  "renderable_expression_count": 326,
-  "resolution": 12,
+  "prim_count": 269,
+  "renderable_expression_count": 361,
+  "resolution": 8,
   "status": "partial",
   "title": "Desmos graph",
   "unsupported": [
-    {
-      "expr_id": "22",
-      "kind": "classification",
-      "latex": "\\left[2.7,-4.3\\right]\\le x\\le\\left[4.3,-2.7\\right]\\left\\{4.2>y>3\\right\\}\\left\\{-3.25\\le z\\le0.5,-10.5\\le z\\le-6.75\\right\\}",
-      "reason": "Unsupported expression node Tuple"
-    },
-    {
-      "expr_id": "29",
-      "kind": "classification",
-      "latex": "\\left[2.75,-4.25\\right]\\le x\\le\\left[4.25,-2.75\\right]\\left\\{5.1>y>4.6\\right\\}\\left\\{-3.25\\le z\\le0.5,-10.5\\le z\\le-6.75\\right\\}",
-      "reason": "Unsupported expression node Tuple"
-    },
-    {
-      "expr_id": "30",
-      "kind": "classification",
-      "latex": "\\left[2.65,-4.35\\right]\\le x\\le\\left[4.35,-2.65\\right]\\left\\{2.9>y>0.8\\right\\}\\left\\{-3.25\\le z\\le0.5,-10.5\\le z\\le-6.75\\right\\}",
-      "reason": "Unsupported expression node Tuple"
-    },
-    {
-      "expr_id": "31",
-      "kind": "classification",
-      "latex": "\\left[2.65,-4.35\\right]\\le x\\le\\left[4.35,-2.65\\right]\\left\\{0.3>y>0\\right\\}\\left\\{-3.25\\le z\\le0.5,-10.5\\le z\\le-6.75\\right\\}",
-      "reason": "Unsupported expression node Tuple"
-    },
-    {
-      "expr_id": "34_0",
-      "kind": "classification",
-      "latex": "y\\ge jx+-3.4\\left\\{5.1<y<5.2\\right\\}\\left\\{\\left[5,-3.5\\right]\\ge x\\ge\\left[3.5,-5\\right]\\right\\}\\left\\{-3.25\\le z\\le0.5,-10.5\\le z\\le-6.75\\right\\}",
-      "reason": "Unsupported expression node Tuple"
-    },
-    {
-      "expr_id": "34_1",
-      "kind": "classification",
-      "latex": "y\\ge jx+-3.4\\left\\{5.1<y<5.2\\right\\}\\left\\{\\left[5,-3.5\\right]\\ge x\\ge\\left[3.5,-5\\right]\\right\\}\\left\\{-3.25\\le z\\le0.5,-10.5\\le z\\le-6.75\\right\\}",
-      "reason": "Unsupported expression node Tuple"
-    },
-    {
-      "expr_id": "34_2",
-      "kind": "classification",
-      "latex": "y\\ge jx+10.6\\left\\{5.1<y<5.2\\right\\}\\left\\{\\left[5,-3.5\\right]\\ge x\\ge\\left[3.5,-5\\right]\\right\\}\\left\\{-3.25\\le z\\le0.5,-10.5\\le z\\le-6.75\\right\\}",
-      "reason": "Unsupported expression node Tuple"
-    },
-    {
-      "expr_id": "34_3",
-      "kind": "classification",
-      "latex": "y\\ge jx+10.6\\left\\{5.1<y<5.2\\right\\}\\left\\{\\left[5,-3.5\\right]\\ge x\\ge\\left[3.5,-5\\right]\\right\\}\\left\\{-3.25\\le z\\le0.5,-10.5\\le z\\le-6.75\\right\\}",
-      "reason": "Unsupported expression node Tuple"
-    },
-    {
-      "expr_id": "143_0",
-      "kind": "classification",
-      "latex": "y\\ge\\left[2.0\\left[3\\right],2.0\\left[4\\right]\\right]x+\\left[-3.4\\left[3\\right],-3.4\\left[4\\right]\\right]\\left\\{5.1<y<5.2\\right\\}\\left\\{\\left[0,3.5\\right]\\ge x\\ge\\left[-3.5,0\\right]\\right\\}\\left\\{-3.25\\le z\\le0.5,-10.5\\le z\\le-6.75\\right\\}",
-      "reason": "Unsupported expression node Tuple"
-    },
-    {
-      "expr_id": "143_1",
-      "kind": "classification",
-      "latex": "y\\ge\\left[-2.0\\left[3\\right],-2.0\\left[4\\right]\\right]x+\\left[-3.4\\left[3\\right],-3.4\\left[4\\right]\\right]\\left\\{5.1<y<5.2\\right\\}\\left\\{\\left[0,3.5\\right]\\ge x\\ge\\left[-3.5,0\\right]\\right\\}\\left\\{-3.25\\le z\\le0.5,-10.5\\le z\\le-6.75\\right\\}",
-      "reason": "Unsupported expression node Tuple"
-    },
-    {
-      "expr_id": "143_2",
-      "kind": "classification",
-      "latex": "y\\ge\\left[2.0\\left[3\\right],2.0\\left[4\\right]\\right]x+\\left[10.6\\left[3\\right],10.6\\left[4\\right]\\right]\\left\\{5.1<y<5.2\\right\\}\\left\\{\\left[0,3.5\\right]\\ge x\\ge\\left[-3.5,0\\right]\\right\\}\\left\\{-3.25\\le z\\le0.5,-10.5\\le z\\le-6.75\\right\\}",
-      "reason": "Unsupported expression node Tuple"
-    },
-    {
-      "expr_id": "143_3",
-      "kind": "classification",
-      "latex": "y\\ge\\left[-2.0\\left[3\\right],-2.0\\left[4\\right]\\right]x+\\left[10.6\\left[3\\right],10.6\\left[4\\right]\\right]\\left\\{5.1<y<5.2\\right\\}\\left\\{\\left[0,3.5\\right]\\ge x\\ge\\left[-3.5,0\\right]\\right\\}\\left\\{-3.25\\le z\\le0.5,-10.5\\le z\\le-6.75\\right\\}",
-      "reason": "Unsupported expression node Tuple"
-    },
-    {
-      "expr_id": "37_0",
-      "kind": "classification",
-      "latex": "y\\le fx+47.1\\left\\{4.6>y>4.3\\right\\}\\left\\{\\left[-3.5,5\\right]\\ge x\\ge\\left[-5,\\ 3.5\\right]\\right\\}\\left\\{-3.25\\le z\\le0.5,-10.5\\le z\\le-6.75\\right\\}",
-      "reason": "Unsupported expression node Tuple"
-    },
-    {
-      "expr_id": "37_1",
-      "kind": "classification",
-      "latex": "y\\le fx+47.1\\left\\{4.6>y>4.3\\right\\}\\left\\{\\left[-3.5,5\\right]\\ge x\\ge\\left[-5,\\ 3.5\\right]\\right\\}\\left\\{-3.25\\le z\\le0.5,-10.5\\le z\\le-6.75\\right\\}",
-      "reason": "Unsupported expression node Tuple"
-    },
-    {
-      "expr_id": "37_2",
-      "kind": "classification",
-      "latex": "y\\le fx+-22.9\\left\\{4.6>y>4.3\\right\\}\\left\\{\\left[-3.5,5\\right]\\ge x\\ge\\left[-5,\\ 3.5\\right]\\right\\}\\left\\{-3.25\\le z\\le0.5,-10.5\\le z\\le-6.75\\right\\}",
-      "reason": "Unsupported expression node Tuple"
-    },
-    {
-      "expr_id": "37_3",
-      "kind": "classification",
-      "latex": "y\\le fx+-22.9\\left\\{4.6>y>4.3\\right\\}\\left\\{\\left[-3.5,5\\right]\\ge x\\ge\\left[-5,\\ 3.5\\right]\\right\\}\\left\\{-3.25\\le z\\le0.5,-10.5\\le z\\le-6.75\\right\\}",
-      "reason": "Unsupported expression node Tuple"
-    },
-    {
-      "expr_id": "144_0",
-      "kind": "classification",
-      "latex": "y\\le\\left[10.0\\left[3\\right],10.0\\left[4\\right]\\right]x+\\left[47.1\\left[3\\right],47.1\\left[4\\right]\\right]\\left\\{4.6>y>4.3\\right\\}\\left\\{\\left[3.5,0\\right]\\ge x\\ge\\left[0,-3.5\\right]\\right\\}\\left\\{-3.25\\le z\\le0.5,-10.5\\le z\\le-6.75\\right\\}",
-      "reason": "Unsupported expression node Tuple"
-    },
-    {
-      "expr_id": "144_1",
-      "kind": "classification",
-      "latex": "y\\le\\left[-10.0\\left[3\\right],-10.0\\left[4\\right]\\right]x+\\left[47.1\\left[3\\right],47.1\\left[4\\right]\\right]\\left\\{4.6>y>4.3\\right\\}\\left\\{\\left[3.5,0\\right]\\ge x\\ge\\left[0,-3.5\\right]\\right\\}\\left\\{-3.25\\le z\\le0.5,-10.5\\le z\\le-6.75\\right\\}",
-      "reason": "Unsupported expression node Tuple"
-    },
-    {
-      "expr_id": "144_2",
-      "kind": "classification",
-      "latex": "y\\le\\left[10.0\\left[3\\right],10.0\\left[4\\right]\\right]x+\\left[-22.9\\left[3\\right],-22.9\\left[4\\right]\\right]\\left\\{4.6>y>4.3\\right\\}\\left\\{\\left[3.5,0\\right]\\ge x\\ge\\left[0,-3.5\\right]\\right\\}\\left\\{-3.25\\le z\\le0.5,-10.5\\le z\\le-6.75\\right\\}",
-      "reason": "Unsupported expression node Tuple"
-    },
-    {
-      "expr_id": "144_3",
-      "kind": "classification",
-      "latex": "y\\le\\left[-10.0\\left[3\\right],-10.0\\left[4\\right]\\right]x+\\left[-22.9\\left[3\\right],-22.9\\left[4\\right]\\right]\\left\\{4.6>y>4.3\\right\\}\\left\\{\\left[3.5,0\\right]\\ge x\\ge\\left[0,-3.5\\right]\\right\\}\\left\\{-3.25\\le z\\le0.5,-10.5\\le z\\le-6.75\\right\\}",
-      "reason": "Unsupported expression node Tuple"
-    },
-    {
-      "expr_id": "38_0",
-      "kind": "classification",
-      "latex": "y\\ge jx+-3.4-1\\left\\{4.2<y<4.3\\right\\}\\left\\{\\left[5,-3.5\\right]\\ge x\\ge\\left[3.5,-5\\right]\\right\\}\\left\\{-3.25\\le z\\le0.5,-10.5\\le z\\le-6.75\\right\\}",
-      "reason": "Unsupported expression node Tuple"
-    },
-    {
-      "expr_id": "38_1",
-      "kind": "classification",
-      "latex": "y\\ge jx+-3.4-1\\left\\{4.2<y<4.3\\right\\}\\left\\{\\left[5,-3.5\\right]\\ge x\\ge\\left[3.5,-5\\right]\\right\\}\\left\\{-3.25\\le z\\le0.5,-10.5\\le z\\le-6.75\\right\\}",
-      "reason": "Unsupported expression node Tuple"
-    },
-    {
-      "expr_id": "38_2",
-      "kind": "classification",
-      "latex": "y\\ge jx+10.6-1\\left\\{4.2<y<4.3\\right\\}\\left\\{\\left[5,-3.5\\right]\\ge x\\ge\\left[3.5,-5\\right]\\right\\}\\left\\{-3.25\\le z\\le0.5,-10.5\\le z\\le-6.75\\right\\}",
-      "reason": "Unsupported expression node Tuple"
-    },
-    {
-      "expr_id": "38_3",
-      "kind": "classification",
-      "latex": "y\\ge jx+10.6-1\\left\\{4.2<y<4.3\\right\\}\\left\\{\\left[5,-3.5\\right]\\ge x\\ge\\left[3.5,-5\\right]\\right\\}\\left\\{-3.25\\le z\\le0.5,-10.5\\le z\\le-6.75\\right\\}",
-      "reason": "Unsupported expression node Tuple"
-    },
-    {
-      "expr_id": "145_0",
-      "kind": "classification",
-      "latex": "y\\ge\\left[2.0\\left[3\\right],2.0\\left[4\\right]\\right]x+\\left[-3.4\\left[3\\right],-3.4\\left[4\\right]\\right]-1\\left\\{4.2<y<4.3\\right\\}\\left\\{\\left[0,3.5\\right]\\ge x\\ge\\left[-3.5,0\\right]\\right\\}\\left\\{-3.25\\le z\\le0.5,-10.5\\le z\\le-6.75\\right\\}",
-      "reason": "Unsupported expression node Tuple"
-    },
-    {
-      "expr_id": "145_1",
-      "kind": "classification",
-      "latex": "y\\ge\\left[-2.0\\left[3\\right],-2.0\\left[4\\right]\\right]x+\\left[-3.4\\left[3\\right],-3.4\\left[4\\right]\\right]-1\\left\\{4.2<y<4.3\\right\\}\\left\\{\\left[0,3.5\\right]\\ge x\\ge\\left[-3.5,0\\right]\\right\\}\\left\\{-3.25\\le z\\le0.5,-10.5\\le z\\le-6.75\\right\\}",
-      "reason": "Unsupported expression node Tuple"
-    },
-    {
-      "expr_id": "145_2",
-      "kind": "classification",
-      "latex": "y\\ge\\left[2.0\\left[3\\right],2.0\\left[4\\right]\\right]x+\\left[10.6\\left[3\\right],10.6\\left[4\\right]\\right]-1\\left\\{4.2<y<4.3\\right\\}\\left\\{\\left[0,3.5\\right]\\ge x\\ge\\left[-3.5,0\\right]\\right\\}\\left\\{-3.25\\le z\\le0.5,-10.5\\le z\\le-6.75\\right\\}",
-      "reason": "Unsupported expression node Tuple"
-    },
-    {
-      "expr_id": "145_3",
-      "kind": "classification",
-      "latex": "y\\ge\\left[-2.0\\left[3\\right],-2.0\\left[4\\right]\\right]x+\\left[10.6\\left[3\\right],10.6\\left[4\\right]\\right]-1\\left\\{4.2<y<4.3\\right\\}\\left\\{\\left[0,3.5\\right]\\ge x\\ge\\left[-3.5,0\\right]\\right\\}\\left\\{-3.25\\le z\\le0.5,-10.5\\le z\\le-6.75\\right\\}",
-      "reason": "Unsupported expression node Tuple"
-    },
-    {
-      "expr_id": "39_0",
-      "kind": "classification",
-      "latex": "y\\ge jx+-3.4-2.4\\left\\{2.9<y<3\\right\\}\\left\\{\\left[5,-3.5\\right]\\ge x\\ge\\left[3.5,-5\\right]\\right\\}\\left\\{-3.25\\le z\\le0.5,-10.5\\le z\\le-6.75\\right\\}",
-      "reason": "Unsupported expression node Tuple"
-    },
-    {
-      "expr_id": "39_1",
-      "kind": "classification",
-      "latex": "y\\ge jx+-3.4-2.4\\left\\{2.9<y<3\\right\\}\\left\\{\\left[5,-3.5\\right]\\ge x\\ge\\left[3.5,-5\\right]\\right\\}\\left\\{-3.25\\le z\\le0.5,-10.5\\le z\\le-6.75\\right\\}",
-      "reason": "Unsupported expression node Tuple"
-    },
-    {
-      "expr_id": "39_2",
-      "kind": "classification",
-      "latex": "y\\ge jx+10.6-2.4\\left\\{2.9<y<3\\right\\}\\left\\{\\left[5,-3.5\\right]\\ge x\\ge\\left[3.5,-5\\right]\\right\\}\\left\\{-3.25\\le z\\le0.5,-10.5\\le z\\le-6.75\\right\\}",
-      "reason": "Unsupported expression node Tuple"
-    },
-    {
-      "expr_id": "39_3",
-      "kind": "classification",
-      "latex": "y\\ge jx+10.6-2.4\\left\\{2.9<y<3\\right\\}\\left\\{\\left[5,-3.5\\right]\\ge x\\ge\\left[3.5,-5\\right]\\right\\}\\left\\{-3.25\\le z\\le0.5,-10.5\\le z\\le-6.75\\right\\}",
-      "reason": "Unsupported expression node Tuple"
-    },
-    {
-      "expr_id": "146_0",
-      "kind": "classification",
-      "latex": "y\\ge\\left[2.0\\left[3\\right],2.0\\left[4\\right]\\right]x+\\left[-3.4\\left[3\\right],-3.4\\left[4\\right]\\right]-2.4\\left\\{2.9<y<3\\right\\}\\left\\{\\left[0,3.5\\right]\\ge x\\ge\\left[-3.5,0\\right]\\right\\}\\left\\{-3.25\\le z\\le0.5,-10.5\\le z\\le-6.75\\right\\}",
-      "reason": "Unsupported expression node Tuple"
-    },
-    {
-      "expr_id": "146_1",
-      "kind": "classification",
-      "latex": "y\\ge\\left[-2.0\\left[3\\right],-2.0\\left[4\\right]\\right]x+\\left[-3.4\\left[3\\right],-3.4\\left[4\\right]\\right]-2.4\\left\\{2.9<y<3\\right\\}\\left\\{\\left[0,3.5\\right]\\ge x\\ge\\left[-3.5,0\\right]\\right\\}\\left\\{-3.25\\le z\\le0.5,-10.5\\le z\\le-6.75\\right\\}",
-      "reason": "Unsupported expression node Tuple"
-    },
-    {
-      "expr_id": "146_2",
-      "kind": "classification",
-      "latex": "y\\ge\\left[2.0\\left[3\\right],2.0\\left[4\\right]\\right]x+\\left[10.6\\left[3\\right],10.6\\left[4\\right]\\right]-2.4\\left\\{2.9<y<3\\right\\}\\left\\{\\left[0,3.5\\right]\\ge x\\ge\\left[-3.5,0\\right]\\right\\}\\left\\{-3.25\\le z\\le0.5,-10.5\\le z\\le-6.75\\right\\}",
-      "reason": "Unsupported expression node Tuple"
-    },
-    {
-      "expr_id": "146_3",
-      "kind": "classification",
-      "latex": "y\\ge\\left[-2.0\\left[3\\right],-2.0\\left[4\\right]\\right]x+\\left[10.6\\left[3\\right],10.6\\left[4\\right]\\right]-2.4\\left\\{2.9<y<3\\right\\}\\left\\{\\left[0,3.5\\right]\\ge x\\ge\\left[-3.5,0\\right]\\right\\}\\left\\{-3.25\\le z\\le0.5,-10.5\\le z\\le-6.75\\right\\}",
-      "reason": "Unsupported expression node Tuple"
-    },
-    {
-      "expr_id": "40_0",
-      "kind": "classification",
-      "latex": "y\\le fx+47.1-2.8\\left\\{0.8>y>0.4\\right\\}\\left\\{\\left[-3.5,5\\right]\\ge x\\ge\\left[-5,\\ 3.5\\right]\\right\\}\\left\\{-3.25\\le z\\le0.5,-10.5\\le z\\le-6.75\\right\\}",
-      "reason": "Unsupported expression node Tuple"
-    },
-    {
-      "expr_id": "40_1",
-      "kind": "classification",
-      "latex": "y\\le fx+47.1-2.8\\left\\{0.8>y>0.4\\right\\}\\left\\{\\left[-3.5,5\\right]\\ge x\\ge\\left[-5,\\ 3.5\\right]\\right\\}\\left\\{-3.25\\le z\\le0.5,-10.5\\le z\\le-6.75\\right\\}",
-      "reason": "Unsupported expression node Tuple"
-    },
-    {
-      "expr_id": "40_2",
-      "kind": "classification",
-      "latex": "y\\le fx+-22.9-2.8\\left\\{0.8>y>0.4\\right\\}\\left\\{\\left[-3.5,5\\right]\\ge x\\ge\\left[-5,\\ 3.5\\right]\\right\\}\\left\\{-3.25\\le z\\le0.5,-10.5\\le z\\le-6.75\\right\\}",
-      "reason": "Unsupported expression node Tuple"
-    },
-    {
-      "expr_id": "40_3",
-      "kind": "classification",
-      "latex": "y\\le fx+-22.9-2.8\\left\\{0.8>y>0.4\\right\\}\\left\\{\\left[-3.5,5\\right]\\ge x\\ge\\left[-5,\\ 3.5\\right]\\right\\}\\left\\{-3.25\\le z\\le0.5,-10.5\\le z\\le-6.75\\right\\}",
-      "reason": "Unsupported expression node Tuple"
-    },
-    {
-      "expr_id": "147_0",
-      "kind": "classification",
-      "latex": "y\\le\\left[10.0\\left[3\\right],10.0\\left[4\\right]\\right]x+\\left[47.1\\left[3\\right],47.1\\left[4\\right]\\right]-2.8\\left\\{0.8>y>0.4\\right\\}\\left\\{\\left[3.5,0\\right]\\ge x\\ge\\left[0,-3.5\\right]\\right\\}\\left\\{-3.25\\le z\\le0.5,-10.5\\le z\\le-6.75\\right\\}",
-      "reason": "Unsupported expression node Tuple"
-    },
-    {
-      "expr_id": "147_1",
-      "kind": "classification",
-      "latex": "y\\le\\left[-10.0\\left[3\\right],-10.0\\left[4\\right]\\right]x+\\left[47.1\\left[3\\right],47.1\\left[4\\right]\\right]-2.8\\left\\{0.8>y>0.4\\right\\}\\left\\{\\left[3.5,0\\right]\\ge x\\ge\\left[0,-3.5\\right]\\right\\}\\left\\{-3.25\\le z\\le0.5,-10.5\\le z\\le-6.75\\right\\}",
-      "reason": "Unsupported expression node Tuple"
-    },
-    {
-      "expr_id": "147_2",
-      "kind": "classification",
-      "latex": "y\\le\\left[10.0\\left[3\\right],10.0\\left[4\\right]\\right]x+\\left[-22.9\\left[3\\right],-22.9\\left[4\\right]\\right]-2.8\\left\\{0.8>y>0.4\\right\\}\\left\\{\\left[3.5,0\\right]\\ge x\\ge\\left[0,-3.5\\right]\\right\\}\\left\\{-3.25\\le z\\le0.5,-10.5\\le z\\le-6.75\\right\\}",
-      "reason": "Unsupported expression node Tuple"
-    },
-    {
-      "expr_id": "147_3",
-      "kind": "classification",
-      "latex": "y\\le\\left[-10.0\\left[3\\right],-10.0\\left[4\\right]\\right]x+\\left[-22.9\\left[3\\right],-22.9\\left[4\\right]\\right]-2.8\\left\\{0.8>y>0.4\\right\\}\\left\\{\\left[3.5,0\\right]\\ge x\\ge\\left[0,-3.5\\right]\\right\\}\\left\\{-3.25\\le z\\le0.5,-10.5\\le z\\le-6.75\\right\\}",
-      "reason": "Unsupported expression node Tuple"
-    },
-    {
-      "expr_id": "41_0",
-      "kind": "classification",
-      "latex": "y\\ge jx+-3.4-5\\left\\{0.3<y<0.4\\right\\}\\left\\{\\left[5,-3.5\\right]\\ge x\\ge\\left[3.5,-5\\right]\\right\\}\\left\\{-3.25\\le z\\le0.5,-10.5\\le z\\le-6.75\\right\\}",
-      "reason": "Unsupported expression node Tuple"
-    },
-    {
-      "expr_id": "41_1",
-      "kind": "classification",
-      "latex": "y\\ge jx+-3.4-5\\left\\{0.3<y<0.4\\right\\}\\left\\{\\left[5,-3.5\\right]\\ge x\\ge\\left[3.5,-5\\right]\\right\\}\\left\\{-3.25\\le z\\le0.5,-10.5\\le z\\le-6.75\\right\\}",
-      "reason": "Unsupported expression node Tuple"
-    },
-    {
-      "expr_id": "41_2",
-      "kind": "classification",
-      "latex": "y\\ge jx+10.6-5\\left\\{0.3<y<0.4\\right\\}\\left\\{\\left[5,-3.5\\right]\\ge x\\ge\\left[3.5,-5\\right]\\right\\}\\left\\{-3.25\\le z\\le0.5,-10.5\\le z\\le-6.75\\right\\}",
-      "reason": "Unsupported expression node Tuple"
-    },
-    {
-      "expr_id": "41_3",
-      "kind": "classification",
-      "latex": "y\\ge jx+10.6-5\\left\\{0.3<y<0.4\\right\\}\\left\\{\\left[5,-3.5\\right]\\ge x\\ge\\left[3.5,-5\\right]\\right\\}\\left\\{-3.25\\le z\\le0.5,-10.5\\le z\\le-6.75\\right\\}",
-      "reason": "Unsupported expression node Tuple"
-    },
-    {
-      "expr_id": "148_0",
-      "kind": "classification",
-      "latex": "y\\ge\\left[2.0\\left[3\\right],2.0\\left[4\\right]\\right]x+\\left[-3.4\\left[3\\right],-3.4\\left[4\\right]\\right]-5\\left\\{0.3<y<0.4\\right\\}\\left\\{\\left[0,3.5\\right]\\ge x\\ge\\left[-3.5,0\\right]\\right\\}\\left\\{-3.25\\le z\\le0.5,-10.5\\le z\\le-6.75\\right\\}",
-      "reason": "Unsupported expression node Tuple"
-    },
-    {
-      "expr_id": "148_1",
-      "kind": "classification",
-      "latex": "y\\ge\\left[-2.0\\left[3\\right],-2.0\\left[4\\right]\\right]x+\\left[-3.4\\left[3\\right],-3.4\\left[4\\right]\\right]-5\\left\\{0.3<y<0.4\\right\\}\\left\\{\\left[0,3.5\\right]\\ge x\\ge\\left[-3.5,0\\right]\\right\\}\\left\\{-3.25\\le z\\le0.5,-10.5\\le z\\le-6.75\\right\\}",
-      "reason": "Unsupported expression node Tuple"
-    },
-    {
-      "expr_id": "148_2",
-      "kind": "classification",
-      "latex": "y\\ge\\left[2.0\\left[3\\right],2.0\\left[4\\right]\\right]x+\\left[10.6\\left[3\\right],10.6\\left[4\\right]\\right]-5\\left\\{0.3<y<0.4\\right\\}\\left\\{\\left[0,3.5\\right]\\ge x\\ge\\left[-3.5,0\\right]\\right\\}\\left\\{-3.25\\le z\\le0.5,-10.5\\le z\\le-6.75\\right\\}",
-      "reason": "Unsupported expression node Tuple"
-    },
-    {
-      "expr_id": "148_3",
-      "kind": "classification",
-      "latex": "y\\ge\\left[-2.0\\left[3\\right],-2.0\\left[4\\right]\\right]x+\\left[10.6\\left[3\\right],10.6\\left[4\\right]\\right]-5\\left\\{0.3<y<0.4\\right\\}\\left\\{\\left[0,3.5\\right]\\ge x\\ge\\left[-3.5,0\\right]\\right\\}\\left\\{-3.25\\le z\\le0.5,-10.5\\le z\\le-6.75\\right\\}",
-      "reason": "Unsupported expression node Tuple"
-    },
-    {
-      "expr_id": "140",
-      "kind": "classification",
-      "latex": "\\left(x\\ +\\ h-\\left[1,\\ 1,\\ -6,\\ -6\\right]\\right)^{2}\\ +\\ \\left(y\\ -\\ k+5.2\\right)^{2}\\ \\le\\ \\left[p,\\ p-0.1,\\ p,\\ p-0.1\\right]\\left\\{-3.25\\le z\\le\\left[0.1,0.25,0.1,\\ 0.25\\right],\\left[-10.1,-10.25,-10.1,\\ -10.25\\right]\\le z\\le-6.75\\right\\}",
-      "reason": "Unsupported expression node Tuple"
-    },
-    {
-      "expr_id": "170",
-      "kind": "classification",
-      "latex": "-\\left[4.25,\\ 3.25,2.25,1.25,0.25,-0.75,-1.75,-2.75,-3.75\\right]\\le x\\le-\\left[3.75,\\ 2.75,1.75,0.75,-0.25,-1.25,-2.25,-3.25,-4.25\\right]\\left\\{7.75>y>7.5\\right\\}\\left\\{-10.1\\le z\\le0.1\\right\\}",
-      "reason": "Unsupported expression node Tuple"
-    },
-    {
-      "expr_id": "190",
-      "kind": "classification",
-      "latex": "-\\left[1.25,2.25,3.25,4.25,5.25,6.25,7.25,8.25,9.25\\right]\\le z\\le-\\left[0.75,1.75,2.75,3.75,4.75,5.75,6.75,7.75,8.75\\right]\\left\\{7.75>y>7.5\\right\\}\\left\\{-5.1\\le x\\le-5,\\ 5\\le x\\le5.1\\right\\}",
-      "reason": "Unsupported expression node Tuple"
-    },
     {
       "expr_id": "4",
       "kind": "explicit_surface",
@@ -487,6 +157,78 @@
       "reason": "point 0 violates predicate '-3.25\\\\le z\\\\le0.5'; point 1 violates predicate '-3.25\\\\le z\\\\le0.5'; point 2 violates predicate '-3.25\\\\le z\\\\le0.5'; point 3 violates predicate '-3.25\\\\le z\\\\le0.5'; point 4 violates predicate '-3.25\\\\le z\\\\le0.5'; point 5 violates predicate '-3.25\\\\le z\\\\le0.5'; point 6 violates predicate '-3.25\\\\le z\\\\le0.5'; point 7 violates predicate '-3.25\\\\le z\\\\le0.5'; point 8 violates predicate '-3.25\\\\le z\\\\le0.5'; point 9 violates predicate '-3.25\\\\le z\\\\le0.5'; point 10 violates predicate '-3.25\\\\le z\\\\le0.5'; point 11 violates predicate '-3.25\\\\le z\\\\le0.5'; point 12 violates predicate '-3.25\\\\le z\\\\le0.5'; point 13 violates predicate '-3.25\\\\le z\\\\le0.5'; point 14 violates predicate '-3.25\\\\le z\\\\le0.5'; point 15 violates predicate '-3.25\\\\le z\\\\le0.5'; point 16 violates predicate '-3.25\\\\le z\\\\le0.5'; point 17 violates predicate '-3.25\\\\le z\\\\le0.5'; point 18 violates predicate '-3.25\\\\le z\\\\le0.5'; point 19 violates predicate '-3.25\\\\le z\\\\le0.5'"
     },
     {
+      "expr_id": "34_2_0",
+      "kind": "inequality_region",
+      "latex": "y\\ge 2.0x+10.6\\left\\{5.1<y<5.2\\right\\}\\left\\{5.0\\ge x\\ge3.5\\right\\}\\left\\{-3.25\\le z\\le0.5\\right\\}",
+      "reason": "Inequality region for 34_2_0 did not resolve to sampled cells"
+    },
+    {
+      "expr_id": "34_3_1",
+      "kind": "inequality_region",
+      "latex": "y\\ge -2.0x+10.6\\left\\{5.1<y<5.2\\right\\}\\left\\{-3.5\\ge x\\ge-5.0\\right\\}\\left\\{-10.5\\le z\\le-6.75\\right\\}",
+      "reason": "Inequality region for 34_3_1 did not resolve to sampled cells"
+    },
+    {
+      "expr_id": "37_2_0",
+      "kind": "inequality_region",
+      "latex": "y\\le 10.0x+-22.9\\left\\{4.6>y>4.3\\right\\}\\left\\{-3.5\\ge x\\ge-5.0\\right\\}\\left\\{-3.25\\le z\\le0.5\\right\\}",
+      "reason": "Inequality region for 37_2_0 did not resolve to sampled cells"
+    },
+    {
+      "expr_id": "37_3_1",
+      "kind": "inequality_region",
+      "latex": "y\\le -10.0x+-22.9\\left\\{4.6>y>4.3\\right\\}\\left\\{5.0\\ge x\\ge3.5\\right\\}\\left\\{-10.5\\le z\\le-6.75\\right\\}",
+      "reason": "Inequality region for 37_3_1 did not resolve to sampled cells"
+    },
+    {
+      "expr_id": "38_2_0",
+      "kind": "inequality_region",
+      "latex": "y\\ge 2.0x+10.6-1\\left\\{4.2<y<4.3\\right\\}\\left\\{5.0\\ge x\\ge3.5\\right\\}\\left\\{-3.25\\le z\\le0.5\\right\\}",
+      "reason": "Inequality region for 38_2_0 did not resolve to sampled cells"
+    },
+    {
+      "expr_id": "38_3_1",
+      "kind": "inequality_region",
+      "latex": "y\\ge -2.0x+10.6-1\\left\\{4.2<y<4.3\\right\\}\\left\\{-3.5\\ge x\\ge-5.0\\right\\}\\left\\{-10.5\\le z\\le-6.75\\right\\}",
+      "reason": "Inequality region for 38_3_1 did not resolve to sampled cells"
+    },
+    {
+      "expr_id": "39_2_0",
+      "kind": "inequality_region",
+      "latex": "y\\ge 2.0x+10.6-2.4\\left\\{2.9<y<3\\right\\}\\left\\{5.0\\ge x\\ge3.5\\right\\}\\left\\{-3.25\\le z\\le0.5\\right\\}",
+      "reason": "Inequality region for 39_2_0 did not resolve to sampled cells"
+    },
+    {
+      "expr_id": "39_3_1",
+      "kind": "inequality_region",
+      "latex": "y\\ge -2.0x+10.6-2.4\\left\\{2.9<y<3\\right\\}\\left\\{-3.5\\ge x\\ge-5.0\\right\\}\\left\\{-10.5\\le z\\le-6.75\\right\\}",
+      "reason": "Inequality region for 39_3_1 did not resolve to sampled cells"
+    },
+    {
+      "expr_id": "40_2_0",
+      "kind": "inequality_region",
+      "latex": "y\\le 10.0x+-22.9-2.8\\left\\{0.8>y>0.4\\right\\}\\left\\{-3.5\\ge x\\ge-5.0\\right\\}\\left\\{-3.25\\le z\\le0.5\\right\\}",
+      "reason": "Inequality region for 40_2_0 did not resolve to sampled cells"
+    },
+    {
+      "expr_id": "40_3_1",
+      "kind": "inequality_region",
+      "latex": "y\\le -10.0x+-22.9-2.8\\left\\{0.8>y>0.4\\right\\}\\left\\{5.0\\ge x\\ge3.5\\right\\}\\left\\{-10.5\\le z\\le-6.75\\right\\}",
+      "reason": "Inequality region for 40_3_1 did not resolve to sampled cells"
+    },
+    {
+      "expr_id": "41_2_0",
+      "kind": "inequality_region",
+      "latex": "y\\ge 2.0x+10.6-5\\left\\{0.3<y<0.4\\right\\}\\left\\{5.0\\ge x\\ge3.5\\right\\}\\left\\{-3.25\\le z\\le0.5\\right\\}",
+      "reason": "Inequality region for 41_2_0 did not resolve to sampled cells"
+    },
+    {
+      "expr_id": "41_3_1",
+      "kind": "inequality_region",
+      "latex": "y\\ge -2.0x+10.6-5\\left\\{0.3<y<0.4\\right\\}\\left\\{-3.5\\ge x\\ge-5.0\\right\\}\\left\\{-10.5\\le z\\le-6.75\\right\\}",
+      "reason": "Inequality region for 41_3_1 did not resolve to sampled cells"
+    },
+    {
       "expr_id": "44",
       "kind": "inequality_region",
       "latex": "-5\\le x\\le-1.8\\left\\{0<y<4.5\\right\\}\\left\\{-3.25\\le z\\le0,-10\\le z\\le-6.75\\right\\}",
@@ -587,6 +329,30 @@
       "kind": "inequality_region",
       "latex": "y\\ge10x+4\\left\\{6.7>y>6.15\\right\\}\\left\\{x>0\\right\\}\\left\\{-3.25\\le z\\le0,-10\\le z\\le-6.75\\right\\}",
       "reason": "Inequality region for 60 did not resolve to sampled cells"
+    },
+    {
+      "expr_id": "140_0",
+      "kind": "inequality_region",
+      "latex": "(x+h-1.0)^{2}+(y-k+5.2)^{2}\\le0.3\\left\\{-3.25\\le z\\le0.1,-10.1\\le z\\le-6.75\\right\\}",
+      "reason": "Inequality region for 140_0 did not resolve to sampled cells"
+    },
+    {
+      "expr_id": "140_1",
+      "kind": "inequality_region",
+      "latex": "(x+h-1.0)^{2}+(y-k+5.2)^{2}\\le0.19999999999999998\\left\\{-3.25\\le z\\le0.25,-10.25\\le z\\le-6.75\\right\\}",
+      "reason": "Inequality region for 140_1 did not resolve to sampled cells"
+    },
+    {
+      "expr_id": "140_2",
+      "kind": "inequality_region",
+      "latex": "(x+h--6.0)^{2}+(y-k+5.2)^{2}\\le0.3\\left\\{-3.25\\le z\\le0.1,-10.1\\le z\\le-6.75\\right\\}",
+      "reason": "Inequality region for 140_2 did not resolve to sampled cells"
+    },
+    {
+      "expr_id": "140_3",
+      "kind": "inequality_region",
+      "latex": "(x+h--6.0)^{2}+(y-k+5.2)^{2}\\le0.19999999999999998\\left\\{-3.25\\le z\\le0.25,-10.25\\le z\\le-6.75\\right\\}",
+      "reason": "Inequality region for 140_3 did not resolve to sampled cells"
     },
     {
       "expr_id": "100_0",
@@ -693,49 +459,49 @@
     {
       "expr_id": "102_0",
       "kind": "inequality_region",
-      "latex": "\\left(x\\ +3.5\\right)^{2}\\ +\\ \\left(y\\ -\\ 7.3\\right)^{2}\\ \\le\\ 0.01\\left\\{-3.25\\le z\\le0.01,-10.01\\le z\\le-6.75\\right\\}",
+      "latex": "(x+3.5)^{2}+(y-7.3)^{2}\\le0.01\\left\\{-3.25\\le z\\le0.01,-10.01\\le z\\le-6.75\\right\\}",
       "reason": "Inequality region for 102_0 did not resolve to sampled cells"
     },
     {
       "expr_id": "102_1",
       "kind": "inequality_region",
-      "latex": "\\left(x\\ +2.5\\right)^{2}\\ +\\ \\left(y\\ -\\ 7.3\\right)^{2}\\ \\le\\ 0.01\\left\\{-3.25\\le z\\le0.01,-10.01\\le z\\le-6.75\\right\\}",
+      "latex": "(x+2.5)^{2}+(y-7.3)^{2}\\le0.01\\left\\{-3.25\\le z\\le0.01,-10.01\\le z\\le-6.75\\right\\}",
       "reason": "Inequality region for 102_1 did not resolve to sampled cells"
     },
     {
       "expr_id": "102_2",
       "kind": "inequality_region",
-      "latex": "\\left(x\\ +1.5\\right)^{2}\\ +\\ \\left(y\\ -\\ 7.3\\right)^{2}\\ \\le\\ 0.01\\left\\{-3.25\\le z\\le0.01,-10.01\\le z\\le-6.75\\right\\}",
+      "latex": "(x+1.5)^{2}+(y-7.3)^{2}\\le0.01\\left\\{-3.25\\le z\\le0.01,-10.01\\le z\\le-6.75\\right\\}",
       "reason": "Inequality region for 102_2 did not resolve to sampled cells"
     },
     {
       "expr_id": "102_3",
       "kind": "inequality_region",
-      "latex": "\\left(x\\ +0.5\\right)^{2}\\ +\\ \\left(y\\ -\\ 7.3\\right)^{2}\\ \\le\\ 0.01\\left\\{-3.25\\le z\\le0.01,-10.01\\le z\\le-6.75\\right\\}",
+      "latex": "(x+0.5)^{2}+(y-7.3)^{2}\\le0.01\\left\\{-3.25\\le z\\le0.01,-10.01\\le z\\le-6.75\\right\\}",
       "reason": "Inequality region for 102_3 did not resolve to sampled cells"
     },
     {
       "expr_id": "102_4",
       "kind": "inequality_region",
-      "latex": "\\left(x\\ +-0.5\\right)^{2}\\ +\\ \\left(y\\ -\\ 7.3\\right)^{2}\\ \\le\\ 0.01\\left\\{-3.25\\le z\\le0.01,-10.01\\le z\\le-6.75\\right\\}",
+      "latex": "(x+-0.5)^{2}+(y-7.3)^{2}\\le0.01\\left\\{-3.25\\le z\\le0.01,-10.01\\le z\\le-6.75\\right\\}",
       "reason": "Inequality region for 102_4 did not resolve to sampled cells"
     },
     {
       "expr_id": "102_5",
       "kind": "inequality_region",
-      "latex": "\\left(x\\ +-1.5\\right)^{2}\\ +\\ \\left(y\\ -\\ 7.3\\right)^{2}\\ \\le\\ 0.01\\left\\{-3.25\\le z\\le0.01,-10.01\\le z\\le-6.75\\right\\}",
+      "latex": "(x+-1.5)^{2}+(y-7.3)^{2}\\le0.01\\left\\{-3.25\\le z\\le0.01,-10.01\\le z\\le-6.75\\right\\}",
       "reason": "Inequality region for 102_5 did not resolve to sampled cells"
     },
     {
       "expr_id": "102_6",
       "kind": "inequality_region",
-      "latex": "\\left(x\\ +-2.5\\right)^{2}\\ +\\ \\left(y\\ -\\ 7.3\\right)^{2}\\ \\le\\ 0.01\\left\\{-3.25\\le z\\le0.01,-10.01\\le z\\le-6.75\\right\\}",
+      "latex": "(x+-2.5)^{2}+(y-7.3)^{2}\\le0.01\\left\\{-3.25\\le z\\le0.01,-10.01\\le z\\le-6.75\\right\\}",
       "reason": "Inequality region for 102_6 did not resolve to sampled cells"
     },
     {
       "expr_id": "102_7",
       "kind": "inequality_region",
-      "latex": "\\left(x\\ +-3.5\\right)^{2}\\ +\\ \\left(y\\ -\\ 7.3\\right)^{2}\\ \\le\\ 0.01\\left\\{-3.25\\le z\\le0.01,-10.01\\le z\\le-6.75\\right\\}",
+      "latex": "(x+-3.5)^{2}+(y-7.3)^{2}\\le0.01\\left\\{-3.25\\le z\\le0.01,-10.01\\le z\\le-6.75\\right\\}",
       "reason": "Inequality region for 102_7 did not resolve to sampled cells"
     },
     {
@@ -743,9 +509,63 @@
       "kind": "explicit_surface",
       "latex": "y=7.5\\left\\{-5<x<5\\right\\}\\left\\{-3.25\\le z\\le0.1,-10.1\\le z\\le-6.75\\right\\}",
       "reason": "point 0 violates predicate '-3.25\\\\le z\\\\le0.1'; point 1 violates predicate '-3.25\\\\le z\\\\le0.1'; point 2 violates predicate '-3.25\\\\le z\\\\le0.1'; point 3 violates predicate '-3.25\\\\le z\\\\le0.1'; point 4 violates predicate '-3.25\\\\le z\\\\le0.1'; point 5 violates predicate '-3.25\\\\le z\\\\le0.1'; point 6 violates predicate '-3.25\\\\le z\\\\le0.1'; point 7 violates predicate '-3.25\\\\le z\\\\le0.1'; point 8 violates predicate '-3.25\\\\le z\\\\le0.1'; point 9 violates predicate '-3.25\\\\le z\\\\le0.1'; point 10 violates predicate '-3.25\\\\le z\\\\le0.1'; point 11 violates predicate '-3.25\\\\le z\\\\le0.1'; point 12 violates predicate '-3.25\\\\le z\\\\le0.1'; point 13 violates predicate '-3.25\\\\le z\\\\le0.1'; point 14 violates predicate '-3.25\\\\le z\\\\le0.1'; point 15 violates predicate '-3.25\\\\le z\\\\le0.1'; point 16 violates predicate '-3.25\\\\le z\\\\le0.1'; point 17 violates predicate '-3.25\\\\le z\\\\le0.1'; point 18 violates predicate '-3.25\\\\le z\\\\le0.1'; point 19 violates predicate '-3.25\\\\le z\\\\le0.1'"
+    },
+    {
+      "expr_id": "190_0",
+      "kind": "inequality_region",
+      "latex": "-1.25\\le z\\le-0.75\\left\\{7.75>y>7.5\\right\\}\\left\\{-5.1\\le x\\le-5,5\\le x\\le5.1\\right\\}",
+      "reason": "Inequality region for 190_0 did not resolve to sampled cells"
+    },
+    {
+      "expr_id": "190_1",
+      "kind": "inequality_region",
+      "latex": "-2.25\\le z\\le-1.75\\left\\{7.75>y>7.5\\right\\}\\left\\{-5.1\\le x\\le-5,5\\le x\\le5.1\\right\\}",
+      "reason": "Inequality region for 190_1 did not resolve to sampled cells"
+    },
+    {
+      "expr_id": "190_2",
+      "kind": "inequality_region",
+      "latex": "-3.25\\le z\\le-2.75\\left\\{7.75>y>7.5\\right\\}\\left\\{-5.1\\le x\\le-5,5\\le x\\le5.1\\right\\}",
+      "reason": "Inequality region for 190_2 did not resolve to sampled cells"
+    },
+    {
+      "expr_id": "190_3",
+      "kind": "inequality_region",
+      "latex": "-4.25\\le z\\le-3.75\\left\\{7.75>y>7.5\\right\\}\\left\\{-5.1\\le x\\le-5,5\\le x\\le5.1\\right\\}",
+      "reason": "Inequality region for 190_3 did not resolve to sampled cells"
+    },
+    {
+      "expr_id": "190_4",
+      "kind": "inequality_region",
+      "latex": "-5.25\\le z\\le-4.75\\left\\{7.75>y>7.5\\right\\}\\left\\{-5.1\\le x\\le-5,5\\le x\\le5.1\\right\\}",
+      "reason": "Inequality region for 190_4 did not resolve to sampled cells"
+    },
+    {
+      "expr_id": "190_5",
+      "kind": "inequality_region",
+      "latex": "-6.25\\le z\\le-5.75\\left\\{7.75>y>7.5\\right\\}\\left\\{-5.1\\le x\\le-5,5\\le x\\le5.1\\right\\}",
+      "reason": "Inequality region for 190_5 did not resolve to sampled cells"
+    },
+    {
+      "expr_id": "190_6",
+      "kind": "inequality_region",
+      "latex": "-7.25\\le z\\le-6.75\\left\\{7.75>y>7.5\\right\\}\\left\\{-5.1\\le x\\le-5,5\\le x\\le5.1\\right\\}",
+      "reason": "Inequality region for 190_6 did not resolve to sampled cells"
+    },
+    {
+      "expr_id": "190_7",
+      "kind": "inequality_region",
+      "latex": "-8.25\\le z\\le-7.75\\left\\{7.75>y>7.5\\right\\}\\left\\{-5.1\\le x\\le-5,5\\le x\\le5.1\\right\\}",
+      "reason": "Inequality region for 190_7 did not resolve to sampled cells"
+    },
+    {
+      "expr_id": "190_8",
+      "kind": "inequality_region",
+      "latex": "-9.25\\le z\\le-8.75\\left\\{7.75>y>7.5\\right\\}\\left\\{-5.1\\le x\\le-5,5\\le x\\le5.1\\right\\}",
+      "reason": "Inequality region for 190_8 did not resolve to sampled cells"
     }
   ],
-  "unsupported_count": 122,
+  "unsupported_count": 92,
   "usda_exists": true,
   "usdz_exists": true,
   "usdz_output": "artifacts/fixture_usdz/[4B] 3D Diagram - S2-03 Group D.usdz",
@@ -778,177 +598,587 @@
     {
       "constraint_violation_count": 0,
       "errors": [],
-      "expr_id": "192",
-      "face_count": 288,
+      "expr_id": "22_0",
+      "face_count": 30,
       "kind": "inequality_region",
       "max_residual": null,
-      "point_count": 384,
+      "point_count": 32,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "22_1",
+      "face_count": 30,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 32,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "29_0",
+      "face_count": 30,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 32,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "29_1",
+      "face_count": 30,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 32,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "30_0",
+      "face_count": 30,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 32,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "30_1",
+      "face_count": 30,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 32,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "31_0",
+      "face_count": 30,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 32,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "31_1",
+      "face_count": 30,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 32,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "34_0_0",
+      "face_count": 1728,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 2304,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "34_0_1",
+      "face_count": 144,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 192,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "34_1_0",
+      "face_count": 144,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 192,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "34_1_1",
+      "face_count": 1728,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 2304,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "34_2_1",
+      "face_count": 144,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 192,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "34_3_0",
+      "face_count": 144,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 192,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "143_0",
+      "face_count": 720,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 960,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "143_1",
+      "face_count": 720,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 960,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "37_0_0",
+      "face_count": 1728,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 2304,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "37_0_1",
+      "face_count": 144,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 192,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "37_1_0",
+      "face_count": 144,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 192,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "37_1_1",
+      "face_count": 1728,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 2304,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "37_2_1",
+      "face_count": 144,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 192,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "37_3_0",
+      "face_count": 144,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 192,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "144_0",
+      "face_count": 720,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 960,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "144_1",
+      "face_count": 720,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 960,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "38_0_0",
+      "face_count": 1836,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 2448,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "38_0_1",
+      "face_count": 144,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 192,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "38_1_0",
+      "face_count": 144,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 192,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "38_1_1",
+      "face_count": 1836,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 2448,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "38_2_1",
+      "face_count": 144,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 192,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "38_3_0",
+      "face_count": 144,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 192,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "145_0",
+      "face_count": 720,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 960,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "145_1",
+      "face_count": 720,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 960,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "39_0_0",
+      "face_count": 1944,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 2592,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "39_0_1",
+      "face_count": 144,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 192,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "39_1_0",
+      "face_count": 144,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 192,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "39_1_1",
+      "face_count": 1944,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 2592,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "39_2_1",
+      "face_count": 144,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 192,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "39_3_0",
+      "face_count": 144,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 192,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "146_0",
+      "face_count": 792,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 1056,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "146_1",
+      "face_count": 792,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 1056,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "40_0_0",
+      "face_count": 1926,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 2568,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "40_0_1",
+      "face_count": 144,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 192,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "40_1_0",
+      "face_count": 144,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 192,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "40_1_1",
+      "face_count": 1926,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 2568,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "40_2_1",
+      "face_count": 144,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 192,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "40_3_0",
+      "face_count": 144,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 192,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "147_0",
+      "face_count": 774,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 1032,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "147_1",
+      "face_count": 774,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 1032,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "41_0_0",
+      "face_count": 1944,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 2592,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "41_0_1",
+      "face_count": 144,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 192,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "41_1_0",
+      "face_count": 144,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 192,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "41_1_1",
+      "face_count": 1944,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 2592,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "41_2_1",
+      "face_count": 144,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 192,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "41_3_0",
+      "face_count": 144,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 192,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "148_0",
+      "face_count": 792,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 1056,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "148_1",
+      "face_count": 792,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 1056,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "192",
+      "face_count": 144,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 192,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "65",
-      "face_count": 282,
+      "face_count": 138,
       "kind": "inequality_region",
       "max_residual": null,
-      "point_count": 376,
+      "point_count": 184,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "166",
-      "face_count": 1074,
-      "kind": "inequality_region",
-      "max_residual": null,
-      "point_count": 1432,
-      "valid": true
-    },
-    {
-      "constraint_violation_count": 0,
-      "errors": [],
-      "expr_id": "167",
-      "face_count": 102,
-      "kind": "inequality_region",
-      "max_residual": null,
-      "point_count": 136,
-      "valid": true
-    },
-    {
-      "constraint_violation_count": 0,
-      "errors": [],
-      "expr_id": "66",
-      "face_count": 282,
-      "kind": "inequality_region",
-      "max_residual": null,
-      "point_count": 376,
-      "valid": true
-    },
-    {
-      "constraint_violation_count": 0,
-      "errors": [],
-      "expr_id": "67",
-      "face_count": 169,
-      "kind": "explicit_surface",
-      "max_residual": 0.0,
-      "point_count": 196,
-      "valid": true
-    },
-    {
-      "constraint_violation_count": 0,
-      "errors": [],
-      "expr_id": "68",
-      "face_count": 169,
-      "kind": "explicit_surface",
-      "max_residual": 0.0,
-      "point_count": 196,
-      "valid": true
-    },
-    {
-      "constraint_violation_count": 0,
-      "errors": [],
-      "expr_id": "69",
-      "face_count": 169,
-      "kind": "explicit_surface",
-      "max_residual": 0.0,
-      "point_count": 196,
-      "valid": true
-    },
-    {
-      "constraint_violation_count": 0,
-      "errors": [],
-      "expr_id": "70",
-      "face_count": 169,
-      "kind": "explicit_surface",
-      "max_residual": 0.0,
-      "point_count": 196,
-      "valid": true
-    },
-    {
-      "constraint_violation_count": 0,
-      "errors": [],
-      "expr_id": "71",
-      "face_count": 169,
-      "kind": "explicit_surface",
-      "max_residual": 0.0,
-      "point_count": 196,
-      "valid": true
-    },
-    {
-      "constraint_violation_count": 0,
-      "errors": [],
-      "expr_id": "72",
-      "face_count": 169,
-      "kind": "explicit_surface",
-      "max_residual": 0.0,
-      "point_count": 196,
-      "valid": true
-    },
-    {
-      "constraint_violation_count": 0,
-      "errors": [],
-      "expr_id": "73",
-      "face_count": 169,
-      "kind": "explicit_surface",
-      "max_residual": 0.0,
-      "point_count": 196,
-      "valid": true
-    },
-    {
-      "constraint_violation_count": 0,
-      "errors": [],
-      "expr_id": "74",
-      "face_count": 126,
-      "kind": "inequality_region",
-      "max_residual": null,
-      "point_count": 128,
-      "valid": true
-    },
-    {
-      "constraint_violation_count": 0,
-      "errors": [],
-      "expr_id": "75",
-      "face_count": 126,
-      "kind": "inequality_region",
-      "max_residual": null,
-      "point_count": 128,
-      "valid": true
-    },
-    {
-      "constraint_violation_count": 0,
-      "errors": [],
-      "expr_id": "76",
-      "face_count": 126,
-      "kind": "inequality_region",
-      "max_residual": null,
-      "point_count": 128,
-      "valid": true
-    },
-    {
-      "constraint_violation_count": 0,
-      "errors": [],
-      "expr_id": "77",
-      "face_count": 126,
-      "kind": "inequality_region",
-      "max_residual": null,
-      "point_count": 128,
-      "valid": true
-    },
-    {
-      "constraint_violation_count": 0,
-      "errors": [],
-      "expr_id": "78",
-      "face_count": 126,
-      "kind": "inequality_region",
-      "max_residual": null,
-      "point_count": 128,
-      "valid": true
-    },
-    {
-      "constraint_violation_count": 0,
-      "errors": [],
-      "expr_id": "79",
       "face_count": 228,
       "kind": "inequality_region",
       "max_residual": null,
@@ -958,351 +1188,501 @@
     {
       "constraint_violation_count": 0,
       "errors": [],
-      "expr_id": "80",
-      "face_count": 2112,
+      "expr_id": "167",
+      "face_count": 48,
       "kind": "inequality_region",
       "max_residual": null,
-      "point_count": 2050,
+      "point_count": 64,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "66",
+      "face_count": 138,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 184,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "67",
+      "face_count": 81,
+      "kind": "explicit_surface",
+      "max_residual": 0.0,
+      "point_count": 100,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "68",
+      "face_count": 81,
+      "kind": "explicit_surface",
+      "max_residual": 0.0,
+      "point_count": 100,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "69",
+      "face_count": 81,
+      "kind": "explicit_surface",
+      "max_residual": 0.0,
+      "point_count": 100,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "70",
+      "face_count": 81,
+      "kind": "explicit_surface",
+      "max_residual": 0.0,
+      "point_count": 100,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "71",
+      "face_count": 81,
+      "kind": "explicit_surface",
+      "max_residual": 0.0,
+      "point_count": 100,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "72",
+      "face_count": 81,
+      "kind": "explicit_surface",
+      "max_residual": 0.0,
+      "point_count": 100,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "73",
+      "face_count": 81,
+      "kind": "explicit_surface",
+      "max_residual": 0.0,
+      "point_count": 100,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "74",
+      "face_count": 30,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 32,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "75",
+      "face_count": 30,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 32,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "76",
+      "face_count": 30,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 32,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "77",
+      "face_count": 30,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 32,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "78",
+      "face_count": 30,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 32,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "79",
+      "face_count": 108,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 144,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "80",
+      "face_count": 544,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 514,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "81",
-      "face_count": 126,
+      "face_count": 30,
       "kind": "inequality_region",
       "max_residual": null,
-      "point_count": 128,
+      "point_count": 32,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "82",
-      "face_count": 2112,
+      "face_count": 544,
       "kind": "inequality_region",
       "max_residual": null,
-      "point_count": 2050,
+      "point_count": 514,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "83",
-      "face_count": 169,
+      "face_count": 81,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 196,
+      "point_count": 100,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "84",
-      "face_count": 169,
+      "face_count": 81,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 196,
+      "point_count": 100,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "85",
-      "face_count": 126,
+      "face_count": 30,
       "kind": "inequality_region",
       "max_residual": null,
-      "point_count": 128,
+      "point_count": 32,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "155",
-      "face_count": 126,
+      "face_count": 30,
       "kind": "inequality_region",
       "max_residual": null,
-      "point_count": 128,
+      "point_count": 32,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "86",
-      "face_count": 126,
+      "face_count": 30,
       "kind": "inequality_region",
       "max_residual": null,
-      "point_count": 128,
+      "point_count": 32,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "156",
-      "face_count": 126,
+      "face_count": 30,
       "kind": "inequality_region",
       "max_residual": null,
-      "point_count": 128,
+      "point_count": 32,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "87",
-      "face_count": 182,
+      "face_count": 90,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 222,
+      "point_count": 118,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "193",
-      "face_count": 182,
+      "face_count": 90,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 222,
+      "point_count": 118,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "157",
-      "face_count": 182,
+      "face_count": 90,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 222,
+      "point_count": 118,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "194",
-      "face_count": 182,
+      "face_count": 90,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 222,
+      "point_count": 118,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "88",
-      "face_count": 126,
+      "face_count": 30,
       "kind": "inequality_region",
       "max_residual": null,
-      "point_count": 128,
+      "point_count": 32,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "158",
-      "face_count": 126,
+      "face_count": 30,
       "kind": "inequality_region",
       "max_residual": null,
-      "point_count": 128,
+      "point_count": 32,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "89",
-      "face_count": 126,
+      "face_count": 30,
       "kind": "inequality_region",
       "max_residual": null,
-      "point_count": 128,
+      "point_count": 32,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "159",
-      "face_count": 126,
+      "face_count": 30,
       "kind": "inequality_region",
       "max_residual": null,
-      "point_count": 128,
+      "point_count": 32,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "90",
-      "face_count": 12,
+      "face_count": 7,
       "kind": "implicit_surface",
       "max_residual": null,
-      "point_count": 48,
+      "point_count": 28,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "195",
-      "face_count": 12,
+      "face_count": 7,
       "kind": "implicit_surface",
       "max_residual": null,
-      "point_count": 48,
+      "point_count": 28,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "160",
-      "face_count": 10,
+      "face_count": 5,
       "kind": "implicit_surface",
       "max_residual": null,
-      "point_count": 40,
+      "point_count": 20,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "196",
-      "face_count": 10,
+      "face_count": 5,
       "kind": "implicit_surface",
       "max_residual": null,
-      "point_count": 40,
+      "point_count": 20,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "91",
-      "face_count": 126,
+      "face_count": 30,
       "kind": "inequality_region",
       "max_residual": null,
-      "point_count": 128,
+      "point_count": 32,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "162",
-      "face_count": 126,
+      "face_count": 30,
       "kind": "inequality_region",
       "max_residual": null,
-      "point_count": 128,
+      "point_count": 32,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "92",
-      "face_count": 182,
+      "face_count": 90,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 222,
+      "point_count": 118,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "197",
-      "face_count": 182,
+      "face_count": 90,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 222,
+      "point_count": 118,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "161",
-      "face_count": 182,
+      "face_count": 90,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 222,
+      "point_count": 118,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "198",
-      "face_count": 182,
+      "face_count": 90,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 222,
+      "point_count": 118,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "93",
-      "face_count": 182,
+      "face_count": 90,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 222,
+      "point_count": 118,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "199",
-      "face_count": 182,
+      "face_count": 90,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 222,
+      "point_count": 118,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "163",
-      "face_count": 182,
+      "face_count": 90,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 222,
+      "point_count": 118,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "200",
-      "face_count": 182,
+      "face_count": 90,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 222,
+      "point_count": 118,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "94",
-      "face_count": 156,
+      "face_count": 72,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 196,
+      "point_count": 100,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "202",
-      "face_count": 156,
+      "face_count": 72,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 196,
+      "point_count": 100,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "201",
-      "face_count": 156,
+      "face_count": 72,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 196,
+      "point_count": 100,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "203",
-      "face_count": 156,
+      "face_count": 72,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 196,
+      "point_count": 100,
       "valid": true
     },
     {
@@ -2749,70 +3129,160 @@
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "126",
-      "face_count": 288,
+      "face_count": 144,
       "kind": "inequality_region",
       "max_residual": null,
-      "point_count": 384,
+      "point_count": 192,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "127",
-      "face_count": 288,
+      "face_count": 144,
       "kind": "inequality_region",
       "max_residual": null,
-      "point_count": 384,
+      "point_count": 192,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "128",
-      "face_count": 169,
+      "face_count": 81,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 196,
+      "point_count": 100,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "129",
-      "face_count": 300,
+      "face_count": 136,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 364,
+      "point_count": 180,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "130",
-      "face_count": 282,
+      "face_count": 138,
       "kind": "inequality_region",
       "max_residual": null,
-      "point_count": 376,
+      "point_count": 184,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "131",
-      "face_count": 258,
+      "face_count": 126,
       "kind": "inequality_region",
       "max_residual": null,
-      "point_count": 344,
+      "point_count": 168,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "137",
-      "face_count": 156,
+      "face_count": 72,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 196,
+      "point_count": 100,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "170_0",
+      "face_count": 30,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 32,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "170_1",
+      "face_count": 30,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 32,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "170_2",
+      "face_count": 30,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 32,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "170_3",
+      "face_count": 30,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 32,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "170_4",
+      "face_count": 30,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 32,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "170_5",
+      "face_count": 30,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 32,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "170_6",
+      "face_count": 30,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 32,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "170_7",
+      "face_count": 30,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 32,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "170_8",
+      "face_count": 30,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 32,
       "valid": true
     }
   ],
