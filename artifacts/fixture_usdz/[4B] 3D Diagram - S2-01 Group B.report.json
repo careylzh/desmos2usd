@@ -8,7 +8,7 @@
   "output": "artifacts/fixture_usdz/[4B] 3D Diagram - S2-01 Group B.usda",
   "prim_count": 115,
   "renderable_expression_count": 142,
-  "resolution": 8,
+  "resolution": 12,
   "status": "partial",
   "title": "Desmos graph",
   "unsupported": [
@@ -182,10 +182,10 @@
   "usdz_package": {
     "command": [
       "/usr/bin/usdzip",
-      "/private/tmp/desmos2usd-carey-visual-20260426-160834/artifacts/fixture_usdz/[4B] 3D Diagram - S2-01 Group B.usdz",
+      "/Users/chek/repos/desmos2usd-carey/artifacts/fixture_usdz/[4B] 3D Diagram - S2-01 Group B.usdz",
       "[4B] 3D Diagram - S2-01 Group B.usda"
     ],
-    "cwd": "/private/tmp/desmos2usd-carey-visual-20260426-160834/artifacts/fixture_usdz",
+    "cwd": "/Users/chek/repos/desmos2usd-carey/artifacts/fixture_usdz",
     "returncode": 0,
     "stderr": "",
     "stdout": "",

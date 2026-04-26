@@ -8,7 +8,7 @@
   "output": "artifacts/fixture_usdz/[4B] 3D Diagram - S2-05 Group D.usda",
   "prim_count": 150,
   "renderable_expression_count": 150,
-  "resolution": 8,
+  "resolution": 12,
   "status": "success",
   "title": "Desmos graph",
   "unsupported": [],
@@ -19,10 +19,10 @@
   "usdz_package": {
     "command": [
       "/usr/bin/usdzip",
-      "/private/tmp/desmos2usd-carey-visual-20260426-160834/artifacts/fixture_usdz/[4B] 3D Diagram - S2-05 Group D.usdz",
+      "/Users/chek/repos/desmos2usd-carey/artifacts/fixture_usdz/[4B] 3D Diagram - S2-05 Group D.usdz",
       "[4B] 3D Diagram - S2-05 Group D.usda"
     ],
-    "cwd": "/private/tmp/desmos2usd-carey-visual-20260426-160834/artifacts/fixture_usdz",
+    "cwd": "/Users/chek/repos/desmos2usd-carey/artifacts/fixture_usdz",
     "returncode": 0,
     "stderr": "",
     "stdout": "",
@@ -38,7 +38,7 @@
       "face_count": 0,
       "kind": "parametric_curve",
       "max_residual": 0.0,
-      "point_count": 16,
+      "point_count": 24,
       "valid": true
     },
     {
@@ -48,7 +48,7 @@
       "face_count": 0,
       "kind": "parametric_curve",
       "max_residual": 0.0,
-      "point_count": 16,
+      "point_count": 24,
       "valid": true
     },
     {
@@ -58,7 +58,7 @@
       "face_count": 0,
       "kind": "parametric_curve",
       "max_residual": 0.0,
-      "point_count": 16,
+      "point_count": 24,
       "valid": true
     },
     {
@@ -68,7 +68,7 @@
       "face_count": 0,
       "kind": "parametric_curve",
       "max_residual": 0.0,
-      "point_count": 16,
+      "point_count": 24,
       "valid": true
     },
     {
@@ -78,7 +78,7 @@
       "face_count": 0,
       "kind": "parametric_curve",
       "max_residual": 0.0,
-      "point_count": 16,
+      "point_count": 24,
       "valid": true
     },
     {
@@ -88,7 +88,7 @@
       "face_count": 0,
       "kind": "parametric_curve",
       "max_residual": 0.0,
-      "point_count": 16,
+      "point_count": 24,
       "valid": true
     },
     {
@@ -98,7 +98,7 @@
       "face_count": 0,
       "kind": "parametric_curve",
       "max_residual": 0.0,
-      "point_count": 16,
+      "point_count": 24,
       "valid": true
     },
     {
@@ -108,7 +108,7 @@
       "face_count": 0,
       "kind": "parametric_curve",
       "max_residual": 0.0,
-      "point_count": 16,
+      "point_count": 24,
       "valid": true
     },
     {
@@ -118,7 +118,7 @@
       "face_count": 0,
       "kind": "parametric_curve",
       "max_residual": 0.0,
-      "point_count": 16,
+      "point_count": 24,
       "valid": true
     },
     {
@@ -128,7 +128,7 @@
       "face_count": 0,
       "kind": "parametric_curve",
       "max_residual": 0.0,
-      "point_count": 16,
+      "point_count": 24,
       "valid": true
     },
     {
@@ -138,7 +138,7 @@
       "face_count": 0,
       "kind": "parametric_curve",
       "max_residual": 0.0,
-      "point_count": 16,
+      "point_count": 24,
       "valid": true
     },
     {
@@ -148,7 +148,7 @@
       "face_count": 0,
       "kind": "parametric_curve",
       "max_residual": 0.0,
-      "point_count": 16,
+      "point_count": 24,
       "valid": true
     },
     {
@@ -158,7 +158,7 @@
       "face_count": 0,
       "kind": "parametric_curve",
       "max_residual": 0.0,
-      "point_count": 16,
+      "point_count": 24,
       "valid": true
     },
     {
@@ -168,7 +168,7 @@
       "face_count": 0,
       "kind": "parametric_curve",
       "max_residual": 0.0,
-      "point_count": 16,
+      "point_count": 24,
       "valid": true
     },
     {
@@ -178,7 +178,7 @@
       "face_count": 0,
       "kind": "parametric_curve",
       "max_residual": 0.0,
-      "point_count": 16,
+      "point_count": 24,
       "valid": true
     },
     {
@@ -188,7 +188,7 @@
       "face_count": 0,
       "kind": "parametric_curve",
       "max_residual": 0.0,
-      "point_count": 16,
+      "point_count": 24,
       "valid": true
     },
     {
@@ -198,7 +198,7 @@
       "face_count": 0,
       "kind": "parametric_curve",
       "max_residual": 0.0,
-      "point_count": 16,
+      "point_count": 24,
       "valid": true
     },
     {
@@ -208,7 +208,7 @@
       "face_count": 0,
       "kind": "parametric_curve",
       "max_residual": 0.0,
-      "point_count": 16,
+      "point_count": 24,
       "valid": true
     },
     {
@@ -218,7 +218,7 @@
       "face_count": 0,
       "kind": "parametric_curve",
       "max_residual": 0.0,
-      "point_count": 16,
+      "point_count": 24,
       "valid": true
     },
     {
@@ -228,7 +228,7 @@
       "face_count": 0,
       "kind": "parametric_curve",
       "max_residual": 0.0,
-      "point_count": 16,
+      "point_count": 24,
       "valid": true
     },
     {
@@ -238,7 +238,7 @@
       "face_count": 0,
       "kind": "parametric_curve",
       "max_residual": 0.0,
-      "point_count": 16,
+      "point_count": 24,
       "valid": true
     },
     {
@@ -248,7 +248,7 @@
       "face_count": 0,
       "kind": "parametric_curve",
       "max_residual": 0.0,
-      "point_count": 16,
+      "point_count": 24,
       "valid": true
     },
     {
@@ -258,7 +258,7 @@
       "face_count": 0,
       "kind": "parametric_curve",
       "max_residual": 0.0,
-      "point_count": 16,
+      "point_count": 24,
       "valid": true
     },
     {
@@ -268,7 +268,7 @@
       "face_count": 0,
       "kind": "parametric_curve",
       "max_residual": 0.0,
-      "point_count": 16,
+      "point_count": 24,
       "valid": true
     },
     {
@@ -278,7 +278,7 @@
       "face_count": 0,
       "kind": "parametric_curve",
       "max_residual": 0.0,
-      "point_count": 16,
+      "point_count": 24,
       "valid": true
     },
     {
@@ -288,7 +288,7 @@
       "face_count": 0,
       "kind": "parametric_curve",
       "max_residual": 0.0,
-      "point_count": 16,
+      "point_count": 24,
       "valid": true
     },
     {
@@ -298,7 +298,7 @@
       "face_count": 0,
       "kind": "parametric_curve",
       "max_residual": 0.0,
-      "point_count": 16,
+      "point_count": 24,
       "valid": true
     },
     {
@@ -308,7 +308,7 @@
       "face_count": 0,
       "kind": "parametric_curve",
       "max_residual": 0.0,
-      "point_count": 16,
+      "point_count": 24,
       "valid": true
     },
     {
@@ -318,7 +318,7 @@
       "face_count": 0,
       "kind": "parametric_curve",
       "max_residual": 0.0,
-      "point_count": 16,
+      "point_count": 24,
       "valid": true
     },
     {
@@ -328,7 +328,7 @@
       "face_count": 0,
       "kind": "parametric_curve",
       "max_residual": 0.0,
-      "point_count": 16,
+      "point_count": 24,
       "valid": true
     },
     {
@@ -338,7 +338,7 @@
       "face_count": 0,
       "kind": "parametric_curve",
       "max_residual": 0.0,
-      "point_count": 16,
+      "point_count": 24,
       "valid": true
     },
     {
@@ -348,7 +348,7 @@
       "face_count": 0,
       "kind": "parametric_curve",
       "max_residual": 0.0,
-      "point_count": 16,
+      "point_count": 24,
       "valid": true
     },
     {
@@ -358,7 +358,7 @@
       "face_count": 0,
       "kind": "parametric_curve",
       "max_residual": 0.0,
-      "point_count": 16,
+      "point_count": 24,
       "valid": true
     },
     {
@@ -368,7 +368,7 @@
       "face_count": 0,
       "kind": "parametric_curve",
       "max_residual": 0.0,
-      "point_count": 16,
+      "point_count": 24,
       "valid": true
     },
     {
@@ -378,7 +378,7 @@
       "face_count": 0,
       "kind": "parametric_curve",
       "max_residual": 0.0,
-      "point_count": 16,
+      "point_count": 24,
       "valid": true
     },
     {
@@ -388,7 +388,7 @@
       "face_count": 0,
       "kind": "parametric_curve",
       "max_residual": 0.0,
-      "point_count": 16,
+      "point_count": 24,
       "valid": true
     },
     {
@@ -398,7 +398,7 @@
       "face_count": 0,
       "kind": "parametric_curve",
       "max_residual": 0.0,
-      "point_count": 16,
+      "point_count": 24,
       "valid": true
     },
     {
@@ -408,7 +408,7 @@
       "face_count": 0,
       "kind": "parametric_curve",
       "max_residual": 0.0,
-      "point_count": 16,
+      "point_count": 24,
       "valid": true
     },
     {
@@ -418,7 +418,7 @@
       "face_count": 0,
       "kind": "parametric_curve",
       "max_residual": 0.0,
-      "point_count": 16,
+      "point_count": 24,
       "valid": true
     },
     {
@@ -428,7 +428,7 @@
       "face_count": 0,
       "kind": "parametric_curve",
       "max_residual": 0.0,
-      "point_count": 16,
+      "point_count": 24,
       "valid": true
     },
     {
@@ -438,7 +438,7 @@
       "face_count": 0,
       "kind": "parametric_curve",
       "max_residual": 0.0,
-      "point_count": 16,
+      "point_count": 24,
       "valid": true
     },
     {
@@ -448,7 +448,7 @@
       "face_count": 0,
       "kind": "parametric_curve",
       "max_residual": 0.0,
-      "point_count": 16,
+      "point_count": 24,
       "valid": true
     },
     {
@@ -458,7 +458,7 @@
       "face_count": 0,
       "kind": "parametric_curve",
       "max_residual": 0.0,
-      "point_count": 16,
+      "point_count": 24,
       "valid": true
     },
     {
@@ -468,7 +468,7 @@
       "face_count": 0,
       "kind": "parametric_curve",
       "max_residual": 0.0,
-      "point_count": 16,
+      "point_count": 24,
       "valid": true
     },
     {
@@ -478,7 +478,7 @@
       "face_count": 0,
       "kind": "parametric_curve",
       "max_residual": 0.0,
-      "point_count": 16,
+      "point_count": 24,
       "valid": true
     },
     {
@@ -488,7 +488,7 @@
       "face_count": 0,
       "kind": "parametric_curve",
       "max_residual": 0.0,
-      "point_count": 16,
+      "point_count": 24,
       "valid": true
     },
     {
@@ -498,7 +498,7 @@
       "face_count": 0,
       "kind": "parametric_curve",
       "max_residual": 0.0,
-      "point_count": 16,
+      "point_count": 24,
       "valid": true
     },
     {
@@ -508,7 +508,7 @@
       "face_count": 0,
       "kind": "parametric_curve",
       "max_residual": 0.0,
-      "point_count": 16,
+      "point_count": 24,
       "valid": true
     },
     {
@@ -518,7 +518,7 @@
       "face_count": 0,
       "kind": "parametric_curve",
       "max_residual": 0.0,
-      "point_count": 16,
+      "point_count": 24,
       "valid": true
     },
     {
@@ -528,7 +528,7 @@
       "face_count": 0,
       "kind": "parametric_curve",
       "max_residual": 0.0,
-      "point_count": 16,
+      "point_count": 24,
       "valid": true
     },
     {
@@ -538,7 +538,7 @@
       "face_count": 0,
       "kind": "parametric_curve",
       "max_residual": 0.0,
-      "point_count": 16,
+      "point_count": 24,
       "valid": true
     },
     {
@@ -548,7 +548,7 @@
       "face_count": 0,
       "kind": "parametric_curve",
       "max_residual": 0.0,
-      "point_count": 16,
+      "point_count": 24,
       "valid": true
     },
     {
@@ -558,7 +558,7 @@
       "face_count": 0,
       "kind": "parametric_curve",
       "max_residual": 0.0,
-      "point_count": 16,
+      "point_count": 24,
       "valid": true
     },
     {
@@ -568,7 +568,7 @@
       "face_count": 0,
       "kind": "parametric_curve",
       "max_residual": 0.0,
-      "point_count": 16,
+      "point_count": 24,
       "valid": true
     },
     {
@@ -578,7 +578,7 @@
       "face_count": 0,
       "kind": "parametric_curve",
       "max_residual": 0.0,
-      "point_count": 16,
+      "point_count": 24,
       "valid": true
     },
     {
@@ -588,7 +588,7 @@
       "face_count": 0,
       "kind": "parametric_curve",
       "max_residual": 0.0,
-      "point_count": 16,
+      "point_count": 24,
       "valid": true
     },
     {
@@ -598,7 +598,7 @@
       "face_count": 0,
       "kind": "parametric_curve",
       "max_residual": 0.0,
-      "point_count": 16,
+      "point_count": 24,
       "valid": true
     },
     {
@@ -608,7 +608,7 @@
       "face_count": 0,
       "kind": "parametric_curve",
       "max_residual": 0.0,
-      "point_count": 16,
+      "point_count": 24,
       "valid": true
     },
     {
@@ -618,7 +618,7 @@
       "face_count": 0,
       "kind": "parametric_curve",
       "max_residual": 0.0,
-      "point_count": 16,
+      "point_count": 24,
       "valid": true
     },
     {
@@ -628,7 +628,7 @@
       "face_count": 0,
       "kind": "parametric_curve",
       "max_residual": 0.0,
-      "point_count": 16,
+      "point_count": 24,
       "valid": true
     },
     {
@@ -638,7 +638,7 @@
       "face_count": 0,
       "kind": "parametric_curve",
       "max_residual": 0.0,
-      "point_count": 16,
+      "point_count": 24,
       "valid": true
     },
     {
@@ -648,7 +648,7 @@
       "face_count": 0,
       "kind": "parametric_curve",
       "max_residual": 0.0,
-      "point_count": 16,
+      "point_count": 24,
       "valid": true
     },
     {
@@ -658,7 +658,7 @@
       "face_count": 0,
       "kind": "parametric_curve",
       "max_residual": 0.0,
-      "point_count": 16,
+      "point_count": 24,
       "valid": true
     },
     {
@@ -668,7 +668,7 @@
       "face_count": 0,
       "kind": "parametric_curve",
       "max_residual": 0.0,
-      "point_count": 16,
+      "point_count": 24,
       "valid": true
     },
     {
@@ -678,7 +678,7 @@
       "face_count": 0,
       "kind": "parametric_curve",
       "max_residual": 0.0,
-      "point_count": 16,
+      "point_count": 24,
       "valid": true
     },
     {
@@ -688,7 +688,7 @@
       "face_count": 0,
       "kind": "parametric_curve",
       "max_residual": 0.0,
-      "point_count": 16,
+      "point_count": 24,
       "valid": true
     },
     {
@@ -698,7 +698,7 @@
       "face_count": 0,
       "kind": "parametric_curve",
       "max_residual": 0.0,
-      "point_count": 16,
+      "point_count": 24,
       "valid": true
     },
     {
@@ -708,7 +708,7 @@
       "face_count": 0,
       "kind": "parametric_curve",
       "max_residual": 0.0,
-      "point_count": 16,
+      "point_count": 24,
       "valid": true
     },
     {
@@ -718,7 +718,7 @@
       "face_count": 0,
       "kind": "parametric_curve",
       "max_residual": 0.0,
-      "point_count": 16,
+      "point_count": 24,
       "valid": true
     },
     {
@@ -728,7 +728,7 @@
       "face_count": 0,
       "kind": "parametric_curve",
       "max_residual": 0.0,
-      "point_count": 16,
+      "point_count": 24,
       "valid": true
     },
     {
@@ -738,7 +738,7 @@
       "face_count": 0,
       "kind": "parametric_curve",
       "max_residual": 0.0,
-      "point_count": 16,
+      "point_count": 24,
       "valid": true
     },
     {
@@ -748,7 +748,7 @@
       "face_count": 0,
       "kind": "parametric_curve",
       "max_residual": 0.0,
-      "point_count": 16,
+      "point_count": 24,
       "valid": true
     },
     {
@@ -758,7 +758,7 @@
       "face_count": 0,
       "kind": "parametric_curve",
       "max_residual": 0.0,
-      "point_count": 16,
+      "point_count": 24,
       "valid": true
     },
     {
@@ -768,7 +768,7 @@
       "face_count": 0,
       "kind": "parametric_curve",
       "max_residual": 0.0,
-      "point_count": 16,
+      "point_count": 24,
       "valid": true
     },
     {
@@ -778,7 +778,7 @@
       "face_count": 0,
       "kind": "parametric_curve",
       "max_residual": 0.0,
-      "point_count": 16,
+      "point_count": 24,
       "valid": true
     },
     {
@@ -788,7 +788,7 @@
       "face_count": 0,
       "kind": "parametric_curve",
       "max_residual": 0.0,
-      "point_count": 16,
+      "point_count": 24,
       "valid": true
     },
     {
@@ -798,7 +798,7 @@
       "face_count": 0,
       "kind": "parametric_curve",
       "max_residual": 0.0,
-      "point_count": 16,
+      "point_count": 24,
       "valid": true
     },
     {
@@ -808,7 +808,7 @@
       "face_count": 0,
       "kind": "parametric_curve",
       "max_residual": 0.0,
-      "point_count": 16,
+      "point_count": 24,
       "valid": true
     },
     {
@@ -818,7 +818,7 @@
       "face_count": 0,
       "kind": "parametric_curve",
       "max_residual": 0.0,
-      "point_count": 16,
+      "point_count": 24,
       "valid": true
     },
     {
@@ -828,7 +828,7 @@
       "face_count": 0,
       "kind": "parametric_curve",
       "max_residual": 0.0,
-      "point_count": 16,
+      "point_count": 24,
       "valid": true
     },
     {
@@ -838,7 +838,7 @@
       "face_count": 0,
       "kind": "parametric_curve",
       "max_residual": 0.0,
-      "point_count": 16,
+      "point_count": 24,
       "valid": true
     },
     {
@@ -848,7 +848,7 @@
       "face_count": 0,
       "kind": "parametric_curve",
       "max_residual": 0.0,
-      "point_count": 16,
+      "point_count": 24,
       "valid": true
     },
     {
@@ -858,7 +858,7 @@
       "face_count": 0,
       "kind": "parametric_curve",
       "max_residual": 0.0,
-      "point_count": 16,
+      "point_count": 24,
       "valid": true
     },
     {
@@ -868,7 +868,7 @@
       "face_count": 0,
       "kind": "parametric_curve",
       "max_residual": 0.0,
-      "point_count": 16,
+      "point_count": 24,
       "valid": true
     },
     {
@@ -878,7 +878,7 @@
       "face_count": 0,
       "kind": "parametric_curve",
       "max_residual": 0.0,
-      "point_count": 16,
+      "point_count": 24,
       "valid": true
     },
     {
@@ -888,7 +888,7 @@
       "face_count": 0,
       "kind": "parametric_curve",
       "max_residual": 0.0,
-      "point_count": 16,
+      "point_count": 24,
       "valid": true
     },
     {
@@ -898,7 +898,7 @@
       "face_count": 0,
       "kind": "parametric_curve",
       "max_residual": 0.0,
-      "point_count": 16,
+      "point_count": 24,
       "valid": true
     },
     {
@@ -908,7 +908,7 @@
       "face_count": 0,
       "kind": "parametric_curve",
       "max_residual": 0.0,
-      "point_count": 16,
+      "point_count": 24,
       "valid": true
     },
     {
@@ -918,7 +918,7 @@
       "face_count": 0,
       "kind": "parametric_curve",
       "max_residual": 0.0,
-      "point_count": 16,
+      "point_count": 24,
       "valid": true
     },
     {
@@ -928,7 +928,7 @@
       "face_count": 0,
       "kind": "parametric_curve",
       "max_residual": 0.0,
-      "point_count": 16,
+      "point_count": 24,
       "valid": true
     },
     {
@@ -938,7 +938,7 @@
       "face_count": 0,
       "kind": "parametric_curve",
       "max_residual": 0.0,
-      "point_count": 16,
+      "point_count": 24,
       "valid": true
     },
     {
@@ -948,7 +948,7 @@
       "face_count": 0,
       "kind": "parametric_curve",
       "max_residual": 0.0,
-      "point_count": 16,
+      "point_count": 24,
       "valid": true
     },
     {
@@ -958,7 +958,7 @@
       "face_count": 0,
       "kind": "parametric_curve",
       "max_residual": 0.0,
-      "point_count": 16,
+      "point_count": 24,
       "valid": true
     },
     {
@@ -968,7 +968,7 @@
       "face_count": 0,
       "kind": "parametric_curve",
       "max_residual": 0.0,
-      "point_count": 16,
+      "point_count": 24,
       "valid": true
     },
     {
@@ -978,7 +978,7 @@
       "face_count": 0,
       "kind": "parametric_curve",
       "max_residual": 0.0,
-      "point_count": 16,
+      "point_count": 24,
       "valid": true
     },
     {
@@ -988,7 +988,7 @@
       "face_count": 0,
       "kind": "parametric_curve",
       "max_residual": 0.0,
-      "point_count": 16,
+      "point_count": 24,
       "valid": true
     },
     {
@@ -998,7 +998,7 @@
       "face_count": 0,
       "kind": "parametric_curve",
       "max_residual": 0.0,
-      "point_count": 16,
+      "point_count": 24,
       "valid": true
     },
     {
@@ -1008,7 +1008,7 @@
       "face_count": 0,
       "kind": "parametric_curve",
       "max_residual": 0.0,
-      "point_count": 16,
+      "point_count": 24,
       "valid": true
     },
     {
@@ -1018,7 +1018,7 @@
       "face_count": 0,
       "kind": "parametric_curve",
       "max_residual": 0.0,
-      "point_count": 16,
+      "point_count": 24,
       "valid": true
     },
     {
@@ -1028,7 +1028,7 @@
       "face_count": 0,
       "kind": "parametric_curve",
       "max_residual": 0.0,
-      "point_count": 16,
+      "point_count": 24,
       "valid": true
     },
     {
@@ -1038,7 +1038,7 @@
       "face_count": 0,
       "kind": "parametric_curve",
       "max_residual": 0.0,
-      "point_count": 16,
+      "point_count": 24,
       "valid": true
     },
     {
@@ -1048,7 +1048,7 @@
       "face_count": 0,
       "kind": "parametric_curve",
       "max_residual": 0.0,
-      "point_count": 16,
+      "point_count": 24,
       "valid": true
     },
     {
@@ -1058,7 +1058,7 @@
       "face_count": 0,
       "kind": "parametric_curve",
       "max_residual": 0.0,
-      "point_count": 16,
+      "point_count": 24,
       "valid": true
     },
     {
@@ -1068,7 +1068,7 @@
       "face_count": 0,
       "kind": "parametric_curve",
       "max_residual": 0.0,
-      "point_count": 16,
+      "point_count": 24,
       "valid": true
     },
     {
@@ -1078,7 +1078,7 @@
       "face_count": 0,
       "kind": "parametric_curve",
       "max_residual": 0.0,
-      "point_count": 16,
+      "point_count": 24,
       "valid": true
     },
     {
@@ -1088,7 +1088,7 @@
       "face_count": 0,
       "kind": "parametric_curve",
       "max_residual": 0.0,
-      "point_count": 16,
+      "point_count": 24,
       "valid": true
     },
     {
@@ -1098,7 +1098,7 @@
       "face_count": 0,
       "kind": "parametric_curve",
       "max_residual": 0.0,
-      "point_count": 16,
+      "point_count": 24,
       "valid": true
     },
     {
@@ -1108,7 +1108,7 @@
       "face_count": 0,
       "kind": "parametric_curve",
       "max_residual": 0.0,
-      "point_count": 16,
+      "point_count": 24,
       "valid": true
     },
     {
@@ -1118,7 +1118,7 @@
       "face_count": 0,
       "kind": "parametric_curve",
       "max_residual": 0.0,
-      "point_count": 16,
+      "point_count": 24,
       "valid": true
     },
     {
@@ -1128,7 +1128,7 @@
       "face_count": 0,
       "kind": "parametric_curve",
       "max_residual": 0.0,
-      "point_count": 16,
+      "point_count": 24,
       "valid": true
     },
     {
@@ -1138,7 +1138,7 @@
       "face_count": 0,
       "kind": "parametric_curve",
       "max_residual": 0.0,
-      "point_count": 16,
+      "point_count": 24,
       "valid": true
     },
     {
@@ -1148,7 +1148,7 @@
       "face_count": 0,
       "kind": "parametric_curve",
       "max_residual": 0.0,
-      "point_count": 16,
+      "point_count": 24,
       "valid": true
     },
     {
@@ -1158,7 +1158,7 @@
       "face_count": 0,
       "kind": "parametric_curve",
       "max_residual": 0.0,
-      "point_count": 16,
+      "point_count": 24,
       "valid": true
     },
     {
@@ -1168,7 +1168,7 @@
       "face_count": 0,
       "kind": "parametric_curve",
       "max_residual": 0.0,
-      "point_count": 16,
+      "point_count": 24,
       "valid": true
     },
     {
@@ -1178,7 +1178,7 @@
       "face_count": 0,
       "kind": "parametric_curve",
       "max_residual": 0.0,
-      "point_count": 16,
+      "point_count": 24,
       "valid": true
     },
     {
@@ -1188,7 +1188,7 @@
       "face_count": 0,
       "kind": "parametric_curve",
       "max_residual": 0.0,
-      "point_count": 16,
+      "point_count": 24,
       "valid": true
     },
     {
@@ -1198,7 +1198,7 @@
       "face_count": 0,
       "kind": "parametric_curve",
       "max_residual": 0.0,
-      "point_count": 16,
+      "point_count": 24,
       "valid": true
     },
     {
@@ -1208,7 +1208,7 @@
       "face_count": 0,
       "kind": "parametric_curve",
       "max_residual": 0.0,
-      "point_count": 16,
+      "point_count": 24,
       "valid": true
     },
     {
@@ -1218,7 +1218,7 @@
       "face_count": 0,
       "kind": "parametric_curve",
       "max_residual": 0.0,
-      "point_count": 16,
+      "point_count": 24,
       "valid": true
     },
     {
@@ -1228,7 +1228,7 @@
       "face_count": 0,
       "kind": "parametric_curve",
       "max_residual": 0.0,
-      "point_count": 16,
+      "point_count": 24,
       "valid": true
     },
     {
@@ -1238,7 +1238,7 @@
       "face_count": 0,
       "kind": "parametric_curve",
       "max_residual": 0.0,
-      "point_count": 16,
+      "point_count": 24,
       "valid": true
     },
     {
@@ -1248,7 +1248,7 @@
       "face_count": 0,
       "kind": "parametric_curve",
       "max_residual": 0.0,
-      "point_count": 16,
+      "point_count": 24,
       "valid": true
     },
     {
@@ -1258,7 +1258,7 @@
       "face_count": 0,
       "kind": "parametric_curve",
       "max_residual": 0.0,
-      "point_count": 16,
+      "point_count": 24,
       "valid": true
     },
     {
@@ -1268,17 +1268,17 @@
       "face_count": 0,
       "kind": "parametric_curve",
       "max_residual": 0.0,
-      "point_count": 16,
+      "point_count": 24,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "e31",
-      "face_count": 49,
+      "face_count": 121,
       "kind": "parametric_surface",
       "max_residual": 0.0,
-      "point_count": 64,
+      "point_count": 144,
       "valid": true
     },
     {
@@ -1288,247 +1288,247 @@
       "face_count": 0,
       "kind": "parametric_curve",
       "max_residual": 0.0,
-      "point_count": 16,
+      "point_count": 24,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "p1a",
-      "face_count": 49,
+      "face_count": 121,
       "kind": "parametric_surface",
       "max_residual": 0.0,
-      "point_count": 64,
+      "point_count": 144,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "p1b",
-      "face_count": 49,
+      "face_count": 121,
       "kind": "parametric_surface",
       "max_residual": 0.0,
-      "point_count": 64,
+      "point_count": 144,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "p1c",
-      "face_count": 49,
+      "face_count": 121,
       "kind": "parametric_surface",
       "max_residual": 0.0,
-      "point_count": 64,
+      "point_count": 144,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "p1d",
-      "face_count": 49,
+      "face_count": 121,
       "kind": "parametric_surface",
       "max_residual": 0.0,
-      "point_count": 64,
+      "point_count": 144,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "p1e",
-      "face_count": 49,
+      "face_count": 121,
       "kind": "parametric_surface",
       "max_residual": 0.0,
-      "point_count": 64,
+      "point_count": 144,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "p1f",
-      "face_count": 49,
+      "face_count": 121,
       "kind": "parametric_surface",
       "max_residual": 0.0,
-      "point_count": 64,
+      "point_count": 144,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "p2a",
-      "face_count": 49,
+      "face_count": 121,
       "kind": "parametric_surface",
       "max_residual": 0.0,
-      "point_count": 64,
+      "point_count": 144,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "p2b",
-      "face_count": 49,
+      "face_count": 121,
       "kind": "parametric_surface",
       "max_residual": 0.0,
-      "point_count": 64,
+      "point_count": 144,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "p2c",
-      "face_count": 49,
+      "face_count": 121,
       "kind": "parametric_surface",
       "max_residual": 0.0,
-      "point_count": 64,
+      "point_count": 144,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "p2d",
-      "face_count": 49,
+      "face_count": 121,
       "kind": "parametric_surface",
       "max_residual": 0.0,
-      "point_count": 64,
+      "point_count": 144,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "p2e",
-      "face_count": 49,
+      "face_count": 121,
       "kind": "parametric_surface",
       "max_residual": 0.0,
-      "point_count": 64,
+      "point_count": 144,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "p2f",
-      "face_count": 49,
+      "face_count": 121,
       "kind": "parametric_surface",
       "max_residual": 0.0,
-      "point_count": 64,
+      "point_count": 144,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "p3a",
-      "face_count": 49,
+      "face_count": 121,
       "kind": "parametric_surface",
       "max_residual": 0.0,
-      "point_count": 64,
+      "point_count": 144,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "p3b",
-      "face_count": 49,
+      "face_count": 121,
       "kind": "parametric_surface",
       "max_residual": 0.0,
-      "point_count": 64,
+      "point_count": 144,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "p3c",
-      "face_count": 49,
+      "face_count": 121,
       "kind": "parametric_surface",
       "max_residual": 0.0,
-      "point_count": 64,
+      "point_count": 144,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "p3d",
-      "face_count": 49,
+      "face_count": 121,
       "kind": "parametric_surface",
       "max_residual": 0.0,
-      "point_count": 64,
+      "point_count": 144,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "p3e",
-      "face_count": 49,
+      "face_count": 121,
       "kind": "parametric_surface",
       "max_residual": 0.0,
-      "point_count": 64,
+      "point_count": 144,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "p3f",
-      "face_count": 49,
+      "face_count": 121,
       "kind": "parametric_surface",
       "max_residual": 0.0,
-      "point_count": 64,
+      "point_count": 144,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "p4a",
-      "face_count": 49,
+      "face_count": 121,
       "kind": "parametric_surface",
       "max_residual": 0.0,
-      "point_count": 64,
+      "point_count": 144,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "p4b",
-      "face_count": 49,
+      "face_count": 121,
       "kind": "parametric_surface",
       "max_residual": 0.0,
-      "point_count": 64,
+      "point_count": 144,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "p4c",
-      "face_count": 49,
+      "face_count": 121,
       "kind": "parametric_surface",
       "max_residual": 0.0,
-      "point_count": 64,
+      "point_count": 144,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "p4d",
-      "face_count": 49,
+      "face_count": 121,
       "kind": "parametric_surface",
       "max_residual": 0.0,
-      "point_count": 64,
+      "point_count": 144,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "p4e",
-      "face_count": 49,
+      "face_count": 121,
       "kind": "parametric_surface",
       "max_residual": 0.0,
-      "point_count": 64,
+      "point_count": 144,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "p4f",
-      "face_count": 49,
+      "face_count": 121,
       "kind": "parametric_surface",
       "max_residual": 0.0,
-      "point_count": 64,
+      "point_count": 144,
       "valid": true
     }
   ],

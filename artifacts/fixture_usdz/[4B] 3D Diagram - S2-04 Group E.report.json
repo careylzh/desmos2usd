@@ -8,7 +8,7 @@
   "output": "artifacts/fixture_usdz/[4B] 3D Diagram - S2-04 Group E.usda",
   "prim_count": 18,
   "renderable_expression_count": 18,
-  "resolution": 8,
+  "resolution": 12,
   "status": "success",
   "title": "Desmos graph",
   "unsupported": [],
@@ -19,10 +19,10 @@
   "usdz_package": {
     "command": [
       "/usr/bin/usdzip",
-      "/private/tmp/desmos2usd-carey-visual-20260426-160834/artifacts/fixture_usdz/[4B] 3D Diagram - S2-04 Group E.usdz",
+      "/Users/chek/repos/desmos2usd-carey/artifacts/fixture_usdz/[4B] 3D Diagram - S2-04 Group E.usdz",
       "[4B] 3D Diagram - S2-04 Group E.usda"
     ],
-    "cwd": "/private/tmp/desmos2usd-carey-visual-20260426-160834/artifacts/fixture_usdz",
+    "cwd": "/Users/chek/repos/desmos2usd-carey/artifacts/fixture_usdz",
     "returncode": 0,
     "stderr": "",
     "stdout": "",
@@ -205,10 +205,10 @@
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "56",
-      "face_count": 30,
+      "face_count": 126,
       "kind": "inequality_region",
       "max_residual": null,
-      "point_count": 32,
+      "point_count": 128,
       "valid": true
     }
   ],

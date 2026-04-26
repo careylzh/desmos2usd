@@ -6,9 +6,9 @@
   "fixture_path": "fixtures/states/[4B] 3D Diagram - S2-09 Group E.json",
   "graph_hash": null,
   "output": "artifacts/fixture_usdz/[4B] 3D Diagram - S2-09 Group E.usda",
-  "prim_count": 22,
+  "prim_count": 23,
   "renderable_expression_count": 35,
-  "resolution": 8,
+  "resolution": 12,
   "status": "partial",
   "title": "Desmos graph",
   "unsupported": [
@@ -25,73 +25,67 @@
       "reason": "point 0 violates predicate '-x^{2}>y'; point 1 violates predicate '-x^{2}>y'; point 2 violates predicate '-x^{2}>y'; point 3 violates predicate '-x^{2}>y'; point 4 violates predicate '-x^{2}>y'; point 5 violates predicate '-x^{2}>y'; point 6 violates predicate '-x^{2}>y'; point 7 violates predicate '-x^{2}>y'; point 8 violates predicate '-x^{2}>y'; point 9 violates predicate '-x^{2}>y'; point 10 violates predicate '-x^{2}>y'; point 11 violates predicate '-x^{2}>y'; point 12 violates predicate '-x^{2}>y'; point 13 violates predicate '-x^{2}>y'; point 14 violates predicate '-x^{2}>y'; point 15 violates predicate '-x^{2}>y'; point 16 violates predicate '-x^{2}>y'; point 17 violates predicate '-x^{2}>y'; point 18 violates predicate '-x^{2}>y'; point 19 violates predicate '-x^{2}>y'"
     },
     {
-      "expr_id": "33",
-      "kind": "inequality_region",
-      "latex": "-8.1\\sqrt{x^{2}+y^{2}}>z-10\\left\\{0<z\\right\\}",
-      "reason": "Inequality region for 33 did not resolve to sampled cells"
-    },
-    {
       "expr_id": "38",
       "kind": "implicit_surface",
       "latex": "\\frac{1}{3.5}\\left(x^{2}+y^{2}+z^{2}\\right)=1\\left\\{z\\ge0\\right\\}\\left\\{x\\le0\\right\\}",
-      "reason": "implicit surface requires a supported bounded three-axis form"
+      "reason": "Implicit surface 38 with 3-axis residual has no constant-bounded axis"
     },
     {
       "expr_id": "39",
       "kind": "implicit_surface",
       "latex": "\\frac{1}{3.5}\\left(x^{2}+y^{2}+z^{2}\\right)=1\\left\\{z\\ge0\\right\\}\\left\\{x\\ge0\\right\\}",
-      "reason": "implicit surface requires a supported bounded three-axis form"
+      "reason": "Implicit surface 39 with 3-axis residual has no constant-bounded axis"
     },
     {
       "expr_id": "61",
       "kind": "implicit_surface",
       "latex": "\\left(x\\ -0\\right)^{2}+\\left(y-1.5\\right)^{2}+\\left(z-4\\right)^{2}\\ =\\ 2.5z^{1}\\ \\left\\{z\\ <\\ 2\\right\\}",
-      "reason": "implicit surface requires a supported bounded three-axis form"
+      "reason": "Implicit surface 61 with 3-axis residual has no constant-bounded axis"
     },
     {
       "expr_id": "62",
       "kind": "implicit_surface",
       "latex": "\\left(x\\ -0\\right)^{2}+\\left(y+\\ 1.5\\right)^{2}+\\left(z-4\\right)^{2}\\ =\\ 2.5z^{1}\\ \\left\\{z\\ <\\ 2\\right\\}",
-      "reason": "implicit surface requires a supported bounded three-axis form"
+      "reason": "Implicit surface 62 with 3-axis residual has no constant-bounded axis"
     },
     {
       "expr_id": "63",
       "kind": "implicit_surface",
       "latex": "\\left(x\\ -1.5\\right)^{2}+\\left(y-0\\right)^{2}+\\left(z-4\\right)^{2}\\ =\\ 2.5z^{1}\\ \\left\\{z\\ <\\ 2\\right\\}",
-      "reason": "implicit surface requires a supported bounded three-axis form"
+      "reason": "Implicit surface 63 with 3-axis residual has no constant-bounded axis"
     },
     {
       "expr_id": "64",
       "kind": "implicit_surface",
       "latex": "\\left(x\\ +1.5\\right)^{2}+\\left(y-0\\right)^{2}+\\left(z-4\\right)^{2}\\ =\\ 2.5z^{1}\\ \\left\\{z\\ <\\ 2\\right\\}",
-      "reason": "implicit surface requires a supported bounded three-axis form"
+      "reason": "Implicit surface 64 with 3-axis residual has no constant-bounded axis"
     },
     {
       "expr_id": "65",
       "kind": "implicit_surface",
       "latex": "\\left(x\\ -1\\right)^{2}+\\left(y-1\\right)^{2}+\\left(z-4\\right)^{2}\\ =\\ 2.5z^{1}\\ \\left\\{z\\ <\\ 2\\right\\}",
-      "reason": "implicit surface requires a supported bounded three-axis form"
+      "reason": "Implicit surface 65 with 3-axis residual has no constant-bounded axis"
     },
     {
       "expr_id": "66",
       "kind": "implicit_surface",
       "latex": "\\left(x\\ +1\\right)^{2}+\\left(y-1\\right)^{2}+\\left(z-4\\right)^{2}\\ =\\ 2.5z^{1}\\ \\left\\{z\\ <\\ 2\\right\\}",
-      "reason": "implicit surface requires a supported bounded three-axis form"
+      "reason": "Implicit surface 66 with 3-axis residual has no constant-bounded axis"
     },
     {
       "expr_id": "67",
       "kind": "implicit_surface",
       "latex": "\\left(x\\ -1\\right)^{2}+\\left(y+1\\right)^{2}+\\left(z-4\\right)^{2}\\ =\\ 2.5z^{1}\\ \\left\\{z\\ <\\ 2\\right\\}",
-      "reason": "implicit surface requires a supported bounded three-axis form"
+      "reason": "Implicit surface 67 with 3-axis residual has no constant-bounded axis"
     },
     {
       "expr_id": "68",
       "kind": "implicit_surface",
       "latex": "\\left(x\\ +1\\right)^{2}+\\left(y+1\\right)^{2}+\\left(z-4\\right)^{2}\\ =\\ 2.5z^{1}\\ \\left\\{z\\ <\\ 2\\right\\}",
-      "reason": "implicit surface requires a supported bounded three-axis form"
+      "reason": "Implicit surface 68 with 3-axis residual has no constant-bounded axis"
     }
   ],
-  "unsupported_count": 13,
+  "unsupported_count": 12,
   "usda_exists": true,
   "usdz_exists": true,
   "usdz_output": "artifacts/fixture_usdz/[4B] 3D Diagram - S2-09 Group E.usdz",
@@ -114,20 +108,30 @@
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "7",
-      "face_count": 16,
+      "face_count": 114,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 100,
+      "point_count": 262,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "9",
-      "face_count": 16,
+      "face_count": 114,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 100,
+      "point_count": 262,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "33",
+      "face_count": 1464,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 1952,
       "valid": true
     },
     {
@@ -154,100 +158,100 @@
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "40",
-      "face_count": 738,
+      "face_count": 3432,
       "kind": "inequality_region",
       "max_residual": null,
-      "point_count": 984,
+      "point_count": 4576,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "41",
-      "face_count": 738,
+      "face_count": 3432,
       "kind": "inequality_region",
       "max_residual": null,
-      "point_count": 984,
+      "point_count": 4576,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "42",
-      "face_count": 738,
+      "face_count": 3432,
       "kind": "inequality_region",
       "max_residual": null,
-      "point_count": 984,
+      "point_count": 4576,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "43",
-      "face_count": 738,
+      "face_count": 3432,
       "kind": "inequality_region",
       "max_residual": null,
-      "point_count": 984,
+      "point_count": 4576,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "44",
-      "face_count": 0,
+      "face_count": 4,
       "kind": "implicit_surface",
       "max_residual": null,
-      "point_count": 0,
+      "point_count": 16,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "45",
-      "face_count": 0,
+      "face_count": 4,
       "kind": "implicit_surface",
       "max_residual": null,
-      "point_count": 0,
+      "point_count": 16,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "46",
-      "face_count": 0,
+      "face_count": 4,
       "kind": "implicit_surface",
       "max_residual": null,
-      "point_count": 0,
+      "point_count": 16,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "47",
-      "face_count": 0,
+      "face_count": 4,
       "kind": "implicit_surface",
       "max_residual": null,
-      "point_count": 0,
+      "point_count": 16,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "49",
-      "face_count": 64,
+      "face_count": 144,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 100,
+      "point_count": 196,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "50",
-      "face_count": 64,
+      "face_count": 144,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 100,
+      "point_count": 196,
       "valid": true
     },
     {
@@ -264,71 +268,104 @@
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "52",
-      "face_count": 768,
+      "face_count": 11520,
       "kind": "inequality_region",
       "max_residual": null,
-      "point_count": 1024,
+      "point_count": 15360,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "55",
-      "face_count": 9,
+      "face_count": 49,
       "kind": "inequality_region",
       "max_residual": null,
-      "point_count": 16,
+      "point_count": 64,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "69",
-      "face_count": 544,
+      "face_count": 2112,
       "kind": "inequality_region",
       "max_residual": null,
-      "point_count": 514,
+      "point_count": 2050,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "70",
-      "face_count": 144,
+      "face_count": 288,
       "kind": "inequality_region",
       "max_residual": null,
-      "point_count": 192,
+      "point_count": 384,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "74",
-      "face_count": 144,
+      "face_count": 288,
       "kind": "inequality_region",
       "max_residual": null,
-      "point_count": 192,
+      "point_count": 384,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "77",
-      "face_count": 144,
+      "face_count": 288,
       "kind": "inequality_region",
       "max_residual": null,
-      "point_count": 192,
+      "point_count": 384,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "78",
-      "face_count": 144,
+      "face_count": 288,
       "kind": "inequality_region",
       "max_residual": null,
-      "point_count": 192,
+      "point_count": 384,
       "valid": true
     }
-  ]
+  ],
+  "view_metadata": {
+    "axis_3d": [
+      -0.923627391820165,
+      0.38329158754909537,
+      6.203265733209529e-13
+    ],
+    "three_d_mode": true,
+    "viewport_bounds": {
+      "x": [
+        -11.441179054878251,
+        9.545437603249425
+      ],
+      "y": [
+        -10.64244485493699,
+        10.344171803190687
+      ],
+      "z": [
+        0.0,
+        20.986616658127677
+      ]
+    },
+    "world_rotation_3d": [
+      -0.37038685374449026,
+      0.9236273918172166,
+      -0.09862058435468365,
+      -0.8925305297610856,
+      -0.3832915875481788,
+      -0.23764850590624706,
+      -0.2572991100216446,
+      -2.608488446839495e-13,
+      0.9663318104990375
+    ]
+  }
 }
