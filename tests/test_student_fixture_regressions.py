@@ -84,6 +84,24 @@ class StudentFixtureRegressionTests(unittest.TestCase):
         self.assertEqual(geometry.kind, "Mesh")
         self.assertGreater(geometry.face_count, 0)
 
+    def test_variable_adjacent_trig_inequality_region_tessellates(self) -> None:
+        source = SourceInfo("", "", "", "", viewport_bounds={"x": (-10.0, 10.0), "y": (-10.0, 10.0), "z": (0.0, 2.0)})
+        item = classify_expression(
+            ExpressionIR(
+                source,
+                "1",
+                0,
+                r"\left(x-z\tan\left(5.5\right)\right)^{2}+y^{2}<10\left\{0<z<2\right\}",
+            ),
+            EvalContext(),
+        )
+
+        geometry = tessellate(item, EvalContext(), resolution=12)
+
+        self.assertEqual(item.kind, "inequality_region")
+        self.assertEqual(geometry.kind, "Mesh")
+        self.assertGreater(geometry.face_count, 0)
+
     def test_tolerant_fixture_classification_keeps_supported_prims_after_unsupported_expr(self) -> None:
         graph = GraphIR(
             source=SOURCE,

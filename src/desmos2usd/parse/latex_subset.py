@@ -216,11 +216,18 @@ def insert_implicit_multiplication(expr: str) -> str:
 
 def split_concatenated_symbols(expr: str) -> str:
     keep = FUNCTION_NAMES | set(CONSTANTS)
+    function_names = sorted(FUNCTION_NAMES, key=len, reverse=True)
 
     def replace(match: re.Match[str]) -> str:
         token = match.group(0)
         if token in keep or "_" in token or len(token) == 1:
             return token
+        if match.end() < len(expr) and expr[match.end()] == "(":
+            for function_name in function_names:
+                if token.endswith(function_name):
+                    prefix = token[: -len(function_name)]
+                    if prefix:
+                        return "*".join(prefix) + "*" + function_name
         return "*".join(token)
 
     return re.sub(r"[A-Za-z][A-Za-z0-9_]*", replace, expr)

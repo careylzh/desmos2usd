@@ -1,39 +1,45 @@
-## Handoff: 2026-04-26 09:02 SGT
+## Handoff: 2026-04-26 09:42 SGT
 
 ### Active Task
-- Push the local all-CSV URL-to-fixture comparison report commit, then advance to partial/high-risk fixture prioritization.
+- Continue the bounded partial/high-risk fixture improvement cycle from `artifacts/fixture_usdz/url_fixture_comparison.md`.
 
 ### What Changed
-- Added `src/desmos2usd/validate/csv_fixture_report.py`, a deterministic helper that maps the original Desmos URL CSV to frozen fixture files, current sweep reports, and USDZ artifacts.
-- Added focused unit coverage in `tests/test_csv_fixture_report.py`.
-- Generated `artifacts/fixture_usdz/url_fixture_comparison.md`.
-- Preserved and extended the previous uncommitted state/handoff metadata from the pushed recovery wake.
-- Created a local temp-clone commit (`Add CSV fixture comparison report`) in `/tmp/desmos2usd-report-commit.zoq5LN/repo`.
-- Push to `chektien:fix/student-fixture-usdz-export` failed because this wake could not resolve `github.com`.
+- Fixed built-in function calls adjacent to preceding variables/symbols before concatenated-symbol splitting, e.g. `z\tan(...)`, `x\cos(a)`, and `y\sin(a)`.
+- Added focused regressions for parser normalization and inequality-region tessellation.
+- Regenerated the full 71-fixture USDZ sweep and refreshed `artifacts/fixture_usdz/url_fixture_comparison.md`.
+- `S2-09 Group F` (`umjxv6ahck`) improved from `0` prims, `27` unsupported to `3` prims, `24` unsupported; the prior `name 't' is not defined` failures are gone.
+- `S2-03 Group B` (`dstsug13q6`) also improved in the same parser category: status `partial -> success`, unsupported `1 -> 0`, prims `11 -> 12`.
+- CSV comparison evidence is now 66/66 rows mapped, 66/66 USDZ present, 16 success, 50 partial.
+- Live Desmos check still failed: `curl -I --max-time 10 https://www.desmos.com/3d/cvggvbbe73` returned `curl: (6) Could not resolve host: www.desmos.com`; no live visual parity is claimed.
+- Commit was created from a writable temporary clone because the main checkout cannot write `.git/index.lock`; push is blocked by GitHub DNS resolution.
 
 ### Validation
-- `curl -I --max-time 10 https://www.desmos.com/3d/cvggvbbe73` failed with `curl: (6) Could not resolve host: www.desmos.com`; no live visual parity claim was made.
-- `PYTHONPATH=src python3 -m unittest discover -s tests -p 'test_csv_fixture_report.py'` passed: `Ran 1 test`, OK.
-- `PYTHONPATH=src python3 -m desmos2usd.validate.csv_fixture_report --expect-rows 66 --live-note "unavailable; curl -I --max-time 10 https://www.desmos.com/3d/cvggvbbe73 failed with: curl: (6) Could not resolve host: www.desmos.com"` passed and wrote the markdown report with `csv_rows=66`, `status_counts=success 15, partial 51`, `usdz_present=66`.
-- `rg -c '^\| [0-9]+ \|' artifacts/fixture_usdz/url_fixture_comparison.md` returned `66`.
-- `git diff --check` and `git diff --cached --check` passed in the temp clone.
-- `git push chektien HEAD:fix/student-fixture-usdz-export` failed with `ssh: Could not resolve hostname github.com: -65563`.
+- `PYTHONPATH=src python3 -m desmos2usd.validate.fixture_usdz_suite --out artifacts/fixture_usdz --resolution 8 --no-validate-usdz` passed: 71 fixtures, 20 success, 51 partial, 0 error, 71 USDZ present.
+- `PYTHONPATH=src python3 -m desmos2usd.validate.csv_fixture_report --expect-rows 66 --live-note 'unavailable; curl -I --max-time 10 https://www.desmos.com/3d/cvggvbbe73 failed with: curl: (6) Could not resolve host: www.desmos.com'` passed: `csv_rows=66`, `status_counts=success 16, partial 50`, `usdz_present=66`.
+- `PYTHONPATH=src:tests python3 -m unittest tests.test_parser.ParserTests.test_variable_adjacent_to_builtin_function_multiplies tests.test_student_fixture_regressions.StudentFixtureRegressionTests.test_variable_adjacent_trig_inequality_region_tessellates tests.test_csv_fixture_report.CsvFixtureReportTests.test_build_report_maps_csv_rows_to_summary_and_missing_state` passed: `Ran 3 tests`, OK.
+- `PYTHONPATH=src:tests python3 -m unittest discover -s tests` passed: `Ran 87 tests in 202.108s`, OK.
+- `git diff --check` passed.
 
 ### Executor Notes
-- Codex: use raw HOME Codex via Ralph non-overlap controller for the next tranche.
-- Claude Code: not used.
-- GitHub push over HTTPS triggered Git Credential Manager UI and failed in headless mode; SSH remote works for `chektien`. Prefer `git@github.com:chektien/desmos2usd.git` for pushes from this host.
+- Codex: use raw HOME Codex via Ralph non-overlap controller.
+- Claude Code: not used unless explicitly requested.
+- Prefer SSH remote `git@github.com:chektien/desmos2usd.git` for pushes from this host.
+- Main checkout cannot write `.git/index.lock` under the current sandbox (`Operation not permitted`), so commit/push should be done from a writable temporary clone as in the previous report wake.
+- Nonsemantic `.usdz` repack churn from the full sweep was reverted; only the semantically changed `S2-03 Group B` USD/USDZ artifact remains in the diff.
+- Push attempts from the temporary clone failed with `ssh: Could not resolve hostname github.com: -65563`.
 
 ### Risks or Open Questions
-- [x] Direct live Desmos visual comparison failed in this wake because DNS could not resolve `www.desmos.com`; keep recording exact failure modes.
-- [x] The comparison report distinguishes structural/frozen-state evidence from true live visual parity.
-- [ ] The comparison report commit is local only until GitHub DNS works.
-- [ ] Partial fixtures with many `explicit_surface` and `inequality_region` unsupported rows remain the main visual risk.
+- [ ] Direct live Desmos visual comparison may remain DNS-blocked; record exact failure modes and do not claim live visual parity without a real check.
+- [ ] `S2-09 Group F` still has 23 `inequality_region` sampled-cell misses and one unsupported slanted equality cylinder; the parser/evaluator gap is fixed but small/narrow region tessellation remains.
+- [ ] Highest unsupported rows are still dominated by `explicit_surface`, `inequality_region`, and `classification`; choose one bounded, testable category only.
 
 ### Recommended Next Wake
-- First retry `git push chektien HEAD:fix/student-fixture-usdz-export` from `/tmp/desmos2usd-report-commit.zoq5LN/repo` if it still exists.
-- If that temp clone is gone, recreate the commit from the dirty main working tree files and force-add `artifacts/fixture_usdz/url_fixture_comparison.md`.
-- After the push succeeds, start from `artifacts/fixture_usdz/url_fixture_comparison.md` and pick one bounded family, preferably `explicit_surface` predicate failures in `S2-06 Group E`/`S2-01 Group A` or a small low-prim row such as `S2-09 Group F`.
+- Start from `artifacts/fixture_usdz/url_fixture_comparison.md`.
+- Pick one bounded fix target. Good candidates:
+  - Continue `S2-09 Group F` (`umjxv6ahck`) with a narrow sampled-cell/slanted-cylinder inequality-region fix; current state is 3 prims, 24 unsupported.
+  - `S2-06 Group E` (`cg2sd6h1ws`): high-impact but large, 329 unsupported, mostly `explicit_surface`.
+  - `S2-01 Group A` (`cvggvbbe73`): 119 unsupported, mostly `explicit_surface`.
+- Add focused regression coverage, regenerate affected fixture artifacts and summary/report as needed, run targeted tests, commit/push if coherent.
 
 ### User-Facing Update
-- All 66 original CSV Desmos URLs are now mapped to frozen fixture states and local USDZ sweep evidence in a local commit. The report records 15 success rows, 51 partial rows, and 66/66 USDZ artifacts present; push is blocked by DNS resolution for `github.com`.
+- Variable-adjacent trig parsing is fixed, validated, and locally committed from a temporary clone. Push to `chektien:fix/student-fixture-usdz-export` is blocked by GitHub DNS resolution on this host.

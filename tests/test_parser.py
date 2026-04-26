@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import unittest
+import math
 
 from _path import ROOT
 from desmos2usd.desmos_state import REQUIRED_SAMPLE_URLS, load_fixture_state
@@ -39,6 +40,11 @@ class ParserTests(unittest.TestCase):
         expr = LatexExpression.parse(r"t_{p}v")
         self.assertEqual(expr.python, "t_p*v")
         self.assertAlmostEqual(expr.eval(EvalContext(scalars={"t_p": 2.0}), {"v": 3.0}), 6.0)
+
+    def test_variable_adjacent_to_builtin_function_multiplies(self) -> None:
+        expr = LatexExpression.parse(r"x-z\tan\left(5.5\right)")
+        self.assertEqual(expr.python, "x-z*tan(5.5)")
+        self.assertAlmostEqual(expr.eval(variables={"x": 2.0, "z": 3.0}), 2.0 - 3.0 * math.tan(5.5))
 
     def test_predicate(self) -> None:
         predicate = parse_predicate("-2<=x<=2")

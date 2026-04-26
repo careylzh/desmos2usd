@@ -1,25 +1,18 @@
 {
-  "acceptance_success": false,
+  "acceptance_success": true,
   "classified_expression_count": 12,
-  "complete": false,
+  "complete": true,
   "fixture": "[4B] 3D Diagram - S2-03 Group B.json",
   "fixture_path": "fixtures/states/[4B] 3D Diagram - S2-03 Group B.json",
   "graph_hash": null,
   "output": "artifacts/fixture_usdz/[4B] 3D Diagram - S2-03 Group B.usda",
-  "prim_count": 11,
+  "prim_count": 12,
   "renderable_expression_count": 12,
   "resolution": 8,
-  "status": "partial",
+  "status": "success",
   "title": "Desmos graph",
-  "unsupported": [
-    {
-      "expr_id": "134",
-      "kind": "explicit_surface",
-      "latex": "z=-0.3(0.5(x\\cos(a)-y\\sin(a)+5))^{2}-0.8(x\\sin(a)+y\\cos(a)-8)^{2}+9\\left\\{x\\cos(a)-y\\sin(a)>-5\\right\\}\\left\\{x\\sin(a)+y\\cos(a)>0\\right\\}\\left\\{z>2\\right\\}",
-      "reason": "Could not evaluate '-0.3(0.5(x\\\\cos(a)-y\\\\sin(a)+5))^{2}-0.8(x\\\\sin(a)+y\\\\cos(a)-8)^{2}+9' with variables {'x': -36.82684179764464, 'y': -43.613799281632375}: name 'c' is not defined"
-    }
-  ],
-  "unsupported_count": 1,
+  "unsupported": [],
+  "unsupported_count": 0,
   "usda_exists": true,
   "usdz_exists": true,
   "usdz_output": "artifacts/fixture_usdz/[4B] 3D Diagram - S2-03 Group B.usdz",
@@ -123,6 +116,16 @@
       "errors": [],
       "expr_id": "132",
       "face_count": 15,
+      "kind": "explicit_surface",
+      "max_residual": 0.0,
+      "point_count": 100,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "134",
+      "face_count": 21,
       "kind": "explicit_surface",
       "max_residual": 0.0,
       "point_count": 100,

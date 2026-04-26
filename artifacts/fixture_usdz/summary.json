@@ -5,7 +5,7 @@
   "fixture_count": 71,
   "fixtures_with_usdz_count": 71,
   "out_dir": "artifacts/fixture_usdz",
-  "partial_count": 52,
+  "partial_count": 51,
   "reports": [
     {
       "acceptance_success": false,
@@ -11221,27 +11221,20 @@
       ]
     },
     {
-      "acceptance_success": false,
+      "acceptance_success": true,
       "classified_expression_count": 12,
-      "complete": false,
+      "complete": true,
       "fixture": "[4B] 3D Diagram - S2-03 Group B.json",
       "fixture_path": "fixtures/states/[4B] 3D Diagram - S2-03 Group B.json",
       "graph_hash": null,
       "output": "artifacts/fixture_usdz/[4B] 3D Diagram - S2-03 Group B.usda",
-      "prim_count": 11,
+      "prim_count": 12,
       "renderable_expression_count": 12,
       "resolution": 8,
-      "status": "partial",
+      "status": "success",
       "title": "Desmos graph",
-      "unsupported": [
-        {
-          "expr_id": "134",
-          "kind": "explicit_surface",
-          "latex": "z=-0.3(0.5(x\\cos(a)-y\\sin(a)+5))^{2}-0.8(x\\sin(a)+y\\cos(a)-8)^{2}+9\\left\\{x\\cos(a)-y\\sin(a)>-5\\right\\}\\left\\{x\\sin(a)+y\\cos(a)>0\\right\\}\\left\\{z>2\\right\\}",
-          "reason": "Could not evaluate '-0.3(0.5(x\\\\cos(a)-y\\\\sin(a)+5))^{2}-0.8(x\\\\sin(a)+y\\\\cos(a)-8)^{2}+9' with variables {'x': -36.82684179764464, 'y': -43.613799281632375}: name 'c' is not defined"
-        }
-      ],
-      "unsupported_count": 1,
+      "unsupported": [],
+      "unsupported_count": 0,
       "usda_exists": true,
       "usdz_exists": true,
       "usdz_output": "artifacts/fixture_usdz/[4B] 3D Diagram - S2-03 Group B.usdz",
@@ -11345,6 +11338,16 @@
           "errors": [],
           "expr_id": "132",
           "face_count": 15,
+          "kind": "explicit_surface",
+          "max_residual": 0.0,
+          "point_count": 100,
+          "valid": true
+        },
+        {
+          "constraint_violation_count": 0,
+          "errors": [],
+          "expr_id": "134",
+          "face_count": 21,
           "kind": "explicit_surface",
           "max_residual": 0.0,
           "point_count": 100,
@@ -62256,7 +62259,7 @@
       "fixture_path": "fixtures/states/[4B] 3D Diagram - S2-09 Group F.json",
       "graph_hash": null,
       "output": "artifacts/fixture_usdz/[4B] 3D Diagram - S2-09 Group F.usda",
-      "prim_count": 0,
+      "prim_count": 3,
       "renderable_expression_count": 27,
       "resolution": 8,
       "status": "partial",
@@ -62269,163 +62272,145 @@
           "reason": "not a supported renderable geometry form"
         },
         {
-          "expr_id": "2",
-          "kind": "inequality_region",
-          "latex": "\\left(x-z\\tan\\left(5.5\\right)\\right)^{2}+y^{2}<360\\left\\{0<z<20\\right\\}",
-          "reason": "Could not evaluate '(x-z\\\\tan(5.5))^{2}+y^{2}' with variables {'x': -33.52375577202188, 'y': -33.52375577202188, 'z': 0.0}: name 't' is not defined"
-        },
-        {
-          "expr_id": "4",
-          "kind": "inequality_region",
-          "latex": "\\left(x-z\\tan\\left(5.5\\right)\\right)^{2}+y^{2}<360\\left\\{30<z<32\\right\\}",
-          "reason": "Could not evaluate '(x-z\\\\tan(5.5))^{2}+y^{2}' with variables {'x': -33.52375577202188, 'y': -33.52375577202188, 'z': 30.0}: name 't' is not defined"
-        },
-        {
-          "expr_id": "5",
-          "kind": "inequality_region",
-          "latex": "\\left(x-z\\tan\\left(5.5\\right)\\right)^{2}+y^{2}<360\\left\\{40<z<42\\right\\}",
-          "reason": "Could not evaluate '(x-z\\\\tan(5.5))^{2}+y^{2}' with variables {'x': -33.52375577202188, 'y': -33.52375577202188, 'z': 40.0}: name 't' is not defined"
-        },
-        {
           "expr_id": "6",
           "kind": "inequality_region",
           "latex": "\\left(x-z\\tan\\left(5.5\\right)\\right)^{2}+y^{2}<360\\left\\{50<z<52\\right\\}",
-          "reason": "Could not evaluate '(x-z\\\\tan(5.5))^{2}+y^{2}' with variables {'x': -33.52375577202188, 'y': -33.52375577202188, 'z': 50.0}: name 't' is not defined"
+          "reason": "Inequality region for 6 did not resolve to sampled cells"
         },
         {
           "expr_id": "7",
           "kind": "inequality_region",
           "latex": "\\left(x-z\\tan\\left(5.5\\right)\\right)^{2}+y^{2}<360\\left\\{60<z<62\\right\\}",
-          "reason": "Could not evaluate '(x-z\\\\tan(5.5))^{2}+y^{2}' with variables {'x': -33.52375577202188, 'y': -33.52375577202188, 'z': 60.0}: name 't' is not defined"
+          "reason": "Inequality region for 7 did not resolve to sampled cells"
         },
         {
           "expr_id": "8",
           "kind": "inequality_region",
           "latex": "\\left(x-z\\tan\\left(5.5\\right)\\right)^{2}+y^{2}<360\\left\\{70<z<72\\right\\}",
-          "reason": "Could not evaluate '(x-z\\\\tan(5.5))^{2}+y^{2}' with variables {'x': -33.52375577202188, 'y': -33.52375577202188, 'z': 70.0}: name 't' is not defined"
+          "reason": "Inequality region for 8 did not resolve to sampled cells"
         },
         {
           "expr_id": "9",
           "kind": "inequality_region",
           "latex": "\\left(x-z\\tan\\left(5.5\\right)\\right)^{2}+y^{2}<360\\left\\{80<z<82\\right\\}",
-          "reason": "Could not evaluate '(x-z\\\\tan(5.5))^{2}+y^{2}' with variables {'x': -33.52375577202188, 'y': -33.52375577202188, 'z': 80.0}: name 't' is not defined"
+          "reason": "Inequality region for 9 did not resolve to sampled cells"
         },
         {
           "expr_id": "11",
           "kind": "inequality_region",
           "latex": "\\left(x-z\\tan\\left(5.5\\right)\\right)^{2}+y^{2}<230\\left\\{80<z<95\\right\\}",
-          "reason": "Could not evaluate '(x-z\\\\tan(5.5))^{2}+y^{2}' with variables {'x': -33.52375577202188, 'y': -33.52375577202188, 'z': 80.0}: name 't' is not defined"
+          "reason": "Inequality region for 11 did not resolve to sampled cells"
         },
         {
           "expr_id": "12",
           "kind": "inequality_region",
           "latex": "\\left(x-z\\tan\\left(5.5\\right)+11\\right)^{2}+\\left(y+11\\right)^{2}<10\\left\\{1<z<95\\right\\}",
-          "reason": "Could not evaluate '(x-z\\\\tan(5.5)+11)^{2}+(y+11)^{2}' with variables {'x': -33.52375577202188, 'y': -33.52375577202188, 'z': 1.0}: name 't' is not defined"
+          "reason": "Inequality region for 12 did not resolve to sampled cells"
         },
         {
           "expr_id": "13",
           "kind": "inequality_region",
           "latex": "\\left(x-z\\tan\\left(5.5\\right)-11\\right)^{2}+\\left(y-11\\right)^{2}<10\\left\\{1<z<95\\right\\}",
-          "reason": "Could not evaluate '(x-z\\\\tan(5.5)-11)^{2}+(y-11)^{2}' with variables {'x': -33.52375577202188, 'y': -33.52375577202188, 'z': 1.0}: name 't' is not defined"
+          "reason": "Inequality region for 13 did not resolve to sampled cells"
         },
         {
           "expr_id": "14",
           "kind": "inequality_region",
           "latex": "\\left(x-z\\tan\\left(5.5\\right)-11\\right)^{2}+\\left(y+11\\right)^{2}<10\\left\\{1<z<95\\right\\}",
-          "reason": "Could not evaluate '(x-z\\\\tan(5.5)-11)^{2}+(y+11)^{2}' with variables {'x': -33.52375577202188, 'y': -33.52375577202188, 'z': 1.0}: name 't' is not defined"
+          "reason": "Inequality region for 14 did not resolve to sampled cells"
         },
         {
           "expr_id": "15",
           "kind": "inequality_region",
           "latex": "\\left(x-z\\tan\\left(5.5\\right)+11\\right)^{2}+\\left(y-11\\right)^{2}<10\\left\\{1<z<95\\right\\}",
-          "reason": "Could not evaluate '(x-z\\\\tan(5.5)+11)^{2}+(y-11)^{2}' with variables {'x': -33.52375577202188, 'y': -33.52375577202188, 'z': 1.0}: name 't' is not defined"
+          "reason": "Inequality region for 15 did not resolve to sampled cells"
         },
         {
           "expr_id": "16",
           "kind": "inequality_region",
           "latex": "\\left(x-z\\tan\\left(5.5\\right)-15\\right)^{2}+\\left(y-4\\right)^{2}<10\\left\\{1<z<95\\right\\}",
-          "reason": "Could not evaluate '(x-z\\\\tan(5.5)-15)^{2}+(y-4)^{2}' with variables {'x': -33.52375577202188, 'y': -33.52375577202188, 'z': 1.0}: name 't' is not defined"
+          "reason": "Inequality region for 16 did not resolve to sampled cells"
         },
         {
           "expr_id": "17",
           "kind": "inequality_region",
           "latex": "\\left(x-z\\tan\\left(5.5\\right)-15\\right)^{2}+\\left(y+4\\right)^{2}<10\\left\\{1<z<95\\right\\}",
-          "reason": "Could not evaluate '(x-z\\\\tan(5.5)-15)^{2}+(y+4)^{2}' with variables {'x': -33.52375577202188, 'y': -33.52375577202188, 'z': 1.0}: name 't' is not defined"
+          "reason": "Inequality region for 17 did not resolve to sampled cells"
         },
         {
           "expr_id": "18",
           "kind": "inequality_region",
           "latex": "\\left(x-z\\tan\\left(5.5\\right)+15\\right)^{2}+\\left(y-4\\right)^{2}<10\\left\\{1<z<95\\right\\}",
-          "reason": "Could not evaluate '(x-z\\\\tan(5.5)+15)^{2}+(y-4)^{2}' with variables {'x': -33.52375577202188, 'y': -33.52375577202188, 'z': 1.0}: name 't' is not defined"
+          "reason": "Inequality region for 18 did not resolve to sampled cells"
         },
         {
           "expr_id": "20",
           "kind": "inequality_region",
           "latex": "\\left(x-z\\tan\\left(5.5\\right)+15\\right)^{2}+\\left(y+4\\right)^{2}<10\\left\\{1<z<95\\right\\}",
-          "reason": "Could not evaluate '(x-z\\\\tan(5.5)+15)^{2}+(y+4)^{2}' with variables {'x': -33.52375577202188, 'y': -33.52375577202188, 'z': 1.0}: name 't' is not defined"
+          "reason": "Inequality region for 20 did not resolve to sampled cells"
         },
         {
           "expr_id": "21",
           "kind": "inequality_region",
           "latex": "\\left(x-z\\tan\\left(5.5\\right)-15\\right)^{2}+\\left(y+4\\right)^{2}<10\\left\\{1<z<95\\right\\}",
-          "reason": "Could not evaluate '(x-z\\\\tan(5.5)-15)^{2}+(y+4)^{2}' with variables {'x': -33.52375577202188, 'y': -33.52375577202188, 'z': 1.0}: name 't' is not defined"
+          "reason": "Inequality region for 21 did not resolve to sampled cells"
         },
         {
           "expr_id": "22",
           "kind": "inequality_region",
           "latex": "\\left(x-z\\tan\\left(5.5\\right)-4\\right)^{2}+\\left(y+15\\right)^{2}<10\\left\\{1<z<95\\right\\}",
-          "reason": "Could not evaluate '(x-z\\\\tan(5.5)-4)^{2}+(y+15)^{2}' with variables {'x': -33.52375577202188, 'y': -33.52375577202188, 'z': 1.0}: name 't' is not defined"
+          "reason": "Inequality region for 22 did not resolve to sampled cells"
         },
         {
           "expr_id": "23",
           "kind": "inequality_region",
           "latex": "\\left(x-z\\tan\\left(5.5\\right)+4\\right)^{2}+\\left(y-15\\right)^{2}<10\\left\\{1<z<95\\right\\}",
-          "reason": "Could not evaluate '(x-z\\\\tan(5.5)+4)^{2}+(y-15)^{2}' with variables {'x': -33.52375577202188, 'y': -33.52375577202188, 'z': 1.0}: name 't' is not defined"
+          "reason": "Inequality region for 23 did not resolve to sampled cells"
         },
         {
           "expr_id": "24",
           "kind": "inequality_region",
           "latex": "\\left(x-z\\tan\\left(5.5\\right)-4\\right)^{2}+\\left(y-15\\right)^{2}<10\\left\\{1<z<95\\right\\}",
-          "reason": "Could not evaluate '(x-z\\\\tan(5.5)-4)^{2}+(y-15)^{2}' with variables {'x': -33.52375577202188, 'y': -33.52375577202188, 'z': 1.0}: name 't' is not defined"
+          "reason": "Inequality region for 24 did not resolve to sampled cells"
         },
         {
           "expr_id": "25",
           "kind": "inequality_region",
           "latex": "\\left(x-z\\tan\\left(5.5\\right)+4\\right)^{2}+\\left(y+15\\right)^{2}<10\\left\\{1<z<95\\right\\}",
-          "reason": "Could not evaluate '(x-z\\\\tan(5.5)+4)^{2}+(y+15)^{2}' with variables {'x': -33.52375577202188, 'y': -33.52375577202188, 'z': 1.0}: name 't' is not defined"
+          "reason": "Inequality region for 25 did not resolve to sampled cells"
         },
         {
           "expr_id": "26",
           "kind": "inequality_region",
           "latex": "\\left(x-z\\tan\\left(5.5\\right)\\right)^{2}+y^{2}<360\\left\\{95<z<97\\right\\}",
-          "reason": "Could not evaluate '(x-z\\\\tan(5.5))^{2}+y^{2}' with variables {'x': -33.52375577202188, 'y': -33.52375577202188, 'z': 95.0}: name 't' is not defined"
+          "reason": "Inequality region for 26 did not resolve to sampled cells"
         },
         {
           "expr_id": "27",
           "kind": "inequality_region",
           "latex": "\\left(x-z\\tan\\left(5.5\\right)\\right)^{2}+y^{2}<10\\left\\{97<z<115\\right\\}",
-          "reason": "Could not evaluate '(x-z\\\\tan(5.5))^{2}+y^{2}' with variables {'x': -33.52375577202188, 'y': -33.52375577202188, 'z': 97.0}: name 't' is not defined"
+          "reason": "Inequality region for 27 did not resolve to sampled cells"
         },
         {
           "expr_id": "44",
           "kind": "inequality_region",
           "latex": "\\left(x-z\\tan\\left(5.5\\right)\\right)^{2}+y^{2}<10\\left\\{105<z<115\\right\\}",
-          "reason": "Could not evaluate '(x-z\\\\tan(5.5))^{2}+y^{2}' with variables {'x': -33.52375577202188, 'y': -33.52375577202188, 'z': 105.0}: name 't' is not defined"
+          "reason": "Inequality region for 44 did not resolve to sampled cells"
         },
         {
           "expr_id": "45",
           "kind": "inequality_region",
           "latex": "\\left(x-z\\tan\\left(5.5\\right)-3\\right)^{2}+y^{2}<10\\left\\{106<z<114\\right\\}",
-          "reason": "Could not evaluate '(x-z\\\\tan(5.5)-3)^{2}+y^{2}' with variables {'x': -33.52375577202188, 'y': -33.52375577202188, 'z': 106.0}: name 't' is not defined"
+          "reason": "Inequality region for 45 did not resolve to sampled cells"
         },
         {
           "expr_id": "46",
           "kind": "inequality_region",
           "latex": "\\left(x-z\\tan\\left(5.5\\right)-6\\right)^{2}+y^{2}<10\\left\\{107<z<113\\right\\}",
-          "reason": "Could not evaluate '(x-z\\\\tan(5.5)-6)^{2}+y^{2}' with variables {'x': -33.52375577202188, 'y': -33.52375577202188, 'z': 107.0}: name 't' is not defined"
+          "reason": "Inequality region for 46 did not resolve to sampled cells"
         }
       ],
-      "unsupported_count": 27,
+      "unsupported_count": 24,
       "usda_exists": true,
       "usdz_exists": true,
       "usdz_output": "artifacts/fixture_usdz/[4B] 3D Diagram - S2-09 Group F.usdz",
@@ -62443,7 +62428,38 @@
       },
       "usdz_validation": null,
       "valid": true,
-      "validations": []
+      "validations": [
+        {
+          "constraint_violation_count": 0,
+          "errors": [],
+          "expr_id": "2",
+          "face_count": 336,
+          "kind": "inequality_region",
+          "max_residual": null,
+          "point_count": 448,
+          "valid": true
+        },
+        {
+          "constraint_violation_count": 0,
+          "errors": [],
+          "expr_id": "4",
+          "face_count": 288,
+          "kind": "inequality_region",
+          "max_residual": null,
+          "point_count": 384,
+          "valid": true
+        },
+        {
+          "constraint_violation_count": 0,
+          "errors": [],
+          "expr_id": "5",
+          "face_count": 96,
+          "kind": "inequality_region",
+          "max_residual": null,
+          "point_count": 128,
+          "valid": true
+        }
+      ]
     },
     {
       "acceptance_success": false,
@@ -89492,8 +89508,8 @@
       ]
     }
   ],
-  "success_count": 19,
-  "unsupported_fixture_count": 52,
+  "success_count": 20,
+  "unsupported_fixture_count": 51,
   "unsupported_fixture_names": [
     "[4B] 3D Diagram - S2-01 Group A.json",
     "[4B] 3D Diagram - S2-01 Group B.json",
@@ -89505,7 +89521,6 @@
     "[4B] 3D Diagram - S2-02 Group E.json",
     "[4B] 3D Diagram - S2-02 Group F.json",
     "[4B] 3D Diagram - S2-03 Group A.json",
-    "[4B] 3D Diagram - S2-03 Group B.json",
     "[4B] 3D Diagram - S2-03 Group C.json",
     "[4B] 3D Diagram - S2-03 Group D.json",
     "[4B] 3D Diagram - S2-03 Group E.json",

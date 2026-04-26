@@ -18,12 +18,12 @@ It does not claim live Desmos visual parity.
 | CSV rows | 66 |
 | Frozen fixture states present | 66/66 |
 | Sweep reports mapped | 66/66 |
-| Sweep status counts | success 15, partial 51 |
+| Sweep status counts | success 16, partial 50 |
 | USDZ artifacts present | 66/66 |
-| Unsupported expressions | 1533 |
+| Unsupported expressions | 1529 |
 | Classified expressions | 6942 |
-| Exported prims | 5819 |
-| Unsupported kind counts | inequality_region 561, explicit_surface 550, classification 401, definition 9, triangle_mesh 8, parametric_surface 4 |
+| Exported prims | 5823 |
+| Unsupported kind counts | inequality_region 558, explicit_surface 549, classification 401, definition 9, triangle_mesh 8, parametric_surface 4 |
 
 ## Prioritized Remaining Rows
 
@@ -48,14 +48,14 @@ It does not claim live Desmos visual parity.
 
 | Fixture | URL hash | Status | Unsupported | Prims | Unsupported kinds | Notes |
 | --- | --- | --- | ---: | ---: | --- | --- |
-| [4B] 3D Diagram - S2-09 Group F.json | umjxv6ahck | partial | 27 | 0 | inequality_region 26, classification 1 | partial export; 0 prims; 27 unsupported; inequality_region 26, classification 1; needs live Desmos visual verification |
 | [4B] 3D Diagram - S2-05 Group A.json | ltogun0zlk | partial | 3 | 2 | inequality_region 3 | partial export; 3 unsupported; inequality_region 3; needs live Desmos visual verification |
+| [4B] 3D Diagram - S2-09 Group F.json | umjxv6ahck | partial | 24 | 3 | inequality_region 23, classification 1 | partial export; 24 unsupported; inequality_region 23, classification 1; needs live Desmos visual verification |
 | [4B] 3D Diagram - S2-10 Group C.json | 151jsdn8xs | partial | 5 | 3 | inequality_region 4, classification 1 | partial export; 5 unsupported; inequality_region 4, classification 1; needs live Desmos visual verification |
 | [4B] 3D Diagram - S2-05 Group F.json | kikxd6qykj | partial | 6 | 10 | inequality_region 6 | partial export; 6 unsupported; inequality_region 6; needs live Desmos visual verification |
-| [4B] 3D Diagram - S2-03 Group B.json | dstsug13q6 | partial | 1 | 11 | explicit_surface 1 | partial export; 1 unsupported; explicit_surface 1; needs live Desmos visual verification |
 | [4B] 3D Diagram - S2-01 Group C.json | upbjmsjpzq | partial | 7 | 12 | inequality_region 6, classification 1 | partial export; 7 unsupported; inequality_region 6, classification 1; needs live Desmos visual verification |
 | [4B] 3D Diagram - S2-08 Group C.json | xrsgrdip5y | partial | 1 | 12 | inequality_region 1 | partial export; 1 unsupported; inequality_region 1; needs live Desmos visual verification |
 | [4B] 3D Diagram - S2-08 Group E.json | g59jqe6nxy | partial | 69 | 14 | classification 66, inequality_region 3 | partial export; 69 unsupported; classification 66, inequality_region 3; needs live Desmos visual verification |
+| [4B] 3D Diagram - S2-07 Group E.json | gpskd1f59i | partial | 20 | 15 | inequality_region 19, classification 1 | partial export; 20 unsupported; inequality_region 19, classification 1; needs live Desmos visual verification |
 
 ## All CSV Rows
 
@@ -76,7 +76,7 @@ It does not claim live Desmos visual parity.
 | 13 | https://www.desmos.com/3d/1zpiejy9c9 | [4B] 3D Diagram - S2-02 Group F.json | yes | partial | yes | 52 | 111 | 62 | partial export; 52 unsupported; explicit_surface 38, inequality_region 11, classification 3; needs live Desmos visual verification |
 | 14 | https://www.desmos.com/3d/vf0bjbwmve | [4B] 3D Diagram - S2-02 Group G.json | yes | success | yes | 0 | 10 | 10 | structural success; live visual parity unverified |
 | 15 | https://www.desmos.com/3d/8wt3h8gs1u | [4B] 3D Diagram - S2-03 Group A.json | yes | partial | yes | 5 | 112 | 107 | partial export; 5 unsupported; explicit_surface 5; needs live Desmos visual verification |
-| 16 | https://www.desmos.com/3d/dstsug13q6 | [4B] 3D Diagram - S2-03 Group B.json | yes | partial | yes | 1 | 12 | 11 | partial export; 1 unsupported; explicit_surface 1; needs live Desmos visual verification |
+| 16 | https://www.desmos.com/3d/dstsug13q6 | [4B] 3D Diagram - S2-03 Group B.json | yes | success | yes | 0 | 12 | 12 | structural success; live visual parity unverified |
 | 17 | https://www.desmos.com/3d/xyvxakzxdj | [4B] 3D Diagram - S2-03 Group C.json | yes | partial | yes | 9 | 131 | 122 | partial export; 9 unsupported; inequality_region 9; needs live Desmos visual verification |
 | 18 | https://www.desmos.com/3d/zvasa1wcgo | [4B] 3D Diagram - S2-03 Group D.json | yes | partial | yes | 122 | 271 | 204 | partial export; 122 unsupported; classification 55, explicit_surface 52, inequality_region 15; needs live Desmos visual verification |
 | 19 | https://www.desmos.com/3d/sqkhp7wnx6 | [4B] 3D Diagram - S2-03 Group E.json | yes | partial | yes | 97 | 185 | 99 | partial export; 97 unsupported; inequality_region 78, triangle_mesh 8, classification 6; needs live Desmos visual verification |
@@ -115,7 +115,7 @@ It does not claim live Desmos visual parity.
 | 52 | https://www.desmos.com/3d/s6vcgvu9e8 | [4B] 3D Diagram - S2-09 Group B.json | yes | partial | yes | 19 | 60 | 46 | partial export; 19 unsupported; inequality_region 14, classification 5; needs live Desmos visual verification |
 | 53 | https://www.desmos.com/3d/zxjnvkynzf | [4B] 3D Diagram - S2-09 Group D.json | yes | partial | yes | 37 | 89 | 78 | partial export; 37 unsupported; classification 26, inequality_region 11; needs live Desmos visual verification |
 | 54 | https://www.desmos.com/3d/ml3mebe7y5 | [4B] 3D Diagram - S2-09 Group E.json | yes | partial | yes | 13 | 25 | 22 | partial export; 13 unsupported; classification 10, explicit_surface 2, inequality_region 1; needs live Desmos visual verification |
-| 55 | https://www.desmos.com/3d/umjxv6ahck | [4B] 3D Diagram - S2-09 Group F.json | yes | partial | yes | 27 | 26 | 0 | partial export; 0 prims; 27 unsupported; inequality_region 26, classification 1; needs live Desmos visual verification |
+| 55 | https://www.desmos.com/3d/umjxv6ahck | [4B] 3D Diagram - S2-09 Group F.json | yes | partial | yes | 24 | 26 | 3 | partial export; 24 unsupported; inequality_region 23, classification 1; needs live Desmos visual verification |
 | 56 | https://www.desmos.com/3d/oqffspzojt | [4B] 3D Diagram - S2-09 Group G.json | yes | partial | yes | 7 | 84 | 80 | partial export; 7 unsupported; inequality_region 4, classification 3; needs live Desmos visual verification |
 | 57 | https://www.desmos.com/3d/g53xte50e7 | [4B] 3D Diagram - S2-10 Group A.json | yes | partial | yes | 8 | 40 | 32 | partial export; 8 unsupported; explicit_surface 4, inequality_region 4; needs live Desmos visual verification |
 | 58 | https://www.desmos.com/3d/flaqwkpbgj | [4B] 3D Diagram - S2-10 Group B.json | yes | partial | yes | 1 | 115 | 115 | partial export; 1 unsupported; classification 1; needs live Desmos visual verification |
