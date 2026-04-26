@@ -173,7 +173,7 @@ Last updated: 2026-04-26 15:46 SGT
   - S2-09 Group F has 0 curves and 0 explicit_surface prims, so it is unaffected by either fix and acts as a clean regression guard.
 - code changes:
   - `viewer/app.js`: new `appendTubeGeometry()` builds a 6-sided tube mesh along every BasisCurves polyline using a rotation-minimizing parallel-transport frame. Tubes feed the existing mesh shader and are tracked per prim (`tubeRanges`) for opaque/translucent passes, selection highlighting, and pick rendering. Tube radius scales as `clamp(diag * 0.006, 0.015, diag * 0.025)`. The legacy LINE_STRIP pass is still drawn for prims that produced no tubes (degenerate/zero-radius curves).
-  - `src/desmos2usd/tessellate/surfaces.py`: new `refined_quad_faces()` and `_bisect_predicate_crossing()` perform marching-squares-style boundary refinement on explicit_surface cells whose corners straddle a predicate boundary. Bisection (`QUAD_BOUNDARY_REFINE_ITERATIONS = 12`) tracks the predicate transition along each mixed-validity edge and emits triangles connecting valid corners with the boundary samples. Guarded by `_surface_predicates_constrain_solved_axis()` so surfaces with no constraint on the dependent axis (e.g. only x/y restrictions) keep the original `quad_faces` path and stay fast.
+  - `src/desmos2usd/tessellate/surfaces.py`: new `refined_quad_faces()` and `_bisect_predicate_crossing()` perform marching-squares-style boundary refinement on explicit_surface cells whose corners straddle a predicate boundary. Bisection (`QUAD_BOUNDARY_REFINE_ITERATIONS = 8`) tracks the predicate transition along each mixed-validity edge and emits triangles connecting valid corners with the boundary samples. Guarded by `_surface_predicates_constrain_solved_axis()` so surfaces with no constraint on the dependent axis (e.g. only x/y restrictions) keep the original `quad_faces` path and stay fast.
 - artifacts:
   - All `artifacts/fixture_usdz/*.usda` and `*.usdz` artifacts regenerated at the suite default resolution=8 to apply the boundary refinement.
   - `artifacts/fixture_usdz/summary.json` rebuilt by the suite as part of regen.
@@ -189,6 +189,6 @@ Last updated: 2026-04-26 15:46 SGT
 - validation:
   - `node --check viewer/app.js` passed.
   - `pytest tests/` baseline (pre-change) and after-change both passed: 94 passed, 23 subtests passed (~5 min each).
-  - `pytest tests/test_tessellate.py tests/test_student_fixture_regressions.py -q` after the optimization (axis-aware refinement, 12 bisection iterations) passed: 34 tests in 30.67s.
+  - `pytest tests/test_tessellate.py tests/test_student_fixture_regressions.py -q` after the optimization (axis-aware refinement, 8 bisection iterations) passed: 34 tests in 30.67s.
   - `usdcat -l` validated regenerated S2-03 USDA artifact.
   - Live browser screenshots captured against Playwright + local `python3 -m http.server` serving the in-flight viewer; production tailnet URL still serves the older copy until the changes are pushed.

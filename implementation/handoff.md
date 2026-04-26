@@ -51,7 +51,7 @@ neither fix can affect it.
   - New `refined_quad_faces()` replaces `quad_faces` for explicit_surface
     cells whose corners straddle the predicate boundary. Mixed cells
     bisect along each mixed-validity edge to localize the predicate
-    transition (`QUAD_BOUNDARY_REFINE_ITERATIONS = 12`), and the polygon
+    transition (`QUAD_BOUNDARY_REFINE_ITERATIONS = 8`), and the polygon
     formed by valid corners + boundary samples is fanned into triangles.
   - `_bisect_predicate_crossing()` does the bisection using
     `evaluate_half_open` with the same tolerance as the original corner
@@ -105,7 +105,7 @@ neither fix can affect it.
 - `pytest tests/` after viewer + boundary refinement: 94 passed, 23
   subtests passed in 4m51s.
 - `pytest tests/test_tessellate.py tests/test_student_fixture_regressions.py -q`
-  after the optimization (axis-aware refinement, 12 iterations): 34
+  after the optimization (axis-aware refinement, 8 iterations): 34
   passed, 23 subtests passed in 30.67s.
 - `usdcat -l` validated regenerated S2-03 USDA artifact.
 - `git diff --check` clean.

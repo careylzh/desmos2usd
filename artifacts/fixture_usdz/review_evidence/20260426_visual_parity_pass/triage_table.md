@@ -19,8 +19,8 @@ reflects the same code only after a push.
 
 | Fixture | Prim breakdown | Status | Notes |
 |---|---|---|---|
-| zaqxhna15w | 268 explicit_surface | IMPROVED | Boundary refinement smooths constraint edges across the dense surface field. |
-| ghnr7txz47 | 351 surf + 145 ineq + 49 curves + 72 mesh | IMPROVED | Curves now tubed; surface fins refined. |
+| zaqxhna15w | 268 explicit_surface | UNCHANGED IN THIS PASS | Artifact was not regenerated during this pass; keep as follow-up. |
+| ghnr7txz47 | 351 surf + 145 ineq + 49 curves + 72 mesh | UNCHANGED IN THIS PASS | Artifact was not regenerated during this pass; keep as follow-up. |
 | k0fbxxwkqf | 79 surf + 85 ineq + 10 mesh | IMPROVED | Surface boundaries smoother. |
 | vyp9ogyimt | 553 inequality_region | OK | No curves, no explicit surfaces; identical to baseline. |
 | yuqwjsfvsc | 341 inequality_region | OK | Same — regression-safe baseline. |
