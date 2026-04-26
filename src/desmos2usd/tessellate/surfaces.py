@@ -16,6 +16,7 @@ BOUNDARY_REFINE_ITERATIONS = 60
 QUAD_BOUNDARY_REFINE_ITERATIONS = 8
 HALF_OPEN_TOL = 1e-5
 BOUNDARY_NUDGE = 2e-5
+DEGENERATE_AXIS_HALF_WIDTH = 5e-4
 
 
 def tessellate_explicit_surface(
@@ -28,8 +29,19 @@ def tessellate_explicit_surface(
         raise ValueError("explicit surface missing axis or expression")
     domain_axes = [axis for axis in ("x", "y", "z") if axis != item.axis]
     surface_bounds = explicit_surface_domain_bounds(item, context)
+    flat_axis = _explicit_flat_axis(item, domain_axes, collect_constant_bounds(item.predicates, context))
     a0, a1 = surface_bounds[domain_axes[0]]
     b0, b1 = surface_bounds[domain_axes[1]]
+    # If a domain axis was intentionally collapsed by the 2D-in-3D rule, expand it to a
+    # thin strip so quad_faces (which needs two distinct samples per dimension) still
+    # produces geometry. We do NOT nudge predicate-derived degenerate ranges (e.g. a
+    # ``z=18`` predicate or a strict ``18<z<18`` band): those legitimately mean "this
+    # surface lives at exactly z=18", and silently expanding them produces points that
+    # violate their own predicate.
+    if flat_axis == domain_axes[0] and a0 == a1:
+        a0, a1 = a0 - DEGENERATE_AXIS_HALF_WIDTH, a1 + DEGENERATE_AXIS_HALF_WIDTH
+    if flat_axis == domain_axes[1] and b0 == b1:
+        b0, b1 = b0 - DEGENERATE_AXIS_HALF_WIDTH, b1 + DEGENERATE_AXIS_HALF_WIDTH
     axis_samples = axis_samples or {}
     a_values = sample_axis_values(a0, a1, resolution, axis_samples.get(domain_axes[0]))
     b_values = sample_axis_values(b0, b1, resolution, axis_samples.get(domain_axes[1]))
@@ -295,10 +307,14 @@ def infer_explicit_domain_bounds(
 
     inferred = dict(bounds)
     viewport_bounds = item.ir.source.viewport_bounds or {}
+    flat_axis = _explicit_flat_axis(item, domain_axes, inferred)
     for axis in domain_axes:
         if axis_has_complete_bounds(axis, inferred):
             continue
         if explicit_axis_is_unconstrained(item, axis):
+            if axis == flat_axis:
+                inferred[axis] = (0.0, 0.0)
+                continue
             fallback = viewport_bounds.get(axis)
             if fallback is not None:
                 inferred[axis] = fallback
@@ -365,6 +381,54 @@ def explicit_axis_is_unconstrained(item: ClassifiedExpression, axis: str) -> boo
             if axis in term.identifiers:
                 return False
     return True
+
+
+FLAT_AXIS_RANGE_FRACTION = 0.10
+
+
+def _explicit_flat_axis(
+    item: ClassifiedExpression,
+    domain_axes: list[str],
+    bounds: dict[str, tuple[float | None, float | None]],
+) -> str | None:
+    """Return the axis that should collapse to 0 because the surface is 2D-in-3D.
+
+    Desmos 3D renders an explicit surface like ``y=0.4 {-1.8 <= x <= -1.21}`` as a 1D
+    line/strip at z=0 — not a wall extending across the full z viewport. We trigger the
+    flat treatment when *all* of:
+
+    * the dependent axis is x or y (not z) — z-axis surfaces are typically planes;
+    * one domain axis is fully constrained by predicates (the user is "thinking 2D");
+    * the other domain axis is completely unreferenced anywhere;
+    * the constrained range is small relative to the viewport (< ``FLAT_AXIS_RANGE_FRACTION``).
+      The size guard preserves wall-like geometry such as ``y=20 {-225<x<225}`` whose
+      x range exceeds the viewport — those are intended to extrude across z. A tiny
+      x-range, by contrast, signals a localized 2D detail at z=0.
+
+    Without this, fixtures whose 2D detail expressions don't mention z get extruded
+    across the full ``viewport_bounds["z"]`` and produce tall sheets that dominate the
+    scene; conversely, blanket-flattening regresses 3D-wall semantics.
+    """
+    if not item.axis or item.axis == "z":
+        return None
+    if "z" not in domain_axes:
+        return None
+    if not explicit_axis_is_unconstrained(item, "z"):
+        return None
+    viewport = item.ir.source.viewport_bounds or {}
+    z_view = viewport.get("z")
+    if z_view is None or z_view[1] <= z_view[0]:
+        return None
+    z_span = z_view[1] - z_view[0]
+    for axis in domain_axes:
+        if axis == "z":
+            continue
+        low, high = bounds.get(axis, (None, None))
+        if low is None or high is None or low >= high:
+            continue
+        if (high - low) <= z_span * FLAT_AXIS_RANGE_FRACTION:
+            return "z"
+    return None
 
 
 def infer_single_missing_axis_bounds(

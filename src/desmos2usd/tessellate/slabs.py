@@ -250,43 +250,68 @@ def _flat_region_geometry(
     context: EvalContext,
     resolution: int,
 ) -> GeometryData | None:
-    """Render a 2D inequality region at z=0 when no predicate mentions the third axis.
+    """Render a 2D inequality region at constant flat-axis when its third axis is locked.
 
-    Desmos 3D renders expressions like `20>y>-20 {-225<x<225}` as a flat ground-plane
-    rectangle rather than extruding to a viewport-sized 3D volume. We mirror that: when
-    exactly one of (x, y, z) is entirely absent from the inequality and its restrictions,
-    tessellate a flat rectangle at that axis = 0.
+    Desmos 3D renders expressions like ``20>y>-20 {-225<x<225}`` (third axis missing)
+    or ``x^2+y^2<=4 {z=0}`` (third axis locked to a constant) as a flat region in the
+    other two axes — not as a viewport-sized 3D volume. Two cases satisfy this:
+
+    * The third axis is entirely absent from the inequality and its restrictions; we
+      flatten that axis at 0.
+    * The third axis appears only as a constant equality (e.g. ``z=0``); we flatten at
+      that constant.
+
+    Without this, ``x^2+y^2<=4 {z=0}`` falls through every 3D extrusion path and is
+    reported as ``did not resolve to sampled cells``.
     """
-    referenced = _referenced_axes(item)
-    missing = [axis for axis in ("x", "y", "z") if axis not in referenced]
-    if len(missing) != 1:
-        return None
-    flat_axis = missing[0]
     bounds = collect_constant_bounds(item.predicates, context)
+    flat_axis, flat_value = _detect_flat_axis(item, bounds)
+    if flat_axis is None or flat_value is None:
+        return None
     shape_axes = [axis for axis in ("x", "y", "z") if axis != flat_axis]
-    ranges: dict[str, tuple[float, float]] = {}
+    seed_ranges: dict[str, tuple[float, float]] = {}
     for axis in shape_axes:
         low, high = bounds.get(axis, (None, None))
         if low is None or high is None or low >= high:
+            seed_ranges[axis] = _flat_shape_axis_range(item, context, axis)
+        else:
+            seed_ranges[axis] = (low, high)
+        if seed_ranges[axis][0] >= seed_ranges[axis][1]:
             return None
-        ranges[axis] = (low, high)
     a_axis, b_axis = shape_axes
-    a_values = linspace(ranges[a_axis][0], ranges[a_axis][1], resolution)
-    b_values = linspace(ranges[b_axis][0], ranges[b_axis][1], resolution)
+    # Pre-scan the seed bbox for satisfied points and tighten the sampling window.
+    # Without this, a small region (e.g. radius 2 inside a span-of-5 seed) wastes most
+    # of the grid on the invalid corners and produces only a single inner cell.
+    sampling = _refine_flat_region_window(
+        item,
+        context,
+        a_axis,
+        b_axis,
+        flat_axis,
+        flat_value,
+        seed_ranges[a_axis],
+        seed_ranges[b_axis],
+    )
+    if sampling is None:
+        return None
+    a_low, a_high, b_low, b_high = sampling
+    grid = max(resolution, 16)
+    a_values = linspace(a_low, a_high, grid)
+    b_values = linspace(b_low, b_high, grid)
     points: list[Point] = []
     valid_grid: list[list[bool]] = []
     for b in b_values:
         row_valid: list[bool] = []
         for a in a_values:
-            variables = {a_axis: a, b_axis: b, flat_axis: 0.0}
+            variables = {a_axis: a, b_axis: b, flat_axis: flat_value}
             points.append((variables["x"], variables["y"], variables["z"]))
             row_valid.append(all(predicate.evaluate(context, variables, tol=1e-5) for predicate in item.predicates))
         valid_grid.append(row_valid)
     counts: list[int] = []
     indices: list[int] = []
-    width = resolution
-    for row in range(resolution - 1):
-        for col in range(resolution - 1):
+    width = grid
+    for row in range(grid - 1):
+        for col in range(grid - 1):
             if not all(
                 (
                     valid_grid[row][col],
@@ -302,6 +327,86 @@ def _flat_region_geometry(
     if not counts:
         return None
     return GeometryData(kind="Mesh", points=points, face_vertex_counts=counts, face_vertex_indices=indices)
+
+
+def _refine_flat_region_window(
+    item: ClassifiedExpression,
+    context: EvalContext,
+    a_axis: str,
+    b_axis: str,
+    flat_axis: str,
+    flat_value: float,
+    a_seed: tuple[float, float],
+    b_seed: tuple[float, float],
+) -> tuple[float, float, float, float] | None:
+    scan = 32
+    a_samples = linspace(a_seed[0], a_seed[1], scan)
+    b_samples = linspace(b_seed[0], b_seed[1], scan)
+    a_min: float | None = None
+    a_max: float | None = None
+    b_min: float | None = None
+    b_max: float | None = None
+    for b in b_samples:
+        for a in a_samples:
+            variables = {a_axis: a, b_axis: b, flat_axis: flat_value}
+            if all(predicate.evaluate(context, variables, tol=1e-5) for predicate in item.predicates):
+                a_min = a if a_min is None else min(a_min, a)
+                a_max = a if a_max is None else max(a_max, a)
+                b_min = b if b_min is None else min(b_min, b)
+                b_max = b if b_max is None else max(b_max, b)
+    if a_min is None:
+        return None
+    pad_a = (a_seed[1] - a_seed[0]) / max(1, scan - 1)
+    pad_b = (b_seed[1] - b_seed[0]) / max(1, scan - 1)
+    return (
+        max(a_seed[0], a_min - 2 * pad_a),
+        min(a_seed[1], a_max + 2 * pad_a),
+        max(b_seed[0], b_min - 2 * pad_b),
+        min(b_seed[1], b_max + 2 * pad_b),
+    )
+
+
+def _detect_flat_axis(
+    item: ClassifiedExpression,
+    bounds: dict[str, tuple[float | None, float | None]],
+) -> tuple[str | None, float | None]:
+    referenced = _referenced_axes(item)
+    missing = [axis for axis in ("x", "y", "z") if axis not in referenced]
+    if len(missing) == 1:
+        return missing[0], 0.0
+    constant_axes = [
+        axis
+        for axis in ("x", "y", "z")
+        if bounds.get(axis, (None, None))[0] is not None
+        and bounds[axis][0] == bounds[axis][1]
+    ]
+    if len(constant_axes) == 1:
+        axis = constant_axes[0]
+        return axis, float(bounds[axis][0])
+    return None, None
+
+
+def _flat_shape_axis_range(
+    item: ClassifiedExpression,
+    context: EvalContext,
+    axis: str,
+) -> tuple[float, float]:
+    """Bound a shape axis from the inequality's numeric constants.
+
+    For inequalities like ``x^2+y^2<=4`` no axis bounds appear in predicates, but the
+    constants in the inequality terms (4 → sqrt(4)=2) imply a tight enclosing range.
+    Using the viewport here would re-introduce the very tall-sheet bug we are fixing
+    (the disk would sample a 24-unit window for a radius-2 region).
+    """
+    constants: list[float] = list(numeric_constants_for_item(item))
+    if not constants:
+        viewport = item.ir.source.viewport_bounds or {}
+        return viewport.get(axis, DEFAULT_BOUNDS)
+    abs_constants = [abs(value) for value in constants if value is not None]
+    abs_constants += [abs(value) ** 0.5 for value in abs_constants]
+    span = max(abs_constants) if abs_constants else 1.0
+    span = max(span * 1.25, 0.5)
+    return (-span, span)
 
 
 def infer_2d_region_bounds(

@@ -13,6 +13,14 @@ AXES = ("x", "y", "z")
 ISO_TOL = 1e-9
 
 
+def _axis_referenced_by_predicates(item: ClassifiedExpression, axis: str) -> bool:
+    for predicate in item.predicates:
+        for term in predicate.terms:
+            if axis in term.identifiers:
+                return True
+    return False
+
+
 def tessellate_implicit_surface(item: ClassifiedExpression, context: EvalContext, resolution: int = 18) -> GeometryData:
     if item.expression is None:
         raise ValueError("implicit surface missing residual expression")
@@ -30,9 +38,34 @@ def tessellate_implicit_surface(item: ClassifiedExpression, context: EvalContext
     a_axis, b_axis = residual_axes
     a_low, a_high = axis_bounds(a_axis, bounds, viewport)
     b_low, b_high = axis_bounds(b_axis, bounds, viewport)
-    e_low, e_high = implicit_axis_bounds(extrude_axis, bounds, viewport)
+    # Desmos 3D convention: an implicit equation that doesn't mention one of (x, y, z) and has
+    # no restriction on it is a 2D shape rendered at that axis = 0, not extruded across the
+    # full viewport. Without this, expressions like `abs(x-y)+abs(x+y)=2.4 {x^2+y^2 in annulus}`
+    # become full-height vertical sheets that dominate the scene.
+    if not _axis_referenced_by_predicates(item, extrude_axis):
+        e_low, e_high = 0.0, 0.0
+    else:
+        e_low, e_high = implicit_axis_bounds(extrude_axis, bounds, viewport)
     if e_low == e_high:
         e_high = e_low + 1e-4
+    # When a residual axis falls back to the viewport (no predicate constraint), refine it
+    # toward the iso-curve so a small contour (e.g. radius 1.27 in viewport ±12) is not lost
+    # entirely between coarse cells.
+    a_predicate_bounded = a_axis in bounds and bounds[a_axis] != (None, None)
+    b_predicate_bounded = b_axis in bounds and bounds[b_axis] != (None, None)
+    if not (a_predicate_bounded and b_predicate_bounded):
+        refined = _refine_iso_window(
+            item.expression,
+            context,
+            a_axis,
+            b_axis,
+            extrude_axis,
+            (e_low + e_high) / 2.0,
+            (a_low, a_high),
+            (b_low, b_high),
+        )
+        if refined is not None:
+            a_low, a_high, b_low, b_high = refined
     a_values = linspace(a_low, a_high, max(6, resolution))
     b_values = linspace(b_low, b_high, max(6, resolution))
     segments: list[tuple[tuple[float, float], tuple[float, float]]] = []
@@ -87,6 +120,75 @@ def implicit_axis_bounds(axis: str, bounds: dict[str, tuple[float | None, float 
     if low < high:
         return low, high
     return low, low
+
+
+def _refine_iso_window(
+    expression,
+    context: EvalContext,
+    a_axis: str,
+    b_axis: str,
+    extrude_axis: str,
+    extrude_value: float,
+    a_seed: tuple[float, float],
+    b_seed: tuple[float, float],
+    scan: int = 32,
+) -> tuple[float, float, float, float] | None:
+    """Tighten residual axes around the iso-curve sign change for unrestricted 2D contours.
+
+    For a viewport-default residual axis, an ``abs(x)+abs(y)=1.27`` contour can fall entirely
+    inside a single coarse cell (no sign change between corners → marching squares emits
+    nothing). We coarse-scan the seed window for sign changes and shrink to the bbox of
+    those changes so the main pass actually crosses the iso-line.
+    """
+    a_samples = linspace(a_seed[0], a_seed[1], scan)
+    b_samples = linspace(b_seed[0], b_seed[1], scan)
+    rows: list[list[float | None]] = []
+    for b in b_samples:
+        row: list[float | None] = []
+        for a in a_samples:
+            variables = {a_axis: a, b_axis: b, extrude_axis: extrude_value}
+            try:
+                row.append(float(expression.eval(context, variables)))
+            except Exception:
+                row.append(None)
+        rows.append(row)
+    a_min: float | None = None
+    a_max: float | None = None
+    b_min: float | None = None
+    b_max: float | None = None
+    for row in range(len(b_samples)):
+        for col in range(len(a_samples)):
+            value = rows[row][col]
+            if value is None:
+                continue
+            neighbors: list[float] = []
+            if col + 1 < len(a_samples):
+                right = rows[row][col + 1]
+                if right is not None:
+                    neighbors.append(right)
+            if row + 1 < len(b_samples):
+                below = rows[row + 1][col]
+                if below is not None:
+                    neighbors.append(below)
+            for neighbor in neighbors:
+                if value == 0 or neighbor == 0 or (value < 0) != (neighbor < 0):
+                    a_val = a_samples[col]
+                    b_val = b_samples[row]
+                    a_min = a_val if a_min is None else min(a_min, a_val)
+                    a_max = a_val if a_max is None else max(a_max, a_val)
+                    b_min = b_val if b_min is None else min(b_min, b_val)
+                    b_max = b_val if b_max is None else max(b_max, b_val)
+                    break
+    if a_min is None or b_min is None:
+        return None
+    pad_a = (a_seed[1] - a_seed[0]) / max(1, scan - 1)
+    pad_b = (b_seed[1] - b_seed[0]) / max(1, scan - 1)
+    return (
+        max(a_seed[0], a_min - 2 * pad_a),
+        min(a_seed[1], a_max + 2 * pad_a),
+        max(b_seed[0], b_min - 2 * pad_b),
+        min(b_seed[1], b_max + 2 * pad_b),
+    )
 
 
 def contour_cell_edges(corners: list[tuple[float, float, float]]) -> list[tuple[float, float]]:

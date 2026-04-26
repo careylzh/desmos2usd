@@ -433,6 +433,105 @@ class StudentFixtureRegressionTests(unittest.TestCase):
         self.assertIn("(1, 0, 0)", text)
         self.assertIn('interpolation = "constant"', text)
 
+    def test_s208_2d_implicit_no_z_renders_flat_at_z0(self) -> None:
+        """S2-08 Group E: ``abs(x-y)+abs(x+y)=2.4 {1.3^2 <= x^2+y^2 <= 1.8^2}`` is a 2D
+        contour with no z reference. Pre-fix the marching-squares fallback extruded it
+        across the full viewport ``z=[-11.91, 11.91]``, producing a tall vertical sheet
+        that dominated the viewer. It must collapse to a flat shape at z=0 instead.
+        """
+        source = SourceInfo(
+            "", "", "", "", viewport_bounds={"x": (-12.0, 12.0), "y": (-12.0, 12.0), "z": (-12.0, 12.0)}
+        )
+        item = classify_expression(
+            ExpressionIR(
+                source,
+                "1",
+                0,
+                r"\operatorname{abs}\left(x-y\right)+\operatorname{abs}\left(x+y\right)=2.4\left\{1.3^{2}\le\ x^{2}+y^{2}\le1.8^{2\ }\right\}",
+            ),
+            EvalContext(),
+        )
+
+        geometry = tessellate(item, EvalContext(), resolution=12)
+        self.assertEqual(item.kind, "implicit_surface")
+        self.assertGreater(geometry.face_count, 0)
+        z_values = [point[2] for point in geometry.points]
+        self.assertLess(max(z_values) - min(z_values), 1e-2)
+        self.assertLess(abs(max(z_values)), 1e-3)
+
+    def test_s208_constant_y_with_small_x_range_renders_flat_at_z0(self) -> None:
+        """S2-08 Group E: ``y=0.4 {-1.8 <= x <= -1.21}`` is a localized 2D detail (x range
+        << viewport z span). Pre-fix the explicit-surface tessellator extruded it across
+        ``viewport_bounds["z"]`` and produced a viewport-tall wall. It must render as a
+        thin strip at z=0.
+        """
+        source = SourceInfo(
+            "", "", "", "", viewport_bounds={"x": (-12.0, 12.0), "y": (-12.0, 12.0), "z": (-12.0, 12.0)}
+        )
+        item = classify_expression(
+            ExpressionIR(source, "1", 0, r"y=0.4\left\{-1.8\le x\le-1.21\right\}"),
+            EvalContext(),
+        )
+
+        geometry = tessellate(item, EvalContext(), resolution=12)
+        self.assertEqual(item.kind, "explicit_surface")
+        self.assertGreater(geometry.face_count, 0)
+        z_values = [point[2] for point in geometry.points]
+        self.assertLess(max(z_values) - min(z_values), 1e-2)
+        x_values = [point[0] for point in geometry.points]
+        # Honor the constraint range (and the boundary nudge) instead of the viewport.
+        self.assertGreaterEqual(min(x_values), -1.81)
+        self.assertLessEqual(max(x_values), -1.20)
+
+    def test_s208_disk_inequality_at_constant_z_renders_as_flat_disk(self) -> None:
+        """S2-08 Group E: ``x^2+y^2 <= 4 {z=0}`` is a flat disk in the xy plane at z=0.
+        Pre-fix every fallback path either rejected it (no extrusion axis) or wrote an
+        empty geometry, leaving the fixture with three "did not resolve to sampled
+        cells" unsupported entries. The flat-region path must produce a circular disk.
+        """
+        source = SourceInfo(
+            "", "", "", "", viewport_bounds={"x": (-12.0, 12.0), "y": (-12.0, 12.0), "z": (-12.0, 12.0)}
+        )
+        item = classify_expression(
+            ExpressionIR(source, "1", 0, r"x^{2}+y^{2}\le4\left\{z=0\right\}"),
+            EvalContext(),
+        )
+
+        geometry = tessellate(item, EvalContext(), resolution=12)
+        self.assertEqual(item.kind, "inequality_region")
+        self.assertGreater(geometry.face_count, 4)
+        z_values = [point[2] for point in geometry.points]
+        self.assertEqual(min(z_values), 0.0)
+        self.assertEqual(max(z_values), 0.0)
+        x_values = [point[0] for point in geometry.points]
+        y_values = [point[1] for point in geometry.points]
+        # The inferred sampling window should hug the disk bounds (radius 2), not viewport.
+        self.assertLess(max(x_values), 3.0)
+        self.assertGreater(min(x_values), -3.0)
+        self.assertLess(max(y_values), 3.0)
+        self.assertGreater(min(y_values), -3.0)
+
+    def test_s208_disk_at_z_constant_uses_predicate_value_not_zero(self) -> None:
+        """S2-08 Group E: ``x^2+y^2+x <= 1.5 {z=8}`` is a flat region at z=8 (the top of
+        the leaning tower). The flat-region path must read the constant value from the
+        ``z=8`` predicate, not default to z=0.
+        """
+        source = SourceInfo(
+            "", "", "", "", viewport_bounds={"x": (-12.0, 12.0), "y": (-12.0, 12.0), "z": (-12.0, 12.0)}
+        )
+        item = classify_expression(
+            ExpressionIR(source, "1", 0, r"x^{2}+y^{2}+x\le1.5\left\{z=8\right\}"),
+            EvalContext(),
+        )
+
+        geometry = tessellate(item, EvalContext(), resolution=12)
+        self.assertEqual(item.kind, "inequality_region")
+        self.assertGreater(geometry.face_count, 0)
+        z_values = [point[2] for point in geometry.points]
+        self.assertEqual(min(z_values), 8.0)
+        self.assertEqual(max(z_values), 8.0)
+
+
 def has_coplanar_face(geometry, axis: int, value: float) -> bool:
     cursor = 0
     for count in geometry.face_vertex_counts:

@@ -1,3 +1,102 @@
+# Handoff: 2026-04-26 21:30 SGT — S2-08E Pass 3 (visual parity)
+
+## Active Task
+
+Make S2-08 Group E visually match the Desmos leaning tower in the live viewer, not just
+improve metrics. Pass 2 cut unsupported from 45 to 5 but the live screenshot still showed a
+tall column of vertical sheets extending below the ground; pass 3 turns the viewer output
+into a recognizable leaning tower bounded to the correct z range.
+
+## Root Cause
+
+Two distinct bugs combined to produce the tall-sheet appearance:
+
+1. **2D-only expressions extruded across the viewport.** Desmos 3D renders an equation that
+   doesn't mention one of `(x, y, z)` and has no restriction on it as a flat shape at
+   that axis = 0. Our `tessellate_implicit_surface` 2-axis case and our
+   `tessellate_explicit_surface` were both falling back to `viewport_bounds` for the
+   missing axis, producing viewport-tall sheets for expressions like
+   `abs(x-y)+abs(x+y)=2.4 {x^2+y^2 in annulus}` and `y=0.4 {-1.8 <= x <= -1.21}`.
+2. **Flat-disk inequalities at a constant z had no working code path.** `x^2+y^2 <= 4 {z=0}`
+   fell through every fallback (extrusion, band, box, voxel) because every path needed an
+   axis with `low < high` for the extrude direction. The fixture suite reported
+   "Inequality region for 80 did not resolve to sampled cells" for three such disks.
+
+## What Changed
+
+- `src/desmos2usd/tessellate/implicit.py` — implicit 2-axis case now collapses the missing
+  axis to 0 when no predicate references it (the Desmos 3D 2D-in-3D convention). Added
+  `_refine_iso_window` that scans for sign changes in the residual so an unbounded 2D
+  contour like `abs(x)+abs(y)=1.27` is found instead of being lost between coarse cells.
+- `src/desmos2usd/tessellate/surfaces.py` — added `_explicit_flat_axis`, gated by
+  `FLAT_AXIS_RANGE_FRACTION = 0.10`. An explicit `y=0.4 {-1.8 <= x <= -1.21}` (constraint
+  range << viewport z span) collapses to a thin strip at z=0; the road-wall case
+  `y=20 {-225 < x < 225}` (constraint exceeds viewport) keeps its viewport extrusion.
+  The degenerate-axis nudge only fires for flat-axis collapses, not for predicate-derived
+  `(N, N)` ranges, so `z=18` predicates still land at exactly z=18.
+- `src/desmos2usd/tessellate/slabs.py` — `_flat_region_geometry` now treats either a
+  missing axis or a constant-bounded predicate axis as the flat axis, infers shape-axis
+  bounds from inequality numeric constants when predicates don't supply them, and tightens
+  the sampling window via `_refine_flat_region_window`.
+- `tests/test_student_fixture_regressions.py` — four new regression tests covering each
+  category (2D implicit no z, constant `y=` with small x range, flat disk at z=0, flat disk
+  at z=8). Each fails on the pass-2 code and passes on pass 3.
+
+## Validation
+
+- `PYTHONPATH=src:tests python3 -m unittest discover tests` → 102 tests, OK.
+- Existing `test_k0fbxxwkqf_side_planes_use_viewport_for_unconstrained_z` still passes,
+  confirming the road-wall semantics are preserved.
+- Full `[4B]` fixture sweep at resolution=12: 24 success / 47 partial / 0 error (unchanged
+  totals from pass 2). Per-fixture deltas relative to pass 2:
+  - **S2-08 Group E**: 78 → 81 prims, 5 → 2 unsupported (PRIMARY TARGET).
+  - **S2-04 Group C**: 19 → 21 prims, 3 → 1 unsupported.
+  - **S2-04 Group G**: 39 → 44 prims, 41 → 36 unsupported.
+  - **S2-09 Group F**: 27 → 27 prims, 0 → 0 unsupported (regression guard intact).
+  - All other 67 fixtures: identical prim/unsupported counts.
+- USDA prim audit on regenerated S2-08E: zero prims now extend `z` to viewport
+  `[-11.91, 11.91]`. Tallest non-floor `z` span is 8 (the radius-0.06 pillars that run from
+  z=0 to z=8, by design).
+
+## Visual evidence
+
+- `artifacts/fixture_usdz/review_evidence/20260426_s208_group_e_pass3_live/`:
+  - `S2-08_Group_E_viewer_pass3.png` — live viewer screenshot showing a recognizable
+    leaning tower with caps, pillars, and base disks above the ground plane.
+  - `S2-08_Group_E_three_projection_local.png` — XY/XZ/YZ deterministic projection.
+  - `S2-09_Group_F_viewer_regression.png` — S2-09F still renders the orange/red lattice.
+  - `assessment.md`, `capture-results.json`.
+
+## Risks or Open Questions
+
+- [ ] S2-08E remaining 2 unsupported are 196/197 (`abs(x)+abs(x)=...`,
+      `abs(y)+abs(y)=...`). These are degenerate Desmos LaTeX (likely a typo for
+      `abs(x)+abs(y)=...`) and are mathematically equivalent to `x = ±N/2`,
+      a single-axis equation. The classifier correctly rejects them.
+- [ ] The new `FLAT_AXIS_RANGE_FRACTION = 0.10` threshold is a heuristic that may need
+      tuning if a future fixture has a wall-like surface whose constraint range is
+      between 10% and 100% of the viewport.
+- [ ] The implicit 2-axis path's `_refine_iso_window` only scans 32 samples per axis;
+      contours with fine detail relative to the seed window may miss features. The
+      existing 3-axis path has more aggressive bbox refinement; if a future fixture
+      regresses on a fine 2D shape, port that refinement too.
+
+## Recommended Next Wake
+
+Either: (a) add a 1D-curve render path for explicit `y=N {tiny x range}` expressions so
+they show as visible lines instead of paper-thin strips, OR (b) keep walking the partial
+list — biggest remaining unsupported counts after pass 3 are S2-04 Group G (36),
+S2-08 Group G, and S2-10 Group F.
+
+## User-Facing Update
+
+S2-08 Group E now visually matches the Desmos leaning tower in the live viewer. Prim
+count 78 → 81, unsupported 5 → 2; the previously-tall vertical-sheet artifacts are gone
+and the tower stands on the ground plane with caps, pillars and base disks visible.
+S2-09 Group F regression guard intact.
+
+---
+
 # Handoff: 2026-04-26 19:30 SGT — S2-08E Pass 2
 
 ## Active Task

@@ -1,0 +1,32 @@
+{
+  "captured_at": "2026-04-26T21:18:00Z",
+  "fixture": "[4B] 3D Diagram - S2-08 Group E.json",
+  "viewer_url": "http://127.0.0.1:8765/viewer/?usda=..%2Fartifacts%2Ffixture_usdz%2F%5B4B%5D%203D%20Diagram%20-%20S2-08%20Group%20E.usda&label=%5B4B%5D%203D%20Diagram%20-%20S2-08%20Group%20E",
+  "tool": "chrome-devtools mcp",
+  "screenshots": {
+    "S2-08_Group_E_desmos.png": "Desmos reference (copied from pass 2)",
+    "S2-08_Group_E_viewer_pass3.png": "Live WebGL viewer after pass 3 fix; recognizable leaning tower",
+    "S2-08_Group_E_three_projection_local.png": "Local deterministic XY/XZ/YZ projection",
+    "S2-09_Group_F_viewer_regression.png": "S2-09 Group F live viewer regression check; unchanged"
+  },
+  "metrics": {
+    "S2-08_Group_E": {
+      "prim_count_before": 78,
+      "prim_count_after": 81,
+      "unsupported_before": 5,
+      "unsupported_after": 2,
+      "status": "partial",
+      "remaining_unsupported": ["196 (abs(x)+abs(x))", "197 (abs(y)+abs(y))"]
+    },
+    "S2-09_Group_F": {
+      "prim_count_before": 27,
+      "prim_count_after": 27,
+      "unsupported_before": 0,
+      "unsupported_after": 0,
+      "status": "success"
+    }
+  },
+  "tests_run": "PYTHONPATH=src:tests python3 -m unittest discover -s tests",
+  "tests_passed": 102,
+  "tests_failed": 0
+}

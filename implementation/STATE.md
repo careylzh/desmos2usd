@@ -1,6 +1,26 @@
 # Implementation State
 
-Last updated: 2026-04-26 19:30 SGT (pass 2)
+Last updated: 2026-04-26 21:30 SGT (pass 3 — visual parity)
+
+## Pass 3 Summary
+
+S2-08 Group E now renders as a recognizable leaning tower of stacked rings/caps in the live
+viewer, replacing pass 2's tall-sheet visual failure. Three tessellator changes:
+
+- 2D-only implicit equations collapse the missing axis to 0 instead of extruding through
+  `viewport_bounds`, matching Desmos 3D's flat-shape convention.
+- Explicit `y=N {small x range}` likewise collapses z to 0 when the constraint range is
+  tiny relative to viewport (gated by `FLAT_AXIS_RANGE_FRACTION = 0.10` so road-wall
+  fixtures like k0fbxxwkqf keep their viewport extrusion).
+- Flat-disk inequalities `f(x,y) <= N {z=K}` now have a working code path via
+  `_flat_region_geometry`, which detects either a missing axis or a constant-bounded
+  predicate axis as the flat axis.
+
+S2-08E: 78→81 prims, 5→2 unsupported. S2-09F: unchanged (27 prims, 0 unsupported). All 102
+tests pass; full sweep totals 24 success / 47 partial / 0 error (same as pass 2 totals).
+Live viewer evidence at `artifacts/fixture_usdz/review_evidence/20260426_s208_group_e_pass3_live/`.
+
+---
 
 ## Loop Mode
 - cadence: 10 one-shot cron wakes, 30 minutes apart
