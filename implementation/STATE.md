@@ -94,12 +94,18 @@ Last updated: 2026-04-26 11:20 SGT
 - Direct browser/Desmos rendering may be flaky; if live Desmos cannot be loaded, use frozen state plus local viewer/artifact structural evidence and say so.
 - Live Desmos DNS failed during this wake; continue recording exact live-check failures and do not claim visual parity without an actual live/browser comparison.
 - Main checkout Git index writes may be blocked in Codex sandbox runs; use a writable temporary clone for commit/push if needed.
+- GitHub SSH push from the temporary clone failed during this wake because `github.com` could not be resolved.
 
 ## Last Wake
 - timestamp: 2026-04-26 11:20 SGT
-- result: fixed degree-mode trig evaluation and bounded circular extrusion, regenerated full fixture artifacts/report evidence, and prepared commit/push from a temporary clone because the main checkout cannot write `.git/index.lock`
+- result: fixed degree-mode trig evaluation and bounded circular extrusion, regenerated full fixture artifacts/report evidence, and committed the coherent change as `8dcdd14` from a temporary clone because the main checkout cannot write `.git/index.lock`
 - validation:
   - `PYTHONPATH=src python3 -m desmos2usd.validate.fixture_usdz_suite --out artifacts/fixture_usdz --resolution 8 --no-validate-usdz` passed: 71 fixtures, 21 success, 50 partial, 0 error, 71 USDZ present.
   - `PYTHONPATH=src python3 -m desmos2usd.validate.csv_fixture_report --expect-rows 66 --live-note ...` passed: 66 CSV rows, 17 success, 49 partial, 66 USDZ present.
   - `PYTHONPATH=src:tests python3 -m unittest discover -s tests` passed: 91 tests, OK.
   - `git diff --check` passed.
+- commit/push:
+  - Temporary clone: `/tmp/desmos2usd-degree-commit.wTB39I/repo`
+  - Commit: `8dcdd14` (`Support degree-mode circular fixture exports`)
+  - Push command attempted: `git push chektien HEAD:fix/student-fixture-usdz-export`
+  - Push result: blocked, `ssh: Could not resolve hostname github.com: -65563`
