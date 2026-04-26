@@ -16,6 +16,7 @@ class EvalContext:
     degree_mode: bool = False
     scalars: dict[str, float] = field(default_factory=dict)
     lists: dict[str, tuple[float, ...]] = field(default_factory=dict)
+    point_lists: dict[str, tuple[tuple[float, ...], ...]] = field(default_factory=dict)
     vectors: dict[str, tuple[float, float, float]] = field(default_factory=dict)
     functions: dict[str, FunctionDef] = field(default_factory=dict)
     colors: dict[str, tuple[int, int, int]] = field(default_factory=dict)

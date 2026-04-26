@@ -364,10 +364,17 @@ def register_component_definition(name: str, components: list[str], context: Eva
 
 def parse_point_list_definition(text: str, context: EvalContext) -> list[tuple[float, ...]] | None:
     stripped = normalize_latex_delimiters(text).strip()
-    if not (stripped.startswith("[") and stripped.endswith("]")):
+    bracketed = stripped.startswith("[") and stripped.endswith("]")
+    if bracketed:
+        body = stripped[1:-1]
+    else:
+        body = stripped
+        if len(split_top_level(body, ",")) < 2:
+            return None
+    if not body:
         return None
     points: list[tuple[float, ...]] = []
-    for part in split_top_level(stripped[1:-1], ","):
+    for part in split_top_level(body, ","):
         if not part:
             continue
         components = parse_tuple_definition_components(part)
@@ -386,6 +393,7 @@ def register_point_list_definition(name: str, points: list[tuple[float, ...]], c
     widths = {len(point) for point in points}
     if len(widths) != 1:
         raise ValueError(f"Point list {name} has inconsistent tuple sizes")
+    context.point_lists[name] = tuple(points)
     axes = "xyz"[: widths.pop()]
     for axis_index, axis in enumerate(axes):
         context.lists[f"{name}_{axis}"] = tuple(point[axis_index] for point in points)
@@ -657,6 +665,27 @@ def parse_literal_scalar_list(text: str, context: EvalContext) -> tuple[float, .
 def replace_list_index_references(text: str, context: EvalContext) -> str:
     resolved = normalize_latex_delimiters(text)
     changed = False
+    for name in sorted(context.point_lists, key=len, reverse=True):
+        pattern = latex_identifier_index_pattern(name)
+
+        def replace_point(match: re.Match[str]) -> str:
+            nonlocal changed
+            index_text = match.group(1)
+            try:
+                value = LatexExpression.parse(index_text).eval(context, {})
+            except Exception:
+                return match.group(0)
+            index = int(round(value))
+            if abs(value - index) > 1e-9:
+                return match.group(0)
+            zero_based = index - 1
+            values = context.point_lists[name]
+            if zero_based < 0 or zero_based >= len(values):
+                raise ValueError(f"Point list index {index} out of range for {name}")
+            changed = True
+            return "(" + ",".join(repr(component) for component in values[zero_based]) + ")"
+
+        resolved = re.sub(pattern, replace_point, resolved)
     for name in sorted(context.lists, key=len, reverse=True):
         pattern = latex_identifier_index_pattern(name)
 
@@ -688,6 +717,9 @@ def literal_scalar_list_spans(text: str, context: EvalContext) -> list[tuple[int
         if text[index] != "[":
             index += 1
             continue
+        if is_latex_index_bracket(text, index):
+            index += 1
+            continue
         end = find_matching_square_bracket(text, index)
         if end < 0:
             index += 1
@@ -699,6 +731,43 @@ def literal_scalar_list_spans(text: str, context: EvalContext) -> list[tuple[int
             continue
         index += 1
     return spans
+
+
+def is_latex_index_bracket(text: str, bracket_index: int) -> bool:
+    index = bracket_index - 1
+    while index >= 0 and text[index].isspace():
+        index -= 1
+    if index < 0:
+        return False
+    command_start = index
+    while command_start >= 0 and text[command_start].isalpha():
+        command_start -= 1
+    if command_start >= 0 and text[command_start] == "\\":
+        command_name = text[command_start + 1 : index + 1]
+        if command_name != "left":
+            return False
+        before_command = command_start - 1
+        while before_command >= 0 and text[before_command].isspace():
+            before_command -= 1
+        if before_command < 0:
+            return False
+        previous = text[before_command]
+        if is_latex_command_word_at(text, before_command):
+            return False
+        return previous.isalnum() or previous in "_}"
+    previous = text[index]
+    if is_latex_command_word_at(text, index):
+        return False
+    return previous.isalnum() or previous in "_}"
+
+
+def is_latex_command_word_at(text: str, index: int) -> bool:
+    if index < 0 or not text[index].isalpha():
+        return False
+    word_start = index
+    while word_start >= 0 and text[word_start].isalpha():
+        word_start -= 1
+    return word_start >= 0 and text[word_start] == "\\"
 
 
 def find_matching_square_bracket(text: str, start: int) -> int:
@@ -900,11 +969,13 @@ def expand_list_expression(expr: ExpressionIR, context: EvalContext) -> list[Exp
         latex = main
         for name in names:
             latex = replace_latex_identifier(latex, name, repr(context.lists[name][index]))
+        latex = replace_list_index_references(latex, context)
         expanded_restrictions: list[str] = []
         for restriction in restriction_texts:
             replaced_restriction = restriction
             for name in names:
                 replaced_restriction = replace_latex_identifier(replaced_restriction, name, repr(context.lists[name][index]))
+            replaced_restriction = replace_list_index_references(replaced_restriction, context)
             expanded_restrictions.append(select_broadcast_restriction(replaced_restriction, index, count))
         raw = dict(expr.raw)
         raw["expandedFromListExpression"] = expr.expr_id

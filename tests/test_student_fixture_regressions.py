@@ -110,6 +110,43 @@ class StudentFixtureRegressionTests(unittest.TestCase):
         self.assertEqual(geometry.kind, "Mesh")
         self.assertEqual(geometry.points[0], (6.0, 117.0, 15.0))
 
+    def test_point_list_index_components_feed_triangle_meshes(self) -> None:
+        graph = GraphIR(
+            source=SOURCE,
+            expressions=[
+                expr("1", r"A=\left[(0,0,0),(1,0,0),(0,1,0)\right]"),
+                expr("2", r"B=\left[(1,2,3),(1,3,2)\right]"),
+                expr("3", r"\operatorname{triangle}(A[B.x],A[B.y],A[B.z])"),
+            ],
+            raw_state={},
+        )
+
+        classification, unsupported = classify_graph_tolerant(graph)
+
+        self.assertEqual(unsupported, [])
+        self.assertEqual([item.ir.expr_id for item in classification.classified], ["3_0", "3_1"])
+        first = tessellate(classification.classified[0], classification.context)
+        self.assertEqual(first.kind, "Mesh")
+        self.assertEqual(first.points, [(0.0, 0.0, 0.0), (1.0, 0.0, 0.0), (0.0, 1.0, 0.0)])
+
+    def test_unbracketed_point_list_definition_supports_indexing(self) -> None:
+        graph = GraphIR(
+            source=SOURCE,
+            expressions=[
+                expr("1", r"G_{1}=(0,0,0),(1,0,0),(0,1,0)"),
+                expr("2", r"H_{1}=\left[(1,2,3)\right]"),
+                expr("3", r"\operatorname{triangle}(G_{1}[H_{1}.x],G_{1}[H_{1}.y],G_{1}[H_{1}.z])"),
+            ],
+            raw_state={},
+        )
+
+        classification, unsupported = classify_graph_tolerant(graph)
+
+        self.assertEqual(unsupported, [])
+        self.assertEqual(len(classification.classified), 1)
+        geometry = tessellate(classification.classified[0], classification.context)
+        self.assertEqual(geometry.points[-1], (0.0, 1.0, 0.0))
+
     def test_simple_implicit_cylinder_extrudes_to_mesh(self) -> None:
         source = SourceInfo("", "", "", "", viewport_bounds={"x": (-30.0, 0.0), "y": (-10.0, 20.0), "z": (0.0, 60.0)})
         item = classify_expression(
