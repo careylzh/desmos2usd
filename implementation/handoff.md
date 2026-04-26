@@ -1,10 +1,12 @@
-# Handoff: 2026-04-27 03:08 SGT - S2-03D z-band union tranche
+# Handoff: 2026-04-27 03:23 SGT - S2-03D z-band union tranche committed
 
 ## Current Branch State
 - Repo: `/Users/chek/repos/desmos2usd-carey`
 - Branch: `fix/student-fixture-usdz-export`
 - Push target: `chektien:fix/student-fixture-usdz-export`
 - Previous HEAD: `9a939b0 Improve S2-03D list broadcast classification`
+- Current HEAD: `f9de5cd Improve S2-03D z-band restriction expansion`
+- Push status: pushed to `chektien:fix/student-fixture-usdz-export`
 
 ## Completed This Tranche
 - Targeted fixture: `[4B] 3D Diagram - S2-03 Group D.json`
@@ -46,9 +48,9 @@
 - `git diff --check`: passed.
 
 ## Commit / Push
-- Worktree is ready, but Codex could not write `.git`.
-- Exact blocker: `git add ...` failed with `fatal: Unable to create '/Users/chek/repos/desmos2usd-carey/.git/index.lock': Operation not permitted`.
-- No commit was created and nothing was pushed. Next wake/orchestrator should commit and push from the main environment before launching another implementation pass.
+- Harvested dirty run `20260427-024611-1252` was validated from the main environment.
+- Committed and pushed as `f9de5cd Improve S2-03D z-band restriction expansion`.
+- No new implementation pass was launched in the same wake.
 
 ## Remaining Mismatch / Next Wake Instructions
 1. Do not claim visual parity until live Desmos reference screenshots and live viewer screenshots can be captured.

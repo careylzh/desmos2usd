@@ -1,6 +1,6 @@
 # Implementation State
 
-Last updated: 2026-04-27 03:08 SGT
+Last updated: 2026-04-27 03:23 SGT
 
 ## Loop Mode
 - cadence: every 10 minutes via OpenClaw cron
@@ -52,9 +52,9 @@ Last updated: 2026-04-27 03:08 SGT
 7. [ ] Advance to the next input only after the current one is either defensibly fixed or explicitly blocked.
 
 ## Current Baseline
-- HEAD: 9a939b0 Improve S2-03D list broadcast classification
+- HEAD: f9de5cd Improve S2-03D z-band restriction expansion (pushed to `chektien:fix/student-fixture-usdz-export`)
 - summary: 71 fixtures; 25 success, 46 partial, 0 error
-- S2-03 Group D current worktree tranche: 92 unsupported -> 12 unsupported, 269 prims -> 573 prims; live browser/viewer capture blocked, so structural progress only
+- S2-03 Group D committed tranche: 92 unsupported -> 12 unsupported, 269 prims -> 573 prims; live browser/viewer capture blocked, so structural progress only
 - S2-06 Group E pass 5: 321 unsupported -> 57 unsupported, still partial; ccwork approved pass 5 as technically sound
 - S2-08 Group E: success, 83 prims, 0 unsupported; pass-4 visual evidence exists
 - S2-09 Group F: success, 27 prims, 0 unsupported
@@ -70,5 +70,5 @@ Last updated: 2026-04-27 03:08 SGT
 - Do not overlap Codex/ccwork runs.
 
 ## Last Wake
-- timestamp: 2026-04-27 03:08 SGT
-- result: completed raw HOME Codex S2-03D z-band union tranche; focused and full regression validation passed; commit/push blocked because Codex could not create `.git/index.lock` (`Operation not permitted`).
+- timestamp: 2026-04-27 03:23 SGT
+- result: harvested raw HOME Codex S2-03D z-band union tranche; focused and full regression validation passed; committed and pushed as `f9de5cd` from the main environment. No new implementation pass launched in this wake.
