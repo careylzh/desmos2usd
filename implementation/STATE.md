@@ -1,6 +1,6 @@
 # Implementation State
 
-Last updated: 2026-04-26 09:42 SGT
+Last updated: 2026-04-26 09:54 SGT
 
 ## Loop Mode
 - cadence: 10 one-shot cron wakes, 30 minutes apart
@@ -48,7 +48,7 @@ Last updated: 2026-04-26 09:42 SGT
   - `partial_count=52`
 - Recovered support covers Desmos ellipsis lists, scalar formulas over lists, `mod`, `\pi` implicit multiplication, and narrow single-letter implicit multiplication during list expansion.
 - Recovery commit `13c4bff` (`Support Desmos list range fixture expansion`) has been pushed to `chektien:fix/student-fixture-usdz-export`.
-- Main checkout is clean at `13c4bff`.
+- Main checkout is clean at `41147b6`.
 - CSV comparison report `artifacts/fixture_usdz/url_fixture_comparison.md` now maps all 66 original URLs to frozen fixture states and the current fixture sweep reports:
   - CSV rows mapped: `66/66`
   - frozen fixture states present: `66/66`
@@ -87,9 +87,8 @@ Last updated: 2026-04-26 09:42 SGT
 ## Blockers
 - Direct browser/Desmos rendering may be flaky; if live Desmos cannot be loaded, use frozen state plus local viewer/artifact structural evidence and say so.
 - Live Desmos DNS failed during this wake; continue recording exact live-check failures and do not claim visual parity without an actual live/browser comparison.
-- Main checkout Git index writes are blocked in this sandbox (`.git/index.lock: Operation not permitted`); use a writable temporary clone for commit/push if needed.
-- Push to `chektien:fix/student-fixture-usdz-export` failed from the temporary clone because SSH could not resolve GitHub: `ssh: Could not resolve hostname github.com: -65563`.
+- Main checkout Git index writes may be blocked in Codex sandbox runs; use a writable temporary clone for commit/push if needed.
 
 ## Last Wake
-- timestamp: 2026-04-26 09:42 SGT
-- result: fixed variable-adjacent built-in function parsing, regenerated full fixture artifacts/report evidence, created a local temporary-clone commit, and left push blocked by GitHub DNS resolution
+- timestamp: 2026-04-26 09:54 SGT
+- result: fixed variable-adjacent built-in function parsing, regenerated full fixture artifacts/report evidence, and pushed commit `41147b6`

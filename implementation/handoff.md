@@ -1,4 +1,4 @@
-## Handoff: 2026-04-26 09:42 SGT
+## Handoff: 2026-04-26 09:54 SGT
 
 ### Active Task
 - Continue the bounded partial/high-risk fixture improvement cycle from `artifacts/fixture_usdz/url_fixture_comparison.md`.
@@ -11,7 +11,7 @@
 - `S2-03 Group B` (`dstsug13q6`) also improved in the same parser category: status `partial -> success`, unsupported `1 -> 0`, prims `11 -> 12`.
 - CSV comparison evidence is now 66/66 rows mapped, 66/66 USDZ present, 16 success, 50 partial.
 - Live Desmos check still failed: `curl -I --max-time 10 https://www.desmos.com/3d/cvggvbbe73` returned `curl: (6) Could not resolve host: www.desmos.com`; no live visual parity is claimed.
-- Commit was created from a writable temporary clone because the main checkout cannot write `.git/index.lock`; push is blocked by GitHub DNS resolution.
+- Commit `41147b6` (`Support adjacent trig calls in fixture exports`) was pushed to `chektien:fix/student-fixture-usdz-export` after retrying from the temporary clone.
 
 ### Validation
 - `PYTHONPATH=src python3 -m desmos2usd.validate.fixture_usdz_suite --out artifacts/fixture_usdz --resolution 8 --no-validate-usdz` passed: 71 fixtures, 20 success, 51 partial, 0 error, 71 USDZ present.
@@ -26,7 +26,7 @@
 - Prefer SSH remote `git@github.com:chektien/desmos2usd.git` for pushes from this host.
 - Main checkout cannot write `.git/index.lock` under the current sandbox (`Operation not permitted`), so commit/push should be done from a writable temporary clone as in the previous report wake.
 - Nonsemantic `.usdz` repack churn from the full sweep was reverted; only the semantically changed `S2-03 Group B` USD/USDZ artifact remains in the diff.
-- Push attempts from the temporary clone failed with `ssh: Could not resolve hostname github.com: -65563`.
+- Push succeeded after retry from `/tmp/desmos2usd-trig-commit.XWnPpl/repo`.
 
 ### Risks or Open Questions
 - [ ] Direct live Desmos visual comparison may remain DNS-blocked; record exact failure modes and do not claim live visual parity without a real check.
@@ -42,4 +42,4 @@
 - Add focused regression coverage, regenerate affected fixture artifacts and summary/report as needed, run targeted tests, commit/push if coherent.
 
 ### User-Facing Update
-- Variable-adjacent trig parsing is fixed, validated, and locally committed from a temporary clone. Push to `chektien:fix/student-fixture-usdz-export` is blocked by GitHub DNS resolution on this host.
+- Variable-adjacent trig parsing is fixed, validated, and pushed to `chektien:fix/student-fixture-usdz-export` as `41147b6`.
