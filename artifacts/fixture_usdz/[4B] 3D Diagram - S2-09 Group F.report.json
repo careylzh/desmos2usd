@@ -19,10 +19,10 @@
   "usdz_package": {
     "command": [
       "/usr/bin/usdzip",
-      "/Users/chek/repos/desmos2usd-carey/artifacts/fixture_usdz/[4B] 3D Diagram - S2-09 Group F.usdz",
+      "/private/tmp/desmos2usd-carey-visual-20260426-160834/artifacts/fixture_usdz/[4B] 3D Diagram - S2-09 Group F.usdz",
       "[4B] 3D Diagram - S2-09 Group F.usda"
     ],
-    "cwd": "/Users/chek/repos/desmos2usd-carey/artifacts/fixture_usdz",
+    "cwd": "/private/tmp/desmos2usd-carey-visual-20260426-160834/artifacts/fixture_usdz",
     "returncode": 0,
     "stderr": "",
     "stdout": "",

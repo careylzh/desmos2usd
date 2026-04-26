@@ -74,10 +74,10 @@
   "usdz_package": {
     "command": [
       "/usr/bin/usdzip",
-      "/Users/chek/repos/desmos2usd-carey/artifacts/fixture_usdz/[4B] 3D Diagram - S2-03 Group C.usdz",
+      "/private/tmp/desmos2usd-carey-visual-20260426-160834/artifacts/fixture_usdz/[4B] 3D Diagram - S2-03 Group C.usdz",
       "[4B] 3D Diagram - S2-03 Group C.usda"
     ],
-    "cwd": "/Users/chek/repos/desmos2usd-carey/artifacts/fixture_usdz",
+    "cwd": "/private/tmp/desmos2usd-carey-visual-20260426-160834/artifacts/fixture_usdz",
     "returncode": 0,
     "stderr": "",
     "stdout": "",
@@ -190,160 +190,160 @@
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "48",
-      "face_count": 72,
+      "face_count": 90,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 100,
+      "point_count": 118,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "49",
-      "face_count": 72,
+      "face_count": 90,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 100,
+      "point_count": 118,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "50",
-      "face_count": 72,
+      "face_count": 90,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 100,
+      "point_count": 118,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "51",
-      "face_count": 72,
+      "face_count": 90,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 100,
+      "point_count": 118,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "52",
-      "face_count": 72,
+      "face_count": 90,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 100,
+      "point_count": 118,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "53",
-      "face_count": 72,
+      "face_count": 90,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 100,
+      "point_count": 118,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "54",
-      "face_count": 72,
+      "face_count": 90,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 100,
+      "point_count": 118,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "55",
-      "face_count": 72,
+      "face_count": 90,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 100,
+      "point_count": 118,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "56",
-      "face_count": 72,
+      "face_count": 90,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 100,
+      "point_count": 118,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "57",
-      "face_count": 72,
+      "face_count": 90,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 100,
+      "point_count": 118,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "58",
-      "face_count": 72,
+      "face_count": 90,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 100,
+      "point_count": 118,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "59",
-      "face_count": 72,
+      "face_count": 90,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 100,
+      "point_count": 118,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "60",
-      "face_count": 72,
+      "face_count": 90,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 100,
+      "point_count": 118,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "61",
-      "face_count": 72,
+      "face_count": 90,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 100,
+      "point_count": 118,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "62",
-      "face_count": 72,
+      "face_count": 90,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 100,
+      "point_count": 118,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "63",
-      "face_count": 72,
+      "face_count": 90,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 100,
+      "point_count": 118,
       "valid": true
     },
     {
@@ -380,20 +380,20 @@
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "77",
-      "face_count": 72,
+      "face_count": 90,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 100,
+      "point_count": 118,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "76",
-      "face_count": 72,
+      "face_count": 90,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 100,
+      "point_count": 118,
       "valid": true
     },
     {
@@ -420,20 +420,20 @@
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "80",
-      "face_count": 72,
+      "face_count": 90,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 100,
+      "point_count": 118,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "81",
-      "face_count": 72,
+      "face_count": 90,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 100,
+      "point_count": 118,
       "valid": true
     },
     {
@@ -450,20 +450,20 @@
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "83",
-      "face_count": 72,
+      "face_count": 90,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 100,
+      "point_count": 118,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "84",
-      "face_count": 72,
+      "face_count": 90,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 100,
+      "point_count": 118,
       "valid": true
     },
     {
@@ -480,90 +480,90 @@
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "86",
-      "face_count": 72,
+      "face_count": 90,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 100,
+      "point_count": 118,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "87",
-      "face_count": 72,
+      "face_count": 90,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 100,
+      "point_count": 118,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "88",
-      "face_count": 72,
+      "face_count": 90,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 100,
+      "point_count": 118,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "89",
-      "face_count": 72,
+      "face_count": 90,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 100,
+      "point_count": 118,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "90",
-      "face_count": 72,
+      "face_count": 90,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 100,
+      "point_count": 118,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "91",
-      "face_count": 72,
+      "face_count": 90,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 100,
+      "point_count": 118,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "92",
-      "face_count": 72,
+      "face_count": 90,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 100,
+      "point_count": 118,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "93",
-      "face_count": 72,
+      "face_count": 90,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 100,
+      "point_count": 118,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "94",
-      "face_count": 72,
+      "face_count": 90,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 100,
+      "point_count": 118,
       "valid": true
     },
     {
@@ -590,7 +590,7 @@
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "149",
-      "face_count": 12,
+      "face_count": 30,
       "kind": "inequality_region",
       "max_residual": null,
       "point_count": 32,
@@ -670,10 +670,10 @@
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "130",
-      "face_count": 72,
+      "face_count": 90,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 100,
+      "point_count": 118,
       "valid": true
     },
     {
@@ -780,20 +780,20 @@
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "120",
-      "face_count": 64,
+      "face_count": 97,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 100,
+      "point_count": 134,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "125",
-      "face_count": 64,
+      "face_count": 97,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 100,
+      "point_count": 134,
       "valid": true
     },
     {
@@ -850,10 +850,10 @@
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "127",
-      "face_count": 72,
+      "face_count": 90,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 100,
+      "point_count": 118,
       "valid": true
     },
     {
@@ -1050,7 +1050,7 @@
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "156",
-      "face_count": 12,
+      "face_count": 30,
       "kind": "inequality_region",
       "max_residual": null,
       "point_count": 32,
@@ -1306,5 +1306,38 @@
       "point_count": 100,
       "valid": true
     }
-  ]
+  ],
+  "view_metadata": {
+    "axis_3d": [
+      0.0,
+      0.0,
+      -0.9999999999998096
+    ],
+    "three_d_mode": true,
+    "viewport_bounds": {
+      "x": [
+        -140.64289485697833,
+        178.83457326591787
+      ],
+      "y": [
+        -153.77754918834066,
+        165.69991893455554
+      ],
+      "z": [
+        -122.72842385021238,
+        196.74904427268342
+      ]
+    },
+    "world_rotation_3d": [
+      0.34924983496208534,
+      0.912092112385648,
+      0.2147382856009548,
+      -0.7769741722623457,
+      0.4099853394011565,
+      -0.4777270738751953,
+      -0.5237706448591763,
+      -4.548170017461873e-15,
+      0.8518593261705881
+    ]
+  }
 }

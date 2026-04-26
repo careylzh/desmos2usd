@@ -19,10 +19,10 @@
   "usdz_package": {
     "command": [
       "/usr/bin/usdzip",
-      "/Users/chek/repos/desmos2usd-carey/artifacts/fixture_usdz/[4B] 3D Diagram - S2-04 Group E.usdz",
+      "/private/tmp/desmos2usd-carey-visual-20260426-160834/artifacts/fixture_usdz/[4B] 3D Diagram - S2-04 Group E.usdz",
       "[4B] 3D Diagram - S2-04 Group E.usda"
     ],
-    "cwd": "/Users/chek/repos/desmos2usd-carey/artifacts/fixture_usdz",
+    "cwd": "/private/tmp/desmos2usd-carey-visual-20260426-160834/artifacts/fixture_usdz",
     "returncode": 0,
     "stderr": "",
     "stdout": "",
@@ -205,11 +205,44 @@
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "56",
-      "face_count": 12,
+      "face_count": 30,
       "kind": "inequality_region",
       "max_residual": null,
       "point_count": 32,
       "valid": true
     }
-  ]
+  ],
+  "view_metadata": {
+    "axis_3d": [
+      -0.9992554593921881,
+      0.03858143181704016,
+      -3.5004514933332346e-14
+    ],
+    "three_d_mode": true,
+    "viewport_bounds": {
+      "x": [
+        -198.1194218465167,
+        198.1194218465167
+      ],
+      "y": [
+        -198.1194218465167,
+        198.1194218465167
+      ],
+      "z": [
+        -198.1194218465167,
+        198.1194218465167
+      ]
+    },
+    "world_rotation_3d": [
+      0.03853159186509097,
+      -0.9992554593891221,
+      0.001960436019242565,
+      0.9979646093191903,
+      0.03858143181691773,
+      0.05077510871833439,
+      -0.05081294101647914,
+      -1.8060170851986737e-15,
+      0.9987081881236682
+    ]
+  }
 }

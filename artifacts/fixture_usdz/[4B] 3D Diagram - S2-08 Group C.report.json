@@ -26,10 +26,10 @@
   "usdz_package": {
     "command": [
       "/usr/bin/usdzip",
-      "/Users/chek/repos/desmos2usd-carey/artifacts/fixture_usdz/[4B] 3D Diagram - S2-08 Group C.usdz",
+      "/private/tmp/desmos2usd-carey-visual-20260426-160834/artifacts/fixture_usdz/[4B] 3D Diagram - S2-08 Group C.usdz",
       "[4B] 3D Diagram - S2-08 Group C.usda"
     ],
-    "cwd": "/Users/chek/repos/desmos2usd-carey/artifacts/fixture_usdz",
+    "cwd": "/private/tmp/desmos2usd-carey-visual-20260426-160834/artifacts/fixture_usdz",
     "returncode": 0,
     "stderr": "",
     "stdout": "",
@@ -42,7 +42,7 @@
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "16",
-      "face_count": 12,
+      "face_count": 30,
       "kind": "inequality_region",
       "max_residual": null,
       "point_count": 32,
@@ -72,7 +72,7 @@
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "9",
-      "face_count": 12,
+      "face_count": 30,
       "kind": "inequality_region",
       "max_residual": null,
       "point_count": 32,
@@ -82,7 +82,7 @@
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "10",
-      "face_count": 12,
+      "face_count": 30,
       "kind": "inequality_region",
       "max_residual": null,
       "point_count": 32,
@@ -92,7 +92,7 @@
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "11",
-      "face_count": 12,
+      "face_count": 30,
       "kind": "inequality_region",
       "max_residual": null,
       "point_count": 32,
@@ -102,7 +102,7 @@
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "12",
-      "face_count": 12,
+      "face_count": 30,
       "kind": "inequality_region",
       "max_residual": null,
       "point_count": 32,
@@ -112,7 +112,7 @@
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "13",
-      "face_count": 12,
+      "face_count": 30,
       "kind": "inequality_region",
       "max_residual": null,
       "point_count": 32,
@@ -132,7 +132,7 @@
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "15",
-      "face_count": 12,
+      "face_count": 30,
       "kind": "inequality_region",
       "max_residual": null,
       "point_count": 32,
@@ -142,7 +142,7 @@
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "23",
-      "face_count": 12,
+      "face_count": 30,
       "kind": "inequality_region",
       "max_residual": null,
       "point_count": 32,
@@ -152,11 +152,44 @@
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "24",
-      "face_count": 12,
+      "face_count": 30,
       "kind": "inequality_region",
       "max_residual": null,
       "point_count": 32,
       "valid": true
     }
-  ]
+  ],
+  "view_metadata": {
+    "axis_3d": [
+      0.9999999999986995,
+      6.123233995728795e-17,
+      -8.077032699568679e-31
+    ],
+    "three_d_mode": true,
+    "viewport_bounds": {
+      "x": [
+        -19.60064569229304,
+        19.60064569229304
+      ],
+      "y": [
+        -19.60064569229304,
+        19.60064569229304
+      ],
+      "z": [
+        -19.60064569229304,
+        19.60064569229304
+      ]
+    },
+    "world_rotation_3d": [
+      6.092462641852965e-17,
+      1.0,
+      6.131015610585505e-18,
+      -0.9949746565450177,
+      6.123233995736766e-17,
+      -0.10012708341464913,
+      -0.10012708341464913,
+      0.0,
+      0.9949746565450177
+    ]
+  }
 }

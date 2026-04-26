@@ -6,7 +6,7 @@
   "fixture_path": "fixtures/states/[4B] 3D Diagram - S2-01 Group A.json",
   "graph_hash": null,
   "output": "artifacts/fixture_usdz/[4B] 3D Diagram - S2-01 Group A.usda",
-  "prim_count": 89,
+  "prim_count": 156,
   "renderable_expression_count": 208,
   "resolution": 8,
   "status": "partial",
@@ -85,18 +85,6 @@
       "reason": "point 0 violates predicate '4.5<x-y<4.6'; point 0 violates predicate '0<z<4'; point 1 violates predicate '4.5<x-y<4.6'; point 1 violates predicate '0<z<4'; point 2 violates predicate '4.5<x-y<4.6'; point 2 violates predicate '0<z<4'; point 3 violates predicate '4.5<x-y<4.6'; point 3 violates predicate '0<z<4'; point 4 violates predicate '4.5<x-y<4.6'; point 4 violates predicate '0<z<4'; point 5 violates predicate '4.5<x-y<4.6'; point 5 violates predicate '0<z<4'; point 6 violates predicate '4.5<x-y<4.6'; point 6 violates predicate '0<z<4'; point 7 violates predicate '4.5<x-y<4.6'; point 7 violates predicate '0<z<4'; point 8 violates predicate '4.5<x-y<4.6'; point 8 violates predicate '0<z<4'; point 9 violates predicate '4.5<x-y<4.6'; point 9 violates predicate '0<z<4'"
     },
     {
-      "expr_id": "80",
-      "kind": "explicit_surface",
-      "latex": "z=\\left(-ax+0y+5.6\\right)\\left\\{5.3<y+x<5.4\\right\\}\\left\\{0<z<3.7\\right\\}",
-      "reason": "point 0 violates predicate '5.3<y+x<5.4'; point 0 violates predicate '0<z<3.7'; point 1 violates predicate '5.3<y+x<5.4'; point 1 violates predicate '0<z<3.7'; point 2 violates predicate '5.3<y+x<5.4'; point 2 violates predicate '0<z<3.7'; point 3 violates predicate '5.3<y+x<5.4'; point 4 violates predicate '5.3<y+x<5.4'; point 5 violates predicate '5.3<y+x<5.4'; point 6 violates predicate '5.3<y+x<5.4'; point 7 violates predicate '5.3<y+x<5.4'; point 8 violates predicate '5.3<y+x<5.4'; point 9 violates predicate '5.3<y+x<5.4'; point 10 violates predicate '5.3<y+x<5.4'; point 11 violates predicate '5.3<y+x<5.4'; point 12 violates predicate '5.3<y+x<5.4'; point 13 violates predicate '5.3<y+x<5.4'; point 14 violates predicate '5.3<y+x<5.4'; point 15 violates predicate '5.3<y+x<5.4'; point 16 violates predicate '5.3<y+x<5.4'"
-    },
-    {
-      "expr_id": "89",
-      "kind": "explicit_surface",
-      "latex": "z=\\left(-ax+0y+5.6\\right)\\left\\{5.3<x-y<5.4\\right\\}\\left\\{0<z<3.7\\right\\}",
-      "reason": "point 0 violates predicate '0<z<3.7'; point 1 violates predicate '0<z<3.7'; point 2 violates predicate '5.3<x-y<5.4'; point 2 violates predicate '0<z<3.7'; point 3 violates predicate '5.3<x-y<5.4'; point 4 violates predicate '5.3<x-y<5.4'; point 5 violates predicate '5.3<x-y<5.4'; point 6 violates predicate '5.3<x-y<5.4'; point 7 violates predicate '5.3<x-y<5.4'; point 8 violates predicate '5.3<x-y<5.4'; point 9 violates predicate '5.3<x-y<5.4'; point 10 violates predicate '5.3<x-y<5.4'; point 11 violates predicate '5.3<x-y<5.4'; point 12 violates predicate '5.3<x-y<5.4'; point 13 violates predicate '5.3<x-y<5.4'; point 14 violates predicate '5.3<x-y<5.4'; point 15 violates predicate '5.3<x-y<5.4'; point 16 violates predicate '5.3<x-y<5.4'; point 17 violates predicate '5.3<x-y<5.4'; point 18 violates predicate '5.3<x-y<5.4'"
-    },
-    {
       "expr_id": "92",
       "kind": "explicit_surface",
       "latex": "z=\\left(-ax+0y+5.6\\right)\\left\\{6.2<y+x<6.3\\right\\}\\left\\{0<z<3.4\\right\\}",
@@ -109,126 +97,6 @@
       "reason": "point 0 violates predicate '6.2<x-y<6.3'; point 0 violates predicate '0<z<3.4'; point 1 violates predicate '6.2<x-y<6.3'; point 1 violates predicate '0<z<3.4'; point 2 violates predicate '6.2<x-y<6.3'; point 2 violates predicate '0<z<3.4'; point 3 violates predicate '6.2<x-y<6.3'; point 3 violates predicate '0<z<3.4'; point 4 violates predicate '6.2<x-y<6.3'; point 4 violates predicate '0<z<3.4'; point 5 violates predicate '6.2<x-y<6.3'; point 5 violates predicate '0<z<3.4'; point 6 violates predicate '6.2<x-y<6.3'; point 6 violates predicate '0<z<3.4'; point 7 violates predicate '6.2<x-y<6.3'; point 7 violates predicate '0<z<3.4'; point 8 violates predicate '6.2<x-y<6.3'; point 8 violates predicate '0<z<3.4'; point 9 violates predicate '6.2<x-y<6.3'; point 9 violates predicate '0<z<3.4'"
     },
     {
-      "expr_id": "94",
-      "kind": "explicit_surface",
-      "latex": "z=\\left(-ax+0y+5.6\\right)\\left\\{7<y+x<7.1\\right\\}\\left\\{0<z<3.2\\right\\}",
-      "reason": "point 0 violates predicate '7<y+x<7.1'; point 0 violates predicate '0<z<3.2'; point 1 violates predicate '7<y+x<7.1'; point 1 violates predicate '0<z<3.2'; point 2 violates predicate '7<y+x<7.1'; point 3 violates predicate '7<y+x<7.1'; point 4 violates predicate '7<y+x<7.1'; point 5 violates predicate '7<y+x<7.1'; point 6 violates predicate '7<y+x<7.1'; point 7 violates predicate '7<y+x<7.1'; point 8 violates predicate '7<y+x<7.1'; point 9 violates predicate '7<y+x<7.1'; point 10 violates predicate '7<y+x<7.1'; point 11 violates predicate '7<y+x<7.1'; point 12 violates predicate '7<y+x<7.1'; point 13 violates predicate '7<y+x<7.1'; point 14 violates predicate '7<y+x<7.1'; point 15 violates predicate '7<y+x<7.1'; point 16 violates predicate '7<y+x<7.1'; point 17 violates predicate '7<y+x<7.1'"
-    },
-    {
-      "expr_id": "95",
-      "kind": "explicit_surface",
-      "latex": "z=\\left(-ax+0y+5.6\\right)\\left\\{7<x-y<7.1\\right\\}\\left\\{0<z<3.2\\right\\}",
-      "reason": "point 0 violates predicate '0<z<3.2'; point 1 violates predicate '0<z<3.2'; point 2 violates predicate '7<x-y<7.1'; point 3 violates predicate '7<x-y<7.1'; point 4 violates predicate '7<x-y<7.1'; point 5 violates predicate '7<x-y<7.1'; point 6 violates predicate '7<x-y<7.1'; point 7 violates predicate '7<x-y<7.1'; point 8 violates predicate '7<x-y<7.1'; point 9 violates predicate '7<x-y<7.1'; point 10 violates predicate '7<x-y<7.1'; point 11 violates predicate '7<x-y<7.1'; point 12 violates predicate '7<x-y<7.1'; point 13 violates predicate '7<x-y<7.1'; point 14 violates predicate '7<x-y<7.1'; point 15 violates predicate '7<x-y<7.1'; point 16 violates predicate '7<x-y<7.1'; point 17 violates predicate '7<x-y<7.1'; point 18 violates predicate '7<x-y<7.1'; point 19 violates predicate '7<x-y<7.1'"
-    },
-    {
-      "expr_id": "96",
-      "kind": "explicit_surface",
-      "latex": "z=\\left(-ax+0y+5.6\\right)\\left\\{7.9<y+x<8\\right\\}\\left\\{0<z<2.9\\right\\}",
-      "reason": "point 0 violates predicate '7.9<y+x<8'; point 0 violates predicate '0<z<2.9'; point 1 violates predicate '7.9<y+x<8'; point 1 violates predicate '0<z<2.9'; point 2 violates predicate '7.9<y+x<8'; point 3 violates predicate '7.9<y+x<8'; point 4 violates predicate '7.9<y+x<8'; point 5 violates predicate '7.9<y+x<8'; point 6 violates predicate '7.9<y+x<8'; point 7 violates predicate '7.9<y+x<8'; point 8 violates predicate '7.9<y+x<8'; point 9 violates predicate '7.9<y+x<8'; point 10 violates predicate '7.9<y+x<8'; point 11 violates predicate '7.9<y+x<8'; point 12 violates predicate '7.9<y+x<8'; point 13 violates predicate '7.9<y+x<8'; point 14 violates predicate '7.9<y+x<8'; point 15 violates predicate '7.9<y+x<8'; point 16 violates predicate '7.9<y+x<8'; point 17 violates predicate '7.9<y+x<8'"
-    },
-    {
-      "expr_id": "97",
-      "kind": "explicit_surface",
-      "latex": "z=\\left(-ax+0y+5.6\\right)\\left\\{7.9<x-y<8\\right\\}\\left\\{0<z<2.9\\right\\}",
-      "reason": "point 0 violates predicate '0<z<2.9'; point 1 violates predicate '0<z<2.9'; point 2 violates predicate '7.9<x-y<8'; point 3 violates predicate '7.9<x-y<8'; point 4 violates predicate '7.9<x-y<8'; point 5 violates predicate '7.9<x-y<8'; point 6 violates predicate '7.9<x-y<8'; point 7 violates predicate '7.9<x-y<8'; point 8 violates predicate '7.9<x-y<8'; point 9 violates predicate '7.9<x-y<8'; point 10 violates predicate '7.9<x-y<8'; point 11 violates predicate '7.9<x-y<8'; point 12 violates predicate '7.9<x-y<8'; point 13 violates predicate '7.9<x-y<8'; point 14 violates predicate '7.9<x-y<8'; point 15 violates predicate '7.9<x-y<8'; point 16 violates predicate '7.9<x-y<8'; point 17 violates predicate '7.9<x-y<8'; point 18 violates predicate '7.9<x-y<8'; point 19 violates predicate '7.9<x-y<8'"
-    },
-    {
-      "expr_id": "98",
-      "kind": "explicit_surface",
-      "latex": "z=\\left(-ax+0y+5.6\\right)\\left\\{8.7<y+x<8.8\\right\\}\\left\\{0<z<2.6\\right\\}",
-      "reason": "point 0 violates predicate '8.7<y+x<8.8'; point 0 violates predicate '0<z<2.6'; point 1 violates predicate '8.7<y+x<8.8'; point 1 violates predicate '0<z<2.6'; point 2 violates predicate '8.7<y+x<8.8'; point 2 violates predicate '0<z<2.6'; point 3 violates predicate '8.7<y+x<8.8'; point 4 violates predicate '8.7<y+x<8.8'; point 5 violates predicate '8.7<y+x<8.8'; point 6 violates predicate '8.7<y+x<8.8'; point 7 violates predicate '8.7<y+x<8.8'; point 8 violates predicate '8.7<y+x<8.8'; point 9 violates predicate '8.7<y+x<8.8'; point 10 violates predicate '8.7<y+x<8.8'; point 11 violates predicate '8.7<y+x<8.8'; point 12 violates predicate '8.7<y+x<8.8'; point 13 violates predicate '8.7<y+x<8.8'; point 14 violates predicate '8.7<y+x<8.8'; point 15 violates predicate '8.7<y+x<8.8'; point 16 violates predicate '8.7<y+x<8.8'"
-    },
-    {
-      "expr_id": "99",
-      "kind": "explicit_surface",
-      "latex": "z=\\left(-ax+0y+5.6\\right)\\left\\{8.7<x-y<8.8\\right\\}\\left\\{0<z<2.6\\right\\}",
-      "reason": "point 0 violates predicate '0<z<2.6'; point 1 violates predicate '0<z<2.6'; point 2 violates predicate '8.7<x-y<8.8'; point 2 violates predicate '0<z<2.6'; point 3 violates predicate '8.7<x-y<8.8'; point 4 violates predicate '8.7<x-y<8.8'; point 5 violates predicate '8.7<x-y<8.8'; point 6 violates predicate '8.7<x-y<8.8'; point 7 violates predicate '8.7<x-y<8.8'; point 8 violates predicate '8.7<x-y<8.8'; point 9 violates predicate '8.7<x-y<8.8'; point 10 violates predicate '8.7<x-y<8.8'; point 11 violates predicate '8.7<x-y<8.8'; point 12 violates predicate '8.7<x-y<8.8'; point 13 violates predicate '8.7<x-y<8.8'; point 14 violates predicate '8.7<x-y<8.8'; point 15 violates predicate '8.7<x-y<8.8'; point 16 violates predicate '8.7<x-y<8.8'; point 17 violates predicate '8.7<x-y<8.8'; point 18 violates predicate '8.7<x-y<8.8'"
-    },
-    {
-      "expr_id": "100",
-      "kind": "explicit_surface",
-      "latex": "z=\\left(-ax+0y+5.6\\right)\\left\\{9.5<y+x<9.6\\right\\}\\left\\{0<z<2.4\\right\\}",
-      "reason": "point 0 violates predicate '9.5<y+x<9.6'; point 0 violates predicate '0<z<2.4'; point 1 violates predicate '9.5<y+x<9.6'; point 1 violates predicate '0<z<2.4'; point 2 violates predicate '9.5<y+x<9.6'; point 2 violates predicate '0<z<2.4'; point 3 violates predicate '9.5<y+x<9.6'; point 3 violates predicate '0<z<2.4'; point 4 violates predicate '9.5<y+x<9.6'; point 4 violates predicate '0<z<2.4'; point 5 violates predicate '9.5<y+x<9.6'; point 5 violates predicate '0<z<2.4'; point 6 violates predicate '9.5<y+x<9.6'; point 6 violates predicate '0<z<2.4'; point 7 violates predicate '9.5<y+x<9.6'; point 7 violates predicate '0<z<2.4'; point 8 violates predicate '9.5<y+x<9.6'; point 9 violates predicate '9.5<y+x<9.6'; point 10 violates predicate '9.5<y+x<9.6'; point 11 violates predicate '9.5<y+x<9.6'"
-    },
-    {
-      "expr_id": "101",
-      "kind": "explicit_surface",
-      "latex": "z=\\left(-ax+0y+5.6\\right)\\left\\{9.5<x-y<9.6\\right\\}\\left\\{0<z<2.4\\right\\}",
-      "reason": "point 0 violates predicate '0<z<2.4'; point 1 violates predicate '0<z<2.4'; point 2 violates predicate '9.5<x-y<9.6'; point 2 violates predicate '0<z<2.4'; point 3 violates predicate '9.5<x-y<9.6'; point 3 violates predicate '0<z<2.4'; point 4 violates predicate '9.5<x-y<9.6'; point 4 violates predicate '0<z<2.4'; point 5 violates predicate '9.5<x-y<9.6'; point 5 violates predicate '0<z<2.4'; point 6 violates predicate '9.5<x-y<9.6'; point 6 violates predicate '0<z<2.4'; point 7 violates predicate '9.5<x-y<9.6'; point 7 violates predicate '0<z<2.4'; point 8 violates predicate '9.5<x-y<9.6'; point 9 violates predicate '9.5<x-y<9.6'; point 10 violates predicate '9.5<x-y<9.6'; point 11 violates predicate '9.5<x-y<9.6'; point 12 violates predicate '9.5<x-y<9.6'; point 13 violates predicate '9.5<x-y<9.6'"
-    },
-    {
-      "expr_id": "102",
-      "kind": "explicit_surface",
-      "latex": "z=\\left(-ax+0y+5.6\\right)\\left\\{10.3<y+x<10.4\\right\\}\\left\\{0<z<2.1\\right\\}",
-      "reason": "point 0 violates predicate '10.3<y+x<10.4'; point 0 violates predicate '0<z<2.1'; point 1 violates predicate '10.3<y+x<10.4'; point 1 violates predicate '0<z<2.1'; point 2 violates predicate '10.3<y+x<10.4'; point 3 violates predicate '10.3<y+x<10.4'; point 4 violates predicate '10.3<y+x<10.4'; point 5 violates predicate '10.3<y+x<10.4'; point 6 violates predicate '10.3<y+x<10.4'; point 7 violates predicate '10.3<y+x<10.4'; point 8 violates predicate '10.3<y+x<10.4'; point 9 violates predicate '10.3<y+x<10.4'; point 10 violates predicate '10.3<y+x<10.4'; point 11 violates predicate '10.3<y+x<10.4'; point 12 violates predicate '10.3<y+x<10.4'; point 13 violates predicate '10.3<y+x<10.4'; point 14 violates predicate '10.3<y+x<10.4'; point 15 violates predicate '10.3<y+x<10.4'; point 16 violates predicate '10.3<y+x<10.4'; point 17 violates predicate '10.3<y+x<10.4'"
-    },
-    {
-      "expr_id": "103",
-      "kind": "explicit_surface",
-      "latex": "z=\\left(-ax+0y+5.6\\right)\\left\\{10.3<x-y<10.4\\right\\}\\left\\{0<z<2.1\\right\\}",
-      "reason": "point 0 violates predicate '0<z<2.1'; point 1 violates predicate '0<z<2.1'; point 2 violates predicate '10.3<x-y<10.4'; point 3 violates predicate '10.3<x-y<10.4'; point 4 violates predicate '10.3<x-y<10.4'; point 5 violates predicate '10.3<x-y<10.4'; point 6 violates predicate '10.3<x-y<10.4'; point 7 violates predicate '10.3<x-y<10.4'; point 8 violates predicate '10.3<x-y<10.4'; point 9 violates predicate '10.3<x-y<10.4'; point 10 violates predicate '10.3<x-y<10.4'; point 11 violates predicate '10.3<x-y<10.4'; point 12 violates predicate '10.3<x-y<10.4'; point 13 violates predicate '10.3<x-y<10.4'; point 14 violates predicate '10.3<x-y<10.4'; point 15 violates predicate '10.3<x-y<10.4'; point 16 violates predicate '10.3<x-y<10.4'; point 17 violates predicate '10.3<x-y<10.4'; point 18 violates predicate '10.3<x-y<10.4'; point 19 violates predicate '10.3<x-y<10.4'"
-    },
-    {
-      "expr_id": "104",
-      "kind": "explicit_surface",
-      "latex": "z=\\left(-ax+0y+5.6\\right)\\left\\{11.2<y+x<11.3\\right\\}\\left\\{0<z<1.9\\right\\}",
-      "reason": "point 0 violates predicate '11.2<y+x<11.3'; point 0 violates predicate '0<z<1.9'; point 1 violates predicate '11.2<y+x<11.3'; point 1 violates predicate '0<z<1.9'; point 2 violates predicate '11.2<y+x<11.3'; point 2 violates predicate '0<z<1.9'; point 3 violates predicate '11.2<y+x<11.3'; point 3 violates predicate '0<z<1.9'; point 4 violates predicate '11.2<y+x<11.3'; point 4 violates predicate '0<z<1.9'; point 5 violates predicate '11.2<y+x<11.3'; point 5 violates predicate '0<z<1.9'; point 6 violates predicate '11.2<y+x<11.3'; point 6 violates predicate '0<z<1.9'; point 7 violates predicate '11.2<y+x<11.3'; point 7 violates predicate '0<z<1.9'; point 8 violates predicate '11.2<y+x<11.3'; point 8 violates predicate '0<z<1.9'; point 9 violates predicate '11.2<y+x<11.3'; point 9 violates predicate '0<z<1.9'"
-    },
-    {
-      "expr_id": "105",
-      "kind": "explicit_surface",
-      "latex": "z=\\left(-ax+0y+5.6\\right)\\left\\{11.2<x-y<11.3\\right\\}\\left\\{0<z<1.8\\right\\}",
-      "reason": "point 0 violates predicate '0<z<1.8'; point 1 violates predicate '0<z<1.8'; point 2 violates predicate '11.2<x-y<11.3'; point 3 violates predicate '11.2<x-y<11.3'; point 4 violates predicate '11.2<x-y<11.3'; point 5 violates predicate '11.2<x-y<11.3'; point 6 violates predicate '11.2<x-y<11.3'; point 7 violates predicate '11.2<x-y<11.3'; point 8 violates predicate '11.2<x-y<11.3'; point 9 violates predicate '11.2<x-y<11.3'; point 10 violates predicate '11.2<x-y<11.3'; point 11 violates predicate '11.2<x-y<11.3'; point 12 violates predicate '11.2<x-y<11.3'; point 13 violates predicate '11.2<x-y<11.3'; point 14 violates predicate '11.2<x-y<11.3'; point 15 violates predicate '11.2<x-y<11.3'; point 16 violates predicate '11.2<x-y<11.3'; point 17 violates predicate '11.2<x-y<11.3'; point 18 violates predicate '11.2<x-y<11.3'; point 19 violates predicate '11.2<x-y<11.3'"
-    },
-    {
-      "expr_id": "106",
-      "kind": "explicit_surface",
-      "latex": "z=\\left(-ax+0y+5.6\\right)\\left\\{12<y+x<12.1\\right\\}\\left\\{0<z<1.6\\right\\}",
-      "reason": "point 0 violates predicate '12<y+x<12.1'; point 0 violates predicate '0<z<1.6'; point 1 violates predicate '12<y+x<12.1'; point 1 violates predicate '0<z<1.6'; point 2 violates predicate '12<y+x<12.1'; point 2 violates predicate '0<z<1.6'; point 3 violates predicate '12<y+x<12.1'; point 3 violates predicate '0<z<1.6'; point 4 violates predicate '12<y+x<12.1'; point 4 violates predicate '0<z<1.6'; point 5 violates predicate '12<y+x<12.1'; point 5 violates predicate '0<z<1.6'; point 6 violates predicate '12<y+x<12.1'; point 6 violates predicate '0<z<1.6'; point 7 violates predicate '12<y+x<12.1'; point 7 violates predicate '0<z<1.6'; point 8 violates predicate '12<y+x<12.1'; point 8 violates predicate '0<z<1.6'; point 9 violates predicate '12<y+x<12.1'; point 9 violates predicate '0<z<1.6'"
-    },
-    {
-      "expr_id": "107",
-      "kind": "explicit_surface",
-      "latex": "z=\\left(-ax+0y+5.6\\right)\\left\\{12<x-y<12.1\\right\\}\\left\\{0<z<1.6\\right\\}",
-      "reason": "point 0 violates predicate '0<z<1.6'; point 1 violates predicate '0<z<1.6'; point 2 violates predicate '12<x-y<12.1'; point 2 violates predicate '0<z<1.6'; point 3 violates predicate '12<x-y<12.1'; point 3 violates predicate '0<z<1.6'; point 4 violates predicate '12<x-y<12.1'; point 4 violates predicate '0<z<1.6'; point 5 violates predicate '12<x-y<12.1'; point 5 violates predicate '0<z<1.6'; point 6 violates predicate '12<x-y<12.1'; point 6 violates predicate '0<z<1.6'; point 7 violates predicate '12<x-y<12.1'; point 7 violates predicate '0<z<1.6'; point 8 violates predicate '12<x-y<12.1'; point 8 violates predicate '0<z<1.6'; point 9 violates predicate '12<x-y<12.1'; point 9 violates predicate '0<z<1.6'; point 10 violates predicate '12<x-y<12.1'; point 10 violates predicate '0<z<1.6'"
-    },
-    {
-      "expr_id": "108",
-      "kind": "explicit_surface",
-      "latex": "z=\\left(-ax+0y+5.6\\right)\\left\\{12.9<y+x<13\\right\\}\\left\\{0<z<1.3\\right\\}",
-      "reason": "point 0 violates predicate '12.9<y+x<13'; point 0 violates predicate '0<z<1.3'; point 1 violates predicate '12.9<y+x<13'; point 1 violates predicate '0<z<1.3'; point 2 violates predicate '12.9<y+x<13'; point 2 violates predicate '0<z<1.3'; point 3 violates predicate '12.9<y+x<13'; point 3 violates predicate '0<z<1.3'; point 4 violates predicate '12.9<y+x<13'; point 4 violates predicate '0<z<1.3'; point 5 violates predicate '12.9<y+x<13'; point 5 violates predicate '0<z<1.3'; point 6 violates predicate '12.9<y+x<13'; point 6 violates predicate '0<z<1.3'; point 7 violates predicate '12.9<y+x<13'; point 7 violates predicate '0<z<1.3'; point 8 violates predicate '12.9<y+x<13'; point 8 violates predicate '0<z<1.3'; point 9 violates predicate '12.9<y+x<13'; point 9 violates predicate '0<z<1.3'"
-    },
-    {
-      "expr_id": "109",
-      "kind": "explicit_surface",
-      "latex": "z=\\left(-ax+0y+5.6\\right)\\left\\{12.9<x-y<13\\right\\}\\left\\{0<z<1.3\\right\\}",
-      "reason": "point 0 violates predicate '0<z<1.3'; point 1 violates predicate '0<z<1.3'; point 2 violates predicate '12.9<x-y<13'; point 2 violates predicate '0<z<1.3'; point 3 violates predicate '12.9<x-y<13'; point 3 violates predicate '0<z<1.3'; point 4 violates predicate '12.9<x-y<13'; point 4 violates predicate '0<z<1.3'; point 5 violates predicate '12.9<x-y<13'; point 5 violates predicate '0<z<1.3'; point 6 violates predicate '12.9<x-y<13'; point 6 violates predicate '0<z<1.3'; point 7 violates predicate '12.9<x-y<13'; point 7 violates predicate '0<z<1.3'; point 8 violates predicate '12.9<x-y<13'; point 8 violates predicate '0<z<1.3'; point 9 violates predicate '12.9<x-y<13'; point 9 violates predicate '0<z<1.3'; point 10 violates predicate '12.9<x-y<13'; point 10 violates predicate '0<z<1.3'"
-    },
-    {
-      "expr_id": "113",
-      "kind": "explicit_surface",
-      "latex": "z=\\left(-ax+0y+5.6\\right)\\left\\{14.6<y+x<14.7\\right\\}\\left\\{0<z<0.7\\right\\}",
-      "reason": "point 0 violates predicate '14.6<y+x<14.7'; point 0 violates predicate '0<z<0.7'; point 1 violates predicate '14.6<y+x<14.7'; point 1 violates predicate '0<z<0.7'; point 2 violates predicate '14.6<y+x<14.7'; point 2 violates predicate '0<z<0.7'; point 3 violates predicate '14.6<y+x<14.7'; point 3 violates predicate '0<z<0.7'; point 4 violates predicate '14.6<y+x<14.7'; point 4 violates predicate '0<z<0.7'; point 5 violates predicate '14.6<y+x<14.7'; point 5 violates predicate '0<z<0.7'; point 6 violates predicate '14.6<y+x<14.7'; point 6 violates predicate '0<z<0.7'; point 7 violates predicate '14.6<y+x<14.7'; point 7 violates predicate '0<z<0.7'; point 8 violates predicate '14.6<y+x<14.7'; point 8 violates predicate '0<z<0.7'; point 9 violates predicate '14.6<y+x<14.7'; point 9 violates predicate '0<z<0.7'"
-    },
-    {
-      "expr_id": "114",
-      "kind": "explicit_surface",
-      "latex": "z=\\left(-ax+0y+5.6\\right)\\left\\{14.6<x-y<14.7\\right\\}\\left\\{0<z<0.8\\right\\}",
-      "reason": "point 0 violates predicate '0<z<0.8'; point 1 violates predicate '0<z<0.8'; point 2 violates predicate '14.6<x-y<14.7'; point 2 violates predicate '0<z<0.8'; point 3 violates predicate '14.6<x-y<14.7'; point 3 violates predicate '0<z<0.8'; point 4 violates predicate '14.6<x-y<14.7'; point 4 violates predicate '0<z<0.8'; point 5 violates predicate '14.6<x-y<14.7'; point 5 violates predicate '0<z<0.8'; point 6 violates predicate '14.6<x-y<14.7'; point 6 violates predicate '0<z<0.8'; point 7 violates predicate '14.6<x-y<14.7'; point 7 violates predicate '0<z<0.8'; point 8 violates predicate '14.6<x-y<14.7'; point 8 violates predicate '0<z<0.8'; point 9 violates predicate '14.6<x-y<14.7'; point 9 violates predicate '0<z<0.8'; point 10 violates predicate '14.6<x-y<14.7'; point 10 violates predicate '0<z<0.8'"
-    },
-    {
-      "expr_id": "117",
-      "kind": "explicit_surface",
-      "latex": "z=\\left(ax+5.5\\right)\\left\\{-0.4<y+x<-0.3\\right\\}\\left\\{4.3<z<5.4\\right\\}",
-      "reason": "point 0 violates predicate '-0.4<y+x<-0.3'; point 0 violates predicate '4.3<z<5.4'; point 1 violates predicate '-0.4<y+x<-0.3'; point 1 violates predicate '4.3<z<5.4'; point 2 violates predicate '-0.4<y+x<-0.3'; point 2 violates predicate '4.3<z<5.4'; point 3 violates predicate '-0.4<y+x<-0.3'; point 3 violates predicate '4.3<z<5.4'; point 4 violates predicate '-0.4<y+x<-0.3'; point 4 violates predicate '4.3<z<5.4'; point 5 violates predicate '-0.4<y+x<-0.3'; point 5 violates predicate '4.3<z<5.4'; point 6 violates predicate '-0.4<y+x<-0.3'; point 6 violates predicate '4.3<z<5.4'; point 7 violates predicate '-0.4<y+x<-0.3'; point 7 violates predicate '4.3<z<5.4'; point 8 violates predicate '-0.4<y+x<-0.3'; point 8 violates predicate '4.3<z<5.4'; point 9 violates predicate '-0.4<y+x<-0.3'; point 10 violates predicate '-0.4<y+x<-0.3'"
-    },
-    {
-      "expr_id": "119",
-      "kind": "explicit_surface",
-      "latex": "z=\\left(ax+5.5\\right)\\left\\{-0.4<x-y<-0.3\\right\\}\\left\\{4.3<z<5.4\\right\\}",
-      "reason": "point 0 violates predicate '4.3<z<5.4'; point 1 violates predicate '4.3<z<5.4'; point 2 violates predicate '-0.4<x-y<-0.3'; point 2 violates predicate '4.3<z<5.4'; point 3 violates predicate '-0.4<x-y<-0.3'; point 3 violates predicate '4.3<z<5.4'; point 4 violates predicate '-0.4<x-y<-0.3'; point 4 violates predicate '4.3<z<5.4'; point 5 violates predicate '-0.4<x-y<-0.3'; point 5 violates predicate '4.3<z<5.4'; point 6 violates predicate '-0.4<x-y<-0.3'; point 6 violates predicate '4.3<z<5.4'; point 7 violates predicate '-0.4<x-y<-0.3'; point 7 violates predicate '4.3<z<5.4'; point 8 violates predicate '-0.4<x-y<-0.3'; point 8 violates predicate '4.3<z<5.4'; point 9 violates predicate '-0.4<x-y<-0.3'; point 10 violates predicate '-0.4<x-y<-0.3'; point 11 violates predicate '-0.4<x-y<-0.3'; point 12 violates predicate '-0.4<x-y<-0.3'"
-    },
-    {
       "expr_id": "121",
       "kind": "explicit_surface",
       "latex": "z=\\left(ax+5.5\\right)\\left\\{-1.2<x+y<-1.1\\right\\}\\left\\{0<z<5.1\\right\\}",
@@ -239,18 +107,6 @@
       "kind": "explicit_surface",
       "latex": "z=\\left(ax+5.5\\right)\\left\\{-1.2<x-y<-1.1\\right\\}\\left\\{0<z<5.1\\right\\}",
       "reason": "point 0 violates predicate '-1.2<x-y<-1.1'; point 0 violates predicate '0<z<5.1'; point 1 violates predicate '-1.2<x-y<-1.1'; point 1 violates predicate '0<z<5.1'; point 2 violates predicate '-1.2<x-y<-1.1'; point 2 violates predicate '0<z<5.1'; point 3 violates predicate '-1.2<x-y<-1.1'; point 3 violates predicate '0<z<5.1'; point 4 violates predicate '-1.2<x-y<-1.1'; point 4 violates predicate '0<z<5.1'; point 5 violates predicate '-1.2<x-y<-1.1'; point 5 violates predicate '0<z<5.1'; point 6 violates predicate '-1.2<x-y<-1.1'; point 6 violates predicate '0<z<5.1'; point 7 violates predicate '-1.2<x-y<-1.1'; point 7 violates predicate '0<z<5.1'; point 8 violates predicate '-1.2<x-y<-1.1'; point 8 violates predicate '0<z<5.1'; point 9 violates predicate '-1.2<x-y<-1.1'; point 9 violates predicate '0<z<5.1'"
-    },
-    {
-      "expr_id": "123",
-      "kind": "explicit_surface",
-      "latex": "z=\\left(ax+5.5\\right)\\left\\{-2<x+y<-1.9\\right\\}\\left\\{0<z<4.8\\right\\}",
-      "reason": "point 0 violates predicate '-2<x+y<-1.9'; point 0 violates predicate '0<z<4.8'; point 1 violates predicate '-2<x+y<-1.9'; point 1 violates predicate '0<z<4.8'; point 2 violates predicate '-2<x+y<-1.9'; point 2 violates predicate '0<z<4.8'; point 3 violates predicate '-2<x+y<-1.9'; point 4 violates predicate '-2<x+y<-1.9'; point 5 violates predicate '-2<x+y<-1.9'; point 6 violates predicate '-2<x+y<-1.9'; point 7 violates predicate '-2<x+y<-1.9'; point 8 violates predicate '-2<x+y<-1.9'; point 9 violates predicate '-2<x+y<-1.9'; point 10 violates predicate '-2<x+y<-1.9'; point 11 violates predicate '-2<x+y<-1.9'; point 12 violates predicate '-2<x+y<-1.9'; point 13 violates predicate '-2<x+y<-1.9'; point 14 violates predicate '-2<x+y<-1.9'; point 15 violates predicate '-2<x+y<-1.9'; point 16 violates predicate '-2<x+y<-1.9'"
-    },
-    {
-      "expr_id": "124",
-      "kind": "explicit_surface",
-      "latex": "z=\\left(ax+5.5\\right)\\left\\{-2<x-y<-1.9\\right\\}\\left\\{0<z<4.8\\right\\}",
-      "reason": "point 0 violates predicate '0<z<4.8'; point 1 violates predicate '0<z<4.8'; point 2 violates predicate '-2<x-y<-1.9'; point 2 violates predicate '0<z<4.8'; point 3 violates predicate '-2<x-y<-1.9'; point 4 violates predicate '-2<x-y<-1.9'; point 5 violates predicate '-2<x-y<-1.9'; point 6 violates predicate '-2<x-y<-1.9'; point 7 violates predicate '-2<x-y<-1.9'; point 8 violates predicate '-2<x-y<-1.9'; point 9 violates predicate '-2<x-y<-1.9'; point 10 violates predicate '-2<x-y<-1.9'; point 11 violates predicate '-2<x-y<-1.9'; point 12 violates predicate '-2<x-y<-1.9'; point 13 violates predicate '-2<x-y<-1.9'; point 14 violates predicate '-2<x-y<-1.9'; point 15 violates predicate '-2<x-y<-1.9'; point 16 violates predicate '-2<x-y<-1.9'; point 17 violates predicate '-2<x-y<-1.9'; point 18 violates predicate '-2<x-y<-1.9'"
     },
     {
       "expr_id": "125",
@@ -313,90 +169,6 @@
       "reason": "point 0 violates predicate '-6.2<x-y<-6.1'; point 0 violates predicate '0<z<3.45'; point 1 violates predicate '-6.2<x-y<-6.1'; point 1 violates predicate '0<z<3.45'; point 2 violates predicate '-6.2<x-y<-6.1'; point 2 violates predicate '0<z<3.45'; point 3 violates predicate '-6.2<x-y<-6.1'; point 3 violates predicate '0<z<3.45'; point 4 violates predicate '-6.2<x-y<-6.1'; point 4 violates predicate '0<z<3.45'; point 5 violates predicate '-6.2<x-y<-6.1'; point 5 violates predicate '0<z<3.45'; point 6 violates predicate '-6.2<x-y<-6.1'; point 6 violates predicate '0<z<3.45'; point 7 violates predicate '-6.2<x-y<-6.1'; point 7 violates predicate '0<z<3.45'; point 8 violates predicate '-6.2<x-y<-6.1'; point 8 violates predicate '0<z<3.45'; point 9 violates predicate '-6.2<x-y<-6.1'; point 9 violates predicate '0<z<3.45'"
     },
     {
-      "expr_id": "135",
-      "kind": "explicit_surface",
-      "latex": "z=\\left(ax+5.5\\right)\\left\\{-7<x+y<-6.9\\right\\}\\left\\{0<z<3.2\\right\\}",
-      "reason": "point 0 violates predicate '-7<x+y<-6.9'; point 0 violates predicate '0<z<3.2'; point 1 violates predicate '-7<x+y<-6.9'; point 1 violates predicate '0<z<3.2'; point 2 violates predicate '-7<x+y<-6.9'; point 2 violates predicate '0<z<3.2'; point 3 violates predicate '-7<x+y<-6.9'; point 4 violates predicate '-7<x+y<-6.9'; point 5 violates predicate '-7<x+y<-6.9'; point 6 violates predicate '-7<x+y<-6.9'; point 7 violates predicate '-7<x+y<-6.9'; point 8 violates predicate '-7<x+y<-6.9'; point 9 violates predicate '-7<x+y<-6.9'; point 10 violates predicate '-7<x+y<-6.9'; point 11 violates predicate '-7<x+y<-6.9'; point 12 violates predicate '-7<x+y<-6.9'; point 13 violates predicate '-7<x+y<-6.9'; point 14 violates predicate '-7<x+y<-6.9'; point 15 violates predicate '-7<x+y<-6.9'; point 16 violates predicate '-7<x+y<-6.9'"
-    },
-    {
-      "expr_id": "136",
-      "kind": "explicit_surface",
-      "latex": "z=\\left(ax+5.5\\right)\\left\\{-7<x-y<-6.9\\right\\}\\left\\{0<z<3.2\\right\\}",
-      "reason": "point 0 violates predicate '0<z<3.2'; point 1 violates predicate '0<z<3.2'; point 2 violates predicate '0<z<3.2'; point 3 violates predicate '-7<x-y<-6.9'; point 4 violates predicate '-7<x-y<-6.9'; point 5 violates predicate '-7<x-y<-6.9'; point 6 violates predicate '-7<x-y<-6.9'; point 7 violates predicate '-7<x-y<-6.9'; point 8 violates predicate '-7<x-y<-6.9'; point 9 violates predicate '-7<x-y<-6.9'; point 10 violates predicate '-7<x-y<-6.9'; point 11 violates predicate '-7<x-y<-6.9'; point 12 violates predicate '-7<x-y<-6.9'; point 13 violates predicate '-7<x-y<-6.9'; point 14 violates predicate '-7<x-y<-6.9'; point 15 violates predicate '-7<x-y<-6.9'; point 16 violates predicate '-7<x-y<-6.9'; point 17 violates predicate '-7<x-y<-6.9'; point 18 violates predicate '-7<x-y<-6.9'; point 19 violates predicate '-7<x-y<-6.9'"
-    },
-    {
-      "expr_id": "138",
-      "kind": "explicit_surface",
-      "latex": "z=\\left(ax+5.5\\right)\\left\\{-7.8<x+y<-7.7\\right\\}\\left\\{0<z<2.9\\right\\}",
-      "reason": "point 0 violates predicate '-7.8<x+y<-7.7'; point 0 violates predicate '0<z<2.9'; point 1 violates predicate '-7.8<x+y<-7.7'; point 1 violates predicate '0<z<2.9'; point 2 violates predicate '-7.8<x+y<-7.7'; point 2 violates predicate '0<z<2.9'; point 3 violates predicate '-7.8<x+y<-7.7'; point 3 violates predicate '0<z<2.9'; point 4 violates predicate '-7.8<x+y<-7.7'; point 5 violates predicate '-7.8<x+y<-7.7'; point 6 violates predicate '-7.8<x+y<-7.7'; point 7 violates predicate '-7.8<x+y<-7.7'; point 8 violates predicate '-7.8<x+y<-7.7'; point 9 violates predicate '-7.8<x+y<-7.7'; point 10 violates predicate '-7.8<x+y<-7.7'; point 11 violates predicate '-7.8<x+y<-7.7'; point 12 violates predicate '-7.8<x+y<-7.7'; point 13 violates predicate '-7.8<x+y<-7.7'; point 14 violates predicate '-7.8<x+y<-7.7'; point 15 violates predicate '-7.8<x+y<-7.7'"
-    },
-    {
-      "expr_id": "139",
-      "kind": "explicit_surface",
-      "latex": "z=\\left(ax+5.5\\right)\\left\\{-7.8<x-y<-7.7\\right\\}\\left\\{0<z<2.9\\right\\}",
-      "reason": "point 0 violates predicate '0<z<2.9'; point 1 violates predicate '0<z<2.9'; point 2 violates predicate '0<z<2.9'; point 3 violates predicate '-7.8<x-y<-7.7'; point 3 violates predicate '0<z<2.9'; point 4 violates predicate '-7.8<x-y<-7.7'; point 5 violates predicate '-7.8<x-y<-7.7'; point 6 violates predicate '-7.8<x-y<-7.7'; point 7 violates predicate '-7.8<x-y<-7.7'; point 8 violates predicate '-7.8<x-y<-7.7'; point 9 violates predicate '-7.8<x-y<-7.7'; point 10 violates predicate '-7.8<x-y<-7.7'; point 11 violates predicate '-7.8<x-y<-7.7'; point 12 violates predicate '-7.8<x-y<-7.7'; point 13 violates predicate '-7.8<x-y<-7.7'; point 14 violates predicate '-7.8<x-y<-7.7'; point 15 violates predicate '-7.8<x-y<-7.7'; point 16 violates predicate '-7.8<x-y<-7.7'; point 17 violates predicate '-7.8<x-y<-7.7'; point 18 violates predicate '-7.8<x-y<-7.7'"
-    },
-    {
-      "expr_id": "140",
-      "kind": "explicit_surface",
-      "latex": "z=\\left(ax+5.5\\right)\\left\\{-8.6<x+y<-8.5\\right\\}\\left\\{0<z<2.6\\right\\}",
-      "reason": "point 0 violates predicate '-8.6<x+y<-8.5'; point 0 violates predicate '0<z<2.6'; point 1 violates predicate '-8.6<x+y<-8.5'; point 1 violates predicate '0<z<2.6'; point 2 violates predicate '-8.6<x+y<-8.5'; point 2 violates predicate '0<z<2.6'; point 3 violates predicate '-8.6<x+y<-8.5'; point 3 violates predicate '0<z<2.6'; point 4 violates predicate '-8.6<x+y<-8.5'; point 5 violates predicate '-8.6<x+y<-8.5'; point 6 violates predicate '-8.6<x+y<-8.5'; point 7 violates predicate '-8.6<x+y<-8.5'; point 8 violates predicate '-8.6<x+y<-8.5'; point 9 violates predicate '-8.6<x+y<-8.5'; point 10 violates predicate '-8.6<x+y<-8.5'; point 11 violates predicate '-8.6<x+y<-8.5'; point 12 violates predicate '-8.6<x+y<-8.5'; point 13 violates predicate '-8.6<x+y<-8.5'; point 14 violates predicate '-8.6<x+y<-8.5'; point 15 violates predicate '-8.6<x+y<-8.5'"
-    },
-    {
-      "expr_id": "141",
-      "kind": "explicit_surface",
-      "latex": "z=\\left(ax+5.5\\right)\\left\\{-8.6<x-y<-8.5\\right\\}\\left\\{0<z<2.6\\right\\}",
-      "reason": "point 0 violates predicate '0<z<2.6'; point 1 violates predicate '0<z<2.6'; point 2 violates predicate '0<z<2.6'; point 3 violates predicate '-8.6<x-y<-8.5'; point 3 violates predicate '0<z<2.6'; point 4 violates predicate '-8.6<x-y<-8.5'; point 5 violates predicate '-8.6<x-y<-8.5'; point 6 violates predicate '-8.6<x-y<-8.5'; point 7 violates predicate '-8.6<x-y<-8.5'; point 8 violates predicate '-8.6<x-y<-8.5'; point 9 violates predicate '-8.6<x-y<-8.5'; point 10 violates predicate '-8.6<x-y<-8.5'; point 11 violates predicate '-8.6<x-y<-8.5'; point 12 violates predicate '-8.6<x-y<-8.5'; point 13 violates predicate '-8.6<x-y<-8.5'; point 14 violates predicate '-8.6<x-y<-8.5'; point 15 violates predicate '-8.6<x-y<-8.5'; point 16 violates predicate '-8.6<x-y<-8.5'; point 17 violates predicate '-8.6<x-y<-8.5'; point 18 violates predicate '-8.6<x-y<-8.5'"
-    },
-    {
-      "expr_id": "142",
-      "kind": "explicit_surface",
-      "latex": "z=\\left(ax+5.5\\right)\\left\\{-9.4<x+y<-9.3\\right\\}\\left\\{0<z<2.4\\right\\}",
-      "reason": "point 0 violates predicate '-9.4<x+y<-9.3'; point 0 violates predicate '0<z<2.4'; point 1 violates predicate '-9.4<x+y<-9.3'; point 1 violates predicate '0<z<2.4'; point 2 violates predicate '-9.4<x+y<-9.3'; point 2 violates predicate '0<z<2.4'; point 3 violates predicate '-9.4<x+y<-9.3'; point 3 violates predicate '0<z<2.4'; point 4 violates predicate '-9.4<x+y<-9.3'; point 4 violates predicate '0<z<2.4'; point 5 violates predicate '-9.4<x+y<-9.3'; point 5 violates predicate '0<z<2.4'; point 6 violates predicate '-9.4<x+y<-9.3'; point 6 violates predicate '0<z<2.4'; point 7 violates predicate '-9.4<x+y<-9.3'; point 7 violates predicate '0<z<2.4'; point 8 violates predicate '-9.4<x+y<-9.3'; point 9 violates predicate '-9.4<x+y<-9.3'; point 10 violates predicate '-9.4<x+y<-9.3'; point 11 violates predicate '-9.4<x+y<-9.3'"
-    },
-    {
-      "expr_id": "143",
-      "kind": "explicit_surface",
-      "latex": "z=\\left(ax+5.5\\right)\\left\\{-9.4<x-y<-9.3\\right\\}\\left\\{0<z<2.4\\right\\}",
-      "reason": "point 0 violates predicate '0<z<2.4'; point 1 violates predicate '0<z<2.4'; point 2 violates predicate '0<z<2.4'; point 3 violates predicate '-9.4<x-y<-9.3'; point 3 violates predicate '0<z<2.4'; point 4 violates predicate '-9.4<x-y<-9.3'; point 4 violates predicate '0<z<2.4'; point 5 violates predicate '-9.4<x-y<-9.3'; point 5 violates predicate '0<z<2.4'; point 6 violates predicate '-9.4<x-y<-9.3'; point 6 violates predicate '0<z<2.4'; point 7 violates predicate '-9.4<x-y<-9.3'; point 7 violates predicate '0<z<2.4'; point 8 violates predicate '-9.4<x-y<-9.3'; point 9 violates predicate '-9.4<x-y<-9.3'; point 10 violates predicate '-9.4<x-y<-9.3'; point 11 violates predicate '-9.4<x-y<-9.3'; point 12 violates predicate '-9.4<x-y<-9.3'; point 13 violates predicate '-9.4<x-y<-9.3'; point 14 violates predicate '-9.4<x-y<-9.3'"
-    },
-    {
-      "expr_id": "144",
-      "kind": "explicit_surface",
-      "latex": "z=\\left(ax+5.5\\right)\\left\\{-10.2<x+y<-10.1\\right\\}\\left\\{0<z<2.1\\right\\}",
-      "reason": "point 0 violates predicate '-10.2<x+y<-10.1'; point 0 violates predicate '0<z<2.1'; point 1 violates predicate '-10.2<x+y<-10.1'; point 1 violates predicate '0<z<2.1'; point 2 violates predicate '-10.2<x+y<-10.1'; point 2 violates predicate '0<z<2.1'; point 3 violates predicate '-10.2<x+y<-10.1'; point 3 violates predicate '0<z<2.1'; point 4 violates predicate '-10.2<x+y<-10.1'; point 5 violates predicate '-10.2<x+y<-10.1'; point 6 violates predicate '-10.2<x+y<-10.1'; point 7 violates predicate '-10.2<x+y<-10.1'; point 8 violates predicate '-10.2<x+y<-10.1'; point 9 violates predicate '-10.2<x+y<-10.1'; point 10 violates predicate '-10.2<x+y<-10.1'; point 11 violates predicate '-10.2<x+y<-10.1'; point 12 violates predicate '-10.2<x+y<-10.1'; point 13 violates predicate '-10.2<x+y<-10.1'; point 14 violates predicate '-10.2<x+y<-10.1'; point 15 violates predicate '-10.2<x+y<-10.1'"
-    },
-    {
-      "expr_id": "145",
-      "kind": "explicit_surface",
-      "latex": "z=\\left(ax+5.5\\right)\\left\\{-10.2<x-y<-10.1\\right\\}\\left\\{0<z<2.1\\right\\}",
-      "reason": "point 0 violates predicate '0<z<2.1'; point 1 violates predicate '0<z<2.1'; point 2 violates predicate '0<z<2.1'; point 3 violates predicate '-10.2<x-y<-10.1'; point 3 violates predicate '0<z<2.1'; point 4 violates predicate '-10.2<x-y<-10.1'; point 5 violates predicate '-10.2<x-y<-10.1'; point 6 violates predicate '-10.2<x-y<-10.1'; point 7 violates predicate '-10.2<x-y<-10.1'; point 8 violates predicate '-10.2<x-y<-10.1'; point 9 violates predicate '-10.2<x-y<-10.1'; point 10 violates predicate '-10.2<x-y<-10.1'; point 11 violates predicate '-10.2<x-y<-10.1'; point 12 violates predicate '-10.2<x-y<-10.1'; point 13 violates predicate '-10.2<x-y<-10.1'; point 14 violates predicate '-10.2<x-y<-10.1'; point 15 violates predicate '-10.2<x-y<-10.1'; point 16 violates predicate '-10.2<x-y<-10.1'; point 17 violates predicate '-10.2<x-y<-10.1'; point 18 violates predicate '-10.2<x-y<-10.1'"
-    },
-    {
-      "expr_id": "146",
-      "kind": "explicit_surface",
-      "latex": "z=\\left(ax+5.5\\right)\\left\\{-11.1<x+y<-11\\right\\}\\left\\{0<z<2\\right\\}",
-      "reason": "point 0 violates predicate '-11.1<x+y<-11'; point 0 violates predicate '0<z<2'; point 1 violates predicate '-11.1<x+y<-11'; point 1 violates predicate '0<z<2'; point 2 violates predicate '-11.1<x+y<-11'; point 2 violates predicate '0<z<2'; point 3 violates predicate '-11.1<x+y<-11'; point 3 violates predicate '0<z<2'; point 4 violates predicate '-11.1<x+y<-11'; point 4 violates predicate '0<z<2'; point 5 violates predicate '-11.1<x+y<-11'; point 5 violates predicate '0<z<2'; point 6 violates predicate '-11.1<x+y<-11'; point 6 violates predicate '0<z<2'; point 7 violates predicate '-11.1<x+y<-11'; point 8 violates predicate '-11.1<x+y<-11'; point 9 violates predicate '-11.1<x+y<-11'; point 10 violates predicate '-11.1<x+y<-11'; point 11 violates predicate '-11.1<x+y<-11'; point 12 violates predicate '-11.1<x+y<-11'"
-    },
-    {
-      "expr_id": "147",
-      "kind": "explicit_surface",
-      "latex": "z=\\left(ax+5.5\\right)\\left\\{-11.1<x-y<-11\\right\\}\\left\\{0<z<2\\right\\}",
-      "reason": "point 0 violates predicate '0<z<2'; point 1 violates predicate '0<z<2'; point 2 violates predicate '0<z<2'; point 3 violates predicate '-11.1<x-y<-11'; point 3 violates predicate '0<z<2'; point 4 violates predicate '-11.1<x-y<-11'; point 4 violates predicate '0<z<2'; point 5 violates predicate '-11.1<x-y<-11'; point 5 violates predicate '0<z<2'; point 6 violates predicate '-11.1<x-y<-11'; point 6 violates predicate '0<z<2'; point 7 violates predicate '-11.1<x-y<-11'; point 8 violates predicate '-11.1<x-y<-11'; point 9 violates predicate '-11.1<x-y<-11'; point 10 violates predicate '-11.1<x-y<-11'; point 11 violates predicate '-11.1<x-y<-11'; point 12 violates predicate '-11.1<x-y<-11'; point 13 violates predicate '-11.1<x-y<-11'; point 14 violates predicate '-11.1<x-y<-11'; point 15 violates predicate '-11.1<x-y<-11'"
-    },
-    {
-      "expr_id": "148",
-      "kind": "explicit_surface",
-      "latex": "z=\\left(ax+5.5\\right)\\left\\{-11.9<x+y<-11.8\\right\\}\\left\\{0<z<1.7\\right\\}",
-      "reason": "point 0 violates predicate '-11.9<x+y<-11.8'; point 0 violates predicate '0<z<1.7'; point 1 violates predicate '-11.9<x+y<-11.8'; point 1 violates predicate '0<z<1.7'; point 2 violates predicate '-11.9<x+y<-11.8'; point 2 violates predicate '0<z<1.7'; point 3 violates predicate '-11.9<x+y<-11.8'; point 3 violates predicate '0<z<1.7'; point 4 violates predicate '-11.9<x+y<-11.8'; point 4 violates predicate '0<z<1.7'; point 5 violates predicate '-11.9<x+y<-11.8'; point 5 violates predicate '0<z<1.7'; point 6 violates predicate '-11.9<x+y<-11.8'; point 6 violates predicate '0<z<1.7'; point 7 violates predicate '-11.9<x+y<-11.8'; point 8 violates predicate '-11.9<x+y<-11.8'; point 9 violates predicate '-11.9<x+y<-11.8'; point 10 violates predicate '-11.9<x+y<-11.8'; point 11 violates predicate '-11.9<x+y<-11.8'; point 12 violates predicate '-11.9<x+y<-11.8'"
-    },
-    {
-      "expr_id": "149",
-      "kind": "explicit_surface",
-      "latex": "z=\\left(ax+5.5\\right)\\left\\{-11.9<x-y<-11.8\\right\\}\\left\\{0<z<1.7\\right\\}",
-      "reason": "point 0 violates predicate '0<z<1.7'; point 1 violates predicate '0<z<1.7'; point 2 violates predicate '0<z<1.7'; point 3 violates predicate '-11.9<x-y<-11.8'; point 3 violates predicate '0<z<1.7'; point 4 violates predicate '-11.9<x-y<-11.8'; point 4 violates predicate '0<z<1.7'; point 5 violates predicate '-11.9<x-y<-11.8'; point 5 violates predicate '0<z<1.7'; point 6 violates predicate '-11.9<x-y<-11.8'; point 6 violates predicate '0<z<1.7'; point 7 violates predicate '-11.9<x-y<-11.8'; point 8 violates predicate '-11.9<x-y<-11.8'; point 9 violates predicate '-11.9<x-y<-11.8'; point 10 violates predicate '-11.9<x-y<-11.8'; point 11 violates predicate '-11.9<x-y<-11.8'; point 12 violates predicate '-11.9<x-y<-11.8'; point 13 violates predicate '-11.9<x-y<-11.8'; point 14 violates predicate '-11.9<x-y<-11.8'; point 15 violates predicate '-11.9<x-y<-11.8'"
-    },
-    {
       "expr_id": "166",
       "kind": "explicit_surface",
       "latex": "z=\\left(-ay+0y+5.6\\right)\\left\\{1.1<y+x<1.2\\right\\}\\left\\{0<z<5.2\\right\\}",
@@ -457,18 +229,6 @@
       "reason": "point 0 violates predicate '4.5<y-x<4.6'; point 0 violates predicate '0<z<4'; point 1 violates predicate '4.5<y-x<4.6'; point 1 violates predicate '0<z<4'; point 2 violates predicate '4.5<y-x<4.6'; point 2 violates predicate '0<z<4'; point 3 violates predicate '4.5<y-x<4.6'; point 3 violates predicate '0<z<4'; point 4 violates predicate '4.5<y-x<4.6'; point 4 violates predicate '0<z<4'; point 5 violates predicate '4.5<y-x<4.6'; point 5 violates predicate '0<z<4'; point 6 violates predicate '4.5<y-x<4.6'; point 6 violates predicate '0<z<4'; point 7 violates predicate '4.5<y-x<4.6'; point 7 violates predicate '0<z<4'; point 8 violates predicate '4.5<y-x<4.6'; point 8 violates predicate '0<z<4'; point 9 violates predicate '4.5<y-x<4.6'; point 9 violates predicate '0<z<4'"
     },
     {
-      "expr_id": "176",
-      "kind": "explicit_surface",
-      "latex": "z=\\left(-ay+0y+5.6\\right)\\left\\{5.3<y+x<5.4\\right\\}\\left\\{0<z<3.7\\right\\}",
-      "reason": "point 0 violates predicate '5.3<y+x<5.4'; point 0 violates predicate '0<z<3.7'; point 1 violates predicate '5.3<y+x<5.4'; point 1 violates predicate '0<z<3.7'; point 2 violates predicate '5.3<y+x<5.4'; point 2 violates predicate '0<z<3.7'; point 3 violates predicate '5.3<y+x<5.4'; point 3 violates predicate '0<z<3.7'; point 4 violates predicate '5.3<y+x<5.4'; point 4 violates predicate '0<z<3.7'; point 5 violates predicate '5.3<y+x<5.4'; point 5 violates predicate '0<z<3.7'; point 6 violates predicate '5.3<y+x<5.4'; point 6 violates predicate '0<z<3.7'; point 7 violates predicate '5.3<y+x<5.4'; point 7 violates predicate '0<z<3.7'; point 8 violates predicate '5.3<y+x<5.4'; point 8 violates predicate '0<z<3.7'; point 9 violates predicate '5.3<y+x<5.4'; point 9 violates predicate '0<z<3.7'"
-    },
-    {
-      "expr_id": "177",
-      "kind": "explicit_surface",
-      "latex": "z=\\left(-ay+0y+5.6\\right)\\left\\{5.3<y-x<5.4\\right\\}\\left\\{0<z<3.7\\right\\}",
-      "reason": "point 0 violates predicate '0<z<3.7'; point 1 violates predicate '0<z<3.7'; point 2 violates predicate '5.3<y-x<5.4'; point 2 violates predicate '0<z<3.7'; point 3 violates predicate '5.3<y-x<5.4'; point 3 violates predicate '0<z<3.7'; point 4 violates predicate '5.3<y-x<5.4'; point 4 violates predicate '0<z<3.7'; point 5 violates predicate '5.3<y-x<5.4'; point 5 violates predicate '0<z<3.7'; point 6 violates predicate '5.3<y-x<5.4'; point 6 violates predicate '0<z<3.7'; point 7 violates predicate '5.3<y-x<5.4'; point 7 violates predicate '0<z<3.7'; point 8 violates predicate '5.3<y-x<5.4'; point 8 violates predicate '0<z<3.7'; point 9 violates predicate '5.3<y-x<5.4'; point 9 violates predicate '0<z<3.7'; point 10 violates predicate '5.3<y-x<5.4'; point 10 violates predicate '0<z<3.7'"
-    },
-    {
       "expr_id": "178",
       "kind": "explicit_surface",
       "latex": "z=\\left(-ay+0y+5.6\\right)\\left\\{6.2<y+x<6.3\\right\\}\\left\\{0<z<3.4\\right\\}",
@@ -481,126 +241,6 @@
       "reason": "point 0 violates predicate '6.2<y-x<6.3'; point 0 violates predicate '0<z<3.4'; point 1 violates predicate '6.2<y-x<6.3'; point 1 violates predicate '0<z<3.4'; point 2 violates predicate '6.2<y-x<6.3'; point 2 violates predicate '0<z<3.4'; point 3 violates predicate '6.2<y-x<6.3'; point 3 violates predicate '0<z<3.4'; point 4 violates predicate '6.2<y-x<6.3'; point 4 violates predicate '0<z<3.4'; point 5 violates predicate '6.2<y-x<6.3'; point 5 violates predicate '0<z<3.4'; point 6 violates predicate '6.2<y-x<6.3'; point 6 violates predicate '0<z<3.4'; point 7 violates predicate '6.2<y-x<6.3'; point 7 violates predicate '0<z<3.4'; point 8 violates predicate '6.2<y-x<6.3'; point 8 violates predicate '0<z<3.4'; point 9 violates predicate '6.2<y-x<6.3'; point 9 violates predicate '0<z<3.4'"
     },
     {
-      "expr_id": "180",
-      "kind": "explicit_surface",
-      "latex": "z=\\left(-ay+0y+5.6\\right)\\left\\{7<y+x<7.1\\right\\}\\left\\{0<z<3.2\\right\\}",
-      "reason": "point 0 violates predicate '7<y+x<7.1'; point 0 violates predicate '0<z<3.2'; point 1 violates predicate '7<y+x<7.1'; point 1 violates predicate '0<z<3.2'; point 2 violates predicate '7<y+x<7.1'; point 2 violates predicate '0<z<3.2'; point 3 violates predicate '7<y+x<7.1'; point 3 violates predicate '0<z<3.2'; point 4 violates predicate '7<y+x<7.1'; point 4 violates predicate '0<z<3.2'; point 5 violates predicate '7<y+x<7.1'; point 5 violates predicate '0<z<3.2'; point 6 violates predicate '7<y+x<7.1'; point 6 violates predicate '0<z<3.2'; point 7 violates predicate '7<y+x<7.1'; point 7 violates predicate '0<z<3.2'; point 8 violates predicate '7<y+x<7.1'; point 8 violates predicate '0<z<3.2'; point 9 violates predicate '7<y+x<7.1'; point 9 violates predicate '0<z<3.2'"
-    },
-    {
-      "expr_id": "181",
-      "kind": "explicit_surface",
-      "latex": "z=\\left(-ay+0y+5.6\\right)\\left\\{7<y-x<7.1\\right\\}\\left\\{0<z<3.2\\right\\}",
-      "reason": "point 0 violates predicate '0<z<3.2'; point 1 violates predicate '0<z<3.2'; point 2 violates predicate '0<z<3.2'; point 3 violates predicate '7<y-x<7.1'; point 3 violates predicate '0<z<3.2'; point 4 violates predicate '7<y-x<7.1'; point 4 violates predicate '0<z<3.2'; point 5 violates predicate '7<y-x<7.1'; point 5 violates predicate '0<z<3.2'; point 6 violates predicate '7<y-x<7.1'; point 6 violates predicate '0<z<3.2'; point 7 violates predicate '7<y-x<7.1'; point 7 violates predicate '0<z<3.2'; point 8 violates predicate '7<y-x<7.1'; point 8 violates predicate '0<z<3.2'; point 9 violates predicate '7<y-x<7.1'; point 9 violates predicate '0<z<3.2'; point 10 violates predicate '7<y-x<7.1'; point 10 violates predicate '0<z<3.2'; point 11 violates predicate '7<y-x<7.1'"
-    },
-    {
-      "expr_id": "182",
-      "kind": "explicit_surface",
-      "latex": "z=\\left(-ay+0y+5.6\\right)\\left\\{7.9<y+x<8\\right\\}\\left\\{0<z<2.9\\right\\}",
-      "reason": "point 0 violates predicate '7.9<y+x<8'; point 0 violates predicate '0<z<2.9'; point 1 violates predicate '7.9<y+x<8'; point 1 violates predicate '0<z<2.9'; point 2 violates predicate '7.9<y+x<8'; point 2 violates predicate '0<z<2.9'; point 3 violates predicate '7.9<y+x<8'; point 3 violates predicate '0<z<2.9'; point 4 violates predicate '7.9<y+x<8'; point 4 violates predicate '0<z<2.9'; point 5 violates predicate '7.9<y+x<8'; point 5 violates predicate '0<z<2.9'; point 6 violates predicate '7.9<y+x<8'; point 6 violates predicate '0<z<2.9'; point 7 violates predicate '7.9<y+x<8'; point 7 violates predicate '0<z<2.9'; point 8 violates predicate '7.9<y+x<8'; point 8 violates predicate '0<z<2.9'; point 9 violates predicate '7.9<y+x<8'; point 9 violates predicate '0<z<2.9'"
-    },
-    {
-      "expr_id": "183",
-      "kind": "explicit_surface",
-      "latex": "z=\\left(-ay+0y+5.6\\right)\\left\\{7.9<y-x<8\\right\\}\\left\\{0<z<2.9\\right\\}",
-      "reason": "point 0 violates predicate '0<z<2.9'; point 1 violates predicate '0<z<2.9'; point 2 violates predicate '0<z<2.9'; point 3 violates predicate '7.9<y-x<8'; point 3 violates predicate '0<z<2.9'; point 4 violates predicate '7.9<y-x<8'; point 4 violates predicate '0<z<2.9'; point 5 violates predicate '7.9<y-x<8'; point 5 violates predicate '0<z<2.9'; point 6 violates predicate '7.9<y-x<8'; point 6 violates predicate '0<z<2.9'; point 7 violates predicate '7.9<y-x<8'; point 7 violates predicate '0<z<2.9'; point 8 violates predicate '7.9<y-x<8'; point 8 violates predicate '0<z<2.9'; point 9 violates predicate '7.9<y-x<8'; point 9 violates predicate '0<z<2.9'; point 10 violates predicate '7.9<y-x<8'; point 10 violates predicate '0<z<2.9'; point 11 violates predicate '7.9<y-x<8'"
-    },
-    {
-      "expr_id": "184",
-      "kind": "explicit_surface",
-      "latex": "z=\\left(-ay+0y+5.6\\right)\\left\\{8.7<y+x<8.8\\right\\}\\left\\{0<z<2.7\\right\\}",
-      "reason": "point 0 violates predicate '8.7<y+x<8.8'; point 0 violates predicate '0<z<2.7'; point 1 violates predicate '8.7<y+x<8.8'; point 1 violates predicate '0<z<2.7'; point 2 violates predicate '8.7<y+x<8.8'; point 2 violates predicate '0<z<2.7'; point 3 violates predicate '8.7<y+x<8.8'; point 3 violates predicate '0<z<2.7'; point 4 violates predicate '8.7<y+x<8.8'; point 4 violates predicate '0<z<2.7'; point 5 violates predicate '8.7<y+x<8.8'; point 5 violates predicate '0<z<2.7'; point 6 violates predicate '8.7<y+x<8.8'; point 6 violates predicate '0<z<2.7'; point 7 violates predicate '8.7<y+x<8.8'; point 7 violates predicate '0<z<2.7'; point 8 violates predicate '8.7<y+x<8.8'; point 8 violates predicate '0<z<2.7'; point 9 violates predicate '8.7<y+x<8.8'; point 9 violates predicate '0<z<2.7'"
-    },
-    {
-      "expr_id": "185",
-      "kind": "explicit_surface",
-      "latex": "z=\\left(-ay+0y+5.6\\right)\\left\\{8.7<y-x<8.8\\right\\}\\left\\{0<z<2.7\\right\\}",
-      "reason": "point 0 violates predicate '0<z<2.7'; point 1 violates predicate '0<z<2.7'; point 2 violates predicate '0<z<2.7'; point 3 violates predicate '8.7<y-x<8.8'; point 3 violates predicate '0<z<2.7'; point 4 violates predicate '8.7<y-x<8.8'; point 4 violates predicate '0<z<2.7'; point 5 violates predicate '8.7<y-x<8.8'; point 5 violates predicate '0<z<2.7'; point 6 violates predicate '8.7<y-x<8.8'; point 6 violates predicate '0<z<2.7'; point 7 violates predicate '8.7<y-x<8.8'; point 7 violates predicate '0<z<2.7'; point 8 violates predicate '8.7<y-x<8.8'; point 8 violates predicate '0<z<2.7'; point 9 violates predicate '8.7<y-x<8.8'; point 9 violates predicate '0<z<2.7'; point 10 violates predicate '8.7<y-x<8.8'; point 10 violates predicate '0<z<2.7'; point 11 violates predicate '8.7<y-x<8.8'"
-    },
-    {
-      "expr_id": "186",
-      "kind": "explicit_surface",
-      "latex": "z=\\left(-ay+0y+5.6\\right)\\left\\{9.5<y+x<9.6\\right\\}\\left\\{0<z<2.4\\right\\}",
-      "reason": "point 0 violates predicate '9.5<y+x<9.6'; point 0 violates predicate '0<z<2.4'; point 1 violates predicate '9.5<y+x<9.6'; point 1 violates predicate '0<z<2.4'; point 2 violates predicate '9.5<y+x<9.6'; point 2 violates predicate '0<z<2.4'; point 3 violates predicate '9.5<y+x<9.6'; point 3 violates predicate '0<z<2.4'; point 4 violates predicate '9.5<y+x<9.6'; point 4 violates predicate '0<z<2.4'; point 5 violates predicate '9.5<y+x<9.6'; point 5 violates predicate '0<z<2.4'; point 6 violates predicate '9.5<y+x<9.6'; point 6 violates predicate '0<z<2.4'; point 7 violates predicate '9.5<y+x<9.6'; point 7 violates predicate '0<z<2.4'; point 8 violates predicate '9.5<y+x<9.6'; point 8 violates predicate '0<z<2.4'; point 9 violates predicate '9.5<y+x<9.6'; point 9 violates predicate '0<z<2.4'"
-    },
-    {
-      "expr_id": "187",
-      "kind": "explicit_surface",
-      "latex": "z=\\left(-ay+0y+5.6\\right)\\left\\{9.5<y-x<9.6\\right\\}\\left\\{0<z<2.4\\right\\}",
-      "reason": "point 0 violates predicate '0<z<2.4'; point 1 violates predicate '0<z<2.4'; point 2 violates predicate '0<z<2.4'; point 3 violates predicate '9.5<y-x<9.6'; point 3 violates predicate '0<z<2.4'; point 4 violates predicate '9.5<y-x<9.6'; point 4 violates predicate '0<z<2.4'; point 5 violates predicate '9.5<y-x<9.6'; point 5 violates predicate '0<z<2.4'; point 6 violates predicate '9.5<y-x<9.6'; point 6 violates predicate '0<z<2.4'; point 7 violates predicate '9.5<y-x<9.6'; point 7 violates predicate '0<z<2.4'; point 8 violates predicate '9.5<y-x<9.6'; point 8 violates predicate '0<z<2.4'; point 9 violates predicate '9.5<y-x<9.6'; point 9 violates predicate '0<z<2.4'; point 10 violates predicate '9.5<y-x<9.6'; point 10 violates predicate '0<z<2.4'; point 11 violates predicate '9.5<y-x<9.6'"
-    },
-    {
-      "expr_id": "188",
-      "kind": "explicit_surface",
-      "latex": "z=\\left(-ay+0y+5.6\\right)\\left\\{10.3<y+x<10.4\\right\\}\\left\\{0<z<2.1\\right\\}",
-      "reason": "point 0 violates predicate '10.3<y+x<10.4'; point 0 violates predicate '0<z<2.1'; point 1 violates predicate '10.3<y+x<10.4'; point 1 violates predicate '0<z<2.1'; point 2 violates predicate '10.3<y+x<10.4'; point 2 violates predicate '0<z<2.1'; point 3 violates predicate '10.3<y+x<10.4'; point 3 violates predicate '0<z<2.1'; point 4 violates predicate '10.3<y+x<10.4'; point 4 violates predicate '0<z<2.1'; point 5 violates predicate '10.3<y+x<10.4'; point 5 violates predicate '0<z<2.1'; point 6 violates predicate '10.3<y+x<10.4'; point 6 violates predicate '0<z<2.1'; point 7 violates predicate '10.3<y+x<10.4'; point 7 violates predicate '0<z<2.1'; point 8 violates predicate '10.3<y+x<10.4'; point 8 violates predicate '0<z<2.1'; point 9 violates predicate '10.3<y+x<10.4'; point 9 violates predicate '0<z<2.1'"
-    },
-    {
-      "expr_id": "189",
-      "kind": "explicit_surface",
-      "latex": "z=\\left(-ay+0y+5.6\\right)\\left\\{10.3<y-x<10.4\\right\\}\\left\\{0<z<2.1\\right\\}",
-      "reason": "point 0 violates predicate '0<z<2.1'; point 1 violates predicate '0<z<2.1'; point 2 violates predicate '0<z<2.1'; point 3 violates predicate '10.3<y-x<10.4'; point 3 violates predicate '0<z<2.1'; point 4 violates predicate '10.3<y-x<10.4'; point 4 violates predicate '0<z<2.1'; point 5 violates predicate '10.3<y-x<10.4'; point 5 violates predicate '0<z<2.1'; point 6 violates predicate '10.3<y-x<10.4'; point 6 violates predicate '0<z<2.1'; point 7 violates predicate '10.3<y-x<10.4'; point 7 violates predicate '0<z<2.1'; point 8 violates predicate '10.3<y-x<10.4'; point 8 violates predicate '0<z<2.1'; point 9 violates predicate '10.3<y-x<10.4'; point 9 violates predicate '0<z<2.1'; point 10 violates predicate '10.3<y-x<10.4'; point 10 violates predicate '0<z<2.1'; point 11 violates predicate '10.3<y-x<10.4'"
-    },
-    {
-      "expr_id": "190",
-      "kind": "explicit_surface",
-      "latex": "z=\\left(-ay+0y+5.6\\right)\\left\\{11.2<y+x<11.3\\right\\}\\left\\{0<z<1.9\\right\\}",
-      "reason": "point 0 violates predicate '11.2<y+x<11.3'; point 0 violates predicate '0<z<1.9'; point 1 violates predicate '11.2<y+x<11.3'; point 1 violates predicate '0<z<1.9'; point 2 violates predicate '11.2<y+x<11.3'; point 2 violates predicate '0<z<1.9'; point 3 violates predicate '11.2<y+x<11.3'; point 3 violates predicate '0<z<1.9'; point 4 violates predicate '11.2<y+x<11.3'; point 4 violates predicate '0<z<1.9'; point 5 violates predicate '11.2<y+x<11.3'; point 5 violates predicate '0<z<1.9'; point 6 violates predicate '11.2<y+x<11.3'; point 6 violates predicate '0<z<1.9'; point 7 violates predicate '11.2<y+x<11.3'; point 7 violates predicate '0<z<1.9'; point 8 violates predicate '11.2<y+x<11.3'; point 8 violates predicate '0<z<1.9'; point 9 violates predicate '11.2<y+x<11.3'; point 9 violates predicate '0<z<1.9'"
-    },
-    {
-      "expr_id": "191",
-      "kind": "explicit_surface",
-      "latex": "z=\\left(-ay+0y+5.6\\right)\\left\\{11.2<y-x<11.3\\right\\}\\left\\{0<z<1.9\\right\\}",
-      "reason": "point 0 violates predicate '0<z<1.9'; point 1 violates predicate '0<z<1.9'; point 2 violates predicate '0<z<1.9'; point 3 violates predicate '11.2<y-x<11.3'; point 3 violates predicate '0<z<1.9'; point 4 violates predicate '11.2<y-x<11.3'; point 4 violates predicate '0<z<1.9'; point 5 violates predicate '11.2<y-x<11.3'; point 5 violates predicate '0<z<1.9'; point 6 violates predicate '11.2<y-x<11.3'; point 6 violates predicate '0<z<1.9'; point 7 violates predicate '11.2<y-x<11.3'; point 7 violates predicate '0<z<1.9'; point 8 violates predicate '11.2<y-x<11.3'; point 8 violates predicate '0<z<1.9'; point 9 violates predicate '11.2<y-x<11.3'; point 9 violates predicate '0<z<1.9'; point 10 violates predicate '11.2<y-x<11.3'; point 10 violates predicate '0<z<1.9'; point 11 violates predicate '11.2<y-x<11.3'"
-    },
-    {
-      "expr_id": "192",
-      "kind": "explicit_surface",
-      "latex": "z=\\left(-ay+0y+5.6\\right)\\left\\{12<y+x<12.1\\right\\}\\left\\{0<z<1.6\\right\\}",
-      "reason": "point 0 violates predicate '12<y+x<12.1'; point 0 violates predicate '0<z<1.6'; point 1 violates predicate '12<y+x<12.1'; point 1 violates predicate '0<z<1.6'; point 2 violates predicate '12<y+x<12.1'; point 2 violates predicate '0<z<1.6'; point 3 violates predicate '12<y+x<12.1'; point 3 violates predicate '0<z<1.6'; point 4 violates predicate '12<y+x<12.1'; point 4 violates predicate '0<z<1.6'; point 5 violates predicate '12<y+x<12.1'; point 5 violates predicate '0<z<1.6'; point 6 violates predicate '12<y+x<12.1'; point 6 violates predicate '0<z<1.6'; point 7 violates predicate '12<y+x<12.1'; point 7 violates predicate '0<z<1.6'; point 8 violates predicate '12<y+x<12.1'; point 8 violates predicate '0<z<1.6'; point 9 violates predicate '12<y+x<12.1'; point 9 violates predicate '0<z<1.6'"
-    },
-    {
-      "expr_id": "193",
-      "kind": "explicit_surface",
-      "latex": "z=\\left(-ay+0y+5.6\\right)\\left\\{12<y-x<12.1\\right\\}\\left\\{0<z<1.6\\right\\}",
-      "reason": "point 0 violates predicate '0<z<1.6'; point 1 violates predicate '0<z<1.6'; point 2 violates predicate '0<z<1.6'; point 3 violates predicate '12<y-x<12.1'; point 3 violates predicate '0<z<1.6'; point 4 violates predicate '12<y-x<12.1'; point 4 violates predicate '0<z<1.6'; point 5 violates predicate '12<y-x<12.1'; point 5 violates predicate '0<z<1.6'; point 6 violates predicate '12<y-x<12.1'; point 6 violates predicate '0<z<1.6'; point 7 violates predicate '12<y-x<12.1'; point 7 violates predicate '0<z<1.6'; point 8 violates predicate '12<y-x<12.1'; point 8 violates predicate '0<z<1.6'; point 9 violates predicate '12<y-x<12.1'; point 9 violates predicate '0<z<1.6'; point 10 violates predicate '12<y-x<12.1'; point 10 violates predicate '0<z<1.6'; point 11 violates predicate '12<y-x<12.1'"
-    },
-    {
-      "expr_id": "194",
-      "kind": "explicit_surface",
-      "latex": "z=\\left(-ay+0y+5.6\\right)\\left\\{12.9<y+x<13\\right\\}\\left\\{0<z<1.3\\right\\}",
-      "reason": "point 0 violates predicate '12.9<y+x<13'; point 0 violates predicate '0<z<1.3'; point 1 violates predicate '12.9<y+x<13'; point 1 violates predicate '0<z<1.3'; point 2 violates predicate '12.9<y+x<13'; point 2 violates predicate '0<z<1.3'; point 3 violates predicate '12.9<y+x<13'; point 3 violates predicate '0<z<1.3'; point 4 violates predicate '12.9<y+x<13'; point 4 violates predicate '0<z<1.3'; point 5 violates predicate '12.9<y+x<13'; point 5 violates predicate '0<z<1.3'; point 6 violates predicate '12.9<y+x<13'; point 6 violates predicate '0<z<1.3'; point 7 violates predicate '12.9<y+x<13'; point 7 violates predicate '0<z<1.3'; point 8 violates predicate '12.9<y+x<13'; point 8 violates predicate '0<z<1.3'; point 9 violates predicate '12.9<y+x<13'; point 9 violates predicate '0<z<1.3'"
-    },
-    {
-      "expr_id": "195",
-      "kind": "explicit_surface",
-      "latex": "z=\\left(-ay+0y+5.6\\right)\\left\\{12.9<y-x<13\\right\\}\\left\\{0<z<1.3\\right\\}",
-      "reason": "point 0 violates predicate '0<z<1.3'; point 1 violates predicate '0<z<1.3'; point 2 violates predicate '0<z<1.3'; point 3 violates predicate '0<z<1.3'; point 4 violates predicate '12.9<y-x<13'; point 4 violates predicate '0<z<1.3'; point 5 violates predicate '12.9<y-x<13'; point 5 violates predicate '0<z<1.3'; point 6 violates predicate '12.9<y-x<13'; point 6 violates predicate '0<z<1.3'; point 7 violates predicate '12.9<y-x<13'; point 7 violates predicate '0<z<1.3'; point 8 violates predicate '12.9<y-x<13'; point 8 violates predicate '0<z<1.3'; point 9 violates predicate '12.9<y-x<13'; point 9 violates predicate '0<z<1.3'; point 10 violates predicate '12.9<y-x<13'; point 10 violates predicate '0<z<1.3'; point 11 violates predicate '12.9<y-x<13'; point 11 violates predicate '0<z<1.3'"
-    },
-    {
-      "expr_id": "198",
-      "kind": "explicit_surface",
-      "latex": "z=\\left(-ay+0y+5.6\\right)\\left\\{14.6<y+x<14.7\\right\\}\\left\\{0<z<0.8\\right\\}",
-      "reason": "point 0 violates predicate '14.6<y+x<14.7'; point 0 violates predicate '0<z<0.8'; point 1 violates predicate '14.6<y+x<14.7'; point 1 violates predicate '0<z<0.8'; point 2 violates predicate '14.6<y+x<14.7'; point 2 violates predicate '0<z<0.8'; point 3 violates predicate '14.6<y+x<14.7'; point 3 violates predicate '0<z<0.8'; point 4 violates predicate '14.6<y+x<14.7'; point 4 violates predicate '0<z<0.8'; point 5 violates predicate '14.6<y+x<14.7'; point 5 violates predicate '0<z<0.8'; point 6 violates predicate '14.6<y+x<14.7'; point 6 violates predicate '0<z<0.8'; point 7 violates predicate '14.6<y+x<14.7'; point 7 violates predicate '0<z<0.8'; point 8 violates predicate '14.6<y+x<14.7'; point 8 violates predicate '0<z<0.8'; point 9 violates predicate '14.6<y+x<14.7'; point 9 violates predicate '0<z<0.8'"
-    },
-    {
-      "expr_id": "199",
-      "kind": "explicit_surface",
-      "latex": "z=\\left(-ay+0y+5.6\\right)\\left\\{14.6<y-x<14.7\\right\\}\\left\\{0<z<0.8\\right\\}",
-      "reason": "point 0 violates predicate '0<z<0.8'; point 1 violates predicate '0<z<0.8'; point 2 violates predicate '0<z<0.8'; point 3 violates predicate '0<z<0.8'; point 4 violates predicate '14.6<y-x<14.7'; point 4 violates predicate '0<z<0.8'; point 5 violates predicate '14.6<y-x<14.7'; point 5 violates predicate '0<z<0.8'; point 6 violates predicate '14.6<y-x<14.7'; point 6 violates predicate '0<z<0.8'; point 7 violates predicate '14.6<y-x<14.7'; point 7 violates predicate '0<z<0.8'; point 8 violates predicate '14.6<y-x<14.7'; point 8 violates predicate '0<z<0.8'; point 9 violates predicate '14.6<y-x<14.7'; point 9 violates predicate '0<z<0.8'; point 10 violates predicate '14.6<y-x<14.7'; point 10 violates predicate '0<z<0.8'; point 11 violates predicate '14.6<y-x<14.7'; point 11 violates predicate '0<z<0.8'"
-    },
-    {
-      "expr_id": "201",
-      "kind": "explicit_surface",
-      "latex": "z=\\left(ay+5.5\\right)\\left\\{-0.4<y+x<-0.3\\right\\}\\left\\{4.3<z<5.4\\right\\}",
-      "reason": "point 0 violates predicate '-0.4<y+x<-0.3'; point 0 violates predicate '4.3<z<5.4'; point 1 violates predicate '-0.4<y+x<-0.3'; point 1 violates predicate '4.3<z<5.4'; point 2 violates predicate '-0.4<y+x<-0.3'; point 2 violates predicate '4.3<z<5.4'; point 3 violates predicate '-0.4<y+x<-0.3'; point 3 violates predicate '4.3<z<5.4'; point 4 violates predicate '-0.4<y+x<-0.3'; point 4 violates predicate '4.3<z<5.4'; point 5 violates predicate '-0.4<y+x<-0.3'; point 5 violates predicate '4.3<z<5.4'; point 6 violates predicate '-0.4<y+x<-0.3'; point 6 violates predicate '4.3<z<5.4'; point 7 violates predicate '-0.4<y+x<-0.3'; point 7 violates predicate '4.3<z<5.4'; point 8 violates predicate '-0.4<y+x<-0.3'; point 8 violates predicate '4.3<z<5.4'; point 9 violates predicate '-0.4<y+x<-0.3'; point 9 violates predicate '4.3<z<5.4'"
-    },
-    {
-      "expr_id": "202",
-      "kind": "explicit_surface",
-      "latex": "z=\\left(ay+5.5\\right)\\left\\{-0.4<y-x<-0.3\\right\\}\\left\\{4.3<z<5.4\\right\\}",
-      "reason": "point 0 violates predicate '4.3<z<5.4'; point 1 violates predicate '4.3<z<5.4'; point 2 violates predicate '4.3<z<5.4'; point 3 violates predicate '-0.4<y-x<-0.3'; point 3 violates predicate '4.3<z<5.4'; point 4 violates predicate '-0.4<y-x<-0.3'; point 4 violates predicate '4.3<z<5.4'; point 5 violates predicate '-0.4<y-x<-0.3'; point 5 violates predicate '4.3<z<5.4'; point 6 violates predicate '-0.4<y-x<-0.3'; point 6 violates predicate '4.3<z<5.4'; point 7 violates predicate '-0.4<y-x<-0.3'; point 7 violates predicate '4.3<z<5.4'; point 8 violates predicate '-0.4<y-x<-0.3'; point 8 violates predicate '4.3<z<5.4'; point 9 violates predicate '-0.4<y-x<-0.3'; point 9 violates predicate '4.3<z<5.4'; point 10 violates predicate '-0.4<y-x<-0.3'; point 10 violates predicate '4.3<z<5.4'; point 11 violates predicate '-0.4<y-x<-0.3'"
-    },
-    {
       "expr_id": "203",
       "kind": "explicit_surface",
       "latex": "z=\\left(ay+5.5\\right)\\left\\{-1.2<x+y<-1.1\\right\\}\\left\\{0<z<5.1\\right\\}",
@@ -611,18 +251,6 @@
       "kind": "explicit_surface",
       "latex": "z=\\left(ay+5.5\\right)\\left\\{-1.2<y-x<-1.1\\right\\}\\left\\{0<z<5.1\\right\\}",
       "reason": "point 0 violates predicate '-1.2<y-x<-1.1'; point 0 violates predicate '0<z<5.1'; point 1 violates predicate '-1.2<y-x<-1.1'; point 1 violates predicate '0<z<5.1'; point 2 violates predicate '-1.2<y-x<-1.1'; point 2 violates predicate '0<z<5.1'; point 3 violates predicate '-1.2<y-x<-1.1'; point 3 violates predicate '0<z<5.1'; point 4 violates predicate '-1.2<y-x<-1.1'; point 4 violates predicate '0<z<5.1'; point 5 violates predicate '-1.2<y-x<-1.1'; point 5 violates predicate '0<z<5.1'; point 6 violates predicate '-1.2<y-x<-1.1'; point 6 violates predicate '0<z<5.1'; point 7 violates predicate '-1.2<y-x<-1.1'; point 7 violates predicate '0<z<5.1'; point 8 violates predicate '-1.2<y-x<-1.1'; point 8 violates predicate '0<z<5.1'; point 9 violates predicate '-1.2<y-x<-1.1'; point 9 violates predicate '0<z<5.1'"
-    },
-    {
-      "expr_id": "205",
-      "kind": "explicit_surface",
-      "latex": "z=\\left(ay+5.5\\right)\\left\\{-2<x+y<-1.9\\right\\}\\left\\{0<z<4.8\\right\\}",
-      "reason": "point 0 violates predicate '-2<x+y<-1.9'; point 0 violates predicate '0<z<4.8'; point 1 violates predicate '-2<x+y<-1.9'; point 1 violates predicate '0<z<4.8'; point 2 violates predicate '-2<x+y<-1.9'; point 2 violates predicate '0<z<4.8'; point 3 violates predicate '-2<x+y<-1.9'; point 3 violates predicate '0<z<4.8'; point 4 violates predicate '-2<x+y<-1.9'; point 4 violates predicate '0<z<4.8'; point 5 violates predicate '-2<x+y<-1.9'; point 5 violates predicate '0<z<4.8'; point 6 violates predicate '-2<x+y<-1.9'; point 6 violates predicate '0<z<4.8'; point 7 violates predicate '-2<x+y<-1.9'; point 7 violates predicate '0<z<4.8'; point 8 violates predicate '-2<x+y<-1.9'; point 8 violates predicate '0<z<4.8'; point 9 violates predicate '-2<x+y<-1.9'; point 9 violates predicate '0<z<4.8'"
-    },
-    {
-      "expr_id": "206",
-      "kind": "explicit_surface",
-      "latex": "z=\\left(ay+5.5\\right)\\left\\{-2<y-x<-1.9\\right\\}\\left\\{0<z<4.8\\right\\}",
-      "reason": "point 0 violates predicate '0<z<4.8'; point 1 violates predicate '0<z<4.8'; point 2 violates predicate '-2<y-x<-1.9'; point 2 violates predicate '0<z<4.8'; point 3 violates predicate '-2<y-x<-1.9'; point 3 violates predicate '0<z<4.8'; point 4 violates predicate '-2<y-x<-1.9'; point 4 violates predicate '0<z<4.8'; point 5 violates predicate '-2<y-x<-1.9'; point 5 violates predicate '0<z<4.8'; point 6 violates predicate '-2<y-x<-1.9'; point 6 violates predicate '0<z<4.8'; point 7 violates predicate '-2<y-x<-1.9'; point 7 violates predicate '0<z<4.8'; point 8 violates predicate '-2<y-x<-1.9'; point 8 violates predicate '0<z<4.8'; point 9 violates predicate '-2<y-x<-1.9'; point 9 violates predicate '0<z<4.8'; point 10 violates predicate '-2<y-x<-1.9'; point 10 violates predicate '0<z<4.8'"
     },
     {
       "expr_id": "207",
@@ -685,36 +313,6 @@
       "reason": "point 0 violates predicate '-6.2<y-x<-6.1'; point 0 violates predicate '1<z<3.4'; point 1 violates predicate '-6.2<y-x<-6.1'; point 1 violates predicate '1<z<3.4'; point 2 violates predicate '-6.2<y-x<-6.1'; point 2 violates predicate '1<z<3.4'; point 3 violates predicate '-6.2<y-x<-6.1'; point 3 violates predicate '1<z<3.4'; point 4 violates predicate '-6.2<y-x<-6.1'; point 4 violates predicate '1<z<3.4'; point 5 violates predicate '-6.2<y-x<-6.1'; point 5 violates predicate '1<z<3.4'; point 6 violates predicate '-6.2<y-x<-6.1'; point 6 violates predicate '1<z<3.4'; point 7 violates predicate '-6.2<y-x<-6.1'; point 7 violates predicate '1<z<3.4'; point 8 violates predicate '-6.2<y-x<-6.1'; point 8 violates predicate '1<z<3.4'; point 9 violates predicate '-6.2<y-x<-6.1'; point 9 violates predicate '1<z<3.4'"
     },
     {
-      "expr_id": "217",
-      "kind": "explicit_surface",
-      "latex": "z=\\left(ay+5.5\\right)\\left\\{-7<x+y<-6.9\\right\\}\\left\\{1<z<3.2\\right\\}",
-      "reason": "point 0 violates predicate '-7<x+y<-6.9'; point 0 violates predicate '1<z<3.2'; point 1 violates predicate '-7<x+y<-6.9'; point 1 violates predicate '1<z<3.2'; point 2 violates predicate '-7<x+y<-6.9'; point 2 violates predicate '1<z<3.2'; point 3 violates predicate '-7<x+y<-6.9'; point 3 violates predicate '1<z<3.2'; point 4 violates predicate '-7<x+y<-6.9'; point 4 violates predicate '1<z<3.2'; point 5 violates predicate '-7<x+y<-6.9'; point 5 violates predicate '1<z<3.2'; point 6 violates predicate '-7<x+y<-6.9'; point 6 violates predicate '1<z<3.2'; point 7 violates predicate '-7<x+y<-6.9'; point 7 violates predicate '1<z<3.2'; point 8 violates predicate '-7<x+y<-6.9'; point 8 violates predicate '1<z<3.2'; point 9 violates predicate '-7<x+y<-6.9'; point 9 violates predicate '1<z<3.2'"
-    },
-    {
-      "expr_id": "218",
-      "kind": "explicit_surface",
-      "latex": "z=\\left(ay+5.5\\right)\\left\\{-7<y-x<-6.9\\right\\}\\left\\{1<z<3.2\\right\\}",
-      "reason": "point 0 violates predicate '1<z<3.2'; point 1 violates predicate '1<z<3.2'; point 2 violates predicate '-7<y-x<-6.9'; point 2 violates predicate '1<z<3.2'; point 3 violates predicate '-7<y-x<-6.9'; point 3 violates predicate '1<z<3.2'; point 4 violates predicate '-7<y-x<-6.9'; point 4 violates predicate '1<z<3.2'; point 5 violates predicate '-7<y-x<-6.9'; point 5 violates predicate '1<z<3.2'; point 6 violates predicate '-7<y-x<-6.9'; point 6 violates predicate '1<z<3.2'; point 7 violates predicate '-7<y-x<-6.9'; point 7 violates predicate '1<z<3.2'; point 8 violates predicate '-7<y-x<-6.9'; point 8 violates predicate '1<z<3.2'; point 9 violates predicate '-7<y-x<-6.9'; point 9 violates predicate '1<z<3.2'; point 10 violates predicate '-7<y-x<-6.9'; point 10 violates predicate '1<z<3.2'"
-    },
-    {
-      "expr_id": "219",
-      "kind": "explicit_surface",
-      "latex": "z=\\left(ay+5.5\\right)\\left\\{-7.8<x+y<-7.7\\right\\}\\left\\{1<z<2.9\\right\\}",
-      "reason": "point 0 violates predicate '-7.8<x+y<-7.7'; point 0 violates predicate '1<z<2.9'; point 1 violates predicate '-7.8<x+y<-7.7'; point 1 violates predicate '1<z<2.9'; point 2 violates predicate '-7.8<x+y<-7.7'; point 2 violates predicate '1<z<2.9'; point 3 violates predicate '-7.8<x+y<-7.7'; point 3 violates predicate '1<z<2.9'; point 4 violates predicate '-7.8<x+y<-7.7'; point 4 violates predicate '1<z<2.9'; point 5 violates predicate '-7.8<x+y<-7.7'; point 5 violates predicate '1<z<2.9'; point 6 violates predicate '-7.8<x+y<-7.7'; point 6 violates predicate '1<z<2.9'; point 7 violates predicate '-7.8<x+y<-7.7'; point 7 violates predicate '1<z<2.9'; point 8 violates predicate '-7.8<x+y<-7.7'; point 8 violates predicate '1<z<2.9'; point 9 violates predicate '-7.8<x+y<-7.7'; point 9 violates predicate '1<z<2.9'"
-    },
-    {
-      "expr_id": "220",
-      "kind": "explicit_surface",
-      "latex": "z=\\left(ay+5.5\\right)\\left\\{-7.8<y-x<-7.7\\right\\}\\left\\{1<z<2.9\\right\\}",
-      "reason": "point 0 violates predicate '1<z<2.9'; point 1 violates predicate '1<z<2.9'; point 2 violates predicate '-7.8<y-x<-7.7'; point 2 violates predicate '1<z<2.9'; point 3 violates predicate '-7.8<y-x<-7.7'; point 3 violates predicate '1<z<2.9'; point 4 violates predicate '-7.8<y-x<-7.7'; point 4 violates predicate '1<z<2.9'; point 5 violates predicate '-7.8<y-x<-7.7'; point 5 violates predicate '1<z<2.9'; point 6 violates predicate '-7.8<y-x<-7.7'; point 6 violates predicate '1<z<2.9'; point 7 violates predicate '-7.8<y-x<-7.7'; point 7 violates predicate '1<z<2.9'; point 8 violates predicate '-7.8<y-x<-7.7'; point 8 violates predicate '1<z<2.9'; point 9 violates predicate '-7.8<y-x<-7.7'; point 9 violates predicate '1<z<2.9'; point 10 violates predicate '-7.8<y-x<-7.7'; point 10 violates predicate '1<z<2.9'"
-    },
-    {
-      "expr_id": "222",
-      "kind": "explicit_surface",
-      "latex": "z=\\left(ay+5.5\\right)\\left\\{-8.6<y-x<-8.5\\right\\}\\left\\{1<z<2.7\\right\\}",
-      "reason": "point 0 violates predicate '1<z<2.7'; point 1 violates predicate '1<z<2.7'; point 2 violates predicate '-8.6<y-x<-8.5'; point 2 violates predicate '1<z<2.7'; point 3 violates predicate '-8.6<y-x<-8.5'; point 3 violates predicate '1<z<2.7'; point 4 violates predicate '-8.6<y-x<-8.5'; point 4 violates predicate '1<z<2.7'; point 5 violates predicate '-8.6<y-x<-8.5'; point 5 violates predicate '1<z<2.7'; point 6 violates predicate '-8.6<y-x<-8.5'; point 6 violates predicate '1<z<2.7'; point 7 violates predicate '-8.6<y-x<-8.5'; point 7 violates predicate '1<z<2.7'; point 8 violates predicate '-8.6<y-x<-8.5'; point 8 violates predicate '1<z<2.7'; point 9 violates predicate '-8.6<y-x<-8.5'; point 9 violates predicate '1<z<2.7'; point 10 violates predicate '-8.6<y-x<-8.5'; point 10 violates predicate '1<z<2.7'"
-    },
-    {
       "expr_id": "316",
       "kind": "inequality_region",
       "latex": "0<z<0.3\\ \\left\\{\\left(x+14\\right)^{2}+\\left(y-14\\right)^{2}\\ \\le6\\right\\}",
@@ -727,17 +325,17 @@
       "reason": "Inequality region for 317 did not resolve to sampled cells"
     }
   ],
-  "unsupported_count": 119,
+  "unsupported_count": 52,
   "usda_exists": true,
   "usdz_exists": true,
   "usdz_output": "artifacts/fixture_usdz/[4B] 3D Diagram - S2-01 Group A.usdz",
   "usdz_package": {
     "command": [
       "/usr/bin/usdzip",
-      "/Users/chek/repos/desmos2usd-carey/artifacts/fixture_usdz/[4B] 3D Diagram - S2-01 Group A.usdz",
+      "/private/tmp/desmos2usd-carey-visual-20260426-160834/artifacts/fixture_usdz/[4B] 3D Diagram - S2-01 Group A.usdz",
       "[4B] 3D Diagram - S2-01 Group A.usda"
     ],
-    "cwd": "/Users/chek/repos/desmos2usd-carey/artifacts/fixture_usdz",
+    "cwd": "/private/tmp/desmos2usd-carey-visual-20260426-160834/artifacts/fixture_usdz",
     "returncode": 0,
     "stderr": "",
     "stdout": "",
@@ -810,80 +408,80 @@
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "41",
-      "face_count": 4,
+      "face_count": 36,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 324,
+      "point_count": 148,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "35",
-      "face_count": 4,
+      "face_count": 36,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 324,
+      "point_count": 148,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "43",
-      "face_count": 4,
+      "face_count": 36,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 324,
+      "point_count": 148,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "56",
-      "face_count": 4,
+      "face_count": 36,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 324,
+      "point_count": 148,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "39",
-      "face_count": 4,
+      "face_count": 36,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 324,
+      "point_count": 148,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "37",
-      "face_count": 4,
+      "face_count": 36,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 324,
+      "point_count": 148,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "54",
-      "face_count": 4,
+      "face_count": 36,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 324,
+      "point_count": 148,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "50",
-      "face_count": 4,
+      "face_count": 36,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 324,
+      "point_count": 148,
       "valid": true
     },
     {
@@ -900,87 +498,87 @@
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "260",
-      "face_count": 120,
+      "face_count": 34,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 4356,
+      "point_count": 148,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "268",
-      "face_count": 120,
+      "face_count": 34,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 4356,
+      "point_count": 148,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "265",
-      "face_count": 1,
+      "face_count": 34,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 1156,
+      "point_count": 148,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "266",
-      "face_count": 120,
+      "face_count": 34,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 4356,
+      "point_count": 148,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "263",
-      "face_count": 1,
+      "face_count": 34,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 1156,
+      "point_count": 148,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "264",
-      "face_count": 120,
+      "face_count": 34,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 4356,
+      "point_count": 148,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "259",
-      "face_count": 1,
+      "face_count": 34,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 1156,
+      "point_count": 148,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "261",
-      "face_count": 1,
+      "face_count": 34,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 1156,
+      "point_count": 148,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "161",
-      "face_count": 12,
+      "face_count": 30,
       "kind": "inequality_region",
       "max_residual": null,
       "point_count": 32,
@@ -990,390 +588,1060 @@
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "82",
-      "face_count": 110,
+      "face_count": 34,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 4356,
+      "point_count": 148,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "83",
-      "face_count": 110,
+      "face_count": 34,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 4356,
+      "point_count": 148,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "80",
+      "face_count": 34,
+      "kind": "explicit_surface",
+      "max_residual": 0.0,
+      "point_count": 148,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "89",
+      "face_count": 34,
+      "kind": "explicit_surface",
+      "max_residual": 0.0,
+      "point_count": 148,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "94",
+      "face_count": 372,
+      "kind": "explicit_surface",
+      "max_residual": 0.0,
+      "point_count": 4852,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "95",
+      "face_count": 372,
+      "kind": "explicit_surface",
+      "max_residual": 0.0,
+      "point_count": 4852,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "96",
+      "face_count": 352,
+      "kind": "explicit_surface",
+      "max_residual": 0.0,
+      "point_count": 4828,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "97",
+      "face_count": 352,
+      "kind": "explicit_surface",
+      "max_residual": 0.0,
+      "point_count": 4828,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "98",
+      "face_count": 346,
+      "kind": "explicit_surface",
+      "max_residual": 0.0,
+      "point_count": 4820,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "99",
+      "face_count": 346,
+      "kind": "explicit_surface",
+      "max_residual": 0.0,
+      "point_count": 4820,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "100",
+      "face_count": 298,
+      "kind": "explicit_surface",
+      "max_residual": 0.0,
+      "point_count": 4756,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "101",
+      "face_count": 298,
+      "kind": "explicit_surface",
+      "max_residual": 0.0,
+      "point_count": 4756,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "102",
+      "face_count": 358,
+      "kind": "explicit_surface",
+      "max_residual": 0.0,
+      "point_count": 4836,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "103",
+      "face_count": 358,
+      "kind": "explicit_surface",
+      "max_residual": 0.0,
+      "point_count": 4836,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "104",
+      "face_count": 298,
+      "kind": "explicit_surface",
+      "max_residual": 0.0,
+      "point_count": 4756,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "105",
+      "face_count": 456,
+      "kind": "explicit_surface",
+      "max_residual": 0.0,
+      "point_count": 4816,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "106",
+      "face_count": 280,
+      "kind": "explicit_surface",
+      "max_residual": 0.0,
+      "point_count": 4732,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "107",
+      "face_count": 280,
+      "kind": "explicit_surface",
+      "max_residual": 0.0,
+      "point_count": 4732,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "108",
+      "face_count": 130,
+      "kind": "explicit_surface",
+      "max_residual": 0.0,
+      "point_count": 1332,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "109",
+      "face_count": 130,
+      "kind": "explicit_surface",
+      "max_residual": 0.0,
+      "point_count": 1332,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "110",
-      "face_count": 1,
+      "face_count": 126,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 4356,
+      "point_count": 1324,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "111",
-      "face_count": 1,
+      "face_count": 126,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 4356,
+      "point_count": 1324,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "113",
+      "face_count": 82,
+      "kind": "explicit_surface",
+      "max_residual": 0.0,
+      "point_count": 1268,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "114",
+      "face_count": 94,
+      "kind": "explicit_surface",
+      "max_residual": 0.0,
+      "point_count": 1284,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "277",
-      "face_count": 33,
+      "face_count": 100,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 4356,
+      "point_count": 1292,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "278",
-      "face_count": 33,
+      "face_count": 100,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 4356,
+      "point_count": 1292,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "117",
+      "face_count": 34,
+      "kind": "explicit_surface",
+      "max_residual": 0.0,
+      "point_count": 148,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "119",
+      "face_count": 34,
+      "kind": "explicit_surface",
+      "max_residual": 0.0,
+      "point_count": 148,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "123",
+      "face_count": 34,
+      "kind": "explicit_surface",
+      "max_residual": 0.0,
+      "point_count": 148,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "124",
+      "face_count": 34,
+      "kind": "explicit_surface",
+      "max_residual": 0.0,
+      "point_count": 148,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "135",
+      "face_count": 34,
+      "kind": "explicit_surface",
+      "max_residual": 0.0,
+      "point_count": 148,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "136",
+      "face_count": 34,
+      "kind": "explicit_surface",
+      "max_residual": 0.0,
+      "point_count": 148,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "138",
+      "face_count": 34,
+      "kind": "explicit_surface",
+      "max_residual": 0.0,
+      "point_count": 148,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "139",
+      "face_count": 34,
+      "kind": "explicit_surface",
+      "max_residual": 0.0,
+      "point_count": 148,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "140",
+      "face_count": 34,
+      "kind": "explicit_surface",
+      "max_residual": 0.0,
+      "point_count": 148,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "141",
+      "face_count": 34,
+      "kind": "explicit_surface",
+      "max_residual": 0.0,
+      "point_count": 148,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "142",
+      "face_count": 34,
+      "kind": "explicit_surface",
+      "max_residual": 0.0,
+      "point_count": 148,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "143",
+      "face_count": 34,
+      "kind": "explicit_surface",
+      "max_residual": 0.0,
+      "point_count": 148,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "144",
+      "face_count": 34,
+      "kind": "explicit_surface",
+      "max_residual": 0.0,
+      "point_count": 148,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "145",
+      "face_count": 34,
+      "kind": "explicit_surface",
+      "max_residual": 0.0,
+      "point_count": 148,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "146",
+      "face_count": 34,
+      "kind": "explicit_surface",
+      "max_residual": 0.0,
+      "point_count": 148,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "147",
+      "face_count": 34,
+      "kind": "explicit_surface",
+      "max_residual": 0.0,
+      "point_count": 148,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "148",
+      "face_count": 34,
+      "kind": "explicit_surface",
+      "max_residual": 0.0,
+      "point_count": 148,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "149",
+      "face_count": 34,
+      "kind": "explicit_surface",
+      "max_residual": 0.0,
+      "point_count": 148,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "150",
-      "face_count": 48,
+      "face_count": 34,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 4356,
+      "point_count": 148,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "151",
-      "face_count": 48,
+      "face_count": 34,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 4356,
+      "point_count": 148,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "153",
-      "face_count": 42,
+      "face_count": 22,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 4356,
+      "point_count": 132,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "154",
-      "face_count": 42,
+      "face_count": 22,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 4356,
+      "point_count": 132,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "155",
-      "face_count": 31,
+      "face_count": 22,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 4356,
+      "point_count": 132,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "156",
-      "face_count": 31,
+      "face_count": 22,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 4356,
+      "point_count": 132,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "279",
-      "face_count": 66,
+      "face_count": 22,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 4356,
+      "point_count": 132,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "280",
-      "face_count": 66,
+      "face_count": 22,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 4356,
+      "point_count": 132,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "164",
-      "face_count": 110,
+      "face_count": 34,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 4356,
+      "point_count": 148,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "165",
-      "face_count": 110,
+      "face_count": 34,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 4356,
+      "point_count": 148,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "176",
+      "face_count": 34,
+      "kind": "explicit_surface",
+      "max_residual": 0.0,
+      "point_count": 148,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "177",
+      "face_count": 34,
+      "kind": "explicit_surface",
+      "max_residual": 0.0,
+      "point_count": 148,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "180",
+      "face_count": 372,
+      "kind": "explicit_surface",
+      "max_residual": 0.0,
+      "point_count": 4852,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "181",
+      "face_count": 372,
+      "kind": "explicit_surface",
+      "max_residual": 0.0,
+      "point_count": 4852,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "182",
+      "face_count": 352,
+      "kind": "explicit_surface",
+      "max_residual": 0.0,
+      "point_count": 4828,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "183",
+      "face_count": 352,
+      "kind": "explicit_surface",
+      "max_residual": 0.0,
+      "point_count": 4828,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "184",
+      "face_count": 322,
+      "kind": "explicit_surface",
+      "max_residual": 0.0,
+      "point_count": 4788,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "185",
+      "face_count": 322,
+      "kind": "explicit_surface",
+      "max_residual": 0.0,
+      "point_count": 4788,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "186",
+      "face_count": 298,
+      "kind": "explicit_surface",
+      "max_residual": 0.0,
+      "point_count": 4756,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "187",
+      "face_count": 298,
+      "kind": "explicit_surface",
+      "max_residual": 0.0,
+      "point_count": 4756,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "188",
+      "face_count": 358,
+      "kind": "explicit_surface",
+      "max_residual": 0.0,
+      "point_count": 4836,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "189",
+      "face_count": 358,
+      "kind": "explicit_surface",
+      "max_residual": 0.0,
+      "point_count": 4836,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "190",
+      "face_count": 298,
+      "kind": "explicit_surface",
+      "max_residual": 0.0,
+      "point_count": 4756,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "191",
+      "face_count": 298,
+      "kind": "explicit_surface",
+      "max_residual": 0.0,
+      "point_count": 4756,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "192",
+      "face_count": 280,
+      "kind": "explicit_surface",
+      "max_residual": 0.0,
+      "point_count": 4732,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "193",
+      "face_count": 280,
+      "kind": "explicit_surface",
+      "max_residual": 0.0,
+      "point_count": 4732,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "194",
+      "face_count": 130,
+      "kind": "explicit_surface",
+      "max_residual": 0.0,
+      "point_count": 1332,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "195",
+      "face_count": 130,
+      "kind": "explicit_surface",
+      "max_residual": 0.0,
+      "point_count": 1332,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "196",
-      "face_count": 1,
+      "face_count": 138,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 4356,
+      "point_count": 1340,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "197",
-      "face_count": 1,
+      "face_count": 138,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 4356,
+      "point_count": 1340,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "198",
+      "face_count": 94,
+      "kind": "explicit_surface",
+      "max_residual": 0.0,
+      "point_count": 1284,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "199",
+      "face_count": 94,
+      "kind": "explicit_surface",
+      "max_residual": 0.0,
+      "point_count": 1284,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "275",
-      "face_count": 22,
+      "face_count": 64,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 4356,
+      "point_count": 1244,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "276",
-      "face_count": 22,
+      "face_count": 64,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 4356,
+      "point_count": 1244,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "201",
+      "face_count": 34,
+      "kind": "explicit_surface",
+      "max_residual": 0.0,
+      "point_count": 148,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "202",
+      "face_count": 34,
+      "kind": "explicit_surface",
+      "max_residual": 0.0,
+      "point_count": 148,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "205",
+      "face_count": 34,
+      "kind": "explicit_surface",
+      "max_residual": 0.0,
+      "point_count": 148,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "206",
+      "face_count": 34,
+      "kind": "explicit_surface",
+      "max_residual": 0.0,
+      "point_count": 148,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "217",
+      "face_count": 34,
+      "kind": "explicit_surface",
+      "max_residual": 0.0,
+      "point_count": 148,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "218",
+      "face_count": 34,
+      "kind": "explicit_surface",
+      "max_residual": 0.0,
+      "point_count": 148,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "219",
+      "face_count": 34,
+      "kind": "explicit_surface",
+      "max_residual": 0.0,
+      "point_count": 148,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "220",
+      "face_count": 34,
+      "kind": "explicit_surface",
+      "max_residual": 0.0,
+      "point_count": 148,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "221",
-      "face_count": 54,
+      "face_count": 34,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 4356,
+      "point_count": 148,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "222",
+      "face_count": 34,
+      "kind": "explicit_surface",
+      "max_residual": 0.0,
+      "point_count": 148,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "223",
-      "face_count": 44,
+      "face_count": 28,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 4356,
+      "point_count": 140,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "224",
-      "face_count": 44,
+      "face_count": 28,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 4356,
+      "point_count": 140,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "225",
-      "face_count": 48,
+      "face_count": 28,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 4356,
+      "point_count": 140,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "226",
-      "face_count": 48,
+      "face_count": 28,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 4356,
+      "point_count": 140,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "227",
-      "face_count": 43,
+      "face_count": 28,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 4356,
+      "point_count": 140,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "228",
-      "face_count": 37,
+      "face_count": 22,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 4356,
+      "point_count": 132,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "229",
-      "face_count": 42,
+      "face_count": 28,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 4356,
+      "point_count": 140,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "230",
-      "face_count": 37,
+      "face_count": 22,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 4356,
+      "point_count": 132,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "231",
-      "face_count": 43,
+      "face_count": 28,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 4356,
+      "point_count": 140,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "232",
-      "face_count": 51,
+      "face_count": 28,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 4356,
+      "point_count": 140,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "233",
-      "face_count": 42,
+      "face_count": 22,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 4356,
+      "point_count": 132,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "234",
-      "face_count": 42,
+      "face_count": 22,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 4356,
+      "point_count": 132,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "235",
-      "face_count": 31,
+      "face_count": 22,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 4356,
+      "point_count": 132,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "236",
-      "face_count": 31,
+      "face_count": 22,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 4356,
+      "point_count": 132,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "271",
-      "face_count": 56,
+      "face_count": 16,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 4356,
+      "point_count": 124,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "272",
-      "face_count": 56,
+      "face_count": 16,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 4356,
+      "point_count": 124,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "273",
-      "face_count": 30,
+      "face_count": 10,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 4356,
+      "point_count": 116,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "274",
-      "face_count": 30,
+      "face_count": 10,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 4356,
+      "point_count": 116,
       "valid": true
     },
     {
@@ -1520,121 +1788,154 @@
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "334",
-      "face_count": 1,
+      "face_count": 4,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 1156,
+      "point_count": 108,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "335",
-      "face_count": 2,
+      "face_count": 6,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 1156,
+      "point_count": 108,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "336",
-      "face_count": 44,
+      "face_count": 87,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 100,
+      "point_count": 142,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "339",
-      "face_count": 12,
+      "face_count": 33,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 100,
+      "point_count": 122,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "341",
-      "face_count": 3,
+      "face_count": 26,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 324,
+      "point_count": 128,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "344",
-      "face_count": 6,
+      "face_count": 21,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 100,
+      "point_count": 116,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "342",
-      "face_count": 4,
+      "face_count": 40,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 100,
+      "point_count": 140,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "345",
-      "face_count": 10,
+      "face_count": 36,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 100,
+      "point_count": 128,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "346",
-      "face_count": 6,
+      "face_count": 52,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 100,
+      "point_count": 148,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "347",
-      "face_count": 14,
+      "face_count": 45,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 100,
+      "point_count": 132,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "349",
-      "face_count": 3,
+      "face_count": 19,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 100,
+      "point_count": 118,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "348",
-      "face_count": 5,
+      "face_count": 18,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 100,
+      "point_count": 114,
       "valid": true
     }
-  ]
+  ],
+  "view_metadata": {
+    "axis_3d": [
+      0.0,
+      0.0,
+      -1.0000000000000004
+    ],
+    "three_d_mode": true,
+    "viewport_bounds": {
+      "x": [
+        -25.269501953756198,
+        25.269501953756198
+      ],
+      "y": [
+        -25.269501953756112,
+        25.269501953756112
+      ],
+      "z": [
+        -25.269501953756173,
+        25.269501953756173
+      ]
+    },
+    "world_rotation_3d": [
+      -0.240776915446853,
+      -0.9702899531496667,
+      -0.023746237696062183,
+      0.9656053009226904,
+      -0.24194504916782011,
+      0.09523127644414539,
+      -0.09814723540629729,
+      4.333342374871281e-34,
+      0.9951719048396115
+    ]
+  }
 }

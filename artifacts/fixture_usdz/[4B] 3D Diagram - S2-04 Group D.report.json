@@ -26,10 +26,10 @@
   "usdz_package": {
     "command": [
       "/usr/bin/usdzip",
-      "/Users/chek/repos/desmos2usd-carey/artifacts/fixture_usdz/[4B] 3D Diagram - S2-04 Group D.usdz",
+      "/private/tmp/desmos2usd-carey-visual-20260426-160834/artifacts/fixture_usdz/[4B] 3D Diagram - S2-04 Group D.usdz",
       "[4B] 3D Diagram - S2-04 Group D.usda"
     ],
-    "cwd": "/Users/chek/repos/desmos2usd-carey/artifacts/fixture_usdz",
+    "cwd": "/private/tmp/desmos2usd-carey-visual-20260426-160834/artifacts/fixture_usdz",
     "returncode": 0,
     "stderr": "",
     "stdout": "",
@@ -42,7 +42,7 @@
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "43",
-      "face_count": 12,
+      "face_count": 30,
       "kind": "inequality_region",
       "max_residual": null,
       "point_count": 32,
@@ -52,7 +52,7 @@
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "44",
-      "face_count": 12,
+      "face_count": 30,
       "kind": "inequality_region",
       "max_residual": null,
       "point_count": 32,
@@ -62,7 +62,7 @@
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "45",
-      "face_count": 12,
+      "face_count": 30,
       "kind": "inequality_region",
       "max_residual": null,
       "point_count": 32,
@@ -72,7 +72,7 @@
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "46",
-      "face_count": 12,
+      "face_count": 30,
       "kind": "inequality_region",
       "max_residual": null,
       "point_count": 32,
@@ -82,7 +82,7 @@
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "47",
-      "face_count": 12,
+      "face_count": 30,
       "kind": "inequality_region",
       "max_residual": null,
       "point_count": 32,
@@ -92,7 +92,7 @@
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "48",
-      "face_count": 12,
+      "face_count": 30,
       "kind": "inequality_region",
       "max_residual": null,
       "point_count": 32,
@@ -102,7 +102,7 @@
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "57",
-      "face_count": 12,
+      "face_count": 30,
       "kind": "inequality_region",
       "max_residual": null,
       "point_count": 32,
@@ -112,7 +112,7 @@
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "68",
-      "face_count": 12,
+      "face_count": 30,
       "kind": "inequality_region",
       "max_residual": null,
       "point_count": 32,
@@ -122,7 +122,7 @@
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "50",
-      "face_count": 12,
+      "face_count": 30,
       "kind": "inequality_region",
       "max_residual": null,
       "point_count": 32,
@@ -132,7 +132,7 @@
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "51",
-      "face_count": 12,
+      "face_count": 30,
       "kind": "inequality_region",
       "max_residual": null,
       "point_count": 32,
@@ -142,7 +142,7 @@
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "52",
-      "face_count": 12,
+      "face_count": 30,
       "kind": "inequality_region",
       "max_residual": null,
       "point_count": 32,
@@ -152,7 +152,7 @@
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "53",
-      "face_count": 12,
+      "face_count": 30,
       "kind": "inequality_region",
       "max_residual": null,
       "point_count": 32,
@@ -162,7 +162,7 @@
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "54",
-      "face_count": 12,
+      "face_count": 30,
       "kind": "inequality_region",
       "max_residual": null,
       "point_count": 32,
@@ -172,7 +172,7 @@
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "55",
-      "face_count": 12,
+      "face_count": 30,
       "kind": "inequality_region",
       "max_residual": null,
       "point_count": 32,
@@ -238,5 +238,38 @@
       "point_count": 100,
       "valid": true
     }
-  ]
+  ],
+  "view_metadata": {
+    "axis_3d": [
+      0.0,
+      0.0,
+      -1.0000000000048037
+    ],
+    "three_d_mode": true,
+    "viewport_bounds": {
+      "x": [
+        -2093.75,
+        2093.75
+      ],
+      "y": [
+        -2093.75,
+        2093.75
+      ],
+      "z": [
+        -2093.75,
+        2093.75
+      ]
+    },
+    "world_rotation_3d": [
+      0.598672931410964,
+      0.7522737446369383,
+      0.2750907747012455,
+      -0.6835629747395475,
+      0.6588506758969951,
+      -0.3140978294024011,
+      -0.41753129315182036,
+      -3.3926216106061913e-14,
+      0.9086625442038274
+    ]
+  }
 }

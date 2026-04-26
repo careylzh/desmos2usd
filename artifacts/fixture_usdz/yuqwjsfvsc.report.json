@@ -19,10 +19,10 @@
   "usdz_package": {
     "command": [
       "/usr/bin/usdzip",
-      "/Users/chek/repos/desmos2usd-carey/artifacts/fixture_usdz/yuqwjsfvsc.usdz",
+      "/private/tmp/desmos2usd-carey-visual-20260426-160834/artifacts/fixture_usdz/yuqwjsfvsc.usdz",
       "yuqwjsfvsc.usda"
     ],
-    "cwd": "/Users/chek/repos/desmos2usd-carey/artifacts/fixture_usdz",
+    "cwd": "/private/tmp/desmos2usd-carey-visual-20260426-160834/artifacts/fixture_usdz",
     "returncode": 0,
     "stderr": "",
     "stdout": "",
@@ -3441,5 +3441,38 @@
       "point_count": 32,
       "valid": true
     }
-  ]
+  ],
+  "view_metadata": {
+    "axis_3d": [
+      0.0,
+      0.0,
+      -0.9999999999951819
+    ],
+    "three_d_mode": true,
+    "viewport_bounds": {
+      "x": [
+        -113.52333599609096,
+        113.52333599609096
+      ],
+      "y": [
+        -113.52333599609096,
+        113.52333599609096
+      ],
+      "z": [
+        -113.52333599609096,
+        113.52333599609096
+      ]
+    },
+    "world_rotation_3d": [
+      -0.5132799671593364,
+      -0.8314696123025455,
+      -0.212607523691814,
+      0.7681777567114166,
+      -0.555570233019602,
+      0.3181896451432085,
+      -0.3826834323650897,
+      0.0,
+      0.9238795325112867
+    ]
+  }
 }

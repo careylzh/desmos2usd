@@ -164,3 +164,31 @@ Last updated: 2026-04-26 15:46 SGT
   - Implementation commit: `6e77fe1` (`Use saved Desmos view metadata in viewer`)
   - Push command attempted three times: `git push chektien HEAD:fix/student-fixture-usdz-export`
   - Push result: blocked, `ssh: Could not resolve hostname github.com: -65563`
+
+## Visual Parity Pass — 2026-04-26 ~16:30 SGT
+- task: visual parity repair for S2-05 Group D wireframe + S2-03 Group B fin artifacts, then triage all fixtures.
+- diagnosis:
+  - S2-05 Group D's "wireframe/skeletal" look came from the viewer rendering `BasisCurves` as `gl.LINE_STRIP` with `gl.lineWidth(2)`, which all desktop browsers ignore for widths > 1. With 125 parametric curves making up the truss, the tower read as a faint 1-pixel skeleton.
+  - S2-03 Group B's "fin" artifacts came from `tessellate_explicit_surface` only emitting quads whose four grid corners all satisfied the predicates. At resolution=8 with active z-constraints (`z>3`), the paraboloid-cap rim was reduced to scattered cells whose corners happened to land above z=3.
+  - S2-09 Group F has 0 curves and 0 explicit_surface prims, so it is unaffected by either fix and acts as a clean regression guard.
+- code changes:
+  - `viewer/app.js`: new `appendTubeGeometry()` builds a 6-sided tube mesh along every BasisCurves polyline using a rotation-minimizing parallel-transport frame. Tubes feed the existing mesh shader and are tracked per prim (`tubeRanges`) for opaque/translucent passes, selection highlighting, and pick rendering. Tube radius scales as `clamp(diag * 0.006, 0.015, diag * 0.025)`. The legacy LINE_STRIP pass is still drawn for prims that produced no tubes (degenerate/zero-radius curves).
+  - `src/desmos2usd/tessellate/surfaces.py`: new `refined_quad_faces()` and `_bisect_predicate_crossing()` perform marching-squares-style boundary refinement on explicit_surface cells whose corners straddle a predicate boundary. Bisection (`QUAD_BOUNDARY_REFINE_ITERATIONS = 12`) tracks the predicate transition along each mixed-validity edge and emits triangles connecting valid corners with the boundary samples. Guarded by `_surface_predicates_constrain_solved_axis()` so surfaces with no constraint on the dependent axis (e.g. only x/y restrictions) keep the original `quad_faces` path and stay fast.
+- artifacts:
+  - All `artifacts/fixture_usdz/*.usda` and `*.usdz` artifacts regenerated at the suite default resolution=8 to apply the boundary refinement.
+  - `artifacts/fixture_usdz/summary.json` rebuilt by the suite as part of regen.
+  - S2-09 Group F regen produced byte-identical geometry (no curves, no explicit_surface).
+- evidence:
+  - `artifacts/fixture_usdz/review_evidence/20260426_visual_parity_pass/assessment.md`
+  - `artifacts/fixture_usdz/review_evidence/20260426_visual_parity_pass/triage_table.md`
+  - `artifacts/fixture_usdz/review_evidence/20260426_visual_parity_pass/*.png` (before/after viewer screenshots for primary targets, plus Desmos reference captures)
+- target results:
+  - S2-05 Group D: tower now reads as a solid Eiffel-tower with bold red base legs, gray lattice trusses with weight, and visible cap/spire (`s205_groupD_viewer_after_tubes_v2.png`); matches the Desmos reference (`s205_groupD_desmos_reference.png`).
+  - S2-03 Group B: scattered fin chunks replaced by smooth rounded paraboloid caps that follow the `z=3` contour (`s203_groupB_viewer_after_refine.png`); matches the Desmos reference (`s203_groupB_desmos_reference.png`). Per-surface face counts grew 7-30 → 30-84.
+  - S2-09 Group F: pixel-identical to baseline (`s209_groupF_viewer_after_all.png`); regression guard held.
+- validation:
+  - `node --check viewer/app.js` passed.
+  - `pytest tests/` baseline (pre-change) and after-change both passed: 94 passed, 23 subtests passed (~5 min each).
+  - `pytest tests/test_tessellate.py tests/test_student_fixture_regressions.py -q` after the optimization (axis-aware refinement, 12 bisection iterations) passed: 34 tests in 30.67s.
+  - `usdcat -l` validated regenerated S2-03 USDA artifact.
+  - Live browser screenshots captured against Playwright + local `python3 -m http.server` serving the in-flight viewer; production tailnet URL still serves the older copy until the changes are pushed.

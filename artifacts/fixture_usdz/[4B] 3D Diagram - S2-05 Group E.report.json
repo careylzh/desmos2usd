@@ -32,10 +32,10 @@
   "usdz_package": {
     "command": [
       "/usr/bin/usdzip",
-      "/Users/chek/repos/desmos2usd-carey/artifacts/fixture_usdz/[4B] 3D Diagram - S2-05 Group E.usdz",
+      "/private/tmp/desmos2usd-carey-visual-20260426-160834/artifacts/fixture_usdz/[4B] 3D Diagram - S2-05 Group E.usdz",
       "[4B] 3D Diagram - S2-05 Group E.usda"
     ],
-    "cwd": "/Users/chek/repos/desmos2usd-carey/artifacts/fixture_usdz",
+    "cwd": "/private/tmp/desmos2usd-carey-visual-20260426-160834/artifacts/fixture_usdz",
     "returncode": 0,
     "stderr": "",
     "stdout": "",
@@ -568,7 +568,7 @@
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "1135",
-      "face_count": 12,
+      "face_count": 30,
       "kind": "inequality_region",
       "max_residual": null,
       "point_count": 32,
@@ -578,7 +578,7 @@
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "1136",
-      "face_count": 12,
+      "face_count": 30,
       "kind": "inequality_region",
       "max_residual": null,
       "point_count": 32,
@@ -668,7 +668,7 @@
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "1150",
-      "face_count": 12,
+      "face_count": 30,
       "kind": "inequality_region",
       "max_residual": null,
       "point_count": 32,
@@ -678,11 +678,44 @@
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "1152",
-      "face_count": 12,
+      "face_count": 30,
       "kind": "inequality_region",
       "max_residual": null,
       "point_count": 32,
       "valid": true
     }
-  ]
+  ],
+  "view_metadata": {
+    "axis_3d": [
+      0.0,
+      0.0,
+      0.9999999999951819
+    ],
+    "three_d_mode": true,
+    "viewport_bounds": {
+      "x": [
+        -66.4833047787971,
+        66.4833047787971
+      ],
+      "y": [
+        -66.48330477879705,
+        66.48330477879705
+      ],
+      "z": [
+        -66.4833047787968,
+        66.4833047787968
+      ]
+    },
+    "world_rotation_3d": [
+      0.5805865600165957,
+      0.7943486166084563,
+      0.17868833655410712,
+      -0.7592047068529236,
+      0.6074621595559447,
+      -0.23366201616892848,
+      -0.29415550210832137,
+      2.463030467712804e-12,
+      0.9557575741680241
+    ]
+  }
 }

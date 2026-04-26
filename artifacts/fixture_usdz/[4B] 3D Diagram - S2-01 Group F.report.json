@@ -19,10 +19,10 @@
   "usdz_package": {
     "command": [
       "/usr/bin/usdzip",
-      "/Users/chek/repos/desmos2usd-carey/artifacts/fixture_usdz/[4B] 3D Diagram - S2-01 Group F.usdz",
+      "/private/tmp/desmos2usd-carey-visual-20260426-160834/artifacts/fixture_usdz/[4B] 3D Diagram - S2-01 Group F.usdz",
       "[4B] 3D Diagram - S2-01 Group F.usda"
     ],
-    "cwd": "/Users/chek/repos/desmos2usd-carey/artifacts/fixture_usdz",
+    "cwd": "/private/tmp/desmos2usd-carey-visual-20260426-160834/artifacts/fixture_usdz",
     "returncode": 0,
     "stderr": "",
     "stdout": "",
@@ -35,40 +35,40 @@
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "15",
-      "face_count": 15,
+      "face_count": 55,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 100,
+      "point_count": 140,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "10",
-      "face_count": 17,
+      "face_count": 57,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 100,
+      "point_count": 140,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "13",
-      "face_count": 10,
+      "face_count": 42,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 100,
+      "point_count": 134,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "14",
-      "face_count": 11,
+      "face_count": 51,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 100,
+      "point_count": 140,
       "valid": true
     },
     {
@@ -125,11 +125,44 @@
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "26",
-      "face_count": 12,
+      "face_count": 30,
       "kind": "inequality_region",
       "max_residual": null,
       "point_count": 32,
       "valid": true
     }
-  ]
+  ],
+  "view_metadata": {
+    "axis_3d": [
+      0.0,
+      0.0,
+      1.00000000000326
+    ],
+    "three_d_mode": true,
+    "viewport_bounds": {
+      "x": [
+        -12.033096168455371,
+        12.033096168455371
+      ],
+      "y": [
+        -12.033096168455367,
+        12.033096168455367
+      ],
+      "z": [
+        -12.033096168455383,
+        12.033096168455383
+      ]
+    },
+    "world_rotation_3d": [
+      -0.44921935957190956,
+      0.8796347113155762,
+      -0.15634814240855216,
+      -0.8307559566712233,
+      -0.4756498445798142,
+      -0.2891396994646658,
+      -0.32870428570543647,
+      5.371380805036683e-14,
+      0.944432894682789
+    ]
+  }
 }
