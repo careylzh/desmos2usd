@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import tempfile
 import unittest
+from math import cos, sin
 from pathlib import Path
 
 import _path  # noqa: F401
@@ -350,22 +351,77 @@ class StudentFixtureRegressionTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             classify_expression(expr("1", "x^{2}=1"), EvalContext())
 
-    def test_rotated_coordinate_tilted_cylinder_falls_back_to_marching_squares(self) -> None:
-        """S2-08 Group E: `(x*cos(theta)+z*sin(theta))^2 + y^2 = r^2 {z range}` produces an
-        elliptic cross-section (squashed by cos(theta)) that the circle-fit fast path in
-        `tessellate_circular_implicit_surface` rejects. The marching-squares fallback must
-        still produce non-empty geometry for these tilted cylinder shells.
-        """
-        source = SourceInfo("", "", "", "", viewport_bounds={"x": (-12.0, 12.0), "y": (-12.0, 12.0), "z": (-12.0, 12.0)})
+    def test_one_axis_equation_with_2d_restriction_exports_flat_contour(self) -> None:
+        source = SourceInfo(
+            "", "", "", "", viewport_bounds={"x": (-12.0, 12.0), "y": (-12.0, 12.0), "z": (-12.0, 12.0)}
+        )
         item = classify_expression(
-            ExpressionIR(source, "1", 0, r"(x\cos(0.07)+z\sin(0.07))^{2}+y^{2}=1.3^{2}\left\{0\le z\le2\right\}"),
+            ExpressionIR(
+                source,
+                "1",
+                0,
+                r"\operatorname{abs}(x)+\operatorname{abs}(x)=1.7\left\{1.3^{2}\le\ x^{2}+y^{2}\le1.8^{2\ }\right\}",
+            ),
+            EvalContext(),
+        )
+
+        geometry = tessellate(item, EvalContext(), resolution=12)
+
+        self.assertEqual(item.kind, "implicit_surface")
+        self.assertEqual(geometry.kind, "BasisCurves")
+        self.assertGreater(geometry.point_count, 0)
+        self.assertTrue(all(abs(point[2]) < 1e-8 for point in geometry.points))
+
+    def test_rotated_coordinate_tilted_cylinder_uses_quadratic_profile(self) -> None:
+        """S2-08 Group E: `(x*cos(theta)+z*sin(theta))^2 + y^2 = r^2 {z range}` produces an
+        elliptic z-slice. It should use the analytic quadratic-profile path, not the coarse
+        marching-squares fallback that made tower rings look like strips.
+        """
+        source = SourceInfo(
+            "", "", "", "", viewport_bounds={"x": (-12.0, 12.0), "y": (-12.0, 12.0), "z": (-12.0, 12.0)}
+        )
+        item = classify_expression(
+            ExpressionIR(
+                source,
+                "1",
+                0,
+                r"(x\cos(0.07)+z\sin(0.07))^{2}+y^{2}=1.3^{2}\left\{0\le z\le2\right\}",
+            ),
             EvalContext(),
         )
 
         self.assertEqual(item.kind, "implicit_surface")
         self.assertEqual(item.expression.identifiers, frozenset({"x", "y", "z"}))
         geometry = tessellate(item, EvalContext(), resolution=12)
-        self.assertGreater(geometry.face_count, 0)
+        self.assertEqual(geometry.kind, "Mesh")
+        self.assertGreater(geometry.face_count, 1000)
+        for point in geometry.points[:: max(1, len(geometry.points) // 24)]:
+            x, y, z = point
+            residual = (x * cos(0.07) + z * sin(0.07)) ** 2 + y**2 - 1.3**2
+            self.assertLess(abs(residual), 1e-8)
+
+    def test_tilted_cylinder_at_constant_z_exports_closed_ring_curve(self) -> None:
+        source = SourceInfo(
+            "", "", "", "", viewport_bounds={"x": (-12.0, 12.0), "y": (-12.0, 12.0), "z": (-12.0, 12.0)}
+        )
+        item = classify_expression(
+            ExpressionIR(
+                source,
+                "1",
+                0,
+                r"(x\cos(0.07)+z\sin(0.07))^{2}+y^{2}=1.3^{2}\left\{z=8\right\}",
+            ),
+            EvalContext(),
+        )
+
+        geometry = tessellate(item, EvalContext(), resolution=12)
+
+        self.assertEqual(item.kind, "implicit_surface")
+        self.assertEqual(geometry.kind, "BasisCurves")
+        self.assertEqual(len(geometry.curve_vertex_counts), 1)
+        self.assertGreater(geometry.point_count, 32)
+        self.assertEqual(geometry.points[0], geometry.points[-1])
+        self.assertTrue(all(abs(point[2] - 8.0) < 1e-8 for point in geometry.points))
 
     def test_small_offset_tilted_cylinder_uses_adaptive_bbox(self) -> None:
         """S2-08 Group E: tiny tilted-cylinder shell (radius 0.06 in viewport ±12) is
@@ -454,7 +510,8 @@ class StudentFixtureRegressionTests(unittest.TestCase):
 
         geometry = tessellate(item, EvalContext(), resolution=12)
         self.assertEqual(item.kind, "implicit_surface")
-        self.assertGreater(geometry.face_count, 0)
+        self.assertEqual(geometry.kind, "BasisCurves")
+        self.assertGreater(geometry.point_count, 0)
         z_values = [point[2] for point in geometry.points]
         self.assertLess(max(z_values) - min(z_values), 1e-2)
         self.assertLess(abs(max(z_values)), 1e-3)

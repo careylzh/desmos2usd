@@ -7,7 +7,7 @@ from desmos2usd.parse.classify import ClassifiedExpression
 from desmos2usd.parse.predicates import collect_constant_bounds
 from desmos2usd.tessellate.cylinders import tessellate_circular_implicit_surface
 from desmos2usd.tessellate.mesh import GeometryData, Point, linspace
-from desmos2usd.tessellate.surfaces import axis_bounds, point_from_variables
+from desmos2usd.tessellate.surfaces import axis_bounds, numeric_constants_for_item, point_from_variables
 
 AXES = ("x", "y", "z")
 ISO_TOL = 1e-9
@@ -27,9 +27,44 @@ def tessellate_implicit_surface(item: ClassifiedExpression, context: EvalContext
     residual_axes = tuple(axis for axis in AXES if axis in item.expression.identifiers)
     if len(residual_axes) == 3:
         geometry = tessellate_circular_implicit_surface(item, context, resolution=max(8, resolution * 2))
-        if geometry is not None and geometry.face_count > 0:
+        if geometry is not None and geometry.point_count > 0:
             return geometry
         return tessellate_implicit_surface_3axis_marching(item, context, resolution)
+    if len(residual_axes) == 1:
+        shape_axes = _flat_implicit_curve_axes(item, residual_axes)
+        if shape_axes is None:
+            raise ValueError("implicit surface extrusion requires exactly two equation axes")
+        extrude_axis = next(axis for axis in AXES if axis not in shape_axes)
+        bounds = collect_constant_bounds(item.predicates, context)
+        a_axis, b_axis = shape_axes
+        a_low, a_high = _implicit_curve_axis_bounds(item, a_axis, bounds)
+        b_low, b_high = _implicit_curve_axis_bounds(item, b_axis, bounds)
+        refined = _refine_iso_window(
+            item.expression,
+            context,
+            a_axis,
+            b_axis,
+            extrude_axis,
+            0.0,
+            (a_low, a_high),
+            (b_low, b_high),
+        )
+        if refined is not None:
+            a_low, a_high, b_low, b_high = refined
+        geometry = tessellate_implicit_curve_2d(
+            item,
+            context,
+            a_axis,
+            b_axis,
+            extrude_axis,
+            0.0,
+            (a_low, a_high),
+            (b_low, b_high),
+            resolution,
+        )
+        if geometry.point_count > 0:
+            return geometry
+        raise ValueError("implicit surface requires a supported bounded one-axis contour")
     if len(residual_axes) != 2:
         raise ValueError("implicit surface extrusion requires exactly two equation axes")
     extrude_axis = next(axis for axis in AXES if axis not in residual_axes)
@@ -46,8 +81,6 @@ def tessellate_implicit_surface(item: ClassifiedExpression, context: EvalContext
         e_low, e_high = 0.0, 0.0
     else:
         e_low, e_high = implicit_axis_bounds(extrude_axis, bounds, viewport)
-    if e_low == e_high:
-        e_high = e_low + 1e-4
     # When a residual axis falls back to the viewport (no predicate constraint), refine it
     # toward the iso-curve so a small contour (e.g. radius 1.27 in viewport ±12) is not lost
     # entirely between coarse cells.
@@ -66,6 +99,21 @@ def tessellate_implicit_surface(item: ClassifiedExpression, context: EvalContext
         )
         if refined is not None:
             a_low, a_high, b_low, b_high = refined
+    if e_low == e_high:
+        geometry = tessellate_implicit_curve_2d(
+            item,
+            context,
+            a_axis,
+            b_axis,
+            extrude_axis,
+            e_low,
+            (a_low, a_high),
+            (b_low, b_high),
+            resolution,
+        )
+        if geometry.point_count > 0:
+            return geometry
+        e_high = e_low + 1e-4
     a_values = linspace(a_low, a_high, max(6, resolution))
     b_values = linspace(b_low, b_high, max(6, resolution))
     segments: list[tuple[tuple[float, float], tuple[float, float]]] = []
@@ -113,6 +161,158 @@ def tessellate_implicit_surface(item: ClassifiedExpression, context: EvalContext
         counts.append(4)
         indices.extend([base, base + 1, base + 2, base + 3])
     return GeometryData(kind="Mesh", points=points, face_vertex_counts=counts, face_vertex_indices=indices)
+
+
+def _flat_implicit_curve_axes(item: ClassifiedExpression, residual_axes: tuple[str, ...]) -> tuple[str, str] | None:
+    referenced = set(residual_axes)
+    for predicate in item.predicates:
+        for term in predicate.terms:
+            referenced.update(term.identifiers & set(AXES))
+    if len(referenced) != 2:
+        return None
+    return tuple(axis for axis in AXES if axis in referenced)  # type: ignore[return-value]
+
+
+def _implicit_curve_axis_bounds(
+    item: ClassifiedExpression,
+    axis: str,
+    bounds: dict[str, tuple[float | None, float | None]],
+) -> tuple[float, float]:
+    low, high = bounds.get(axis, (None, None))
+    if low is not None and high is not None and low < high:
+        return low, high
+    constants = numeric_constants_for_item(item)
+    magnitudes = [abs(value) for value in constants]
+    magnitudes += [value ** 0.5 for value in magnitudes]
+    span = max(magnitudes) if magnitudes else 1.0
+    span = max(span * 1.25, 0.5)
+    return -span, span
+
+
+def tessellate_implicit_curve_2d(
+    item: ClassifiedExpression,
+    context: EvalContext,
+    a_axis: str,
+    b_axis: str,
+    extrude_axis: str,
+    extrude_value: float,
+    a_bounds: tuple[float, float],
+    b_bounds: tuple[float, float],
+    resolution: int,
+) -> GeometryData:
+    if item.expression is None:
+        raise ValueError("implicit surface missing residual expression")
+    grid_resolution = max(24, resolution * 4)
+    a_values = linspace(a_bounds[0], a_bounds[1], grid_resolution)
+    b_values = linspace(b_bounds[0], b_bounds[1], grid_resolution)
+    values: list[list[float | None]] = []
+    for b in b_values:
+        row: list[float | None] = []
+        for a in a_values:
+            variables = {a_axis: a, b_axis: b, extrude_axis: extrude_value}
+            try:
+                row.append(float(item.expression.eval(context, variables)))
+            except Exception:
+                row.append(None)
+        values.append(row)
+
+    points: list[Point] = []
+    counts: list[int] = []
+    for row in range(len(b_values) - 1):
+        for col in range(len(a_values) - 1):
+            corners = [
+                (a_values[col], b_values[row], values[row][col]),
+                (a_values[col + 1], b_values[row], values[row][col + 1]),
+                (a_values[col + 1], b_values[row + 1], values[row + 1][col + 1]),
+                (a_values[col], b_values[row + 1], values[row + 1][col]),
+            ]
+            if any(value is None for _, _, value in corners):
+                continue
+            hits = contour_cell_edges(corners)  # type: ignore[arg-type]
+            if len(hits) == 2:
+                append_valid_curve_subsegments(
+                    points,
+                    counts,
+                    item,
+                    context,
+                    a_axis,
+                    b_axis,
+                    extrude_axis,
+                    extrude_value,
+                    hits[0],
+                    hits[1],
+                )
+            elif len(hits) == 4:
+                append_valid_curve_subsegments(
+                    points,
+                    counts,
+                    item,
+                    context,
+                    a_axis,
+                    b_axis,
+                    extrude_axis,
+                    extrude_value,
+                    hits[0],
+                    hits[1],
+                )
+                append_valid_curve_subsegments(
+                    points,
+                    counts,
+                    item,
+                    context,
+                    a_axis,
+                    b_axis,
+                    extrude_axis,
+                    extrude_value,
+                    hits[2],
+                    hits[3],
+                )
+    return GeometryData(kind="BasisCurves", points=points, curve_vertex_counts=counts)
+
+
+def append_valid_curve_subsegments(
+    points: list[Point],
+    counts: list[int],
+    item: ClassifiedExpression,
+    context: EvalContext,
+    a_axis: str,
+    b_axis: str,
+    extrude_axis: str,
+    extrude_value: float,
+    start: tuple[float, float],
+    end: tuple[float, float],
+) -> None:
+    if not item.predicates:
+        points.extend(
+            [
+                make_point(a_axis, b_axis, extrude_axis, start[0], start[1], extrude_value),
+                make_point(a_axis, b_axis, extrude_axis, end[0], end[1], extrude_value),
+            ]
+        )
+        counts.append(2)
+        return
+
+    samples: list[tuple[Point, bool]] = []
+    subdivisions = 16
+    for index in range(subdivisions + 1):
+        t = index / subdivisions
+        a = start[0] + (end[0] - start[0]) * t
+        b = start[1] + (end[1] - start[1]) * t
+        variables = {a_axis: a, b_axis: b, extrude_axis: extrude_value}
+        valid = all(predicate.evaluate(context, variables, tol=1e-5) for predicate in item.predicates)
+        samples.append((make_point(a_axis, b_axis, extrude_axis, a, b, extrude_value), valid))
+
+    for left, right in zip(samples[:-1], samples[1:], strict=True):
+        if not (left[1] and right[1]):
+            continue
+        if squared_distance(left[0], right[0]) <= 1e-12:
+            continue
+        points.extend([left[0], right[0]])
+        counts.append(2)
+
+
+def squared_distance(left: Point, right: Point) -> float:
+    return sum((a - b) ** 2 for a, b in zip(left, right, strict=True))
 
 
 def implicit_axis_bounds(axis: str, bounds: dict[str, tuple[float | None, float | None]], viewport: dict[str, tuple[float, float]]) -> tuple[float, float]:
@@ -229,12 +429,10 @@ def tessellate_implicit_surface_3axis_marching(
 ) -> GeometryData:
     """Marching-squares slice-and-stitch fallback for 3-axis implicit surfaces.
 
-    Used when `tessellate_circular_implicit_surface` cannot circle-fit the cross-section
-    (e.g. tilted coordinate cylinders `(x*cos(theta)+z*sin(theta))^2 + y^2 = r^2` whose
-    sliced cross-section is a slight ellipse, not a true circle). Picks the shortest
-    constant-bounded predicate axis as the slicing axis, marches squares at each slice,
-    and stitches adjacent slices via nearest-segment matching. Bbox is adaptively zoomed
-    so very small features (e.g. radius 0.06 in viewport ±12) remain visible.
+    Used when the quadratic-profile fast path cannot fit the cross-section. Picks the
+    shortest constant-bounded predicate axis as the slicing axis, marches squares at each
+    slice, and stitches adjacent slices via nearest-segment matching. Bbox is adaptively
+    zoomed so very small features remain visible.
     """
     if item.expression is None:
         raise ValueError("implicit surface missing residual expression")

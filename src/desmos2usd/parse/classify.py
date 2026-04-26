@@ -245,7 +245,23 @@ def classify_expression(expr: ExpressionIR, context: EvalContext) -> ClassifiedE
                 predicates=predicates,
                 expression=residual,
             )
+        predicate_axes = predicate_identifiers(predicates)
+        if len(residual_axes) == 1 and len(residual_axes | predicate_axes) == 2:
+            return ClassifiedExpression(
+                ir=expr,
+                kind="implicit_surface",
+                predicates=predicates,
+                expression=residual,
+            )
     raise ValueError("not a supported renderable geometry form")
+
+
+def predicate_identifiers(predicates: list[ComparisonPredicate]) -> set[str]:
+    identifiers: set[str] = set()
+    for predicate in predicates:
+        for term in predicate.terms:
+            identifiers.update(term.identifiers & {"x", "y", "z"})
+    return identifiers
 
 
 def looks_like_ignored_definition(rhs: str) -> bool:

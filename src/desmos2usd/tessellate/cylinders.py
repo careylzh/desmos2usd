@@ -23,7 +23,7 @@ ResidualFunction = Callable[[EvalContext, dict[str, float]], float]
 @dataclass(frozen=True)
 class CircleProfile:
     center: tuple[float, float]
-    radius: float
+    radii: tuple[float, float]
 
 
 def tessellate_circular_inequality_extrusion(
@@ -73,9 +73,17 @@ def tessellate_circular_extrusion(
     bounds = collect_constant_bounds(item.predicates, context)
     for extrude_axis in AXES:
         low, high = bounds.get(extrude_axis, (None, None))
-        if low is None or high is None or low >= high:
+        if low is None or high is None:
             continue
         shape_axes = tuple(axis for axis in AXES if axis != extrude_axis)
+        segment_count = max(16, min(128, resolution * 2))
+        if low == high and not caps:
+            profile = fit_circle_profile(context, residual, shape_axes, extrude_axis, low)
+            if profile is not None:
+                return build_ellipse_curve(shape_axes, extrude_axis, low, profile, segment_count)
+            continue
+        if low >= high:
+            continue
         layer_count = max(3, min(96, resolution))
         profiles = [
             (value, fit_circle_profile(context, residual, shape_axes, extrude_axis, value))
@@ -83,7 +91,6 @@ def tessellate_circular_extrusion(
         ]
         if any(profile is None for _, profile in profiles):
             continue
-        segment_count = max(16, min(128, resolution * 2))
         return build_circular_mesh(shape_axes, extrude_axis, profiles, segment_count, caps)
     return None
 
@@ -125,8 +132,6 @@ def fit_circle_profile(
     scale = (ax + ay) / 2.0
     if scale <= QUADRATIC_TOLERANCE:
         return None
-    if abs(ax - ay) > max(QUADRATIC_TOLERANCE, abs(scale) * 0.05):
-        return None
     if abs(cross) > max(QUADRATIC_TOLERANCE, abs(scale) * 0.05):
         return None
 
@@ -136,15 +141,28 @@ def fit_circle_profile(
         center_value = orientation * evaluate(center_a, center_b)
     except Exception:
         return None
-    radius_squared = -center_value / scale
-    if radius_squared <= 0.0:
+    radius_a_squared = -center_value / ax
+    radius_b_squared = -center_value / ay
+    if radius_a_squared <= 0.0 or radius_b_squared <= 0.0:
         return None
-    radius = sqrt(radius_squared)
-    if not all(isfinite(value) for value in (center_a, center_b, radius)):
+    radius_a = sqrt(radius_a_squared)
+    radius_b = sqrt(radius_b_squared)
+    if not all(isfinite(value) for value in (center_a, center_b, radius_a, radius_b)):
         return None
-    if not circle_boundary_matches(context, residual, orientation, shape_axes, extrude_axis, extrude_value, center_a, center_b, radius):
+    if not circle_boundary_matches(
+        context,
+        residual,
+        orientation,
+        shape_axes,
+        extrude_axis,
+        extrude_value,
+        center_a,
+        center_b,
+        radius_a,
+        radius_b,
+    ):
         return None
-    return CircleProfile(center=(center_a, center_b), radius=radius)
+    return CircleProfile(center=(center_a, center_b), radii=(radius_a, radius_b))
 
 
 def circle_boundary_matches(
@@ -156,14 +174,15 @@ def circle_boundary_matches(
     extrude_value: float,
     center_a: float,
     center_b: float,
-    radius: float,
+    radius_a: float,
+    radius_b: float,
 ) -> bool:
-    tolerance = max(1e-4, radius * radius * 1e-5)
+    tolerance = max(1e-4, max(radius_a, radius_b) ** 2 * 1e-5)
     for a, b in (
-        (center_a + radius, center_b),
-        (center_a - radius, center_b),
-        (center_a, center_b + radius),
-        (center_a, center_b - radius),
+        (center_a + radius_a, center_b),
+        (center_a - radius_a, center_b),
+        (center_a, center_b + radius_b),
+        (center_a, center_b - radius_b),
     ):
         variables = {shape_axes[0]: a, shape_axes[1]: b, extrude_axis: extrude_value}
         try:
@@ -187,10 +206,11 @@ def build_circular_mesh(
     angles = [2.0 * pi * index / segment_count for index in range(segment_count)]
     for extrude_value, profile in profiles:
         assert profile is not None
+        radius_a, radius_b = profile.radii
         for angle in angles:
             variables = {
-                shape_axes[0]: profile.center[0] + profile.radius * cos(angle),
-                shape_axes[1]: profile.center[1] + profile.radius * sin(angle),
+                shape_axes[0]: profile.center[0] + radius_a * cos(angle),
+                shape_axes[1]: profile.center[1] + radius_b * sin(angle),
                 extrude_axis: extrude_value,
             }
             points.append(point_from_variables(variables))
@@ -219,6 +239,26 @@ def build_circular_mesh(
         )
 
     return GeometryData(kind="Mesh", points=points, face_vertex_counts=counts, face_vertex_indices=indices)
+
+
+def build_ellipse_curve(
+    shape_axes: tuple[str, str],
+    extrude_axis: str,
+    extrude_value: float,
+    profile: CircleProfile,
+    segment_count: int,
+) -> GeometryData:
+    points: list[Point] = []
+    radius_a, radius_b = profile.radii
+    for index in range(segment_count + 1):
+        angle = 2.0 * pi * (index % segment_count) / segment_count
+        variables = {
+            shape_axes[0]: profile.center[0] + radius_a * cos(angle),
+            shape_axes[1]: profile.center[1] + radius_b * sin(angle),
+            extrude_axis: extrude_value,
+        }
+        points.append(point_from_variables(variables))
+    return GeometryData(kind="BasisCurves", points=points, curve_vertex_counts=[len(points)])
 
 
 def add_cap(
