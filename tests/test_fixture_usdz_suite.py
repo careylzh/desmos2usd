@@ -6,6 +6,7 @@ import json
 import tempfile
 import unittest
 from pathlib import Path
+from types import SimpleNamespace
 from unittest.mock import patch
 
 import _path  # noqa: F401
@@ -77,6 +78,63 @@ class FixtureUsdzSuiteTests(unittest.TestCase):
             self.assertEqual(process_fixture.call_count, 2)
             summary = json.loads((out_dir / "summary.json").read_text(encoding="utf-8"))
             self.assertEqual(summary["fixture_count"], 2)
+
+    def test_process_fixture_records_view_metadata(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            fixtures_dir = root / "fixtures" / "states"
+            fixtures_dir.mkdir(parents=True)
+            fixture_path = fixtures_dir / "view.json"
+            fixture_path.write_text(
+                json.dumps(
+                    {
+                        "graph": {
+                            "title": "View test",
+                            "viewport": {
+                                "xmin": -1,
+                                "xmax": 1,
+                                "ymin": -2,
+                                "ymax": 2,
+                                "zmin": -3,
+                                "zmax": 3,
+                            },
+                            "worldRotation3D": [1, 0, 0, 0, 1, 0, 0, 0, 1],
+                            "axis3D": [0, 0, 1],
+                            "threeDMode": True,
+                            "showPlane3D": False,
+                        },
+                        "expressions": {"list": []},
+                    }
+                )
+                + "\n",
+                encoding="utf-8",
+            )
+
+            def fake_export(_graph, _classification, usda_path, resolution):
+                usda_path.parent.mkdir(parents=True, exist_ok=True)
+                usda_path.write_text("#usda 1.0\n", encoding="utf-8")
+                return [], [], []
+
+            def fake_package(_usda_path, usdz_path):
+                usdz_path.write_bytes(b"PK")
+                return SimpleNamespace(to_dict=lambda: {"returncode": 0})
+
+            with patch("desmos2usd.validate.fixture_usdz_suite.export_graph", side_effect=fake_export), patch(
+                "desmos2usd.validate.fixture_usdz_suite.package_usdz", side_effect=fake_package
+            ):
+                report = fixture_usdz_suite.process_fixture(
+                    fixture_path=fixture_path,
+                    project_root=root,
+                    out_dir=root / "artifacts" / "fixture_usdz",
+                    resolution=8,
+                    validate_usdz=False,
+                )
+
+            self.assertEqual(report["status"], "success")
+            self.assertEqual(tuple(report["view_metadata"]["world_rotation_3d"]), (1.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0))
+            self.assertEqual(tuple(report["view_metadata"]["axis_3d"]), (0.0, 0.0, 1.0))
+            self.assertEqual(report["view_metadata"]["three_d_mode"], True)
+            self.assertEqual(report["view_metadata"]["show_plane_3d"], False)
 
 
 if __name__ == "__main__":

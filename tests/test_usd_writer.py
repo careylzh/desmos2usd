@@ -29,10 +29,15 @@ class UsdWriterTests(unittest.TestCase):
             self.assertIn("custom string desmos:latex", text)
             self.assertIn("custom string desmos:constraints", text)
             self.assertIn('string "desmos:viewportBounds" =', text)
+            self.assertIn('string "desmos:worldRotation3D" =', text)
+            self.assertIn('string "desmos:axis3D" =', text)
+            self.assertIn('string "desmos:threeDMode" = "true"', text)
             self.assertIsNone(report.usdz_output)
             self.assertIsNone(report.usdz_package)
             self.assertIsNone(report.usdz_validation)
             self.assertEqual(report.prim_count + report.unsupported_count, report.renderable_expression_count)
+            self.assertIn("world_rotation_3d", report.view_metadata)
+            self.assertIn("axis_3d", report.view_metadata)
 
             diagnostics = report.geometry_diagnostics
             self.assertEqual(diagnostics["outlier_count"], 0)

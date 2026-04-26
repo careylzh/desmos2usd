@@ -51,6 +51,7 @@
       pitch: 0.55,
       distance: 10,
       target: [0, 0, 0],
+      basis: null,
       home: null,
     },
     pointers: new Map(),
@@ -275,7 +276,7 @@ ${url}`;
     state.selectedPrim = -1;
     state.hiddenPrims.clear();
     state.surfaceMode = "dim";
-    fitCameraToBounds(state.scene.sourceViewportBounds || currentFitBounds(), false);
+    initializeCameraForScene(state.scene);
     updateSurfaceModeButton();
     updateSummary();
     updateSelection();
@@ -305,8 +306,8 @@ ${url}`;
           inLayerData = false;
           continue;
         }
-        const layerMatch = line.match(/^string\s+([A-Za-z0-9:_-]+)\s*=\s*(.+)$/);
-        if (layerMatch) layer[layerMatch[1]] = parseUsdValue(layerMatch[2]);
+        const layerMatch = line.match(/^(string|bool|int|double|float)\s+"?([A-Za-z0-9:_-]+)"?\s*=\s*(.+)$/);
+        if (layerMatch) layer[layerMatch[2]] = parseUsdValue(layerMatch[3], layerMatch[1]);
         continue;
       }
 
@@ -524,6 +525,7 @@ ${url}`;
       fileName: parsed.fileName,
       layer: parsed.layer,
       sourceViewportBounds: parseSourceViewportBounds(parsed.layer),
+      sourceViewMetadata: parseSourceViewMetadata(parsed.layer),
       prims,
       stats,
       bounds,
@@ -837,16 +839,34 @@ ${url}`;
   function computeViewProjection() {
     const camera = state.camera;
     const aspect = canvas.width / Math.max(1, canvas.height);
-    const pitch = clamp(camera.pitch, -1.45, 1.45);
-    const cp = Math.cos(pitch);
-    const eye = [
-      camera.target[0] + camera.distance * cp * Math.sin(camera.yaw),
-      camera.target[1] + camera.distance * cp * Math.cos(camera.yaw),
-      camera.target[2] + camera.distance * Math.sin(pitch),
-    ];
-    const view = mat4LookAt(eye, camera.target, [0, 0, 1]);
+    const basis = camera.basis;
+    let eye;
+    let view;
+    if (basis) {
+      eye = [
+        camera.target[0] + camera.distance * basis.depth[0],
+        camera.target[1] + camera.distance * basis.depth[1],
+        camera.target[2] + camera.distance * basis.depth[2],
+      ];
+      view = mat4ViewFromBasis(eye, basis.right, basis.up, basis.depth);
+    } else {
+      const pitch = clamp(camera.pitch, -1.45, 1.45);
+      const cp = Math.cos(pitch);
+      eye = [
+        camera.target[0] + camera.distance * cp * Math.sin(camera.yaw),
+        camera.target[1] + camera.distance * cp * Math.cos(camera.yaw),
+        camera.target[2] + camera.distance * Math.sin(pitch),
+      ];
+      view = mat4LookAt(eye, camera.target, [0, 0, 1]);
+    }
     const projection = mat4Perspective(Math.PI / 4, aspect, Math.max(0.001, camera.distance / 1000), Math.max(1000, camera.distance * 20));
     return mat4Multiply(projection, view);
+  }
+
+  function initializeCameraForScene(scene) {
+    fitCameraToBounds(scene.sourceViewportBounds || currentFitBounds(), false);
+    applySourceViewMetadata(scene.sourceViewMetadata);
+    saveCameraHome();
   }
 
   function fitCamera(keepAngles) {
@@ -874,14 +894,30 @@ ${url}`;
       const suggested = suggestCameraAngles(extents);
       state.camera.yaw = suggested.yaw;
       state.camera.pitch = suggested.pitch;
+      state.camera.basis = null;
     }
     state.camera.target = center;
     state.camera.distance = radius * 2.35;
+    saveCameraHome();
+  }
+
+  function applySourceViewMetadata(metadata) {
+    const basis = metadata && cameraBasisFromWorldRotation(metadata.worldRotation3D);
+    if (!basis) return false;
+    state.camera.basis = basis;
+    const angles = cameraAnglesFromDirection(basis.depth);
+    state.camera.yaw = angles.yaw;
+    state.camera.pitch = angles.pitch;
+    return true;
+  }
+
+  function saveCameraHome() {
     state.camera.home = {
       yaw: state.camera.yaw,
       pitch: state.camera.pitch,
       distance: state.camera.distance,
-      target: center.slice(),
+      target: state.camera.target.slice(),
+      basis: cloneCameraBasis(state.camera.basis),
     };
   }
 
@@ -918,12 +954,65 @@ ${url}`;
     };
   }
 
+  function cameraDirectionFromAngles(yaw, pitch) {
+    const clampedPitch = clamp(pitch, -1.45, 1.45);
+    const cp = Math.cos(clampedPitch);
+    return normalize([
+      cp * Math.sin(yaw),
+      cp * Math.cos(yaw),
+      Math.sin(clampedPitch),
+    ]);
+  }
+
+  function cameraAnglesFromDirection(direction) {
+    const normalized = normalize(direction);
+    return {
+      yaw: Math.atan2(normalized[0], normalized[1]),
+      pitch: Math.asin(clamp(normalized[2], -0.999, 0.999)),
+    };
+  }
+
+  function cameraBasisFromWorldRotation(rotation) {
+    if (!Array.isArray(rotation) || rotation.length !== 9) return null;
+    const rows = [
+      rotation.slice(0, 3),
+      rotation.slice(3, 6),
+      rotation.slice(6, 9),
+    ];
+    if (rows.some((row) => row.some((value) => !Number.isFinite(value)) || Math.hypot(row[0], row[1], row[2]) < 1e-6)) {
+      return null;
+    }
+    const right = normalize(rows[0]);
+    const up = normalize(rows[1]);
+    const depth = normalize(rows[2]);
+    if (Math.abs(dot(cross(right, up), depth)) < 0.4) return null;
+    return { right, up, depth };
+  }
+
+  function cloneCameraBasis(basis) {
+    if (!basis) return null;
+    return {
+      right: basis.right.slice(),
+      up: basis.up.slice(),
+      depth: basis.depth.slice(),
+    };
+  }
+
+  function releaseCameraBasisToAngles() {
+    if (!state.camera.basis) return;
+    const angles = cameraAnglesFromDirection(state.camera.basis.depth);
+    state.camera.yaw = angles.yaw;
+    state.camera.pitch = angles.pitch;
+    state.camera.basis = null;
+  }
+
   function resetCamera() {
     if (!state.camera.home) return;
     state.camera.yaw = state.camera.home.yaw;
     state.camera.pitch = state.camera.home.pitch;
     state.camera.distance = state.camera.home.distance;
     state.camera.target = state.camera.home.target.slice();
+    state.camera.basis = cloneCameraBasis(state.camera.home.basis);
   }
 
   function onWheel(event) {
@@ -974,6 +1063,7 @@ ${url}`;
     if (state.drag.mode === "pan" || (event.buttons & 2)) {
       panCamera(dx, dy);
     } else {
+      releaseCameraBasisToAngles();
       state.camera.yaw -= dx * 0.006;
       state.camera.pitch = clamp(state.camera.pitch + dy * 0.006, -1.45, 1.45);
     }
@@ -991,14 +1081,10 @@ ${url}`;
 
   function panCamera(dx, dy) {
     const camera = state.camera;
-    const cp = Math.cos(camera.pitch);
-    const eyeDir = normalize([
-      cp * Math.sin(camera.yaw),
-      cp * Math.cos(camera.yaw),
-      Math.sin(camera.pitch),
-    ]);
-    const right = normalize(cross(eyeDir, [0, 0, 1]));
-    const up = normalize(cross(right, eyeDir));
+    const basis = camera.basis;
+    const eyeDir = basis ? basis.depth : cameraDirectionFromAngles(camera.yaw, camera.pitch);
+    const right = basis ? basis.right : normalize(cross(eyeDir, [0, 0, 1]));
+    const up = basis ? basis.up : normalize(cross(right, eyeDir));
     const scale = camera.distance * 0.0016;
     camera.target[0] += (-right[0] * dx + up[0] * dy) * scale;
     camera.target[1] += (-right[1] * dx + up[1] * dy) * scale;
@@ -1261,6 +1347,48 @@ ${url}`;
     }
   }
 
+  function parseSourceViewMetadata(layer) {
+    if (!layer) return null;
+    const metadata = {};
+    const rotation = parseSourceFloatSequence(layer["desmos:worldRotation3D"], 9);
+    if (rotation) metadata.worldRotation3D = rotation;
+    const axis = parseSourceFloatSequence(layer["desmos:axis3D"], 3);
+    if (axis) metadata.axis3D = axis;
+    for (const [sourceKey, targetKey] of [
+      ["desmos:threeDMode", "threeDMode"],
+      ["desmos:showPlane3D", "showPlane3D"],
+      ["desmos:degreeMode", "degreeMode"],
+    ]) {
+      const parsed = parseSourceBoolean(layer[sourceKey]);
+      if (parsed !== null) metadata[targetKey] = parsed;
+    }
+    return Object.keys(metadata).length ? metadata : null;
+  }
+
+  function parseSourceFloatSequence(raw, expectedLength) {
+    let value = raw;
+    if (typeof value === "string") {
+      try {
+        value = JSON.parse(value);
+      } catch (_error) {
+        return null;
+      }
+    }
+    if (!Array.isArray(value) || value.length !== expectedLength) return null;
+    const parsed = value.map((item) => Number(item));
+    if (parsed.some((item) => !Number.isFinite(item))) return null;
+    return parsed;
+  }
+
+  function parseSourceBoolean(raw) {
+    if (typeof raw === "boolean") return raw;
+    if (typeof raw !== "string") return null;
+    const normalized = raw.trim().toLowerCase();
+    if (normalized === "true") return true;
+    if (normalized === "false") return false;
+    return null;
+  }
+
   function createBounds() {
     return { min: [Infinity, Infinity, Infinity], max: [-Infinity, -Infinity, -Infinity] };
   }
@@ -1362,6 +1490,15 @@ ${url}`;
       x[1], y[1], z[1], 0,
       x[2], y[2], z[2], 0,
       -dot(x, eye), -dot(y, eye), -dot(z, eye), 1,
+    ]);
+  }
+
+  function mat4ViewFromBasis(eye, right, up, depth) {
+    return new Float32Array([
+      right[0], up[0], depth[0], 0,
+      right[1], up[1], depth[1], 0,
+      right[2], up[2], depth[2], 0,
+      -dot(right, eye), -dot(up, eye), -dot(depth, eye), 1,
     ]);
   }
 

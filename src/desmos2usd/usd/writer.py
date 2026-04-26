@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import json
 from dataclasses import dataclass
+from math import isfinite
 from pathlib import Path
 
 from desmos2usd.ir import GraphIR
@@ -30,6 +31,7 @@ def write_usda(path: Path, graph: GraphIR, prims: list[ExportedPrim]) -> None:
         f"        string \"desmos:title\" = {usd_string(graph.source.title)}",
         f"        string \"desmos:stateUrl\" = {usd_string(graph.source.state_url)}",
         f"        string \"desmos:viewportBounds\" = {usd_string(json.dumps(graph.source.viewport_bounds, sort_keys=True))}",
+        *view_metadata_layer_lines(graph),
         "    }",
         ")",
         "",
@@ -40,6 +42,48 @@ def write_usda(path: Path, graph: GraphIR, prims: list[ExportedPrim]) -> None:
         lines.extend(write_prim(prim, indent="    "))
     lines.append("}")
     path.write_text("\n".join(lines) + "\n", encoding="utf-8")
+
+
+def view_metadata_layer_lines(graph: GraphIR) -> list[str]:
+    metadata = graph.source.view_metadata
+    if not isinstance(metadata, dict):
+        return []
+
+    lines = []
+    world_rotation = finite_sequence(metadata.get("world_rotation_3d"), expected_length=9)
+    if world_rotation is not None:
+        lines.append(f"        string \"desmos:worldRotation3D\" = {usd_string(json.dumps(world_rotation))}")
+
+    axis = finite_sequence(metadata.get("axis_3d"), expected_length=3)
+    if axis is not None:
+        lines.append(f"        string \"desmos:axis3D\" = {usd_string(json.dumps(axis))}")
+
+    for source_key, layer_key in (
+        ("three_d_mode", "threeDMode"),
+        ("show_plane_3d", "showPlane3D"),
+        ("degree_mode", "degreeMode"),
+    ):
+        value = metadata.get(source_key)
+        if isinstance(value, bool):
+            lines.append(f"        string \"desmos:{layer_key}\" = {usd_string(str(value).lower())}")
+    return lines
+
+
+def finite_sequence(value: object, expected_length: int) -> list[float] | None:
+    if not isinstance(value, list | tuple) or len(value) != expected_length:
+        return None
+    parsed = []
+    for item in value:
+        if isinstance(item, bool):
+            return None
+        try:
+            number = float(item)
+        except (TypeError, ValueError):
+            return None
+        if not isfinite(number):
+            return None
+        parsed.append(number)
+    return parsed
 
 
 def write_prim(prim: ExportedPrim, indent: str) -> list[str]:

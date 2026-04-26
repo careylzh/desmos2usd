@@ -178,6 +178,7 @@ def process_fixture(
         graph = graph_ir_from_state(state)
         report["graph_hash"] = graph.source.graph_hash or None
         report["title"] = graph.source.title
+        report["view_metadata"] = graph.source.view_metadata
 
         stage = "classify"
         classification, classification_unsupported = classify_graph_tolerant(graph)

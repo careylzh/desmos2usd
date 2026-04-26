@@ -1,6 +1,6 @@
 # Implementation State
 
-Last updated: 2026-04-26 11:35 SGT
+Last updated: 2026-04-26 12:40 SGT
 
 ## Loop Mode
 - cadence: 10 one-shot cron wakes, 30 minutes apart
@@ -23,11 +23,12 @@ Last updated: 2026-04-26 11:35 SGT
 
 ## Active Task
 - index: 3
-- id: partial-high-risk-fixture-fix
-- title: Fix one bounded high-risk partial fixture/exporter category
+- id: fixture-viewer-camera-parity
+- title: Apply saved Desmos 3D view metadata in the USDA viewer
 - done-when:
-  - one prioritized partial/high-risk category from `artifacts/fixture_usdz/url_fixture_comparison.md` is improved with code/tests/artifacts as needed
-  - affected fixtures and report evidence are regenerated
+  - viewer uses saved Desmos 3D view metadata from USDA when present
+  - S2-03 Group B, S2-05 Group D, and S2-09 Group F artifacts carry view metadata
+  - Playwright screenshot comparison is attempted and any environment failures are recorded
   - validation passes
   - the coherent fix is committed and pushed to `chektien:fix/student-fixture-usdz-export`
 
@@ -39,6 +40,23 @@ Last updated: 2026-04-26 11:35 SGT
 5. [ ] Repeat improvement pass until all 10 cron wakes are exhausted or no safe fixes remain.
 
 ## Known Current State
+- Current viewer-camera fix is implemented locally:
+  - `viewer/app.js` now parses quoted USD `customLayerData` keys and uses `desmos:worldRotation3D` as a full camera basis when present.
+  - `src/desmos2usd/usd/writer.py` emits `desmos:worldRotation3D`, `desmos:axis3D`, and Desmos view flags into USDA layer metadata.
+  - `src/desmos2usd/validate/fixture_usdz_suite.py` records `view_metadata` in fixture reports.
+  - Target artifacts regenerated:
+    - `S2-03 Group B`: success, `12` prims, `0` unsupported, `world_rotation_3d` length `9`.
+    - `S2-05 Group D`: success, `150` prims, `0` unsupported, `world_rotation_3d` length `9`.
+    - `S2-09 Group F`: success, `27` prims, `0` unsupported, `world_rotation_3d` length `9`, `degree_mode=true`.
+- New evidence/assessment path:
+  - `artifacts/fixture_usdz/review_evidence/20260426_view_metadata_parity/assessment.md`
+  - `artifacts/fixture_usdz/review_evidence/20260426_view_metadata_parity/capture-results.json`
+- After-change screenshot capture is blocked in this sandbox:
+  - `python3 -m http.server 8776 --bind 127.0.0.1` failed with `PermissionError: [Errno 1] Operation not permitted`.
+  - `curl` to `chq.singapura-broadnose.ts.net` failed with `curl: (6) Could not resolve host`.
+  - Playwright Chromium launch failed with `bootstrap_check_in org.chromium.Chromium.MachPortRendezvousServer: Permission denied (1100)` and SIGTRAP/SIGABRT.
+  - MCP browser calls were immediately cancelled before navigation.
+- Visual parity judgment for S2-03/S2-05/S2-09: previous Playwright evidence showed camera/framing mismatch; after-change screenshot parity remains unverified and must not be claimed until a browser-capable environment recaptures local viewer screenshots.
 - PR #1 already has commits `baa8963` and `20b23c1` pushed.
 - The readable-CSV/list-expansion recovery pass was validated with a full 71-fixture sweep:
   - `fixture_count=71`
@@ -97,15 +115,12 @@ Last updated: 2026-04-26 11:35 SGT
 - GitHub SSH push from the temporary clone initially failed during this wake because `github.com` could not be resolved, but a later retry succeeded.
 
 ## Last Wake
-- timestamp: 2026-04-26 11:20 SGT
-- result: fixed degree-mode trig evaluation and bounded circular extrusion, regenerated full fixture artifacts/report evidence, and pushed `8dcdd14` / `3f7ec14`
+- timestamp: 2026-04-26 12:40 SGT
+- result: implemented saved Desmos 3D view metadata in USDA layer metadata and the local viewer camera path; regenerated S2-03 Group B, S2-05 Group D, and S2-09 Group F artifacts; after-change screenshots remain blocked by local browser/DNS permissions.
 - validation:
-  - `PYTHONPATH=src python3 -m desmos2usd.validate.fixture_usdz_suite --out artifacts/fixture_usdz --resolution 8 --no-validate-usdz` passed: 71 fixtures, 21 success, 50 partial, 0 error, 71 USDZ present.
-  - `PYTHONPATH=src python3 -m desmos2usd.validate.csv_fixture_report --expect-rows 66 --live-note ...` passed: 66 CSV rows, 17 success, 49 partial, 66 USDZ present.
-  - `PYTHONPATH=src:tests python3 -m unittest discover -s tests` passed: 91 tests, OK.
+  - `node --check viewer/app.js` passed.
+  - `PYTHONPATH=src:tests python3 -m unittest tests.test_usd_writer tests.test_fixture_usdz_suite tests.test_parser.ParserTests.test_required_fixture_view_metadata_is_parsed` passed: 7 tests, OK.
+  - `PYTHONPATH=src:tests python3 -m unittest discover -s tests` passed: 92 tests in 196.151s, OK.
   - `git diff --check` passed.
 - commit/push:
-  - Temporary clone: `/tmp/desmos2usd-degree-commit.wTB39I/repo`
-  - Commit: `8dcdd14` (`Support degree-mode circular fixture exports`)
-  - Push command attempted: `git push chektien HEAD:fix/student-fixture-usdz-export`
-  - Push result: blocked, `ssh: Could not resolve hostname github.com: -65563`
+  - Pending at this file update; final response should report exact commit hash and push result.
