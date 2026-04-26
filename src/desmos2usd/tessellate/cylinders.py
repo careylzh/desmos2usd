@@ -134,6 +134,8 @@ def fit_circle_profile(
         return None
     if abs(cross) > max(QUADRATIC_TOLERANCE, abs(scale) * 0.05):
         return None
+    if abs(ax) <= QUADRATIC_TOLERANCE or abs(ay) <= QUADRATIC_TOLERANCE:
+        return None
 
     center_a = -bx / (2.0 * ax)
     center_b = -by / (2.0 * ay)

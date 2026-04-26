@@ -50,12 +50,13 @@ def tessellate_explicit_surface(
     for b in b_values:
         row_valid: list[bool] = []
         for a in a_values:
-            variables = {domain_axes[0]: a, domain_axes[1]: b}
-            target = item.expression.eval(context, variables)
-            variables[item.axis] = target
-            point = point_from_variables(variables)
+            point, valid = explicit_surface_sample(
+                item,
+                context,
+                {domain_axes[0]: a, domain_axes[1]: b},
+            )
             points.append(point)
-            row_valid.append(all(predicate.evaluate_half_open(context, variables, tol=HALF_OPEN_TOL) for predicate in item.predicates))
+            row_valid.append(valid)
         valid_grid.append(row_valid)
     if _surface_predicates_constrain_solved_axis(item):
         points, counts, indices = refined_quad_faces(
@@ -223,7 +224,7 @@ def _bisect_predicate_crossing(
         except Exception:
             return None
         variables[item.axis] = target
-        if all(predicate.evaluate_half_open(context, variables, tol=HALF_OPEN_TOL) for predicate in item.predicates):
+        if explicit_surface_predicates_satisfied_half_open(item, context, variables):
             inside_a, inside_b = mid_a, mid_b
             last_valid_point = point_from_variables(variables)
         else:
@@ -534,9 +535,63 @@ def explicit_point_satisfies(
         target = item.expression.eval(context, variables)
         full_variables = dict(variables)
         full_variables[item.axis] = target
-        return all(predicate.evaluate(context, full_variables, tol=tol) for predicate in item.predicates)
+        return explicit_surface_predicates_satisfied(item, context, full_variables, tol=tol)
     except Exception:
         return False
+
+
+def explicit_surface_sample(
+    item: ClassifiedExpression,
+    context: EvalContext,
+    variables: dict[str, float],
+) -> tuple[Point, bool]:
+    """Evaluate one explicit-surface grid sample.
+
+    Desmos treats undefined expression/restriction samples as outside the plotted
+    domain.  A sqrt restriction such as ``-sqrt(1-x^2)<y<sqrt(1-x^2)`` should clip
+    samples with ``abs(x)>1`` instead of making the whole surface unsupported.
+    """
+    if not item.axis or not item.expression:
+        raise ValueError("explicit surface missing axis or expression")
+    full_variables = dict(variables)
+    try:
+        full_variables[item.axis] = item.expression.eval(context, variables)
+    except ValueError:
+        full_variables[item.axis] = 0.0
+        return point_from_variables(full_variables), False
+    return (
+        point_from_variables(full_variables),
+        explicit_surface_predicates_satisfied_half_open(item, context, full_variables),
+    )
+
+
+def explicit_surface_predicates_satisfied_half_open(
+    item: ClassifiedExpression,
+    context: EvalContext,
+    variables: dict[str, float],
+) -> bool:
+    for predicate in item.predicates:
+        try:
+            if not predicate.evaluate_half_open(context, variables, tol=HALF_OPEN_TOL):
+                return False
+        except ValueError:
+            return False
+    return True
+
+
+def explicit_surface_predicates_satisfied(
+    item: ClassifiedExpression,
+    context: EvalContext,
+    variables: dict[str, float],
+    tol: float = 1e-5,
+) -> bool:
+    for predicate in item.predicates:
+        try:
+            if not predicate.evaluate(context, variables, tol=tol):
+                return False
+        except ValueError:
+            return False
+    return True
 
 
 def axis_has_complete_bounds(axis: str, bounds: dict[str, tuple[float | None, float | None]]) -> bool:

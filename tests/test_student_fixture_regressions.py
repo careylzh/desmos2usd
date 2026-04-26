@@ -473,6 +473,25 @@ class StudentFixtureRegressionTests(unittest.TestCase):
         geometry = tessellate(item, EvalContext(), resolution=12)
         self.assertGreater(geometry.face_count, 0)
 
+    def test_parabolic_inequality_band_skips_circular_fast_path(self) -> None:
+        """S2-05 Group E: parabolic slab bands are not circular profiles. The circular
+        fast path should decline them instead of dividing by a zero quadratic axis.
+        """
+        source = SourceInfo("", "", "", "", viewport_bounds={"x": (-10.0, 10.0), "y": (0.0, 22.0), "z": (29.0, 33.0)})
+        item = classify_expression(
+            ExpressionIR(
+                source,
+                "1",
+                0,
+                r"z<-0.09x^{2}+32.126\left\{-8.707<x<8.707\right\}\left\{z>-0.1x^{2}+30.775\right\}\left\{0\le y\le22\right\}",
+            ),
+            EvalContext(),
+        )
+
+        self.assertEqual(item.kind, "inequality_region")
+        geometry = tessellate(item, EvalContext(), resolution=12)
+        self.assertGreater(geometry.face_count, 0)
+
     def test_usda_writes_display_color_for_usdz_viewers(self) -> None:
         graph = GraphIR(
             source=SOURCE,
@@ -539,6 +558,54 @@ class StudentFixtureRegressionTests(unittest.TestCase):
         # Honor the constraint range (and the boundary nudge) instead of the viewport.
         self.assertGreaterEqual(min(x_values), -1.81)
         self.assertLessEqual(max(x_values), -1.20)
+
+    def test_explicit_surface_restriction_undefined_samples_are_outside_domain(self) -> None:
+        """S2-06 Group E: a family of wall strips uses sqrt-based y restrictions.
+        Samples outside the sqrt domain are outside the Desmos restriction; they should
+        not abort the whole surface export.
+        """
+        source = SourceInfo(
+            "", "", "", "", viewport_bounds={"x": (-2.0, 2.0), "y": (-2.0, 2.0), "z": (0.0, 1.0)}
+        )
+        item = classify_expression(
+            ExpressionIR(
+                source,
+                "1",
+                0,
+                r"y=0\left\{-\sqrt{1-x^{2}}<y<\sqrt{1-x^{2}}\right\}\left\{0<z<1\right\}",
+            ),
+            EvalContext(),
+        )
+
+        geometry = tessellate(item, EvalContext(), resolution=12)
+        used_indices = set(geometry.face_vertex_indices)
+        used_x_values = [geometry.points[index][0] for index in used_indices]
+
+        self.assertEqual(item.kind, "explicit_surface")
+        self.assertGreater(geometry.face_count, 0)
+        self.assertGreater(min(used_x_values), -1.05)
+        self.assertLess(max(used_x_values), 1.05)
+
+    def test_explicit_surface_expression_undefined_samples_are_outside_domain(self) -> None:
+        """An explicit function's natural domain should clip the mesh just like Desmos.
+        Pre-fix, z=sqrt(1-x^2-y^2) over a larger viewport raised on the first outside
+        sample and exported as unsupported.
+        """
+        source = SourceInfo(
+            "", "", "", "", viewport_bounds={"x": (-2.0, 2.0), "y": (-2.0, 2.0), "z": (0.0, 1.0)}
+        )
+        item = classify_expression(
+            ExpressionIR(source, "1", 0, r"z=\sqrt{1-x^{2}-y^{2}}"),
+            EvalContext(),
+        )
+
+        geometry = tessellate(item, EvalContext(), resolution=16)
+        used_indices = set(geometry.face_vertex_indices)
+        used_points = [geometry.points[index] for index in used_indices]
+
+        self.assertEqual(item.kind, "explicit_surface")
+        self.assertGreater(geometry.face_count, 0)
+        self.assertTrue(all(point[0] ** 2 + point[1] ** 2 <= 1.05 for point in used_points))
 
     def test_s208_disk_inequality_at_constant_z_renders_as_flat_disk(self) -> None:
         """S2-08 Group E: ``x^2+y^2 <= 4 {z=0}`` is a flat disk in the xy plane at z=0.
