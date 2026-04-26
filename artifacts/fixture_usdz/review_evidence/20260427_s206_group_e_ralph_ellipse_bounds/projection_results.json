@@ -1,0 +1,26 @@
+[
+  {
+    "fixture": "[4B] 3D Diagram - S2-06 Group E.json",
+    "prim_count": 723,
+    "projection": "artifacts/fixture_usdz/review_evidence/20260427_s206_group_e_ralph_ellipse_bounds/S2-06_Group_E_projection_after.ppm",
+    "unsupported_count": 13,
+    "usda": "artifacts/fixture_usdz/review_evidence/20260427_s206_group_e_ralph_ellipse_bounds/S2-06_Group_E_projection_after.usda",
+    "valid": true
+  },
+  {
+    "fixture": "[4B] 3D Diagram - S2-08 Group E.json",
+    "prim_count": 87,
+    "projection": "artifacts/fixture_usdz/review_evidence/20260427_s206_group_e_ralph_ellipse_bounds/S2-08_Group_E_projection_guard_after.ppm",
+    "unsupported_count": 0,
+    "usda": "artifacts/fixture_usdz/review_evidence/20260427_s206_group_e_ralph_ellipse_bounds/S2-08_Group_E_projection_guard_after.usda",
+    "valid": true
+  },
+  {
+    "fixture": "[4B] 3D Diagram - S2-09 Group F.json",
+    "prim_count": 27,
+    "projection": "artifacts/fixture_usdz/review_evidence/20260427_s206_group_e_ralph_ellipse_bounds/S2-09_Group_F_projection_guard_after.ppm",
+    "unsupported_count": 0,
+    "usda": "artifacts/fixture_usdz/review_evidence/20260427_s206_group_e_ralph_ellipse_bounds/S2-09_Group_F_projection_guard_after.usda",
+    "valid": true
+  }
+]

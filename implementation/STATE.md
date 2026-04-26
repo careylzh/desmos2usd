@@ -1,43 +1,80 @@
 # Implementation State
 
-Last updated: 2026-04-25 17:47 +08
+Last updated: 2026-04-27 07:28 SGT
 
 ## Loop Mode
-- cadence: 5m one-shot wakes
-- mode: build
-- repo: /Users/careylai/Desktop/desmos2usd
-- branch: main
-- cron-job: 521141b3-c3c5-49b3-ad9c-83870ad650d1
-- supersedes: 8f195356-9b3d-422d-a912-0a88f39bb268 (disabled prior loop)
-- controller: implementation/control/status.md
+- cadence: every 10 minutes via OpenClaw cron
+- mode: improve
+- repo: /Users/chek/repos/desmos2usd-carey
+- branch: fix/student-fixture-usdz-export
+- push-target: chektien:fix/student-fixture-usdz-export
+- pr: https://github.com/careylzh/desmos2usd/pull/1
+- non-overlap: true; if a previous Codex or ccwork run is still active, a cron wake must leave it running and not start another implementation pass
 
 ## Executor Policy
-- primary: OpenClaw main session (openai/gpt-5.4)
-- secondary-review: none
-- availability: available
+- primary: raw HOME Codex on chekstool
+- reviewer: ccwork/Claude on chekbook only when explicitly launched by the orchestrator
+- commit policy: commit and push coherent fixes with passing validation; if Codex cannot write `.git`, the orchestrator/next wake must commit from the main environment before launching more work
+- author: chektien <www@ch3k.com>
+
+## Visual-Fidelity Gate
+- For each chosen Desmos input, load the Desmos URL in a browser-capable path, wait until the model appears, and capture several reference screenshots before fixing.
+- Regenerate the USD/USDZ and load it in the live viewer.
+- Iterate until the viewer rendering visually matches the Desmos screenshots enough to be defensible, or record the exact blocker.
+- Metrics, prim counts, unsupported counts, valid USD, and report consistency are necessary but not sufficient; live visual evidence is authoritative.
+- Do not claim full parity without browser/viewer screenshots.
 
 ## Active Task
-- index: 2
-- id: remove-major-blocker-families
-- title: Remove the highest-frequency parser and geometry blocker families preventing `[4B]` fixtures from producing USDZ
+- index: 1
+- id: one-desmos-input-at-a-time
+- title: Fix one remaining partial Desmos input per bounded tranche using live Desmos screenshots and viewer screenshots
+- current-priority:
+  1. Continue S2-10 Group F remaining spherical/ball cap inequalities — https://www.desmos.com/3d/tejhfrm34m — now 20 unsupported, 147 prims, 167 classified
+  2. Continue S2-03 Group E remaining spherical caps / non-affine arc cutouts — https://www.desmos.com/3d/sqkhp7wnx6 — now 17 unsupported, 447 prims, 464 classified
+  3. Continue S2-07 Group F remaining parser/classifier slabs and sampled inequality — https://www.desmos.com/3d/jkj1z8t8pf — now 14 unsupported, 874 prims, 875 classified
+  4. Continue S2-06 Group E remaining elliptical annular slabs / y-squared bridge surfaces / random Gaussian regions — https://www.desmos.com/3d/cg2sd6h1ws — now 13 unsupported, 723 prims, 736 classified
+  5. Revisit S2-03 Group D only for live visual parity evidence when browser capture is available — https://www.desmos.com/3d/zvasa1wcgo — structurally success, 585 prims, 0 unsupported
 - done-when:
-  - The harvested baseline has been recorded for all 71 fixtures.
-  - The next tranche is focused on one blocker family at a time, starting with the highest-frequency categories from `implementation/control/last-summary.json`.
-  - Progress measurably reduces the count of `[4B]` fixtures missing `.usdz` outputs.
+  - one chosen fixture has fresh Desmos reference screenshots
+  - live viewer screenshots/projections exist for the generated USD artifact
+  - a general exporter/viewer fix is implemented, not a fixture-specific hack
+  - S2-08 Group E and S2-09 Group F remain safe regression guards
+  - validation passes
+  - changes are committed and pushed, or the exact commit/push blocker is recorded
 
 ## Ordered Task Cycle
-1. [x] Establish a reproducible local 71-fixture USDZ sweep and capture the first blocker families.
-2. [ ] Remove parser, classifier, tessellation, and packaging gaps until every fixture can export USDA and package a valid USDZ.
-3. [ ] Add or extend tests and docs for the 71-fixture USDZ acceptance target.
-4. [ ] Run the full 71-fixture sweep cleanly and verify every fixture has a corresponding valid USDZ output.
+1. [ ] Pick the next highest-impact partial fixture and capture Desmos reference screenshots.
+2. [ ] Diagnose the largest general unsupported/visual mismatch family for that single fixture.
+3. [ ] Implement one bounded exporter/viewer fix and add regression tests.
+4. [ ] Regenerate affected artifacts and summary.
+5. [ ] Capture viewer screenshots/projections and compare against Desmos references.
+6. [ ] Validate, commit, push, and update handoff.
+7. [ ] Advance to the next input only after the current one is either defensibly fixed or explicitly blocked.
 
-## Blockers
-- `[4B]` baseline after the harvested full sweep: `28/66` USDZ files present, `38/66` still missing.
-- Dominant error families are implicit equality geometry (`18`), other unsupported expressions (`9`), segment expressions (`3`), tuple definition parsing (`3`), and remaining definition parse gaps (`5` combined).
-- Dominant partial families are inequality-region sampling (`11`) and parametric `u`/`v` handling (`4`).
-- Python imports must still prefer `PYTHONPATH=src`; the current environment also has a different editable `desmos2usd` checkout on the import path.
+## Current Baseline
+- HEAD before current tranche: 75d33bb Improve S2-07F ellipsoid implicit export
+- summary: 71 fixtures; 26 success, 45 partial, 0 error
+- S2-10 Group F current tranche: modulo cylinder/slat/box pass improved 47 unsupported -> 20 unsupported, 120 prims -> 147 prims, classified remains 167; live browser/viewer capture blocked, so visual claim is structural/local projection only
+- S2-07 Group F current tranche: unbounded implicit sphere pass improved 53 unsupported -> 14 unsupported, 835 prims -> 874 prims, classified remains 875; live browser/viewer capture blocked, so visual claim is structural/local projection only
+- S2-07 Group F current tranche: point-list triangle indexing pass improved 69 unsupported -> 53 unsupported, 36 prims -> 835 prims, 37 classified -> 875 classified; live browser/viewer capture blocked, so visual claim is structural/local projection only
+- S2-03 Group E affine-band tranche: 71 unsupported -> 17 unsupported, 393 prims -> 447 prims, 464 classified; live browser/viewer capture blocked, so visual claim is structural/local projection only
+- S2-03 Group E previous tranche: 85 unsupported -> 71 unsupported, 111 prims -> 393 prims, 190 classified -> 464 classified; live browser/viewer capture blocked, so visual claim is structural/local projection only
+- S2-03 Group D current tranche: 12 unsupported -> 0 unsupported, 573 prims -> 585 prims; live browser/viewer capture blocked, so structural/local projection progress only
+- S2-06 Group E current tranche: 57 unsupported -> 13 unsupported, 679 prims -> 723 prims, 736 classified; live browser/viewer capture blocked, so visual claim is structural/local projection only
+- S2-06 Group E pass 5: 321 unsupported -> 57 unsupported, still partial; ccwork approved pass 5 as technically sound
+- S2-08 Group E: success, 87 prims, 0 unsupported; current guard projection exists
+- S2-09 Group F: success, 27 prims, 0 unsupported
+
+## Control
+- cron control directory: /Users/chek/.openclaw/workspace/tmp/desmos2usd-ralph-control
+- worker prompt: /Users/chek/.openclaw/workspace/tmp/desmos2usd-ralph-control/worker-prompt.md
+- progress updates: every cron wake should deliver a concise message to the Discord thread, including whether it launched, skipped due active run, harvested, committed, or blocked
+
+## Blockers / Cautions
+- Existing public branch still contains agentic implementation files; Chek separately asked for a later clean-public-branch/history rewrite pass. Do not do that destructive cleanup inside the cron loop unless explicitly asked.
+- Browser capture can be flaky. If live Desmos or viewer capture fails, record the exact failure and do not claim parity.
+- Do not overlap Codex/ccwork runs.
 
 ## Last Wake
-- timestamp: 2026-04-25 17:47 +08
-- result: advanced
-- notes: Harvested completed full sweep `mild-basil`, recorded the 71-fixture baseline, cleared the active-run marker, and advanced to fixing the highest-frequency blocker families.
+- timestamp: 2026-04-27 07:28 SGT
+- result: HOME Codex completed one S2-10F modulo-region tranche. Implemented a general modulo stripe decomposition for inequality regions and reused circular/box extrusion per active interval; S2-10F improved to 147 prims, 20 unsupported. S2-08E and S2-09F remain success guards. Browser/live viewer capture remains blocked by MCP cancellation and local server bind denial, so no live visual parity claim.

@@ -112,6 +112,8 @@ def parse_view_metadata(graph: Any) -> dict[str, Any]:
 
     if isinstance(graph.get("threeDMode"), bool):
         metadata["three_d_mode"] = graph["threeDMode"]
+    if isinstance(graph.get("degreeMode"), bool):
+        metadata["degree_mode"] = graph["degreeMode"]
     if isinstance(graph.get("showPlane3D"), bool):
         metadata["show_plane_3d"] = graph["showPlane3D"]
     return metadata

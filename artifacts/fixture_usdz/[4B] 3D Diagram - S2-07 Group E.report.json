@@ -1,15 +1,426 @@
 {
   "acceptance_success": false,
-  "error": "Unsupported expression 38 'k_{1}=\\\\left\\\\{s\\\\ <\\\\ 20:0.99,0.99-s\\\\right\\\\}': Predicate has no comparison operator: 0.99-s",
-  "error_stage": "classify",
-  "error_type": "ValueError",
+  "classified_expression_count": 34,
+  "complete": false,
   "fixture": "[4B] 3D Diagram - S2-07 Group E.json",
   "fixture_path": "fixtures/states/[4B] 3D Diagram - S2-07 Group E.json",
   "graph_hash": null,
-  "output": "/Users/careylai/Desktop/desmos2usd/artifacts/fixture_usdz/[4B] 3D Diagram - S2-07 Group E.usda",
-  "resolution": 8,
-  "status": "error",
+  "output": "artifacts/fixture_usdz/[4B] 3D Diagram - S2-07 Group E.usda",
+  "prim_count": 34,
+  "renderable_expression_count": 35,
+  "resolution": 12,
+  "status": "partial",
   "title": "Desmos graph",
-  "usdz_exists": false,
-  "usdz_output": "/Users/careylai/Desktop/desmos2usd/artifacts/fixture_usdz/[4B] 3D Diagram - S2-07 Group E.usdz"
+  "unsupported": [
+    {
+      "expr_id": "38",
+      "kind": "classification",
+      "latex": "k_{1}=\\left\\{s\\ <\\ 20:0.99,0.99-s\\right\\}",
+      "reason": "Predicate has no comparison operator: 0.99-s"
+    }
+  ],
+  "unsupported_count": 1,
+  "usda_exists": true,
+  "usdz_exists": true,
+  "usdz_output": "artifacts/fixture_usdz/[4B] 3D Diagram - S2-07 Group E.usdz",
+  "usdz_package": {
+    "command": [
+      "/usr/bin/usdzip",
+      "/Users/chek/repos/desmos2usd-carey/artifacts/fixture_usdz/[4B] 3D Diagram - S2-07 Group E.usdz",
+      "[4B] 3D Diagram - S2-07 Group E.usda"
+    ],
+    "cwd": "/Users/chek/repos/desmos2usd-carey/artifacts/fixture_usdz",
+    "returncode": 0,
+    "stderr": "",
+    "stdout": "",
+    "tool": "usdzip"
+  },
+  "usdz_validation": {
+    "command": [
+      "/usr/bin/usdchecker",
+      "--arkit",
+      "/Users/chek/repos/desmos2usd-carey/artifacts/fixture_usdz/[4B] 3D Diagram - S2-07 Group E.usdz"
+    ],
+    "cwd": null,
+    "returncode": 0,
+    "stderr": "",
+    "stdout": "\nValidation Result with no explicit variants set\nSuccess!\n",
+    "tool": "usdchecker"
+  },
+  "valid": true,
+  "validations": [
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "25",
+      "face_count": 126,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 128,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "43",
+      "face_count": 1632,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 2176,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "66",
+      "face_count": 1632,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 2176,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "67",
+      "face_count": 2688,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 3584,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "68",
+      "face_count": 6,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 8,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "69",
+      "face_count": 672,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 896,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "70",
+      "face_count": 2112,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 2050,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "71",
+      "face_count": 6,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 8,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "74",
+      "face_count": 672,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 896,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "76",
+      "face_count": 288,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 384,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "77",
+      "face_count": 6,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 8,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "78",
+      "face_count": 576,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 768,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "84",
+      "face_count": 42,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 56,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "85",
+      "face_count": 174,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 232,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "86",
+      "face_count": 3264,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 4352,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "87",
+      "face_count": 6,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 8,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "88",
+      "face_count": 1632,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 2176,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "90",
+      "face_count": 168,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 224,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "91",
+      "face_count": 42,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 56,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "93",
+      "face_count": 174,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 232,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "94",
+      "face_count": 3264,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 4352,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "96",
+      "face_count": 864,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 1152,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "97",
+      "face_count": 12,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 16,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "98",
+      "face_count": 384,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 512,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "105",
+      "face_count": 1152,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 1536,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "109",
+      "face_count": 1152,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 1536,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "111",
+      "face_count": 384,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 512,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "112",
+      "face_count": 12,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 16,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "114",
+      "face_count": 1152,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 1536,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "115",
+      "face_count": 1152,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 1536,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "117",
+      "face_count": 1440,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 1920,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "118",
+      "face_count": 1440,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 1920,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "119",
+      "face_count": 6,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 8,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "120",
+      "face_count": 24,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 32,
+      "valid": true
+    }
+  ],
+  "view_metadata": {
+    "axis_3d": [
+      0.0,
+      0.0,
+      -1.0000000000002875
+    ],
+    "three_d_mode": true,
+    "viewport_bounds": {
+      "x": [
+        -15.357618779589028,
+        15.357618779589028
+      ],
+      "y": [
+        -15.357618779588972,
+        15.357618779588972
+      ],
+      "z": [
+        -15.357618779588972,
+        15.357618779588972
+      ]
+    },
+    "world_rotation_3d": [
+      -0.8963312064718696,
+      -0.03240638633954435,
+      -0.44219927004588133,
+      0.02906211951198092,
+      -0.9994747751316345,
+      0.014337610856040663,
+      -0.4424316461490743,
+      2.3348825265259787e-12,
+      0.8968022293046999
+    ]
+  }
 }

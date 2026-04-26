@@ -1,33 +1,28 @@
 {
-  "acceptance_success": false,
-  "complete": false,
+  "acceptance_success": true,
+  "classified_expression_count": 12,
+  "complete": true,
   "fixture": "[4B] 3D Diagram - S2-03 Group B.json",
   "fixture_path": "fixtures/states/[4B] 3D Diagram - S2-03 Group B.json",
   "graph_hash": null,
-  "output": "/Users/careylai/Desktop/desmos2usd/artifacts/fixture_usdz/[4B] 3D Diagram - S2-03 Group B.usda",
-  "prim_count": 11,
+  "output": "artifacts/fixture_usdz/[4B] 3D Diagram - S2-03 Group B.usda",
+  "prim_count": 12,
   "renderable_expression_count": 12,
-  "resolution": 8,
-  "status": "partial",
+  "resolution": 12,
+  "status": "success",
   "title": "Desmos graph",
-  "unsupported": [
-    {
-      "expr_id": "134",
-      "kind": "explicit_surface",
-      "latex": "z=-0.3(0.5(x\\cos(a)-y\\sin(a)+5))^{2}-0.8(x\\sin(a)+y\\cos(a)-8)^{2}+9\\left\\{x\\cos(a)-y\\sin(a)>-5\\right\\}\\left\\{x\\sin(a)+y\\cos(a)>0\\right\\}\\left\\{z>2\\right\\}",
-      "reason": "Could not evaluate '-0.3(0.5(x\\\\cos(a)-y\\\\sin(a)+5))^{2}-0.8(x\\\\sin(a)+y\\\\cos(a)-8)^{2}+9' with variables {'x': -36.82684179764464, 'y': -43.613799281632375}: name 'c' is not defined"
-    }
-  ],
-  "unsupported_count": 1,
+  "unsupported": [],
+  "unsupported_count": 0,
+  "usda_exists": true,
   "usdz_exists": true,
-  "usdz_output": "/Users/careylai/Desktop/desmos2usd/artifacts/fixture_usdz/[4B] 3D Diagram - S2-03 Group B.usdz",
+  "usdz_output": "artifacts/fixture_usdz/[4B] 3D Diagram - S2-03 Group B.usdz",
   "usdz_package": {
     "command": [
       "/usr/bin/usdzip",
-      "/Users/careylai/Desktop/desmos2usd/artifacts/fixture_usdz/[4B] 3D Diagram - S2-03 Group B.usdz",
+      "/Users/chek/repos/desmos2usd-carey/artifacts/fixture_usdz/[4B] 3D Diagram - S2-03 Group B.usdz",
       "[4B] 3D Diagram - S2-03 Group B.usda"
     ],
-    "cwd": "/Users/careylai/Desktop/desmos2usd/artifacts/fixture_usdz",
+    "cwd": "/Users/chek/repos/desmos2usd-carey/artifacts/fixture_usdz",
     "returncode": 0,
     "stderr": "",
     "stdout": "",
@@ -37,11 +32,11 @@
     "command": [
       "/usr/bin/usdchecker",
       "--arkit",
-      "/Users/careylai/Desktop/desmos2usd/artifacts/fixture_usdz/[4B] 3D Diagram - S2-03 Group B.usdz"
+      "/Users/chek/repos/desmos2usd-carey/artifacts/fixture_usdz/[4B] 3D Diagram - S2-03 Group B.usdz"
     ],
     "cwd": null,
     "returncode": 0,
-    "stderr": "",
+    "stderr": "Coding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\n",
     "stdout": "\nValidation Result with no explicit variants set\nSuccess!\n",
     "tool": "usdchecker"
   },
@@ -51,111 +46,154 @@
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "110",
-      "face_count": 7,
+      "face_count": 79,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 100,
+      "point_count": 250,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "119",
-      "face_count": 18,
+      "face_count": 125,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 100,
+      "point_count": 272,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "120",
-      "face_count": 20,
+      "face_count": 125,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 100,
+      "point_count": 272,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "121",
-      "face_count": 10,
+      "face_count": 95,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 100,
+      "point_count": 260,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "123",
-      "face_count": 12,
+      "face_count": 126,
       "kind": "inequality_region",
       "max_residual": null,
-      "point_count": 32,
+      "point_count": 128,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "127",
-      "face_count": 30,
+      "face_count": 146,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 100,
+      "point_count": 262,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "130",
-      "face_count": 9,
+      "face_count": 95,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 100,
+      "point_count": 262,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "131",
-      "face_count": 7,
+      "face_count": 90,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 100,
+      "point_count": 260,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "132",
-      "face_count": 15,
+      "face_count": 111,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 100,
+      "point_count": 272,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "134",
+      "face_count": 148,
+      "kind": "explicit_surface",
+      "max_residual": 0.0,
+      "point_count": 280,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "136",
-      "face_count": 12,
+      "face_count": 126,
       "kind": "inequality_region",
       "max_residual": null,
-      "point_count": 32,
+      "point_count": 128,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "149",
-      "face_count": 84,
+      "face_count": 168,
       "kind": "inequality_region",
       "max_residual": null,
-      "point_count": 112,
+      "point_count": 224,
       "valid": true
     }
-  ]
+  ],
+  "view_metadata": {
+    "axis_3d": [
+      -0.9982747000336939,
+      0.05871646515771114,
+      -1.2424617528130897e-13
+    ],
+    "three_d_mode": true,
+    "viewport_bounds": {
+      "x": [
+        -36.82684179764464,
+        57.51574003402937
+      ],
+      "y": [
+        -43.613799281632375,
+        50.728782550041025
+      ],
+      "z": [
+        -45.88072034436584,
+        48.46186148730756
+      ]
+    },
+    "world_rotation_3d": [
+      -0.012009678931698414,
+      0.9982747000297314,
+      -0.05747513281880589,
+      -0.20418393036528504,
+      -0.05871646515741333,
+      -0.9771700462560432,
+      -0.9788588714378493,
+      3.021201394916642e-15,
+      0.20453681773083998
+    ]
+  }
 }

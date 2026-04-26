@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import json
 from dataclasses import dataclass
+from math import isfinite
 from pathlib import Path
 
 from desmos2usd.ir import GraphIR
@@ -30,6 +31,7 @@ def write_usda(path: Path, graph: GraphIR, prims: list[ExportedPrim]) -> None:
         f"        string \"desmos:title\" = {usd_string(graph.source.title)}",
         f"        string \"desmos:stateUrl\" = {usd_string(graph.source.state_url)}",
         f"        string \"desmos:viewportBounds\" = {usd_string(json.dumps(graph.source.viewport_bounds, sort_keys=True))}",
+        *view_metadata_layer_lines(graph),
         "    }",
         ")",
         "",
@@ -40,6 +42,48 @@ def write_usda(path: Path, graph: GraphIR, prims: list[ExportedPrim]) -> None:
         lines.extend(write_prim(prim, indent="    "))
     lines.append("}")
     path.write_text("\n".join(lines) + "\n", encoding="utf-8")
+
+
+def view_metadata_layer_lines(graph: GraphIR) -> list[str]:
+    metadata = graph.source.view_metadata
+    if not isinstance(metadata, dict):
+        return []
+
+    lines = []
+    world_rotation = finite_sequence(metadata.get("world_rotation_3d"), expected_length=9)
+    if world_rotation is not None:
+        lines.append(f"        string \"desmos:worldRotation3D\" = {usd_string(json.dumps(world_rotation))}")
+
+    axis = finite_sequence(metadata.get("axis_3d"), expected_length=3)
+    if axis is not None:
+        lines.append(f"        string \"desmos:axis3D\" = {usd_string(json.dumps(axis))}")
+
+    for source_key, layer_key in (
+        ("three_d_mode", "threeDMode"),
+        ("show_plane_3d", "showPlane3D"),
+        ("degree_mode", "degreeMode"),
+    ):
+        value = metadata.get(source_key)
+        if isinstance(value, bool):
+            lines.append(f"        string \"desmos:{layer_key}\" = {usd_string(str(value).lower())}")
+    return lines
+
+
+def finite_sequence(value: object, expected_length: int) -> list[float] | None:
+    if not isinstance(value, list | tuple) or len(value) != expected_length:
+        return None
+    parsed = []
+    for item in value:
+        if isinstance(item, bool):
+            return None
+        try:
+            number = float(item)
+        except (TypeError, ValueError):
+            return None
+        if not isfinite(number):
+            return None
+        parsed.append(number)
+    return parsed
 
 
 def write_prim(prim: ExportedPrim, indent: str) -> list[str]:
@@ -60,6 +104,7 @@ def write_mesh(name: str, item: ClassifiedExpression, geometry: GeometryData, in
     lines.extend(
         [
             f"{indent}    uniform bool doubleSided = true",
+            *display_color_lines(item, indent),
             f"{indent}    point3f[] points = {format_points(geometry.points)}",
             f"{indent}    int[] faceVertexCounts = {format_ints(geometry.face_vertex_counts)}",
             f"{indent}    int[] faceVertexIndices = {format_ints(geometry.face_vertex_indices)}",
@@ -77,6 +122,7 @@ def write_curve(name: str, item: ClassifiedExpression, geometry: GeometryData, i
     lines.extend(
         [
             f'{indent}    uniform token type = "linear"',
+            *display_color_lines(item, indent),
             f"{indent}    int[] curveVertexCounts = {format_ints(geometry.curve_vertex_counts)}",
             f"{indent}    point3f[] points = {format_points(geometry.points)}",
             f"{indent}    float[] widths = [0.025]",
@@ -85,6 +131,30 @@ def write_curve(name: str, item: ClassifiedExpression, geometry: GeometryData, i
         ]
     )
     return lines
+
+
+def display_color_lines(item: ClassifiedExpression, indent: str) -> list[str]:
+    rgb = parse_hex_color(item.ir.color)
+    if rgb is None:
+        return []
+    r, g, b = rgb
+    return [
+        f"{indent}    color3f[] primvars:displayColor = [({format_float(r)}, {format_float(g)}, {format_float(b)})] (",
+        f'{indent}        interpolation = "constant"',
+        f"{indent}    )",
+    ]
+
+
+def parse_hex_color(value: str | None) -> tuple[float, float, float] | None:
+    if not value:
+        return None
+    text = value.strip()
+    if len(text) == 7 and text.startswith("#"):
+        try:
+            return tuple(int(text[index : index + 2], 16) / 255.0 for index in (1, 3, 5))  # type: ignore[return-value]
+        except ValueError:
+            return None
+    return None
 
 
 def format_points(points: list[tuple[float, float, float]]) -> str:

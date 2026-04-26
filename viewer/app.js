@@ -51,6 +51,7 @@
       pitch: 0.55,
       distance: 10,
       target: [0, 0, 0],
+      basis: null,
       home: null,
     },
     pointers: new Map(),
@@ -155,15 +156,22 @@
       if (!response.ok) return [];
       const summary = await response.json();
       if (!summary || !Array.isArray(summary.reports)) return [];
+      const seen = new Set();
       return summary.reports
+        .filter((report) => report && report.usda_exists && basenameFromPath(report.output))
         .map((report) => {
           const fileName = basenameFromPath(report.output);
           if (!fileName) return null;
           const label = fixtureLabel(report, fileName);
+          const url = joinSamplePath(fixtureSweepRoot, fileName);
+          const key = `${normalizeSampleKey(label)}
+${url}`;
+          if (seen.has(key)) return null;
+          seen.add(key);
           return {
             key: label,
             label,
-            url: joinSamplePath(fixtureSweepRoot, fileName),
+            url,
             group: "Fixture sweep",
           };
         })
@@ -268,7 +276,7 @@
     state.selectedPrim = -1;
     state.hiddenPrims.clear();
     state.surfaceMode = "dim";
-    fitCameraToBounds(state.scene.sourceViewportBounds || currentFitBounds(), false);
+    initializeCameraForScene(state.scene);
     updateSurfaceModeButton();
     updateSummary();
     updateSelection();
@@ -298,8 +306,8 @@
           inLayerData = false;
           continue;
         }
-        const layerMatch = line.match(/^string\s+([A-Za-z0-9:_-]+)\s*=\s*(.+)$/);
-        if (layerMatch) layer[layerMatch[1]] = parseUsdValue(layerMatch[2]);
+        const layerMatch = line.match(/^(string|bool|int|double|float)\s+"?([A-Za-z0-9:_-]+)"?\s*=\s*(.+)$/);
+        if (layerMatch) layer[layerMatch[2]] = parseUsdValue(layerMatch[3], layerMatch[1]);
         continue;
       }
 
@@ -490,11 +498,53 @@
       prims.push(primInfo);
     }
 
-    normalizeNormals(normals);
     if (!Number.isFinite(bounds.min[0])) {
       expandBounds(bounds, [-1, -1, -1]);
       expandBounds(bounds, [1, 1, 1]);
     }
+
+    // Generate solid hexagonal tubes around every BasisCurves polyline so that
+    // curve-heavy scenes (e.g. Eiffel-tower truss diagrams) don't render as a
+    // 1-pixel skeleton. WebGL ignores gl.lineWidth > 1 on virtually every
+    // browser/driver, so polylines alone look skeletal regardless of the
+    // requested line width. Tubes give curves visual weight that matches the
+    // way Desmos draws them, without changing the underlying USDA artifact.
+    const sceneDiagonal = Math.hypot(
+      bounds.max[0] - bounds.min[0],
+      bounds.max[1] - bounds.min[1],
+      bounds.max[2] - bounds.min[2],
+    );
+    // Tube radius is a small fraction of the scene diagonal so curves keep visual
+    // weight regardless of scene scale. The fraction was tuned against Desmos' own
+    // default curve thickness on tower-like scenes (S2-05 Group D); too small and
+    // curves still look like a 1-pixel skeleton, too large and adjacent legs fuse.
+    const tubeRadius = clamp(sceneDiagonal * 0.006, 0.015, sceneDiagonal * 0.025);
+    const tubeSides = 6;
+    const tubeRanges = [];
+    for (const range of lineRanges) {
+      const prim = prims[range.primIndex];
+      if (!prim) continue;
+      const tubeColor = prim.color;
+      const tubeAlpha = Math.round(prim.sourceAlpha * 255);
+      const tubeIndexStart = indices.length;
+      const polyline = [];
+      for (let i = 0; i < range.count; i += 1) {
+        const base = (range.start + i) * 3;
+        polyline.push([linePositions[base], linePositions[base + 1], linePositions[base + 2]]);
+      }
+      appendTubeGeometry(positions, colors, normals, indices, polyline, tubeColor, tubeAlpha, tubeRadius, tubeSides);
+      const tubeIndexCount = indices.length - tubeIndexStart;
+      if (tubeIndexCount > 0) {
+        const tubeRange = { primIndex: prim.index, start: tubeIndexStart, count: tubeIndexCount };
+        prim.tubeRanges = prim.tubeRanges || [];
+        prim.tubeRanges.push(tubeRange);
+        tubeRanges.push(tubeRange);
+        prim.triangleCount += tubeIndexCount / 3;
+        stats.triangleCount += tubeIndexCount / 3;
+      }
+    }
+
+    normalizeNormals(normals);
     annotateReviewSurfaces(prims, bounds);
     stats.reviewMutedCount = prims.filter((prim) => prim.reviewMuted).length;
 
@@ -517,6 +567,7 @@
       fileName: parsed.fileName,
       layer: parsed.layer,
       sourceViewportBounds: parseSourceViewportBounds(parsed.layer),
+      sourceViewMetadata: parseSourceViewMetadata(parsed.layer),
       prims,
       stats,
       bounds,
@@ -532,6 +583,7 @@
       },
       meshRanges,
       lineRanges,
+      tubeRanges,
       meshIndexCount: indices.length,
       lineVertexCount: linePositions.length / 3,
     };
@@ -586,6 +638,115 @@
         normals[i] = x / length;
         normals[i + 1] = y / length;
         normals[i + 2] = z / length;
+      }
+    }
+  }
+
+  function appendTubeGeometry(positions, colors, normals, indices, polyline, color, alpha, radius, sides) {
+    const points = [];
+    for (const point of polyline) {
+      if (!point) continue;
+      const last = points.length ? points[points.length - 1] : null;
+      if (last && Math.hypot(point[0] - last[0], point[1] - last[1], point[2] - last[2]) < 1e-9) continue;
+      points.push([point[0], point[1], point[2]]);
+    }
+    if (points.length < 2 || radius <= 0) return;
+
+    const n = points.length;
+    const tangents = new Array(n);
+    for (let i = 0; i < n; i += 1) {
+      let dx;
+      let dy;
+      let dz;
+      if (i === 0) {
+        dx = points[1][0] - points[0][0];
+        dy = points[1][1] - points[0][1];
+        dz = points[1][2] - points[0][2];
+      } else if (i === n - 1) {
+        dx = points[n - 1][0] - points[n - 2][0];
+        dy = points[n - 1][1] - points[n - 2][1];
+        dz = points[n - 1][2] - points[n - 2][2];
+      } else {
+        dx = points[i + 1][0] - points[i - 1][0];
+        dy = points[i + 1][1] - points[i - 1][1];
+        dz = points[i + 1][2] - points[i - 1][2];
+      }
+      let len = Math.hypot(dx, dy, dz);
+      if (len < 1e-12) {
+        tangents[i] = [0, 0, 1];
+      } else {
+        tangents[i] = [dx / len, dy / len, dz / len];
+      }
+    }
+
+    function cross(a, b) {
+      return [a[1] * b[2] - a[2] * b[1], a[2] * b[0] - a[0] * b[2], a[0] * b[1] - a[1] * b[0]];
+    }
+    function normalize(v) {
+      const len = Math.hypot(v[0], v[1], v[2]);
+      if (len < 1e-12) return [0, 0, 0];
+      return [v[0] / len, v[1] / len, v[2] / len];
+    }
+
+    let normal = normalize(cross(tangents[0], [0, 0, 1]));
+    if (Math.hypot(normal[0], normal[1], normal[2]) < 0.5) {
+      normal = normalize(cross(tangents[0], [1, 0, 0]));
+    }
+    if (Math.hypot(normal[0], normal[1], normal[2]) < 0.5) {
+      normal = normalize(cross(tangents[0], [0, 1, 0]));
+    }
+    let binormal = normalize(cross(tangents[0], normal));
+    if (Math.hypot(binormal[0], binormal[1], binormal[2]) < 0.5) {
+      // Final fallback: pick any orthonormal basis (tangent is degenerate).
+      normal = [1, 0, 0];
+      binormal = [0, 1, 0];
+    }
+
+    const frames = [{ n: normal, b: binormal }];
+    for (let i = 1; i < n; i += 1) {
+      const prev = frames[i - 1];
+      // Project the previous normal onto the plane perpendicular to the new tangent
+      // (rotation-minimizing frame via simple projection — keeps tube roll continuous).
+      const t = tangents[i];
+      const dot = prev.n[0] * t[0] + prev.n[1] * t[1] + prev.n[2] * t[2];
+      let newN = normalize([prev.n[0] - dot * t[0], prev.n[1] - dot * t[1], prev.n[2] - dot * t[2]]);
+      if (Math.hypot(newN[0], newN[1], newN[2]) < 0.5) {
+        newN = prev.n;
+      }
+      const newB = normalize(cross(t, newN));
+      frames.push({ n: newN, b: newB });
+    }
+
+    const baseVertex = positions.length / 3;
+    for (let i = 0; i < n; i += 1) {
+      const frame = frames[i];
+      for (let s = 0; s < sides; s += 1) {
+        const angle = (s / sides) * Math.PI * 2;
+        const cs = Math.cos(angle);
+        const sn = Math.sin(angle);
+        const ox = (frame.n[0] * cs + frame.b[0] * sn) * radius;
+        const oy = (frame.n[1] * cs + frame.b[1] * sn) * radius;
+        const oz = (frame.n[2] * cs + frame.b[2] * sn) * radius;
+        positions.push(points[i][0] + ox, points[i][1] + oy, points[i][2] + oz);
+        colors.push(color[0], color[1], color[2], alpha);
+        // Outward radial direction is the surface normal.
+        const nlen = Math.hypot(ox, oy, oz);
+        if (nlen < 1e-12) {
+          normals.push(0, 0, 0);
+        } else {
+          normals.push(ox / nlen, oy / nlen, oz / nlen);
+        }
+      }
+    }
+
+    for (let i = 0; i < n - 1; i += 1) {
+      for (let s = 0; s < sides; s += 1) {
+        const sNext = (s + 1) % sides;
+        const a = baseVertex + i * sides + s;
+        const b = baseVertex + i * sides + sNext;
+        const c = baseVertex + (i + 1) * sides + sNext;
+        const d = baseVertex + (i + 1) * sides + s;
+        indices.push(a, b, c, a, c, d);
       }
     }
   }
@@ -732,37 +893,50 @@
       gl.disable(gl.BLEND);
       gl.depthMask(true);
       for (const prim of scene.prims) {
-        if (!prim.meshRange || !shouldDrawPrim(prim) || isTranslucentPrim(prim)) continue;
+        if (!shouldDrawPrim(prim) || isTranslucentPrim(prim)) continue;
         gl.uniform1f(gl.getUniformLocation(state.programs.mesh, "uAlphaScale"), 1);
-        drawMeshRange(prim.meshRange);
+        if (prim.meshRange) drawMeshRange(prim.meshRange);
+        if (prim.tubeRanges) {
+          for (const tube of prim.tubeRanges) drawMeshRange(tube);
+        }
       }
 
       gl.enable(gl.BLEND);
       gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA);
       gl.depthMask(false);
       for (const prim of scene.prims) {
-        if (!prim.meshRange || !shouldDrawPrim(prim) || !isTranslucentPrim(prim)) continue;
+        if (!shouldDrawPrim(prim) || !isTranslucentPrim(prim)) continue;
         gl.uniform1f(gl.getUniformLocation(state.programs.mesh, "uAlphaScale"), primAlphaScale(prim));
-        drawMeshRange(prim.meshRange);
+        if (prim.meshRange) drawMeshRange(prim.meshRange);
+        if (prim.tubeRanges) {
+          for (const tube of prim.tubeRanges) drawMeshRange(tube);
+        }
       }
       gl.depthMask(true);
       gl.disable(gl.BLEND);
 
       const selected = scene.prims[state.selectedPrim];
-      if (selected && selected.meshRange && shouldDrawPrim(selected)) {
+      if (selected && shouldDrawPrim(selected)) {
         gl.enable(gl.BLEND);
         gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA);
         gl.enable(gl.POLYGON_OFFSET_FILL);
         gl.polygonOffset(-1, -1);
         gl.uniform1f(gl.getUniformLocation(state.programs.mesh, "uAlphaScale"), 1);
         gl.uniform4f(gl.getUniformLocation(state.programs.mesh, "uOverrideColor"), 0.96, 0.82, 0.25, 0.42);
-        drawMeshRange(selected.meshRange);
+        if (selected.meshRange) drawMeshRange(selected.meshRange);
+        if (selected.tubeRanges) {
+          for (const tube of selected.tubeRanges) drawMeshRange(tube);
+        }
         gl.uniform4f(gl.getUniformLocation(state.programs.mesh, "uOverrideColor"), 0, 0, 0, -1);
         gl.disable(gl.POLYGON_OFFSET_FILL);
         gl.disable(gl.BLEND);
       }
     }
 
+    // Draw the original BasisCurves polylines as a thin overlay only when the
+    // tube generator skipped a prim (degenerate or zero-radius curve). Tubes
+    // already provide visible weight for normal cases, so skipping the line
+    // pass avoids redundant darker silhouettes on top of the lit cylinders.
     if (scene.lineVertexCount > 0) {
       gl.useProgram(state.programs.line);
       gl.bindVertexArray(scene.buffers.lineVao);
@@ -771,6 +945,7 @@
       for (const range of scene.lineRanges) {
         const prim = scene.prims[range.primIndex];
         if (!prim || !shouldDrawPrim(prim)) continue;
+        if (prim.tubeRanges && prim.tubeRanges.length > 0) continue;
         gl.uniform1f(gl.getUniformLocation(state.programs.line, "uAlphaScale"), prim.sourceAlpha);
         gl.drawArrays(gl.LINE_STRIP, range.start, range.count);
       }
@@ -790,6 +965,15 @@
         gl.uniform4f(gl.getUniformLocation(state.programs.pickMesh, "uPickColor"), color[0], color[1], color[2], 1);
         drawMeshRange(range);
       }
+      // Tubes are part of the same index buffer; pick them as triangle meshes
+      // so that hit areas match their visible silhouette.
+      for (const range of scene.tubeRanges || []) {
+        const prim = scene.prims[range.primIndex];
+        if (!prim || !shouldDrawPrim(prim)) continue;
+        const color = encodePickColor(range.primIndex + 1);
+        gl.uniform4f(gl.getUniformLocation(state.programs.pickMesh, "uPickColor"), color[0], color[1], color[2], 1);
+        drawMeshRange(range);
+      }
     }
 
     if (scene.lineVertexCount > 0) {
@@ -800,6 +984,7 @@
       for (const range of scene.lineRanges) {
         const prim = scene.prims[range.primIndex];
         if (!prim || !shouldDrawPrim(prim)) continue;
+        if (prim.tubeRanges && prim.tubeRanges.length > 0) continue;
         const color = encodePickColor(range.primIndex + 1);
         gl.uniform4f(gl.getUniformLocation(state.programs.pickLine, "uPickColor"), color[0], color[1], color[2], 1);
         gl.drawArrays(gl.LINE_STRIP, range.start, range.count);
@@ -830,16 +1015,34 @@
   function computeViewProjection() {
     const camera = state.camera;
     const aspect = canvas.width / Math.max(1, canvas.height);
-    const pitch = clamp(camera.pitch, -1.45, 1.45);
-    const cp = Math.cos(pitch);
-    const eye = [
-      camera.target[0] + camera.distance * cp * Math.sin(camera.yaw),
-      camera.target[1] + camera.distance * cp * Math.cos(camera.yaw),
-      camera.target[2] + camera.distance * Math.sin(pitch),
-    ];
-    const view = mat4LookAt(eye, camera.target, [0, 0, 1]);
+    const basis = camera.basis;
+    let eye;
+    let view;
+    if (basis) {
+      eye = [
+        camera.target[0] + camera.distance * basis.depth[0],
+        camera.target[1] + camera.distance * basis.depth[1],
+        camera.target[2] + camera.distance * basis.depth[2],
+      ];
+      view = mat4ViewFromBasis(eye, basis.right, basis.up, basis.depth);
+    } else {
+      const pitch = clamp(camera.pitch, -1.45, 1.45);
+      const cp = Math.cos(pitch);
+      eye = [
+        camera.target[0] + camera.distance * cp * Math.sin(camera.yaw),
+        camera.target[1] + camera.distance * cp * Math.cos(camera.yaw),
+        camera.target[2] + camera.distance * Math.sin(pitch),
+      ];
+      view = mat4LookAt(eye, camera.target, [0, 0, 1]);
+    }
     const projection = mat4Perspective(Math.PI / 4, aspect, Math.max(0.001, camera.distance / 1000), Math.max(1000, camera.distance * 20));
     return mat4Multiply(projection, view);
+  }
+
+  function initializeCameraForScene(scene) {
+    fitCameraToBounds(scene.sourceViewportBounds || currentFitBounds(), false);
+    applySourceViewMetadata(scene.sourceViewMetadata);
+    saveCameraHome();
   }
 
   function fitCamera(keepAngles) {
@@ -867,14 +1070,30 @@
       const suggested = suggestCameraAngles(extents);
       state.camera.yaw = suggested.yaw;
       state.camera.pitch = suggested.pitch;
+      state.camera.basis = null;
     }
     state.camera.target = center;
     state.camera.distance = radius * 2.35;
+    saveCameraHome();
+  }
+
+  function applySourceViewMetadata(metadata) {
+    const basis = metadata && cameraBasisFromWorldRotation(metadata.worldRotation3D);
+    if (!basis) return false;
+    state.camera.basis = basis;
+    const angles = cameraAnglesFromDirection(basis.depth);
+    state.camera.yaw = angles.yaw;
+    state.camera.pitch = angles.pitch;
+    return true;
+  }
+
+  function saveCameraHome() {
     state.camera.home = {
       yaw: state.camera.yaw,
       pitch: state.camera.pitch,
       distance: state.camera.distance,
-      target: center.slice(),
+      target: state.camera.target.slice(),
+      basis: cloneCameraBasis(state.camera.basis),
     };
   }
 
@@ -911,12 +1130,68 @@
     };
   }
 
+  function cameraDirectionFromAngles(yaw, pitch) {
+    const clampedPitch = clamp(pitch, -1.45, 1.45);
+    const cp = Math.cos(clampedPitch);
+    return normalize([
+      cp * Math.sin(yaw),
+      cp * Math.cos(yaw),
+      Math.sin(clampedPitch),
+    ]);
+  }
+
+  function cameraAnglesFromDirection(direction) {
+    const normalized = normalize(direction);
+    return {
+      yaw: Math.atan2(normalized[0], normalized[1]),
+      pitch: Math.asin(clamp(normalized[2], -0.999, 0.999)),
+    };
+  }
+
+  function cameraBasisFromWorldRotation(rotation) {
+    if (!Array.isArray(rotation) || rotation.length !== 9) return null;
+    const rows = [
+      rotation.slice(0, 3),
+      rotation.slice(3, 6),
+      rotation.slice(6, 9),
+    ];
+    if (rows.some((row) => row.some((value) => !Number.isFinite(value)) || Math.hypot(row[0], row[1], row[2]) < 1e-6)) {
+      return null;
+    }
+    // Desmos stores this row-major, but the camera basis vectors are column-based:
+    // camera depth, screen-left, then screen-up.
+    const columns = [0, 1, 2].map((column) => [rows[0][column], rows[1][column], rows[2][column]]);
+    const depth = normalize(columns[0].map((value) => -value));
+    const right = normalize(columns[1].map((value) => -value));
+    const up = normalize(columns[2]);
+    if (Math.abs(dot(cross(right, up), depth)) < 0.4) return null;
+    return { right, up, depth };
+  }
+
+  function cloneCameraBasis(basis) {
+    if (!basis) return null;
+    return {
+      right: basis.right.slice(),
+      up: basis.up.slice(),
+      depth: basis.depth.slice(),
+    };
+  }
+
+  function releaseCameraBasisToAngles() {
+    if (!state.camera.basis) return;
+    const angles = cameraAnglesFromDirection(state.camera.basis.depth);
+    state.camera.yaw = angles.yaw;
+    state.camera.pitch = angles.pitch;
+    state.camera.basis = null;
+  }
+
   function resetCamera() {
     if (!state.camera.home) return;
     state.camera.yaw = state.camera.home.yaw;
     state.camera.pitch = state.camera.home.pitch;
     state.camera.distance = state.camera.home.distance;
     state.camera.target = state.camera.home.target.slice();
+    state.camera.basis = cloneCameraBasis(state.camera.home.basis);
   }
 
   function onWheel(event) {
@@ -967,6 +1242,7 @@
     if (state.drag.mode === "pan" || (event.buttons & 2)) {
       panCamera(dx, dy);
     } else {
+      releaseCameraBasisToAngles();
       state.camera.yaw -= dx * 0.006;
       state.camera.pitch = clamp(state.camera.pitch + dy * 0.006, -1.45, 1.45);
     }
@@ -984,14 +1260,10 @@
 
   function panCamera(dx, dy) {
     const camera = state.camera;
-    const cp = Math.cos(camera.pitch);
-    const eyeDir = normalize([
-      cp * Math.sin(camera.yaw),
-      cp * Math.cos(camera.yaw),
-      Math.sin(camera.pitch),
-    ]);
-    const right = normalize(cross(eyeDir, [0, 0, 1]));
-    const up = normalize(cross(right, eyeDir));
+    const basis = camera.basis;
+    const eyeDir = basis ? basis.depth : cameraDirectionFromAngles(camera.yaw, camera.pitch);
+    const right = basis ? basis.right : normalize(cross(eyeDir, [0, 0, 1]));
+    const up = basis ? basis.up : normalize(cross(right, eyeDir));
     const scale = camera.distance * 0.0016;
     camera.target[0] += (-right[0] * dx + up[0] * dy) * scale;
     camera.target[1] += (-right[1] * dx + up[1] * dy) * scale;
@@ -1254,6 +1526,48 @@
     }
   }
 
+  function parseSourceViewMetadata(layer) {
+    if (!layer) return null;
+    const metadata = {};
+    const rotation = parseSourceFloatSequence(layer["desmos:worldRotation3D"], 9);
+    if (rotation) metadata.worldRotation3D = rotation;
+    const axis = parseSourceFloatSequence(layer["desmos:axis3D"], 3);
+    if (axis) metadata.axis3D = axis;
+    for (const [sourceKey, targetKey] of [
+      ["desmos:threeDMode", "threeDMode"],
+      ["desmos:showPlane3D", "showPlane3D"],
+      ["desmos:degreeMode", "degreeMode"],
+    ]) {
+      const parsed = parseSourceBoolean(layer[sourceKey]);
+      if (parsed !== null) metadata[targetKey] = parsed;
+    }
+    return Object.keys(metadata).length ? metadata : null;
+  }
+
+  function parseSourceFloatSequence(raw, expectedLength) {
+    let value = raw;
+    if (typeof value === "string") {
+      try {
+        value = JSON.parse(value);
+      } catch (_error) {
+        return null;
+      }
+    }
+    if (!Array.isArray(value) || value.length !== expectedLength) return null;
+    const parsed = value.map((item) => Number(item));
+    if (parsed.some((item) => !Number.isFinite(item))) return null;
+    return parsed;
+  }
+
+  function parseSourceBoolean(raw) {
+    if (typeof raw === "boolean") return raw;
+    if (typeof raw !== "string") return null;
+    const normalized = raw.trim().toLowerCase();
+    if (normalized === "true") return true;
+    if (normalized === "false") return false;
+    return null;
+  }
+
   function createBounds() {
     return { min: [Infinity, Infinity, Infinity], max: [-Infinity, -Infinity, -Infinity] };
   }
@@ -1355,6 +1669,15 @@
       x[1], y[1], z[1], 0,
       x[2], y[2], z[2], 0,
       -dot(x, eye), -dot(y, eye), -dot(z, eye), 1,
+    ]);
+  }
+
+  function mat4ViewFromBasis(eye, right, up, depth) {
+    return new Float32Array([
+      right[0], up[0], depth[0], 0,
+      right[1], up[1], depth[1], 0,
+      right[2], up[2], depth[2], 0,
+      -dot(right, eye), -dot(up, eye), -dot(depth, eye), 1,
     ]);
   }
 

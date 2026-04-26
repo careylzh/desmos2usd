@@ -1,15 +1,314 @@
 {
   "acceptance_success": false,
-  "error": "Unsupported expression 173 'by=-\\\\frac{c}{z}\\\\left\\\\{-3\\\\le y\\\\le5\\\\right\\\\}\\\\left\\\\{-1\\\\le x\\\\le1\\\\right\\\\}\\\\ \\\\left\\\\{z\\\\le11\\\\right\\\\}': not a supported renderable geometry form",
-  "error_stage": "classify",
-  "error_type": "ValueError",
+  "classified_expression_count": 25,
+  "complete": false,
   "fixture": "[4B] 3D Diagram - S2-10 Group D.json",
   "fixture_path": "fixtures/states/[4B] 3D Diagram - S2-10 Group D.json",
   "graph_hash": null,
-  "output": "/Users/careylai/Desktop/desmos2usd/artifacts/fixture_usdz/[4B] 3D Diagram - S2-10 Group D.usda",
-  "resolution": 8,
-  "status": "error",
+  "output": "artifacts/fixture_usdz/[4B] 3D Diagram - S2-10 Group D.usda",
+  "prim_count": 21,
+  "renderable_expression_count": 25,
+  "resolution": 12,
+  "status": "partial",
   "title": "Desmos graph",
-  "usdz_exists": false,
-  "usdz_output": "/Users/careylai/Desktop/desmos2usd/artifacts/fixture_usdz/[4B] 3D Diagram - S2-10 Group D.usdz"
+  "unsupported": [
+    {
+      "expr_id": "120",
+      "kind": "explicit_surface",
+      "latex": "z=a\\left(x-0\\right)^{2}+3\\left\\{2<y<3\\right\\}",
+      "reason": "Could not evaluate 'a(x-0)^{2}+3' with variables {'x': -13.514682856677165, 'y': 2.0}: 'float' object is not callable"
+    },
+    {
+      "expr_id": "123",
+      "kind": "explicit_surface",
+      "latex": "z=a\\left(y\\right)^{2}+3\\left\\{2<x<3\\right\\}",
+      "reason": "Could not evaluate 'a(y)^{2}+3' with variables {'x': 2.0, 'y': -13.514682856677197}: 'float' object is not callable"
+    },
+    {
+      "expr_id": "126",
+      "kind": "explicit_surface",
+      "latex": "z=a\\left(x\\right)^{2}+3\\left\\{-3<y<-2\\right\\}",
+      "reason": "Could not evaluate 'a(x)^{2}+3' with variables {'x': -13.514682856677165, 'y': -3.0}: 'float' object is not callable"
+    },
+    {
+      "expr_id": "127",
+      "kind": "explicit_surface",
+      "latex": "z=a\\left(y\\right)^{2}+3\\left\\{-3<x<-2\\right\\}",
+      "reason": "Could not evaluate 'a(y)^{2}+3' with variables {'x': -3.0, 'y': -13.514682856677197}: 'float' object is not callable"
+    }
+  ],
+  "unsupported_count": 4,
+  "usda_exists": true,
+  "usdz_exists": true,
+  "usdz_output": "artifacts/fixture_usdz/[4B] 3D Diagram - S2-10 Group D.usdz",
+  "usdz_package": {
+    "command": [
+      "/usr/bin/usdzip",
+      "/Users/chek/repos/desmos2usd-carey/artifacts/fixture_usdz/[4B] 3D Diagram - S2-10 Group D.usdz",
+      "[4B] 3D Diagram - S2-10 Group D.usda"
+    ],
+    "cwd": "/Users/chek/repos/desmos2usd-carey/artifacts/fixture_usdz",
+    "returncode": 0,
+    "stderr": "",
+    "stdout": "",
+    "tool": "usdzip"
+  },
+  "usdz_validation": {
+    "command": [
+      "/usr/bin/usdchecker",
+      "--arkit",
+      "/Users/chek/repos/desmos2usd-carey/artifacts/fixture_usdz/[4B] 3D Diagram - S2-10 Group D.usdz"
+    ],
+    "cwd": null,
+    "returncode": 0,
+    "stderr": "Coding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\n",
+    "stdout": "\nValidation Result with no explicit variants set\nSuccess!\n",
+    "tool": "usdchecker"
+  },
+  "valid": true,
+  "validations": [
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "131",
+      "face_count": 144,
+      "kind": "explicit_surface",
+      "max_residual": 0.0,
+      "point_count": 196,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "133",
+      "face_count": 144,
+      "kind": "explicit_surface",
+      "max_residual": 0.0,
+      "point_count": 196,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "134",
+      "face_count": 144,
+      "kind": "explicit_surface",
+      "max_residual": 0.0,
+      "point_count": 196,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "135",
+      "face_count": 144,
+      "kind": "explicit_surface",
+      "max_residual": 0.0,
+      "point_count": 196,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "136",
+      "face_count": 144,
+      "kind": "explicit_surface",
+      "max_residual": 0.0,
+      "point_count": 196,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "137",
+      "face_count": 144,
+      "kind": "explicit_surface",
+      "max_residual": 0.0,
+      "point_count": 196,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "138",
+      "face_count": 144,
+      "kind": "explicit_surface",
+      "max_residual": 0.0,
+      "point_count": 196,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "139",
+      "face_count": 144,
+      "kind": "explicit_surface",
+      "max_residual": 0.0,
+      "point_count": 196,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "140",
+      "face_count": 6,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 8,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "141",
+      "face_count": 144,
+      "kind": "explicit_surface",
+      "max_residual": 0.0,
+      "point_count": 196,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "142",
+      "face_count": 144,
+      "kind": "explicit_surface",
+      "max_residual": 0.0,
+      "point_count": 196,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "144",
+      "face_count": 144,
+      "kind": "explicit_surface",
+      "max_residual": 0.0,
+      "point_count": 196,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "145",
+      "face_count": 144,
+      "kind": "explicit_surface",
+      "max_residual": 0.0,
+      "point_count": 196,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "173",
+      "face_count": 28,
+      "kind": "implicit_surface",
+      "max_residual": null,
+      "point_count": 112,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "178",
+      "face_count": 14,
+      "kind": "implicit_surface",
+      "max_residual": null,
+      "point_count": 56,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "174",
+      "face_count": 14,
+      "kind": "implicit_surface",
+      "max_residual": null,
+      "point_count": 56,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "175",
+      "face_count": 28,
+      "kind": "implicit_surface",
+      "max_residual": null,
+      "point_count": 112,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "180",
+      "face_count": 25,
+      "kind": "implicit_surface",
+      "max_residual": null,
+      "point_count": 100,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "183",
+      "face_count": 25,
+      "kind": "implicit_surface",
+      "max_residual": null,
+      "point_count": 100,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "184",
+      "face_count": 17,
+      "kind": "implicit_surface",
+      "max_residual": null,
+      "point_count": 68,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "185",
+      "face_count": 17,
+      "kind": "implicit_surface",
+      "max_residual": null,
+      "point_count": 68,
+      "valid": true
+    }
+  ],
+  "view_metadata": {
+    "axis_3d": [
+      0.0,
+      0.0,
+      1.000000000009098
+    ],
+    "three_d_mode": true,
+    "viewport_bounds": {
+      "x": [
+        -13.514682856677165,
+        13.514682856677165
+      ],
+      "y": [
+        -13.514682856677197,
+        13.514682856677197
+      ],
+      "z": [
+        -13.514682856677197,
+        13.514682856677197
+      ]
+    },
+    "world_rotation_3d": [
+      -0.9912214299999702,
+      -1.2246467991473532e-16,
+      -0.13221224114587207,
+      1.2138961514957257e-16,
+      -1.0,
+      1.6191329792739023e-17,
+      -0.13221224114587207,
+      0.0,
+      0.9912214299999702
+    ]
+  }
 }

@@ -1,0 +1,2320 @@
+#usda 1.0
+(
+    defaultPrim = "DesmosGraph"
+    metersPerUnit = 1
+    upAxis = "Z"
+    customLayerData = {
+        string "desmos:url" = ""
+        string "desmos:hash" = ""
+        string "desmos:title" = "Desmos graph"
+        string "desmos:stateUrl" = ""
+        string "desmos:viewportBounds" = "{\"x\": [-120.78437621470667, 129.53457965667158], \"y\": [-157.70371619852213, 92.61523967285683], \"z\": [-125.15947793568948, 125.15947793568948]}"
+        string "desmos:worldRotation3D" = "[3.1045512010348404e-17, -1.0, 5.277855284743943e-17, 0.5070116874835013, 6.123233995736766e-17, 0.8619391792668044, -0.8619391792668044, 0.0, 0.5070116874835013]"
+        string "desmos:axis3D" = "[0.0, 0.0, 0.9999999999951819]"
+        string "desmos:threeDMode" = "true"
+    }
+)
+
+def Xform "DesmosGraph"
+{
+    def Mesh "expr_0000__8"
+    {
+        custom string desmos:url = ""
+        custom string desmos:hash = ""
+        custom string desmos:exprId = "8"
+        custom int desmos:order = 0
+        custom string desmos:latex = "z=130\\ \\left\\{-10\\le x\\le10\\right\\}\\ \\left\\{-10\\le y\\le10\\right\\}"
+        custom string desmos:constraints = "-10\\le x\\le10; -10\\le y\\le10"
+        custom string desmos:kind = "explicit_surface"
+        custom string desmos:color = "#aaaaaa"
+        custom bool desmos:hidden = false
+        uniform bool doubleSided = true
+        color3f[] primvars:displayColor = [(0.666666667, 0.666666667, 0.666666667)] (
+            interpolation = "constant"
+        )
+        point3f[] points = []
+        int[] faceVertexCounts = []
+        int[] faceVertexIndices = []
+    }
+
+    def Mesh "expr_0014__26"
+    {
+        custom string desmos:url = ""
+        custom string desmos:hash = ""
+        custom string desmos:exprId = "26"
+        custom int desmos:order = 14
+        custom string desmos:latex = "\\operatorname{triangle}\\left(A,B,C\\right)"
+        custom string desmos:constraints = ""
+        custom string desmos:kind = "triangle_mesh"
+        custom string desmos:color = "#aaaaaa"
+        custom bool desmos:hidden = false
+        uniform bool doubleSided = true
+        color3f[] primvars:displayColor = [(0.666666667, 0.666666667, 0.666666667)] (
+            interpolation = "constant"
+        )
+        point3f[] points = [(0, 0, 150), (10, -10, 130), (-10, -10, 130)]
+        int[] faceVertexCounts = [3]
+        int[] faceVertexIndices = [0, 1, 2]
+    }
+
+    def Mesh "expr_0015__27"
+    {
+        custom string desmos:url = ""
+        custom string desmos:hash = ""
+        custom string desmos:exprId = "27"
+        custom int desmos:order = 15
+        custom string desmos:latex = "\\operatorname{triangle}\\left(A,B,E\\right)"
+        custom string desmos:constraints = ""
+        custom string desmos:kind = "triangle_mesh"
+        custom string desmos:color = "#aaaaaa"
+        custom bool desmos:hidden = false
+        uniform bool doubleSided = true
+        color3f[] primvars:displayColor = [(0.666666667, 0.666666667, 0.666666667)] (
+            interpolation = "constant"
+        )
+        point3f[] points = [(0, 0, 150), (10, -10, 130), (-10, 10, 130)]
+        int[] faceVertexCounts = [3]
+        int[] faceVertexIndices = [0, 1, 2]
+    }
+
+    def Mesh "expr_0016__28"
+    {
+        custom string desmos:url = ""
+        custom string desmos:hash = ""
+        custom string desmos:exprId = "28"
+        custom int desmos:order = 16
+        custom string desmos:latex = "\\operatorname{triangle}\\left(A,C,D\\right)"
+        custom string desmos:constraints = ""
+        custom string desmos:kind = "triangle_mesh"
+        custom string desmos:color = "#aaaaaa"
+        custom bool desmos:hidden = false
+        uniform bool doubleSided = true
+        color3f[] primvars:displayColor = [(0.666666667, 0.666666667, 0.666666667)] (
+            interpolation = "constant"
+        )
+        point3f[] points = [(0, 0, 150), (-10, -10, 130), (-10, 10, 130)]
+        int[] faceVertexCounts = [3]
+        int[] faceVertexIndices = [0, 1, 2]
+    }
+
+    def Mesh "expr_0017__29"
+    {
+        custom string desmos:url = ""
+        custom string desmos:hash = ""
+        custom string desmos:exprId = "29"
+        custom int desmos:order = 17
+        custom string desmos:latex = "\\operatorname{triangle}\\left(A,D,E\\right)"
+        custom string desmos:constraints = ""
+        custom string desmos:kind = "triangle_mesh"
+        custom string desmos:color = "#aaaaaa"
+        custom bool desmos:hidden = false
+        uniform bool doubleSided = true
+        color3f[] primvars:displayColor = [(0.666666667, 0.666666667, 0.666666667)] (
+            interpolation = "constant"
+        )
+        point3f[] points = [(0, 0, 150), (-10, 10, 130), (-10, 10, 130)]
+        int[] faceVertexCounts = [3]
+        int[] faceVertexIndices = [0, 1, 2]
+    }
+
+    def Mesh "expr_0021__33"
+    {
+        custom string desmos:url = ""
+        custom string desmos:hash = ""
+        custom string desmos:exprId = "33"
+        custom int desmos:order = 21
+        custom string desmos:latex = "\\operatorname{triangle}\\left(A,F,D\\right)"
+        custom string desmos:constraints = ""
+        custom string desmos:kind = "triangle_mesh"
+        custom string desmos:color = "#aaaaaa"
+        custom bool desmos:hidden = false
+        uniform bool doubleSided = true
+        color3f[] primvars:displayColor = [(0.666666667, 0.666666667, 0.666666667)] (
+            interpolation = "constant"
+        )
+        point3f[] points = [(0, 0, 150), (10, 10, 130), (-10, 10, 130)]
+        int[] faceVertexCounts = [3]
+        int[] faceVertexIndices = [0, 1, 2]
+    }
+
+    def Mesh "expr_0022__34"
+    {
+        custom string desmos:url = ""
+        custom string desmos:hash = ""
+        custom string desmos:exprId = "34"
+        custom int desmos:order = 22
+        custom string desmos:latex = "\\operatorname{triangle}\\left(A,F,B\\right)"
+        custom string desmos:constraints = ""
+        custom string desmos:kind = "triangle_mesh"
+        custom string desmos:color = "#aaaaaa"
+        custom bool desmos:hidden = false
+        uniform bool doubleSided = true
+        color3f[] primvars:displayColor = [(0.666666667, 0.666666667, 0.666666667)] (
+            interpolation = "constant"
+        )
+        point3f[] points = [(0, 0, 150), (10, 10, 130), (10, -10, 130)]
+        int[] faceVertexCounts = [3]
+        int[] faceVertexIndices = [0, 1, 2]
+    }
+
+    def Mesh "expr_0045__63"
+    {
+        custom string desmos:url = ""
+        custom string desmos:hash = ""
+        custom string desmos:exprId = "63"
+        custom int desmos:order = 45
+        custom string desmos:latex = "\\operatorname{triangle}(F,G,B)"
+        custom string desmos:constraints = ""
+        custom string desmos:kind = "triangle_mesh"
+        custom string desmos:color = "#aaaaaa"
+        custom bool desmos:hidden = false
+        uniform bool doubleSided = true
+        color3f[] primvars:displayColor = [(0.666666667, 0.666666667, 0.666666667)] (
+            interpolation = "constant"
+        )
+        point3f[] points = [(10, 10, 130), (20, 20, 0), (10, -10, 130)]
+        int[] faceVertexCounts = [3]
+        int[] faceVertexIndices = [0, 1, 2]
+    }
+
+    def Mesh "expr_0046__64"
+    {
+        custom string desmos:url = ""
+        custom string desmos:hash = ""
+        custom string desmos:exprId = "64"
+        custom int desmos:order = 46
+        custom string desmos:latex = "\\operatorname{triangle}(G,J,B)"
+        custom string desmos:constraints = ""
+        custom string desmos:kind = "triangle_mesh"
+        custom string desmos:color = "#aaaaaa"
+        custom bool desmos:hidden = false
+        uniform bool doubleSided = true
+        color3f[] primvars:displayColor = [(0.666666667, 0.666666667, 0.666666667)] (
+            interpolation = "constant"
+        )
+        point3f[] points = [(20, 20, 0), (20, -20, 0), (10, -10, 130)]
+        int[] faceVertexCounts = [3]
+        int[] faceVertexIndices = [0, 1, 2]
+    }
+
+    def Mesh "expr_0047__68"
+    {
+        custom string desmos:url = ""
+        custom string desmos:hash = ""
+        custom string desmos:exprId = "68"
+        custom int desmos:order = 47
+        custom string desmos:latex = "\\operatorname{triangle}(D,H,F)"
+        custom string desmos:constraints = ""
+        custom string desmos:kind = "triangle_mesh"
+        custom string desmos:color = "#aaaaaa"
+        custom bool desmos:hidden = false
+        uniform bool doubleSided = true
+        color3f[] primvars:displayColor = [(0.666666667, 0.666666667, 0.666666667)] (
+            interpolation = "constant"
+        )
+        point3f[] points = [(-10, 10, 130), (-20, 20, 0), (10, 10, 130)]
+        int[] faceVertexCounts = [3]
+        int[] faceVertexIndices = [0, 1, 2]
+    }
+
+    def Mesh "expr_0048__69"
+    {
+        custom string desmos:url = ""
+        custom string desmos:hash = ""
+        custom string desmos:exprId = "69"
+        custom int desmos:order = 48
+        custom string desmos:latex = "\\operatorname{triangle}(H,G,F)"
+        custom string desmos:constraints = ""
+        custom string desmos:kind = "triangle_mesh"
+        custom string desmos:color = "#aaaaaa"
+        custom bool desmos:hidden = false
+        uniform bool doubleSided = true
+        color3f[] primvars:displayColor = [(0.666666667, 0.666666667, 0.666666667)] (
+            interpolation = "constant"
+        )
+        point3f[] points = [(-20, 20, 0), (20, 20, 0), (10, 10, 130)]
+        int[] faceVertexCounts = [3]
+        int[] faceVertexIndices = [0, 1, 2]
+    }
+
+    def Mesh "expr_0049__70"
+    {
+        custom string desmos:url = ""
+        custom string desmos:hash = ""
+        custom string desmos:exprId = "70"
+        custom int desmos:order = 49
+        custom string desmos:latex = "\\operatorname{triangle}(C,I,D)"
+        custom string desmos:constraints = ""
+        custom string desmos:kind = "triangle_mesh"
+        custom string desmos:color = "#aaaaaa"
+        custom bool desmos:hidden = false
+        uniform bool doubleSided = true
+        color3f[] primvars:displayColor = [(0.666666667, 0.666666667, 0.666666667)] (
+            interpolation = "constant"
+        )
+        point3f[] points = [(-10, -10, 130), (-20, -20, 0), (-10, 10, 130)]
+        int[] faceVertexCounts = [3]
+        int[] faceVertexIndices = [0, 1, 2]
+    }
+
+    def Mesh "expr_0050__71"
+    {
+        custom string desmos:url = ""
+        custom string desmos:hash = ""
+        custom string desmos:exprId = "71"
+        custom int desmos:order = 50
+        custom string desmos:latex = "\\operatorname{triangle}(I,H,D)"
+        custom string desmos:constraints = ""
+        custom string desmos:kind = "triangle_mesh"
+        custom string desmos:color = "#aaaaaa"
+        custom bool desmos:hidden = false
+        uniform bool doubleSided = true
+        color3f[] primvars:displayColor = [(0.666666667, 0.666666667, 0.666666667)] (
+            interpolation = "constant"
+        )
+        point3f[] points = [(-20, -20, 0), (-20, 20, 0), (-10, 10, 130)]
+        int[] faceVertexCounts = [3]
+        int[] faceVertexIndices = [0, 1, 2]
+    }
+
+    def Mesh "expr_0051__72"
+    {
+        custom string desmos:url = ""
+        custom string desmos:hash = ""
+        custom string desmos:exprId = "72"
+        custom int desmos:order = 51
+        custom string desmos:latex = "\\operatorname{triangle}(B,J,C)"
+        custom string desmos:constraints = ""
+        custom string desmos:kind = "triangle_mesh"
+        custom string desmos:color = "#aaaaaa"
+        custom bool desmos:hidden = false
+        uniform bool doubleSided = true
+        color3f[] primvars:displayColor = [(0.666666667, 0.666666667, 0.666666667)] (
+            interpolation = "constant"
+        )
+        point3f[] points = [(10, -10, 130), (20, -20, 0), (-10, -10, 130)]
+        int[] faceVertexCounts = [3]
+        int[] faceVertexIndices = [0, 1, 2]
+    }
+
+    def Mesh "expr_0052__73"
+    {
+        custom string desmos:url = ""
+        custom string desmos:hash = ""
+        custom string desmos:exprId = "73"
+        custom int desmos:order = 52
+        custom string desmos:latex = "\\operatorname{triangle}(J,I,C)"
+        custom string desmos:constraints = ""
+        custom string desmos:kind = "triangle_mesh"
+        custom string desmos:color = "#aaaaaa"
+        custom bool desmos:hidden = false
+        uniform bool doubleSided = true
+        color3f[] primvars:displayColor = [(0.666666667, 0.666666667, 0.666666667)] (
+            interpolation = "constant"
+        )
+        point3f[] points = [(20, -20, 0), (-20, -20, 0), (-10, -10, 130)]
+        int[] faceVertexCounts = [3]
+        int[] faceVertexIndices = [0, 1, 2]
+    }
+
+    def Mesh "expr_0054__94_0"
+    {
+        custom string desmos:url = ""
+        custom string desmos:hash = ""
+        custom string desmos:exprId = "94_0"
+        custom int desmos:order = 54
+        custom string desmos:latex = "\\operatorname{triangle}\\left(\\left(75\\cos\\left(\\frac{2\\pi 1.0}{50}\\right),75\\sin\\left(\\frac{2\\pi 1.0}{50}\\right),15\\right),\\left(75\\cos\\left(\\frac{2\\pi 1.0}{50}\\right),75\\sin\\left(\\frac{2\\pi 1.0}{50}\\right),10\\right),\\left(82\\cos\\left(\\frac{2\\pi 1.0}{50}\\right),82\\sin\\left(\\frac{2\\pi 1.0}{50}\\right),15\\right)\\right)"
+        custom string desmos:constraints = ""
+        custom string desmos:kind = "triangle_mesh"
+        custom string desmos:color = "#c74440"
+        custom bool desmos:hidden = false
+        uniform bool doubleSided = true
+        color3f[] primvars:displayColor = [(0.780392157, 0.266666667, 0.250980392)] (
+            interpolation = "constant"
+        )
+        point3f[] points = [(74.4086026, 9.39999252, 15), (74.4086026, 9.39999252, 10), (81.3534055, 10.2773252, 15)]
+        int[] faceVertexCounts = [3]
+        int[] faceVertexIndices = [0, 1, 2]
+    }
+
+    def Mesh "expr_0054__94_1"
+    {
+        custom string desmos:url = ""
+        custom string desmos:hash = ""
+        custom string desmos:exprId = "94_1"
+        custom int desmos:order = 54
+        custom string desmos:latex = "\\operatorname{triangle}\\left(\\left(75\\cos\\left(\\frac{2\\pi 2.0}{50}\\right),75\\sin\\left(\\frac{2\\pi 2.0}{50}\\right),15\\right),\\left(75\\cos\\left(\\frac{2\\pi 2.0}{50}\\right),75\\sin\\left(\\frac{2\\pi 2.0}{50}\\right),10\\right),\\left(82\\cos\\left(\\frac{2\\pi 2.0}{50}\\right),82\\sin\\left(\\frac{2\\pi 2.0}{50}\\right),15\\right)\\right)"
+        custom string desmos:constraints = ""
+        custom string desmos:kind = "triangle_mesh"
+        custom string desmos:color = "#c74440"
+        custom bool desmos:hidden = false
+        uniform bool doubleSided = true
+        color3f[] primvars:displayColor = [(0.780392157, 0.266666667, 0.250980392)] (
+            interpolation = "constant"
+        )
+        point3f[] points = [(72.6437371, 18.6517415, 15), (72.6437371, 18.6517415, 10), (79.4238192, 20.3925707, 15)]
+        int[] faceVertexCounts = [3]
+        int[] faceVertexIndices = [0, 1, 2]
+    }
+
+    def Mesh "expr_0054__94_2"
+    {
+        custom string desmos:url = ""
+        custom string desmos:hash = ""
+        custom string desmos:exprId = "94_2"
+        custom int desmos:order = 54
+        custom string desmos:latex = "\\operatorname{triangle}\\left(\\left(75\\cos\\left(\\frac{2\\pi 3.0}{50}\\right),75\\sin\\left(\\frac{2\\pi 3.0}{50}\\right),15\\right),\\left(75\\cos\\left(\\frac{2\\pi 3.0}{50}\\right),75\\sin\\left(\\frac{2\\pi 3.0}{50}\\right),10\\right),\\left(82\\cos\\left(\\frac{2\\pi 3.0}{50}\\right),82\\sin\\left(\\frac{2\\pi 3.0}{50}\\right),15\\right)\\right)"
+        custom string desmos:constraints = ""
+        custom string desmos:kind = "triangle_mesh"
+        custom string desmos:color = "#c74440"
+        custom bool desmos:hidden = false
+        uniform bool doubleSided = true
+        color3f[] primvars:displayColor = [(0.780392157, 0.266666667, 0.250980392)] (
+            interpolation = "constant"
+        )
+        point3f[] points = [(69.7332364, 27.6093415, 15), (69.7332364, 27.6093415, 10), (76.2416718, 30.1862133, 15)]
+        int[] faceVertexCounts = [3]
+        int[] faceVertexIndices = [0, 1, 2]
+    }
+
+    def Mesh "expr_0054__94_3"
+    {
+        custom string desmos:url = ""
+        custom string desmos:hash = ""
+        custom string desmos:exprId = "94_3"
+        custom int desmos:order = 54
+        custom string desmos:latex = "\\operatorname{triangle}\\left(\\left(75\\cos\\left(\\frac{2\\pi 4.0}{50}\\right),75\\sin\\left(\\frac{2\\pi 4.0}{50}\\right),15\\right),\\left(75\\cos\\left(\\frac{2\\pi 4.0}{50}\\right),75\\sin\\left(\\frac{2\\pi 4.0}{50}\\right),10\\right),\\left(82\\cos\\left(\\frac{2\\pi 4.0}{50}\\right),82\\sin\\left(\\frac{2\\pi 4.0}{50}\\right),15\\right)\\right)"
+        custom string desmos:constraints = ""
+        custom string desmos:kind = "triangle_mesh"
+        custom string desmos:color = "#c74440"
+        custom bool desmos:hidden = false
+        uniform bool doubleSided = true
+        color3f[] primvars:displayColor = [(0.780392157, 0.266666667, 0.250980392)] (
+            interpolation = "constant"
+        )
+        point3f[] points = [(65.723001, 36.1315256, 15), (65.723001, 36.1315256, 10), (71.8571478, 39.5038013, 15)]
+        int[] faceVertexCounts = [3]
+        int[] faceVertexIndices = [0, 1, 2]
+    }
+
+    def Mesh "expr_0054__94_4"
+    {
+        custom string desmos:url = ""
+        custom string desmos:hash = ""
+        custom string desmos:exprId = "94_4"
+        custom int desmos:order = 54
+        custom string desmos:latex = "\\operatorname{triangle}\\left(\\left(75\\cos\\left(\\frac{2\\pi 5.0}{50}\\right),75\\sin\\left(\\frac{2\\pi 5.0}{50}\\right),15\\right),\\left(75\\cos\\left(\\frac{2\\pi 5.0}{50}\\right),75\\sin\\left(\\frac{2\\pi 5.0}{50}\\right),10\\right),\\left(82\\cos\\left(\\frac{2\\pi 5.0}{50}\\right),82\\sin\\left(\\frac{2\\pi 5.0}{50}\\right),15\\right)\\right)"
+        custom string desmos:constraints = ""
+        custom string desmos:kind = "triangle_mesh"
+        custom string desmos:color = "#c74440"
+        custom bool desmos:hidden = false
+        uniform bool doubleSided = true
+        color3f[] primvars:displayColor = [(0.780392157, 0.266666667, 0.250980392)] (
+            interpolation = "constant"
+        )
+        point3f[] points = [(60.6762746, 44.0838939, 15), (60.6762746, 44.0838939, 10), (66.3393935, 48.1983907, 15)]
+        int[] faceVertexCounts = [3]
+        int[] faceVertexIndices = [0, 1, 2]
+    }
+
+    def Mesh "expr_0054__94_5"
+    {
+        custom string desmos:url = ""
+        custom string desmos:hash = ""
+        custom string desmos:exprId = "94_5"
+        custom int desmos:order = 54
+        custom string desmos:latex = "\\operatorname{triangle}\\left(\\left(75\\cos\\left(\\frac{2\\pi 6.0}{50}\\right),75\\sin\\left(\\frac{2\\pi 6.0}{50}\\right),15\\right),\\left(75\\cos\\left(\\frac{2\\pi 6.0}{50}\\right),75\\sin\\left(\\frac{2\\pi 6.0}{50}\\right),10\\right),\\left(82\\cos\\left(\\frac{2\\pi 6.0}{50}\\right),82\\sin\\left(\\frac{2\\pi 6.0}{50}\\right),15\\right)\\right)"
+        custom string desmos:constraints = ""
+        custom string desmos:kind = "triangle_mesh"
+        custom string desmos:color = "#c74440"
+        custom bool desmos:hidden = false
+        uniform bool doubleSided = true
+        color3f[] primvars:displayColor = [(0.780392157, 0.266666667, 0.250980392)] (
+            interpolation = "constant"
+        )
+        point3f[] points = [(54.6726471, 51.3410329, 15), (54.6726471, 51.3410329, 10), (59.7754274, 56.1328627, 15)]
+        int[] faceVertexCounts = [3]
+        int[] faceVertexIndices = [0, 1, 2]
+    }
+
+    def Mesh "expr_0054__94_6"
+    {
+        custom string desmos:url = ""
+        custom string desmos:hash = ""
+        custom string desmos:exprId = "94_6"
+        custom int desmos:order = 54
+        custom string desmos:latex = "\\operatorname{triangle}\\left(\\left(75\\cos\\left(\\frac{2\\pi 7.0}{50}\\right),75\\sin\\left(\\frac{2\\pi 7.0}{50}\\right),15\\right),\\left(75\\cos\\left(\\frac{2\\pi 7.0}{50}\\right),75\\sin\\left(\\frac{2\\pi 7.0}{50}\\right),10\\right),\\left(82\\cos\\left(\\frac{2\\pi 7.0}{50}\\right),82\\sin\\left(\\frac{2\\pi 7.0}{50}\\right),15\\right)\\right)"
+        custom string desmos:constraints = ""
+        custom string desmos:kind = "triangle_mesh"
+        custom string desmos:color = "#c74440"
+        custom bool desmos:hidden = false
+        uniform bool doubleSided = true
+        color3f[] primvars:displayColor = [(0.780392157, 0.266666667, 0.250980392)] (
+            interpolation = "constant"
+        )
+        point3f[] points = [(47.8067992, 57.7884932, 15), (47.8067992, 57.7884932, 10), (52.2687672, 63.1820859, 15)]
+        int[] faceVertexCounts = [3]
+        int[] faceVertexIndices = [0, 1, 2]
+    }
+
+    def Mesh "expr_0054__94_7"
+    {
+        custom string desmos:url = ""
+        custom string desmos:hash = ""
+        custom string desmos:exprId = "94_7"
+        custom int desmos:order = 54
+        custom string desmos:latex = "\\operatorname{triangle}\\left(\\left(75\\cos\\left(\\frac{2\\pi 8.0}{50}\\right),75\\sin\\left(\\frac{2\\pi 8.0}{50}\\right),15\\right),\\left(75\\cos\\left(\\frac{2\\pi 8.0}{50}\\right),75\\sin\\left(\\frac{2\\pi 8.0}{50}\\right),10\\right),\\left(82\\cos\\left(\\frac{2\\pi 8.0}{50}\\right),82\\sin\\left(\\frac{2\\pi 8.0}{50}\\right),15\\right)\\right)"
+        custom string desmos:constraints = ""
+        custom string desmos:kind = "triangle_mesh"
+        custom string desmos:color = "#c74440"
+        custom bool desmos:hidden = false
+        uniform bool doubleSided = true
+        color3f[] primvars:displayColor = [(0.780392157, 0.266666667, 0.250980392)] (
+            interpolation = "constant"
+        )
+        point3f[] points = [(40.1870096, 63.3245944, 15), (40.1870096, 63.3245944, 10), (43.9377972, 69.2348899, 15)]
+        int[] faceVertexCounts = [3]
+        int[] faceVertexIndices = [0, 1, 2]
+    }
+
+    def Mesh "expr_0054__94_8"
+    {
+        custom string desmos:url = ""
+        custom string desmos:hash = ""
+        custom string desmos:exprId = "94_8"
+        custom int desmos:order = 54
+        custom string desmos:latex = "\\operatorname{triangle}\\left(\\left(75\\cos\\left(\\frac{2\\pi 9.0}{50}\\right),75\\sin\\left(\\frac{2\\pi 9.0}{50}\\right),15\\right),\\left(75\\cos\\left(\\frac{2\\pi 9.0}{50}\\right),75\\sin\\left(\\frac{2\\pi 9.0}{50}\\right),10\\right),\\left(82\\cos\\left(\\frac{2\\pi 9.0}{50}\\right),82\\sin\\left(\\frac{2\\pi 9.0}{50}\\right),15\\right)\\right)"
+        custom string desmos:constraints = ""
+        custom string desmos:kind = "triangle_mesh"
+        custom string desmos:color = "#c74440"
+        custom bool desmos:hidden = false
+        uniform bool doubleSided = true
+        color3f[] primvars:displayColor = [(0.780392157, 0.266666667, 0.250980392)] (
+            interpolation = "constant"
+        )
+        point3f[] points = [(31.9334469, 67.8620289, 15), (31.9334469, 67.8620289, 10), (34.9139019, 74.1958183, 15)]
+        int[] faceVertexCounts = [3]
+        int[] faceVertexIndices = [0, 1, 2]
+    }
+
+    def Mesh "expr_0054__94_9"
+    {
+        custom string desmos:url = ""
+        custom string desmos:hash = ""
+        custom string desmos:exprId = "94_9"
+        custom int desmos:order = 54
+        custom string desmos:latex = "\\operatorname{triangle}\\left(\\left(75\\cos\\left(\\frac{2\\pi 10.0}{50}\\right),75\\sin\\left(\\frac{2\\pi 10.0}{50}\\right),15\\right),\\left(75\\cos\\left(\\frac{2\\pi 10.0}{50}\\right),75\\sin\\left(\\frac{2\\pi 10.0}{50}\\right),10\\right),\\left(82\\cos\\left(\\frac{2\\pi 10.0}{50}\\right),82\\sin\\left(\\frac{2\\pi 10.0}{50}\\right),15\\right)\\right)"
+        custom string desmos:constraints = ""
+        custom string desmos:kind = "triangle_mesh"
+        custom string desmos:color = "#c74440"
+        custom bool desmos:hidden = false
+        uniform bool doubleSided = true
+        color3f[] primvars:displayColor = [(0.780392157, 0.266666667, 0.250980392)] (
+            interpolation = "constant"
+        )
+        point3f[] points = [(23.1762746, 71.3292387, 15), (23.1762746, 71.3292387, 10), (25.3393935, 77.9866343, 15)]
+        int[] faceVertexCounts = [3]
+        int[] faceVertexIndices = [0, 1, 2]
+    }
+
+    def Mesh "expr_0054__94_10"
+    {
+        custom string desmos:url = ""
+        custom string desmos:hash = ""
+        custom string desmos:exprId = "94_10"
+        custom int desmos:order = 54
+        custom string desmos:latex = "\\operatorname{triangle}\\left(\\left(75\\cos\\left(\\frac{2\\pi 11.0}{50}\\right),75\\sin\\left(\\frac{2\\pi 11.0}{50}\\right),15\\right),\\left(75\\cos\\left(\\frac{2\\pi 11.0}{50}\\right),75\\sin\\left(\\frac{2\\pi 11.0}{50}\\right),10\\right),\\left(82\\cos\\left(\\frac{2\\pi 11.0}{50}\\right),82\\sin\\left(\\frac{2\\pi 11.0}{50}\\right),15\\right)\\right)"
+        custom string desmos:constraints = ""
+        custom string desmos:kind = "triangle_mesh"
+        custom string desmos:color = "#c74440"
+        custom bool desmos:hidden = false
+        uniform bool doubleSided = true
+        color3f[] primvars:displayColor = [(0.780392157, 0.266666667, 0.250980392)] (
+            interpolation = "constant"
+        )
+        point3f[] points = [(14.0535986, 73.6715438, 15), (14.0535986, 73.6715438, 10), (15.3652678, 80.5475546, 15)]
+        int[] faceVertexCounts = [3]
+        int[] faceVertexIndices = [0, 1, 2]
+    }
+
+    def Mesh "expr_0054__94_11"
+    {
+        custom string desmos:url = ""
+        custom string desmos:hash = ""
+        custom string desmos:exprId = "94_11"
+        custom int desmos:order = 54
+        custom string desmos:latex = "\\operatorname{triangle}\\left(\\left(75\\cos\\left(\\frac{2\\pi 12.0}{50}\\right),75\\sin\\left(\\frac{2\\pi 12.0}{50}\\right),15\\right),\\left(75\\cos\\left(\\frac{2\\pi 12.0}{50}\\right),75\\sin\\left(\\frac{2\\pi 12.0}{50}\\right),10\\right),\\left(82\\cos\\left(\\frac{2\\pi 12.0}{50}\\right),82\\sin\\left(\\frac{2\\pi 12.0}{50}\\right),15\\right)\\right)"
+        custom string desmos:constraints = ""
+        custom string desmos:kind = "triangle_mesh"
+        custom string desmos:color = "#c74440"
+        custom bool desmos:hidden = false
+        uniform bool doubleSided = true
+        color3f[] primvars:displayColor = [(0.780392157, 0.266666667, 0.250980392)] (
+            interpolation = "constant"
+        )
+        point3f[] points = [(4.70928896, 74.8520046, 15), (4.70928896, 74.8520046, 10), (5.1488226, 81.8381917, 15)]
+        int[] faceVertexCounts = [3]
+        int[] faceVertexIndices = [0, 1, 2]
+    }
+
+    def Mesh "expr_0054__94_12"
+    {
+        custom string desmos:url = ""
+        custom string desmos:hash = ""
+        custom string desmos:exprId = "94_12"
+        custom int desmos:order = 54
+        custom string desmos:latex = "\\operatorname{triangle}\\left(\\left(75\\cos\\left(\\frac{2\\pi 13.0}{50}\\right),75\\sin\\left(\\frac{2\\pi 13.0}{50}\\right),15\\right),\\left(75\\cos\\left(\\frac{2\\pi 13.0}{50}\\right),75\\sin\\left(\\frac{2\\pi 13.0}{50}\\right),10\\right),\\left(82\\cos\\left(\\frac{2\\pi 13.0}{50}\\right),82\\sin\\left(\\frac{2\\pi 13.0}{50}\\right),15\\right)\\right)"
+        custom string desmos:constraints = ""
+        custom string desmos:kind = "triangle_mesh"
+        custom string desmos:color = "#c74440"
+        custom bool desmos:hidden = false
+        uniform bool doubleSided = true
+        color3f[] primvars:displayColor = [(0.780392157, 0.266666667, 0.250980392)] (
+            interpolation = "constant"
+        )
+        point3f[] points = [(-4.70928896, 74.8520046, 15), (-4.70928896, 74.8520046, 10), (-5.1488226, 81.8381917, 15)]
+        int[] faceVertexCounts = [3]
+        int[] faceVertexIndices = [0, 1, 2]
+    }
+
+    def Mesh "expr_0054__94_13"
+    {
+        custom string desmos:url = ""
+        custom string desmos:hash = ""
+        custom string desmos:exprId = "94_13"
+        custom int desmos:order = 54
+        custom string desmos:latex = "\\operatorname{triangle}\\left(\\left(75\\cos\\left(\\frac{2\\pi 14.0}{50}\\right),75\\sin\\left(\\frac{2\\pi 14.0}{50}\\right),15\\right),\\left(75\\cos\\left(\\frac{2\\pi 14.0}{50}\\right),75\\sin\\left(\\frac{2\\pi 14.0}{50}\\right),10\\right),\\left(82\\cos\\left(\\frac{2\\pi 14.0}{50}\\right),82\\sin\\left(\\frac{2\\pi 14.0}{50}\\right),15\\right)\\right)"
+        custom string desmos:constraints = ""
+        custom string desmos:kind = "triangle_mesh"
+        custom string desmos:color = "#c74440"
+        custom bool desmos:hidden = false
+        uniform bool doubleSided = true
+        color3f[] primvars:displayColor = [(0.780392157, 0.266666667, 0.250980392)] (
+            interpolation = "constant"
+        )
+        point3f[] points = [(-14.0535986, 73.6715438, 15), (-14.0535986, 73.6715438, 10), (-15.3652678, 80.5475546, 15)]
+        int[] faceVertexCounts = [3]
+        int[] faceVertexIndices = [0, 1, 2]
+    }
+
+    def Mesh "expr_0054__94_14"
+    {
+        custom string desmos:url = ""
+        custom string desmos:hash = ""
+        custom string desmos:exprId = "94_14"
+        custom int desmos:order = 54
+        custom string desmos:latex = "\\operatorname{triangle}\\left(\\left(75\\cos\\left(\\frac{2\\pi 15.0}{50}\\right),75\\sin\\left(\\frac{2\\pi 15.0}{50}\\right),15\\right),\\left(75\\cos\\left(\\frac{2\\pi 15.0}{50}\\right),75\\sin\\left(\\frac{2\\pi 15.0}{50}\\right),10\\right),\\left(82\\cos\\left(\\frac{2\\pi 15.0}{50}\\right),82\\sin\\left(\\frac{2\\pi 15.0}{50}\\right),15\\right)\\right)"
+        custom string desmos:constraints = ""
+        custom string desmos:kind = "triangle_mesh"
+        custom string desmos:color = "#c74440"
+        custom bool desmos:hidden = false
+        uniform bool doubleSided = true
+        color3f[] primvars:displayColor = [(0.780392157, 0.266666667, 0.250980392)] (
+            interpolation = "constant"
+        )
+        point3f[] points = [(-23.1762746, 71.3292387, 15), (-23.1762746, 71.3292387, 10), (-25.3393935, 77.9866343, 15)]
+        int[] faceVertexCounts = [3]
+        int[] faceVertexIndices = [0, 1, 2]
+    }
+
+    def Mesh "expr_0054__94_15"
+    {
+        custom string desmos:url = ""
+        custom string desmos:hash = ""
+        custom string desmos:exprId = "94_15"
+        custom int desmos:order = 54
+        custom string desmos:latex = "\\operatorname{triangle}\\left(\\left(75\\cos\\left(\\frac{2\\pi 16.0}{50}\\right),75\\sin\\left(\\frac{2\\pi 16.0}{50}\\right),15\\right),\\left(75\\cos\\left(\\frac{2\\pi 16.0}{50}\\right),75\\sin\\left(\\frac{2\\pi 16.0}{50}\\right),10\\right),\\left(82\\cos\\left(\\frac{2\\pi 16.0}{50}\\right),82\\sin\\left(\\frac{2\\pi 16.0}{50}\\right),15\\right)\\right)"
+        custom string desmos:constraints = ""
+        custom string desmos:kind = "triangle_mesh"
+        custom string desmos:color = "#c74440"
+        custom bool desmos:hidden = false
+        uniform bool doubleSided = true
+        color3f[] primvars:displayColor = [(0.780392157, 0.266666667, 0.250980392)] (
+            interpolation = "constant"
+        )
+        point3f[] points = [(-31.9334469, 67.8620289, 15), (-31.9334469, 67.8620289, 10), (-34.9139019, 74.1958183, 15)]
+        int[] faceVertexCounts = [3]
+        int[] faceVertexIndices = [0, 1, 2]
+    }
+
+    def Mesh "expr_0054__94_16"
+    {
+        custom string desmos:url = ""
+        custom string desmos:hash = ""
+        custom string desmos:exprId = "94_16"
+        custom int desmos:order = 54
+        custom string desmos:latex = "\\operatorname{triangle}\\left(\\left(75\\cos\\left(\\frac{2\\pi 17.0}{50}\\right),75\\sin\\left(\\frac{2\\pi 17.0}{50}\\right),15\\right),\\left(75\\cos\\left(\\frac{2\\pi 17.0}{50}\\right),75\\sin\\left(\\frac{2\\pi 17.0}{50}\\right),10\\right),\\left(82\\cos\\left(\\frac{2\\pi 17.0}{50}\\right),82\\sin\\left(\\frac{2\\pi 17.0}{50}\\right),15\\right)\\right)"
+        custom string desmos:constraints = ""
+        custom string desmos:kind = "triangle_mesh"
+        custom string desmos:color = "#c74440"
+        custom bool desmos:hidden = false
+        uniform bool doubleSided = true
+        color3f[] primvars:displayColor = [(0.780392157, 0.266666667, 0.250980392)] (
+            interpolation = "constant"
+        )
+        point3f[] points = [(-40.1870096, 63.3245944, 15), (-40.1870096, 63.3245944, 10), (-43.9377972, 69.2348899, 15)]
+        int[] faceVertexCounts = [3]
+        int[] faceVertexIndices = [0, 1, 2]
+    }
+
+    def Mesh "expr_0054__94_17"
+    {
+        custom string desmos:url = ""
+        custom string desmos:hash = ""
+        custom string desmos:exprId = "94_17"
+        custom int desmos:order = 54
+        custom string desmos:latex = "\\operatorname{triangle}\\left(\\left(75\\cos\\left(\\frac{2\\pi 18.0}{50}\\right),75\\sin\\left(\\frac{2\\pi 18.0}{50}\\right),15\\right),\\left(75\\cos\\left(\\frac{2\\pi 18.0}{50}\\right),75\\sin\\left(\\frac{2\\pi 18.0}{50}\\right),10\\right),\\left(82\\cos\\left(\\frac{2\\pi 18.0}{50}\\right),82\\sin\\left(\\frac{2\\pi 18.0}{50}\\right),15\\right)\\right)"
+        custom string desmos:constraints = ""
+        custom string desmos:kind = "triangle_mesh"
+        custom string desmos:color = "#c74440"
+        custom bool desmos:hidden = false
+        uniform bool doubleSided = true
+        color3f[] primvars:displayColor = [(0.780392157, 0.266666667, 0.250980392)] (
+            interpolation = "constant"
+        )
+        point3f[] points = [(-47.8067992, 57.7884932, 15), (-47.8067992, 57.7884932, 10), (-52.2687672, 63.1820859, 15)]
+        int[] faceVertexCounts = [3]
+        int[] faceVertexIndices = [0, 1, 2]
+    }
+
+    def Mesh "expr_0054__94_18"
+    {
+        custom string desmos:url = ""
+        custom string desmos:hash = ""
+        custom string desmos:exprId = "94_18"
+        custom int desmos:order = 54
+        custom string desmos:latex = "\\operatorname{triangle}\\left(\\left(75\\cos\\left(\\frac{2\\pi 19.0}{50}\\right),75\\sin\\left(\\frac{2\\pi 19.0}{50}\\right),15\\right),\\left(75\\cos\\left(\\frac{2\\pi 19.0}{50}\\right),75\\sin\\left(\\frac{2\\pi 19.0}{50}\\right),10\\right),\\left(82\\cos\\left(\\frac{2\\pi 19.0}{50}\\right),82\\sin\\left(\\frac{2\\pi 19.0}{50}\\right),15\\right)\\right)"
+        custom string desmos:constraints = ""
+        custom string desmos:kind = "triangle_mesh"
+        custom string desmos:color = "#c74440"
+        custom bool desmos:hidden = false
+        uniform bool doubleSided = true
+        color3f[] primvars:displayColor = [(0.780392157, 0.266666667, 0.250980392)] (
+            interpolation = "constant"
+        )
+        point3f[] points = [(-54.6726471, 51.3410329, 15), (-54.6726471, 51.3410329, 10), (-59.7754274, 56.1328627, 15)]
+        int[] faceVertexCounts = [3]
+        int[] faceVertexIndices = [0, 1, 2]
+    }
+
+    def Mesh "expr_0054__94_19"
+    {
+        custom string desmos:url = ""
+        custom string desmos:hash = ""
+        custom string desmos:exprId = "94_19"
+        custom int desmos:order = 54
+        custom string desmos:latex = "\\operatorname{triangle}\\left(\\left(75\\cos\\left(\\frac{2\\pi 20.0}{50}\\right),75\\sin\\left(\\frac{2\\pi 20.0}{50}\\right),15\\right),\\left(75\\cos\\left(\\frac{2\\pi 20.0}{50}\\right),75\\sin\\left(\\frac{2\\pi 20.0}{50}\\right),10\\right),\\left(82\\cos\\left(\\frac{2\\pi 20.0}{50}\\right),82\\sin\\left(\\frac{2\\pi 20.0}{50}\\right),15\\right)\\right)"
+        custom string desmos:constraints = ""
+        custom string desmos:kind = "triangle_mesh"
+        custom string desmos:color = "#c74440"
+        custom bool desmos:hidden = false
+        uniform bool doubleSided = true
+        color3f[] primvars:displayColor = [(0.780392157, 0.266666667, 0.250980392)] (
+            interpolation = "constant"
+        )
+        point3f[] points = [(-60.6762746, 44.0838939, 15), (-60.6762746, 44.0838939, 10), (-66.3393935, 48.1983907, 15)]
+        int[] faceVertexCounts = [3]
+        int[] faceVertexIndices = [0, 1, 2]
+    }
+
+    def Mesh "expr_0054__94_20"
+    {
+        custom string desmos:url = ""
+        custom string desmos:hash = ""
+        custom string desmos:exprId = "94_20"
+        custom int desmos:order = 54
+        custom string desmos:latex = "\\operatorname{triangle}\\left(\\left(75\\cos\\left(\\frac{2\\pi 21.0}{50}\\right),75\\sin\\left(\\frac{2\\pi 21.0}{50}\\right),15\\right),\\left(75\\cos\\left(\\frac{2\\pi 21.0}{50}\\right),75\\sin\\left(\\frac{2\\pi 21.0}{50}\\right),10\\right),\\left(82\\cos\\left(\\frac{2\\pi 21.0}{50}\\right),82\\sin\\left(\\frac{2\\pi 21.0}{50}\\right),15\\right)\\right)"
+        custom string desmos:constraints = ""
+        custom string desmos:kind = "triangle_mesh"
+        custom string desmos:color = "#c74440"
+        custom bool desmos:hidden = false
+        uniform bool doubleSided = true
+        color3f[] primvars:displayColor = [(0.780392157, 0.266666667, 0.250980392)] (
+            interpolation = "constant"
+        )
+        point3f[] points = [(-65.723001, 36.1315256, 15), (-65.723001, 36.1315256, 10), (-71.8571478, 39.5038013, 15)]
+        int[] faceVertexCounts = [3]
+        int[] faceVertexIndices = [0, 1, 2]
+    }
+
+    def Mesh "expr_0054__94_21"
+    {
+        custom string desmos:url = ""
+        custom string desmos:hash = ""
+        custom string desmos:exprId = "94_21"
+        custom int desmos:order = 54
+        custom string desmos:latex = "\\operatorname{triangle}\\left(\\left(75\\cos\\left(\\frac{2\\pi 22.0}{50}\\right),75\\sin\\left(\\frac{2\\pi 22.0}{50}\\right),15\\right),\\left(75\\cos\\left(\\frac{2\\pi 22.0}{50}\\right),75\\sin\\left(\\frac{2\\pi 22.0}{50}\\right),10\\right),\\left(82\\cos\\left(\\frac{2\\pi 22.0}{50}\\right),82\\sin\\left(\\frac{2\\pi 22.0}{50}\\right),15\\right)\\right)"
+        custom string desmos:constraints = ""
+        custom string desmos:kind = "triangle_mesh"
+        custom string desmos:color = "#c74440"
+        custom bool desmos:hidden = false
+        uniform bool doubleSided = true
+        color3f[] primvars:displayColor = [(0.780392157, 0.266666667, 0.250980392)] (
+            interpolation = "constant"
+        )
+        point3f[] points = [(-69.7332364, 27.6093415, 15), (-69.7332364, 27.6093415, 10), (-76.2416718, 30.1862133, 15)]
+        int[] faceVertexCounts = [3]
+        int[] faceVertexIndices = [0, 1, 2]
+    }
+
+    def Mesh "expr_0054__94_22"
+    {
+        custom string desmos:url = ""
+        custom string desmos:hash = ""
+        custom string desmos:exprId = "94_22"
+        custom int desmos:order = 54
+        custom string desmos:latex = "\\operatorname{triangle}\\left(\\left(75\\cos\\left(\\frac{2\\pi 23.0}{50}\\right),75\\sin\\left(\\frac{2\\pi 23.0}{50}\\right),15\\right),\\left(75\\cos\\left(\\frac{2\\pi 23.0}{50}\\right),75\\sin\\left(\\frac{2\\pi 23.0}{50}\\right),10\\right),\\left(82\\cos\\left(\\frac{2\\pi 23.0}{50}\\right),82\\sin\\left(\\frac{2\\pi 23.0}{50}\\right),15\\right)\\right)"
+        custom string desmos:constraints = ""
+        custom string desmos:kind = "triangle_mesh"
+        custom string desmos:color = "#c74440"
+        custom bool desmos:hidden = false
+        uniform bool doubleSided = true
+        color3f[] primvars:displayColor = [(0.780392157, 0.266666667, 0.250980392)] (
+            interpolation = "constant"
+        )
+        point3f[] points = [(-72.6437371, 18.6517415, 15), (-72.6437371, 18.6517415, 10), (-79.4238192, 20.3925707, 15)]
+        int[] faceVertexCounts = [3]
+        int[] faceVertexIndices = [0, 1, 2]
+    }
+
+    def Mesh "expr_0054__94_23"
+    {
+        custom string desmos:url = ""
+        custom string desmos:hash = ""
+        custom string desmos:exprId = "94_23"
+        custom int desmos:order = 54
+        custom string desmos:latex = "\\operatorname{triangle}\\left(\\left(75\\cos\\left(\\frac{2\\pi 24.0}{50}\\right),75\\sin\\left(\\frac{2\\pi 24.0}{50}\\right),15\\right),\\left(75\\cos\\left(\\frac{2\\pi 24.0}{50}\\right),75\\sin\\left(\\frac{2\\pi 24.0}{50}\\right),10\\right),\\left(82\\cos\\left(\\frac{2\\pi 24.0}{50}\\right),82\\sin\\left(\\frac{2\\pi 24.0}{50}\\right),15\\right)\\right)"
+        custom string desmos:constraints = ""
+        custom string desmos:kind = "triangle_mesh"
+        custom string desmos:color = "#c74440"
+        custom bool desmos:hidden = false
+        uniform bool doubleSided = true
+        color3f[] primvars:displayColor = [(0.780392157, 0.266666667, 0.250980392)] (
+            interpolation = "constant"
+        )
+        point3f[] points = [(-74.4086026, 9.39999252, 15), (-74.4086026, 9.39999252, 10), (-81.3534055, 10.2773252, 15)]
+        int[] faceVertexCounts = [3]
+        int[] faceVertexIndices = [0, 1, 2]
+    }
+
+    def Mesh "expr_0054__94_24"
+    {
+        custom string desmos:url = ""
+        custom string desmos:hash = ""
+        custom string desmos:exprId = "94_24"
+        custom int desmos:order = 54
+        custom string desmos:latex = "\\operatorname{triangle}\\left(\\left(75\\cos\\left(\\frac{2\\pi 25.0}{50}\\right),75\\sin\\left(\\frac{2\\pi 25.0}{50}\\right),15\\right),\\left(75\\cos\\left(\\frac{2\\pi 25.0}{50}\\right),75\\sin\\left(\\frac{2\\pi 25.0}{50}\\right),10\\right),\\left(82\\cos\\left(\\frac{2\\pi 25.0}{50}\\right),82\\sin\\left(\\frac{2\\pi 25.0}{50}\\right),15\\right)\\right)"
+        custom string desmos:constraints = ""
+        custom string desmos:kind = "triangle_mesh"
+        custom string desmos:color = "#c74440"
+        custom bool desmos:hidden = false
+        uniform bool doubleSided = true
+        color3f[] primvars:displayColor = [(0.780392157, 0.266666667, 0.250980392)] (
+            interpolation = "constant"
+        )
+        point3f[] points = [(-75, 0, 15), (-75, 0, 10), (-82, 0, 15)]
+        int[] faceVertexCounts = [3]
+        int[] faceVertexIndices = [0, 1, 2]
+    }
+
+    def Mesh "expr_0054__94_25"
+    {
+        custom string desmos:url = ""
+        custom string desmos:hash = ""
+        custom string desmos:exprId = "94_25"
+        custom int desmos:order = 54
+        custom string desmos:latex = "\\operatorname{triangle}\\left(\\left(75\\cos\\left(\\frac{2\\pi 26.0}{50}\\right),75\\sin\\left(\\frac{2\\pi 26.0}{50}\\right),15\\right),\\left(75\\cos\\left(\\frac{2\\pi 26.0}{50}\\right),75\\sin\\left(\\frac{2\\pi 26.0}{50}\\right),10\\right),\\left(82\\cos\\left(\\frac{2\\pi 26.0}{50}\\right),82\\sin\\left(\\frac{2\\pi 26.0}{50}\\right),15\\right)\\right)"
+        custom string desmos:constraints = ""
+        custom string desmos:kind = "triangle_mesh"
+        custom string desmos:color = "#c74440"
+        custom bool desmos:hidden = false
+        uniform bool doubleSided = true
+        color3f[] primvars:displayColor = [(0.780392157, 0.266666667, 0.250980392)] (
+            interpolation = "constant"
+        )
+        point3f[] points = [(-74.4086026, -9.39999252, 15), (-74.4086026, -9.39999252, 10), (-81.3534055, -10.2773252, 15)]
+        int[] faceVertexCounts = [3]
+        int[] faceVertexIndices = [0, 1, 2]
+    }
+
+    def Mesh "expr_0054__94_26"
+    {
+        custom string desmos:url = ""
+        custom string desmos:hash = ""
+        custom string desmos:exprId = "94_26"
+        custom int desmos:order = 54
+        custom string desmos:latex = "\\operatorname{triangle}\\left(\\left(75\\cos\\left(\\frac{2\\pi 27.0}{50}\\right),75\\sin\\left(\\frac{2\\pi 27.0}{50}\\right),15\\right),\\left(75\\cos\\left(\\frac{2\\pi 27.0}{50}\\right),75\\sin\\left(\\frac{2\\pi 27.0}{50}\\right),10\\right),\\left(82\\cos\\left(\\frac{2\\pi 27.0}{50}\\right),82\\sin\\left(\\frac{2\\pi 27.0}{50}\\right),15\\right)\\right)"
+        custom string desmos:constraints = ""
+        custom string desmos:kind = "triangle_mesh"
+        custom string desmos:color = "#c74440"
+        custom bool desmos:hidden = false
+        uniform bool doubleSided = true
+        color3f[] primvars:displayColor = [(0.780392157, 0.266666667, 0.250980392)] (
+            interpolation = "constant"
+        )
+        point3f[] points = [(-72.6437371, -18.6517415, 15), (-72.6437371, -18.6517415, 10), (-79.4238192, -20.3925707, 15)]
+        int[] faceVertexCounts = [3]
+        int[] faceVertexIndices = [0, 1, 2]
+    }
+
+    def Mesh "expr_0054__94_27"
+    {
+        custom string desmos:url = ""
+        custom string desmos:hash = ""
+        custom string desmos:exprId = "94_27"
+        custom int desmos:order = 54
+        custom string desmos:latex = "\\operatorname{triangle}\\left(\\left(75\\cos\\left(\\frac{2\\pi 28.0}{50}\\right),75\\sin\\left(\\frac{2\\pi 28.0}{50}\\right),15\\right),\\left(75\\cos\\left(\\frac{2\\pi 28.0}{50}\\right),75\\sin\\left(\\frac{2\\pi 28.0}{50}\\right),10\\right),\\left(82\\cos\\left(\\frac{2\\pi 28.0}{50}\\right),82\\sin\\left(\\frac{2\\pi 28.0}{50}\\right),15\\right)\\right)"
+        custom string desmos:constraints = ""
+        custom string desmos:kind = "triangle_mesh"
+        custom string desmos:color = "#c74440"
+        custom bool desmos:hidden = false
+        uniform bool doubleSided = true
+        color3f[] primvars:displayColor = [(0.780392157, 0.266666667, 0.250980392)] (
+            interpolation = "constant"
+        )
+        point3f[] points = [(-69.7332364, -27.6093415, 15), (-69.7332364, -27.6093415, 10), (-76.2416718, -30.1862133, 15)]
+        int[] faceVertexCounts = [3]
+        int[] faceVertexIndices = [0, 1, 2]
+    }
+
+    def Mesh "expr_0054__94_28"
+    {
+        custom string desmos:url = ""
+        custom string desmos:hash = ""
+        custom string desmos:exprId = "94_28"
+        custom int desmos:order = 54
+        custom string desmos:latex = "\\operatorname{triangle}\\left(\\left(75\\cos\\left(\\frac{2\\pi 29.0}{50}\\right),75\\sin\\left(\\frac{2\\pi 29.0}{50}\\right),15\\right),\\left(75\\cos\\left(\\frac{2\\pi 29.0}{50}\\right),75\\sin\\left(\\frac{2\\pi 29.0}{50}\\right),10\\right),\\left(82\\cos\\left(\\frac{2\\pi 29.0}{50}\\right),82\\sin\\left(\\frac{2\\pi 29.0}{50}\\right),15\\right)\\right)"
+        custom string desmos:constraints = ""
+        custom string desmos:kind = "triangle_mesh"
+        custom string desmos:color = "#c74440"
+        custom bool desmos:hidden = false
+        uniform bool doubleSided = true
+        color3f[] primvars:displayColor = [(0.780392157, 0.266666667, 0.250980392)] (
+            interpolation = "constant"
+        )
+        point3f[] points = [(-65.723001, -36.1315256, 15), (-65.723001, -36.1315256, 10), (-71.8571478, -39.5038013, 15)]
+        int[] faceVertexCounts = [3]
+        int[] faceVertexIndices = [0, 1, 2]
+    }
+
+    def Mesh "expr_0054__94_29"
+    {
+        custom string desmos:url = ""
+        custom string desmos:hash = ""
+        custom string desmos:exprId = "94_29"
+        custom int desmos:order = 54
+        custom string desmos:latex = "\\operatorname{triangle}\\left(\\left(75\\cos\\left(\\frac{2\\pi 30.0}{50}\\right),75\\sin\\left(\\frac{2\\pi 30.0}{50}\\right),15\\right),\\left(75\\cos\\left(\\frac{2\\pi 30.0}{50}\\right),75\\sin\\left(\\frac{2\\pi 30.0}{50}\\right),10\\right),\\left(82\\cos\\left(\\frac{2\\pi 30.0}{50}\\right),82\\sin\\left(\\frac{2\\pi 30.0}{50}\\right),15\\right)\\right)"
+        custom string desmos:constraints = ""
+        custom string desmos:kind = "triangle_mesh"
+        custom string desmos:color = "#c74440"
+        custom bool desmos:hidden = false
+        uniform bool doubleSided = true
+        color3f[] primvars:displayColor = [(0.780392157, 0.266666667, 0.250980392)] (
+            interpolation = "constant"
+        )
+        point3f[] points = [(-60.6762746, -44.0838939, 15), (-60.6762746, -44.0838939, 10), (-66.3393935, -48.1983907, 15)]
+        int[] faceVertexCounts = [3]
+        int[] faceVertexIndices = [0, 1, 2]
+    }
+
+    def Mesh "expr_0054__94_30"
+    {
+        custom string desmos:url = ""
+        custom string desmos:hash = ""
+        custom string desmos:exprId = "94_30"
+        custom int desmos:order = 54
+        custom string desmos:latex = "\\operatorname{triangle}\\left(\\left(75\\cos\\left(\\frac{2\\pi 31.0}{50}\\right),75\\sin\\left(\\frac{2\\pi 31.0}{50}\\right),15\\right),\\left(75\\cos\\left(\\frac{2\\pi 31.0}{50}\\right),75\\sin\\left(\\frac{2\\pi 31.0}{50}\\right),10\\right),\\left(82\\cos\\left(\\frac{2\\pi 31.0}{50}\\right),82\\sin\\left(\\frac{2\\pi 31.0}{50}\\right),15\\right)\\right)"
+        custom string desmos:constraints = ""
+        custom string desmos:kind = "triangle_mesh"
+        custom string desmos:color = "#c74440"
+        custom bool desmos:hidden = false
+        uniform bool doubleSided = true
+        color3f[] primvars:displayColor = [(0.780392157, 0.266666667, 0.250980392)] (
+            interpolation = "constant"
+        )
+        point3f[] points = [(-54.6726471, -51.3410329, 15), (-54.6726471, -51.3410329, 10), (-59.7754274, -56.1328627, 15)]
+        int[] faceVertexCounts = [3]
+        int[] faceVertexIndices = [0, 1, 2]
+    }
+
+    def Mesh "expr_0054__94_31"
+    {
+        custom string desmos:url = ""
+        custom string desmos:hash = ""
+        custom string desmos:exprId = "94_31"
+        custom int desmos:order = 54
+        custom string desmos:latex = "\\operatorname{triangle}\\left(\\left(75\\cos\\left(\\frac{2\\pi 32.0}{50}\\right),75\\sin\\left(\\frac{2\\pi 32.0}{50}\\right),15\\right),\\left(75\\cos\\left(\\frac{2\\pi 32.0}{50}\\right),75\\sin\\left(\\frac{2\\pi 32.0}{50}\\right),10\\right),\\left(82\\cos\\left(\\frac{2\\pi 32.0}{50}\\right),82\\sin\\left(\\frac{2\\pi 32.0}{50}\\right),15\\right)\\right)"
+        custom string desmos:constraints = ""
+        custom string desmos:kind = "triangle_mesh"
+        custom string desmos:color = "#c74440"
+        custom bool desmos:hidden = false
+        uniform bool doubleSided = true
+        color3f[] primvars:displayColor = [(0.780392157, 0.266666667, 0.250980392)] (
+            interpolation = "constant"
+        )
+        point3f[] points = [(-47.8067992, -57.7884932, 15), (-47.8067992, -57.7884932, 10), (-52.2687672, -63.1820859, 15)]
+        int[] faceVertexCounts = [3]
+        int[] faceVertexIndices = [0, 1, 2]
+    }
+
+    def Mesh "expr_0054__94_32"
+    {
+        custom string desmos:url = ""
+        custom string desmos:hash = ""
+        custom string desmos:exprId = "94_32"
+        custom int desmos:order = 54
+        custom string desmos:latex = "\\operatorname{triangle}\\left(\\left(75\\cos\\left(\\frac{2\\pi 33.0}{50}\\right),75\\sin\\left(\\frac{2\\pi 33.0}{50}\\right),15\\right),\\left(75\\cos\\left(\\frac{2\\pi 33.0}{50}\\right),75\\sin\\left(\\frac{2\\pi 33.0}{50}\\right),10\\right),\\left(82\\cos\\left(\\frac{2\\pi 33.0}{50}\\right),82\\sin\\left(\\frac{2\\pi 33.0}{50}\\right),15\\right)\\right)"
+        custom string desmos:constraints = ""
+        custom string desmos:kind = "triangle_mesh"
+        custom string desmos:color = "#c74440"
+        custom bool desmos:hidden = false
+        uniform bool doubleSided = true
+        color3f[] primvars:displayColor = [(0.780392157, 0.266666667, 0.250980392)] (
+            interpolation = "constant"
+        )
+        point3f[] points = [(-40.1870096, -63.3245944, 15), (-40.1870096, -63.3245944, 10), (-43.9377972, -69.2348899, 15)]
+        int[] faceVertexCounts = [3]
+        int[] faceVertexIndices = [0, 1, 2]
+    }
+
+    def Mesh "expr_0054__94_33"
+    {
+        custom string desmos:url = ""
+        custom string desmos:hash = ""
+        custom string desmos:exprId = "94_33"
+        custom int desmos:order = 54
+        custom string desmos:latex = "\\operatorname{triangle}\\left(\\left(75\\cos\\left(\\frac{2\\pi 34.0}{50}\\right),75\\sin\\left(\\frac{2\\pi 34.0}{50}\\right),15\\right),\\left(75\\cos\\left(\\frac{2\\pi 34.0}{50}\\right),75\\sin\\left(\\frac{2\\pi 34.0}{50}\\right),10\\right),\\left(82\\cos\\left(\\frac{2\\pi 34.0}{50}\\right),82\\sin\\left(\\frac{2\\pi 34.0}{50}\\right),15\\right)\\right)"
+        custom string desmos:constraints = ""
+        custom string desmos:kind = "triangle_mesh"
+        custom string desmos:color = "#c74440"
+        custom bool desmos:hidden = false
+        uniform bool doubleSided = true
+        color3f[] primvars:displayColor = [(0.780392157, 0.266666667, 0.250980392)] (
+            interpolation = "constant"
+        )
+        point3f[] points = [(-31.9334469, -67.8620289, 15), (-31.9334469, -67.8620289, 10), (-34.9139019, -74.1958183, 15)]
+        int[] faceVertexCounts = [3]
+        int[] faceVertexIndices = [0, 1, 2]
+    }
+
+    def Mesh "expr_0054__94_34"
+    {
+        custom string desmos:url = ""
+        custom string desmos:hash = ""
+        custom string desmos:exprId = "94_34"
+        custom int desmos:order = 54
+        custom string desmos:latex = "\\operatorname{triangle}\\left(\\left(75\\cos\\left(\\frac{2\\pi 35.0}{50}\\right),75\\sin\\left(\\frac{2\\pi 35.0}{50}\\right),15\\right),\\left(75\\cos\\left(\\frac{2\\pi 35.0}{50}\\right),75\\sin\\left(\\frac{2\\pi 35.0}{50}\\right),10\\right),\\left(82\\cos\\left(\\frac{2\\pi 35.0}{50}\\right),82\\sin\\left(\\frac{2\\pi 35.0}{50}\\right),15\\right)\\right)"
+        custom string desmos:constraints = ""
+        custom string desmos:kind = "triangle_mesh"
+        custom string desmos:color = "#c74440"
+        custom bool desmos:hidden = false
+        uniform bool doubleSided = true
+        color3f[] primvars:displayColor = [(0.780392157, 0.266666667, 0.250980392)] (
+            interpolation = "constant"
+        )
+        point3f[] points = [(-23.1762746, -71.3292387, 15), (-23.1762746, -71.3292387, 10), (-25.3393935, -77.9866343, 15)]
+        int[] faceVertexCounts = [3]
+        int[] faceVertexIndices = [0, 1, 2]
+    }
+
+    def Mesh "expr_0054__94_35"
+    {
+        custom string desmos:url = ""
+        custom string desmos:hash = ""
+        custom string desmos:exprId = "94_35"
+        custom int desmos:order = 54
+        custom string desmos:latex = "\\operatorname{triangle}\\left(\\left(75\\cos\\left(\\frac{2\\pi 36.0}{50}\\right),75\\sin\\left(\\frac{2\\pi 36.0}{50}\\right),15\\right),\\left(75\\cos\\left(\\frac{2\\pi 36.0}{50}\\right),75\\sin\\left(\\frac{2\\pi 36.0}{50}\\right),10\\right),\\left(82\\cos\\left(\\frac{2\\pi 36.0}{50}\\right),82\\sin\\left(\\frac{2\\pi 36.0}{50}\\right),15\\right)\\right)"
+        custom string desmos:constraints = ""
+        custom string desmos:kind = "triangle_mesh"
+        custom string desmos:color = "#c74440"
+        custom bool desmos:hidden = false
+        uniform bool doubleSided = true
+        color3f[] primvars:displayColor = [(0.780392157, 0.266666667, 0.250980392)] (
+            interpolation = "constant"
+        )
+        point3f[] points = [(-14.0535986, -73.6715438, 15), (-14.0535986, -73.6715438, 10), (-15.3652678, -80.5475546, 15)]
+        int[] faceVertexCounts = [3]
+        int[] faceVertexIndices = [0, 1, 2]
+    }
+
+    def Mesh "expr_0054__94_36"
+    {
+        custom string desmos:url = ""
+        custom string desmos:hash = ""
+        custom string desmos:exprId = "94_36"
+        custom int desmos:order = 54
+        custom string desmos:latex = "\\operatorname{triangle}\\left(\\left(75\\cos\\left(\\frac{2\\pi 37.0}{50}\\right),75\\sin\\left(\\frac{2\\pi 37.0}{50}\\right),15\\right),\\left(75\\cos\\left(\\frac{2\\pi 37.0}{50}\\right),75\\sin\\left(\\frac{2\\pi 37.0}{50}\\right),10\\right),\\left(82\\cos\\left(\\frac{2\\pi 37.0}{50}\\right),82\\sin\\left(\\frac{2\\pi 37.0}{50}\\right),15\\right)\\right)"
+        custom string desmos:constraints = ""
+        custom string desmos:kind = "triangle_mesh"
+        custom string desmos:color = "#c74440"
+        custom bool desmos:hidden = false
+        uniform bool doubleSided = true
+        color3f[] primvars:displayColor = [(0.780392157, 0.266666667, 0.250980392)] (
+            interpolation = "constant"
+        )
+        point3f[] points = [(-4.70928896, -74.8520046, 15), (-4.70928896, -74.8520046, 10), (-5.1488226, -81.8381917, 15)]
+        int[] faceVertexCounts = [3]
+        int[] faceVertexIndices = [0, 1, 2]
+    }
+
+    def Mesh "expr_0054__94_37"
+    {
+        custom string desmos:url = ""
+        custom string desmos:hash = ""
+        custom string desmos:exprId = "94_37"
+        custom int desmos:order = 54
+        custom string desmos:latex = "\\operatorname{triangle}\\left(\\left(75\\cos\\left(\\frac{2\\pi 38.0}{50}\\right),75\\sin\\left(\\frac{2\\pi 38.0}{50}\\right),15\\right),\\left(75\\cos\\left(\\frac{2\\pi 38.0}{50}\\right),75\\sin\\left(\\frac{2\\pi 38.0}{50}\\right),10\\right),\\left(82\\cos\\left(\\frac{2\\pi 38.0}{50}\\right),82\\sin\\left(\\frac{2\\pi 38.0}{50}\\right),15\\right)\\right)"
+        custom string desmos:constraints = ""
+        custom string desmos:kind = "triangle_mesh"
+        custom string desmos:color = "#c74440"
+        custom bool desmos:hidden = false
+        uniform bool doubleSided = true
+        color3f[] primvars:displayColor = [(0.780392157, 0.266666667, 0.250980392)] (
+            interpolation = "constant"
+        )
+        point3f[] points = [(4.70928896, -74.8520046, 15), (4.70928896, -74.8520046, 10), (5.1488226, -81.8381917, 15)]
+        int[] faceVertexCounts = [3]
+        int[] faceVertexIndices = [0, 1, 2]
+    }
+
+    def Mesh "expr_0054__94_38"
+    {
+        custom string desmos:url = ""
+        custom string desmos:hash = ""
+        custom string desmos:exprId = "94_38"
+        custom int desmos:order = 54
+        custom string desmos:latex = "\\operatorname{triangle}\\left(\\left(75\\cos\\left(\\frac{2\\pi 39.0}{50}\\right),75\\sin\\left(\\frac{2\\pi 39.0}{50}\\right),15\\right),\\left(75\\cos\\left(\\frac{2\\pi 39.0}{50}\\right),75\\sin\\left(\\frac{2\\pi 39.0}{50}\\right),10\\right),\\left(82\\cos\\left(\\frac{2\\pi 39.0}{50}\\right),82\\sin\\left(\\frac{2\\pi 39.0}{50}\\right),15\\right)\\right)"
+        custom string desmos:constraints = ""
+        custom string desmos:kind = "triangle_mesh"
+        custom string desmos:color = "#c74440"
+        custom bool desmos:hidden = false
+        uniform bool doubleSided = true
+        color3f[] primvars:displayColor = [(0.780392157, 0.266666667, 0.250980392)] (
+            interpolation = "constant"
+        )
+        point3f[] points = [(14.0535986, -73.6715438, 15), (14.0535986, -73.6715438, 10), (15.3652678, -80.5475546, 15)]
+        int[] faceVertexCounts = [3]
+        int[] faceVertexIndices = [0, 1, 2]
+    }
+
+    def Mesh "expr_0054__94_39"
+    {
+        custom string desmos:url = ""
+        custom string desmos:hash = ""
+        custom string desmos:exprId = "94_39"
+        custom int desmos:order = 54
+        custom string desmos:latex = "\\operatorname{triangle}\\left(\\left(75\\cos\\left(\\frac{2\\pi 40.0}{50}\\right),75\\sin\\left(\\frac{2\\pi 40.0}{50}\\right),15\\right),\\left(75\\cos\\left(\\frac{2\\pi 40.0}{50}\\right),75\\sin\\left(\\frac{2\\pi 40.0}{50}\\right),10\\right),\\left(82\\cos\\left(\\frac{2\\pi 40.0}{50}\\right),82\\sin\\left(\\frac{2\\pi 40.0}{50}\\right),15\\right)\\right)"
+        custom string desmos:constraints = ""
+        custom string desmos:kind = "triangle_mesh"
+        custom string desmos:color = "#c74440"
+        custom bool desmos:hidden = false
+        uniform bool doubleSided = true
+        color3f[] primvars:displayColor = [(0.780392157, 0.266666667, 0.250980392)] (
+            interpolation = "constant"
+        )
+        point3f[] points = [(23.1762746, -71.3292387, 15), (23.1762746, -71.3292387, 10), (25.3393935, -77.9866343, 15)]
+        int[] faceVertexCounts = [3]
+        int[] faceVertexIndices = [0, 1, 2]
+    }
+
+    def Mesh "expr_0054__94_40"
+    {
+        custom string desmos:url = ""
+        custom string desmos:hash = ""
+        custom string desmos:exprId = "94_40"
+        custom int desmos:order = 54
+        custom string desmos:latex = "\\operatorname{triangle}\\left(\\left(75\\cos\\left(\\frac{2\\pi 41.0}{50}\\right),75\\sin\\left(\\frac{2\\pi 41.0}{50}\\right),15\\right),\\left(75\\cos\\left(\\frac{2\\pi 41.0}{50}\\right),75\\sin\\left(\\frac{2\\pi 41.0}{50}\\right),10\\right),\\left(82\\cos\\left(\\frac{2\\pi 41.0}{50}\\right),82\\sin\\left(\\frac{2\\pi 41.0}{50}\\right),15\\right)\\right)"
+        custom string desmos:constraints = ""
+        custom string desmos:kind = "triangle_mesh"
+        custom string desmos:color = "#c74440"
+        custom bool desmos:hidden = false
+        uniform bool doubleSided = true
+        color3f[] primvars:displayColor = [(0.780392157, 0.266666667, 0.250980392)] (
+            interpolation = "constant"
+        )
+        point3f[] points = [(31.9334469, -67.8620289, 15), (31.9334469, -67.8620289, 10), (34.9139019, -74.1958183, 15)]
+        int[] faceVertexCounts = [3]
+        int[] faceVertexIndices = [0, 1, 2]
+    }
+
+    def Mesh "expr_0054__94_41"
+    {
+        custom string desmos:url = ""
+        custom string desmos:hash = ""
+        custom string desmos:exprId = "94_41"
+        custom int desmos:order = 54
+        custom string desmos:latex = "\\operatorname{triangle}\\left(\\left(75\\cos\\left(\\frac{2\\pi 42.0}{50}\\right),75\\sin\\left(\\frac{2\\pi 42.0}{50}\\right),15\\right),\\left(75\\cos\\left(\\frac{2\\pi 42.0}{50}\\right),75\\sin\\left(\\frac{2\\pi 42.0}{50}\\right),10\\right),\\left(82\\cos\\left(\\frac{2\\pi 42.0}{50}\\right),82\\sin\\left(\\frac{2\\pi 42.0}{50}\\right),15\\right)\\right)"
+        custom string desmos:constraints = ""
+        custom string desmos:kind = "triangle_mesh"
+        custom string desmos:color = "#c74440"
+        custom bool desmos:hidden = false
+        uniform bool doubleSided = true
+        color3f[] primvars:displayColor = [(0.780392157, 0.266666667, 0.250980392)] (
+            interpolation = "constant"
+        )
+        point3f[] points = [(40.1870096, -63.3245944, 15), (40.1870096, -63.3245944, 10), (43.9377972, -69.2348899, 15)]
+        int[] faceVertexCounts = [3]
+        int[] faceVertexIndices = [0, 1, 2]
+    }
+
+    def Mesh "expr_0054__94_42"
+    {
+        custom string desmos:url = ""
+        custom string desmos:hash = ""
+        custom string desmos:exprId = "94_42"
+        custom int desmos:order = 54
+        custom string desmos:latex = "\\operatorname{triangle}\\left(\\left(75\\cos\\left(\\frac{2\\pi 43.0}{50}\\right),75\\sin\\left(\\frac{2\\pi 43.0}{50}\\right),15\\right),\\left(75\\cos\\left(\\frac{2\\pi 43.0}{50}\\right),75\\sin\\left(\\frac{2\\pi 43.0}{50}\\right),10\\right),\\left(82\\cos\\left(\\frac{2\\pi 43.0}{50}\\right),82\\sin\\left(\\frac{2\\pi 43.0}{50}\\right),15\\right)\\right)"
+        custom string desmos:constraints = ""
+        custom string desmos:kind = "triangle_mesh"
+        custom string desmos:color = "#c74440"
+        custom bool desmos:hidden = false
+        uniform bool doubleSided = true
+        color3f[] primvars:displayColor = [(0.780392157, 0.266666667, 0.250980392)] (
+            interpolation = "constant"
+        )
+        point3f[] points = [(47.8067992, -57.7884932, 15), (47.8067992, -57.7884932, 10), (52.2687672, -63.1820859, 15)]
+        int[] faceVertexCounts = [3]
+        int[] faceVertexIndices = [0, 1, 2]
+    }
+
+    def Mesh "expr_0054__94_43"
+    {
+        custom string desmos:url = ""
+        custom string desmos:hash = ""
+        custom string desmos:exprId = "94_43"
+        custom int desmos:order = 54
+        custom string desmos:latex = "\\operatorname{triangle}\\left(\\left(75\\cos\\left(\\frac{2\\pi 44.0}{50}\\right),75\\sin\\left(\\frac{2\\pi 44.0}{50}\\right),15\\right),\\left(75\\cos\\left(\\frac{2\\pi 44.0}{50}\\right),75\\sin\\left(\\frac{2\\pi 44.0}{50}\\right),10\\right),\\left(82\\cos\\left(\\frac{2\\pi 44.0}{50}\\right),82\\sin\\left(\\frac{2\\pi 44.0}{50}\\right),15\\right)\\right)"
+        custom string desmos:constraints = ""
+        custom string desmos:kind = "triangle_mesh"
+        custom string desmos:color = "#c74440"
+        custom bool desmos:hidden = false
+        uniform bool doubleSided = true
+        color3f[] primvars:displayColor = [(0.780392157, 0.266666667, 0.250980392)] (
+            interpolation = "constant"
+        )
+        point3f[] points = [(54.6726471, -51.3410329, 15), (54.6726471, -51.3410329, 10), (59.7754274, -56.1328627, 15)]
+        int[] faceVertexCounts = [3]
+        int[] faceVertexIndices = [0, 1, 2]
+    }
+
+    def Mesh "expr_0054__94_44"
+    {
+        custom string desmos:url = ""
+        custom string desmos:hash = ""
+        custom string desmos:exprId = "94_44"
+        custom int desmos:order = 54
+        custom string desmos:latex = "\\operatorname{triangle}\\left(\\left(75\\cos\\left(\\frac{2\\pi 45.0}{50}\\right),75\\sin\\left(\\frac{2\\pi 45.0}{50}\\right),15\\right),\\left(75\\cos\\left(\\frac{2\\pi 45.0}{50}\\right),75\\sin\\left(\\frac{2\\pi 45.0}{50}\\right),10\\right),\\left(82\\cos\\left(\\frac{2\\pi 45.0}{50}\\right),82\\sin\\left(\\frac{2\\pi 45.0}{50}\\right),15\\right)\\right)"
+        custom string desmos:constraints = ""
+        custom string desmos:kind = "triangle_mesh"
+        custom string desmos:color = "#c74440"
+        custom bool desmos:hidden = false
+        uniform bool doubleSided = true
+        color3f[] primvars:displayColor = [(0.780392157, 0.266666667, 0.250980392)] (
+            interpolation = "constant"
+        )
+        point3f[] points = [(60.6762746, -44.0838939, 15), (60.6762746, -44.0838939, 10), (66.3393935, -48.1983907, 15)]
+        int[] faceVertexCounts = [3]
+        int[] faceVertexIndices = [0, 1, 2]
+    }
+
+    def Mesh "expr_0054__94_45"
+    {
+        custom string desmos:url = ""
+        custom string desmos:hash = ""
+        custom string desmos:exprId = "94_45"
+        custom int desmos:order = 54
+        custom string desmos:latex = "\\operatorname{triangle}\\left(\\left(75\\cos\\left(\\frac{2\\pi 46.0}{50}\\right),75\\sin\\left(\\frac{2\\pi 46.0}{50}\\right),15\\right),\\left(75\\cos\\left(\\frac{2\\pi 46.0}{50}\\right),75\\sin\\left(\\frac{2\\pi 46.0}{50}\\right),10\\right),\\left(82\\cos\\left(\\frac{2\\pi 46.0}{50}\\right),82\\sin\\left(\\frac{2\\pi 46.0}{50}\\right),15\\right)\\right)"
+        custom string desmos:constraints = ""
+        custom string desmos:kind = "triangle_mesh"
+        custom string desmos:color = "#c74440"
+        custom bool desmos:hidden = false
+        uniform bool doubleSided = true
+        color3f[] primvars:displayColor = [(0.780392157, 0.266666667, 0.250980392)] (
+            interpolation = "constant"
+        )
+        point3f[] points = [(65.723001, -36.1315256, 15), (65.723001, -36.1315256, 10), (71.8571478, -39.5038013, 15)]
+        int[] faceVertexCounts = [3]
+        int[] faceVertexIndices = [0, 1, 2]
+    }
+
+    def Mesh "expr_0054__94_46"
+    {
+        custom string desmos:url = ""
+        custom string desmos:hash = ""
+        custom string desmos:exprId = "94_46"
+        custom int desmos:order = 54
+        custom string desmos:latex = "\\operatorname{triangle}\\left(\\left(75\\cos\\left(\\frac{2\\pi 47.0}{50}\\right),75\\sin\\left(\\frac{2\\pi 47.0}{50}\\right),15\\right),\\left(75\\cos\\left(\\frac{2\\pi 47.0}{50}\\right),75\\sin\\left(\\frac{2\\pi 47.0}{50}\\right),10\\right),\\left(82\\cos\\left(\\frac{2\\pi 47.0}{50}\\right),82\\sin\\left(\\frac{2\\pi 47.0}{50}\\right),15\\right)\\right)"
+        custom string desmos:constraints = ""
+        custom string desmos:kind = "triangle_mesh"
+        custom string desmos:color = "#c74440"
+        custom bool desmos:hidden = false
+        uniform bool doubleSided = true
+        color3f[] primvars:displayColor = [(0.780392157, 0.266666667, 0.250980392)] (
+            interpolation = "constant"
+        )
+        point3f[] points = [(69.7332364, -27.6093415, 15), (69.7332364, -27.6093415, 10), (76.2416718, -30.1862133, 15)]
+        int[] faceVertexCounts = [3]
+        int[] faceVertexIndices = [0, 1, 2]
+    }
+
+    def Mesh "expr_0054__94_47"
+    {
+        custom string desmos:url = ""
+        custom string desmos:hash = ""
+        custom string desmos:exprId = "94_47"
+        custom int desmos:order = 54
+        custom string desmos:latex = "\\operatorname{triangle}\\left(\\left(75\\cos\\left(\\frac{2\\pi 48.0}{50}\\right),75\\sin\\left(\\frac{2\\pi 48.0}{50}\\right),15\\right),\\left(75\\cos\\left(\\frac{2\\pi 48.0}{50}\\right),75\\sin\\left(\\frac{2\\pi 48.0}{50}\\right),10\\right),\\left(82\\cos\\left(\\frac{2\\pi 48.0}{50}\\right),82\\sin\\left(\\frac{2\\pi 48.0}{50}\\right),15\\right)\\right)"
+        custom string desmos:constraints = ""
+        custom string desmos:kind = "triangle_mesh"
+        custom string desmos:color = "#c74440"
+        custom bool desmos:hidden = false
+        uniform bool doubleSided = true
+        color3f[] primvars:displayColor = [(0.780392157, 0.266666667, 0.250980392)] (
+            interpolation = "constant"
+        )
+        point3f[] points = [(72.6437371, -18.6517415, 15), (72.6437371, -18.6517415, 10), (79.4238192, -20.3925707, 15)]
+        int[] faceVertexCounts = [3]
+        int[] faceVertexIndices = [0, 1, 2]
+    }
+
+    def Mesh "expr_0054__94_48"
+    {
+        custom string desmos:url = ""
+        custom string desmos:hash = ""
+        custom string desmos:exprId = "94_48"
+        custom int desmos:order = 54
+        custom string desmos:latex = "\\operatorname{triangle}\\left(\\left(75\\cos\\left(\\frac{2\\pi 49.0}{50}\\right),75\\sin\\left(\\frac{2\\pi 49.0}{50}\\right),15\\right),\\left(75\\cos\\left(\\frac{2\\pi 49.0}{50}\\right),75\\sin\\left(\\frac{2\\pi 49.0}{50}\\right),10\\right),\\left(82\\cos\\left(\\frac{2\\pi 49.0}{50}\\right),82\\sin\\left(\\frac{2\\pi 49.0}{50}\\right),15\\right)\\right)"
+        custom string desmos:constraints = ""
+        custom string desmos:kind = "triangle_mesh"
+        custom string desmos:color = "#c74440"
+        custom bool desmos:hidden = false
+        uniform bool doubleSided = true
+        color3f[] primvars:displayColor = [(0.780392157, 0.266666667, 0.250980392)] (
+            interpolation = "constant"
+        )
+        point3f[] points = [(74.4086026, -9.39999252, 15), (74.4086026, -9.39999252, 10), (81.3534055, -10.2773252, 15)]
+        int[] faceVertexCounts = [3]
+        int[] faceVertexIndices = [0, 1, 2]
+    }
+
+    def Mesh "expr_0054__94_49"
+    {
+        custom string desmos:url = ""
+        custom string desmos:hash = ""
+        custom string desmos:exprId = "94_49"
+        custom int desmos:order = 54
+        custom string desmos:latex = "\\operatorname{triangle}\\left(\\left(75\\cos\\left(\\frac{2\\pi 50.0}{50}\\right),75\\sin\\left(\\frac{2\\pi 50.0}{50}\\right),15\\right),\\left(75\\cos\\left(\\frac{2\\pi 50.0}{50}\\right),75\\sin\\left(\\frac{2\\pi 50.0}{50}\\right),10\\right),\\left(82\\cos\\left(\\frac{2\\pi 50.0}{50}\\right),82\\sin\\left(\\frac{2\\pi 50.0}{50}\\right),15\\right)\\right)"
+        custom string desmos:constraints = ""
+        custom string desmos:kind = "triangle_mesh"
+        custom string desmos:color = "#c74440"
+        custom bool desmos:hidden = false
+        uniform bool doubleSided = true
+        color3f[] primvars:displayColor = [(0.780392157, 0.266666667, 0.250980392)] (
+            interpolation = "constant"
+        )
+        point3f[] points = [(75, 0, 15), (75, 0, 10), (82, 0, 15)]
+        int[] faceVertexCounts = [3]
+        int[] faceVertexIndices = [0, 1, 2]
+    }
+
+    def Mesh "expr_0055__95_0"
+    {
+        custom string desmos:url = ""
+        custom string desmos:hash = ""
+        custom string desmos:exprId = "95_0"
+        custom int desmos:order = 55
+        custom string desmos:latex = "\\operatorname{triangle}\\left(\\left(75\\cos\\left(\\frac{2\\pi 1.0}{50}\\right),75\\sin\\left(\\frac{2\\pi 1.0}{50}\\right),10\\right),\\left(82\\cos\\left(\\frac{2\\pi 1.0}{50}\\right),82\\sin\\left(\\frac{2\\pi 1.0}{50}\\right),10\\right),\\left(82\\cos\\left(\\frac{2\\pi 1.0}{50}\\right),82\\sin\\left(\\frac{2\\pi 1.0}{50}\\right),15\\right)\\right)"
+        custom string desmos:constraints = ""
+        custom string desmos:kind = "triangle_mesh"
+        custom string desmos:color = "#c74440"
+        custom bool desmos:hidden = false
+        uniform bool doubleSided = true
+        color3f[] primvars:displayColor = [(0.780392157, 0.266666667, 0.250980392)] (
+            interpolation = "constant"
+        )
+        point3f[] points = [(74.4086026, 9.39999252, 10), (81.3534055, 10.2773252, 10), (81.3534055, 10.2773252, 15)]
+        int[] faceVertexCounts = [3]
+        int[] faceVertexIndices = [0, 1, 2]
+    }
+
+    def Mesh "expr_0055__95_1"
+    {
+        custom string desmos:url = ""
+        custom string desmos:hash = ""
+        custom string desmos:exprId = "95_1"
+        custom int desmos:order = 55
+        custom string desmos:latex = "\\operatorname{triangle}\\left(\\left(75\\cos\\left(\\frac{2\\pi 2.0}{50}\\right),75\\sin\\left(\\frac{2\\pi 2.0}{50}\\right),10\\right),\\left(82\\cos\\left(\\frac{2\\pi 2.0}{50}\\right),82\\sin\\left(\\frac{2\\pi 2.0}{50}\\right),10\\right),\\left(82\\cos\\left(\\frac{2\\pi 2.0}{50}\\right),82\\sin\\left(\\frac{2\\pi 2.0}{50}\\right),15\\right)\\right)"
+        custom string desmos:constraints = ""
+        custom string desmos:kind = "triangle_mesh"
+        custom string desmos:color = "#c74440"
+        custom bool desmos:hidden = false
+        uniform bool doubleSided = true
+        color3f[] primvars:displayColor = [(0.780392157, 0.266666667, 0.250980392)] (
+            interpolation = "constant"
+        )
+        point3f[] points = [(72.6437371, 18.6517415, 10), (79.4238192, 20.3925707, 10), (79.4238192, 20.3925707, 15)]
+        int[] faceVertexCounts = [3]
+        int[] faceVertexIndices = [0, 1, 2]
+    }
+
+    def Mesh "expr_0055__95_2"
+    {
+        custom string desmos:url = ""
+        custom string desmos:hash = ""
+        custom string desmos:exprId = "95_2"
+        custom int desmos:order = 55
+        custom string desmos:latex = "\\operatorname{triangle}\\left(\\left(75\\cos\\left(\\frac{2\\pi 3.0}{50}\\right),75\\sin\\left(\\frac{2\\pi 3.0}{50}\\right),10\\right),\\left(82\\cos\\left(\\frac{2\\pi 3.0}{50}\\right),82\\sin\\left(\\frac{2\\pi 3.0}{50}\\right),10\\right),\\left(82\\cos\\left(\\frac{2\\pi 3.0}{50}\\right),82\\sin\\left(\\frac{2\\pi 3.0}{50}\\right),15\\right)\\right)"
+        custom string desmos:constraints = ""
+        custom string desmos:kind = "triangle_mesh"
+        custom string desmos:color = "#c74440"
+        custom bool desmos:hidden = false
+        uniform bool doubleSided = true
+        color3f[] primvars:displayColor = [(0.780392157, 0.266666667, 0.250980392)] (
+            interpolation = "constant"
+        )
+        point3f[] points = [(69.7332364, 27.6093415, 10), (76.2416718, 30.1862133, 10), (76.2416718, 30.1862133, 15)]
+        int[] faceVertexCounts = [3]
+        int[] faceVertexIndices = [0, 1, 2]
+    }
+
+    def Mesh "expr_0055__95_3"
+    {
+        custom string desmos:url = ""
+        custom string desmos:hash = ""
+        custom string desmos:exprId = "95_3"
+        custom int desmos:order = 55
+        custom string desmos:latex = "\\operatorname{triangle}\\left(\\left(75\\cos\\left(\\frac{2\\pi 4.0}{50}\\right),75\\sin\\left(\\frac{2\\pi 4.0}{50}\\right),10\\right),\\left(82\\cos\\left(\\frac{2\\pi 4.0}{50}\\right),82\\sin\\left(\\frac{2\\pi 4.0}{50}\\right),10\\right),\\left(82\\cos\\left(\\frac{2\\pi 4.0}{50}\\right),82\\sin\\left(\\frac{2\\pi 4.0}{50}\\right),15\\right)\\right)"
+        custom string desmos:constraints = ""
+        custom string desmos:kind = "triangle_mesh"
+        custom string desmos:color = "#c74440"
+        custom bool desmos:hidden = false
+        uniform bool doubleSided = true
+        color3f[] primvars:displayColor = [(0.780392157, 0.266666667, 0.250980392)] (
+            interpolation = "constant"
+        )
+        point3f[] points = [(65.723001, 36.1315256, 10), (71.8571478, 39.5038013, 10), (71.8571478, 39.5038013, 15)]
+        int[] faceVertexCounts = [3]
+        int[] faceVertexIndices = [0, 1, 2]
+    }
+
+    def Mesh "expr_0055__95_4"
+    {
+        custom string desmos:url = ""
+        custom string desmos:hash = ""
+        custom string desmos:exprId = "95_4"
+        custom int desmos:order = 55
+        custom string desmos:latex = "\\operatorname{triangle}\\left(\\left(75\\cos\\left(\\frac{2\\pi 5.0}{50}\\right),75\\sin\\left(\\frac{2\\pi 5.0}{50}\\right),10\\right),\\left(82\\cos\\left(\\frac{2\\pi 5.0}{50}\\right),82\\sin\\left(\\frac{2\\pi 5.0}{50}\\right),10\\right),\\left(82\\cos\\left(\\frac{2\\pi 5.0}{50}\\right),82\\sin\\left(\\frac{2\\pi 5.0}{50}\\right),15\\right)\\right)"
+        custom string desmos:constraints = ""
+        custom string desmos:kind = "triangle_mesh"
+        custom string desmos:color = "#c74440"
+        custom bool desmos:hidden = false
+        uniform bool doubleSided = true
+        color3f[] primvars:displayColor = [(0.780392157, 0.266666667, 0.250980392)] (
+            interpolation = "constant"
+        )
+        point3f[] points = [(60.6762746, 44.0838939, 10), (66.3393935, 48.1983907, 10), (66.3393935, 48.1983907, 15)]
+        int[] faceVertexCounts = [3]
+        int[] faceVertexIndices = [0, 1, 2]
+    }
+
+    def Mesh "expr_0055__95_5"
+    {
+        custom string desmos:url = ""
+        custom string desmos:hash = ""
+        custom string desmos:exprId = "95_5"
+        custom int desmos:order = 55
+        custom string desmos:latex = "\\operatorname{triangle}\\left(\\left(75\\cos\\left(\\frac{2\\pi 6.0}{50}\\right),75\\sin\\left(\\frac{2\\pi 6.0}{50}\\right),10\\right),\\left(82\\cos\\left(\\frac{2\\pi 6.0}{50}\\right),82\\sin\\left(\\frac{2\\pi 6.0}{50}\\right),10\\right),\\left(82\\cos\\left(\\frac{2\\pi 6.0}{50}\\right),82\\sin\\left(\\frac{2\\pi 6.0}{50}\\right),15\\right)\\right)"
+        custom string desmos:constraints = ""
+        custom string desmos:kind = "triangle_mesh"
+        custom string desmos:color = "#c74440"
+        custom bool desmos:hidden = false
+        uniform bool doubleSided = true
+        color3f[] primvars:displayColor = [(0.780392157, 0.266666667, 0.250980392)] (
+            interpolation = "constant"
+        )
+        point3f[] points = [(54.6726471, 51.3410329, 10), (59.7754274, 56.1328627, 10), (59.7754274, 56.1328627, 15)]
+        int[] faceVertexCounts = [3]
+        int[] faceVertexIndices = [0, 1, 2]
+    }
+
+    def Mesh "expr_0055__95_6"
+    {
+        custom string desmos:url = ""
+        custom string desmos:hash = ""
+        custom string desmos:exprId = "95_6"
+        custom int desmos:order = 55
+        custom string desmos:latex = "\\operatorname{triangle}\\left(\\left(75\\cos\\left(\\frac{2\\pi 7.0}{50}\\right),75\\sin\\left(\\frac{2\\pi 7.0}{50}\\right),10\\right),\\left(82\\cos\\left(\\frac{2\\pi 7.0}{50}\\right),82\\sin\\left(\\frac{2\\pi 7.0}{50}\\right),10\\right),\\left(82\\cos\\left(\\frac{2\\pi 7.0}{50}\\right),82\\sin\\left(\\frac{2\\pi 7.0}{50}\\right),15\\right)\\right)"
+        custom string desmos:constraints = ""
+        custom string desmos:kind = "triangle_mesh"
+        custom string desmos:color = "#c74440"
+        custom bool desmos:hidden = false
+        uniform bool doubleSided = true
+        color3f[] primvars:displayColor = [(0.780392157, 0.266666667, 0.250980392)] (
+            interpolation = "constant"
+        )
+        point3f[] points = [(47.8067992, 57.7884932, 10), (52.2687672, 63.1820859, 10), (52.2687672, 63.1820859, 15)]
+        int[] faceVertexCounts = [3]
+        int[] faceVertexIndices = [0, 1, 2]
+    }
+
+    def Mesh "expr_0055__95_7"
+    {
+        custom string desmos:url = ""
+        custom string desmos:hash = ""
+        custom string desmos:exprId = "95_7"
+        custom int desmos:order = 55
+        custom string desmos:latex = "\\operatorname{triangle}\\left(\\left(75\\cos\\left(\\frac{2\\pi 8.0}{50}\\right),75\\sin\\left(\\frac{2\\pi 8.0}{50}\\right),10\\right),\\left(82\\cos\\left(\\frac{2\\pi 8.0}{50}\\right),82\\sin\\left(\\frac{2\\pi 8.0}{50}\\right),10\\right),\\left(82\\cos\\left(\\frac{2\\pi 8.0}{50}\\right),82\\sin\\left(\\frac{2\\pi 8.0}{50}\\right),15\\right)\\right)"
+        custom string desmos:constraints = ""
+        custom string desmos:kind = "triangle_mesh"
+        custom string desmos:color = "#c74440"
+        custom bool desmos:hidden = false
+        uniform bool doubleSided = true
+        color3f[] primvars:displayColor = [(0.780392157, 0.266666667, 0.250980392)] (
+            interpolation = "constant"
+        )
+        point3f[] points = [(40.1870096, 63.3245944, 10), (43.9377972, 69.2348899, 10), (43.9377972, 69.2348899, 15)]
+        int[] faceVertexCounts = [3]
+        int[] faceVertexIndices = [0, 1, 2]
+    }
+
+    def Mesh "expr_0055__95_8"
+    {
+        custom string desmos:url = ""
+        custom string desmos:hash = ""
+        custom string desmos:exprId = "95_8"
+        custom int desmos:order = 55
+        custom string desmos:latex = "\\operatorname{triangle}\\left(\\left(75\\cos\\left(\\frac{2\\pi 9.0}{50}\\right),75\\sin\\left(\\frac{2\\pi 9.0}{50}\\right),10\\right),\\left(82\\cos\\left(\\frac{2\\pi 9.0}{50}\\right),82\\sin\\left(\\frac{2\\pi 9.0}{50}\\right),10\\right),\\left(82\\cos\\left(\\frac{2\\pi 9.0}{50}\\right),82\\sin\\left(\\frac{2\\pi 9.0}{50}\\right),15\\right)\\right)"
+        custom string desmos:constraints = ""
+        custom string desmos:kind = "triangle_mesh"
+        custom string desmos:color = "#c74440"
+        custom bool desmos:hidden = false
+        uniform bool doubleSided = true
+        color3f[] primvars:displayColor = [(0.780392157, 0.266666667, 0.250980392)] (
+            interpolation = "constant"
+        )
+        point3f[] points = [(31.9334469, 67.8620289, 10), (34.9139019, 74.1958183, 10), (34.9139019, 74.1958183, 15)]
+        int[] faceVertexCounts = [3]
+        int[] faceVertexIndices = [0, 1, 2]
+    }
+
+    def Mesh "expr_0055__95_9"
+    {
+        custom string desmos:url = ""
+        custom string desmos:hash = ""
+        custom string desmos:exprId = "95_9"
+        custom int desmos:order = 55
+        custom string desmos:latex = "\\operatorname{triangle}\\left(\\left(75\\cos\\left(\\frac{2\\pi 10.0}{50}\\right),75\\sin\\left(\\frac{2\\pi 10.0}{50}\\right),10\\right),\\left(82\\cos\\left(\\frac{2\\pi 10.0}{50}\\right),82\\sin\\left(\\frac{2\\pi 10.0}{50}\\right),10\\right),\\left(82\\cos\\left(\\frac{2\\pi 10.0}{50}\\right),82\\sin\\left(\\frac{2\\pi 10.0}{50}\\right),15\\right)\\right)"
+        custom string desmos:constraints = ""
+        custom string desmos:kind = "triangle_mesh"
+        custom string desmos:color = "#c74440"
+        custom bool desmos:hidden = false
+        uniform bool doubleSided = true
+        color3f[] primvars:displayColor = [(0.780392157, 0.266666667, 0.250980392)] (
+            interpolation = "constant"
+        )
+        point3f[] points = [(23.1762746, 71.3292387, 10), (25.3393935, 77.9866343, 10), (25.3393935, 77.9866343, 15)]
+        int[] faceVertexCounts = [3]
+        int[] faceVertexIndices = [0, 1, 2]
+    }
+
+    def Mesh "expr_0055__95_10"
+    {
+        custom string desmos:url = ""
+        custom string desmos:hash = ""
+        custom string desmos:exprId = "95_10"
+        custom int desmos:order = 55
+        custom string desmos:latex = "\\operatorname{triangle}\\left(\\left(75\\cos\\left(\\frac{2\\pi 11.0}{50}\\right),75\\sin\\left(\\frac{2\\pi 11.0}{50}\\right),10\\right),\\left(82\\cos\\left(\\frac{2\\pi 11.0}{50}\\right),82\\sin\\left(\\frac{2\\pi 11.0}{50}\\right),10\\right),\\left(82\\cos\\left(\\frac{2\\pi 11.0}{50}\\right),82\\sin\\left(\\frac{2\\pi 11.0}{50}\\right),15\\right)\\right)"
+        custom string desmos:constraints = ""
+        custom string desmos:kind = "triangle_mesh"
+        custom string desmos:color = "#c74440"
+        custom bool desmos:hidden = false
+        uniform bool doubleSided = true
+        color3f[] primvars:displayColor = [(0.780392157, 0.266666667, 0.250980392)] (
+            interpolation = "constant"
+        )
+        point3f[] points = [(14.0535986, 73.6715438, 10), (15.3652678, 80.5475546, 10), (15.3652678, 80.5475546, 15)]
+        int[] faceVertexCounts = [3]
+        int[] faceVertexIndices = [0, 1, 2]
+    }
+
+    def Mesh "expr_0055__95_11"
+    {
+        custom string desmos:url = ""
+        custom string desmos:hash = ""
+        custom string desmos:exprId = "95_11"
+        custom int desmos:order = 55
+        custom string desmos:latex = "\\operatorname{triangle}\\left(\\left(75\\cos\\left(\\frac{2\\pi 12.0}{50}\\right),75\\sin\\left(\\frac{2\\pi 12.0}{50}\\right),10\\right),\\left(82\\cos\\left(\\frac{2\\pi 12.0}{50}\\right),82\\sin\\left(\\frac{2\\pi 12.0}{50}\\right),10\\right),\\left(82\\cos\\left(\\frac{2\\pi 12.0}{50}\\right),82\\sin\\left(\\frac{2\\pi 12.0}{50}\\right),15\\right)\\right)"
+        custom string desmos:constraints = ""
+        custom string desmos:kind = "triangle_mesh"
+        custom string desmos:color = "#c74440"
+        custom bool desmos:hidden = false
+        uniform bool doubleSided = true
+        color3f[] primvars:displayColor = [(0.780392157, 0.266666667, 0.250980392)] (
+            interpolation = "constant"
+        )
+        point3f[] points = [(4.70928896, 74.8520046, 10), (5.1488226, 81.8381917, 10), (5.1488226, 81.8381917, 15)]
+        int[] faceVertexCounts = [3]
+        int[] faceVertexIndices = [0, 1, 2]
+    }
+
+    def Mesh "expr_0055__95_12"
+    {
+        custom string desmos:url = ""
+        custom string desmos:hash = ""
+        custom string desmos:exprId = "95_12"
+        custom int desmos:order = 55
+        custom string desmos:latex = "\\operatorname{triangle}\\left(\\left(75\\cos\\left(\\frac{2\\pi 13.0}{50}\\right),75\\sin\\left(\\frac{2\\pi 13.0}{50}\\right),10\\right),\\left(82\\cos\\left(\\frac{2\\pi 13.0}{50}\\right),82\\sin\\left(\\frac{2\\pi 13.0}{50}\\right),10\\right),\\left(82\\cos\\left(\\frac{2\\pi 13.0}{50}\\right),82\\sin\\left(\\frac{2\\pi 13.0}{50}\\right),15\\right)\\right)"
+        custom string desmos:constraints = ""
+        custom string desmos:kind = "triangle_mesh"
+        custom string desmos:color = "#c74440"
+        custom bool desmos:hidden = false
+        uniform bool doubleSided = true
+        color3f[] primvars:displayColor = [(0.780392157, 0.266666667, 0.250980392)] (
+            interpolation = "constant"
+        )
+        point3f[] points = [(-4.70928896, 74.8520046, 10), (-5.1488226, 81.8381917, 10), (-5.1488226, 81.8381917, 15)]
+        int[] faceVertexCounts = [3]
+        int[] faceVertexIndices = [0, 1, 2]
+    }
+
+    def Mesh "expr_0055__95_13"
+    {
+        custom string desmos:url = ""
+        custom string desmos:hash = ""
+        custom string desmos:exprId = "95_13"
+        custom int desmos:order = 55
+        custom string desmos:latex = "\\operatorname{triangle}\\left(\\left(75\\cos\\left(\\frac{2\\pi 14.0}{50}\\right),75\\sin\\left(\\frac{2\\pi 14.0}{50}\\right),10\\right),\\left(82\\cos\\left(\\frac{2\\pi 14.0}{50}\\right),82\\sin\\left(\\frac{2\\pi 14.0}{50}\\right),10\\right),\\left(82\\cos\\left(\\frac{2\\pi 14.0}{50}\\right),82\\sin\\left(\\frac{2\\pi 14.0}{50}\\right),15\\right)\\right)"
+        custom string desmos:constraints = ""
+        custom string desmos:kind = "triangle_mesh"
+        custom string desmos:color = "#c74440"
+        custom bool desmos:hidden = false
+        uniform bool doubleSided = true
+        color3f[] primvars:displayColor = [(0.780392157, 0.266666667, 0.250980392)] (
+            interpolation = "constant"
+        )
+        point3f[] points = [(-14.0535986, 73.6715438, 10), (-15.3652678, 80.5475546, 10), (-15.3652678, 80.5475546, 15)]
+        int[] faceVertexCounts = [3]
+        int[] faceVertexIndices = [0, 1, 2]
+    }
+
+    def Mesh "expr_0055__95_14"
+    {
+        custom string desmos:url = ""
+        custom string desmos:hash = ""
+        custom string desmos:exprId = "95_14"
+        custom int desmos:order = 55
+        custom string desmos:latex = "\\operatorname{triangle}\\left(\\left(75\\cos\\left(\\frac{2\\pi 15.0}{50}\\right),75\\sin\\left(\\frac{2\\pi 15.0}{50}\\right),10\\right),\\left(82\\cos\\left(\\frac{2\\pi 15.0}{50}\\right),82\\sin\\left(\\frac{2\\pi 15.0}{50}\\right),10\\right),\\left(82\\cos\\left(\\frac{2\\pi 15.0}{50}\\right),82\\sin\\left(\\frac{2\\pi 15.0}{50}\\right),15\\right)\\right)"
+        custom string desmos:constraints = ""
+        custom string desmos:kind = "triangle_mesh"
+        custom string desmos:color = "#c74440"
+        custom bool desmos:hidden = false
+        uniform bool doubleSided = true
+        color3f[] primvars:displayColor = [(0.780392157, 0.266666667, 0.250980392)] (
+            interpolation = "constant"
+        )
+        point3f[] points = [(-23.1762746, 71.3292387, 10), (-25.3393935, 77.9866343, 10), (-25.3393935, 77.9866343, 15)]
+        int[] faceVertexCounts = [3]
+        int[] faceVertexIndices = [0, 1, 2]
+    }
+
+    def Mesh "expr_0055__95_15"
+    {
+        custom string desmos:url = ""
+        custom string desmos:hash = ""
+        custom string desmos:exprId = "95_15"
+        custom int desmos:order = 55
+        custom string desmos:latex = "\\operatorname{triangle}\\left(\\left(75\\cos\\left(\\frac{2\\pi 16.0}{50}\\right),75\\sin\\left(\\frac{2\\pi 16.0}{50}\\right),10\\right),\\left(82\\cos\\left(\\frac{2\\pi 16.0}{50}\\right),82\\sin\\left(\\frac{2\\pi 16.0}{50}\\right),10\\right),\\left(82\\cos\\left(\\frac{2\\pi 16.0}{50}\\right),82\\sin\\left(\\frac{2\\pi 16.0}{50}\\right),15\\right)\\right)"
+        custom string desmos:constraints = ""
+        custom string desmos:kind = "triangle_mesh"
+        custom string desmos:color = "#c74440"
+        custom bool desmos:hidden = false
+        uniform bool doubleSided = true
+        color3f[] primvars:displayColor = [(0.780392157, 0.266666667, 0.250980392)] (
+            interpolation = "constant"
+        )
+        point3f[] points = [(-31.9334469, 67.8620289, 10), (-34.9139019, 74.1958183, 10), (-34.9139019, 74.1958183, 15)]
+        int[] faceVertexCounts = [3]
+        int[] faceVertexIndices = [0, 1, 2]
+    }
+
+    def Mesh "expr_0055__95_16"
+    {
+        custom string desmos:url = ""
+        custom string desmos:hash = ""
+        custom string desmos:exprId = "95_16"
+        custom int desmos:order = 55
+        custom string desmos:latex = "\\operatorname{triangle}\\left(\\left(75\\cos\\left(\\frac{2\\pi 17.0}{50}\\right),75\\sin\\left(\\frac{2\\pi 17.0}{50}\\right),10\\right),\\left(82\\cos\\left(\\frac{2\\pi 17.0}{50}\\right),82\\sin\\left(\\frac{2\\pi 17.0}{50}\\right),10\\right),\\left(82\\cos\\left(\\frac{2\\pi 17.0}{50}\\right),82\\sin\\left(\\frac{2\\pi 17.0}{50}\\right),15\\right)\\right)"
+        custom string desmos:constraints = ""
+        custom string desmos:kind = "triangle_mesh"
+        custom string desmos:color = "#c74440"
+        custom bool desmos:hidden = false
+        uniform bool doubleSided = true
+        color3f[] primvars:displayColor = [(0.780392157, 0.266666667, 0.250980392)] (
+            interpolation = "constant"
+        )
+        point3f[] points = [(-40.1870096, 63.3245944, 10), (-43.9377972, 69.2348899, 10), (-43.9377972, 69.2348899, 15)]
+        int[] faceVertexCounts = [3]
+        int[] faceVertexIndices = [0, 1, 2]
+    }
+
+    def Mesh "expr_0055__95_17"
+    {
+        custom string desmos:url = ""
+        custom string desmos:hash = ""
+        custom string desmos:exprId = "95_17"
+        custom int desmos:order = 55
+        custom string desmos:latex = "\\operatorname{triangle}\\left(\\left(75\\cos\\left(\\frac{2\\pi 18.0}{50}\\right),75\\sin\\left(\\frac{2\\pi 18.0}{50}\\right),10\\right),\\left(82\\cos\\left(\\frac{2\\pi 18.0}{50}\\right),82\\sin\\left(\\frac{2\\pi 18.0}{50}\\right),10\\right),\\left(82\\cos\\left(\\frac{2\\pi 18.0}{50}\\right),82\\sin\\left(\\frac{2\\pi 18.0}{50}\\right),15\\right)\\right)"
+        custom string desmos:constraints = ""
+        custom string desmos:kind = "triangle_mesh"
+        custom string desmos:color = "#c74440"
+        custom bool desmos:hidden = false
+        uniform bool doubleSided = true
+        color3f[] primvars:displayColor = [(0.780392157, 0.266666667, 0.250980392)] (
+            interpolation = "constant"
+        )
+        point3f[] points = [(-47.8067992, 57.7884932, 10), (-52.2687672, 63.1820859, 10), (-52.2687672, 63.1820859, 15)]
+        int[] faceVertexCounts = [3]
+        int[] faceVertexIndices = [0, 1, 2]
+    }
+
+    def Mesh "expr_0055__95_18"
+    {
+        custom string desmos:url = ""
+        custom string desmos:hash = ""
+        custom string desmos:exprId = "95_18"
+        custom int desmos:order = 55
+        custom string desmos:latex = "\\operatorname{triangle}\\left(\\left(75\\cos\\left(\\frac{2\\pi 19.0}{50}\\right),75\\sin\\left(\\frac{2\\pi 19.0}{50}\\right),10\\right),\\left(82\\cos\\left(\\frac{2\\pi 19.0}{50}\\right),82\\sin\\left(\\frac{2\\pi 19.0}{50}\\right),10\\right),\\left(82\\cos\\left(\\frac{2\\pi 19.0}{50}\\right),82\\sin\\left(\\frac{2\\pi 19.0}{50}\\right),15\\right)\\right)"
+        custom string desmos:constraints = ""
+        custom string desmos:kind = "triangle_mesh"
+        custom string desmos:color = "#c74440"
+        custom bool desmos:hidden = false
+        uniform bool doubleSided = true
+        color3f[] primvars:displayColor = [(0.780392157, 0.266666667, 0.250980392)] (
+            interpolation = "constant"
+        )
+        point3f[] points = [(-54.6726471, 51.3410329, 10), (-59.7754274, 56.1328627, 10), (-59.7754274, 56.1328627, 15)]
+        int[] faceVertexCounts = [3]
+        int[] faceVertexIndices = [0, 1, 2]
+    }
+
+    def Mesh "expr_0055__95_19"
+    {
+        custom string desmos:url = ""
+        custom string desmos:hash = ""
+        custom string desmos:exprId = "95_19"
+        custom int desmos:order = 55
+        custom string desmos:latex = "\\operatorname{triangle}\\left(\\left(75\\cos\\left(\\frac{2\\pi 20.0}{50}\\right),75\\sin\\left(\\frac{2\\pi 20.0}{50}\\right),10\\right),\\left(82\\cos\\left(\\frac{2\\pi 20.0}{50}\\right),82\\sin\\left(\\frac{2\\pi 20.0}{50}\\right),10\\right),\\left(82\\cos\\left(\\frac{2\\pi 20.0}{50}\\right),82\\sin\\left(\\frac{2\\pi 20.0}{50}\\right),15\\right)\\right)"
+        custom string desmos:constraints = ""
+        custom string desmos:kind = "triangle_mesh"
+        custom string desmos:color = "#c74440"
+        custom bool desmos:hidden = false
+        uniform bool doubleSided = true
+        color3f[] primvars:displayColor = [(0.780392157, 0.266666667, 0.250980392)] (
+            interpolation = "constant"
+        )
+        point3f[] points = [(-60.6762746, 44.0838939, 10), (-66.3393935, 48.1983907, 10), (-66.3393935, 48.1983907, 15)]
+        int[] faceVertexCounts = [3]
+        int[] faceVertexIndices = [0, 1, 2]
+    }
+
+    def Mesh "expr_0055__95_20"
+    {
+        custom string desmos:url = ""
+        custom string desmos:hash = ""
+        custom string desmos:exprId = "95_20"
+        custom int desmos:order = 55
+        custom string desmos:latex = "\\operatorname{triangle}\\left(\\left(75\\cos\\left(\\frac{2\\pi 21.0}{50}\\right),75\\sin\\left(\\frac{2\\pi 21.0}{50}\\right),10\\right),\\left(82\\cos\\left(\\frac{2\\pi 21.0}{50}\\right),82\\sin\\left(\\frac{2\\pi 21.0}{50}\\right),10\\right),\\left(82\\cos\\left(\\frac{2\\pi 21.0}{50}\\right),82\\sin\\left(\\frac{2\\pi 21.0}{50}\\right),15\\right)\\right)"
+        custom string desmos:constraints = ""
+        custom string desmos:kind = "triangle_mesh"
+        custom string desmos:color = "#c74440"
+        custom bool desmos:hidden = false
+        uniform bool doubleSided = true
+        color3f[] primvars:displayColor = [(0.780392157, 0.266666667, 0.250980392)] (
+            interpolation = "constant"
+        )
+        point3f[] points = [(-65.723001, 36.1315256, 10), (-71.8571478, 39.5038013, 10), (-71.8571478, 39.5038013, 15)]
+        int[] faceVertexCounts = [3]
+        int[] faceVertexIndices = [0, 1, 2]
+    }
+
+    def Mesh "expr_0055__95_21"
+    {
+        custom string desmos:url = ""
+        custom string desmos:hash = ""
+        custom string desmos:exprId = "95_21"
+        custom int desmos:order = 55
+        custom string desmos:latex = "\\operatorname{triangle}\\left(\\left(75\\cos\\left(\\frac{2\\pi 22.0}{50}\\right),75\\sin\\left(\\frac{2\\pi 22.0}{50}\\right),10\\right),\\left(82\\cos\\left(\\frac{2\\pi 22.0}{50}\\right),82\\sin\\left(\\frac{2\\pi 22.0}{50}\\right),10\\right),\\left(82\\cos\\left(\\frac{2\\pi 22.0}{50}\\right),82\\sin\\left(\\frac{2\\pi 22.0}{50}\\right),15\\right)\\right)"
+        custom string desmos:constraints = ""
+        custom string desmos:kind = "triangle_mesh"
+        custom string desmos:color = "#c74440"
+        custom bool desmos:hidden = false
+        uniform bool doubleSided = true
+        color3f[] primvars:displayColor = [(0.780392157, 0.266666667, 0.250980392)] (
+            interpolation = "constant"
+        )
+        point3f[] points = [(-69.7332364, 27.6093415, 10), (-76.2416718, 30.1862133, 10), (-76.2416718, 30.1862133, 15)]
+        int[] faceVertexCounts = [3]
+        int[] faceVertexIndices = [0, 1, 2]
+    }
+
+    def Mesh "expr_0055__95_22"
+    {
+        custom string desmos:url = ""
+        custom string desmos:hash = ""
+        custom string desmos:exprId = "95_22"
+        custom int desmos:order = 55
+        custom string desmos:latex = "\\operatorname{triangle}\\left(\\left(75\\cos\\left(\\frac{2\\pi 23.0}{50}\\right),75\\sin\\left(\\frac{2\\pi 23.0}{50}\\right),10\\right),\\left(82\\cos\\left(\\frac{2\\pi 23.0}{50}\\right),82\\sin\\left(\\frac{2\\pi 23.0}{50}\\right),10\\right),\\left(82\\cos\\left(\\frac{2\\pi 23.0}{50}\\right),82\\sin\\left(\\frac{2\\pi 23.0}{50}\\right),15\\right)\\right)"
+        custom string desmos:constraints = ""
+        custom string desmos:kind = "triangle_mesh"
+        custom string desmos:color = "#c74440"
+        custom bool desmos:hidden = false
+        uniform bool doubleSided = true
+        color3f[] primvars:displayColor = [(0.780392157, 0.266666667, 0.250980392)] (
+            interpolation = "constant"
+        )
+        point3f[] points = [(-72.6437371, 18.6517415, 10), (-79.4238192, 20.3925707, 10), (-79.4238192, 20.3925707, 15)]
+        int[] faceVertexCounts = [3]
+        int[] faceVertexIndices = [0, 1, 2]
+    }
+
+    def Mesh "expr_0055__95_23"
+    {
+        custom string desmos:url = ""
+        custom string desmos:hash = ""
+        custom string desmos:exprId = "95_23"
+        custom int desmos:order = 55
+        custom string desmos:latex = "\\operatorname{triangle}\\left(\\left(75\\cos\\left(\\frac{2\\pi 24.0}{50}\\right),75\\sin\\left(\\frac{2\\pi 24.0}{50}\\right),10\\right),\\left(82\\cos\\left(\\frac{2\\pi 24.0}{50}\\right),82\\sin\\left(\\frac{2\\pi 24.0}{50}\\right),10\\right),\\left(82\\cos\\left(\\frac{2\\pi 24.0}{50}\\right),82\\sin\\left(\\frac{2\\pi 24.0}{50}\\right),15\\right)\\right)"
+        custom string desmos:constraints = ""
+        custom string desmos:kind = "triangle_mesh"
+        custom string desmos:color = "#c74440"
+        custom bool desmos:hidden = false
+        uniform bool doubleSided = true
+        color3f[] primvars:displayColor = [(0.780392157, 0.266666667, 0.250980392)] (
+            interpolation = "constant"
+        )
+        point3f[] points = [(-74.4086026, 9.39999252, 10), (-81.3534055, 10.2773252, 10), (-81.3534055, 10.2773252, 15)]
+        int[] faceVertexCounts = [3]
+        int[] faceVertexIndices = [0, 1, 2]
+    }
+
+    def Mesh "expr_0055__95_24"
+    {
+        custom string desmos:url = ""
+        custom string desmos:hash = ""
+        custom string desmos:exprId = "95_24"
+        custom int desmos:order = 55
+        custom string desmos:latex = "\\operatorname{triangle}\\left(\\left(75\\cos\\left(\\frac{2\\pi 25.0}{50}\\right),75\\sin\\left(\\frac{2\\pi 25.0}{50}\\right),10\\right),\\left(82\\cos\\left(\\frac{2\\pi 25.0}{50}\\right),82\\sin\\left(\\frac{2\\pi 25.0}{50}\\right),10\\right),\\left(82\\cos\\left(\\frac{2\\pi 25.0}{50}\\right),82\\sin\\left(\\frac{2\\pi 25.0}{50}\\right),15\\right)\\right)"
+        custom string desmos:constraints = ""
+        custom string desmos:kind = "triangle_mesh"
+        custom string desmos:color = "#c74440"
+        custom bool desmos:hidden = false
+        uniform bool doubleSided = true
+        color3f[] primvars:displayColor = [(0.780392157, 0.266666667, 0.250980392)] (
+            interpolation = "constant"
+        )
+        point3f[] points = [(-75, 0, 10), (-82, 0, 10), (-82, 0, 15)]
+        int[] faceVertexCounts = [3]
+        int[] faceVertexIndices = [0, 1, 2]
+    }
+
+    def Mesh "expr_0055__95_25"
+    {
+        custom string desmos:url = ""
+        custom string desmos:hash = ""
+        custom string desmos:exprId = "95_25"
+        custom int desmos:order = 55
+        custom string desmos:latex = "\\operatorname{triangle}\\left(\\left(75\\cos\\left(\\frac{2\\pi 26.0}{50}\\right),75\\sin\\left(\\frac{2\\pi 26.0}{50}\\right),10\\right),\\left(82\\cos\\left(\\frac{2\\pi 26.0}{50}\\right),82\\sin\\left(\\frac{2\\pi 26.0}{50}\\right),10\\right),\\left(82\\cos\\left(\\frac{2\\pi 26.0}{50}\\right),82\\sin\\left(\\frac{2\\pi 26.0}{50}\\right),15\\right)\\right)"
+        custom string desmos:constraints = ""
+        custom string desmos:kind = "triangle_mesh"
+        custom string desmos:color = "#c74440"
+        custom bool desmos:hidden = false
+        uniform bool doubleSided = true
+        color3f[] primvars:displayColor = [(0.780392157, 0.266666667, 0.250980392)] (
+            interpolation = "constant"
+        )
+        point3f[] points = [(-74.4086026, -9.39999252, 10), (-81.3534055, -10.2773252, 10), (-81.3534055, -10.2773252, 15)]
+        int[] faceVertexCounts = [3]
+        int[] faceVertexIndices = [0, 1, 2]
+    }
+
+    def Mesh "expr_0055__95_26"
+    {
+        custom string desmos:url = ""
+        custom string desmos:hash = ""
+        custom string desmos:exprId = "95_26"
+        custom int desmos:order = 55
+        custom string desmos:latex = "\\operatorname{triangle}\\left(\\left(75\\cos\\left(\\frac{2\\pi 27.0}{50}\\right),75\\sin\\left(\\frac{2\\pi 27.0}{50}\\right),10\\right),\\left(82\\cos\\left(\\frac{2\\pi 27.0}{50}\\right),82\\sin\\left(\\frac{2\\pi 27.0}{50}\\right),10\\right),\\left(82\\cos\\left(\\frac{2\\pi 27.0}{50}\\right),82\\sin\\left(\\frac{2\\pi 27.0}{50}\\right),15\\right)\\right)"
+        custom string desmos:constraints = ""
+        custom string desmos:kind = "triangle_mesh"
+        custom string desmos:color = "#c74440"
+        custom bool desmos:hidden = false
+        uniform bool doubleSided = true
+        color3f[] primvars:displayColor = [(0.780392157, 0.266666667, 0.250980392)] (
+            interpolation = "constant"
+        )
+        point3f[] points = [(-72.6437371, -18.6517415, 10), (-79.4238192, -20.3925707, 10), (-79.4238192, -20.3925707, 15)]
+        int[] faceVertexCounts = [3]
+        int[] faceVertexIndices = [0, 1, 2]
+    }
+
+    def Mesh "expr_0055__95_27"
+    {
+        custom string desmos:url = ""
+        custom string desmos:hash = ""
+        custom string desmos:exprId = "95_27"
+        custom int desmos:order = 55
+        custom string desmos:latex = "\\operatorname{triangle}\\left(\\left(75\\cos\\left(\\frac{2\\pi 28.0}{50}\\right),75\\sin\\left(\\frac{2\\pi 28.0}{50}\\right),10\\right),\\left(82\\cos\\left(\\frac{2\\pi 28.0}{50}\\right),82\\sin\\left(\\frac{2\\pi 28.0}{50}\\right),10\\right),\\left(82\\cos\\left(\\frac{2\\pi 28.0}{50}\\right),82\\sin\\left(\\frac{2\\pi 28.0}{50}\\right),15\\right)\\right)"
+        custom string desmos:constraints = ""
+        custom string desmos:kind = "triangle_mesh"
+        custom string desmos:color = "#c74440"
+        custom bool desmos:hidden = false
+        uniform bool doubleSided = true
+        color3f[] primvars:displayColor = [(0.780392157, 0.266666667, 0.250980392)] (
+            interpolation = "constant"
+        )
+        point3f[] points = [(-69.7332364, -27.6093415, 10), (-76.2416718, -30.1862133, 10), (-76.2416718, -30.1862133, 15)]
+        int[] faceVertexCounts = [3]
+        int[] faceVertexIndices = [0, 1, 2]
+    }
+
+    def Mesh "expr_0055__95_28"
+    {
+        custom string desmos:url = ""
+        custom string desmos:hash = ""
+        custom string desmos:exprId = "95_28"
+        custom int desmos:order = 55
+        custom string desmos:latex = "\\operatorname{triangle}\\left(\\left(75\\cos\\left(\\frac{2\\pi 29.0}{50}\\right),75\\sin\\left(\\frac{2\\pi 29.0}{50}\\right),10\\right),\\left(82\\cos\\left(\\frac{2\\pi 29.0}{50}\\right),82\\sin\\left(\\frac{2\\pi 29.0}{50}\\right),10\\right),\\left(82\\cos\\left(\\frac{2\\pi 29.0}{50}\\right),82\\sin\\left(\\frac{2\\pi 29.0}{50}\\right),15\\right)\\right)"
+        custom string desmos:constraints = ""
+        custom string desmos:kind = "triangle_mesh"
+        custom string desmos:color = "#c74440"
+        custom bool desmos:hidden = false
+        uniform bool doubleSided = true
+        color3f[] primvars:displayColor = [(0.780392157, 0.266666667, 0.250980392)] (
+            interpolation = "constant"
+        )
+        point3f[] points = [(-65.723001, -36.1315256, 10), (-71.8571478, -39.5038013, 10), (-71.8571478, -39.5038013, 15)]
+        int[] faceVertexCounts = [3]
+        int[] faceVertexIndices = [0, 1, 2]
+    }
+
+    def Mesh "expr_0055__95_29"
+    {
+        custom string desmos:url = ""
+        custom string desmos:hash = ""
+        custom string desmos:exprId = "95_29"
+        custom int desmos:order = 55
+        custom string desmos:latex = "\\operatorname{triangle}\\left(\\left(75\\cos\\left(\\frac{2\\pi 30.0}{50}\\right),75\\sin\\left(\\frac{2\\pi 30.0}{50}\\right),10\\right),\\left(82\\cos\\left(\\frac{2\\pi 30.0}{50}\\right),82\\sin\\left(\\frac{2\\pi 30.0}{50}\\right),10\\right),\\left(82\\cos\\left(\\frac{2\\pi 30.0}{50}\\right),82\\sin\\left(\\frac{2\\pi 30.0}{50}\\right),15\\right)\\right)"
+        custom string desmos:constraints = ""
+        custom string desmos:kind = "triangle_mesh"
+        custom string desmos:color = "#c74440"
+        custom bool desmos:hidden = false
+        uniform bool doubleSided = true
+        color3f[] primvars:displayColor = [(0.780392157, 0.266666667, 0.250980392)] (
+            interpolation = "constant"
+        )
+        point3f[] points = [(-60.6762746, -44.0838939, 10), (-66.3393935, -48.1983907, 10), (-66.3393935, -48.1983907, 15)]
+        int[] faceVertexCounts = [3]
+        int[] faceVertexIndices = [0, 1, 2]
+    }
+
+    def Mesh "expr_0055__95_30"
+    {
+        custom string desmos:url = ""
+        custom string desmos:hash = ""
+        custom string desmos:exprId = "95_30"
+        custom int desmos:order = 55
+        custom string desmos:latex = "\\operatorname{triangle}\\left(\\left(75\\cos\\left(\\frac{2\\pi 31.0}{50}\\right),75\\sin\\left(\\frac{2\\pi 31.0}{50}\\right),10\\right),\\left(82\\cos\\left(\\frac{2\\pi 31.0}{50}\\right),82\\sin\\left(\\frac{2\\pi 31.0}{50}\\right),10\\right),\\left(82\\cos\\left(\\frac{2\\pi 31.0}{50}\\right),82\\sin\\left(\\frac{2\\pi 31.0}{50}\\right),15\\right)\\right)"
+        custom string desmos:constraints = ""
+        custom string desmos:kind = "triangle_mesh"
+        custom string desmos:color = "#c74440"
+        custom bool desmos:hidden = false
+        uniform bool doubleSided = true
+        color3f[] primvars:displayColor = [(0.780392157, 0.266666667, 0.250980392)] (
+            interpolation = "constant"
+        )
+        point3f[] points = [(-54.6726471, -51.3410329, 10), (-59.7754274, -56.1328627, 10), (-59.7754274, -56.1328627, 15)]
+        int[] faceVertexCounts = [3]
+        int[] faceVertexIndices = [0, 1, 2]
+    }
+
+    def Mesh "expr_0055__95_31"
+    {
+        custom string desmos:url = ""
+        custom string desmos:hash = ""
+        custom string desmos:exprId = "95_31"
+        custom int desmos:order = 55
+        custom string desmos:latex = "\\operatorname{triangle}\\left(\\left(75\\cos\\left(\\frac{2\\pi 32.0}{50}\\right),75\\sin\\left(\\frac{2\\pi 32.0}{50}\\right),10\\right),\\left(82\\cos\\left(\\frac{2\\pi 32.0}{50}\\right),82\\sin\\left(\\frac{2\\pi 32.0}{50}\\right),10\\right),\\left(82\\cos\\left(\\frac{2\\pi 32.0}{50}\\right),82\\sin\\left(\\frac{2\\pi 32.0}{50}\\right),15\\right)\\right)"
+        custom string desmos:constraints = ""
+        custom string desmos:kind = "triangle_mesh"
+        custom string desmos:color = "#c74440"
+        custom bool desmos:hidden = false
+        uniform bool doubleSided = true
+        color3f[] primvars:displayColor = [(0.780392157, 0.266666667, 0.250980392)] (
+            interpolation = "constant"
+        )
+        point3f[] points = [(-47.8067992, -57.7884932, 10), (-52.2687672, -63.1820859, 10), (-52.2687672, -63.1820859, 15)]
+        int[] faceVertexCounts = [3]
+        int[] faceVertexIndices = [0, 1, 2]
+    }
+
+    def Mesh "expr_0055__95_32"
+    {
+        custom string desmos:url = ""
+        custom string desmos:hash = ""
+        custom string desmos:exprId = "95_32"
+        custom int desmos:order = 55
+        custom string desmos:latex = "\\operatorname{triangle}\\left(\\left(75\\cos\\left(\\frac{2\\pi 33.0}{50}\\right),75\\sin\\left(\\frac{2\\pi 33.0}{50}\\right),10\\right),\\left(82\\cos\\left(\\frac{2\\pi 33.0}{50}\\right),82\\sin\\left(\\frac{2\\pi 33.0}{50}\\right),10\\right),\\left(82\\cos\\left(\\frac{2\\pi 33.0}{50}\\right),82\\sin\\left(\\frac{2\\pi 33.0}{50}\\right),15\\right)\\right)"
+        custom string desmos:constraints = ""
+        custom string desmos:kind = "triangle_mesh"
+        custom string desmos:color = "#c74440"
+        custom bool desmos:hidden = false
+        uniform bool doubleSided = true
+        color3f[] primvars:displayColor = [(0.780392157, 0.266666667, 0.250980392)] (
+            interpolation = "constant"
+        )
+        point3f[] points = [(-40.1870096, -63.3245944, 10), (-43.9377972, -69.2348899, 10), (-43.9377972, -69.2348899, 15)]
+        int[] faceVertexCounts = [3]
+        int[] faceVertexIndices = [0, 1, 2]
+    }
+
+    def Mesh "expr_0055__95_33"
+    {
+        custom string desmos:url = ""
+        custom string desmos:hash = ""
+        custom string desmos:exprId = "95_33"
+        custom int desmos:order = 55
+        custom string desmos:latex = "\\operatorname{triangle}\\left(\\left(75\\cos\\left(\\frac{2\\pi 34.0}{50}\\right),75\\sin\\left(\\frac{2\\pi 34.0}{50}\\right),10\\right),\\left(82\\cos\\left(\\frac{2\\pi 34.0}{50}\\right),82\\sin\\left(\\frac{2\\pi 34.0}{50}\\right),10\\right),\\left(82\\cos\\left(\\frac{2\\pi 34.0}{50}\\right),82\\sin\\left(\\frac{2\\pi 34.0}{50}\\right),15\\right)\\right)"
+        custom string desmos:constraints = ""
+        custom string desmos:kind = "triangle_mesh"
+        custom string desmos:color = "#c74440"
+        custom bool desmos:hidden = false
+        uniform bool doubleSided = true
+        color3f[] primvars:displayColor = [(0.780392157, 0.266666667, 0.250980392)] (
+            interpolation = "constant"
+        )
+        point3f[] points = [(-31.9334469, -67.8620289, 10), (-34.9139019, -74.1958183, 10), (-34.9139019, -74.1958183, 15)]
+        int[] faceVertexCounts = [3]
+        int[] faceVertexIndices = [0, 1, 2]
+    }
+
+    def Mesh "expr_0055__95_34"
+    {
+        custom string desmos:url = ""
+        custom string desmos:hash = ""
+        custom string desmos:exprId = "95_34"
+        custom int desmos:order = 55
+        custom string desmos:latex = "\\operatorname{triangle}\\left(\\left(75\\cos\\left(\\frac{2\\pi 35.0}{50}\\right),75\\sin\\left(\\frac{2\\pi 35.0}{50}\\right),10\\right),\\left(82\\cos\\left(\\frac{2\\pi 35.0}{50}\\right),82\\sin\\left(\\frac{2\\pi 35.0}{50}\\right),10\\right),\\left(82\\cos\\left(\\frac{2\\pi 35.0}{50}\\right),82\\sin\\left(\\frac{2\\pi 35.0}{50}\\right),15\\right)\\right)"
+        custom string desmos:constraints = ""
+        custom string desmos:kind = "triangle_mesh"
+        custom string desmos:color = "#c74440"
+        custom bool desmos:hidden = false
+        uniform bool doubleSided = true
+        color3f[] primvars:displayColor = [(0.780392157, 0.266666667, 0.250980392)] (
+            interpolation = "constant"
+        )
+        point3f[] points = [(-23.1762746, -71.3292387, 10), (-25.3393935, -77.9866343, 10), (-25.3393935, -77.9866343, 15)]
+        int[] faceVertexCounts = [3]
+        int[] faceVertexIndices = [0, 1, 2]
+    }
+
+    def Mesh "expr_0055__95_35"
+    {
+        custom string desmos:url = ""
+        custom string desmos:hash = ""
+        custom string desmos:exprId = "95_35"
+        custom int desmos:order = 55
+        custom string desmos:latex = "\\operatorname{triangle}\\left(\\left(75\\cos\\left(\\frac{2\\pi 36.0}{50}\\right),75\\sin\\left(\\frac{2\\pi 36.0}{50}\\right),10\\right),\\left(82\\cos\\left(\\frac{2\\pi 36.0}{50}\\right),82\\sin\\left(\\frac{2\\pi 36.0}{50}\\right),10\\right),\\left(82\\cos\\left(\\frac{2\\pi 36.0}{50}\\right),82\\sin\\left(\\frac{2\\pi 36.0}{50}\\right),15\\right)\\right)"
+        custom string desmos:constraints = ""
+        custom string desmos:kind = "triangle_mesh"
+        custom string desmos:color = "#c74440"
+        custom bool desmos:hidden = false
+        uniform bool doubleSided = true
+        color3f[] primvars:displayColor = [(0.780392157, 0.266666667, 0.250980392)] (
+            interpolation = "constant"
+        )
+        point3f[] points = [(-14.0535986, -73.6715438, 10), (-15.3652678, -80.5475546, 10), (-15.3652678, -80.5475546, 15)]
+        int[] faceVertexCounts = [3]
+        int[] faceVertexIndices = [0, 1, 2]
+    }
+
+    def Mesh "expr_0055__95_36"
+    {
+        custom string desmos:url = ""
+        custom string desmos:hash = ""
+        custom string desmos:exprId = "95_36"
+        custom int desmos:order = 55
+        custom string desmos:latex = "\\operatorname{triangle}\\left(\\left(75\\cos\\left(\\frac{2\\pi 37.0}{50}\\right),75\\sin\\left(\\frac{2\\pi 37.0}{50}\\right),10\\right),\\left(82\\cos\\left(\\frac{2\\pi 37.0}{50}\\right),82\\sin\\left(\\frac{2\\pi 37.0}{50}\\right),10\\right),\\left(82\\cos\\left(\\frac{2\\pi 37.0}{50}\\right),82\\sin\\left(\\frac{2\\pi 37.0}{50}\\right),15\\right)\\right)"
+        custom string desmos:constraints = ""
+        custom string desmos:kind = "triangle_mesh"
+        custom string desmos:color = "#c74440"
+        custom bool desmos:hidden = false
+        uniform bool doubleSided = true
+        color3f[] primvars:displayColor = [(0.780392157, 0.266666667, 0.250980392)] (
+            interpolation = "constant"
+        )
+        point3f[] points = [(-4.70928896, -74.8520046, 10), (-5.1488226, -81.8381917, 10), (-5.1488226, -81.8381917, 15)]
+        int[] faceVertexCounts = [3]
+        int[] faceVertexIndices = [0, 1, 2]
+    }
+
+    def Mesh "expr_0055__95_37"
+    {
+        custom string desmos:url = ""
+        custom string desmos:hash = ""
+        custom string desmos:exprId = "95_37"
+        custom int desmos:order = 55
+        custom string desmos:latex = "\\operatorname{triangle}\\left(\\left(75\\cos\\left(\\frac{2\\pi 38.0}{50}\\right),75\\sin\\left(\\frac{2\\pi 38.0}{50}\\right),10\\right),\\left(82\\cos\\left(\\frac{2\\pi 38.0}{50}\\right),82\\sin\\left(\\frac{2\\pi 38.0}{50}\\right),10\\right),\\left(82\\cos\\left(\\frac{2\\pi 38.0}{50}\\right),82\\sin\\left(\\frac{2\\pi 38.0}{50}\\right),15\\right)\\right)"
+        custom string desmos:constraints = ""
+        custom string desmos:kind = "triangle_mesh"
+        custom string desmos:color = "#c74440"
+        custom bool desmos:hidden = false
+        uniform bool doubleSided = true
+        color3f[] primvars:displayColor = [(0.780392157, 0.266666667, 0.250980392)] (
+            interpolation = "constant"
+        )
+        point3f[] points = [(4.70928896, -74.8520046, 10), (5.1488226, -81.8381917, 10), (5.1488226, -81.8381917, 15)]
+        int[] faceVertexCounts = [3]
+        int[] faceVertexIndices = [0, 1, 2]
+    }
+
+    def Mesh "expr_0055__95_38"
+    {
+        custom string desmos:url = ""
+        custom string desmos:hash = ""
+        custom string desmos:exprId = "95_38"
+        custom int desmos:order = 55
+        custom string desmos:latex = "\\operatorname{triangle}\\left(\\left(75\\cos\\left(\\frac{2\\pi 39.0}{50}\\right),75\\sin\\left(\\frac{2\\pi 39.0}{50}\\right),10\\right),\\left(82\\cos\\left(\\frac{2\\pi 39.0}{50}\\right),82\\sin\\left(\\frac{2\\pi 39.0}{50}\\right),10\\right),\\left(82\\cos\\left(\\frac{2\\pi 39.0}{50}\\right),82\\sin\\left(\\frac{2\\pi 39.0}{50}\\right),15\\right)\\right)"
+        custom string desmos:constraints = ""
+        custom string desmos:kind = "triangle_mesh"
+        custom string desmos:color = "#c74440"
+        custom bool desmos:hidden = false
+        uniform bool doubleSided = true
+        color3f[] primvars:displayColor = [(0.780392157, 0.266666667, 0.250980392)] (
+            interpolation = "constant"
+        )
+        point3f[] points = [(14.0535986, -73.6715438, 10), (15.3652678, -80.5475546, 10), (15.3652678, -80.5475546, 15)]
+        int[] faceVertexCounts = [3]
+        int[] faceVertexIndices = [0, 1, 2]
+    }
+
+    def Mesh "expr_0055__95_39"
+    {
+        custom string desmos:url = ""
+        custom string desmos:hash = ""
+        custom string desmos:exprId = "95_39"
+        custom int desmos:order = 55
+        custom string desmos:latex = "\\operatorname{triangle}\\left(\\left(75\\cos\\left(\\frac{2\\pi 40.0}{50}\\right),75\\sin\\left(\\frac{2\\pi 40.0}{50}\\right),10\\right),\\left(82\\cos\\left(\\frac{2\\pi 40.0}{50}\\right),82\\sin\\left(\\frac{2\\pi 40.0}{50}\\right),10\\right),\\left(82\\cos\\left(\\frac{2\\pi 40.0}{50}\\right),82\\sin\\left(\\frac{2\\pi 40.0}{50}\\right),15\\right)\\right)"
+        custom string desmos:constraints = ""
+        custom string desmos:kind = "triangle_mesh"
+        custom string desmos:color = "#c74440"
+        custom bool desmos:hidden = false
+        uniform bool doubleSided = true
+        color3f[] primvars:displayColor = [(0.780392157, 0.266666667, 0.250980392)] (
+            interpolation = "constant"
+        )
+        point3f[] points = [(23.1762746, -71.3292387, 10), (25.3393935, -77.9866343, 10), (25.3393935, -77.9866343, 15)]
+        int[] faceVertexCounts = [3]
+        int[] faceVertexIndices = [0, 1, 2]
+    }
+
+    def Mesh "expr_0055__95_40"
+    {
+        custom string desmos:url = ""
+        custom string desmos:hash = ""
+        custom string desmos:exprId = "95_40"
+        custom int desmos:order = 55
+        custom string desmos:latex = "\\operatorname{triangle}\\left(\\left(75\\cos\\left(\\frac{2\\pi 41.0}{50}\\right),75\\sin\\left(\\frac{2\\pi 41.0}{50}\\right),10\\right),\\left(82\\cos\\left(\\frac{2\\pi 41.0}{50}\\right),82\\sin\\left(\\frac{2\\pi 41.0}{50}\\right),10\\right),\\left(82\\cos\\left(\\frac{2\\pi 41.0}{50}\\right),82\\sin\\left(\\frac{2\\pi 41.0}{50}\\right),15\\right)\\right)"
+        custom string desmos:constraints = ""
+        custom string desmos:kind = "triangle_mesh"
+        custom string desmos:color = "#c74440"
+        custom bool desmos:hidden = false
+        uniform bool doubleSided = true
+        color3f[] primvars:displayColor = [(0.780392157, 0.266666667, 0.250980392)] (
+            interpolation = "constant"
+        )
+        point3f[] points = [(31.9334469, -67.8620289, 10), (34.9139019, -74.1958183, 10), (34.9139019, -74.1958183, 15)]
+        int[] faceVertexCounts = [3]
+        int[] faceVertexIndices = [0, 1, 2]
+    }
+
+    def Mesh "expr_0055__95_41"
+    {
+        custom string desmos:url = ""
+        custom string desmos:hash = ""
+        custom string desmos:exprId = "95_41"
+        custom int desmos:order = 55
+        custom string desmos:latex = "\\operatorname{triangle}\\left(\\left(75\\cos\\left(\\frac{2\\pi 42.0}{50}\\right),75\\sin\\left(\\frac{2\\pi 42.0}{50}\\right),10\\right),\\left(82\\cos\\left(\\frac{2\\pi 42.0}{50}\\right),82\\sin\\left(\\frac{2\\pi 42.0}{50}\\right),10\\right),\\left(82\\cos\\left(\\frac{2\\pi 42.0}{50}\\right),82\\sin\\left(\\frac{2\\pi 42.0}{50}\\right),15\\right)\\right)"
+        custom string desmos:constraints = ""
+        custom string desmos:kind = "triangle_mesh"
+        custom string desmos:color = "#c74440"
+        custom bool desmos:hidden = false
+        uniform bool doubleSided = true
+        color3f[] primvars:displayColor = [(0.780392157, 0.266666667, 0.250980392)] (
+            interpolation = "constant"
+        )
+        point3f[] points = [(40.1870096, -63.3245944, 10), (43.9377972, -69.2348899, 10), (43.9377972, -69.2348899, 15)]
+        int[] faceVertexCounts = [3]
+        int[] faceVertexIndices = [0, 1, 2]
+    }
+
+    def Mesh "expr_0055__95_42"
+    {
+        custom string desmos:url = ""
+        custom string desmos:hash = ""
+        custom string desmos:exprId = "95_42"
+        custom int desmos:order = 55
+        custom string desmos:latex = "\\operatorname{triangle}\\left(\\left(75\\cos\\left(\\frac{2\\pi 43.0}{50}\\right),75\\sin\\left(\\frac{2\\pi 43.0}{50}\\right),10\\right),\\left(82\\cos\\left(\\frac{2\\pi 43.0}{50}\\right),82\\sin\\left(\\frac{2\\pi 43.0}{50}\\right),10\\right),\\left(82\\cos\\left(\\frac{2\\pi 43.0}{50}\\right),82\\sin\\left(\\frac{2\\pi 43.0}{50}\\right),15\\right)\\right)"
+        custom string desmos:constraints = ""
+        custom string desmos:kind = "triangle_mesh"
+        custom string desmos:color = "#c74440"
+        custom bool desmos:hidden = false
+        uniform bool doubleSided = true
+        color3f[] primvars:displayColor = [(0.780392157, 0.266666667, 0.250980392)] (
+            interpolation = "constant"
+        )
+        point3f[] points = [(47.8067992, -57.7884932, 10), (52.2687672, -63.1820859, 10), (52.2687672, -63.1820859, 15)]
+        int[] faceVertexCounts = [3]
+        int[] faceVertexIndices = [0, 1, 2]
+    }
+
+    def Mesh "expr_0055__95_43"
+    {
+        custom string desmos:url = ""
+        custom string desmos:hash = ""
+        custom string desmos:exprId = "95_43"
+        custom int desmos:order = 55
+        custom string desmos:latex = "\\operatorname{triangle}\\left(\\left(75\\cos\\left(\\frac{2\\pi 44.0}{50}\\right),75\\sin\\left(\\frac{2\\pi 44.0}{50}\\right),10\\right),\\left(82\\cos\\left(\\frac{2\\pi 44.0}{50}\\right),82\\sin\\left(\\frac{2\\pi 44.0}{50}\\right),10\\right),\\left(82\\cos\\left(\\frac{2\\pi 44.0}{50}\\right),82\\sin\\left(\\frac{2\\pi 44.0}{50}\\right),15\\right)\\right)"
+        custom string desmos:constraints = ""
+        custom string desmos:kind = "triangle_mesh"
+        custom string desmos:color = "#c74440"
+        custom bool desmos:hidden = false
+        uniform bool doubleSided = true
+        color3f[] primvars:displayColor = [(0.780392157, 0.266666667, 0.250980392)] (
+            interpolation = "constant"
+        )
+        point3f[] points = [(54.6726471, -51.3410329, 10), (59.7754274, -56.1328627, 10), (59.7754274, -56.1328627, 15)]
+        int[] faceVertexCounts = [3]
+        int[] faceVertexIndices = [0, 1, 2]
+    }
+
+    def Mesh "expr_0055__95_44"
+    {
+        custom string desmos:url = ""
+        custom string desmos:hash = ""
+        custom string desmos:exprId = "95_44"
+        custom int desmos:order = 55
+        custom string desmos:latex = "\\operatorname{triangle}\\left(\\left(75\\cos\\left(\\frac{2\\pi 45.0}{50}\\right),75\\sin\\left(\\frac{2\\pi 45.0}{50}\\right),10\\right),\\left(82\\cos\\left(\\frac{2\\pi 45.0}{50}\\right),82\\sin\\left(\\frac{2\\pi 45.0}{50}\\right),10\\right),\\left(82\\cos\\left(\\frac{2\\pi 45.0}{50}\\right),82\\sin\\left(\\frac{2\\pi 45.0}{50}\\right),15\\right)\\right)"
+        custom string desmos:constraints = ""
+        custom string desmos:kind = "triangle_mesh"
+        custom string desmos:color = "#c74440"
+        custom bool desmos:hidden = false
+        uniform bool doubleSided = true
+        color3f[] primvars:displayColor = [(0.780392157, 0.266666667, 0.250980392)] (
+            interpolation = "constant"
+        )
+        point3f[] points = [(60.6762746, -44.0838939, 10), (66.3393935, -48.1983907, 10), (66.3393935, -48.1983907, 15)]
+        int[] faceVertexCounts = [3]
+        int[] faceVertexIndices = [0, 1, 2]
+    }
+
+    def Mesh "expr_0055__95_45"
+    {
+        custom string desmos:url = ""
+        custom string desmos:hash = ""
+        custom string desmos:exprId = "95_45"
+        custom int desmos:order = 55
+        custom string desmos:latex = "\\operatorname{triangle}\\left(\\left(75\\cos\\left(\\frac{2\\pi 46.0}{50}\\right),75\\sin\\left(\\frac{2\\pi 46.0}{50}\\right),10\\right),\\left(82\\cos\\left(\\frac{2\\pi 46.0}{50}\\right),82\\sin\\left(\\frac{2\\pi 46.0}{50}\\right),10\\right),\\left(82\\cos\\left(\\frac{2\\pi 46.0}{50}\\right),82\\sin\\left(\\frac{2\\pi 46.0}{50}\\right),15\\right)\\right)"
+        custom string desmos:constraints = ""
+        custom string desmos:kind = "triangle_mesh"
+        custom string desmos:color = "#c74440"
+        custom bool desmos:hidden = false
+        uniform bool doubleSided = true
+        color3f[] primvars:displayColor = [(0.780392157, 0.266666667, 0.250980392)] (
+            interpolation = "constant"
+        )
+        point3f[] points = [(65.723001, -36.1315256, 10), (71.8571478, -39.5038013, 10), (71.8571478, -39.5038013, 15)]
+        int[] faceVertexCounts = [3]
+        int[] faceVertexIndices = [0, 1, 2]
+    }
+
+    def Mesh "expr_0055__95_46"
+    {
+        custom string desmos:url = ""
+        custom string desmos:hash = ""
+        custom string desmos:exprId = "95_46"
+        custom int desmos:order = 55
+        custom string desmos:latex = "\\operatorname{triangle}\\left(\\left(75\\cos\\left(\\frac{2\\pi 47.0}{50}\\right),75\\sin\\left(\\frac{2\\pi 47.0}{50}\\right),10\\right),\\left(82\\cos\\left(\\frac{2\\pi 47.0}{50}\\right),82\\sin\\left(\\frac{2\\pi 47.0}{50}\\right),10\\right),\\left(82\\cos\\left(\\frac{2\\pi 47.0}{50}\\right),82\\sin\\left(\\frac{2\\pi 47.0}{50}\\right),15\\right)\\right)"
+        custom string desmos:constraints = ""
+        custom string desmos:kind = "triangle_mesh"
+        custom string desmos:color = "#c74440"
+        custom bool desmos:hidden = false
+        uniform bool doubleSided = true
+        color3f[] primvars:displayColor = [(0.780392157, 0.266666667, 0.250980392)] (
+            interpolation = "constant"
+        )
+        point3f[] points = [(69.7332364, -27.6093415, 10), (76.2416718, -30.1862133, 10), (76.2416718, -30.1862133, 15)]
+        int[] faceVertexCounts = [3]
+        int[] faceVertexIndices = [0, 1, 2]
+    }
+
+    def Mesh "expr_0055__95_47"
+    {
+        custom string desmos:url = ""
+        custom string desmos:hash = ""
+        custom string desmos:exprId = "95_47"
+        custom int desmos:order = 55
+        custom string desmos:latex = "\\operatorname{triangle}\\left(\\left(75\\cos\\left(\\frac{2\\pi 48.0}{50}\\right),75\\sin\\left(\\frac{2\\pi 48.0}{50}\\right),10\\right),\\left(82\\cos\\left(\\frac{2\\pi 48.0}{50}\\right),82\\sin\\left(\\frac{2\\pi 48.0}{50}\\right),10\\right),\\left(82\\cos\\left(\\frac{2\\pi 48.0}{50}\\right),82\\sin\\left(\\frac{2\\pi 48.0}{50}\\right),15\\right)\\right)"
+        custom string desmos:constraints = ""
+        custom string desmos:kind = "triangle_mesh"
+        custom string desmos:color = "#c74440"
+        custom bool desmos:hidden = false
+        uniform bool doubleSided = true
+        color3f[] primvars:displayColor = [(0.780392157, 0.266666667, 0.250980392)] (
+            interpolation = "constant"
+        )
+        point3f[] points = [(72.6437371, -18.6517415, 10), (79.4238192, -20.3925707, 10), (79.4238192, -20.3925707, 15)]
+        int[] faceVertexCounts = [3]
+        int[] faceVertexIndices = [0, 1, 2]
+    }
+
+    def Mesh "expr_0055__95_48"
+    {
+        custom string desmos:url = ""
+        custom string desmos:hash = ""
+        custom string desmos:exprId = "95_48"
+        custom int desmos:order = 55
+        custom string desmos:latex = "\\operatorname{triangle}\\left(\\left(75\\cos\\left(\\frac{2\\pi 49.0}{50}\\right),75\\sin\\left(\\frac{2\\pi 49.0}{50}\\right),10\\right),\\left(82\\cos\\left(\\frac{2\\pi 49.0}{50}\\right),82\\sin\\left(\\frac{2\\pi 49.0}{50}\\right),10\\right),\\left(82\\cos\\left(\\frac{2\\pi 49.0}{50}\\right),82\\sin\\left(\\frac{2\\pi 49.0}{50}\\right),15\\right)\\right)"
+        custom string desmos:constraints = ""
+        custom string desmos:kind = "triangle_mesh"
+        custom string desmos:color = "#c74440"
+        custom bool desmos:hidden = false
+        uniform bool doubleSided = true
+        color3f[] primvars:displayColor = [(0.780392157, 0.266666667, 0.250980392)] (
+            interpolation = "constant"
+        )
+        point3f[] points = [(74.4086026, -9.39999252, 10), (81.3534055, -10.2773252, 10), (81.3534055, -10.2773252, 15)]
+        int[] faceVertexCounts = [3]
+        int[] faceVertexIndices = [0, 1, 2]
+    }
+
+    def Mesh "expr_0055__95_49"
+    {
+        custom string desmos:url = ""
+        custom string desmos:hash = ""
+        custom string desmos:exprId = "95_49"
+        custom int desmos:order = 55
+        custom string desmos:latex = "\\operatorname{triangle}\\left(\\left(75\\cos\\left(\\frac{2\\pi 50.0}{50}\\right),75\\sin\\left(\\frac{2\\pi 50.0}{50}\\right),10\\right),\\left(82\\cos\\left(\\frac{2\\pi 50.0}{50}\\right),82\\sin\\left(\\frac{2\\pi 50.0}{50}\\right),10\\right),\\left(82\\cos\\left(\\frac{2\\pi 50.0}{50}\\right),82\\sin\\left(\\frac{2\\pi 50.0}{50}\\right),15\\right)\\right)"
+        custom string desmos:constraints = ""
+        custom string desmos:kind = "triangle_mesh"
+        custom string desmos:color = "#c74440"
+        custom bool desmos:hidden = false
+        uniform bool doubleSided = true
+        color3f[] primvars:displayColor = [(0.780392157, 0.266666667, 0.250980392)] (
+            interpolation = "constant"
+        )
+        point3f[] points = [(75, 0, 10), (82, 0, 10), (82, 0, 15)]
+        int[] faceVertexCounts = [3]
+        int[] faceVertexIndices = [0, 1, 2]
+    }
+
+}

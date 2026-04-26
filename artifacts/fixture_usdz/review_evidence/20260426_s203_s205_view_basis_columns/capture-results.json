@@ -1,0 +1,54 @@
+{
+  "capturedAt": "2026-04-26T07:39:22Z",
+  "results": [
+    {
+      "case": "S2-03_Group_B",
+      "kind": "desmos",
+      "file": "/Users/chek/repos/desmos2usd-carey/artifacts/fixture_usdz/review_evidence/20260426_s203_s205_view_basis_columns/S2-03_Group_B_desmos.png",
+      "ok": true,
+      "source": "/Users/chek/repos/desmos2usd-carey/artifacts/fixture_usdz/review_evidence/20260426_s203_s205_after_domain_caps_recheck/S2-03_Group_B_desmos.png",
+      "error": null
+    },
+    {
+      "case": "S2-03_Group_B",
+      "kind": "local_browser",
+      "file": null,
+      "ok": false,
+      "source": "viewer",
+      "error": "Browser recapture blocked in this sandbox: Playwright and Chrome DevTools navigation returned `user cancelled MCP tool call`; local http.server bind failed with PermissionError; Chrome headless exited before producing a screenshot."
+    },
+    {
+      "case": "S2-03_Group_B",
+      "kind": "local_projection",
+      "file": "/Users/chek/repos/desmos2usd-carey/artifacts/fixture_usdz/review_evidence/20260426_s203_s205_view_basis_columns/S2-03_Group_B_local_projection_fixed_camera.png",
+      "ok": true,
+      "source": "diagnostic software projection from regenerated geometry using the fixed viewer camera basis",
+      "error": null
+    },
+    {
+      "case": "S2-05_Group_D",
+      "kind": "desmos",
+      "file": "/Users/chek/repos/desmos2usd-carey/artifacts/fixture_usdz/review_evidence/20260426_s203_s205_view_basis_columns/S2-05_Group_D_desmos.png",
+      "ok": true,
+      "source": "/Users/chek/repos/desmos2usd-carey/artifacts/fixture_usdz/review_evidence/20260426_s203_s205_after_domain_caps_recheck/S2-05_Group_D_desmos.png",
+      "error": null
+    },
+    {
+      "case": "S2-05_Group_D",
+      "kind": "local_browser",
+      "file": null,
+      "ok": false,
+      "source": "viewer",
+      "error": "Browser recapture blocked in this sandbox: Playwright and Chrome DevTools navigation returned `user cancelled MCP tool call`; local http.server bind failed with PermissionError; Chrome headless exited before producing a screenshot."
+    },
+    {
+      "case": "S2-05_Group_D",
+      "kind": "local_projection",
+      "file": "/Users/chek/repos/desmos2usd-carey/artifacts/fixture_usdz/review_evidence/20260426_s203_s205_view_basis_columns/S2-05_Group_D_local_projection_fixed_camera.png",
+      "ok": true,
+      "source": "diagnostic software projection from regenerated geometry using the fixed viewer camera basis",
+      "error": null
+    }
+  ],
+  "diagnosticContactSheet": "/Users/chek/repos/desmos2usd-carey/artifacts/fixture_usdz/review_evidence/20260426_s203_s205_view_basis_columns/diagnostic_contact_sheet.png"
+}

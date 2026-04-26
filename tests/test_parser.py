@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import unittest
+import math
 
 from _path import ROOT
 from desmos2usd.desmos_state import REQUIRED_SAMPLE_URLS, load_fixture_state
@@ -29,6 +30,26 @@ class ParserTests(unittest.TestCase):
     def test_list_definition_parses(self) -> None:
         expr = LatexExpression.parse(r"a_{1}x^{2}+b_{1}x+c_{1}")
         self.assertEqual(expr.python, "a_1*x**(2)+b_1*x+c_1")
+
+    def test_parameter_adjacency_is_implicit_multiplication(self) -> None:
+        expr = LatexExpression.parse(r"0.05\left(4t\left(1-t\right)-1\right)")
+        self.assertEqual(expr.python, "0.05*(4*t*(1-t)-1)")
+        self.assertAlmostEqual(expr.eval(variables={"t": 0.5}), 0.0)
+
+    def test_subscripted_scalar_adjacent_to_parameter_multiplies(self) -> None:
+        expr = LatexExpression.parse(r"t_{p}v")
+        self.assertEqual(expr.python, "t_p*v")
+        self.assertAlmostEqual(expr.eval(EvalContext(scalars={"t_p": 2.0}), {"v": 3.0}), 6.0)
+
+    def test_variable_adjacent_to_builtin_function_multiplies(self) -> None:
+        expr = LatexExpression.parse(r"x-z\tan\left(5.5\right)")
+        self.assertEqual(expr.python, "x-z*tan(5.5)")
+        self.assertAlmostEqual(expr.eval(variables={"x": 2.0, "z": 3.0}), 2.0 - 3.0 * math.tan(5.5))
+
+    def test_degree_mode_trig_uses_degrees(self) -> None:
+        expr = LatexExpression.parse(r"\tan\left(45\right)")
+
+        self.assertAlmostEqual(expr.eval(EvalContext(degree_mode=True)), 1.0)
 
     def test_predicate(self) -> None:
         predicate = parse_predicate("-2<=x<=2")

@@ -1,0 +1,32 @@
+{
+  "target": {
+    "desmos_url": "https://www.desmos.com/3d/cg2sd6h1ws",
+    "fixture": "[4B] 3D Diagram - S2-06 Group E.json"
+  },
+  "browser_capture": {
+    "chrome_devtools_resize": "user cancelled MCP tool call",
+    "desmos_reference_files": [],
+    "headless_chrome": {
+      "command": "'/Applications/Google Chrome.app/Contents/MacOS/Google Chrome' --headless=new --disable-gpu --no-sandbox --window-size=1440,1000 --screenshot=artifacts/fixture_usdz/review_evidence/20260427_s206_group_e_ralph_ellipse_bounds/desmos_reference_headless.png https://www.desmos.com/3d/cg2sd6h1ws",
+      "returncode": -1,
+      "stderr": "",
+      "stdout": "",
+      "screenshot_created": false
+    },
+    "playwright_resize": "user cancelled MCP tool call"
+  },
+  "viewer_capture": {
+    "live_viewer_files": [],
+    "local_server": {
+      "command": "python3 -m http.server 8765 --bind 127.0.0.1",
+      "error": "PermissionError: [Errno 1] Operation not permitted"
+    },
+    "note": "Live viewer evidence is blocked in this environment; deterministic local projections were generated instead."
+  },
+  "deterministic_projection_files": [
+    "S2-06_Group_E_projection_before_pass5.png",
+    "S2-06_Group_E_projection_after.png",
+    "S2-08_Group_E_projection_guard_after.png",
+    "S2-09_Group_F_projection_guard_after.png"
+  ]
+}

@@ -1,297 +1,53 @@
 {
   "acceptance_success": false,
+  "classified_expression_count": 111,
   "complete": false,
   "fixture": "[4B] 3D Diagram - S2-04 Group F.json",
   "fixture_path": "fixtures/states/[4B] 3D Diagram - S2-04 Group F.json",
   "graph_hash": null,
-  "output": "/Users/careylai/Desktop/desmos2usd/artifacts/fixture_usdz/[4B] 3D Diagram - S2-04 Group F.usda",
-  "prim_count": 66,
+  "output": "artifacts/fixture_usdz/[4B] 3D Diagram - S2-04 Group F.usda",
+  "prim_count": 107,
   "renderable_expression_count": 111,
-  "resolution": 8,
+  "resolution": 12,
   "status": "partial",
   "title": "Desmos graph",
   "unsupported": [
     {
-      "expr_id": "1",
-      "kind": "parametric_curve",
-      "latex": "(5.36(1-v)^{2}-2.16-u(1.6(1-v)+0.24),-(0.24+5.36(1-v)^{2}),20v)",
-      "reason": "Could not evaluate '5.36(1-v)^{2}-2.16-u(1.6(1-v)+0.24)' with variables {'t': 0.0}: name 'v' is not defined"
-    },
-    {
-      "expr_id": "2",
-      "kind": "parametric_curve",
-      "latex": "(-5.36(1-v)^{2}-2.64+u(1.6(1-v)+0.24),-(0.24+5.36(1-v)^{2}),20v)",
-      "reason": "Could not evaluate '-5.36(1-v)^{2}-2.64+u(1.6(1-v)+0.24)' with variables {'t': 0.0}: name 'v' is not defined"
-    },
-    {
-      "expr_id": "3",
-      "kind": "parametric_curve",
-      "latex": "(5.36(1-v)^{2}-2.16-u(1.6(1-v)+0.24),0.24+5.36(1-v)^{2},20v)",
-      "reason": "Could not evaluate '5.36(1-v)^{2}-2.16-u(1.6(1-v)+0.24)' with variables {'t': 0.0}: name 'v' is not defined"
-    },
-    {
-      "expr_id": "4",
-      "kind": "parametric_curve",
-      "latex": "(-5.36(1-v)^{2}-2.64+u(1.6(1-v)+0.24),0.24+5.36(1-v)^{2},20v)",
-      "reason": "Could not evaluate '-5.36(1-v)^{2}-2.64+u(1.6(1-v)+0.24)' with variables {'t': 0.0}: name 'v' is not defined"
-    },
-    {
-      "expr_id": "5",
-      "kind": "parametric_curve",
-      "latex": "(5.36(1-v)^{2}-2.16,-(0.24+5.36(1-v)^{2})+u(1.6(1-v)+0.24),20v)",
-      "reason": "Could not evaluate '5.36(1-v)^{2}-2.16' with variables {'t': 0.0}: name 'v' is not defined"
-    },
-    {
-      "expr_id": "6",
-      "kind": "parametric_curve",
-      "latex": "(5.36(1-v)^{2}-2.16,0.24+5.36(1-v)^{2}-u(1.6(1-v)+0.24),20v)",
-      "reason": "Could not evaluate '5.36(1-v)^{2}-2.16' with variables {'t': 0.0}: name 'v' is not defined"
-    },
-    {
-      "expr_id": "7",
-      "kind": "parametric_curve",
-      "latex": "(-5.36(1-v)^{2}-2.64,-(0.24+5.36(1-v)^{2})+u(1.6(1-v)+0.24),20v)",
-      "reason": "Could not evaluate '-5.36(1-v)^{2}-2.64' with variables {'t': 0.0}: name 'v' is not defined"
-    },
-    {
-      "expr_id": "8",
-      "kind": "parametric_curve",
-      "latex": "(-5.36(1-v)^{2}-2.64,0.24+5.36(1-v)^{2}-u(1.6(1-v)+0.24),20v)",
-      "reason": "Could not evaluate '-5.36(1-v)^{2}-2.64' with variables {'t': 0.0}: name 'v' is not defined"
-    },
-    {
-      "expr_id": "14",
-      "kind": "parametric_curve",
-      "latex": "(1.45u-3.12,1.45v-0.72,14)",
-      "reason": "Could not evaluate '1.45u-3.12' with variables {'t': 0.0}: name 'u' is not defined"
-    },
-    {
-      "expr_id": "15",
-      "kind": "parametric_curve",
-      "latex": "(0.37u-2.58,0.37v-0.18,26)",
-      "reason": "Could not evaluate '0.37u-2.58' with variables {'t': 0.0}: name 'u' is not defined"
-    },
-    {
-      "expr_id": "20",
-      "kind": "parametric_curve",
-      "latex": "(-1.86-0.54u,-1.58+0.86u+0.14v-0.07,4u+10)",
-      "reason": "Could not evaluate '-1.86-0.54u' with variables {'t': 0.0}: name 'u' is not defined"
-    },
-    {
-      "expr_id": "21",
-      "kind": "parametric_curve",
-      "latex": "(-2.94+0.54u,-1.58+0.86u+0.14v-0.07,4u+10)",
-      "reason": "Could not evaluate '-2.94+0.54u' with variables {'t': 0.0}: name 'u' is not defined"
-    },
-    {
-      "expr_id": "28",
-      "kind": "parametric_curve",
-      "latex": "(-1.86-0.54u,1.58-0.86u-0.14v+0.07,4u+10)",
-      "reason": "Could not evaluate '-1.86-0.54u' with variables {'t': 0.0}: name 'u' is not defined"
-    },
-    {
-      "expr_id": "29",
-      "kind": "parametric_curve",
-      "latex": "(-2.94+0.54u,1.58-0.86u-0.14v+0.07,4u+10)",
-      "reason": "Could not evaluate '-2.94+0.54u' with variables {'t': 0.0}: name 'u' is not defined"
-    },
-    {
-      "expr_id": "36",
-      "kind": "parametric_curve",
-      "latex": "(-0.82-0.86u+0.14v-0.07,-0.54+0.54u,4u+10)",
-      "reason": "Could not evaluate '-0.82-0.86u+0.14v-0.07' with variables {'t': 0.0}: name 'u' is not defined"
-    },
-    {
-      "expr_id": "37",
-      "kind": "parametric_curve",
-      "latex": "(-0.82-0.86u+0.14v-0.07,0.54-0.54u,4u+10)",
-      "reason": "Could not evaluate '-0.82-0.86u+0.14v-0.07' with variables {'t': 0.0}: name 'u' is not defined"
-    },
-    {
-      "expr_id": "44",
-      "kind": "parametric_curve",
-      "latex": "(-3.98+0.86u-0.14v+0.07,-0.54+0.54u,4u+10)",
-      "reason": "Could not evaluate '-3.98+0.86u-0.14v+0.07' with variables {'t': 0.0}: name 'u' is not defined"
-    },
-    {
-      "expr_id": "45",
-      "kind": "parametric_curve",
-      "latex": "(-3.98+0.86u-0.14v+0.07,0.54-0.54u,4u+10)",
-      "reason": "Could not evaluate '-3.98+0.86u-0.14v+0.07' with variables {'t': 0.0}: name 'u' is not defined"
-    },
-    {
-      "expr_id": "54",
-      "kind": "parametric_curve",
-      "latex": "((0.724-0.484v)(2u-1)-2.4,-(0.724-0.484v),6v+14)",
-      "reason": "Could not evaluate '(0.724-0.484v)(2u-1)-2.4' with variables {'t': 0.0}: name 'v' is not defined"
-    },
-    {
-      "expr_id": "55",
-      "kind": "parametric_curve",
-      "latex": "((0.724-0.484v)(2u-1)-2.4,0.724-0.484v,6v+14)",
-      "reason": "Could not evaluate '(0.724-0.484v)(2u-1)-2.4' with variables {'t': 0.0}: name 'v' is not defined"
-    },
-    {
-      "expr_id": "56",
-      "kind": "parametric_curve",
-      "latex": "(-0.724+0.484v-2.4,(0.724-0.484v)(2u-1),6v+14)",
-      "reason": "Could not evaluate '-0.724+0.484v-2.4' with variables {'t': 0.0}: name 'v' is not defined"
-    },
-    {
-      "expr_id": "57",
-      "kind": "parametric_curve",
-      "latex": "(0.724-0.484v-2.4,(0.724-0.484v)(2u-1),6v+14)",
-      "reason": "Could not evaluate '0.724-0.484v-2.4' with variables {'t': 0.0}: name 'v' is not defined"
-    },
-    {
-      "expr_id": "58",
-      "kind": "parametric_curve",
-      "latex": "(1.256u-3.028,1.256v-0.628,15.2)",
-      "reason": "Could not evaluate '1.256u-3.028' with variables {'t': 0.0}: name 'u' is not defined"
-    },
-    {
-      "expr_id": "59",
-      "kind": "parametric_curve",
-      "latex": "(0.992u-2.896,0.992v-0.496,16.8)",
-      "reason": "Could not evaluate '0.992u-2.896' with variables {'t': 0.0}: name 'u' is not defined"
-    },
-    {
-      "expr_id": "60",
-      "kind": "parametric_curve",
-      "latex": "(0.736u-2.768,0.736v-0.368,18.4)",
-      "reason": "Could not evaluate '0.736u-2.768' with variables {'t': 0.0}: name 'u' is not defined"
-    },
-    {
-      "expr_id": "61",
-      "kind": "parametric_curve",
-      "latex": "(-1.772-0.388u,-0.628+0.388u+0.14v-0.07,6u+14)",
-      "reason": "Could not evaluate '-1.772-0.388u' with variables {'t': 0.0}: name 'u' is not defined"
-    },
-    {
-      "expr_id": "62",
-      "kind": "parametric_curve",
-      "latex": "(-3.028+0.868u,-0.628+0.388u+0.14v-0.07,6u+14)",
-      "reason": "Could not evaluate '-3.028+0.868u' with variables {'t': 0.0}: name 'u' is not defined"
-    },
-    {
-      "expr_id": "63",
-      "kind": "parametric_curve",
-      "latex": "(-1.772-0.388u,0.628-0.388u-0.14v+0.07,6u+14)",
-      "reason": "Could not evaluate '-1.772-0.388u' with variables {'t': 0.0}: name 'u' is not defined"
-    },
-    {
-      "expr_id": "64",
-      "kind": "parametric_curve",
-      "latex": "(-3.028+0.868u,0.628-0.388u-0.14v+0.07,6u+14)",
-      "reason": "Could not evaluate '-3.028+0.868u' with variables {'t': 0.0}: name 'u' is not defined"
-    },
-    {
-      "expr_id": "71",
-      "kind": "parametric_curve",
-      "latex": "((0.24-0.18v)(2u-1)-2.4,-(0.24-0.18v),20v+20)\\left\\{4<z\\right\\}",
-      "reason": "Could not evaluate '(0.24-0.18v)(2u-1)-2.4' with variables {'t': 0.0}: name 'v' is not defined"
-    },
-    {
-      "expr_id": "72",
-      "kind": "parametric_curve",
-      "latex": "((0.24-0.18v)(2u-1)-2.4,0.24-0.18v,20v+20)",
-      "reason": "Could not evaluate '(0.24-0.18v)(2u-1)-2.4' with variables {'t': 0.0}: name 'v' is not defined"
-    },
-    {
-      "expr_id": "73",
-      "kind": "parametric_curve",
-      "latex": "(-0.24+0.18v-2.4,(0.24-0.18v)(2u-1),20v+20)",
-      "reason": "Could not evaluate '-0.24+0.18v-2.4' with variables {'t': 0.0}: name 'v' is not defined"
-    },
-    {
       "expr_id": "74",
-      "kind": "parametric_curve",
+      "kind": "parametric_surface",
       "latex": "(0.24-0.18v-2.4,(0.24-0.18v)(2u-1),20v+20)\\left\\{40<z\\right\\}",
-      "reason": "Could not evaluate '0.24-0.18v-2.4' with variables {'t': 0.0}: name 'v' is not defined"
-    },
-    {
-      "expr_id": "75",
-      "kind": "parametric_curve",
-      "latex": "(0.2u-2.5,0.2v-0.1,40)",
-      "reason": "Could not evaluate '0.2u-2.5' with variables {'t': 0.0}: name 'u' is not defined"
-    },
-    {
-      "expr_id": "76",
-      "kind": "parametric_curve",
-      "latex": "(0.11\\cos(2\\pi v)-2.4,0.11\\sin(2\\pi v),2.4u+40)",
-      "reason": "Could not evaluate '0.11\\\\cos(2\\\\pi v)-2.4' with variables {'t': 0.0}: name 'v' is not defined"
-    },
-    {
-      "expr_id": "77",
-      "kind": "parametric_curve",
-      "latex": "(0.07\\cos(2\\pi v)-2.4,0.07\\sin(2\\pi v),1.2u+42.4)",
-      "reason": "Could not evaluate '0.07\\\\cos(2\\\\pi v)-2.4' with variables {'t': 0.0}: name 'v' is not defined"
-    },
-    {
-      "expr_id": "78",
-      "kind": "parametric_curve",
-      "latex": "(0.04\\cos(2\\pi v)-2.4,0.04\\sin(2\\pi v),0.8u+43.6)",
-      "reason": "Could not evaluate '0.04\\\\cos(2\\\\pi v)-2.4' with variables {'t': 0.0}: name 'v' is not defined"
-    },
-    {
-      "expr_id": "89",
-      "kind": "parametric_curve",
-      "latex": "(2.75u-3.77,2.75v-1.37,10.8)",
-      "reason": "Could not evaluate '2.75u-3.77' with variables {'t': 0.0}: name 'u' is not defined"
-    },
-    {
-      "expr_id": "178",
-      "kind": "parametric_curve",
-      "latex": "(2.75u-3.77,2.75v-1.37,13)",
-      "reason": "Could not evaluate '2.75u-3.77' with variables {'t': 0.0}: name 'u' is not defined"
-    },
-    {
-      "expr_id": "184",
-      "kind": "parametric_curve",
-      "latex": "(-0.24+0.18v-2.4,(0.24-0.18v)(2u-1),20v+20)\\left\\{25\\ge z\\ge20\\right\\}",
-      "reason": "Could not evaluate '-0.24+0.18v-2.4' with variables {'t': 0.0}: name 'v' is not defined"
-    },
-    {
-      "expr_id": "185",
-      "kind": "parametric_curve",
-      "latex": "((0.24-0.18v)(2u-1)-2.4,0.24-0.18v,20v+20)\\left\\{25\\ge z\\ge20\\right\\}",
-      "reason": "Could not evaluate '(0.24-0.18v)(2u-1)-2.4' with variables {'t': 0.0}: name 'v' is not defined"
-    },
-    {
-      "expr_id": "186",
-      "kind": "parametric_curve",
-      "latex": "((0.24-0.18v)(2u-1)-2.4,-(0.24-0.18v),20v+20)\\left\\{4<z\\right\\}\\left\\{25\\ge z\\ge20\\right\\}",
-      "reason": "Could not evaluate '(0.24-0.18v)(2u-1)-2.4' with variables {'t': 0.0}: name 'v' is not defined"
+      "reason": "point 0 violates predicate '40<z'; point 1 violates predicate '40<z'; point 2 violates predicate '40<z'; point 3 violates predicate '40<z'; point 4 violates predicate '40<z'; point 5 violates predicate '40<z'; point 6 violates predicate '40<z'; point 7 violates predicate '40<z'; point 8 violates predicate '40<z'; point 9 violates predicate '40<z'; point 10 violates predicate '40<z'; point 11 violates predicate '40<z'; point 12 violates predicate '40<z'; point 13 violates predicate '40<z'; point 14 violates predicate '40<z'; point 15 violates predicate '40<z'; point 16 violates predicate '40<z'; point 17 violates predicate '40<z'; point 18 violates predicate '40<z'; point 19 violates predicate '40<z'"
     },
     {
       "expr_id": "188",
-      "kind": "parametric_curve",
+      "kind": "parametric_surface",
       "latex": "(-0.24+0.18v-2.4,(0.24-0.18v)(2u-1),20v+20)\\left\\{29\\ge z\\ge27\\right\\}",
-      "reason": "Could not evaluate '-0.24+0.18v-2.4' with variables {'t': 0.0}: name 'v' is not defined"
+      "reason": "point 0 violates predicate '29\\\\ge z\\\\ge27'; point 1 violates predicate '29\\\\ge z\\\\ge27'; point 2 violates predicate '29\\\\ge z\\\\ge27'; point 3 violates predicate '29\\\\ge z\\\\ge27'; point 4 violates predicate '29\\\\ge z\\\\ge27'; point 5 violates predicate '29\\\\ge z\\\\ge27'; point 6 violates predicate '29\\\\ge z\\\\ge27'; point 7 violates predicate '29\\\\ge z\\\\ge27'; point 8 violates predicate '29\\\\ge z\\\\ge27'; point 9 violates predicate '29\\\\ge z\\\\ge27'; point 10 violates predicate '29\\\\ge z\\\\ge27'; point 11 violates predicate '29\\\\ge z\\\\ge27'; point 12 violates predicate '29\\\\ge z\\\\ge27'; point 13 violates predicate '29\\\\ge z\\\\ge27'; point 14 violates predicate '29\\\\ge z\\\\ge27'; point 15 violates predicate '29\\\\ge z\\\\ge27'; point 16 violates predicate '29\\\\ge z\\\\ge27'; point 17 violates predicate '29\\\\ge z\\\\ge27'; point 18 violates predicate '29\\\\ge z\\\\ge27'; point 19 violates predicate '29\\\\ge z\\\\ge27'"
     },
     {
       "expr_id": "189",
-      "kind": "parametric_curve",
+      "kind": "parametric_surface",
       "latex": "((0.24-0.18v)(2u-1)-2.4,0.24-0.18v,20v+20)\\left\\{29\\ge z\\ge27\\right\\}",
-      "reason": "Could not evaluate '(0.24-0.18v)(2u-1)-2.4' with variables {'t': 0.0}: name 'v' is not defined"
+      "reason": "point 0 violates predicate '29\\\\ge z\\\\ge27'; point 1 violates predicate '29\\\\ge z\\\\ge27'; point 2 violates predicate '29\\\\ge z\\\\ge27'; point 3 violates predicate '29\\\\ge z\\\\ge27'; point 4 violates predicate '29\\\\ge z\\\\ge27'; point 5 violates predicate '29\\\\ge z\\\\ge27'; point 6 violates predicate '29\\\\ge z\\\\ge27'; point 7 violates predicate '29\\\\ge z\\\\ge27'; point 8 violates predicate '29\\\\ge z\\\\ge27'; point 9 violates predicate '29\\\\ge z\\\\ge27'; point 10 violates predicate '29\\\\ge z\\\\ge27'; point 11 violates predicate '29\\\\ge z\\\\ge27'; point 12 violates predicate '29\\\\ge z\\\\ge27'; point 13 violates predicate '29\\\\ge z\\\\ge27'; point 14 violates predicate '29\\\\ge z\\\\ge27'; point 15 violates predicate '29\\\\ge z\\\\ge27'; point 16 violates predicate '29\\\\ge z\\\\ge27'; point 17 violates predicate '29\\\\ge z\\\\ge27'; point 18 violates predicate '29\\\\ge z\\\\ge27'; point 19 violates predicate '29\\\\ge z\\\\ge27'"
     },
     {
       "expr_id": "190",
-      "kind": "parametric_curve",
+      "kind": "parametric_surface",
       "latex": "((0.24-0.18v)(2u-1)-2.4,-(0.24-0.18v),20v+20)\\left\\{4<z\\right\\}\\left\\{29\\ge z\\ge27\\right\\}",
-      "reason": "Could not evaluate '(0.24-0.18v)(2u-1)-2.4' with variables {'t': 0.0}: name 'v' is not defined"
+      "reason": "point 0 violates predicate '29\\\\ge z\\\\ge27'; point 1 violates predicate '29\\\\ge z\\\\ge27'; point 2 violates predicate '29\\\\ge z\\\\ge27'; point 3 violates predicate '29\\\\ge z\\\\ge27'; point 4 violates predicate '29\\\\ge z\\\\ge27'; point 5 violates predicate '29\\\\ge z\\\\ge27'; point 6 violates predicate '29\\\\ge z\\\\ge27'; point 7 violates predicate '29\\\\ge z\\\\ge27'; point 8 violates predicate '29\\\\ge z\\\\ge27'; point 9 violates predicate '29\\\\ge z\\\\ge27'; point 10 violates predicate '29\\\\ge z\\\\ge27'; point 11 violates predicate '29\\\\ge z\\\\ge27'; point 12 violates predicate '29\\\\ge z\\\\ge27'; point 13 violates predicate '29\\\\ge z\\\\ge27'; point 14 violates predicate '29\\\\ge z\\\\ge27'; point 15 violates predicate '29\\\\ge z\\\\ge27'; point 16 violates predicate '29\\\\ge z\\\\ge27'; point 17 violates predicate '29\\\\ge z\\\\ge27'; point 18 violates predicate '29\\\\ge z\\\\ge27'; point 19 violates predicate '29\\\\ge z\\\\ge27'"
     }
   ],
-  "unsupported_count": 45,
+  "unsupported_count": 4,
+  "usda_exists": true,
   "usdz_exists": true,
-  "usdz_output": "/Users/careylai/Desktop/desmos2usd/artifacts/fixture_usdz/[4B] 3D Diagram - S2-04 Group F.usdz",
+  "usdz_output": "artifacts/fixture_usdz/[4B] 3D Diagram - S2-04 Group F.usdz",
   "usdz_package": {
     "command": [
       "/usr/bin/usdzip",
-      "/Users/careylai/Desktop/desmos2usd/artifacts/fixture_usdz/[4B] 3D Diagram - S2-04 Group F.usdz",
+      "/Users/chek/repos/desmos2usd-carey/artifacts/fixture_usdz/[4B] 3D Diagram - S2-04 Group F.usdz",
       "[4B] 3D Diagram - S2-04 Group F.usda"
     ],
-    "cwd": "/Users/careylai/Desktop/desmos2usd/artifacts/fixture_usdz",
+    "cwd": "/Users/chek/repos/desmos2usd-carey/artifacts/fixture_usdz",
     "returncode": 0,
     "stderr": "",
     "stdout": "",
@@ -301,7 +57,7 @@
     "command": [
       "/usr/bin/usdchecker",
       "--arkit",
-      "/Users/careylai/Desktop/desmos2usd/artifacts/fixture_usdz/[4B] 3D Diagram - S2-04 Group F.usdz"
+      "/Users/chek/repos/desmos2usd-carey/artifacts/fixture_usdz/[4B] 3D Diagram - S2-04 Group F.usdz"
     ],
     "cwd": null,
     "returncode": 0,
@@ -314,11 +70,381 @@
     {
       "constraint_violation_count": 0,
       "errors": [],
+      "expr_id": "1",
+      "face_count": 121,
+      "kind": "parametric_surface",
+      "max_residual": 0.0,
+      "point_count": 144,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "2",
+      "face_count": 121,
+      "kind": "parametric_surface",
+      "max_residual": 0.0,
+      "point_count": 144,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "3",
+      "face_count": 121,
+      "kind": "parametric_surface",
+      "max_residual": 0.0,
+      "point_count": 144,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "4",
+      "face_count": 121,
+      "kind": "parametric_surface",
+      "max_residual": 0.0,
+      "point_count": 144,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "5",
+      "face_count": 121,
+      "kind": "parametric_surface",
+      "max_residual": 0.0,
+      "point_count": 144,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "6",
+      "face_count": 121,
+      "kind": "parametric_surface",
+      "max_residual": 0.0,
+      "point_count": 144,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "7",
+      "face_count": 121,
+      "kind": "parametric_surface",
+      "max_residual": 0.0,
+      "point_count": 144,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "8",
+      "face_count": 121,
+      "kind": "parametric_surface",
+      "max_residual": 0.0,
+      "point_count": 144,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "14",
+      "face_count": 121,
+      "kind": "parametric_surface",
+      "max_residual": 0.0,
+      "point_count": 144,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "15",
+      "face_count": 121,
+      "kind": "parametric_surface",
+      "max_residual": 0.0,
+      "point_count": 144,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "20",
+      "face_count": 121,
+      "kind": "parametric_surface",
+      "max_residual": 0.0,
+      "point_count": 144,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "21",
+      "face_count": 121,
+      "kind": "parametric_surface",
+      "max_residual": 0.0,
+      "point_count": 144,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "28",
+      "face_count": 121,
+      "kind": "parametric_surface",
+      "max_residual": 0.0,
+      "point_count": 144,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "29",
+      "face_count": 121,
+      "kind": "parametric_surface",
+      "max_residual": 0.0,
+      "point_count": 144,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "36",
+      "face_count": 121,
+      "kind": "parametric_surface",
+      "max_residual": 0.0,
+      "point_count": 144,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "37",
+      "face_count": 121,
+      "kind": "parametric_surface",
+      "max_residual": 0.0,
+      "point_count": 144,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "44",
+      "face_count": 121,
+      "kind": "parametric_surface",
+      "max_residual": 0.0,
+      "point_count": 144,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "45",
+      "face_count": 121,
+      "kind": "parametric_surface",
+      "max_residual": 0.0,
+      "point_count": 144,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "54",
+      "face_count": 121,
+      "kind": "parametric_surface",
+      "max_residual": 0.0,
+      "point_count": 144,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "55",
+      "face_count": 121,
+      "kind": "parametric_surface",
+      "max_residual": 0.0,
+      "point_count": 144,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "56",
+      "face_count": 121,
+      "kind": "parametric_surface",
+      "max_residual": 0.0,
+      "point_count": 144,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "57",
+      "face_count": 121,
+      "kind": "parametric_surface",
+      "max_residual": 0.0,
+      "point_count": 144,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "58",
+      "face_count": 121,
+      "kind": "parametric_surface",
+      "max_residual": 0.0,
+      "point_count": 144,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "59",
+      "face_count": 121,
+      "kind": "parametric_surface",
+      "max_residual": 0.0,
+      "point_count": 144,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "60",
+      "face_count": 121,
+      "kind": "parametric_surface",
+      "max_residual": 0.0,
+      "point_count": 144,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "61",
+      "face_count": 121,
+      "kind": "parametric_surface",
+      "max_residual": 0.0,
+      "point_count": 144,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "62",
+      "face_count": 121,
+      "kind": "parametric_surface",
+      "max_residual": 0.0,
+      "point_count": 144,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "63",
+      "face_count": 121,
+      "kind": "parametric_surface",
+      "max_residual": 0.0,
+      "point_count": 144,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "64",
+      "face_count": 121,
+      "kind": "parametric_surface",
+      "max_residual": 0.0,
+      "point_count": 144,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "71",
+      "face_count": 121,
+      "kind": "parametric_surface",
+      "max_residual": 0.0,
+      "point_count": 144,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "72",
+      "face_count": 121,
+      "kind": "parametric_surface",
+      "max_residual": 0.0,
+      "point_count": 144,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "73",
+      "face_count": 121,
+      "kind": "parametric_surface",
+      "max_residual": 0.0,
+      "point_count": 144,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "75",
+      "face_count": 121,
+      "kind": "parametric_surface",
+      "max_residual": 0.0,
+      "point_count": 144,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "76",
+      "face_count": 121,
+      "kind": "parametric_surface",
+      "max_residual": 0.0,
+      "point_count": 144,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "77",
+      "face_count": 121,
+      "kind": "parametric_surface",
+      "max_residual": 0.0,
+      "point_count": 144,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "78",
+      "face_count": 121,
+      "kind": "parametric_surface",
+      "max_residual": 0.0,
+      "point_count": 144,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "89",
+      "face_count": 121,
+      "kind": "parametric_surface",
+      "max_residual": 0.0,
+      "point_count": 144,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
       "expr_id": "104",
       "face_count": 0,
       "kind": "parametric_curve",
       "max_residual": 0.0,
-      "point_count": 16,
+      "point_count": 24,
       "valid": true
     },
     {
@@ -328,7 +454,7 @@
       "face_count": 0,
       "kind": "parametric_curve",
       "max_residual": 0.0,
-      "point_count": 16,
+      "point_count": 24,
       "valid": true
     },
     {
@@ -338,7 +464,7 @@
       "face_count": 0,
       "kind": "parametric_curve",
       "max_residual": 0.0,
-      "point_count": 16,
+      "point_count": 24,
       "valid": true
     },
     {
@@ -348,628 +474,701 @@
       "face_count": 0,
       "kind": "parametric_curve",
       "max_residual": 0.0,
-      "point_count": 16,
+      "point_count": 24,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "114",
-      "face_count": 81,
+      "face_count": 169,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 100,
+      "point_count": 196,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "115",
-      "face_count": 81,
+      "face_count": 169,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 100,
+      "point_count": 196,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "116",
-      "face_count": 81,
+      "face_count": 169,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 100,
+      "point_count": 196,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "118",
-      "face_count": 81,
+      "face_count": 169,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 100,
+      "point_count": 196,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "119",
-      "face_count": 81,
+      "face_count": 169,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 100,
+      "point_count": 196,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "120",
-      "face_count": 81,
+      "face_count": 169,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 100,
+      "point_count": 196,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "121",
-      "face_count": 81,
+      "face_count": 169,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 100,
+      "point_count": 196,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "122",
-      "face_count": 81,
+      "face_count": 169,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 100,
+      "point_count": 196,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "123",
-      "face_count": 81,
+      "face_count": 169,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 100,
+      "point_count": 196,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "117",
-      "face_count": 81,
+      "face_count": 169,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 100,
+      "point_count": 196,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "124",
-      "face_count": 81,
+      "face_count": 169,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 100,
+      "point_count": 196,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "125",
-      "face_count": 81,
+      "face_count": 169,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 100,
+      "point_count": 196,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "126",
-      "face_count": 81,
+      "face_count": 169,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 100,
+      "point_count": 196,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "127",
-      "face_count": 81,
+      "face_count": 169,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 100,
+      "point_count": 196,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "128",
-      "face_count": 81,
+      "face_count": 169,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 100,
+      "point_count": 196,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "129",
-      "face_count": 81,
+      "face_count": 169,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 100,
+      "point_count": 196,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "130",
-      "face_count": 81,
+      "face_count": 169,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 100,
+      "point_count": 196,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "131",
-      "face_count": 81,
+      "face_count": 169,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 100,
+      "point_count": 196,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "132",
-      "face_count": 81,
+      "face_count": 169,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 100,
+      "point_count": 196,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "133",
-      "face_count": 81,
+      "face_count": 169,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 100,
+      "point_count": 196,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "135",
-      "face_count": 81,
+      "face_count": 169,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 100,
+      "point_count": 196,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "136",
-      "face_count": 81,
+      "face_count": 169,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 100,
+      "point_count": 196,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "137",
-      "face_count": 81,
+      "face_count": 169,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 100,
+      "point_count": 196,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "134",
-      "face_count": 81,
+      "face_count": 169,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 100,
+      "point_count": 196,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "138",
-      "face_count": 81,
+      "face_count": 169,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 100,
+      "point_count": 196,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "140",
-      "face_count": 81,
+      "face_count": 169,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 100,
+      "point_count": 196,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "139",
-      "face_count": 81,
+      "face_count": 169,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 100,
+      "point_count": 196,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "141",
-      "face_count": 81,
+      "face_count": 169,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 100,
+      "point_count": 196,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "146",
-      "face_count": 81,
+      "face_count": 169,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 100,
+      "point_count": 196,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "147",
-      "face_count": 81,
+      "face_count": 169,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 100,
+      "point_count": 196,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "149",
-      "face_count": 81,
+      "face_count": 169,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 100,
+      "point_count": 196,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "150",
-      "face_count": 81,
+      "face_count": 169,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 100,
+      "point_count": 196,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "151",
-      "face_count": 81,
+      "face_count": 169,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 100,
+      "point_count": 196,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "152",
-      "face_count": 81,
+      "face_count": 169,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 100,
+      "point_count": 196,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "153",
-      "face_count": 81,
+      "face_count": 169,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 100,
+      "point_count": 196,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "154",
-      "face_count": 81,
+      "face_count": 169,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 100,
+      "point_count": 196,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "155",
-      "face_count": 81,
+      "face_count": 169,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 100,
+      "point_count": 196,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "156",
-      "face_count": 81,
+      "face_count": 169,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 100,
+      "point_count": 196,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "157",
-      "face_count": 81,
+      "face_count": 169,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 100,
+      "point_count": 196,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "158",
-      "face_count": 81,
+      "face_count": 169,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 100,
+      "point_count": 196,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "159",
-      "face_count": 81,
+      "face_count": 169,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 100,
+      "point_count": 196,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "160",
-      "face_count": 81,
+      "face_count": 169,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 100,
+      "point_count": 196,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "161",
-      "face_count": 81,
+      "face_count": 169,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 100,
+      "point_count": 196,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "162",
-      "face_count": 81,
+      "face_count": 169,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 100,
+      "point_count": 196,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "163",
-      "face_count": 81,
+      "face_count": 169,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 100,
+      "point_count": 196,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "164",
-      "face_count": 81,
+      "face_count": 169,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 100,
+      "point_count": 196,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "165",
-      "face_count": 81,
+      "face_count": 169,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 100,
+      "point_count": 196,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "166",
-      "face_count": 81,
+      "face_count": 169,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 100,
+      "point_count": 196,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "167",
-      "face_count": 81,
+      "face_count": 169,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 100,
+      "point_count": 196,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "168",
-      "face_count": 81,
+      "face_count": 169,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 100,
+      "point_count": 196,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "169",
-      "face_count": 81,
+      "face_count": 169,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 100,
+      "point_count": 196,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "170",
-      "face_count": 81,
+      "face_count": 169,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 100,
+      "point_count": 196,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "171",
-      "face_count": 81,
+      "face_count": 169,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 100,
+      "point_count": 196,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "172",
-      "face_count": 81,
+      "face_count": 169,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 100,
+      "point_count": 196,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "173",
-      "face_count": 81,
+      "face_count": 169,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 100,
+      "point_count": 196,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "174",
-      "face_count": 81,
+      "face_count": 169,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 100,
+      "point_count": 196,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "175",
-      "face_count": 81,
+      "face_count": 169,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 100,
+      "point_count": 196,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "176",
-      "face_count": 81,
+      "face_count": 169,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 100,
+      "point_count": 196,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "178",
+      "face_count": 121,
+      "kind": "parametric_surface",
+      "max_residual": 0.0,
+      "point_count": 144,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "179",
-      "face_count": 81,
+      "face_count": 169,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 100,
+      "point_count": 196,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "180",
-      "face_count": 81,
+      "face_count": 169,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 100,
+      "point_count": 196,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "181",
-      "face_count": 81,
+      "face_count": 169,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 100,
+      "point_count": 196,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "182",
-      "face_count": 81,
+      "face_count": 169,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 100,
+      "point_count": 196,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "184",
+      "face_count": 22,
+      "kind": "parametric_surface",
+      "max_residual": 0.0,
+      "point_count": 144,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "185",
+      "face_count": 22,
+      "kind": "parametric_surface",
+      "max_residual": 0.0,
+      "point_count": 144,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "186",
+      "face_count": 22,
+      "kind": "parametric_surface",
+      "max_residual": 0.0,
+      "point_count": 144,
       "valid": true
     }
-  ]
+  ],
+  "view_metadata": {
+    "axis_3d": [
+      0.0,
+      0.0,
+      -0.9999999999827914
+    ],
+    "three_d_mode": true,
+    "viewport_bounds": {
+      "x": [
+        -44.8516803270234,
+        44.8516803270234
+      ],
+      "y": [
+        -44.8516803270234,
+        44.8516803270234
+      ],
+      "z": [
+        -44.8516803270234,
+        44.8516803270234
+      ]
+    },
+    "world_rotation_3d": [
+      0.16816689423520112,
+      0.981776398460303,
+      0.08851553032939354,
+      -0.8687776897802788,
+      0.19003974170211743,
+      -0.45728571190638,
+      -0.4657737878232584,
+      1.8208591277014487e-13,
+      0.8849038244785103
+    ]
+  }
 }

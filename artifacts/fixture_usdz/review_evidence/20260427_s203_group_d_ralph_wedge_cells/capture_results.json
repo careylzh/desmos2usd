@@ -1,0 +1,46 @@
+{
+  "target": {
+    "fixture": "[4B] 3D Diagram - S2-03 Group D.json",
+    "desmos_url": "https://www.desmos.com/3d/zvasa1wcgo"
+  },
+  "browser_capture": {
+    "desmos_reference": {
+      "status": "blocked",
+      "attempts": [
+        {
+          "tool": "playwright.browser_navigate",
+          "url": "https://www.desmos.com/3d/zvasa1wcgo",
+          "result": "user cancelled MCP tool call"
+        },
+        {
+          "tool": "chrome_devtools.new_page",
+          "url": "https://www.desmos.com/3d/zvasa1wcgo",
+          "result": "user cancelled MCP tool call"
+        },
+        {
+          "tool": "local_desmos_fetch",
+          "url": "https://www.desmos.com/3d/zvasa1wcgo",
+          "result": "DNS failure: nodename nor servname provided, or not known"
+        }
+      ]
+    },
+    "viewer": {
+      "status": "blocked",
+      "attempts": [
+        {
+          "tool": "local_headless_chrome",
+          "command": "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome --headless=new --disable-gpu --screenshot=... data:text/html,<html><body><h1>smoke</h1></body></html>",
+          "returncode": -1,
+          "stdout": "",
+          "stderr": ""
+        }
+      ]
+    }
+  },
+  "local_projection_evidence": [
+    "S2-03_Group_D_projection_after.png",
+    "S2-08_Group_E_projection_guard_after.png",
+    "S2-09_Group_F_projection_guard_after.png"
+  ],
+  "visual_claim": "structural/local projection only; live Desmos and live viewer parity not claimed"
+}

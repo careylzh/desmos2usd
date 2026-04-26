@@ -1,0 +1,35 @@
+[
+  {
+    "classification_unsupported": 13,
+    "classified": 875,
+    "export_unsupported": 1,
+    "fixture": "[4B] 3D Diagram - S2-07 Group F.json",
+    "ppm": "artifacts/fixture_usdz/review_evidence/20260427_s207_group_f_ralph_spheres/S2-07_Group_F_projection_after.ppm",
+    "prim_count": 874,
+    "unsupported_count": 14,
+    "usda": "artifacts/fixture_usdz/review_evidence/20260427_s207_group_f_ralph_spheres/S2-07_Group_F_projection_after.usda",
+    "valid": true
+  },
+  {
+    "classification_unsupported": 0,
+    "classified": 87,
+    "export_unsupported": 0,
+    "fixture": "[4B] 3D Diagram - S2-08 Group E.json",
+    "ppm": "artifacts/fixture_usdz/review_evidence/20260427_s207_group_f_ralph_spheres/S2-08_Group_E_projection_guard_after.ppm",
+    "prim_count": 87,
+    "unsupported_count": 0,
+    "usda": "artifacts/fixture_usdz/review_evidence/20260427_s207_group_f_ralph_spheres/S2-08_Group_E_projection_guard_after.usda",
+    "valid": true
+  },
+  {
+    "classification_unsupported": 0,
+    "classified": 27,
+    "export_unsupported": 0,
+    "fixture": "[4B] 3D Diagram - S2-09 Group F.json",
+    "ppm": "artifacts/fixture_usdz/review_evidence/20260427_s207_group_f_ralph_spheres/S2-09_Group_F_projection_guard_after.ppm",
+    "prim_count": 27,
+    "unsupported_count": 0,
+    "usda": "artifacts/fixture_usdz/review_evidence/20260427_s207_group_f_ralph_spheres/S2-09_Group_F_projection_guard_after.usda",
+    "valid": true
+  }
+]

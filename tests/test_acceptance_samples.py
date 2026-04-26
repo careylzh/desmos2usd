@@ -15,7 +15,7 @@ class AcceptanceSampleTests(unittest.TestCase):
             "zaqxhna15w": 0,
             "ghnr7txz47": 0,
             "yuqwjsfvsc": 0,
-            "vyp9ogyimt": 5,
+            "vyp9ogyimt": 0,
             "k0fbxxwkqf": 0,
         }
         with tempfile.TemporaryDirectory() as tmp:

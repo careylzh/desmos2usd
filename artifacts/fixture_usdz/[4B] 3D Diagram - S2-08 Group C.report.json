@@ -1,51 +1,35 @@
 {
   "acceptance_success": false,
+  "classified_expression_count": 13,
   "complete": false,
   "fixture": "[4B] 3D Diagram - S2-08 Group C.json",
   "fixture_path": "fixtures/states/[4B] 3D Diagram - S2-08 Group C.json",
   "graph_hash": null,
-  "output": "/Users/careylai/Desktop/desmos2usd/artifacts/fixture_usdz/[4B] 3D Diagram - S2-08 Group C.usda",
-  "prim_count": 9,
+  "output": "artifacts/fixture_usdz/[4B] 3D Diagram - S2-08 Group C.usda",
+  "prim_count": 12,
   "renderable_expression_count": 13,
-  "resolution": 8,
+  "resolution": 12,
   "status": "partial",
   "title": "Desmos graph",
   "unsupported": [
     {
-      "expr_id": "6",
-      "kind": "inequality_region",
-      "latex": "\\max(((\\operatorname{mod}(x+6,2)-1)/0.4)^{2},(y/2)^{2})<1\\left\\{0.3<z<6.6\\right\\}\\left\\{-6<x<6\\right\\}",
-      "reason": "Could not evaluate '\\\\max(((\\\\operatorname{mod}(x+6,2)-1)/0.4)^{2},(y/2)^{2})' with variables {'x': -6.0, 'y': -19.60064569229304, 'z': 0.3}: name 'm' is not defined"
-    },
-    {
       "expr_id": "7",
       "kind": "inequality_region",
       "latex": "\\max(((\\operatorname{mod}(x+6,2)-1)/0.32)^{2},(y/2.1)^{2})<1\\left\\{-0<z<0.7\\right\\}\\left\\{-8<x<-8\\right\\}\\left\\{-4<y<4\\right\\}",
-      "reason": "Could not evaluate '\\\\max(((\\\\operatorname{mod}(x+6,2)-1)/0.32)^{2},(y/2.1)^{2})' with variables {'x': -8.0, 'y': -4.0, 'z': 0.0}: name 'm' is not defined"
-    },
-    {
-      "expr_id": "8",
-      "kind": "inequality_region",
-      "latex": "\\max(((\\operatorname{mod}(x+6,2)-1)/0.32)^{2},(y/2.1)^{2})<1\\left\\{0.3<z<0.7\\right\\}\\left\\{-6<x<6\\right\\}\\left\\{-2.1<y<2.1\\right\\}",
-      "reason": "Could not evaluate '\\\\max(((\\\\operatorname{mod}(x+6,2)-1)/0.32)^{2},(y/2.1)^{2})' with variables {'x': -6.0, 'y': -2.1, 'z': 0.3}: name 'm' is not defined"
-    },
-    {
-      "expr_id": "14",
-      "kind": "inequality_region",
-      "latex": "(\\operatorname{mod}(x+1.2,0.5)-0.25)^{2}+y^{2}<0.04\\left\\{9.8<z<10.4\\right\\}\\left\\{-1.4<x<0.8\\right\\}\\left\\{-0.5<y<0.5\\right\\}",
-      "reason": "Could not evaluate '(\\\\operatorname{mod}(x+1.2,0.5)-0.25)^{2}+y^{2}' with variables {'x': -1.4, 'y': -0.5, 'z': 9.8}: name 'm' is not defined"
+      "reason": "Inequality region for 7 did not resolve to sampled cells"
     }
   ],
-  "unsupported_count": 4,
+  "unsupported_count": 1,
+  "usda_exists": true,
   "usdz_exists": true,
-  "usdz_output": "/Users/careylai/Desktop/desmos2usd/artifacts/fixture_usdz/[4B] 3D Diagram - S2-08 Group C.usdz",
+  "usdz_output": "artifacts/fixture_usdz/[4B] 3D Diagram - S2-08 Group C.usdz",
   "usdz_package": {
     "command": [
       "/usr/bin/usdzip",
-      "/Users/careylai/Desktop/desmos2usd/artifacts/fixture_usdz/[4B] 3D Diagram - S2-08 Group C.usdz",
+      "/Users/chek/repos/desmos2usd-carey/artifacts/fixture_usdz/[4B] 3D Diagram - S2-08 Group C.usdz",
       "[4B] 3D Diagram - S2-08 Group C.usda"
     ],
-    "cwd": "/Users/careylai/Desktop/desmos2usd/artifacts/fixture_usdz",
+    "cwd": "/Users/chek/repos/desmos2usd-carey/artifacts/fixture_usdz",
     "returncode": 0,
     "stderr": "",
     "stdout": "",
@@ -55,11 +39,11 @@
     "command": [
       "/usr/bin/usdchecker",
       "--arkit",
-      "/Users/careylai/Desktop/desmos2usd/artifacts/fixture_usdz/[4B] 3D Diagram - S2-08 Group C.usdz"
+      "/Users/chek/repos/desmos2usd-carey/artifacts/fixture_usdz/[4B] 3D Diagram - S2-08 Group C.usdz"
     ],
     "cwd": null,
     "returncode": 0,
-    "stderr": "Coding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\n",
+    "stderr": "Coding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\n",
     "stdout": "\nValidation Result with no explicit variants set\nSuccess!\n",
     "tool": "usdchecker"
   },
@@ -69,91 +53,154 @@
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "16",
-      "face_count": 12,
+      "face_count": 126,
       "kind": "inequality_region",
       "max_residual": null,
-      "point_count": 32,
+      "point_count": 128,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "6",
+      "face_count": 3024,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 4032,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "8",
+      "face_count": 3456,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 4608,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "9",
-      "face_count": 12,
+      "face_count": 126,
       "kind": "inequality_region",
       "max_residual": null,
-      "point_count": 32,
+      "point_count": 128,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "10",
-      "face_count": 12,
+      "face_count": 126,
       "kind": "inequality_region",
       "max_residual": null,
-      "point_count": 32,
+      "point_count": 128,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "11",
-      "face_count": 12,
+      "face_count": 126,
       "kind": "inequality_region",
       "max_residual": null,
-      "point_count": 32,
+      "point_count": 128,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "12",
-      "face_count": 12,
+      "face_count": 126,
       "kind": "inequality_region",
       "max_residual": null,
-      "point_count": 32,
+      "point_count": 128,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "13",
-      "face_count": 12,
+      "face_count": 126,
       "kind": "inequality_region",
       "max_residual": null,
-      "point_count": 32,
+      "point_count": 128,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "14",
+      "face_count": 2688,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 3584,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "15",
-      "face_count": 12,
+      "face_count": 126,
       "kind": "inequality_region",
       "max_residual": null,
-      "point_count": 32,
+      "point_count": 128,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "23",
-      "face_count": 12,
+      "face_count": 126,
       "kind": "inequality_region",
       "max_residual": null,
-      "point_count": 32,
+      "point_count": 128,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "24",
-      "face_count": 12,
+      "face_count": 126,
       "kind": "inequality_region",
       "max_residual": null,
-      "point_count": 32,
+      "point_count": 128,
       "valid": true
     }
-  ]
+  ],
+  "view_metadata": {
+    "axis_3d": [
+      0.9999999999986995,
+      6.123233995728795e-17,
+      -8.077032699568679e-31
+    ],
+    "three_d_mode": true,
+    "viewport_bounds": {
+      "x": [
+        -19.60064569229304,
+        19.60064569229304
+      ],
+      "y": [
+        -19.60064569229304,
+        19.60064569229304
+      ],
+      "z": [
+        -19.60064569229304,
+        19.60064569229304
+      ]
+    },
+    "world_rotation_3d": [
+      6.092462641852965e-17,
+      1.0,
+      6.131015610585505e-18,
+      -0.9949746565450177,
+      6.123233995736766e-17,
+      -0.10012708341464913,
+      -0.10012708341464913,
+      0.0,
+      0.9949746565450177
+    ]
+  }
 }

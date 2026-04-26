@@ -1,11 +1,15 @@
 from __future__ import annotations
 
 import ast
+from dataclasses import dataclass, replace
+from math import ceil, floor, isfinite
 
 from desmos2usd.eval.context import EvalContext
+from desmos2usd.eval.numeric import CONSTANTS
 from desmos2usd.parse.classify import ClassifiedExpression
 from desmos2usd.parse.latex_subset import LatexExpression
 from desmos2usd.parse.predicates import ComparisonPredicate, collect_constant_bounds, single_identifier
+from desmos2usd.tessellate.cylinders import tessellate_circular_inequality_extrusion
 from desmos2usd.tessellate.mesh import GeometryData, Point, linspace
 from desmos2usd.tessellate.surfaces import (
     DEFAULT_BOUNDS,
@@ -23,6 +27,12 @@ def tessellate_inequality_region(item: ClassifiedExpression, context: EvalContex
     flat = _flat_region_geometry(item, context, resolution)
     if flat is not None:
         return flat
+    modulo = tessellate_modulo_repeated_region(item, context, resolution)
+    if modulo is not None:
+        return modulo
+    circular = tessellate_circular_inequality_extrusion(item, context, resolution=max(16, resolution * 4))
+    if circular is not None and mesh_vertices_satisfy_predicates(item, context, circular):
+        return circular
     band = extract_band(item.inequality)
     if band:
         axis, lower, upper, lower_closed, upper_closed = band
@@ -40,7 +50,7 @@ def tessellate_inequality_region(item: ClassifiedExpression, context: EvalContex
             return geometry
     try:
         geometry = tessellate_extruded_2d_region(item, context, resolution=max(16, resolution * 6))
-        if geometry.face_count and mesh_vertices_satisfy_predicates(item, context, geometry):
+        if (geometry.face_count or is_empty_mesh(geometry)) and mesh_vertices_satisfy_predicates(item, context, geometry):
             return geometry
     except Exception:
         pass
@@ -100,10 +110,6 @@ def tessellate_band(
     indices: list[int] = []
     layer_size = resolution * resolution
     for layer_offset, reverse in [(0, False), (layer_size, True)]:
-        if layer_offset == 0 and not lower_closed:
-            continue
-        if layer_offset == layer_size and not upper_closed:
-            continue
         for row in range(resolution - 1):
             for col in range(resolution - 1):
                 a = layer_offset + row * resolution + col
@@ -223,10 +229,164 @@ def tessellate_extruded_2d_region(item: ClassifiedExpression, context: EvalConte
                 return geometry
         except Exception:
             pass
+        empty = analytically_empty_function_band(item, context, shape_axes, shape_bounds)
+        if empty is not None:
+            return empty
+        geometry = tessellate_affine_polygon_extrusion(
+            item,
+            context,
+            shape_axes,
+            extrude_axis,
+            (low, high),
+            shape_bounds,
+        )
+        if geometry is not None and (geometry.face_count or is_empty_mesh(geometry)):
+            return geometry
         geometry = sampled_extrusion_mesh(item, context, shape_axes, extrude_axis, (low, high), shape_bounds, resolution)
         if geometry.face_count:
             return geometry
     raise ValueError(f"Inequality region for {item.ir.expr_id} did not resolve to an extruded 2D region")
+
+
+def is_empty_mesh(geometry: GeometryData) -> bool:
+    return geometry.kind == "Mesh" and not geometry.points and not geometry.face_vertex_counts and not geometry.face_vertex_indices
+
+
+def analytically_empty_function_band(
+    item: ClassifiedExpression,
+    context: EvalContext,
+    shape_axes: list[str],
+    bounds: dict[str, tuple[float | None, float | None]],
+) -> GeometryData | None:
+    """Return an empty mesh when affine band bounds prove the region has no area."""
+    if not is_generated_expression_expansion(item):
+        return None
+    for band_axis in shape_axes:
+        param_axes = [axis for axis in shape_axes if axis != band_axis]
+        if len(param_axes) != 1:
+            continue
+        param_axis = param_axes[0]
+        param_low, param_high = bounds.get(param_axis, (None, None))
+        if param_low is None or param_high is None or param_low >= param_high:
+            continue
+        lower_exprs, upper_exprs = function_bounds_for_axis(item.predicates, band_axis)
+        if not lower_exprs or not upper_exprs:
+            continue
+        feasible = affine_function_band_feasible_interval(
+            context,
+            param_axis,
+            (param_low, param_high),
+            lower_exprs,
+            upper_exprs,
+        )
+        if feasible is None:
+            continue
+        if feasible[0] >= feasible[1]:
+            return GeometryData(kind="Mesh", points=[])
+    return None
+
+
+def is_generated_expression_expansion(item: ClassifiedExpression) -> bool:
+    return any(
+        key in item.ir.raw
+        for key in (
+            "expandedFromListExpression",
+            "expandedFromLiteralListExpression",
+            "expandedFromRestrictionAlternative",
+        )
+    )
+
+
+def affine_function_band_feasible_interval(
+    context: EvalContext,
+    param_axis: str,
+    param_bounds: tuple[float, float],
+    lower_exprs: list[LatexExpression],
+    upper_exprs: list[LatexExpression],
+    tol: float = 1e-9,
+) -> tuple[float, float] | None:
+    low, high = param_bounds
+    for lower in lower_exprs:
+        lower_coeffs = affine_coefficients(lower, context, param_axis)
+        if lower_coeffs is None:
+            return None
+        for upper in upper_exprs:
+            upper_coeffs = affine_coefficients(upper, context, param_axis)
+            if upper_coeffs is None:
+                return None
+            slope = lower_coeffs[0] - upper_coeffs[0]
+            intercept = lower_coeffs[1] - upper_coeffs[1]
+            if abs(slope) <= tol:
+                if intercept >= -tol:
+                    return (low, low)
+                continue
+            root = -intercept / slope
+            if slope > 0:
+                high = min(high, root)
+            else:
+                low = max(low, root)
+            if low >= high - tol:
+                return (low, low)
+    return (low, high)
+
+
+def affine_coefficients(
+    expression: LatexExpression,
+    context: EvalContext,
+    variable: str,
+) -> tuple[float, float] | None:
+    if expression.identifiers - {variable} - set(context.scalars):
+        return None
+    coeffs = affine_node_coefficients(expression.tree.body, context, variable)
+    if coeffs is None or not all(isfinite(value) for value in coeffs):
+        return None
+    return coeffs
+
+
+def affine_node_coefficients(
+    node: ast.AST,
+    context: EvalContext,
+    variable: str,
+) -> tuple[float, float] | None:
+    if isinstance(node, ast.Constant) and isinstance(node.value, (int, float)):
+        return (0.0, float(node.value))
+    if isinstance(node, ast.Name):
+        if node.id == variable:
+            return (1.0, 0.0)
+        if node.id in context.scalars:
+            return (0.0, float(context.scalars[node.id]))
+        if node.id in CONSTANTS:
+            return (0.0, float(CONSTANTS[node.id]))
+        return None
+    if isinstance(node, ast.UnaryOp):
+        coeffs = affine_node_coefficients(node.operand, context, variable)
+        if coeffs is None:
+            return None
+        if isinstance(node.op, ast.USub):
+            return (-coeffs[0], -coeffs[1])
+        if isinstance(node.op, ast.UAdd):
+            return coeffs
+        return None
+    if isinstance(node, ast.BinOp):
+        left = affine_node_coefficients(node.left, context, variable)
+        right = affine_node_coefficients(node.right, context, variable)
+        if left is None or right is None:
+            return None
+        if isinstance(node.op, ast.Add):
+            return (left[0] + right[0], left[1] + right[1])
+        if isinstance(node.op, ast.Sub):
+            return (left[0] - right[0], left[1] - right[1])
+        if isinstance(node.op, ast.Mult):
+            if abs(left[0]) > 0 and abs(right[0]) > 0:
+                return None
+            if abs(left[0]) > 0:
+                return (left[0] * right[1], left[1] * right[1])
+            return (right[0] * left[1], right[1] * left[1])
+        if isinstance(node.op, ast.Div):
+            if abs(right[0]) > 0 or abs(right[1]) <= 1e-12:
+                return None
+            return (left[0] / right[1], left[1] / right[1])
+    return None
 
 
 def predicate_identifiers(predicate: ComparisonPredicate) -> set[str]:
@@ -234,6 +394,212 @@ def predicate_identifiers(predicate: ComparisonPredicate) -> set[str]:
     for term in predicate.terms:
         identifiers.update(term.identifiers & {"x", "y", "z"})
     return identifiers
+
+
+@dataclass(frozen=True)
+class ModuloStripe:
+    predicate: ComparisonPredicate
+    axis: str
+    coefficient: float
+    intercept: float
+    period: float
+    width: float
+
+
+def tessellate_modulo_repeated_region(
+    item: ClassifiedExpression,
+    context: EvalContext,
+    resolution: int,
+) -> GeometryData | None:
+    stripe = first_modulo_stripe(item, context)
+    if stripe is None:
+        return None
+
+    bounds = collect_constant_bounds(item.predicates, context)
+    axis_low, axis_high = axis_bounds(stripe.axis, bounds, item.ir.source.viewport_bounds)
+    if axis_low >= axis_high:
+        return None
+    intervals = modulo_axis_intervals(stripe, axis_low, axis_high)
+    if not intervals:
+        return None
+
+    geometries: list[GeometryData] = []
+    for low, high in intervals:
+        narrowed = item_with_axis_interval(item, stripe.axis, low, high)
+        geometry = tessellate_modulo_interval_region(
+            item,
+            narrowed,
+            context,
+            stripe,
+            resolution,
+        )
+        if geometry is not None and geometry.kind == "Mesh" and geometry.face_count:
+            geometries.append(geometry)
+    if not geometries:
+        return None
+    return combine_meshes(geometries)
+
+
+def tessellate_modulo_interval_region(
+    original: ClassifiedExpression,
+    narrowed: ClassifiedExpression,
+    context: EvalContext,
+    stripe: ModuloStripe,
+    resolution: int,
+) -> GeometryData | None:
+    if narrowed.inequality is not stripe.predicate:
+        circular = tessellate_circular_inequality_extrusion(narrowed, context, resolution=max(16, resolution * 4))
+        if circular is not None and mesh_vertices_satisfy_predicates(original, context, circular):
+            return circular
+    try:
+        box = tessellate_box(narrowed, context)
+        if box.face_count and mesh_vertices_satisfy_predicates(original, context, box):
+            return box
+    except Exception:
+        pass
+    try:
+        extruded = tessellate_extruded_2d_region(narrowed, context, resolution=max(16, resolution * 4))
+        if extruded.face_count and mesh_vertices_satisfy_predicates(original, context, extruded):
+            return extruded
+    except Exception:
+        pass
+    return None
+
+
+def first_modulo_stripe(item: ClassifiedExpression, context: EvalContext) -> ModuloStripe | None:
+    for predicate in item.predicates:
+        stripe = modulo_stripe_from_predicate(predicate, context)
+        if stripe is not None:
+            return stripe
+    return None
+
+
+def modulo_stripe_from_predicate(predicate: ComparisonPredicate, context: EvalContext) -> ModuloStripe | None:
+    if len(predicate.terms) != 2 or len(predicate.ops) != 1:
+        return None
+    left, right = predicate.terms
+    op = predicate.ops[0]
+    if op in {"<", "<="}:
+        modulo = modulo_term_info(left, context)
+        width = constant_expression_value(right, context)
+    elif op in {">", ">="}:
+        modulo = modulo_term_info(right, context)
+        width = constant_expression_value(left, context)
+    else:
+        return None
+    if modulo is None or width is None:
+        return None
+    axis, coefficient, intercept, period = modulo
+    if abs(coefficient) <= 1e-12 or period <= 0.0 or width <= 0.0 or width >= period:
+        return None
+    return ModuloStripe(
+        predicate=predicate,
+        axis=axis,
+        coefficient=coefficient,
+        intercept=intercept,
+        period=period,
+        width=width,
+    )
+
+
+def modulo_term_info(
+    expression: LatexExpression,
+    context: EvalContext,
+) -> tuple[str, float, float, float] | None:
+    node = expression.tree.body
+    if not isinstance(node, ast.Call) or not isinstance(node.func, ast.Name) or node.func.id != "mod":
+        return None
+    if len(node.args) != 2:
+        return None
+    graph_axes = expression.identifiers & {"x", "y", "z"}
+    if len(graph_axes) != 1:
+        return None
+    axis = next(iter(graph_axes))
+    affine = affine_node_coefficients(node.args[0], context, axis)
+    period = constant_node_value(node.args[1], context, axis)
+    if affine is None or period is None:
+        return None
+    coefficient, intercept = affine
+    return axis, coefficient, intercept, period
+
+
+def constant_expression_value(expression: LatexExpression, context: EvalContext) -> float | None:
+    if expression.identifiers & {"x", "y", "z"}:
+        return None
+    try:
+        value = expression.eval(context, {})
+    except Exception:
+        return None
+    return value if isfinite(value) else None
+
+
+def constant_node_value(node: ast.AST, context: EvalContext, variable: str) -> float | None:
+    coeffs = affine_node_coefficients(node, context, variable)
+    if coeffs is None or abs(coeffs[0]) > 1e-12 or not isfinite(coeffs[1]):
+        return None
+    return coeffs[1]
+
+
+def modulo_axis_intervals(stripe: ModuloStripe, axis_low: float, axis_high: float) -> list[tuple[float, float]]:
+    u0 = stripe.coefficient * axis_low + stripe.intercept
+    u1 = stripe.coefficient * axis_high + stripe.intercept
+    u_low, u_high = (min(u0, u1), max(u0, u1))
+    first_k = floor((u_low - stripe.width) / stripe.period) - 1
+    last_k = ceil(u_high / stripe.period) + 1
+    intervals: list[tuple[float, float]] = []
+    for k in range(first_k, last_k + 1):
+        active_low = k * stripe.period
+        active_high = active_low + stripe.width
+        endpoint_a = (active_low - stripe.intercept) / stripe.coefficient
+        endpoint_b = (active_high - stripe.intercept) / stripe.coefficient
+        low = max(axis_low, min(endpoint_a, endpoint_b))
+        high = min(axis_high, max(endpoint_a, endpoint_b))
+        if high - low > 1e-9:
+            intervals.append((low, high))
+    intervals.sort()
+    return intervals
+
+
+def item_with_axis_interval(
+    item: ClassifiedExpression,
+    axis: str,
+    low: float,
+    high: float,
+) -> ClassifiedExpression:
+    return replace(
+        item,
+        predicates=[*item.predicates, axis_interval_predicate(axis, low, high)],
+    )
+
+
+def axis_interval_predicate(axis: str, low: float, high: float) -> ComparisonPredicate:
+    raw = f"{low:.17g}<={axis}<={high:.17g}"
+    return ComparisonPredicate(
+        raw=raw,
+        terms=(
+            LatexExpression.parse(f"{low:.17g}"),
+            LatexExpression.parse(axis),
+            LatexExpression.parse(f"{high:.17g}"),
+        ),
+        ops=("<=", "<="),
+    )
+
+
+def combine_meshes(geometries: list[GeometryData]) -> GeometryData:
+    points: list[Point] = []
+    counts: list[int] = []
+    indices: list[int] = []
+    sample_parameters: list[dict[str, float]] = []
+    include_samples = any(geometry.sample_parameters for geometry in geometries)
+    for geometry in geometries:
+        offset = len(points)
+        points.extend(geometry.points)
+        counts.extend(geometry.face_vertex_counts)
+        indices.extend(offset + index for index in geometry.face_vertex_indices)
+        if include_samples:
+            sample_parameters.extend(geometry.sample_parameters)
+            sample_parameters.extend({} for _ in range(len(geometry.points) - len(geometry.sample_parameters)))
+    return GeometryData(kind="Mesh", points=points, face_vertex_counts=counts, face_vertex_indices=indices, sample_parameters=sample_parameters)
 
 
 def _referenced_axes(item: ClassifiedExpression) -> set[str]:
@@ -250,43 +616,68 @@ def _flat_region_geometry(
     context: EvalContext,
     resolution: int,
 ) -> GeometryData | None:
-    """Render a 2D inequality region at z=0 when no predicate mentions the third axis.
+    """Render a 2D inequality region at constant flat-axis when its third axis is locked.
 
-    Desmos 3D renders expressions like `20>y>-20 {-225<x<225}` as a flat ground-plane
-    rectangle rather than extruding to a viewport-sized 3D volume. We mirror that: when
-    exactly one of (x, y, z) is entirely absent from the inequality and its restrictions,
-    tessellate a flat rectangle at that axis = 0.
+    Desmos 3D renders expressions like ``20>y>-20 {-225<x<225}`` (third axis missing)
+    or ``x^2+y^2<=4 {z=0}`` (third axis locked to a constant) as a flat region in the
+    other two axes — not as a viewport-sized 3D volume. Two cases satisfy this:
+
+    * The third axis is entirely absent from the inequality and its restrictions; we
+      flatten that axis at 0.
+    * The third axis appears only as a constant equality (e.g. ``z=0``); we flatten at
+      that constant.
+
+    Without this, ``x^2+y^2<=4 {z=0}`` falls through every 3D extrusion path and is
+    reported as ``did not resolve to sampled cells``.
     """
-    referenced = _referenced_axes(item)
-    missing = [axis for axis in ("x", "y", "z") if axis not in referenced]
-    if len(missing) != 1:
-        return None
-    flat_axis = missing[0]
     bounds = collect_constant_bounds(item.predicates, context)
+    flat_axis, flat_value = _detect_flat_axis(item, bounds)
+    if flat_axis is None or flat_value is None:
+        return None
     shape_axes = [axis for axis in ("x", "y", "z") if axis != flat_axis]
-    ranges: dict[str, tuple[float, float]] = {}
+    seed_ranges: dict[str, tuple[float, float]] = {}
     for axis in shape_axes:
         low, high = bounds.get(axis, (None, None))
         if low is None or high is None or low >= high:
+            seed_ranges[axis] = _flat_shape_axis_range(item, context, axis)
+        else:
+            seed_ranges[axis] = (low, high)
+        if seed_ranges[axis][0] >= seed_ranges[axis][1]:
             return None
-        ranges[axis] = (low, high)
     a_axis, b_axis = shape_axes
-    a_values = linspace(ranges[a_axis][0], ranges[a_axis][1], resolution)
-    b_values = linspace(ranges[b_axis][0], ranges[b_axis][1], resolution)
+    # Pre-scan the seed bbox for satisfied points and tighten the sampling window.
+    # Without this, a small region (e.g. radius 2 inside a span-of-5 seed) wastes most
+    # of the grid on the invalid corners and produces only a single inner cell.
+    sampling = _refine_flat_region_window(
+        item,
+        context,
+        a_axis,
+        b_axis,
+        flat_axis,
+        flat_value,
+        seed_ranges[a_axis],
+        seed_ranges[b_axis],
+    )
+    if sampling is None:
+        return None
+    a_low, a_high, b_low, b_high = sampling
+    grid = max(resolution, 16)
+    a_values = linspace(a_low, a_high, grid)
+    b_values = linspace(b_low, b_high, grid)
     points: list[Point] = []
     valid_grid: list[list[bool]] = []
     for b in b_values:
         row_valid: list[bool] = []
         for a in a_values:
-            variables = {a_axis: a, b_axis: b, flat_axis: 0.0}
+            variables = {a_axis: a, b_axis: b, flat_axis: flat_value}
             points.append((variables["x"], variables["y"], variables["z"]))
             row_valid.append(all(predicate.evaluate(context, variables, tol=1e-5) for predicate in item.predicates))
         valid_grid.append(row_valid)
     counts: list[int] = []
     indices: list[int] = []
-    width = resolution
-    for row in range(resolution - 1):
-        for col in range(resolution - 1):
+    width = grid
+    for row in range(grid - 1):
+        for col in range(grid - 1):
             if not all(
                 (
                     valid_grid[row][col],
@@ -302,6 +693,86 @@ def _flat_region_geometry(
     if not counts:
         return None
     return GeometryData(kind="Mesh", points=points, face_vertex_counts=counts, face_vertex_indices=indices)
+
+
+def _refine_flat_region_window(
+    item: ClassifiedExpression,
+    context: EvalContext,
+    a_axis: str,
+    b_axis: str,
+    flat_axis: str,
+    flat_value: float,
+    a_seed: tuple[float, float],
+    b_seed: tuple[float, float],
+) -> tuple[float, float, float, float] | None:
+    scan = 32
+    a_samples = linspace(a_seed[0], a_seed[1], scan)
+    b_samples = linspace(b_seed[0], b_seed[1], scan)
+    a_min: float | None = None
+    a_max: float | None = None
+    b_min: float | None = None
+    b_max: float | None = None
+    for b in b_samples:
+        for a in a_samples:
+            variables = {a_axis: a, b_axis: b, flat_axis: flat_value}
+            if all(predicate.evaluate(context, variables, tol=1e-5) for predicate in item.predicates):
+                a_min = a if a_min is None else min(a_min, a)
+                a_max = a if a_max is None else max(a_max, a)
+                b_min = b if b_min is None else min(b_min, b)
+                b_max = b if b_max is None else max(b_max, b)
+    if a_min is None:
+        return None
+    pad_a = (a_seed[1] - a_seed[0]) / max(1, scan - 1)
+    pad_b = (b_seed[1] - b_seed[0]) / max(1, scan - 1)
+    return (
+        max(a_seed[0], a_min - 2 * pad_a),
+        min(a_seed[1], a_max + 2 * pad_a),
+        max(b_seed[0], b_min - 2 * pad_b),
+        min(b_seed[1], b_max + 2 * pad_b),
+    )
+
+
+def _detect_flat_axis(
+    item: ClassifiedExpression,
+    bounds: dict[str, tuple[float | None, float | None]],
+) -> tuple[str | None, float | None]:
+    referenced = _referenced_axes(item)
+    missing = [axis for axis in ("x", "y", "z") if axis not in referenced]
+    if len(missing) == 1:
+        return missing[0], 0.0
+    constant_axes = [
+        axis
+        for axis in ("x", "y", "z")
+        if bounds.get(axis, (None, None))[0] is not None
+        and bounds[axis][0] == bounds[axis][1]
+    ]
+    if len(constant_axes) == 1:
+        axis = constant_axes[0]
+        return axis, float(bounds[axis][0])
+    return None, None
+
+
+def _flat_shape_axis_range(
+    item: ClassifiedExpression,
+    context: EvalContext,
+    axis: str,
+) -> tuple[float, float]:
+    """Bound a shape axis from the inequality's numeric constants.
+
+    For inequalities like ``x^2+y^2<=4`` no axis bounds appear in predicates, but the
+    constants in the inequality terms (4 → sqrt(4)=2) imply a tight enclosing range.
+    Using the viewport here would re-introduce the very tall-sheet bug we are fixing
+    (the disk would sample a 24-unit window for a radius-2 region).
+    """
+    constants: list[float] = list(numeric_constants_for_item(item))
+    if not constants:
+        viewport = item.ir.source.viewport_bounds or {}
+        return viewport.get(axis, DEFAULT_BOUNDS)
+    abs_constants = [abs(value) for value in constants if value is not None]
+    abs_constants += [abs(value) ** 0.5 for value in abs_constants]
+    span = max(abs_constants) if abs_constants else 1.0
+    span = max(span * 1.25, 0.5)
+    return (-span, span)
 
 
 def infer_2d_region_bounds(
@@ -499,6 +970,228 @@ def evaluate_bound_expressions(
             except Exception:
                 continue
     return values
+
+
+def tessellate_affine_polygon_extrusion(
+    item: ClassifiedExpression,
+    context: EvalContext,
+    shape_axes: list[str],
+    extrude_axis: str,
+    extrude_bounds: tuple[float, float],
+    bounds: dict[str, tuple[float | None, float | None]],
+) -> GeometryData | None:
+    halfplanes = affine_halfplanes_for_shape(item, context, shape_axes, extrude_axis)
+    if halfplanes is None:
+        return None
+    if not halfplanes:
+        return None
+
+    constants = shape_numeric_constants(item, set(shape_axes))
+    if not constants:
+        constants = numeric_constants_for_item(item)
+    broad_low, broad_high = broad_bounds_from_constants(constants)
+    a_bounds = bounded_or_broad_range(bounds, shape_axes[0], broad_low, broad_high)
+    b_bounds = bounded_or_broad_range(bounds, shape_axes[1], broad_low, broad_high)
+    polygon: list[tuple[float, float]] = [
+        (a_bounds[0], b_bounds[0]),
+        (a_bounds[1], b_bounds[0]),
+        (a_bounds[1], b_bounds[1]),
+        (a_bounds[0], b_bounds[1]),
+    ]
+    for a_coeff, b_coeff, c_coeff in halfplanes:
+        polygon = clip_polygon_to_halfplane(polygon, a_coeff, b_coeff, c_coeff)
+        if len(polygon) < 3:
+            return GeometryData(kind="Mesh", points=[])
+    polygon = dedupe_polygon_points(polygon)
+    if len(polygon) < 3 or abs(polygon_area(polygon)) <= 1e-10:
+        return GeometryData(kind="Mesh", points=[])
+
+    geometry = extrude_polygon(shape_axes, extrude_axis, polygon, extrude_bounds)
+    if not mesh_vertices_satisfy_predicates(item, context, geometry):
+        return None
+    return geometry
+
+
+def bounded_or_broad_range(
+    bounds: dict[str, tuple[float | None, float | None]],
+    axis: str,
+    broad_low: float,
+    broad_high: float,
+) -> tuple[float, float]:
+    low, high = bounds.get(axis, (None, None))
+    return (broad_low if low is None else low, broad_high if high is None else high)
+
+
+def affine_halfplanes_for_shape(
+    item: ClassifiedExpression,
+    context: EvalContext,
+    shape_axes: list[str],
+    extrude_axis: str,
+) -> list[tuple[float, float, float]] | None:
+    shape_set = set(shape_axes)
+    halfplanes: list[tuple[float, float, float]] = []
+    for predicate in item.predicates:
+        identifiers = predicate_identifiers(predicate)
+        if not identifiers:
+            try:
+                if predicate.evaluate(context, {}, tol=1e-9):
+                    continue
+            except Exception:
+                return None
+            return []
+        if identifiers.issubset({extrude_axis}):
+            continue
+        if not identifiers.issubset(shape_set):
+            return None
+        predicate_halfplanes = affine_halfplanes_for_predicate(predicate, context, shape_axes)
+        if predicate_halfplanes is None:
+            return None
+        halfplanes.extend(predicate_halfplanes)
+    return halfplanes
+
+
+def affine_halfplanes_for_predicate(
+    predicate: ComparisonPredicate,
+    context: EvalContext,
+    shape_axes: list[str],
+) -> list[tuple[float, float, float]] | None:
+    halfplanes: list[tuple[float, float, float]] = []
+    for left, op, right in zip(predicate.terms[:-1], predicate.ops, predicate.terms[1:], strict=True):
+        left_coeffs = affine_coefficients_2d(left, context, shape_axes)
+        right_coeffs = affine_coefficients_2d(right, context, shape_axes)
+        if left_coeffs is None or right_coeffs is None:
+            return None
+        if op in {"<=", "<"}:
+            halfplanes.append(subtract_affine_coefficients(left_coeffs, right_coeffs))
+        elif op in {">=", ">"}:
+            halfplanes.append(subtract_affine_coefficients(right_coeffs, left_coeffs))
+        elif op == "=":
+            delta = subtract_affine_coefficients(left_coeffs, right_coeffs)
+            halfplanes.append(delta)
+            halfplanes.append((-delta[0], -delta[1], -delta[2]))
+        else:
+            return None
+    return halfplanes
+
+
+def affine_coefficients_2d(
+    expression: LatexExpression,
+    context: EvalContext,
+    axes: list[str],
+    tol: float = 1e-8,
+) -> tuple[float, float, float] | None:
+    if expression.identifiers - set(axes) - set(context.scalars):
+        return None
+    try:
+        origin = expression.eval(context, {axes[0]: 0.0, axes[1]: 0.0})
+        a_value = expression.eval(context, {axes[0]: 1.0, axes[1]: 0.0}) - origin
+        b_value = expression.eval(context, {axes[0]: 0.0, axes[1]: 1.0}) - origin
+    except Exception:
+        return None
+    if not all(isfinite(value) for value in (a_value, b_value, origin)):
+        return None
+    for a_sample, b_sample in ((2.0, -3.0), (-1.5, 4.0), (3.25, 2.5)):
+        try:
+            actual = expression.eval(context, {axes[0]: a_sample, axes[1]: b_sample})
+        except Exception:
+            return None
+        predicted = a_value * a_sample + b_value * b_sample + origin
+        scale = max(1.0, abs(actual), abs(predicted))
+        if abs(actual - predicted) > tol * scale:
+            return None
+    return (a_value, b_value, origin)
+
+
+def subtract_affine_coefficients(
+    left: tuple[float, float, float],
+    right: tuple[float, float, float],
+) -> tuple[float, float, float]:
+    return (left[0] - right[0], left[1] - right[1], left[2] - right[2])
+
+
+def clip_polygon_to_halfplane(
+    polygon: list[tuple[float, float]],
+    a_coeff: float,
+    b_coeff: float,
+    c_coeff: float,
+    tol: float = 1e-8,
+) -> list[tuple[float, float]]:
+    if not polygon:
+        return []
+    clipped: list[tuple[float, float]] = []
+    previous = polygon[-1]
+    previous_value = halfplane_value(previous, a_coeff, b_coeff, c_coeff)
+    previous_inside = previous_value <= tol
+    for current in polygon:
+        current_value = halfplane_value(current, a_coeff, b_coeff, c_coeff)
+        current_inside = current_value <= tol
+        if current_inside:
+            if not previous_inside:
+                clipped.append(intersect_halfplane_edge(previous, current, previous_value, current_value))
+            clipped.append(current)
+        elif previous_inside:
+            clipped.append(intersect_halfplane_edge(previous, current, previous_value, current_value))
+        previous = current
+        previous_value = current_value
+        previous_inside = current_inside
+    return dedupe_polygon_points(clipped)
+
+
+def halfplane_value(point: tuple[float, float], a_coeff: float, b_coeff: float, c_coeff: float) -> float:
+    return a_coeff * point[0] + b_coeff * point[1] + c_coeff
+
+
+def intersect_halfplane_edge(
+    start: tuple[float, float],
+    end: tuple[float, float],
+    start_value: float,
+    end_value: float,
+) -> tuple[float, float]:
+    denominator = start_value - end_value
+    if abs(denominator) <= 1e-12:
+        return end
+    ratio = start_value / denominator
+    return (start[0] + ratio * (end[0] - start[0]), start[1] + ratio * (end[1] - start[1]))
+
+
+def dedupe_polygon_points(points: list[tuple[float, float]], tol: float = 1e-9) -> list[tuple[float, float]]:
+    deduped: list[tuple[float, float]] = []
+    for point in points:
+        if not deduped or abs(point[0] - deduped[-1][0]) > tol or abs(point[1] - deduped[-1][1]) > tol:
+            deduped.append(point)
+    if len(deduped) > 1 and abs(deduped[0][0] - deduped[-1][0]) <= tol and abs(deduped[0][1] - deduped[-1][1]) <= tol:
+        deduped.pop()
+    return deduped
+
+
+def polygon_area(points: list[tuple[float, float]]) -> float:
+    total = 0.0
+    for current, next_point in zip(points, points[1:] + points[:1], strict=True):
+        total += current[0] * next_point[1] - next_point[0] * current[1]
+    return total / 2.0
+
+
+def extrude_polygon(
+    shape_axes: list[str],
+    extrude_axis: str,
+    polygon: list[tuple[float, float]],
+    extrude_bounds: tuple[float, float],
+) -> GeometryData:
+    points: list[Point] = []
+    for extrude_value in extrude_bounds:
+        for a_value, b_value in polygon:
+            variables = {shape_axes[0]: a_value, shape_axes[1]: b_value, extrude_axis: extrude_value}
+            points.append(point_from_variables(variables))
+    vertex_count = len(polygon)
+    bottom = list(range(vertex_count))
+    top = list(range(vertex_count, vertex_count * 2))
+    counts = [vertex_count, vertex_count]
+    indices = list(reversed(bottom)) + top
+    for index in range(vertex_count):
+        next_index = (index + 1) % vertex_count
+        counts.append(4)
+        indices.extend([bottom[index], bottom[next_index], top[next_index], top[index]])
+    return GeometryData(kind="Mesh", points=points, face_vertex_counts=counts, face_vertex_indices=indices)
 
 
 def sampled_extrusion_mesh(
@@ -717,6 +1410,7 @@ def tessellate_sampled_inequality_region(item: ClassifiedExpression, context: Ev
     xb = axis_bounds("x", bounds, fallback_bounds)
     yb = axis_bounds("y", bounds, fallback_bounds)
     zb = axis_bounds("z", bounds, fallback_bounds)
+    xb, yb, zb = _refine_inequality_bbox(item, context, xb, yb, zb)
     xs = linspace(xb[0], xb[1], resolution + 1)
     ys = linspace(yb[0], yb[1], resolution + 1)
     zs = linspace(zb[0], zb[1], resolution + 1)
@@ -746,6 +1440,54 @@ def tessellate_sampled_inequality_region(item: ClassifiedExpression, context: Ev
 def point_satisfies_predicates(point: Point, item: ClassifiedExpression, context: EvalContext) -> bool:
     variables = {"x": point[0], "y": point[1], "z": point[2]}
     return all(predicate.evaluate(context, variables, tol=1e-5) for predicate in item.predicates)
+
+
+def _refine_inequality_bbox(
+    item: ClassifiedExpression,
+    context: EvalContext,
+    xb: tuple[float, float],
+    yb: tuple[float, float],
+    zb: tuple[float, float],
+) -> tuple[tuple[float, float], tuple[float, float], tuple[float, float]]:
+    """Coarse-scan the predicate region for inequality voxel sampling.
+
+    Without this, a small inequality region (e.g. radius 3 in viewport ±100) is missed
+    because each voxel cell width is larger than the region. We sample a 24x24x24 grid;
+    if any point satisfies all predicates, we tighten the bbox to the satisfied region
+    plus a small pad. When nothing satisfies, returns the original bounds so the caller
+    still raises the existing "did not resolve" error.
+    """
+    scan = 24
+    xs = linspace(xb[0], xb[1], scan)
+    ys = linspace(yb[0], yb[1], scan)
+    zs = linspace(zb[0], zb[1], scan)
+    x_min: float | None = None
+    x_max: float | None = None
+    y_min: float | None = None
+    y_max: float | None = None
+    z_min: float | None = None
+    z_max: float | None = None
+    for z in zs:
+        for y in ys:
+            for x in xs:
+                if point_satisfies_predicates((x, y, z), item, context):
+                    x_min = x if x_min is None else min(x_min, x)
+                    x_max = x if x_max is None else max(x_max, x)
+                    y_min = y if y_min is None else min(y_min, y)
+                    y_max = y if y_max is None else max(y_max, y)
+                    z_min = z if z_min is None else min(z_min, z)
+                    z_max = z if z_max is None else max(z_max, z)
+    if x_min is None:
+        return xb, yb, zb
+    pad_x = (xb[1] - xb[0]) / max(1, scan - 1)
+    pad_y = (yb[1] - yb[0]) / max(1, scan - 1)
+    pad_z = (zb[1] - zb[0]) / max(1, scan - 1)
+    new_xb = (max(xb[0], x_min - 2 * pad_x), min(xb[1], x_max + 2 * pad_x))
+    new_yb = (max(yb[0], y_min - 2 * pad_y), min(yb[1], y_max + 2 * pad_y))
+    new_zb = (max(zb[0], z_min - 2 * pad_z), min(zb[1], z_max + 2 * pad_z))
+    if new_xb[1] - new_xb[0] < 1e-6 or new_yb[1] - new_yb[0] < 1e-6 or new_zb[1] - new_zb[0] < 1e-6:
+        return xb, yb, zb
+    return new_xb, new_yb, new_zb
 
 
 def add_box(points: list[Point], counts: list[int], indices: list[int], corners: list[Point]) -> None:

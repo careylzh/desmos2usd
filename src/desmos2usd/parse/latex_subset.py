@@ -16,12 +16,22 @@ class LatexSyntaxError(ValueError):
 
 FUNCTION_NAMES = set(ALLOWED_FUNCTIONS)
 
+DEGREE_MODE_FUNCTIONS = {
+    "acos": lambda value: math.degrees(math.acos(value)),
+    "asin": lambda value: math.degrees(math.asin(value)),
+    "atan": lambda value: math.degrees(math.atan(value)),
+    "cos": lambda value: math.cos(math.radians(value)),
+    "sin": lambda value: math.sin(math.radians(value)),
+    "tan": lambda value: math.tan(math.radians(value)),
+}
+
 
 def normalize_latex_delimiters(text: str) -> str:
     value = text.strip()
     value = value.replace("\\left", "").replace("\\right", "")
     value = value.replace("\\{", "{").replace("\\}", "}")
     value = re.sub(r"\\[ ,;:!]", "", value)
+    value = re.sub(r"\\+$", "", value).strip()
     return value
 
 
@@ -216,11 +226,18 @@ def insert_implicit_multiplication(expr: str) -> str:
 
 def split_concatenated_symbols(expr: str) -> str:
     keep = FUNCTION_NAMES | set(CONSTANTS)
+    function_names = sorted(FUNCTION_NAMES, key=len, reverse=True)
 
     def replace(match: re.Match[str]) -> str:
         token = match.group(0)
         if token in keep or "_" in token or len(token) == 1:
             return token
+        if match.end() < len(expr) and expr[match.end()] == "(":
+            for function_name in function_names:
+                if token.endswith(function_name):
+                    prefix = token[: -len(function_name)]
+                    if prefix:
+                        return "*".join(prefix) + "*" + function_name
         return "*".join(token)
 
     return re.sub(r"[A-Za-z][A-Za-z0-9_]*", replace, expr)
@@ -237,6 +254,8 @@ def is_value_start(token: str) -> bool:
 def needs_multiply(prev: str, token: str, index: int, tokens: list[str]) -> bool:
     if prev in {"(", "+", "-", "*", "/", ",", "**"} or token in {")", "+", "-", "*", "/", ",", "**"}:
         return False
+    if prev in {"x", "y", "z", "t", "u", "v"} and token == "(":
+        return True
     if re.match(r"[A-Za-z_]", prev) and token == "(":
         return False
     if prev == ")" and token == "(":
@@ -253,6 +272,7 @@ def convert_latex_to_python(latex: str) -> str:
     text = text.replace("\\cdot", "*").replace("\\times", "*")
     text = text.replace("\\le", "<=").replace("\\ge", ">=")
     text = text.replace("≤", "<=").replace("≥", ">=")
+    text = re.sub(r"\\pi(?=(?:\\operatorname|\\[A-Za-z]|[A-Za-z_]))", "pi*", text)
     text = text.replace("\\pi", "pi")
     text = text.replace("\\operatorname{ln}", "ln")
     text = text.replace("\\operatorname{log}", "log")
@@ -264,8 +284,10 @@ def convert_latex_to_python(latex: str) -> str:
         py_name = {"arcsin": "asin", "arccos": "acos", "arctan": "atan"}.get(command, command)
         text = text.replace(f"\\{command}", py_name)
     text = replace_abs_bars(text)
+    text = re.sub(r"([A-Za-z]_\{[^{}]+\})(?=[A-Za-z])", lambda m: normalize_identifier(m.group(1)) + "*", text)
     text = re.sub(r"([A-Za-z])_\{([^{}]+)\}", lambda m: normalize_identifier(m.group(0)), text)
     text = re.sub(r"([A-Za-z])_([A-Za-z0-9]+)", lambda m: normalize_identifier(m.group(0)), text)
+    text = re.sub(r"([A-Za-z][A-Za-z0-9_]*)\.(x|y|z)\b", r"\1_\2", text)
     text = re.sub(r"([A-Za-z]_[0-9]+)(?=[A-Za-z])", r"\1*", text)
     text = text.replace("{", "(").replace("}", ")")
     text = convert_powers(text)
@@ -307,6 +329,13 @@ class SafeExpressionValidator(ast.NodeVisitor):
             raise LatexSyntaxError("Keyword arguments are not supported")
 
 
+class CallableScalar(float):
+    def __call__(self, *args: float) -> float:
+        if len(args) != 1:
+            raise TypeError(f"Scalar multiplication expected 1 argument, got {len(args)}")
+        return float(self) * float(args[0])
+
+
 @dataclass(frozen=True)
 class LatexExpression:
     latex: str
@@ -331,9 +360,11 @@ class LatexExpression:
         ctx = context or EvalContext()
         env: dict[str, Any] = {}
         env.update(ALLOWED_FUNCTIONS)
+        if ctx.degree_mode:
+            env.update(DEGREE_MODE_FUNCTIONS)
         env.update(CONSTANTS)
         env.update(ctx.function_callables())
-        env.update(ctx.scalars)
+        env.update({name: CallableScalar(value) for name, value in ctx.scalars.items()})
         if variables:
             env.update(variables)
         try:

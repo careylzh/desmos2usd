@@ -17,6 +17,7 @@ ALLOWED_FUNCTIONS = {
     "log": math.log10,
     "max": max,
     "min": min,
+    "mod": lambda value, modulus: value % modulus,
     "pow": pow,
     "round": round,
     "sin": math.sin,
@@ -31,4 +32,3 @@ CONSTANTS = {
     "e": math.e,
     "pi": math.pi,
 }
-

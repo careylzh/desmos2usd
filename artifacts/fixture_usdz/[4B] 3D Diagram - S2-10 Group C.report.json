@@ -1,15 +1,140 @@
 {
   "acceptance_success": false,
-  "error": "Unsupported expression 39 'h\\\\left(x+238,y+058\\\\right)\\\\left\\\\{-100\\\\le y\\\\le100\\\\right\\\\}\\\\left\\\\{-100\\\\le x\\\\le100\\\\right\\\\}': not a supported renderable geometry form",
-  "error_stage": "classify",
-  "error_type": "ValueError",
+  "classified_expression_count": 7,
+  "complete": false,
   "fixture": "[4B] 3D Diagram - S2-10 Group C.json",
   "fixture_path": "fixtures/states/[4B] 3D Diagram - S2-10 Group C.json",
   "graph_hash": null,
-  "output": "/Users/careylai/Desktop/desmos2usd/artifacts/fixture_usdz/[4B] 3D Diagram - S2-10 Group C.usda",
-  "resolution": 8,
-  "status": "error",
+  "output": "artifacts/fixture_usdz/[4B] 3D Diagram - S2-10 Group C.usda",
+  "prim_count": 3,
+  "renderable_expression_count": 8,
+  "resolution": 12,
+  "status": "partial",
   "title": "Desmos graph",
-  "usdz_exists": false,
-  "usdz_output": "/Users/careylai/Desktop/desmos2usd/artifacts/fixture_usdz/[4B] 3D Diagram - S2-10 Group C.usdz"
+  "unsupported": [
+    {
+      "expr_id": "39",
+      "kind": "classification",
+      "latex": "h\\left(x+238,y+058\\right)\\left\\{-100\\le y\\le100\\right\\}\\left\\{-100\\le x\\le100\\right\\}",
+      "reason": "not a supported renderable geometry form"
+    },
+    {
+      "expr_id": "1",
+      "kind": "inequality_region",
+      "latex": "\\frac{x^{2}}{94.5^{2}}+\\frac{y^{2}}{78^{2}}<1\\left\\{\\frac{x^{2}}{94.5^{2}}+\\frac{y^{2}}{78^{2}}>0.905^{2}\\right\\}\\left\\{0\\le z\\le50\\right\\}\\left\\{\\min\\left(\\operatorname{mod}\\left(\\frac{\\left(\\arctan\\left(156x,198y\\right)+\\pi\\right)}{2\\pi},\\frac{1}{16}\\right)-\\frac{1}{32},z,20-z\\right)\\le0\\right\\}\\left\\{0.5^{2}<\\left(g\\left(x,y\\right)-0.5\\right)^{2}+\\left(\\frac{z-20}{20}\\right)^{2}\\right\\}",
+      "reason": "Could not evaluate '\\\\min(\\\\operatorname{mod}(\\\\frac{(\\\\arctan(156x,198y)+\\\\pi)}{2\\\\pi},\\\\frac{1}{16})-\\\\frac{1}{32},z,20-z)' with variables {'x': -12.74462795488762, 'y': -76.9374707193129, 'z': 0.0}: math.atan() takes exactly one argument (2 given)"
+    },
+    {
+      "expr_id": "24",
+      "kind": "inequality_region",
+      "latex": "\\frac{x^{2}}{94.5^{2}}+\\frac{y^{2}}{78^{2}}<1\\left\\{\\frac{x^{2}}{94.5^{2}}+\\frac{y^{2}}{78^{2}}>0.905^{2}\\right\\}\\left\\{0\\le z-55.4\\le50\\right\\}\\left\\{\\min\\left(\\operatorname{mod}\\left(\\frac{\\left(\\arctan\\left(156x,198y\\right)+\\pi\\right)}{2\\pi},\\frac{1}{16}\\right)-\\frac{1}{32},z-55.4,20-z+55.4\\right)\\le0\\right\\}\\left\\{0.5^{2}<\\left(g\\left(x,y\\right)-0.5\\right)^{2}+\\left(\\frac{z-20-55.4}{20}\\right)^{2}\\right\\}\\left\\{\\frac{x^{2}}{94.5^{2}}+\\frac{y^{2}}{78^{2}}>0.0005\\left(z-55.4\\right)^{2}\\right\\}",
+      "reason": "Could not evaluate '\\\\min(\\\\operatorname{mod}(\\\\frac{(\\\\arctan(156x,198y)+\\\\pi)}{2\\\\pi},\\\\frac{1}{16})-\\\\frac{1}{32},z-55.4,20-z+55.4)' with variables {'x': -12.74462795488762, 'y': -76.9374707193129, 'z': 57.626636705206884}: math.atan() takes exactly one argument (2 given)"
+    },
+    {
+      "expr_id": "38",
+      "kind": "inequality_region",
+      "latex": "h\\left(\\operatorname{floor}\\left(\\frac{x+1000}{6.6}\\right),\\operatorname{floor}\\left(\\frac{y+1000}{6.6}\\right)\\right)<0.5\\left\\{\\operatorname{mod}\\left(y,6.6\\right)<\\left(6.6\\right)0.2\\right\\}\\left\\{\\frac{x^{2}}{94.5^{2}}+\\frac{y^{2}}{78^{2}}\\le0.905^{2}\\right\\}\\left\\{5\\le z\\le30\\right\\}",
+      "reason": "Inequality region for 38 did not resolve to sampled cells"
+    },
+    {
+      "expr_id": "50",
+      "kind": "inequality_region",
+      "latex": "g\\left(x,y\\right)<-0.9\\left\\{\\frac{x^{2}}{94.5^{2}}+\\frac{y^{2}}{78^{2}}<0.905^{2}\\right\\}\\left\\{\\frac{x^{2}}{94.5^{2}}+\\frac{y^{2}}{78^{2}}>0.4525^{2}\\right\\}\\left\\{0\\le z\\le50\\right\\}\\left\\{\\frac{x^{2}}{94.5^{2}}+\\frac{y^{2}}{78^{2}}>0.00012z^{2}+0.4525^{2}\\right\\}",
+      "reason": "Could not evaluate 'g(x,y)' with variables {'x': -36.525488552217396, 'y': -114.98684767504099, 'z': 0.0}: Could not evaluate '32(\\\\operatorname{mod}(\\\\frac{(\\\\arctan(156x,198y)+\\\\pi)}{2\\\\pi},\\\\frac{1}{16})-\\\\frac{1}{32})' with variables {'x': -36.525488552217396, 'y': -114.98684767504099}: math.atan() takes exactly one argument (2 given)"
+    }
+  ],
+  "unsupported_count": 5,
+  "usda_exists": true,
+  "usdz_exists": true,
+  "usdz_output": "artifacts/fixture_usdz/[4B] 3D Diagram - S2-10 Group C.usdz",
+  "usdz_package": {
+    "command": [
+      "/usr/bin/usdzip",
+      "/Users/chek/repos/desmos2usd-carey/artifacts/fixture_usdz/[4B] 3D Diagram - S2-10 Group C.usdz",
+      "[4B] 3D Diagram - S2-10 Group C.usda"
+    ],
+    "cwd": "/Users/chek/repos/desmos2usd-carey/artifacts/fixture_usdz",
+    "returncode": 0,
+    "stderr": "",
+    "stdout": "",
+    "tool": "usdzip"
+  },
+  "usdz_validation": {
+    "command": [
+      "/usr/bin/usdchecker",
+      "--arkit",
+      "/Users/chek/repos/desmos2usd-carey/artifacts/fixture_usdz/[4B] 3D Diagram - S2-10 Group C.usdz"
+    ],
+    "cwd": null,
+    "returncode": 0,
+    "stderr": "Coding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\n",
+    "stdout": "\nValidation Result with no explicit variants set\nSuccess!\n",
+    "tool": "usdchecker"
+  },
+  "valid": true,
+  "validations": [
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "23",
+      "face_count": 3456,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 4608,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "35",
+      "face_count": 96,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 128,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "28",
+      "face_count": 9768,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 13024,
+      "valid": true
+    }
+  ],
+  "view_metadata": {
+    "axis_3d": [
+      0.0,
+      0.0,
+      -0.9999999999867174
+    ],
+    "three_d_mode": true,
+    "viewport_bounds": {
+      "x": [
+        -36.525488552217396,
+        72.86647019549959
+      ],
+      "y": [
+        -114.98684767504099,
+        -5.594888927322742
+      ],
+      "z": [
+        -42.25297780357885,
+        67.13898094413886
+      ]
+    },
+    "world_rotation_3d": [
+      0.35912376427481385,
+      -0.9298133397506747,
+      0.08048152057943539,
+      0.9073084934474474,
+      0.36803145683717076,
+      0.20333259575490176,
+      -0.21868109120636062,
+      1.7968912580795356e-14,
+      0.9757963826274321
+    ]
+  }
 }

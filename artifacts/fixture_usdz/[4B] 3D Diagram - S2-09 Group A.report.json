@@ -1,13 +1,14 @@
 {
   "acceptance_success": false,
+  "classified_expression_count": 62,
   "complete": false,
   "fixture": "[4B] 3D Diagram - S2-09 Group A.json",
   "fixture_path": "fixtures/states/[4B] 3D Diagram - S2-09 Group A.json",
   "graph_hash": null,
-  "output": "/Users/careylai/Desktop/desmos2usd/artifacts/fixture_usdz/[4B] 3D Diagram - S2-09 Group A.usda",
+  "output": "artifacts/fixture_usdz/[4B] 3D Diagram - S2-09 Group A.usda",
   "prim_count": 21,
   "renderable_expression_count": 62,
-  "resolution": 8,
+  "resolution": 12,
   "status": "partial",
   "title": "Desmos graph",
   "unsupported": [
@@ -33,19 +34,19 @@
       "expr_id": "73",
       "kind": "inequality_region",
       "latex": "\\left(-x+21\\right)^{1.15}>z>\\left(-x+20\\right)^{1.15}\\ \\left\\{-0.5<y<0.5\\right\\}\\left\\{z<10\\right\\}",
-      "reason": "Expression '(-x+20)^{1.15}' evaluated to non-finite value (-3.703523281653745-1.8870393647977037j)"
+      "reason": "Expression '(-x+20)^{1.15}' evaluated to non-finite value (-12.806271593540572-6.525121290046486j)"
     },
     {
       "expr_id": "69",
       "kind": "inequality_region",
       "latex": "\\left(-x+15\\right)^{1.15}<z<\\left(-x+16\\right)^{1.15}\\left\\{4<y<5\\right\\}\\left\\{x>0\\right\\}\\left\\{z<10\\right\\}",
-      "reason": "Expression '(-x+15)^{1.15}' evaluated to non-finite value (-10.372059859793946-5.284828462244625j)"
+      "reason": "Expression '(-x+15)^{1.15}' evaluated to non-finite value (-5.803995364409033-2.9572833469140893j)"
     },
     {
       "expr_id": "70",
       "kind": "inequality_region",
       "latex": "\\left(-x+16\\right)^{1.15}>z>\\left(-x+15\\right)^{1.15}\\ \\left\\{-5<y<-4\\right\\}\\left\\{x>0\\right\\}\\left\\{z<10\\right\\}",
-      "reason": "Expression '(-x+15)^{1.15}' evaluated to non-finite value (-10.372059859793946-5.284828462244625j)"
+      "reason": "Expression '(-x+15)^{1.15}' evaluated to non-finite value (-5.803995364409033-2.9572833469140893j)"
     },
     {
       "expr_id": "82",
@@ -69,19 +70,19 @@
       "expr_id": "89",
       "kind": "inequality_region",
       "latex": "\\left(-y+15\\right)^{1.15}<z<\\left(-y+16\\right)^{1.15}\\left\\{4<x<5\\right\\}\\left\\{y>0\\right\\}\\left\\{z<10\\right\\}",
-      "reason": "Expression '(-y+15)^{1.15}' evaluated to non-finite value (-10.372059859793946-5.284828462244625j)"
+      "reason": "Expression '(-y+15)^{1.15}' evaluated to non-finite value (-5.803995364409033-2.9572833469140893j)"
     },
     {
       "expr_id": "90",
       "kind": "inequality_region",
       "latex": "\\left(-y+21\\right)^{1.15}>z>\\left(-y+20\\right)^{1.15}\\ \\left\\{-0.5<x<0.5\\right\\}\\left\\{z<10\\right\\}",
-      "reason": "Expression '(-y+20)^{1.15}' evaluated to non-finite value (-3.703523281653745-1.8870393647977037j)"
+      "reason": "Expression '(-y+20)^{1.15}' evaluated to non-finite value (-12.806271593540572-6.525121290046486j)"
     },
     {
       "expr_id": "91",
       "kind": "inequality_region",
       "latex": "\\left(-y+16\\right)^{1.15}>z>\\left(-y+15\\right)^{1.15}\\ \\left\\{-5<x<-4\\right\\}\\left\\{y>0\\right\\}\\left\\{z<10\\right\\}",
-      "reason": "Expression '(-y+15)^{1.15}' evaluated to non-finite value (-10.372059859793946-5.284828462244625j)"
+      "reason": "Expression '(-y+15)^{1.15}' evaluated to non-finite value (-5.803995364409033-2.9572833469140893j)"
     },
     {
       "expr_id": "331",
@@ -159,49 +160,49 @@
       "expr_id": "178",
       "kind": "inequality_region",
       "latex": "\\left(-y+17\\right)^{1.4}>z>\\left(-y+16\\right)^{1.4}\\ \\left\\{-0.5<x<0.5\\right\\}\\left\\{12<z<24\\right\\}",
-      "reason": "Expression '(-y+16)^{1.4}' evaluated to non-finite value (-5.142066941154538-15.825654771844427j)"
+      "reason": "Expression '(-y+16)^{1.4}' evaluated to non-finite value (-12.62216457908734-38.8470281285737j)"
     },
     {
       "expr_id": "179",
       "kind": "inequality_region",
       "latex": "\\left(-y+15\\right)^{1.4}>z>\\left(-y+14\\right)^{1.4}\\ \\left\\{2<x<3\\right\\}\\left\\{12<z<24\\right\\}",
-      "reason": "Expression '(-y+14)^{1.4}' evaluated to non-finite value (-7.17289664186352-22.075905908523005j)"
+      "reason": "Expression '(-y+14)^{1.4}' evaluated to non-finite value (-15.18815116317981-46.74432279504766j)"
     },
     {
       "expr_id": "180",
       "kind": "inequality_region",
       "latex": "\\left(-y+15\\right)^{1.4}>z>\\left(-y+14\\right)^{1.4}\\ \\left\\{-3<x<-2\\right\\}\\left\\{12<z<24\\right\\}",
-      "reason": "Expression '(-y+14)^{1.4}' evaluated to non-finite value (-7.17289664186352-22.075905908523005j)"
+      "reason": "Expression '(-y+14)^{1.4}' evaluated to non-finite value (-15.18815116317981-46.74432279504766j)"
     },
     {
       "expr_id": "181",
       "kind": "inequality_region",
       "latex": "\\left(-y+13\\right)^{1.4}>z>\\left(-y+12\\right)^{1.4}\\ \\left\\{-0.5<x<0.5\\right\\}\\left\\{12<z<24\\right\\}",
-      "reason": "Expression '(-y+12)^{1.4}' evaluated to non-finite value (-9.384235878745443-28.881708272984184j)"
+      "reason": "Expression '(-y+12)^{1.4}' evaluated to non-finite value (-17.88470283759633-55.04345549054174j)"
     },
     {
       "expr_id": "183",
       "kind": "inequality_region",
       "latex": "\\left(-x+17\\right)^{1.4}>z>\\left(-x+16\\right)^{1.4}\\ \\left\\{-0.5<y<0.5\\right\\}\\left\\{12<z<24\\right\\}",
-      "reason": "Expression '(-x+16)^{1.4}' evaluated to non-finite value (-5.142066941154538-15.825654771844427j)"
+      "reason": "Expression '(-x+16)^{1.4}' evaluated to non-finite value (-12.62216457908734-38.8470281285737j)"
     },
     {
       "expr_id": "184",
       "kind": "inequality_region",
       "latex": "\\left(-x+15\\right)^{1.4}>z>\\left(-x+14\\right)^{1.4}\\ \\left\\{2<y<3\\right\\}\\left\\{12<z<24\\right\\}",
-      "reason": "Expression '(-x+14)^{1.4}' evaluated to non-finite value (-7.17289664186352-22.075905908523005j)"
+      "reason": "Expression '(-x+14)^{1.4}' evaluated to non-finite value (-15.18815116317981-46.74432279504766j)"
     },
     {
       "expr_id": "185",
       "kind": "inequality_region",
       "latex": "\\left(-x+15\\right)^{1.4}>z>\\left(-x+14\\right)^{1.4}\\ \\left\\{-3<y<-2\\right\\}\\left\\{12<z<24\\right\\}",
-      "reason": "Expression '(-x+14)^{1.4}' evaluated to non-finite value (-7.17289664186352-22.075905908523005j)"
+      "reason": "Expression '(-x+14)^{1.4}' evaluated to non-finite value (-15.18815116317981-46.74432279504766j)"
     },
     {
       "expr_id": "194",
       "kind": "inequality_region",
       "latex": "\\left(-x+13\\right)^{1.4}>z>\\left(-x+12\\right)^{1.4}\\ \\left\\{-0.5<y<0.5\\right\\}\\left\\{12<z<24\\right\\}",
-      "reason": "Expression '(-x+12)^{1.4}' evaluated to non-finite value (-9.384235878745443-28.881708272984184j)"
+      "reason": "Expression '(-x+12)^{1.4}' evaluated to non-finite value (-17.88470283759633-55.04345549054174j)"
     },
     {
       "expr_id": "196",
@@ -231,19 +232,19 @@
       "expr_id": "208",
       "kind": "inequality_region",
       "latex": "\\left(-y+11\\right)^{1.8}>z>\\left(-y+10\\right)^{1.8}\\ \\left\\{2<x<3\\right\\}\\left\\{25<z<5\\right\\}\\left\\{y>0\\right\\}",
-      "reason": "Expression '(-y+10)^{1.8}' evaluated to non-finite value (87.04724458823364-63.243525139036265j)"
+      "reason": "Expression '(-y+10)^{1.8}' evaluated to non-finite value (0.0037777980867496276-0.0027447309722408914j)"
     },
     {
       "expr_id": "209",
       "kind": "inequality_region",
       "latex": "\\left(-y+13\\right)^{1.8}>z>\\left(-y+12\\right)^{1.8}\\ \\left\\{-0.5<x<0.5\\right\\}\\left\\{25<z<90\\right\\}\\left\\{y>0\\right\\}",
-      "reason": "Expression '(-y+12)^{1.8}' evaluated to non-finite value (65.1511044211152-47.33504810845832j)"
+      "reason": "Expression '(-y+12)^{1.8}' evaluated to non-finite value (34.94371867583325-25.388097704648047j)"
     },
     {
       "expr_id": "214",
       "kind": "inequality_region",
       "latex": "\\left(-x+13\\right)^{1.8}>z>\\left(-x+12\\right)^{1.8}\\ \\left\\{-0.5<y<0.5\\right\\}\\left\\{25<z<90\\right\\}\\left\\{x>0\\right\\}",
-      "reason": "Expression '(-x+12)^{1.8}' evaluated to non-finite value (65.1511044211152-47.33504810845832j)"
+      "reason": "Expression '(-x+12)^{1.8}' evaluated to non-finite value (34.94371867583325-25.388097704648047j)"
     },
     {
       "expr_id": "217",
@@ -259,15 +260,16 @@
     }
   ],
   "unsupported_count": 41,
+  "usda_exists": true,
   "usdz_exists": true,
-  "usdz_output": "/Users/careylai/Desktop/desmos2usd/artifacts/fixture_usdz/[4B] 3D Diagram - S2-09 Group A.usdz",
+  "usdz_output": "artifacts/fixture_usdz/[4B] 3D Diagram - S2-09 Group A.usdz",
   "usdz_package": {
     "command": [
       "/usr/bin/usdzip",
-      "/Users/careylai/Desktop/desmos2usd/artifacts/fixture_usdz/[4B] 3D Diagram - S2-09 Group A.usdz",
+      "/Users/chek/repos/desmos2usd-carey/artifacts/fixture_usdz/[4B] 3D Diagram - S2-09 Group A.usdz",
       "[4B] 3D Diagram - S2-09 Group A.usda"
     ],
-    "cwd": "/Users/careylai/Desktop/desmos2usd/artifacts/fixture_usdz",
+    "cwd": "/Users/chek/repos/desmos2usd-carey/artifacts/fixture_usdz",
     "returncode": 0,
     "stderr": "",
     "stdout": "",
@@ -277,11 +279,11 @@
     "command": [
       "/usr/bin/usdchecker",
       "--arkit",
-      "/Users/careylai/Desktop/desmos2usd/artifacts/fixture_usdz/[4B] 3D Diagram - S2-09 Group A.usdz"
+      "/Users/chek/repos/desmos2usd-carey/artifacts/fixture_usdz/[4B] 3D Diagram - S2-09 Group A.usdz"
     ],
     "cwd": null,
     "returncode": 0,
-    "stderr": "Coding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\n",
+    "stderr": "",
     "stdout": "\nValidation Result with no explicit variants set\nSuccess!\n",
     "tool": "usdchecker"
   },
@@ -291,211 +293,245 @@
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "328",
-      "face_count": 81,
+      "face_count": 169,
       "kind": "explicit_surface",
       "max_residual": 0.0,
-      "point_count": 100,
+      "point_count": 196,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "344",
-      "face_count": 12,
+      "face_count": 126,
       "kind": "inequality_region",
       "max_residual": null,
-      "point_count": 32,
+      "point_count": 128,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "34",
-      "face_count": 12,
+      "face_count": 126,
       "kind": "inequality_region",
       "max_residual": null,
-      "point_count": 32,
+      "point_count": 128,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "75",
-      "face_count": 12,
+      "face_count": 126,
       "kind": "inequality_region",
       "max_residual": null,
-      "point_count": 32,
+      "point_count": 128,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "77",
-      "face_count": 12,
+      "face_count": 126,
       "kind": "inequality_region",
       "max_residual": null,
-      "point_count": 32,
+      "point_count": 128,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "87",
-      "face_count": 12,
+      "face_count": 126,
       "kind": "inequality_region",
       "max_residual": null,
-      "point_count": 32,
+      "point_count": 128,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "88",
-      "face_count": 12,
+      "face_count": 126,
       "kind": "inequality_region",
       "max_residual": null,
-      "point_count": 32,
+      "point_count": 128,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "93",
-      "face_count": 12,
+      "face_count": 126,
       "kind": "inequality_region",
       "max_residual": null,
-      "point_count": 32,
+      "point_count": 128,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "94",
-      "face_count": 12,
+      "face_count": 126,
       "kind": "inequality_region",
       "max_residual": null,
-      "point_count": 32,
+      "point_count": 128,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "165",
-      "face_count": 12,
+      "face_count": 126,
       "kind": "inequality_region",
       "max_residual": null,
-      "point_count": 32,
+      "point_count": 128,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "167",
-      "face_count": 12,
+      "face_count": 126,
       "kind": "inequality_region",
       "max_residual": null,
-      "point_count": 32,
+      "point_count": 128,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "274",
-      "face_count": 12,
+      "face_count": 126,
       "kind": "inequality_region",
       "max_residual": null,
-      "point_count": 32,
+      "point_count": 128,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "275",
-      "face_count": 12,
+      "face_count": 126,
       "kind": "inequality_region",
       "max_residual": null,
-      "point_count": 32,
+      "point_count": 128,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "201",
-      "face_count": 12,
+      "face_count": 126,
       "kind": "inequality_region",
       "max_residual": null,
-      "point_count": 32,
+      "point_count": 128,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "203",
-      "face_count": 12,
+      "face_count": 126,
       "kind": "inequality_region",
       "max_residual": null,
-      "point_count": 32,
+      "point_count": 128,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "278",
-      "face_count": 12,
+      "face_count": 126,
       "kind": "inequality_region",
       "max_residual": null,
-      "point_count": 32,
+      "point_count": 128,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "279",
-      "face_count": 12,
+      "face_count": 126,
       "kind": "inequality_region",
       "max_residual": null,
-      "point_count": 32,
+      "point_count": 128,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "250",
-      "face_count": 12,
+      "face_count": 126,
       "kind": "inequality_region",
       "max_residual": null,
-      "point_count": 32,
+      "point_count": 128,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "252",
-      "face_count": 12,
+      "face_count": 126,
       "kind": "inequality_region",
       "max_residual": null,
-      "point_count": 32,
+      "point_count": 128,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "269",
-      "face_count": 12,
+      "face_count": 126,
       "kind": "inequality_region",
       "max_residual": null,
-      "point_count": 32,
+      "point_count": 128,
       "valid": true
     },
     {
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "270",
-      "face_count": 12,
+      "face_count": 126,
       "kind": "inequality_region",
       "max_residual": null,
-      "point_count": 32,
+      "point_count": 128,
       "valid": true
     }
-  ]
+  ],
+  "view_metadata": {
+    "axis_3d": [
+      0.9816699454608232,
+      -0.19058887208845315,
+      -8.741694463210924e-15
+    ],
+    "degree_mode": true,
+    "three_d_mode": true,
+    "viewport_bounds": {
+      "x": [
+        -70.35502113281252,
+        70.35502113281252
+      ],
+      "y": [
+        -70.35502113281252,
+        70.35502113281252
+      ],
+      "z": [
+        0.0,
+        140.71004226562505
+      ]
+    },
+    "world_rotation_3d": [
+      0.19058887208988218,
+      -0.9816699454681835,
+      0.0,
+      0.9816699454681835,
+      0.19058887208988218,
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ]
+  }
 }

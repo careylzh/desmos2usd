@@ -1,0 +1,42 @@
+{
+  "capturedAt": "2026-04-26T12:31:53+08:00",
+  "outDir": "artifacts/fixture_usdz/review_evidence/20260426_view_metadata_parity",
+  "results": [
+    {
+      "case": "S2-03_Group_B",
+      "kind": "local",
+      "ok": false,
+      "error": "Playwright/Chromium could not launch in this sandbox: bootstrap_check_in org.chromium.Chromium.MachPortRendezvousServer: Permission denied (1100); process exited with SIGTRAP/SIGABRT."
+    },
+    {
+      "case": "S2-05_Group_D",
+      "kind": "local",
+      "ok": false,
+      "error": "Playwright/Chromium could not launch in this sandbox: bootstrap_check_in org.chromium.Chromium.MachPortRendezvousServer: Permission denied (1100); process exited with SIGTRAP/SIGABRT."
+    },
+    {
+      "case": "S2-09_Group_F",
+      "kind": "local",
+      "ok": false,
+      "error": "Playwright/Chromium could not launch in this sandbox: bootstrap_check_in org.chromium.Chromium.MachPortRendezvousServer: Permission denied (1100); process exited with SIGTRAP/SIGABRT."
+    },
+    {
+      "case": "S2-03_Group_B",
+      "kind": "desmos",
+      "ok": false,
+      "error": "Not reached after local Playwright launch failed; shell DNS for www.desmos.com and chq.singapura-broadnose.ts.net also failed with curl: (6) Could not resolve host."
+    },
+    {
+      "case": "S2-05_Group_D",
+      "kind": "desmos",
+      "ok": false,
+      "error": "Not reached after local Playwright launch failed; shell DNS for www.desmos.com and chq.singapura-broadnose.ts.net also failed with curl: (6) Could not resolve host."
+    },
+    {
+      "case": "S2-09_Group_F",
+      "kind": "desmos",
+      "ok": false,
+      "error": "Not reached after local Playwright launch failed; shell DNS for www.desmos.com and chq.singapura-broadnose.ts.net also failed with curl: (6) Could not resolve host."
+    }
+  ]
+}

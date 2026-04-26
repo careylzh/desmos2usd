@@ -1,0 +1,29 @@
+{
+  "browser_capture": {
+    "chrome_devtools_mcp": "user cancelled MCP tool call",
+    "local_http_server": "blocked: PermissionError [Errno 1] Operation not permitted",
+    "playwright_mcp": "user cancelled MCP tool call"
+  },
+  "deterministic_projections": [
+    {
+      "file": "S2-06_Group_E_projection_pass5.png",
+      "fixture": "[4B] 3D Diagram - S2-06 Group E",
+      "source": "local deterministic XY/XZ/YZ projection from regenerated fixture geometry"
+    },
+    {
+      "file": "S2-08_Group_E_projection_guard_pass5.png",
+      "fixture": "[4B] 3D Diagram - S2-08 Group E",
+      "source": "local deterministic XY/XZ/YZ projection guard"
+    },
+    {
+      "file": "S2-09_Group_F_projection_guard_pass5.png",
+      "fixture": "[4B] 3D Diagram - S2-09 Group F",
+      "source": "local deterministic XY/XZ/YZ projection guard"
+    }
+  ],
+  "viewer_urls": {
+    "S2-06_Group_E": "https://chq.singapura-broadnose.ts.net/viewer/?usda=..%2Fartifacts%2Ffixture_usdz%2F%5B4B%5D%203D%20Diagram%20-%20S2-06%20Group%20E.usda&label=%5B4B%5D%203D%20Diagram%20-%20S2-06%20Group%20E",
+    "S2-08_Group_E": "https://chq.singapura-broadnose.ts.net/viewer/?usda=..%2Fartifacts%2Ffixture_usdz%2F%5B4B%5D%203D%20Diagram%20-%20S2-08%20Group%20E.usda&label=%5B4B%5D%203D%20Diagram%20-%20S2-08%20Group%20E",
+    "S2-09_Group_F": "https://chq.singapura-broadnose.ts.net/viewer/?usda=..%2Fartifacts%2Ffixture_usdz%2F%5B4B%5D%203D%20Diagram%20-%20S2-09%20Group%20F.usda&label=%5B4B%5D%203D%20Diagram%20-%20S2-09%20Group%20F"
+  }
+}

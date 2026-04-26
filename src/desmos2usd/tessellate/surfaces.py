@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import ast
+from math import isfinite, sqrt
 
 from desmos2usd.eval.context import EvalContext
 from desmos2usd.parse.classify import ClassifiedExpression
@@ -13,8 +14,10 @@ DEFAULT_BOUNDS = (-5.0, 5.0)
 INFERENCE_SAMPLES = 64
 SINGLE_AXIS_INFERENCE_SAMPLES = 1024
 BOUNDARY_REFINE_ITERATIONS = 60
+QUAD_BOUNDARY_REFINE_ITERATIONS = 8
 HALF_OPEN_TOL = 1e-5
 BOUNDARY_NUDGE = 2e-5
+DEGENERATE_AXIS_HALF_WIDTH = 5e-4
 
 
 def tessellate_explicit_surface(
@@ -27,8 +30,19 @@ def tessellate_explicit_surface(
         raise ValueError("explicit surface missing axis or expression")
     domain_axes = [axis for axis in ("x", "y", "z") if axis != item.axis]
     surface_bounds = explicit_surface_domain_bounds(item, context)
+    flat_axis = _explicit_flat_axis(item, domain_axes, collect_constant_bounds(item.predicates, context))
     a0, a1 = surface_bounds[domain_axes[0]]
     b0, b1 = surface_bounds[domain_axes[1]]
+    # If a domain axis was intentionally collapsed by the 2D-in-3D rule, expand it to a
+    # thin strip so quad_faces (which needs two distinct samples per dimension) still
+    # produces geometry. We do NOT nudge predicate-derived degenerate ranges (e.g. a
+    # ``z=18`` predicate or a strict ``18<z<18`` band): those legitimately mean "this
+    # surface lives at exactly z=18", and silently expanding them produces points that
+    # violate their own predicate.
+    if flat_axis == domain_axes[0] and a0 == a1:
+        a0, a1 = a0 - DEGENERATE_AXIS_HALF_WIDTH, a1 + DEGENERATE_AXIS_HALF_WIDTH
+    if flat_axis == domain_axes[1] and b0 == b1:
+        b0, b1 = b0 - DEGENERATE_AXIS_HALF_WIDTH, b1 + DEGENERATE_AXIS_HALF_WIDTH
     axis_samples = axis_samples or {}
     a_values = sample_axis_values(a0, a1, resolution, axis_samples.get(domain_axes[0]))
     b_values = sample_axis_values(b0, b1, resolution, axis_samples.get(domain_axes[1]))
@@ -37,14 +51,31 @@ def tessellate_explicit_surface(
     for b in b_values:
         row_valid: list[bool] = []
         for a in a_values:
-            variables = {domain_axes[0]: a, domain_axes[1]: b}
-            target = item.expression.eval(context, variables)
-            variables[item.axis] = target
-            point = point_from_variables(variables)
+            point, valid = explicit_surface_sample(
+                item,
+                context,
+                {domain_axes[0]: a, domain_axes[1]: b},
+            )
             points.append(point)
-            row_valid.append(all(predicate.evaluate_half_open(context, variables, tol=HALF_OPEN_TOL) for predicate in item.predicates))
+            row_valid.append(valid)
         valid_grid.append(row_valid)
-    counts, indices = quad_faces(len(a_values), len(b_values), valid_grid)
+    if _surface_predicates_constrain_solved_axis(item):
+        points, counts, indices = refined_quad_faces(
+            item,
+            context,
+            domain_axes[0],
+            a_values,
+            domain_axes[1],
+            b_values,
+            points,
+            valid_grid,
+        )
+    else:
+        # Predicates only restrict the domain axes (or are absent), so the surface
+        # boundary already aligns with the grid edges where the constraints become
+        # active. Bisecting individual cells would not refine that boundary, so
+        # skip the refinement to keep this fast.
+        counts, indices = quad_faces(len(a_values), len(b_values), valid_grid)
     if not counts and resolution < 64:
         return tessellate_explicit_surface(
             item,
@@ -55,6 +86,161 @@ def tessellate_explicit_surface(
     if counts and _solved_axis_entirely_outside_viewport(item, points, indices):
         return GeometryData(kind="Mesh", points=[], face_vertex_counts=[], face_vertex_indices=[])
     return GeometryData(kind="Mesh", points=points, face_vertex_counts=counts, face_vertex_indices=indices)
+
+
+def _surface_predicates_constrain_solved_axis(item: ClassifiedExpression) -> bool:
+    """True if any predicate references ``item.axis`` (the dependent variable).
+
+    When the only restrictions are on domain axes, cell boundaries already follow
+    the constraint edges and bisecting mixed cells gives no improvement. The
+    expensive marching-squares refinement only earns its keep when the predicate
+    is a constraint on the dependent axis itself (e.g. ``z>3`` clipping a
+    paraboloid cap), where the true boundary is a contour curve in the (a, b)
+    domain rather than an axis-aligned grid edge.
+    """
+    if not item.axis:
+        return False
+    for predicate in item.predicates:
+        for term in predicate.terms:
+            if item.axis in term.identifiers:
+                return True
+    return False
+
+
+def refined_quad_faces(
+    item: ClassifiedExpression,
+    context: EvalContext,
+    a_axis: str,
+    a_values: list[float],
+    b_axis: str,
+    b_values: list[float],
+    points: list[Point],
+    valid_grid: list[list[bool]],
+) -> tuple[list[Point], list[int], list[int]]:
+    """Like quad_faces but emits boundary-refined triangles for partial-valid quads.
+
+    For grid cells whose four corners straddle the predicate boundary (e.g. the rim of
+    a paraboloid cap clipped by ``z>3``), bisect along each mixed-validity edge to find
+    the predicate transition, then emit triangles connecting valid corners and the
+    boundary points. Without this, the surface boundary follows the grid edges and
+    appears as scattered 'fins' at low resolution. The bisection cost is O(mixed cells)
+    per surface and is bounded by ``QUAD_BOUNDARY_REFINE_ITERATIONS``.
+    """
+    width = len(a_values)
+    height = len(b_values)
+    refined_points = list(points)
+    counts: list[int] = []
+    indices: list[int] = []
+    # Fast path: if every grid corner is valid, no cell needs the bisection
+    # branch and we can skip the per-cell setup work. Common for unconstrained
+    # surfaces and for surfaces whose domain is already clipped exactly to the
+    # validity region (so all corners pass).
+    all_valid = all(all(row) for row in valid_grid)
+    if all_valid:
+        for row in range(height - 1):
+            for col in range(width - 1):
+                a = row * width + col
+                counts.append(4)
+                indices.extend([a, a + 1, a + width + 1, a + width])
+        return refined_points, counts, indices
+    for row in range(height - 1):
+        for col in range(width - 1):
+            corner_grid = [
+                (col, row),
+                (col + 1, row),
+                (col + 1, row + 1),
+                (col, row + 1),
+            ]
+            corner_indices = [r * width + c for c, r in corner_grid]
+            valid_flags = [valid_grid[r][c] for c, r in corner_grid]
+            valid_count = sum(1 for flag in valid_flags if flag)
+            if valid_count == 0:
+                continue
+            if valid_count == 4:
+                counts.append(4)
+                indices.extend(corner_indices)
+                continue
+            edge_points: dict[int, int] = {}
+            for i in range(4):
+                j = (i + 1) % 4
+                if valid_flags[i] == valid_flags[j]:
+                    continue
+                if valid_flags[i]:
+                    valid_corner = corner_grid[i]
+                    invalid_corner = corner_grid[j]
+                else:
+                    valid_corner = corner_grid[j]
+                    invalid_corner = corner_grid[i]
+                crossing = _bisect_predicate_crossing(
+                    item,
+                    context,
+                    a_axis,
+                    b_axis,
+                    a_values[valid_corner[0]],
+                    b_values[valid_corner[1]],
+                    a_values[invalid_corner[0]],
+                    b_values[invalid_corner[1]],
+                )
+                if crossing is None:
+                    continue
+                refined_points.append(crossing)
+                edge_points[i] = len(refined_points) - 1
+            polygon: list[int] = []
+            for i in range(4):
+                if valid_flags[i]:
+                    polygon.append(corner_indices[i])
+                if i in edge_points:
+                    polygon.append(edge_points[i])
+            if len(polygon) < 3:
+                continue
+            for k in range(1, len(polygon) - 1):
+                counts.append(3)
+                indices.extend([polygon[0], polygon[k], polygon[k + 1]])
+    return refined_points, counts, indices
+
+
+def _bisect_predicate_crossing(
+    item: ClassifiedExpression,
+    context: EvalContext,
+    a_axis: str,
+    b_axis: str,
+    valid_a: float,
+    valid_b: float,
+    invalid_a: float,
+    invalid_b: float,
+) -> Point | None:
+    """Bisect along the segment from a valid sample to an invalid one until the predicate
+    transition is localized; return the last sample that still satisfies the predicate."""
+    if not item.axis or not item.expression:
+        return None
+    inside_a, inside_b = valid_a, valid_b
+    outside_a, outside_b = invalid_a, invalid_b
+    last_valid_point: Point | None = None
+    for _ in range(QUAD_BOUNDARY_REFINE_ITERATIONS):
+        mid_a = (inside_a + outside_a) / 2.0
+        mid_b = (inside_b + outside_b) / 2.0
+        variables: dict[str, float] = {a_axis: mid_a, b_axis: mid_b}
+        try:
+            target = item.expression.eval(context, variables)
+        except Exception:
+            return None
+        variables[item.axis] = target
+        if explicit_surface_predicates_satisfied_half_open(item, context, variables):
+            inside_a, inside_b = mid_a, mid_b
+            last_valid_point = point_from_variables(variables)
+        else:
+            outside_a, outside_b = mid_a, mid_b
+    if last_valid_point is None:
+        # Fall back to the originally-valid corner sample so the boundary at least
+        # tracks the cell edge instead of degenerating to a missing fin.
+        variables = {a_axis: valid_a, b_axis: valid_b}
+        try:
+            target = item.expression.eval(context, variables)
+        except Exception:
+            return None
+        variables[item.axis] = target
+        last_valid_point = point_from_variables(variables)
+    return last_valid_point
 
 
 def explicit_surface_domain_bounds(
@@ -123,24 +309,34 @@ def infer_explicit_domain_bounds(
 
     inferred = dict(bounds)
     viewport_bounds = item.ir.source.viewport_bounds or {}
+    flat_axis = _explicit_flat_axis(item, domain_axes, inferred)
     for axis in domain_axes:
         if axis_has_complete_bounds(axis, inferred):
             continue
         if explicit_axis_is_unconstrained(item, axis):
+            if axis == flat_axis:
+                inferred[axis] = (0.0, 0.0)
+                continue
             fallback = viewport_bounds.get(axis)
             if fallback is not None:
                 inferred[axis] = fallback
     if all(axis_has_complete_bounds(axis, inferred) for axis in domain_axes):
         return inferred
 
+    sqrt_bounds = infer_single_axis_symmetric_sqrt_bounds(item, context, domain_axes, inferred)
+    if sqrt_bounds is not None:
+        return sqrt_bounds
+
     constants = numeric_constants_for_item(item)
     broad_low, broad_high = broad_bounds_from_constants(constants)
     ranges: dict[str, tuple[float, float]] = {}
     steps: dict[str, float] = {}
+    viewport_bounds = item.ir.source.viewport_bounds or {}
     for axis in domain_axes:
         low, high = inferred.get(axis, (None, None))
-        sample_low = broad_low if low is None else low
-        sample_high = broad_high if high is None else high
+        viewport = viewport_bounds.get(axis)
+        sample_low = (viewport[0] if viewport is not None else broad_low) if low is None else low
+        sample_high = (viewport[1] if viewport is not None else broad_high) if high is None else high
         if low is None and high is not None and sample_low >= high:
             sample_low = high - max(5.0, abs(high) * 0.75)
         if high is None and low is not None and sample_high <= low:
@@ -193,6 +389,249 @@ def explicit_axis_is_unconstrained(item: ClassifiedExpression, axis: str) -> boo
             if axis in term.identifiers:
                 return False
     return True
+
+
+FLAT_AXIS_RANGE_FRACTION = 0.10
+
+
+def _explicit_flat_axis(
+    item: ClassifiedExpression,
+    domain_axes: list[str],
+    bounds: dict[str, tuple[float | None, float | None]],
+) -> str | None:
+    """Return the axis that should collapse to 0 because the surface is 2D-in-3D.
+
+    Desmos 3D renders an explicit surface like ``y=0.4 {-1.8 <= x <= -1.21}`` as a 1D
+    line/strip at z=0 — not a wall extending across the full z viewport. We trigger the
+    flat treatment when *all* of:
+
+    * the dependent axis is x or y (not z) — z-axis surfaces are typically planes;
+    * one domain axis is fully constrained by predicates (the user is "thinking 2D");
+    * the other domain axis is completely unreferenced anywhere;
+    * the constrained range is small relative to the viewport (< ``FLAT_AXIS_RANGE_FRACTION``).
+      The size guard preserves wall-like geometry such as ``y=20 {-225<x<225}`` whose
+      x range exceeds the viewport — those are intended to extrude across z. A tiny
+      x-range, by contrast, signals a localized 2D detail at z=0.
+
+    Without this, fixtures whose 2D detail expressions don't mention z get extruded
+    across the full ``viewport_bounds["z"]`` and produce tall sheets that dominate the
+    scene; conversely, blanket-flattening regresses 3D-wall semantics.
+    """
+    if not item.axis or item.axis == "z":
+        return None
+    if "z" not in domain_axes:
+        return None
+    if not explicit_axis_is_unconstrained(item, "z"):
+        return None
+    viewport = item.ir.source.viewport_bounds or {}
+    z_view = viewport.get("z")
+    if z_view is None or z_view[1] <= z_view[0]:
+        return None
+    z_span = z_view[1] - z_view[0]
+    for axis in domain_axes:
+        if axis == "z":
+            continue
+        low, high = bounds.get(axis, (None, None))
+        if low is None or high is None or low >= high:
+            continue
+        if (high - low) <= z_span * FLAT_AXIS_RANGE_FRACTION:
+            return "z"
+    return None
+
+
+POLYNOMIAL_FIT_TOLERANCE = 1e-7
+QUADRATIC_SOLVE_TOLERANCE = 1e-12
+
+
+def infer_single_axis_symmetric_sqrt_bounds(
+    item: ClassifiedExpression,
+    context: EvalContext,
+    domain_axes: list[str],
+    bounds: dict[str, tuple[float | None, float | None]],
+) -> dict[str, tuple[float | None, float | None]] | None:
+    """Infer a missing domain interval from sqrt-bounded solved-axis restrictions.
+
+    Fixtures often contain generated chord surfaces such as
+    ``y=m*x+c {-sqrt(r^2-x^2)<y<sqrt(r^2-x^2)} {z0<z<z1}``.
+    A uniform scan over the full viewport can miss these when the chord is tangent
+    and only a sub-unit x interval is visible.  When the solved-axis bounds are a
+    symmetric sqrt band, solve the equivalent quadratic interval analytically.
+    """
+    if not item.axis or not item.expression:
+        return None
+    missing_axes = [axis for axis in domain_axes if not axis_has_complete_bounds(axis, bounds)]
+    if len(missing_axes) != 1:
+        return None
+    axis = missing_axes[0]
+    surface_affine = affine_fit_for_axis(item.expression, context, axis)
+    if surface_affine is None:
+        return None
+    surface_slope, surface_intercept = surface_affine
+    inferred = dict(bounds)
+    for predicate in item.predicates:
+        if len(predicate.terms) != 3 or len(predicate.ops) != 2:
+            continue
+        if predicate.ops[0] not in {"<", "<="} or predicate.ops[1] not in {"<", "<="}:
+            continue
+        if predicate.terms[1].python != item.axis:
+            continue
+        if predicate_identifiers_outside_axis(predicate.terms[0], axis) or predicate_identifiers_outside_axis(predicate.terms[2], axis):
+            continue
+        band = sqrt_band_fit(predicate.terms[0], predicate.terms[2], context, axis)
+        if band is None:
+            continue
+        center_slope, center_intercept, radius_a, radius_b, radius_c = band
+        interval = solve_quadratic_less_than_zero(
+            (surface_slope - center_slope) ** 2 - radius_a,
+            2.0 * (surface_slope - center_slope) * (surface_intercept - center_intercept) - radius_b,
+            (surface_intercept - center_intercept) ** 2 - radius_c,
+        )
+        if interval is None:
+            continue
+        low, high = interval
+        previous_low, previous_high = inferred.get(axis, (None, None))
+        if previous_low is not None:
+            low = max(low, previous_low)
+        if previous_high is not None:
+            high = min(high, previous_high)
+        viewport = (item.ir.source.viewport_bounds or {}).get(axis)
+        if viewport is not None:
+            low = max(low, viewport[0])
+            high = min(high, viewport[1])
+        if low < high:
+            inferred[axis] = (low, high)
+            return inferred
+    return None
+
+
+def predicate_identifiers_outside_axis(expression: LatexExpression, axis: str) -> bool:
+    return bool((expression.identifiers & {"x", "y", "z"}) - {axis})
+
+
+def sqrt_band_fit(
+    lower: LatexExpression,
+    upper: LatexExpression,
+    context: EvalContext,
+    axis: str,
+) -> tuple[float, float, float, float, float] | None:
+    sample_sets = (
+        (-1.0, 0.0, 1.0, -0.5, 0.5),
+        (-0.5, 0.0, 0.5, -0.25, 0.25),
+        (-2.0, 0.0, 2.0, -1.0, 1.0),
+        (-0.25, 0.0, 0.25, -0.125, 0.125),
+    )
+    for samples in sample_sets:
+        center_samples: list[tuple[float, float]] = []
+        radius_samples: list[tuple[float, float]] = []
+        for value in samples:
+            try:
+                low = float(lower.eval(context, {axis: value}))
+                high = float(upper.eval(context, {axis: value}))
+            except Exception:
+                break
+            if not all(isfinite(candidate) for candidate in (low, high)) or low > high:
+                break
+            center = (low + high) / 2.0
+            half_width = (high - low) / 2.0
+            center_samples.append((value, center))
+            radius_samples.append((value, half_width * half_width))
+        else:
+            center = fit_affine_samples(center_samples)
+            radius = fit_quadratic_samples(radius_samples)
+            if center is None or radius is None:
+                continue
+            if all(
+                abs((center[0] * value + center[1]) - observed) <= POLYNOMIAL_FIT_TOLERANCE * max(1.0, abs(observed))
+                for value, observed in center_samples
+            ) and all(
+                abs((radius[0] * value * value + radius[1] * value + radius[2]) - observed)
+                <= POLYNOMIAL_FIT_TOLERANCE * max(1.0, abs(observed))
+                for value, observed in radius_samples
+            ):
+                return (center[0], center[1], radius[0], radius[1], radius[2])
+    return None
+
+
+def affine_fit_for_axis(
+    expression: LatexExpression,
+    context: EvalContext,
+    axis: str,
+) -> tuple[float, float] | None:
+    if predicate_identifiers_outside_axis(expression, axis):
+        return None
+    samples = [(-2.0, None), (-1.0, None), (0.0, None), (1.0, None), (2.0, None)]
+    observed: list[tuple[float, float]] = []
+    for value, _ in samples:
+        try:
+            evaluated = float(expression.eval(context, {axis: value}))
+        except Exception:
+            return None
+        if not isfinite(evaluated):
+            return None
+        observed.append((value, evaluated))
+    return fit_affine_samples(observed)
+
+
+def fit_affine_samples(samples: list[tuple[float, float]]) -> tuple[float, float] | None:
+    if len(samples) < 2:
+        return None
+    x0, y0 = samples[0]
+    x1, y1 = next(((x, y) for x, y in samples[1:] if abs(x - x0) > QUADRATIC_SOLVE_TOLERANCE), (x0, y0))
+    if abs(x1 - x0) <= QUADRATIC_SOLVE_TOLERANCE:
+        return None
+    slope = (y1 - y0) / (x1 - x0)
+    intercept = y0 - slope * x0
+    for x, y in samples:
+        if abs((slope * x + intercept) - y) > POLYNOMIAL_FIT_TOLERANCE * max(1.0, abs(y)):
+            return None
+    return (slope, intercept)
+
+
+def fit_quadratic_samples(samples: list[tuple[float, float]]) -> tuple[float, float, float] | None:
+    if len(samples) < 3:
+        return None
+    x0, y0 = samples[0]
+    x1, y1 = samples[1]
+    x2, y2 = samples[2]
+    denominator = (x0 - x1) * (x0 - x2) * (x1 - x2)
+    if abs(denominator) <= QUADRATIC_SOLVE_TOLERANCE:
+        return None
+    a = (x2 * (y1 - y0) + x1 * (y0 - y2) + x0 * (y2 - y1)) / denominator
+    b = (x2 * x2 * (y0 - y1) + x1 * x1 * (y2 - y0) + x0 * x0 * (y1 - y2)) / denominator
+    c = (
+        x1 * x2 * (x1 - x2) * y0
+        + x2 * x0 * (x2 - x0) * y1
+        + x0 * x1 * (x0 - x1) * y2
+    ) / denominator
+    for x, y in samples:
+        predicted = a * x * x + b * x + c
+        if abs(predicted - y) > POLYNOMIAL_FIT_TOLERANCE * max(1.0, abs(y)):
+            return None
+    return (a, b, c)
+
+
+def solve_quadratic_less_than_zero(
+    a: float,
+    b: float,
+    c: float,
+) -> tuple[float, float] | None:
+    if abs(a) <= QUADRATIC_SOLVE_TOLERANCE:
+        if abs(b) <= QUADRATIC_SOLVE_TOLERANCE:
+            return None
+        root = -c / b
+        if b > 0:
+            return (-float("inf"), root)
+        return (root, float("inf"))
+    discriminant = b * b - 4.0 * a * c
+    if discriminant <= QUADRATIC_SOLVE_TOLERANCE:
+        return None
+    root_span = sqrt(discriminant)
+    root_a = (-b - root_span) / (2.0 * a)
+    root_b = (-b + root_span) / (2.0 * a)
+    low, high = (root_a, root_b) if root_a <= root_b else (root_b, root_a)
+    if a < 0:
+        return None
+    return (low, high)
 
 
 def infer_single_missing_axis_bounds(
@@ -298,9 +737,63 @@ def explicit_point_satisfies(
         target = item.expression.eval(context, variables)
         full_variables = dict(variables)
         full_variables[item.axis] = target
-        return all(predicate.evaluate(context, full_variables, tol=tol) for predicate in item.predicates)
+        return explicit_surface_predicates_satisfied(item, context, full_variables, tol=tol)
     except Exception:
         return False
+
+
+def explicit_surface_sample(
+    item: ClassifiedExpression,
+    context: EvalContext,
+    variables: dict[str, float],
+) -> tuple[Point, bool]:
+    """Evaluate one explicit-surface grid sample.
+
+    Desmos treats undefined expression/restriction samples as outside the plotted
+    domain.  A sqrt restriction such as ``-sqrt(1-x^2)<y<sqrt(1-x^2)`` should clip
+    samples with ``abs(x)>1`` instead of making the whole surface unsupported.
+    """
+    if not item.axis or not item.expression:
+        raise ValueError("explicit surface missing axis or expression")
+    full_variables = dict(variables)
+    try:
+        full_variables[item.axis] = item.expression.eval(context, variables)
+    except ValueError:
+        full_variables[item.axis] = 0.0
+        return point_from_variables(full_variables), False
+    return (
+        point_from_variables(full_variables),
+        explicit_surface_predicates_satisfied_half_open(item, context, full_variables),
+    )
+
+
+def explicit_surface_predicates_satisfied_half_open(
+    item: ClassifiedExpression,
+    context: EvalContext,
+    variables: dict[str, float],
+) -> bool:
+    for predicate in item.predicates:
+        try:
+            if not predicate.evaluate_half_open(context, variables, tol=HALF_OPEN_TOL):
+                return False
+        except ValueError:
+            return False
+    return True
+
+
+def explicit_surface_predicates_satisfied(
+    item: ClassifiedExpression,
+    context: EvalContext,
+    variables: dict[str, float],
+    tol: float = 1e-5,
+) -> bool:
+    for predicate in item.predicates:
+        try:
+            if not predicate.evaluate(context, variables, tol=tol):
+                return False
+        except ValueError:
+            return False
+    return True
 
 
 def axis_has_complete_bounds(axis: str, bounds: dict[str, tuple[float | None, float | None]]) -> bool:
