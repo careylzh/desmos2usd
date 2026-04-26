@@ -1,29 +1,25 @@
-# Handoff: 2026-04-27 04:36 SGT - S2-03E definition/list-property tranche
+# Handoff: 2026-04-27 05:15 SGT - S2-03E affine-band tranche
 
 ## Current Branch State
 - Repo: `/Users/chek/repos/desmos2usd-carey`
 - Branch: `fix/student-fixture-usdz-export`
 - Push target: `chektien:fix/student-fixture-usdz-export`
-- Previous HEAD before this tranche: `0a2ba03 Improve S2-03D affine band export`
-- Commit/push status: blocked in this sandbox; `git add -u` failed with `fatal: Unable to create '/Users/chek/repos/desmos2usd-carey/.git/index.lock': Operation not permitted`.
+- Previous HEAD before this tranche: `fce0218 Improve S2-03E definition export`
 
 ## Completed This Tranche
 - Targeted fixture: `[4B] 3D Diagram - S2-03 Group E.json`
 - Desmos URL: `https://www.desmos.com/3d/sqkhp7wnx6`
-- Implemented a general definition/exporter classification fix:
-  - hidden and visible Desmos definitions are registered in deferred multi-pass order, so earlier expressions can reference later definitions
-  - list arithmetic, scalar/list broadcasting, and `join(...)` definition RHS values are expanded for generated alternatives
-  - 2D/3D tuple and point-list definitions expose `.x`, `.y`, and `.z` component fields for later equations
-  - scalar definition calls in implicit multiplication contexts evaluate correctly
-  - trailing Desmos backslash whitespace commands are normalized before parsing
-  - LaTeX `\pi` is handled as a constant without rewriting identifiers that merely contain `pi`
-- Kept the change general; no fixture-specific expression ids or fixture-name branches were added.
-- Updated regression coverage in `tests/test_student_fixture_regressions.py`.
-- Regenerated tracked artifacts for S2-03E plus S2-08E/S2-09F guards and rebuilt the 71-fixture `artifacts/fixture_usdz/summary.json` from existing reports.
-- Updated `implementation/STATE.md` so the next priority is the remaining S2-03E rotated thin diagonal band family.
+- Implemented one general tessellation fix:
+  - affine x/y inequality predicates can now be converted into half-planes
+  - convex half-plane polygons are clipped analytically and extruded over a constant third-axis span
+  - this avoids grid-sampling misses for thin rotated rectangular bands
+- No fixture-specific expression ids, fixture names, or one-off hacks were added.
+- Added regression coverage for a rotated affine strip in `tests/test_student_fixture_regressions.py`.
+- Updated `tests/test_acceptance_samples.py` because the same general fix makes required sample `vyp9ogyimt` complete in direct conversion.
+- Regenerated tracked artifacts for S2-03E plus S2-08E/S2-09F guards and rebuilt the 71-fixture `artifacts/fixture_usdz/summary.json` from reports.
 
 ## Evidence
-- Evidence directory: `artifacts/fixture_usdz/review_evidence/20260427_s203_group_e_ralph_patterns/`
+- Evidence directory: `artifacts/fixture_usdz/review_evidence/20260427_s203_group_e_ralph_bands/`
 - Files:
   - `S2-03_Group_E_projection_after.png`
   - `S2-03_Group_E_projection_after.ppm`
@@ -36,23 +32,28 @@
   - `S2-09_Group_F_projection_guard_after.usda`
   - `assessment.md`
   - `capture_results.json`
-- Browser capture blocker: Playwright navigation to `https://www.desmos.com/3d/sqkhp7wnx6` returned `user cancelled MCP tool call`; Chrome DevTools `new_page` for the same URL also returned `user cancelled MCP tool call`.
+- Browser/live viewer blockers:
+  - Playwright Desmos navigation returned `user cancelled MCP tool call`.
+  - Chrome DevTools Desmos page open returned `user cancelled MCP tool call`.
+  - Local Chrome headless Desmos screenshot exited `-1` and created no screenshot.
+  - Local viewer server bind failed with `PermissionError: [Errno 1] Operation not permitted`.
 - Visual claim: no live Desmos/viewer parity claim. This tranche has deterministic local projection evidence only.
 
 ## Metrics
-- Overall summary is now 71 fixtures, 26 success, 45 partial, 0 error, 71 USDZ, acceptance still not met.
-- S2-03 Group E before: `111 prims / 85 unsupported / 190 classified`.
-- S2-03 Group E after: `393 prims / 71 unsupported / 464 classified / valid true / usdz_validation returncode 0`.
-- S2-08 Group E guard remains success: `87 prims / 0 unsupported / valid true / usdz_validation returncode 0`.
-- S2-09 Group F guard remains success: `27 prims / 0 unsupported / valid true / usdz_validation returncode 0`.
+- Overall fixture summary remains 71 fixtures, 26 success, 45 partial, 0 error, 71 USDZ, acceptance still not met.
+- S2-03 Group E before: `393 prims / 71 unsupported / 464 classified`.
+- S2-03 Group E after: `447 prims / 17 unsupported / 464 classified / valid true / usdchecker returncode 0`.
+- S2-08 Group E guard remains success: `87 prims / 0 unsupported / valid true / usdchecker returncode 0`.
+- S2-09 Group F guard remains success: `27 prims / 0 unsupported / valid true / usdchecker returncode 0`.
 
 ## Validation
-- Focused regression discovery for `tests/test_student_fixture_regressions.py`: `Ran 45 tests in 0.454s OK`.
+- Focused new regression: `test_rotated_affine_inequality_strip_extrudes_without_sampling_miss` passed.
+- Focused regression discovery for `tests/test_student_fixture_regressions.py`: `Ran 46 tests in 0.572s OK`.
 - Visual/fixture suite unit tests: `tests.test_visual_preview tests.test_fixture_usdz_suite` ran `5` tests OK.
-- Full unittest discovery: `Ran 119 tests in 211.417s OK`.
-- Target/guard USDZ validation: S2-03E, S2-08E, and S2-09F all returned `usdchecker --arkit` returncode 0.
+- Acceptance sample targeted test: `Ran 1 test in 116.960s OK`.
+- Full unittest discovery: `Ran 120 tests in 208.961s OK`.
 - Report-vs-USDA consistency:
-  - S2-03E report prim_count `393`, USDA `Mesh` + `BasisCurves` defs `393`, unsupported `71`
+  - S2-03E report prim_count `447`, USDA `Mesh` + `BasisCurves` defs `447`, unsupported `17`
   - S2-08E report prim_count `87`, USDA defs `87`, unsupported `0`
   - S2-09F report prim_count `27`, USDA defs `27`, unsupported `0`
 - `git diff --check`: passed.
@@ -63,12 +64,12 @@
 - Worktree is ready for the main environment to stage, force-add the ignored evidence directory, commit, and push to `chektien:fix/student-fixture-usdz-export`.
 - Required staging commands:
   - `git add -u`
-  - `git add -f artifacts/fixture_usdz/review_evidence/20260427_s203_group_e_ralph_patterns/`
+  - `git add -f artifacts/fixture_usdz/review_evidence/20260427_s203_group_e_ralph_bands/`
 
 ## Remaining Mismatch / Next Wake Instructions
 1. Do not claim visual parity until live Desmos reference screenshots and live viewer screenshots can be captured.
-2. Continue S2-03 Group E (`https://www.desmos.com/3d/sqkhp7wnx6`) as the next exact target.
-3. Largest remaining family: generated rotated thin diagonal bands from expressions `84`-`103`, now classified after point-field expansion but still failing sampled-cell resolution with `did not resolve to sampled cells`.
-4. Representative remaining unsupported ids: `84_1`, `84_2`, `85_1`, `85_2`, `86_1`, `86_2`, `87_0`-`87_3`, `88_0`-`88_3`, `92_0`-`93_3`, `97_0`-`98_3`, `102_0`-`103_3`.
-5. Other remaining unsupported families include `363_0`-`363_3`, `300_0`-`300_3`, `189`, and diagonal bridge strips `259`, `260`, `265`, `267`, `272`, `273`, `274`, `275`.
-6. Preserve S2-08 Group E and S2-09 Group F as regression guards.
+2. Next highest-impact partial from STATE is S2-07 Group F (`https://www.desmos.com/3d/jkj1z8t8pf`) with 69 unsupported, unless fresh STATE says otherwise.
+3. If returning to S2-03 Group E, target the remaining non-affine families:
+   - spherical implicit caps: `363_0`-`363_3`, `300_0`-`300_3`, and `189`
+   - arc/cutout inequalities: `254`, `257`, `261`, `263`, `268`, `269`, `270`, `271`
+4. Preserve S2-08 Group E and S2-09 Group F as regression guards.

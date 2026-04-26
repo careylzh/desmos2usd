@@ -228,6 +228,16 @@ def tessellate_extruded_2d_region(item: ClassifiedExpression, context: EvalConte
         empty = analytically_empty_function_band(item, context, shape_axes, shape_bounds)
         if empty is not None:
             return empty
+        geometry = tessellate_affine_polygon_extrusion(
+            item,
+            context,
+            shape_axes,
+            extrude_axis,
+            (low, high),
+            shape_bounds,
+        )
+        if geometry is not None and (geometry.face_count or is_empty_mesh(geometry)):
+            return geometry
         geometry = sampled_extrusion_mesh(item, context, shape_axes, extrude_axis, (low, high), shape_bounds, resolution)
         if geometry.face_count:
             return geometry
@@ -750,6 +760,228 @@ def evaluate_bound_expressions(
             except Exception:
                 continue
     return values
+
+
+def tessellate_affine_polygon_extrusion(
+    item: ClassifiedExpression,
+    context: EvalContext,
+    shape_axes: list[str],
+    extrude_axis: str,
+    extrude_bounds: tuple[float, float],
+    bounds: dict[str, tuple[float | None, float | None]],
+) -> GeometryData | None:
+    halfplanes = affine_halfplanes_for_shape(item, context, shape_axes, extrude_axis)
+    if halfplanes is None:
+        return None
+    if not halfplanes:
+        return None
+
+    constants = shape_numeric_constants(item, set(shape_axes))
+    if not constants:
+        constants = numeric_constants_for_item(item)
+    broad_low, broad_high = broad_bounds_from_constants(constants)
+    a_bounds = bounded_or_broad_range(bounds, shape_axes[0], broad_low, broad_high)
+    b_bounds = bounded_or_broad_range(bounds, shape_axes[1], broad_low, broad_high)
+    polygon: list[tuple[float, float]] = [
+        (a_bounds[0], b_bounds[0]),
+        (a_bounds[1], b_bounds[0]),
+        (a_bounds[1], b_bounds[1]),
+        (a_bounds[0], b_bounds[1]),
+    ]
+    for a_coeff, b_coeff, c_coeff in halfplanes:
+        polygon = clip_polygon_to_halfplane(polygon, a_coeff, b_coeff, c_coeff)
+        if len(polygon) < 3:
+            return GeometryData(kind="Mesh", points=[])
+    polygon = dedupe_polygon_points(polygon)
+    if len(polygon) < 3 or abs(polygon_area(polygon)) <= 1e-10:
+        return GeometryData(kind="Mesh", points=[])
+
+    geometry = extrude_polygon(shape_axes, extrude_axis, polygon, extrude_bounds)
+    if not mesh_vertices_satisfy_predicates(item, context, geometry):
+        return None
+    return geometry
+
+
+def bounded_or_broad_range(
+    bounds: dict[str, tuple[float | None, float | None]],
+    axis: str,
+    broad_low: float,
+    broad_high: float,
+) -> tuple[float, float]:
+    low, high = bounds.get(axis, (None, None))
+    return (broad_low if low is None else low, broad_high if high is None else high)
+
+
+def affine_halfplanes_for_shape(
+    item: ClassifiedExpression,
+    context: EvalContext,
+    shape_axes: list[str],
+    extrude_axis: str,
+) -> list[tuple[float, float, float]] | None:
+    shape_set = set(shape_axes)
+    halfplanes: list[tuple[float, float, float]] = []
+    for predicate in item.predicates:
+        identifiers = predicate_identifiers(predicate)
+        if not identifiers:
+            try:
+                if predicate.evaluate(context, {}, tol=1e-9):
+                    continue
+            except Exception:
+                return None
+            return []
+        if identifiers.issubset({extrude_axis}):
+            continue
+        if not identifiers.issubset(shape_set):
+            return None
+        predicate_halfplanes = affine_halfplanes_for_predicate(predicate, context, shape_axes)
+        if predicate_halfplanes is None:
+            return None
+        halfplanes.extend(predicate_halfplanes)
+    return halfplanes
+
+
+def affine_halfplanes_for_predicate(
+    predicate: ComparisonPredicate,
+    context: EvalContext,
+    shape_axes: list[str],
+) -> list[tuple[float, float, float]] | None:
+    halfplanes: list[tuple[float, float, float]] = []
+    for left, op, right in zip(predicate.terms[:-1], predicate.ops, predicate.terms[1:], strict=True):
+        left_coeffs = affine_coefficients_2d(left, context, shape_axes)
+        right_coeffs = affine_coefficients_2d(right, context, shape_axes)
+        if left_coeffs is None or right_coeffs is None:
+            return None
+        if op in {"<=", "<"}:
+            halfplanes.append(subtract_affine_coefficients(left_coeffs, right_coeffs))
+        elif op in {">=", ">"}:
+            halfplanes.append(subtract_affine_coefficients(right_coeffs, left_coeffs))
+        elif op == "=":
+            delta = subtract_affine_coefficients(left_coeffs, right_coeffs)
+            halfplanes.append(delta)
+            halfplanes.append((-delta[0], -delta[1], -delta[2]))
+        else:
+            return None
+    return halfplanes
+
+
+def affine_coefficients_2d(
+    expression: LatexExpression,
+    context: EvalContext,
+    axes: list[str],
+    tol: float = 1e-8,
+) -> tuple[float, float, float] | None:
+    if expression.identifiers - set(axes) - set(context.scalars):
+        return None
+    try:
+        origin = expression.eval(context, {axes[0]: 0.0, axes[1]: 0.0})
+        a_value = expression.eval(context, {axes[0]: 1.0, axes[1]: 0.0}) - origin
+        b_value = expression.eval(context, {axes[0]: 0.0, axes[1]: 1.0}) - origin
+    except Exception:
+        return None
+    if not all(isfinite(value) for value in (a_value, b_value, origin)):
+        return None
+    for a_sample, b_sample in ((2.0, -3.0), (-1.5, 4.0), (3.25, 2.5)):
+        try:
+            actual = expression.eval(context, {axes[0]: a_sample, axes[1]: b_sample})
+        except Exception:
+            return None
+        predicted = a_value * a_sample + b_value * b_sample + origin
+        scale = max(1.0, abs(actual), abs(predicted))
+        if abs(actual - predicted) > tol * scale:
+            return None
+    return (a_value, b_value, origin)
+
+
+def subtract_affine_coefficients(
+    left: tuple[float, float, float],
+    right: tuple[float, float, float],
+) -> tuple[float, float, float]:
+    return (left[0] - right[0], left[1] - right[1], left[2] - right[2])
+
+
+def clip_polygon_to_halfplane(
+    polygon: list[tuple[float, float]],
+    a_coeff: float,
+    b_coeff: float,
+    c_coeff: float,
+    tol: float = 1e-8,
+) -> list[tuple[float, float]]:
+    if not polygon:
+        return []
+    clipped: list[tuple[float, float]] = []
+    previous = polygon[-1]
+    previous_value = halfplane_value(previous, a_coeff, b_coeff, c_coeff)
+    previous_inside = previous_value <= tol
+    for current in polygon:
+        current_value = halfplane_value(current, a_coeff, b_coeff, c_coeff)
+        current_inside = current_value <= tol
+        if current_inside:
+            if not previous_inside:
+                clipped.append(intersect_halfplane_edge(previous, current, previous_value, current_value))
+            clipped.append(current)
+        elif previous_inside:
+            clipped.append(intersect_halfplane_edge(previous, current, previous_value, current_value))
+        previous = current
+        previous_value = current_value
+        previous_inside = current_inside
+    return dedupe_polygon_points(clipped)
+
+
+def halfplane_value(point: tuple[float, float], a_coeff: float, b_coeff: float, c_coeff: float) -> float:
+    return a_coeff * point[0] + b_coeff * point[1] + c_coeff
+
+
+def intersect_halfplane_edge(
+    start: tuple[float, float],
+    end: tuple[float, float],
+    start_value: float,
+    end_value: float,
+) -> tuple[float, float]:
+    denominator = start_value - end_value
+    if abs(denominator) <= 1e-12:
+        return end
+    ratio = start_value / denominator
+    return (start[0] + ratio * (end[0] - start[0]), start[1] + ratio * (end[1] - start[1]))
+
+
+def dedupe_polygon_points(points: list[tuple[float, float]], tol: float = 1e-9) -> list[tuple[float, float]]:
+    deduped: list[tuple[float, float]] = []
+    for point in points:
+        if not deduped or abs(point[0] - deduped[-1][0]) > tol or abs(point[1] - deduped[-1][1]) > tol:
+            deduped.append(point)
+    if len(deduped) > 1 and abs(deduped[0][0] - deduped[-1][0]) <= tol and abs(deduped[0][1] - deduped[-1][1]) <= tol:
+        deduped.pop()
+    return deduped
+
+
+def polygon_area(points: list[tuple[float, float]]) -> float:
+    total = 0.0
+    for current, next_point in zip(points, points[1:] + points[:1], strict=True):
+        total += current[0] * next_point[1] - next_point[0] * current[1]
+    return total / 2.0
+
+
+def extrude_polygon(
+    shape_axes: list[str],
+    extrude_axis: str,
+    polygon: list[tuple[float, float]],
+    extrude_bounds: tuple[float, float],
+) -> GeometryData:
+    points: list[Point] = []
+    for extrude_value in extrude_bounds:
+        for a_value, b_value in polygon:
+            variables = {shape_axes[0]: a_value, shape_axes[1]: b_value, extrude_axis: extrude_value}
+            points.append(point_from_variables(variables))
+    vertex_count = len(polygon)
+    bottom = list(range(vertex_count))
+    top = list(range(vertex_count, vertex_count * 2))
+    counts = [vertex_count, vertex_count]
+    indices = list(reversed(bottom)) + top
+    for index in range(vertex_count):
+        next_index = (index + 1) % vertex_count
+        counts.append(4)
+        indices.extend([bottom[index], bottom[next_index], top[next_index], top[index]])
+    return GeometryData(kind="Mesh", points=points, face_vertex_counts=counts, face_vertex_indices=indices)
 
 
 def sampled_extrusion_mesh(

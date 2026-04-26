@@ -867,6 +867,34 @@ class StudentFixtureRegressionTests(unittest.TestCase):
         self.assertEqual(item.kind, "inequality_region")
         self.assertGreater(geometry.face_count, 0)
 
+    def test_rotated_affine_inequality_strip_extrudes_without_sampling_miss(self) -> None:
+        """S2-03 Group E has thin diagonal bands bounded by affine x/y combinations.
+
+        A grid sampler can miss the 0.4-unit orthogonal strip entirely; affine
+        half-plane clipping should build the rectangular prism directly.
+        """
+        source = SourceInfo(
+            "", "", "", "", viewport_bounds={"x": (-30.0, 30.0), "y": (-30.0, 30.0), "z": (0.0, 3.0)}
+        )
+        item = classify_expression(
+            ExpressionIR(
+                source,
+                "84_1",
+                0,
+                r"-1\le\frac{x-y}{\sqrt{2}}\le1\left\{3\ge z\ge2.8\right\}"
+                r"\left\{-0.2\le\frac{x+y}{-\sqrt{2}}\le0.2\right\}",
+            ),
+            EvalContext(),
+        )
+
+        geometry = tessellate(item, EvalContext(), resolution=12)
+        self.assertEqual(item.kind, "inequality_region")
+        self.assertEqual(geometry.kind, "Mesh")
+        self.assertGreaterEqual(geometry.face_count, 6)
+        z_values = [point[2] for point in geometry.points]
+        self.assertEqual(min(z_values), 2.8)
+        self.assertEqual(max(z_values), 3.0)
+
 
 def has_coplanar_face(geometry, axis: int, value: float) -> bool:
     cursor = 0
