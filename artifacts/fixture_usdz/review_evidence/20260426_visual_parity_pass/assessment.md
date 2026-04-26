@@ -70,7 +70,7 @@ byte-identical to the previous viewer output.
   bisect along each mixed-validity edge to find the predicate transition,
   emit triangles connecting the still-valid corners with the boundary
   samples, and drop the rest.
-- New `_bisect_predicate_crossing()` performs `QUAD_BOUNDARY_REFINE_ITERATIONS = 18`
+- New `_bisect_predicate_crossing()` performs `QUAD_BOUNDARY_REFINE_ITERATIONS = 8`
   bisections along the cell edge using the same `evaluate_half_open` semantics
   the corner check uses, so adjacent surfaces still tile cleanly along shared
   strict-inequality boundaries.
