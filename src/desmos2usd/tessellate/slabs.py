@@ -104,10 +104,6 @@ def tessellate_band(
     indices: list[int] = []
     layer_size = resolution * resolution
     for layer_offset, reverse in [(0, False), (layer_size, True)]:
-        if layer_offset == 0 and not lower_closed:
-            continue
-        if layer_offset == layer_size and not upper_closed:
-            continue
         for row in range(resolution - 1):
             for col in range(resolution - 1):
                 a = layer_offset + row * resolution + col

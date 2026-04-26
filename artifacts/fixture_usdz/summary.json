@@ -11366,7 +11366,18 @@
         "stdout": "",
         "tool": "usdzip"
       },
-      "usdz_validation": null,
+      "usdz_validation": {
+        "command": [
+          "/usr/bin/usdchecker",
+          "--arkit",
+          "/Users/chek/repos/desmos2usd-carey/artifacts/fixture_usdz/[4B] 3D Diagram - S2-03 Group B.usdz"
+        ],
+        "cwd": null,
+        "returncode": 0,
+        "stderr": "Coding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\n",
+        "stdout": "\nValidation Result with no explicit variants set\nSuccess!\n",
+        "tool": "usdchecker"
+      },
       "valid": true,
       "validations": [
         {
@@ -11413,7 +11424,7 @@
           "constraint_violation_count": 0,
           "errors": [],
           "expr_id": "123",
-          "face_count": 12,
+          "face_count": 30,
           "kind": "inequality_region",
           "max_residual": null,
           "point_count": 32,
@@ -11473,7 +11484,7 @@
           "constraint_violation_count": 0,
           "errors": [],
           "expr_id": "136",
-          "face_count": 12,
+          "face_count": 30,
           "kind": "inequality_region",
           "max_residual": null,
           "point_count": 32,
@@ -11489,7 +11500,40 @@
           "point_count": 112,
           "valid": true
         }
-      ]
+      ],
+      "view_metadata": {
+        "axis_3d": [
+          -0.9982747000336939,
+          0.05871646515771114,
+          -1.2424617528130897e-13
+        ],
+        "three_d_mode": true,
+        "viewport_bounds": {
+          "x": [
+            -36.82684179764464,
+            57.51574003402937
+          ],
+          "y": [
+            -43.613799281632375,
+            50.728782550041025
+          ],
+          "z": [
+            -45.88072034436584,
+            48.46186148730756
+          ]
+        },
+        "world_rotation_3d": [
+          -0.012009678931698414,
+          0.9982747000297314,
+          -0.05747513281880589,
+          -0.20418393036528504,
+          -0.05871646515741333,
+          -0.9771700462560432,
+          -0.9788588714378493,
+          3.021201394916642e-15,
+          0.20453681773083998
+        ]
+      }
     },
     {
       "acceptance_success": false,
@@ -22782,7 +22826,18 @@
         "stdout": "",
         "tool": "usdzip"
       },
-      "usdz_validation": null,
+      "usdz_validation": {
+        "command": [
+          "/usr/bin/usdchecker",
+          "--arkit",
+          "/Users/chek/repos/desmos2usd-carey/artifacts/fixture_usdz/[4B] 3D Diagram - S2-05 Group D.usdz"
+        ],
+        "cwd": null,
+        "returncode": 0,
+        "stderr": "Coding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'BasisCurves' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'BasisCurves' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'BasisCurves' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'BasisCurves' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'BasisCurves' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'BasisCurves' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'BasisCurves' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'BasisCurves' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\n",
+        "stdout": "\nValidation Result with no explicit variants set\nSuccess!\n",
+        "tool": "usdchecker"
+      },
       "valid": true,
       "validations": [
         {
@@ -24285,7 +24340,40 @@
           "point_count": 64,
           "valid": true
         }
-      ]
+      ],
+      "view_metadata": {
+        "axis_3d": [
+          0.0,
+          0.0,
+          1.0000000000013554
+        ],
+        "three_d_mode": true,
+        "viewport_bounds": {
+          "x": [
+            -203.87160109971657,
+            203.87160109971657
+          ],
+          "y": [
+            -203.87160109971657,
+            203.87160109971657
+          ],
+          "z": [
+            -203.87160109971657,
+            203.87160109971657
+          ]
+        },
+        "world_rotation_3d": [
+          -0.48159552491768803,
+          -0.8740752016118702,
+          -0.06370472750513113,
+          0.8665270065544612,
+          -0.48579063589909394,
+          0.11462288159263552,
+          -0.13113617842190622,
+          -2.0703290124543367e-13,
+          0.9913643642521048
+        ]
+      }
     },
     {
       "acceptance_success": false,

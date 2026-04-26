@@ -1,6 +1,6 @@
 # Implementation State
 
-Last updated: 2026-04-26 12:43 SGT
+Last updated: 2026-04-26 16:10 SGT
 
 ## Loop Mode
 - cadence: 10 one-shot cron wakes, 30 minutes apart
@@ -31,6 +31,38 @@ Last updated: 2026-04-26 12:43 SGT
   - Playwright screenshot comparison is attempted and any environment failures are recorded
   - validation passes
   - the coherent fix is committed and pushed to `chektien:fix/student-fixture-usdz-export`
+
+## Current Run Update
+- task: fix remaining S2-03 Group B and S2-05 Group D visual mismatches reported after `fd147db`.
+- code changes:
+  - `src/desmos2usd/parse/classify.py` now reads Desmos `parametricDomain`, `parametricDomain3Du`, and `parametricDomain3Dv` from expression state and intersects those bounds with explicit LaTeX parameter restrictions.
+  - `src/desmos2usd/tessellate/slabs.py` now keeps visual cap faces on bounded 3D inequality bands even when the band inequalities are strict, matching Desmos' filled-solid rendering better than side-only open intervals.
+  - `tests/test_student_fixture_regressions.py` adds focused regressions for stored parametric domains and capped strict slabs.
+- regenerated repo artifacts only for:
+  - `artifacts/fixture_usdz/[4B] 3D Diagram - S2-03 Group B.usda`
+  - `artifacts/fixture_usdz/[4B] 3D Diagram - S2-03 Group B.usdz`
+  - `artifacts/fixture_usdz/[4B] 3D Diagram - S2-03 Group B.report.json`
+  - `artifacts/fixture_usdz/[4B] 3D Diagram - S2-05 Group D.usda`
+  - `artifacts/fixture_usdz/[4B] 3D Diagram - S2-05 Group D.usdz`
+  - `artifacts/fixture_usdz/[4B] 3D Diagram - S2-05 Group D.report.json`
+  - `artifacts/fixture_usdz/summary.json` rebuilt from the existing 71 report files after the targeted regeneration.
+- S2-09 Group F was not regenerated and no S2-09 artifact files were changed.
+- new evidence/assessment:
+  - `artifacts/fixture_usdz/review_evidence/20260426_s203_s205_after_domain_caps/assessment.md`
+  - `artifacts/fixture_usdz/review_evidence/20260426_s203_s205_after_domain_caps/capture-results.json`
+- screenshot capture status:
+  - Playwright Chrome launch failed before navigation for all four target pages with `browserType.launch: Target page, context or browser has been closed`; logs show `SIGABRT` and `kill EPERM`.
+  - Chrome DevTools MCP and Playwright MCP navigation attempts both returned `user cancelled MCP tool call`.
+  - No after-change browser screenshots were captured in this sandbox.
+- structural result:
+  - S2-03 Group B remains `success`, `12` prims, `0` unsupported; expr `123` now has `30` faces instead of side-only `12` faces.
+  - S2-05 Group D remains `success`, `150` prims, `0` unsupported; red outer parametric curves now reach `z=138` and red arch domains now use `0..pi`.
+- validation:
+  - focused regression tests passed: `3` tests, OK.
+  - `PYTHONPATH=src:tests python3 -m unittest discover -s tests` passed: `94` tests in `200.805s`, OK.
+  - `usdcat -l` passed for regenerated S2-03/S2-05 `.usda` and `.usdz` files.
+  - full temp fixture sweep passed with `fixture_count=71`, `success_count=21`, `partial_count=50`, `error_count=0`, `fixtures_with_usdz_count=71` at `/tmp/desmos2usd-s203-s205-domain-caps-sweep`.
+- commit/push status: pending in this working tree; intended remote remains `git@github.com:chektien/desmos2usd.git` branch `fix/student-fixture-usdz-export`.
 
 ## Ordered Task Cycle
 1. [x] Recover interrupted readable-CSV/list-expansion changes, regenerate all fixture artifacts, validate, commit/push if sound.

@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import re
 from dataclasses import dataclass, field
+from math import isfinite
 
 from desmos2usd.eval.context import EvalContext, FunctionDef
 from desmos2usd.ir import ExpressionIR, GraphIR
@@ -177,8 +178,18 @@ def classify_expression(expr: ExpressionIR, context: EvalContext) -> ClassifiedE
                 kind="parametric_surface",
                 predicates=predicates,
                 vector=vector,
-                u_bounds=find_parameter_bounds(predicates, context, "u"),
-                v_bounds=find_parameter_bounds(predicates, context, "v"),
+                u_bounds=find_parameter_bounds(
+                    predicates,
+                    context,
+                    "u",
+                    raw_domain=expr.raw.get("parametricDomain3Du"),
+                ),
+                v_bounds=find_parameter_bounds(
+                    predicates,
+                    context,
+                    "v",
+                    raw_domain=expr.raw.get("parametricDomain3Dv"),
+                ),
             )
         parameter = "t"
         for candidate_parameter in ("t", "u", "v"):
@@ -191,7 +202,12 @@ def classify_expression(expr: ExpressionIR, context: EvalContext) -> ClassifiedE
             predicates=predicates,
             vector=vector,
             parameter=parameter,
-            t_bounds=find_parameter_bounds(predicates, context, parameter),
+            t_bounds=find_parameter_bounds(
+                predicates,
+                context,
+                parameter,
+                raw_domain=expr.raw.get("parametricDomain"),
+            ),
         )
 
     if has_top_level_comparison(main):
@@ -686,14 +702,41 @@ def find_binary_vector_op(text: str, op: str) -> int:
     return -1
 
 
-def find_parameter_bounds(predicates: list[ComparisonPredicate], context: EvalContext, parameter: str) -> tuple[float, float]:
-    low, high = 0.0, 1.0
+def find_parameter_bounds(
+    predicates: list[ComparisonPredicate],
+    context: EvalContext,
+    parameter: str,
+    raw_domain: object | None = None,
+) -> tuple[float, float]:
+    raw_bounds = parse_raw_parameter_domain(raw_domain, context)
+    lower_values: list[float] = []
+    upper_values: list[float] = []
     for predicate in predicates:
         for variable, (lower, upper) in predicate.variable_bounds().items():
             if variable != parameter:
                 continue
             if lower:
-                low = lower.eval(context, {})
+                lower_values.append(lower.eval(context, {}))
             if upper:
-                high = upper.eval(context, {})
+                upper_values.append(upper.eval(context, {}))
+    low, high = raw_bounds or (0.0, 1.0)
+    if lower_values:
+        low = max([low, *lower_values]) if raw_bounds else max(lower_values)
+    if upper_values:
+        high = min([high, *upper_values]) if raw_bounds else min(upper_values)
+    return low, high
+
+
+def parse_raw_parameter_domain(raw_domain: object | None, context: EvalContext) -> tuple[float, float] | None:
+    if not isinstance(raw_domain, dict):
+        return None
+    if "min" not in raw_domain or "max" not in raw_domain:
+        return None
+    try:
+        low = LatexExpression.parse(str(raw_domain["min"])).eval(context, {})
+        high = LatexExpression.parse(str(raw_domain["max"])).eval(context, {})
+    except Exception:
+        return None
+    if not isfinite(low) or not isfinite(high) or low >= high:
+        return None
     return low, high

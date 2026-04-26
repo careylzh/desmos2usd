@@ -57,6 +57,43 @@ class StudentFixtureRegressionTests(unittest.TestCase):
         self.assertEqual(geometry.points[0], (0.0, 0.0, 0.0))
         self.assertEqual(geometry.points[-1], (2.0, 0.0, 4.0))
 
+    def test_desmos_parametric_domain_sets_curve_bounds(self) -> None:
+        item = classify_expression(
+            ExpressionIR(
+                SOURCE,
+                "1",
+                0,
+                r"\left(0,0,t\right)",
+                raw={"parametricDomain": {"min": "0", "max": "138"}},
+            ),
+            EvalContext(),
+        )
+
+        geometry = tessellate(item, EvalContext(), resolution=8)
+
+        self.assertEqual(item.kind, "parametric_curve")
+        self.assertEqual(item.t_bounds, (0.0, 138.0))
+        self.assertEqual(geometry.points[0], (0.0, 0.0, 0.0))
+        self.assertEqual(geometry.points[-1], (0.0, 0.0, 138.0))
+
+    def test_strict_bounded_inequality_slab_keeps_visual_caps(self) -> None:
+        source = SourceInfo("", "", "", "", viewport_bounds={"x": (-10.0, 45.0), "y": (-10.0, 20.0), "z": (0.0, 2.0)})
+        item = classify_expression(
+            ExpressionIR(
+                source,
+                "1",
+                0,
+                r"0<z<2\left\{-10<x<45\right\}\left\{-10<y<20\right\}",
+            ),
+            EvalContext(),
+        )
+
+        geometry = tessellate(item, EvalContext(), resolution=8)
+
+        self.assertEqual(item.kind, "inequality_region")
+        self.assertTrue(has_coplanar_face(geometry, axis=2, value=0.0))
+        self.assertTrue(has_coplanar_face(geometry, axis=2, value=2.0))
+
     def test_double_parenthesized_vector_definitions_feed_triangles(self) -> None:
         context = EvalContext()
         self.assertTrue(register_definition(expr("1", r"a_{27}=\left(\left(6,117,15\right)\right)", hidden=True), context))
@@ -328,6 +365,15 @@ class StudentFixtureRegressionTests(unittest.TestCase):
         self.assertIn("color3f[] primvars:displayColor", text)
         self.assertIn("(1, 0, 0)", text)
         self.assertIn('interpolation = "constant"', text)
+
+def has_coplanar_face(geometry, axis: int, value: float) -> bool:
+    cursor = 0
+    for count in geometry.face_vertex_counts:
+        face = geometry.face_vertex_indices[cursor : cursor + count]
+        cursor += count
+        if face and all(abs(geometry.points[index][axis] - value) < 1e-8 for index in face):
+            return True
+    return False
 
 
 if __name__ == "__main__":

@@ -1,58 +1,58 @@
-## Handoff: 2026-04-26 12:43 SGT
+# Handoff: 2026-04-26 16:10 SGT
 
-### Active Task
-- Implemented the narrow viewer camera/view metadata fix for S2-03 Group B, S2-05 Group D, and S2-09 Group F. This run did not start exporter geometry rewrites.
+## Active Task
 
-### What Changed
-- `viewer/app.js`
-  - Parses quoted USD `customLayerData` keys, so `desmos:viewportBounds` is read correctly.
-  - Parses `desmos:worldRotation3D`, `desmos:axis3D`, and Desmos view flags from USDA layer metadata.
-  - Initializes the viewer camera from the saved `worldRotation3D` matrix as a full right/up/depth basis when present, preserving Desmos roll/framing better than a guessed yaw/pitch.
-- `src/desmos2usd/usd/writer.py`
-  - Emits `desmos:worldRotation3D`, `desmos:axis3D`, `desmos:threeDMode`, `desmos:showPlane3D`, and `desmos:degreeMode` when available.
-- `src/desmos2usd/validate/fixture_usdz_suite.py`
-  - Records parsed `view_metadata` in fixture reports.
-- Tests added/updated:
-  - USDA writer metadata assertions.
-  - Fixture-suite report metadata regression.
-- Regenerated target artifacts:
-  - `artifacts/fixture_usdz/[4B] 3D Diagram - S2-03 Group B.usda`
-  - `artifacts/fixture_usdz/[4B] 3D Diagram - S2-05 Group D.usda`
-  - `artifacts/fixture_usdz/[4B] 3D Diagram - S2-09 Group F.usda`
-  - Paired `.report.json` and `.usdz` files for those three fixtures.
+Fix the remaining S2-03 Group B and S2-05 Group D mismatches reported after `fd147db`, without regressing S2-09 Group F.
 
-### Target Results
-- S2-03 Group B (`dstsug13q6`): success, `12` prims, `0` unsupported, `world_rotation_3d` length `9`.
-- S2-05 Group D (`5jh9zwy75e`): success, `150` prims, `0` unsupported, `world_rotation_3d` length `9`.
-- S2-09 Group F (`umjxv6ahck`): success, `27` prims, `0` unsupported, `world_rotation_3d` length `9`, `degree_mode=true`.
+## What Changed
 
-### Screenshot Evidence
-- Previous before-change evidence:
-  - `artifacts/fixture_usdz/review_evidence/20260426_playwright_parity/all_three_comparison.png`
-  - `artifacts/fixture_usdz/review_evidence/20260426_playwright_parity/capture-results.json`
-- New assessment/failure log:
-  - `artifacts/fixture_usdz/review_evidence/20260426_view_metadata_parity/assessment.md`
-  - `artifacts/fixture_usdz/review_evidence/20260426_view_metadata_parity/capture-results.json`
-- After-change screenshots were not captured:
-  - local `http.server` bind failed with `PermissionError: [Errno 1] Operation not permitted`;
-  - shell DNS failed for `chq.singapura-broadnose.ts.net`;
-  - Playwright Chromium launch failed with `bootstrap_check_in org.chromium.Chromium.MachPortRendezvousServer: Permission denied (1100)`;
-  - MCP browser calls were immediately cancelled before navigation.
+- `src/desmos2usd/parse/classify.py`
+  - Parametric curves now use Desmos' stored `parametricDomain` when no explicit LaTeX parameter bound is present.
+  - Parametric surfaces now use `parametricDomain3Du` and `parametricDomain3Dv`.
+  - Stored domains are intersected with explicit LaTeX restrictions when both exist.
+- `src/desmos2usd/tessellate/slabs.py`
+  - Bounded 3D inequality bands now keep visual cap faces even for strict inequalities, so solids like `0<z<2 {-10<y<20} {-10<x<45}` render as filled bodies instead of side-only shells.
+- `tests/test_student_fixture_regressions.py`
+  - Added regressions for stored parametric domains and capped strict inequality slabs.
 
-### Visual Parity Judgment
-- S2-03 Group B: camera metadata path is fixed, but after-change screenshot parity is unverified.
-- S2-05 Group D: camera metadata path is fixed, but after-change screenshot parity is unverified.
-- S2-09 Group F: camera metadata path is fixed, but after-change screenshot parity is unverified.
-- Do not claim visual parity from this run. The correct next step is a Playwright recapture in a browser-capable environment before touching exporter geometry.
+## Target Artifacts
 
-### Validation
-- `node --check viewer/app.js` passed.
-- `git diff --check` passed.
-- `PYTHONPATH=src:tests python3 -m unittest tests.test_usd_writer tests.test_fixture_usdz_suite tests.test_parser.ParserTests.test_required_fixture_view_metadata_is_parsed` passed: `Ran 7 tests`, OK.
-- `PYTHONPATH=src:tests python3 -m unittest discover -s tests` passed: `Ran 92 tests in 196.151s`, OK.
+- Regenerated S2-03 Group B `.usda`, `.usdz`, and `.report.json`.
+- Regenerated S2-05 Group D `.usda`, `.usdz`, and `.report.json`.
+- Rebuilt `artifacts/fixture_usdz/summary.json` from the full existing report set.
+- S2-09 Group F was not regenerated and no S2-09 artifact files changed.
 
-### Commit/Push Status
-- Temporary clone: `/tmp/desmos2usd-view-camera.bJufZM/repo`
-- Implementation commit: `6e77fe1` (`Use saved Desmos view metadata in viewer`)
-- Push attempted three times with `git push chektien HEAD:fix/student-fixture-usdz-export`.
-- Push blocked by DNS: `ssh: Could not resolve hostname github.com: -65563`.
+## Target Results
+
+- S2-03 Group B (`dstsug13q6`): `success`, `12` prims, `0` unsupported. Expr `123` now has `30` faces and includes the filled slab caps.
+- S2-05 Group D (`5jh9zwy75e`): `success`, `150` prims, `0` unsupported. Red outer curves now use `t=0..138`; red arch curves now use `t=0..pi`.
+
+## Evidence
+
+- Before screenshots: `artifacts/fixture_usdz/review_evidence/20260426_s203_s205_current_check/`
+- New assessment: `artifacts/fixture_usdz/review_evidence/20260426_s203_s205_after_domain_caps/assessment.md`
+- New capture log: `artifacts/fixture_usdz/review_evidence/20260426_s203_s205_after_domain_caps/capture-results.json`
+
+After-change browser screenshots were not captured:
+
+- Playwright Chrome launch failed before navigation with `browserType.launch: Target page, context or browser has been closed`; logs show `SIGABRT` and `kill EPERM`.
+- Chrome DevTools MCP and Playwright MCP navigation both returned `user cancelled MCP tool call`.
+
+## Visual Judgment
+
+- S2-03: structurally improved; the missing filled blue slab is now exported. Browser parity remains unverified because capture failed.
+- S2-05: structurally improved; the collapsed red supports now have the correct parameter domains. Browser parity remains unverified because capture failed.
+- S2-09: not touched in this pass.
+
+## Validation
+
+- Focused regressions passed: `PYTHONPATH=src:tests python3 -m unittest tests.test_student_fixture_regressions.StudentFixtureRegressionTests.test_single_u_tuple_exports_as_parametric_curve tests.test_student_fixture_regressions.StudentFixtureRegressionTests.test_desmos_parametric_domain_sets_curve_bounds tests.test_student_fixture_regressions.StudentFixtureRegressionTests.test_strict_bounded_inequality_slab_keeps_visual_caps`
+- Full unit suite passed: `PYTHONPATH=src:tests python3 -m unittest discover -s tests` (`94` tests, OK).
+- `usdcat -l` passed for regenerated S2-03/S2-05 `.usda` and `.usdz`.
+- Full temp fixture sweep passed at `/tmp/desmos2usd-s203-s205-domain-caps-sweep`: `71` fixtures, `21` success, `50` partial, `0` errors, `71` USDZ.
+
+## Commit / Push
+
+- Commit/push pending from this working tree.
+- Required remote: `git@github.com:chektien/desmos2usd.git`
+- Required branch: `fix/student-fixture-usdz-export`
