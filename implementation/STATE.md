@@ -1,6 +1,6 @@
 # Implementation State
 
-Last updated: 2026-04-27 06:21 SGT
+Last updated: 2026-04-27 06:55 SGT
 
 ## Loop Mode
 - cadence: every 10 minutes via OpenClaw cron
@@ -29,9 +29,9 @@ Last updated: 2026-04-27 06:21 SGT
 - id: one-desmos-input-at-a-time
 - title: Fix one remaining partial Desmos input per bounded tranche using live Desmos screenshots and viewer screenshots
 - current-priority:
-  1. Continue S2-07 Group F — https://www.desmos.com/3d/jkj1z8t8pf — now 53 unsupported, 835 prims, 875 classified
-  2. S2-10 Group F — https://www.desmos.com/3d/tejhfrm34m — 47 unsupported, 120 prims, 167 classified
-  3. Continue S2-03 Group E remaining spherical caps / non-affine arc cutouts — https://www.desmos.com/3d/sqkhp7wnx6 — now 17 unsupported, 447 prims, 464 classified
+  1. S2-10 Group F — https://www.desmos.com/3d/tejhfrm34m — 47 unsupported, 120 prims, 167 classified
+  2. Continue S2-03 Group E remaining spherical caps / non-affine arc cutouts — https://www.desmos.com/3d/sqkhp7wnx6 — now 17 unsupported, 447 prims, 464 classified
+  3. Continue S2-07 Group F remaining parser/classifier slabs and sampled inequality — https://www.desmos.com/3d/jkj1z8t8pf — now 14 unsupported, 874 prims, 875 classified
   4. Continue S2-06 Group E remaining elliptical annular slabs / y-squared bridge surfaces / random Gaussian regions — https://www.desmos.com/3d/cg2sd6h1ws — now 13 unsupported, 723 prims, 736 classified
   5. Revisit S2-03 Group D only for live visual parity evidence when browser capture is available — https://www.desmos.com/3d/zvasa1wcgo — structurally success, 585 prims, 0 unsupported
 - done-when:
@@ -54,6 +54,7 @@ Last updated: 2026-04-27 06:21 SGT
 ## Current Baseline
 - HEAD before current tranche: 2b3ecae Improve S2-07F point-list triangle export
 - summary: 71 fixtures; 26 success, 45 partial, 0 error
+- S2-07 Group F current tranche: unbounded implicit sphere pass improved 53 unsupported -> 14 unsupported, 835 prims -> 874 prims, classified remains 875; live browser/viewer capture blocked, so visual claim is structural/local projection only
 - S2-07 Group F current tranche: point-list triangle indexing pass improved 69 unsupported -> 53 unsupported, 36 prims -> 835 prims, 37 classified -> 875 classified; live browser/viewer capture blocked, so visual claim is structural/local projection only
 - S2-03 Group E affine-band tranche: 71 unsupported -> 17 unsupported, 393 prims -> 447 prims, 464 classified; live browser/viewer capture blocked, so visual claim is structural/local projection only
 - S2-03 Group E previous tranche: 85 unsupported -> 71 unsupported, 111 prims -> 393 prims, 190 classified -> 464 classified; live browser/viewer capture blocked, so visual claim is structural/local projection only
@@ -74,5 +75,5 @@ Last updated: 2026-04-27 06:21 SGT
 - Do not overlap Codex/ccwork runs.
 
 ## Last Wake
-- timestamp: 2026-04-27 06:21 SGT
-- result: HOME Codex completed one S2-06E explicit sqrt-bound tranche. Implemented general affine chord interval inference for explicit surfaces clipped by symmetric sqrt bands; S2-06E improved to 723 prims, 13 unsupported. S2-08E and S2-09F remain success guards. Browser/live viewer capture remains blocked by MCP cancellation/headless Chrome failure and local server bind denial, so no live visual parity claim.
+- timestamp: 2026-04-27 06:55 SGT
+- result: HOME Codex completed one S2-07F unbounded implicit sphere tranche. Implemented a general axis-aligned ellipsoid tessellation path for three-axis implicit equalities with no constant-bounded slice axis; S2-07F improved to 874 prims, 14 unsupported. S2-08E and S2-09F remain success guards. Browser/live viewer capture remains blocked by MCP cancellation and local server bind denial, so no live visual parity claim.

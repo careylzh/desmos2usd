@@ -52775,7 +52775,7 @@
       "fixture_path": "fixtures/states/[4B] 3D Diagram - S2-07 Group F.json",
       "graph_hash": null,
       "output": "artifacts/fixture_usdz/[4B] 3D Diagram - S2-07 Group F.usda",
-      "prim_count": 835,
+      "prim_count": 874,
       "renderable_expression_count": 888,
       "resolution": 8,
       "status": "partial",
@@ -52860,247 +52860,13 @@
           "reason": "Could not parse '.5x+3.76' as '.5x+3.76': invalid decimal literal (<unknown>, line 1)"
         },
         {
-          "expr_id": "238",
-          "kind": "implicit_surface",
-          "latex": "\\left(x-0.66\\right)^{2}+\\left(y-1.24\\right)^{2}+\\left(z-1.665\\right)^{2}=0.003\\ ",
-          "reason": "Implicit surface 238 with 3-axis residual has no constant-bounded axis"
-        },
-        {
-          "expr_id": "239",
-          "kind": "implicit_surface",
-          "latex": "\\left(x-0.66\\right)^{2}+\\left(y-1.08\\right)^{2}+\\left(z-1.665\\right)^{2}=0.003\\ ",
-          "reason": "Implicit surface 239 with 3-axis residual has no constant-bounded axis"
-        },
-        {
-          "expr_id": "240",
-          "kind": "implicit_surface",
-          "latex": "\\left(x-0.66\\right)^{2}+\\left(y-0.92\\right)^{2}+\\left(z-1.665\\right)^{2}=0.003\\ ",
-          "reason": "Implicit surface 240 with 3-axis residual has no constant-bounded axis"
-        },
-        {
-          "expr_id": "245",
-          "kind": "implicit_surface",
-          "latex": "\\left(x-0.66\\right)^{2}+\\left(y-0.76\\right)^{2}+\\left(z-1.665\\right)^{2}=0.003\\ ",
-          "reason": "Implicit surface 245 with 3-axis residual has no constant-bounded axis"
-        },
-        {
-          "expr_id": "246",
-          "kind": "implicit_surface",
-          "latex": "\\left(x-0.66\\right)^{2}+\\left(y-0.60\\right)^{2}+\\left(z-1.665\\right)^{2}=0.003\\ ",
-          "reason": "Implicit surface 246 with 3-axis residual has no constant-bounded axis"
-        },
-        {
-          "expr_id": "247",
-          "kind": "implicit_surface",
-          "latex": "\\left(x-0.66\\right)^{2}+\\left(y-0.44\\right)^{2}+\\left(z-1.665\\right)^{2}=0.003\\ ",
-          "reason": "Implicit surface 247 with 3-axis residual has no constant-bounded axis"
-        },
-        {
-          "expr_id": "248",
-          "kind": "implicit_surface",
-          "latex": "\\left(x-0.66\\right)^{2}+\\left(y-0.28\\right)^{2}+\\left(z-1.665\\right)^{2}=0.003\\ ",
-          "reason": "Implicit surface 248 with 3-axis residual has no constant-bounded axis"
-        },
-        {
-          "expr_id": "249",
-          "kind": "implicit_surface",
-          "latex": "\\left(x-0.66\\right)^{2}+\\left(y-0.12\\right)^{2}+\\left(z-1.665\\right)^{2}=0.003\\ ",
-          "reason": "Implicit surface 249 with 3-axis residual has no constant-bounded axis"
-        },
-        {
-          "expr_id": "250",
-          "kind": "implicit_surface",
-          "latex": "\\left(x-0.66\\right)^{2}+\\left(y+0.04\\right)^{2}+\\left(z-1.665\\right)^{2}=0.003\\ ",
-          "reason": "Implicit surface 250 with 3-axis residual has no constant-bounded axis"
-        },
-        {
-          "expr_id": "251",
-          "kind": "implicit_surface",
-          "latex": "\\left(x-0.66\\right)^{2}+\\left(y+0.20\\right)^{2}+\\left(z-1.665\\right)^{2}=0.003\\ ",
-          "reason": "Implicit surface 251 with 3-axis residual has no constant-bounded axis"
-        },
-        {
-          "expr_id": "252",
-          "kind": "implicit_surface",
-          "latex": "\\left(x+0.69\\right)^{2}+\\left(y-1.24\\right)^{2}+\\left(z-1.665\\right)^{2}=0.003\\ ",
-          "reason": "Implicit surface 252 with 3-axis residual has no constant-bounded axis"
-        },
-        {
-          "expr_id": "253",
-          "kind": "implicit_surface",
-          "latex": "\\left(x+0.69\\right)^{2}+\\left(y-1.08\\right)^{2}+\\left(z-1.665\\right)^{2}=0.003\\ ",
-          "reason": "Implicit surface 253 with 3-axis residual has no constant-bounded axis"
-        },
-        {
-          "expr_id": "254",
-          "kind": "implicit_surface",
-          "latex": "\\left(x+0.69\\right)^{2}+\\left(y-0.92\\right)^{2}+\\left(z-1.665\\right)^{2}=0.003\\ ",
-          "reason": "Implicit surface 254 with 3-axis residual has no constant-bounded axis"
-        },
-        {
-          "expr_id": "255",
-          "kind": "implicit_surface",
-          "latex": "\\left(x+0.69\\right)^{2}+\\left(y-0.76\\right)^{2}+\\left(z-1.665\\right)^{2}=0.003\\ ",
-          "reason": "Implicit surface 255 with 3-axis residual has no constant-bounded axis"
-        },
-        {
-          "expr_id": "256",
-          "kind": "implicit_surface",
-          "latex": "\\left(x+0.69\\right)^{2}+\\left(y-0.60\\right)^{2}+\\left(z-1.665\\right)^{2}=0.003\\ ",
-          "reason": "Implicit surface 256 with 3-axis residual has no constant-bounded axis"
-        },
-        {
-          "expr_id": "257",
-          "kind": "implicit_surface",
-          "latex": "\\left(x+0.69\\right)^{2}+\\left(y-0.44\\right)^{2}+\\left(z-1.665\\right)^{2}=0.003\\ ",
-          "reason": "Implicit surface 257 with 3-axis residual has no constant-bounded axis"
-        },
-        {
-          "expr_id": "258",
-          "kind": "implicit_surface",
-          "latex": "\\left(x+0.69\\right)^{2}+\\left(y-0.28\\right)^{2}+\\left(z-1.665\\right)^{2}=0.003\\ ",
-          "reason": "Implicit surface 258 with 3-axis residual has no constant-bounded axis"
-        },
-        {
-          "expr_id": "259",
-          "kind": "implicit_surface",
-          "latex": "\\left(x+0.69\\right)^{2}+\\left(y-0.12\\right)^{2}+\\left(z-1.665\\right)^{2}=0.003\\ ",
-          "reason": "Implicit surface 259 with 3-axis residual has no constant-bounded axis"
-        },
-        {
-          "expr_id": "260",
-          "kind": "implicit_surface",
-          "latex": "\\left(x+0.69\\right)^{2}+\\left(y+0.04\\right)^{2}+\\left(z-1.665\\right)^{2}=0.003\\ ",
-          "reason": "Implicit surface 260 with 3-axis residual has no constant-bounded axis"
-        },
-        {
-          "expr_id": "262",
-          "kind": "implicit_surface",
-          "latex": "\\left(x+0.69\\right)^{2}+\\left(y+0.20\\right)^{2}+\\left(z-1.665\\right)^{2}=0.003\\ ",
-          "reason": "Implicit surface 262 with 3-axis residual has no constant-bounded axis"
-        },
-        {
-          "expr_id": "263",
-          "kind": "implicit_surface",
-          "latex": "\\left(x+0.62\\right)^{2}+\\left(y+0.29\\right)^{2}+\\left(z-1.665\\right)^{2}=0.003\\ ",
-          "reason": "Implicit surface 263 with 3-axis residual has no constant-bounded axis"
-        },
-        {
-          "expr_id": "264",
-          "kind": "implicit_surface",
-          "latex": "\\left(x+0.47\\right)^{2}+\\left(y+0.29\\right)^{2}+\\left(z-1.665\\right)^{2}=0.003\\ ",
-          "reason": "Implicit surface 264 with 3-axis residual has no constant-bounded axis"
-        },
-        {
-          "expr_id": "266",
-          "kind": "implicit_surface",
-          "latex": "\\left(x+0.32\\right)^{2}+\\left(y+0.29\\right)^{2}+\\left(z-1.665\\right)^{2}=0.003\\ ",
-          "reason": "Implicit surface 266 with 3-axis residual has no constant-bounded axis"
-        },
-        {
-          "expr_id": "267",
-          "kind": "implicit_surface",
-          "latex": "\\left(x+0.17\\right)^{2}+\\left(y+0.29\\right)^{2}+\\left(z-1.665\\right)^{2}=0.003\\ ",
-          "reason": "Implicit surface 267 with 3-axis residual has no constant-bounded axis"
-        },
-        {
-          "expr_id": "268",
-          "kind": "implicit_surface",
-          "latex": "\\left(x+0.02\\right)^{2}+\\left(y+0.29\\right)^{2}+\\left(z-1.665\\right)^{2}=0.003\\ ",
-          "reason": "Implicit surface 268 with 3-axis residual has no constant-bounded axis"
-        },
-        {
-          "expr_id": "269",
-          "kind": "implicit_surface",
-          "latex": "\\left(x-0.13\\right)^{2}+\\left(y+0.29\\right)^{2}+\\left(z-1.665\\right)^{2}=0.003\\ ",
-          "reason": "Implicit surface 269 with 3-axis residual has no constant-bounded axis"
-        },
-        {
-          "expr_id": "270",
-          "kind": "implicit_surface",
-          "latex": "\\left(x-0.28\\right)^{2}+\\left(y+0.29\\right)^{2}+\\left(z-1.665\\right)^{2}=0.003\\ ",
-          "reason": "Implicit surface 270 with 3-axis residual has no constant-bounded axis"
-        },
-        {
-          "expr_id": "271",
-          "kind": "implicit_surface",
-          "latex": "\\left(x-0.43\\right)^{2}+\\left(y+0.29\\right)^{2}+\\left(z-1.665\\right)^{2}=0.003\\ ",
-          "reason": "Implicit surface 271 with 3-axis residual has no constant-bounded axis"
-        },
-        {
-          "expr_id": "272",
-          "kind": "implicit_surface",
-          "latex": "\\left(x-0.58\\right)^{2}+\\left(y+0.29\\right)^{2}+\\left(z-1.665\\right)^{2}=0.003\\ ",
-          "reason": "Implicit surface 272 with 3-axis residual has no constant-bounded axis"
-        },
-        {
-          "expr_id": "273",
-          "kind": "implicit_surface",
-          "latex": "\\left(x-0.58\\right)^{2}+\\left(y-1.29\\right)^{2}+\\left(z-1.665\\right)^{2}=0.003\\ ",
-          "reason": "Implicit surface 273 with 3-axis residual has no constant-bounded axis"
-        },
-        {
-          "expr_id": "274",
-          "kind": "implicit_surface",
-          "latex": "\\left(x-0.43\\right)^{2}+\\left(y-1.29\\right)^{2}+\\left(z-1.665\\right)^{2}=0.003\\ ",
-          "reason": "Implicit surface 274 with 3-axis residual has no constant-bounded axis"
-        },
-        {
-          "expr_id": "275",
-          "kind": "implicit_surface",
-          "latex": "\\left(x-0.28\\right)^{2}+\\left(y-1.29\\right)^{2}+\\left(z-1.665\\right)^{2}=0.003\\ ",
-          "reason": "Implicit surface 275 with 3-axis residual has no constant-bounded axis"
-        },
-        {
-          "expr_id": "276",
-          "kind": "implicit_surface",
-          "latex": "\\left(x-0.13\\right)^{2}+\\left(y-1.29\\right)^{2}+\\left(z-1.665\\right)^{2}=0.003\\ ",
-          "reason": "Implicit surface 276 with 3-axis residual has no constant-bounded axis"
-        },
-        {
-          "expr_id": "277",
-          "kind": "implicit_surface",
-          "latex": "\\left(x+0.02\\right)^{2}+\\left(y-1.29\\right)^{2}+\\left(z-1.665\\right)^{2}=0.003\\ ",
-          "reason": "Implicit surface 277 with 3-axis residual has no constant-bounded axis"
-        },
-        {
-          "expr_id": "278",
-          "kind": "implicit_surface",
-          "latex": "\\left(x+0.17\\right)^{2}+\\left(y-1.29\\right)^{2}+\\left(z-1.665\\right)^{2}=0.003\\ ",
-          "reason": "Implicit surface 278 with 3-axis residual has no constant-bounded axis"
-        },
-        {
-          "expr_id": "279",
-          "kind": "implicit_surface",
-          "latex": "\\left(x+0.32\\right)^{2}+\\left(y-1.29\\right)^{2}+\\left(z-1.665\\right)^{2}=0.003\\ ",
-          "reason": "Implicit surface 279 with 3-axis residual has no constant-bounded axis"
-        },
-        {
-          "expr_id": "280",
-          "kind": "implicit_surface",
-          "latex": "\\left(x+0.47\\right)^{2}+\\left(y-1.29\\right)^{2}+\\left(z-1.665\\right)^{2}=0.003\\ ",
-          "reason": "Implicit surface 280 with 3-axis residual has no constant-bounded axis"
-        },
-        {
-          "expr_id": "281",
-          "kind": "implicit_surface",
-          "latex": "\\left(x+0.62\\right)^{2}+\\left(y-1.29\\right)^{2}+\\left(z-1.665\\right)^{2}=0.003\\ ",
-          "reason": "Implicit surface 281 with 3-axis residual has no constant-bounded axis"
-        },
-        {
-          "expr_id": "310",
-          "kind": "implicit_surface",
-          "latex": "\\left(x+a\\right)^{2}+\\left(y+b\\right)^{2}+\\left(z+c\\right)^{2}=d",
-          "reason": "Implicit surface 310 with 3-axis residual has no constant-bounded axis"
-        },
-        {
           "expr_id": "325",
           "kind": "inequality_region",
           "latex": "(x-u)^{2}+(y-v)^{2}\\le w^{2}q-t/2\\le z\\le q+t/2\\ \\left\\{5<z<5.9\\right\\}",
           "reason": "Inequality region for 325 did not resolve to sampled cells"
         }
       ],
-      "unsupported_count": 53,
+      "unsupported_count": 14,
       "usda_exists": true,
       "usdz_exists": true,
       "usdz_output": "artifacts/fixture_usdz/[4B] 3D Diagram - S2-07 Group F.usdz",
@@ -53124,7 +52890,7 @@
         ],
         "cwd": null,
         "returncode": 0,
-        "stderr": "",
+        "stderr": "Coding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\n",
         "stdout": "\nValidation Result with no explicit variants set\nSuccess!\n",
         "tool": "usdchecker"
       },
@@ -61073,6 +60839,386 @@
         {
           "constraint_violation_count": 0,
           "errors": [],
+          "expr_id": "238",
+          "face_count": 128,
+          "kind": "implicit_surface",
+          "max_residual": null,
+          "point_count": 114,
+          "valid": true
+        },
+        {
+          "constraint_violation_count": 0,
+          "errors": [],
+          "expr_id": "239",
+          "face_count": 128,
+          "kind": "implicit_surface",
+          "max_residual": null,
+          "point_count": 114,
+          "valid": true
+        },
+        {
+          "constraint_violation_count": 0,
+          "errors": [],
+          "expr_id": "240",
+          "face_count": 128,
+          "kind": "implicit_surface",
+          "max_residual": null,
+          "point_count": 114,
+          "valid": true
+        },
+        {
+          "constraint_violation_count": 0,
+          "errors": [],
+          "expr_id": "245",
+          "face_count": 128,
+          "kind": "implicit_surface",
+          "max_residual": null,
+          "point_count": 114,
+          "valid": true
+        },
+        {
+          "constraint_violation_count": 0,
+          "errors": [],
+          "expr_id": "246",
+          "face_count": 128,
+          "kind": "implicit_surface",
+          "max_residual": null,
+          "point_count": 114,
+          "valid": true
+        },
+        {
+          "constraint_violation_count": 0,
+          "errors": [],
+          "expr_id": "247",
+          "face_count": 128,
+          "kind": "implicit_surface",
+          "max_residual": null,
+          "point_count": 114,
+          "valid": true
+        },
+        {
+          "constraint_violation_count": 0,
+          "errors": [],
+          "expr_id": "248",
+          "face_count": 128,
+          "kind": "implicit_surface",
+          "max_residual": null,
+          "point_count": 114,
+          "valid": true
+        },
+        {
+          "constraint_violation_count": 0,
+          "errors": [],
+          "expr_id": "249",
+          "face_count": 128,
+          "kind": "implicit_surface",
+          "max_residual": null,
+          "point_count": 114,
+          "valid": true
+        },
+        {
+          "constraint_violation_count": 0,
+          "errors": [],
+          "expr_id": "250",
+          "face_count": 128,
+          "kind": "implicit_surface",
+          "max_residual": null,
+          "point_count": 114,
+          "valid": true
+        },
+        {
+          "constraint_violation_count": 0,
+          "errors": [],
+          "expr_id": "251",
+          "face_count": 128,
+          "kind": "implicit_surface",
+          "max_residual": null,
+          "point_count": 114,
+          "valid": true
+        },
+        {
+          "constraint_violation_count": 0,
+          "errors": [],
+          "expr_id": "252",
+          "face_count": 128,
+          "kind": "implicit_surface",
+          "max_residual": null,
+          "point_count": 114,
+          "valid": true
+        },
+        {
+          "constraint_violation_count": 0,
+          "errors": [],
+          "expr_id": "253",
+          "face_count": 128,
+          "kind": "implicit_surface",
+          "max_residual": null,
+          "point_count": 114,
+          "valid": true
+        },
+        {
+          "constraint_violation_count": 0,
+          "errors": [],
+          "expr_id": "254",
+          "face_count": 128,
+          "kind": "implicit_surface",
+          "max_residual": null,
+          "point_count": 114,
+          "valid": true
+        },
+        {
+          "constraint_violation_count": 0,
+          "errors": [],
+          "expr_id": "255",
+          "face_count": 128,
+          "kind": "implicit_surface",
+          "max_residual": null,
+          "point_count": 114,
+          "valid": true
+        },
+        {
+          "constraint_violation_count": 0,
+          "errors": [],
+          "expr_id": "256",
+          "face_count": 128,
+          "kind": "implicit_surface",
+          "max_residual": null,
+          "point_count": 114,
+          "valid": true
+        },
+        {
+          "constraint_violation_count": 0,
+          "errors": [],
+          "expr_id": "257",
+          "face_count": 128,
+          "kind": "implicit_surface",
+          "max_residual": null,
+          "point_count": 114,
+          "valid": true
+        },
+        {
+          "constraint_violation_count": 0,
+          "errors": [],
+          "expr_id": "258",
+          "face_count": 128,
+          "kind": "implicit_surface",
+          "max_residual": null,
+          "point_count": 114,
+          "valid": true
+        },
+        {
+          "constraint_violation_count": 0,
+          "errors": [],
+          "expr_id": "259",
+          "face_count": 128,
+          "kind": "implicit_surface",
+          "max_residual": null,
+          "point_count": 114,
+          "valid": true
+        },
+        {
+          "constraint_violation_count": 0,
+          "errors": [],
+          "expr_id": "260",
+          "face_count": 128,
+          "kind": "implicit_surface",
+          "max_residual": null,
+          "point_count": 114,
+          "valid": true
+        },
+        {
+          "constraint_violation_count": 0,
+          "errors": [],
+          "expr_id": "262",
+          "face_count": 128,
+          "kind": "implicit_surface",
+          "max_residual": null,
+          "point_count": 114,
+          "valid": true
+        },
+        {
+          "constraint_violation_count": 0,
+          "errors": [],
+          "expr_id": "263",
+          "face_count": 128,
+          "kind": "implicit_surface",
+          "max_residual": null,
+          "point_count": 114,
+          "valid": true
+        },
+        {
+          "constraint_violation_count": 0,
+          "errors": [],
+          "expr_id": "264",
+          "face_count": 128,
+          "kind": "implicit_surface",
+          "max_residual": null,
+          "point_count": 114,
+          "valid": true
+        },
+        {
+          "constraint_violation_count": 0,
+          "errors": [],
+          "expr_id": "266",
+          "face_count": 128,
+          "kind": "implicit_surface",
+          "max_residual": null,
+          "point_count": 114,
+          "valid": true
+        },
+        {
+          "constraint_violation_count": 0,
+          "errors": [],
+          "expr_id": "267",
+          "face_count": 128,
+          "kind": "implicit_surface",
+          "max_residual": null,
+          "point_count": 114,
+          "valid": true
+        },
+        {
+          "constraint_violation_count": 0,
+          "errors": [],
+          "expr_id": "268",
+          "face_count": 128,
+          "kind": "implicit_surface",
+          "max_residual": null,
+          "point_count": 114,
+          "valid": true
+        },
+        {
+          "constraint_violation_count": 0,
+          "errors": [],
+          "expr_id": "269",
+          "face_count": 128,
+          "kind": "implicit_surface",
+          "max_residual": null,
+          "point_count": 114,
+          "valid": true
+        },
+        {
+          "constraint_violation_count": 0,
+          "errors": [],
+          "expr_id": "270",
+          "face_count": 128,
+          "kind": "implicit_surface",
+          "max_residual": null,
+          "point_count": 114,
+          "valid": true
+        },
+        {
+          "constraint_violation_count": 0,
+          "errors": [],
+          "expr_id": "271",
+          "face_count": 128,
+          "kind": "implicit_surface",
+          "max_residual": null,
+          "point_count": 114,
+          "valid": true
+        },
+        {
+          "constraint_violation_count": 0,
+          "errors": [],
+          "expr_id": "272",
+          "face_count": 128,
+          "kind": "implicit_surface",
+          "max_residual": null,
+          "point_count": 114,
+          "valid": true
+        },
+        {
+          "constraint_violation_count": 0,
+          "errors": [],
+          "expr_id": "273",
+          "face_count": 128,
+          "kind": "implicit_surface",
+          "max_residual": null,
+          "point_count": 114,
+          "valid": true
+        },
+        {
+          "constraint_violation_count": 0,
+          "errors": [],
+          "expr_id": "274",
+          "face_count": 128,
+          "kind": "implicit_surface",
+          "max_residual": null,
+          "point_count": 114,
+          "valid": true
+        },
+        {
+          "constraint_violation_count": 0,
+          "errors": [],
+          "expr_id": "275",
+          "face_count": 128,
+          "kind": "implicit_surface",
+          "max_residual": null,
+          "point_count": 114,
+          "valid": true
+        },
+        {
+          "constraint_violation_count": 0,
+          "errors": [],
+          "expr_id": "276",
+          "face_count": 128,
+          "kind": "implicit_surface",
+          "max_residual": null,
+          "point_count": 114,
+          "valid": true
+        },
+        {
+          "constraint_violation_count": 0,
+          "errors": [],
+          "expr_id": "277",
+          "face_count": 128,
+          "kind": "implicit_surface",
+          "max_residual": null,
+          "point_count": 114,
+          "valid": true
+        },
+        {
+          "constraint_violation_count": 0,
+          "errors": [],
+          "expr_id": "278",
+          "face_count": 128,
+          "kind": "implicit_surface",
+          "max_residual": null,
+          "point_count": 114,
+          "valid": true
+        },
+        {
+          "constraint_violation_count": 0,
+          "errors": [],
+          "expr_id": "279",
+          "face_count": 128,
+          "kind": "implicit_surface",
+          "max_residual": null,
+          "point_count": 114,
+          "valid": true
+        },
+        {
+          "constraint_violation_count": 0,
+          "errors": [],
+          "expr_id": "280",
+          "face_count": 128,
+          "kind": "implicit_surface",
+          "max_residual": null,
+          "point_count": 114,
+          "valid": true
+        },
+        {
+          "constraint_violation_count": 0,
+          "errors": [],
+          "expr_id": "281",
+          "face_count": 128,
+          "kind": "implicit_surface",
+          "max_residual": null,
+          "point_count": 114,
+          "valid": true
+        },
+        {
+          "constraint_violation_count": 0,
+          "errors": [],
           "expr_id": "287",
           "face_count": 2880,
           "kind": "inequality_region",
@@ -61478,6 +61624,16 @@
           "kind": "triangle_mesh",
           "max_residual": null,
           "point_count": 3,
+          "valid": true
+        },
+        {
+          "constraint_violation_count": 0,
+          "errors": [],
+          "expr_id": "310",
+          "face_count": 128,
+          "kind": "implicit_surface",
+          "max_residual": null,
+          "point_count": 114,
           "valid": true
         }
       ],
@@ -81152,7 +81308,7 @@
         ],
         "cwd": null,
         "returncode": 0,
-        "stderr": "Coding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\n",
+        "stderr": "Coding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\n",
         "stdout": "\nValidation Result with no explicit variants set\nSuccess!\n",
         "tool": "usdchecker"
       },

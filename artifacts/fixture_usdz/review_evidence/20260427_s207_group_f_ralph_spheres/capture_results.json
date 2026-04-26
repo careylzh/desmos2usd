@@ -1,0 +1,50 @@
+{
+  "desmos_reference": {
+    "attempts": [
+      {
+        "method": "chrome_devtools.navigate_page",
+        "target": "https://www.desmos.com/3d/jkj1z8t8pf",
+        "result": "failed",
+        "error": "user cancelled MCP tool call"
+      },
+      {
+        "method": "playwright.browser_navigate",
+        "target": "https://www.desmos.com/3d/jkj1z8t8pf",
+        "result": "failed",
+        "error": "user cancelled MCP tool call"
+      }
+    ],
+    "screenshots": []
+  },
+  "live_viewer": {
+    "attempts": [
+      {
+        "method": "python3 -m http.server 8765 --bind 127.0.0.1",
+        "target": "http://127.0.0.1:8765/viewer/?usda=../artifacts/fixture_usdz/%5B4B%5D%203D%20Diagram%20-%20S2-07%20Group%20F.usda",
+        "result": "failed",
+        "error": "PermissionError: [Errno 1] Operation not permitted"
+      }
+    ],
+    "screenshots": []
+  },
+  "local_projection": {
+    "before": [
+      "S2-07_Group_F_projection_before.png",
+      "S2-07_Group_F_projection_before.ppm"
+    ],
+    "after": [
+      "S2-07_Group_F_projection_after.png",
+      "S2-07_Group_F_projection_after.ppm",
+      "S2-07_Group_F_projection_after.usda"
+    ],
+    "guards": [
+      "S2-08_Group_E_projection_guard_after.png",
+      "S2-08_Group_E_projection_guard_after.ppm",
+      "S2-08_Group_E_projection_guard_after.usda",
+      "S2-09_Group_F_projection_guard_after.png",
+      "S2-09_Group_F_projection_guard_after.ppm",
+      "S2-09_Group_F_projection_guard_after.usda"
+    ]
+  },
+  "visual_claim": "structural/local projection only; no live Desmos or live viewer parity claim"
+}

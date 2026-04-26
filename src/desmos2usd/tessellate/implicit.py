@@ -1,9 +1,11 @@
 from __future__ import annotations
 
+from dataclasses import dataclass
 import math
 
 from desmos2usd.eval.context import EvalContext
 from desmos2usd.parse.classify import ClassifiedExpression
+from desmos2usd.parse.latex_subset import LatexExpression
 from desmos2usd.parse.predicates import collect_constant_bounds
 from desmos2usd.tessellate.cylinders import tessellate_circular_implicit_surface
 from desmos2usd.tessellate.mesh import GeometryData, Point, linspace
@@ -11,6 +13,15 @@ from desmos2usd.tessellate.surfaces import axis_bounds, numeric_constants_for_it
 
 AXES = ("x", "y", "z")
 ISO_TOL = 1e-9
+QUADRIC_FIT_DELTA = 1.0
+QUADRIC_FIT_TOLERANCE = 1e-5
+
+
+@dataclass(frozen=True)
+class AxisAlignedEllipsoid:
+    center: tuple[float, float, float]
+    radii: tuple[float, float, float]
+    coefficients: tuple[float, float, float]
 
 
 def _axis_referenced_by_predicates(item: ClassifiedExpression, axis: str) -> bool:
@@ -27,6 +38,9 @@ def tessellate_implicit_surface(item: ClassifiedExpression, context: EvalContext
     residual_axes = tuple(axis for axis in AXES if axis in item.expression.identifiers)
     if len(residual_axes) == 3:
         geometry = tessellate_circular_implicit_surface(item, context, resolution=max(8, resolution * 2))
+        if geometry is not None and geometry.point_count > 0:
+            return geometry
+        geometry = tessellate_axis_aligned_ellipsoid(item, context, resolution=max(8, resolution))
         if geometry is not None and geometry.point_count > 0:
             return geometry
         return tessellate_implicit_surface_3axis_marching(item, context, resolution)
@@ -420,6 +434,185 @@ def contour_cell_edges(corners: list[tuple[float, float, float]]) -> list[tuple[
 def make_point(a_axis: str, b_axis: str, extrude_axis: str, a: float, b: float, e: float) -> Point:
     variables = {a_axis: a, b_axis: b, extrude_axis: e}
     return point_from_variables(variables)
+
+
+def tessellate_axis_aligned_ellipsoid(
+    item: ClassifiedExpression,
+    context: EvalContext,
+    resolution: int,
+) -> GeometryData | None:
+    if item.expression is None:
+        return None
+    profile = fit_axis_aligned_ellipsoid(item.expression, context)
+    if profile is None:
+        return None
+    latitude_segments = max(8, min(32, resolution))
+    longitude_segments = max(16, min(48, resolution * 2))
+    geometry = build_axis_aligned_ellipsoid_mesh(profile, latitude_segments, longitude_segments)
+    if item.predicates:
+        for point in geometry.points:
+            variables = dict(zip(AXES, point, strict=True))
+            if not all(predicate.evaluate(context, variables, tol=1e-5) for predicate in item.predicates):
+                return None
+    return geometry
+
+
+def fit_axis_aligned_ellipsoid(
+    expression: LatexExpression,
+    context: EvalContext,
+) -> AxisAlignedEllipsoid | None:
+    def evaluate(variables: dict[str, float]) -> float:
+        value = expression.eval(context, variables)
+        if not math.isfinite(value):
+            raise ValueError("non-finite residual")
+        return float(value)
+
+    origin = {axis: 0.0 for axis in AXES}
+    try:
+        f0 = evaluate(origin)
+        plus: dict[str, float] = {}
+        minus: dict[str, float] = {}
+        for axis in AXES:
+            plus_vars = dict(origin)
+            minus_vars = dict(origin)
+            plus_vars[axis] = QUADRIC_FIT_DELTA
+            minus_vars[axis] = -QUADRIC_FIT_DELTA
+            plus[axis] = evaluate(plus_vars)
+            minus[axis] = evaluate(minus_vars)
+    except Exception:
+        return None
+
+    coefficients: list[float] = []
+    linear_terms: list[float] = []
+    for axis in AXES:
+        a = (plus[axis] + minus[axis] - 2.0 * f0) / (2.0 * QUADRIC_FIT_DELTA * QUADRIC_FIT_DELTA)
+        b = (plus[axis] - minus[axis]) / (2.0 * QUADRIC_FIT_DELTA)
+        coefficients.append(a)
+        linear_terms.append(b)
+
+    tolerance = max(QUADRIC_FIT_TOLERANCE, max(abs(value) for value in [f0, *plus.values(), *minus.values()]) * 1e-6)
+    for left_index, left_axis in enumerate(AXES):
+        for right_axis in AXES[left_index + 1 :]:
+            pair_vars = dict(origin)
+            pair_vars[left_axis] = QUADRIC_FIT_DELTA
+            pair_vars[right_axis] = QUADRIC_FIT_DELTA
+            try:
+                cross = evaluate(pair_vars) - plus[left_axis] - plus[right_axis] + f0
+            except Exception:
+                return None
+            if abs(cross) > tolerance:
+                return None
+
+    if all(coefficient < -QUADRIC_FIT_TOLERANCE for coefficient in coefficients):
+        coefficients = [-coefficient for coefficient in coefficients]
+        linear_terms = [-term for term in linear_terms]
+        orientation = -1.0
+    elif all(coefficient > QUADRIC_FIT_TOLERANCE for coefficient in coefficients):
+        orientation = 1.0
+    else:
+        return None
+
+    center = tuple(-term / (2.0 * coefficient) for term, coefficient in zip(linear_terms, coefficients, strict=True))
+    try:
+        center_value = orientation * evaluate(dict(zip(AXES, center, strict=True)))
+    except Exception:
+        return None
+    if center_value >= -QUADRIC_FIT_TOLERANCE:
+        return None
+
+    radii_squared = [-center_value / coefficient for coefficient in coefficients]
+    if any(value <= 0.0 or not math.isfinite(value) for value in radii_squared):
+        return None
+    radii = tuple(math.sqrt(value) for value in radii_squared)
+    profile = AxisAlignedEllipsoid(center=center, radii=radii, coefficients=tuple(coefficients))
+    if not axis_aligned_ellipsoid_boundary_matches(expression, context, orientation, profile):
+        return None
+    return profile
+
+
+def axis_aligned_ellipsoid_boundary_matches(
+    expression: LatexExpression,
+    context: EvalContext,
+    orientation: float,
+    profile: AxisAlignedEllipsoid,
+) -> bool:
+    scale = max(abs(coefficient) for coefficient in profile.coefficients)
+    tolerance = max(1e-4, scale * max(profile.radii) ** 2 * 1e-5)
+    samples: list[tuple[float, float, float]] = []
+    for axis_index in range(3):
+        for sign in (-1.0, 1.0):
+            point = list(profile.center)
+            point[axis_index] += sign * profile.radii[axis_index]
+            samples.append(tuple(point))
+    diagonal_scale = 1.0 / math.sqrt(3.0)
+    samples.append(
+        tuple(
+            center + radius * diagonal_scale
+            for center, radius in zip(profile.center, profile.radii, strict=True)
+        )
+    )
+    for point in samples:
+        variables = dict(zip(AXES, point, strict=True))
+        try:
+            residual = orientation * float(expression.eval(context, variables))
+        except Exception:
+            return False
+        if abs(residual) > tolerance:
+            return False
+    return True
+
+
+def build_axis_aligned_ellipsoid_mesh(
+    profile: AxisAlignedEllipsoid,
+    latitude_segments: int,
+    longitude_segments: int,
+) -> GeometryData:
+    points: list[Point] = []
+    counts: list[int] = []
+    indices: list[int] = []
+    center_x, center_y, center_z = profile.center
+    radius_x, radius_y, radius_z = profile.radii
+
+    north_index = len(points)
+    points.append((center_x, center_y, center_z + radius_z))
+    ring_starts: list[int] = []
+    for lat_index in range(1, latitude_segments):
+        theta = math.pi * lat_index / latitude_segments
+        ring_starts.append(len(points))
+        sin_theta = math.sin(theta)
+        cos_theta = math.cos(theta)
+        for lon_index in range(longitude_segments):
+            phi = 2.0 * math.pi * lon_index / longitude_segments
+            points.append(
+                (
+                    center_x + radius_x * sin_theta * math.cos(phi),
+                    center_y + radius_y * sin_theta * math.sin(phi),
+                    center_z + radius_z * cos_theta,
+                )
+            )
+    south_index = len(points)
+    points.append((center_x, center_y, center_z - radius_z))
+
+    first_ring = ring_starts[0]
+    for lon_index in range(longitude_segments):
+        next_lon = (lon_index + 1) % longitude_segments
+        counts.append(3)
+        indices.extend([north_index, first_ring + lon_index, first_ring + next_lon])
+
+    for ring_index in range(len(ring_starts) - 1):
+        lower = ring_starts[ring_index]
+        upper = ring_starts[ring_index + 1]
+        for lon_index in range(longitude_segments):
+            next_lon = (lon_index + 1) % longitude_segments
+            counts.append(4)
+            indices.extend([lower + lon_index, upper + lon_index, upper + next_lon, lower + next_lon])
+
+    last_ring = ring_starts[-1]
+    for lon_index in range(longitude_segments):
+        next_lon = (lon_index + 1) % longitude_segments
+        counts.append(3)
+        indices.extend([south_index, last_ring + next_lon, last_ring + lon_index])
+    return GeometryData(kind="Mesh", points=points, face_vertex_counts=counts, face_vertex_indices=indices)
 
 
 def tessellate_implicit_surface_3axis_marching(

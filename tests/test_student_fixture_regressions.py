@@ -160,6 +160,34 @@ class StudentFixtureRegressionTests(unittest.TestCase):
         self.assertEqual(geometry.kind, "Mesh")
         self.assertGreater(geometry.face_count, 0)
 
+    def test_unbounded_implicit_sphere_exports_closed_mesh(self) -> None:
+        source = SourceInfo("", "", "", "", viewport_bounds={"x": (-12.0, 12.0), "y": (-12.0, 12.0), "z": (-12.0, 12.0)})
+        item = classify_expression(
+            ExpressionIR(
+                source,
+                "1",
+                0,
+                r"\left(x-0.66\right)^{2}+\left(y-1.24\right)^{2}+\left(z-1.665\right)^{2}=0.003",
+            ),
+            EvalContext(),
+        )
+
+        geometry = tessellate(item, EvalContext(), resolution=12)
+        radius = 0.003**0.5
+        xs = [point[0] for point in geometry.points]
+        ys = [point[1] for point in geometry.points]
+        zs = [point[2] for point in geometry.points]
+
+        self.assertEqual(item.kind, "implicit_surface")
+        self.assertEqual(geometry.kind, "Mesh")
+        self.assertGreater(geometry.face_count, 100)
+        self.assertAlmostEqual(min(xs), 0.66 - radius, places=6)
+        self.assertAlmostEqual(max(xs), 0.66 + radius, places=6)
+        self.assertAlmostEqual(min(ys), 1.24 - radius, places=6)
+        self.assertAlmostEqual(max(ys), 1.24 + radius, places=6)
+        self.assertAlmostEqual(min(zs), 1.665 - radius, places=6)
+        self.assertAlmostEqual(max(zs), 1.665 + radius, places=6)
+
     def test_variable_adjacent_trig_inequality_region_tessellates(self) -> None:
         source = SourceInfo("", "", "", "", viewport_bounds={"x": (-10.0, 10.0), "y": (-10.0, 10.0), "z": (0.0, 2.0)})
         item = classify_expression(
