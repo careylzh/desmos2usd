@@ -757,6 +757,49 @@ class StudentFixtureRegressionTests(unittest.TestCase):
         self.assertEqual(min(z_values), 8.0)
         self.assertEqual(max(z_values), 8.0)
 
+    def test_s203_empty_affine_inequality_band_exports_empty_mesh(self) -> None:
+        """S2-03 Group D includes list-expanded half-plane bands that Desmos renders as
+        empty sets. They should not be reported as unsupported sampled-cell failures.
+        """
+        source = SourceInfo(
+            "", "", "", "", viewport_bounds={"x": (-10.0, 10.0), "y": (-5.0, 15.0), "z": (-12.0, 5.0)}
+        )
+        item = classify_expression(
+            ExpressionIR(
+                source,
+                "34_2_0",
+                0,
+                r"y\ge 2.0x+10.6\left\{5.1<y<5.2\right\}\left\{5.0\ge x\ge3.5\right\}\left\{-3.25\le z\le0.5\right\}",
+                raw={"expandedFromListExpression": "34"},
+            ),
+            EvalContext(),
+        )
+
+        geometry = tessellate(item, EvalContext(), resolution=12)
+        self.assertEqual(item.kind, "inequality_region")
+        self.assertEqual(geometry.kind, "Mesh")
+        self.assertEqual(geometry.point_count, 0)
+        self.assertEqual(geometry.face_count, 0)
+
+    def test_s203_nonempty_affine_inequality_band_still_renders(self) -> None:
+        source = SourceInfo(
+            "", "", "", "", viewport_bounds={"x": (-10.0, 10.0), "y": (-5.0, 15.0), "z": (-12.0, 5.0)}
+        )
+        item = classify_expression(
+            ExpressionIR(
+                source,
+                "34_3_0",
+                0,
+                r"y\ge -2.0x+10.6\left\{5.1<y<5.2\right\}\left\{5.0\ge x\ge3.5\right\}\left\{-3.25\le z\le0.5\right\}",
+                raw={"expandedFromListExpression": "34"},
+            ),
+            EvalContext(),
+        )
+
+        geometry = tessellate(item, EvalContext(), resolution=12)
+        self.assertEqual(item.kind, "inequality_region")
+        self.assertGreater(geometry.face_count, 0)
+
 
 def has_coplanar_face(geometry, axis: int, value: float) -> bool:
     cursor = 0

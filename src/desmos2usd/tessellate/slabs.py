@@ -1,8 +1,10 @@
 from __future__ import annotations
 
 import ast
+from math import isfinite
 
 from desmos2usd.eval.context import EvalContext
+from desmos2usd.eval.numeric import CONSTANTS
 from desmos2usd.parse.classify import ClassifiedExpression
 from desmos2usd.parse.latex_subset import LatexExpression
 from desmos2usd.parse.predicates import ComparisonPredicate, collect_constant_bounds, single_identifier
@@ -44,7 +46,7 @@ def tessellate_inequality_region(item: ClassifiedExpression, context: EvalContex
             return geometry
     try:
         geometry = tessellate_extruded_2d_region(item, context, resolution=max(16, resolution * 6))
-        if geometry.face_count and mesh_vertices_satisfy_predicates(item, context, geometry):
+        if (geometry.face_count or is_empty_mesh(geometry)) and mesh_vertices_satisfy_predicates(item, context, geometry):
             return geometry
     except Exception:
         pass
@@ -223,10 +225,154 @@ def tessellate_extruded_2d_region(item: ClassifiedExpression, context: EvalConte
                 return geometry
         except Exception:
             pass
+        empty = analytically_empty_function_band(item, context, shape_axes, shape_bounds)
+        if empty is not None:
+            return empty
         geometry = sampled_extrusion_mesh(item, context, shape_axes, extrude_axis, (low, high), shape_bounds, resolution)
         if geometry.face_count:
             return geometry
     raise ValueError(f"Inequality region for {item.ir.expr_id} did not resolve to an extruded 2D region")
+
+
+def is_empty_mesh(geometry: GeometryData) -> bool:
+    return geometry.kind == "Mesh" and not geometry.points and not geometry.face_vertex_counts and not geometry.face_vertex_indices
+
+
+def analytically_empty_function_band(
+    item: ClassifiedExpression,
+    context: EvalContext,
+    shape_axes: list[str],
+    bounds: dict[str, tuple[float | None, float | None]],
+) -> GeometryData | None:
+    """Return an empty mesh when affine band bounds prove the region has no area."""
+    if not is_generated_expression_expansion(item):
+        return None
+    for band_axis in shape_axes:
+        param_axes = [axis for axis in shape_axes if axis != band_axis]
+        if len(param_axes) != 1:
+            continue
+        param_axis = param_axes[0]
+        param_low, param_high = bounds.get(param_axis, (None, None))
+        if param_low is None or param_high is None or param_low >= param_high:
+            continue
+        lower_exprs, upper_exprs = function_bounds_for_axis(item.predicates, band_axis)
+        if not lower_exprs or not upper_exprs:
+            continue
+        feasible = affine_function_band_feasible_interval(
+            context,
+            param_axis,
+            (param_low, param_high),
+            lower_exprs,
+            upper_exprs,
+        )
+        if feasible is None:
+            continue
+        if feasible[0] >= feasible[1]:
+            return GeometryData(kind="Mesh", points=[])
+    return None
+
+
+def is_generated_expression_expansion(item: ClassifiedExpression) -> bool:
+    return any(
+        key in item.ir.raw
+        for key in (
+            "expandedFromListExpression",
+            "expandedFromLiteralListExpression",
+            "expandedFromRestrictionAlternative",
+        )
+    )
+
+
+def affine_function_band_feasible_interval(
+    context: EvalContext,
+    param_axis: str,
+    param_bounds: tuple[float, float],
+    lower_exprs: list[LatexExpression],
+    upper_exprs: list[LatexExpression],
+    tol: float = 1e-9,
+) -> tuple[float, float] | None:
+    low, high = param_bounds
+    for lower in lower_exprs:
+        lower_coeffs = affine_coefficients(lower, context, param_axis)
+        if lower_coeffs is None:
+            return None
+        for upper in upper_exprs:
+            upper_coeffs = affine_coefficients(upper, context, param_axis)
+            if upper_coeffs is None:
+                return None
+            slope = lower_coeffs[0] - upper_coeffs[0]
+            intercept = lower_coeffs[1] - upper_coeffs[1]
+            if abs(slope) <= tol:
+                if intercept >= -tol:
+                    return (low, low)
+                continue
+            root = -intercept / slope
+            if slope > 0:
+                high = min(high, root)
+            else:
+                low = max(low, root)
+            if low >= high - tol:
+                return (low, low)
+    return (low, high)
+
+
+def affine_coefficients(
+    expression: LatexExpression,
+    context: EvalContext,
+    variable: str,
+) -> tuple[float, float] | None:
+    if expression.identifiers - {variable} - set(context.scalars):
+        return None
+    coeffs = affine_node_coefficients(expression.tree.body, context, variable)
+    if coeffs is None or not all(isfinite(value) for value in coeffs):
+        return None
+    return coeffs
+
+
+def affine_node_coefficients(
+    node: ast.AST,
+    context: EvalContext,
+    variable: str,
+) -> tuple[float, float] | None:
+    if isinstance(node, ast.Constant) and isinstance(node.value, (int, float)):
+        return (0.0, float(node.value))
+    if isinstance(node, ast.Name):
+        if node.id == variable:
+            return (1.0, 0.0)
+        if node.id in context.scalars:
+            return (0.0, float(context.scalars[node.id]))
+        if node.id in CONSTANTS:
+            return (0.0, float(CONSTANTS[node.id]))
+        return None
+    if isinstance(node, ast.UnaryOp):
+        coeffs = affine_node_coefficients(node.operand, context, variable)
+        if coeffs is None:
+            return None
+        if isinstance(node.op, ast.USub):
+            return (-coeffs[0], -coeffs[1])
+        if isinstance(node.op, ast.UAdd):
+            return coeffs
+        return None
+    if isinstance(node, ast.BinOp):
+        left = affine_node_coefficients(node.left, context, variable)
+        right = affine_node_coefficients(node.right, context, variable)
+        if left is None or right is None:
+            return None
+        if isinstance(node.op, ast.Add):
+            return (left[0] + right[0], left[1] + right[1])
+        if isinstance(node.op, ast.Sub):
+            return (left[0] - right[0], left[1] - right[1])
+        if isinstance(node.op, ast.Mult):
+            if abs(left[0]) > 0 and abs(right[0]) > 0:
+                return None
+            if abs(left[0]) > 0:
+                return (left[0] * right[1], left[1] * right[1])
+            return (right[0] * left[1], right[1] * left[1])
+        if isinstance(node.op, ast.Div):
+            if abs(right[0]) > 0 or abs(right[1]) <= 1e-12:
+                return None
+            return (left[0] / right[1], left[1] / right[1])
+    return None
 
 
 def predicate_identifiers(predicate: ComparisonPredicate) -> set[str]:

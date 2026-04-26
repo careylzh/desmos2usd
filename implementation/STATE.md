@@ -1,6 +1,6 @@
 # Implementation State
 
-Last updated: 2026-04-27 03:23 SGT
+Last updated: 2026-04-27 03:45 SGT
 
 ## Loop Mode
 - cadence: every 10 minutes via OpenClaw cron
@@ -29,11 +29,11 @@ Last updated: 2026-04-27 03:23 SGT
 - id: one-desmos-input-at-a-time
 - title: Fix one remaining partial Desmos input per bounded tranche using live Desmos screenshots and viewer screenshots
 - current-priority:
-  1. S2-03 Group D — https://www.desmos.com/3d/zvasa1wcgo — 12 unsupported, 573 prims, 585 classified after z-band union tranche; still partial and needs live visual evidence
-  2. S2-03 Group E — https://www.desmos.com/3d/sqkhp7wnx6 — 85 unsupported, 111 prims, 190 classified
-  3. S2-07 Group F — https://www.desmos.com/3d/jkj1z8t8pf — 69 unsupported, 36 prims, 37 classified
-  4. S2-06 Group E — https://www.desmos.com/3d/cg2sd6h1ws — 57 unsupported after pass 5, 679 prims, 736 classified
-  5. S2-10 Group F — https://www.desmos.com/3d/tejhfrm34m — 47 unsupported, 120 prims, 167 classified
+  1. S2-03 Group E — https://www.desmos.com/3d/sqkhp7wnx6 — 85 unsupported, 111 prims, 190 classified
+  2. S2-07 Group F — https://www.desmos.com/3d/jkj1z8t8pf — 69 unsupported, 36 prims, 37 classified
+  3. S2-06 Group E — https://www.desmos.com/3d/cg2sd6h1ws — 57 unsupported after pass 5, 679 prims, 736 classified
+  4. S2-10 Group F — https://www.desmos.com/3d/tejhfrm34m — 47 unsupported, 120 prims, 167 classified
+  5. Revisit S2-03 Group D only for live visual parity evidence when browser capture is available — https://www.desmos.com/3d/zvasa1wcgo — now structurally success, 585 prims, 0 unsupported
 - done-when:
   - one chosen fixture has fresh Desmos reference screenshots
   - live viewer screenshots/projections exist for the generated USD artifact
@@ -52,9 +52,9 @@ Last updated: 2026-04-27 03:23 SGT
 7. [ ] Advance to the next input only after the current one is either defensibly fixed or explicitly blocked.
 
 ## Current Baseline
-- HEAD: f9de5cd Improve S2-03D z-band restriction expansion (pushed to `chektien:fix/student-fixture-usdz-export`)
-- summary: 71 fixtures; 25 success, 46 partial, 0 error
-- S2-03 Group D committed tranche: 92 unsupported -> 12 unsupported, 269 prims -> 573 prims; live browser/viewer capture blocked, so structural progress only
+- HEAD before current commit: f9de5cd Improve S2-03D z-band restriction expansion (pushed to `chektien:fix/student-fixture-usdz-export`)
+- summary: 71 fixtures; 26 success, 45 partial, 0 error
+- S2-03 Group D current tranche: 12 unsupported -> 0 unsupported, 573 prims -> 585 prims; live browser/viewer capture blocked, so structural/local projection progress only
 - S2-06 Group E pass 5: 321 unsupported -> 57 unsupported, still partial; ccwork approved pass 5 as technically sound
 - S2-08 Group E: success, 83 prims, 0 unsupported; pass-4 visual evidence exists
 - S2-09 Group F: success, 27 prims, 0 unsupported
@@ -70,5 +70,5 @@ Last updated: 2026-04-27 03:23 SGT
 - Do not overlap Codex/ccwork runs.
 
 ## Last Wake
-- timestamp: 2026-04-27 03:23 SGT
-- result: harvested raw HOME Codex S2-03D z-band union tranche; focused and full regression validation passed; committed and pushed as `f9de5cd` from the main environment. No new implementation pass launched in this wake.
+- timestamp: 2026-04-27 03:45 SGT
+- result: HOME Codex completed S2-03D affine empty-band tranche. S2-03D is structurally success with 585 prims, 0 unsupported; full regression validation passed. Browser/live viewer capture remains blocked, so no visual parity claim. Commit/push is blocked in this sandbox because `git add -u` cannot create `.git/index.lock` (`Operation not permitted`); main environment must commit and push the ready worktree.
