@@ -1,44 +1,39 @@
-## Handoff: 2026-04-26 00:52 SGT
+## Handoff: 2026-04-26 09:02 SGT
 
 ### Active Task
-- Push the validated recovered list-expansion tranche, then start the all-CSV comparison report.
+- Push the local all-CSV URL-to-fixture comparison report commit, then advance to partial/high-risk fixture prioritization.
 
 ### What Changed
-- Recovered the interrupted readable-CSV/list-expansion tranche.
-- Added scalar ellipsis/range parsing for Desmos list definitions, including compact and comma-separated forms such as `[0...N-1]`, `[1,...,5]`, `[1,3,...,9]`, and `[0.3,0.6...1.2]`.
-- Added scalar definitions derived from existing lists, `mod(...)` evaluation, `\pi` implicit multiplication before identifiers, and a narrow single-letter implicit multiplication replacement for list-expanded expressions such as `nh`.
-- Regenerated the full fixture suite after the code changes and kept only artifact changes with real output differences; timestamp-only `usdzip` package rewrites were dropped.
-- The recovery made `[4B] 3D Diagram - S2-05 Group D` complete: status `partial -> success`, unsupported `8 -> 0`, prims `38 -> 150`.
-- Created a local temp-clone commit (`Support Desmos list range fixture expansion`) in `/tmp/desmos2usd-commit.3Rcaap/repo`.
-- Push to `chektien:fix/student-fixture-usdz-export` did not complete because the sandbox could not resolve `github.com`.
+- Added `src/desmos2usd/validate/csv_fixture_report.py`, a deterministic helper that maps the original Desmos URL CSV to frozen fixture files, current sweep reports, and USDZ artifacts.
+- Added focused unit coverage in `tests/test_csv_fixture_report.py`.
+- Generated `artifacts/fixture_usdz/url_fixture_comparison.md`.
+- Preserved and extended the previous uncommitted state/handoff metadata from the pushed recovery wake.
+- Created a local temp-clone commit (`Add CSV fixture comparison report`) in `/tmp/desmos2usd-report-commit.zoq5LN/repo`.
+- Push to `chektien:fix/student-fixture-usdz-export` failed because this wake could not resolve `github.com`.
 
 ### Validation
-- `git diff --check` passed.
-- `PYTHONPATH=src python3 -m unittest discover -s tests -p 'test_student_fixture_regressions.py'` passed: `Ran 14 tests`.
-- `PYTHONPATH=src python3 -m desmos2usd.validate.fixture_usdz_suite --out artifacts/fixture_usdz --no-validate-usdz` passed:
-  - `fixture_count=71`
-  - `fixtures_with_usdz_count=71`
-  - `error_count=0`
-  - `success_count=19`
-  - `partial_count=52`
-- `PYTHONPATH=src python3 -m unittest discover -s tests` passed: `Ran 84 tests in 203.214s`.
+- `curl -I --max-time 10 https://www.desmos.com/3d/cvggvbbe73` failed with `curl: (6) Could not resolve host: www.desmos.com`; no live visual parity claim was made.
+- `PYTHONPATH=src python3 -m unittest discover -s tests -p 'test_csv_fixture_report.py'` passed: `Ran 1 test`, OK.
+- `PYTHONPATH=src python3 -m desmos2usd.validate.csv_fixture_report --expect-rows 66 --live-note "unavailable; curl -I --max-time 10 https://www.desmos.com/3d/cvggvbbe73 failed with: curl: (6) Could not resolve host: www.desmos.com"` passed and wrote the markdown report with `csv_rows=66`, `status_counts=success 15, partial 51`, `usdz_present=66`.
+- `rg -c '^\| [0-9]+ \|' artifacts/fixture_usdz/url_fixture_comparison.md` returned `66`.
+- `git diff --check` and `git diff --cached --check` passed in the temp clone.
+- `git push chektien HEAD:fix/student-fixture-usdz-export` failed with `ssh: Could not resolve hostname github.com: -65563`.
 
 ### Executor Notes
-- Codex: use raw HOME Codex via Ralph non-overlap controller.
+- Codex: use raw HOME Codex via Ralph non-overlap controller for the next tranche.
 - Claude Code: not used.
-- This sandbox could not write `.git/index.lock` in the main checkout (`Operation not permitted`). If still true, commit/push from a temporary clone under `/tmp`.
-- The temp clone at `/tmp/desmos2usd-commit.3Rcaap/repo` contains the local recovery commit, but `/tmp` should not be treated as durable; if it is gone, recreate the commit from the dirty main working tree.
+- GitHub push over HTTPS triggered Git Credential Manager UI and failed in headless mode; SSH remote works for `chektien`. Prefer `git@github.com:chektien/desmos2usd.git` for pushes from this host.
 
 ### Risks or Open Questions
-- [x] Do not commit generated artifact churn until a full 71-fixture sweep has completed.
-- [x] Do not trust a targeted `summary.json` as PR evidence.
-- [ ] Direct live Desmos visual comparison may fail; record exact failure modes.
-- [ ] Some partial fixtures now expose more repeated source expressions, so unsupported counts can increase even while prim coverage improves. Rank next work by visual risk and missing source geometry, not unsupported count alone.
-- [ ] Push is blocked until network/DNS access to `github.com` works.
+- [x] Direct live Desmos visual comparison failed in this wake because DNS could not resolve `www.desmos.com`; keep recording exact failure modes.
+- [x] The comparison report distinguishes structural/frozen-state evidence from true live visual parity.
+- [ ] The comparison report commit is local only until GitHub DNS works.
+- [ ] Partial fixtures with many `explicit_surface` and `inequality_region` unsupported rows remain the main visual risk.
 
 ### Recommended Next Wake
-- First push the validated recovery commit to `chektien:fix/student-fixture-usdz-export`. If `/tmp/desmos2usd-commit.3Rcaap/repo` still exists, retry `git push chektien HEAD:fix/student-fixture-usdz-export`; otherwise recreate a temp clone from the main checkout, apply the dirty working-tree diff, commit with author `chektien <www@ch3k.com>`, and push.
-- After the push succeeds, generate a durable comparison artifact for all 66 CSV rows using `/Users/chek/.openclaw/workspace/tmp/desmos2usd-ralph-control/desmos_urls_latest.csv`, `fixtures/states`, and `artifacts/fixture_usdz/summary.json`. Include source URL, fixture name, sweep status, USDZ presence, unsupported count, classified count, prim count, and notes for rows needing live Desmos verification.
+- First retry `git push chektien HEAD:fix/student-fixture-usdz-export` from `/tmp/desmos2usd-report-commit.zoq5LN/repo` if it still exists.
+- If that temp clone is gone, recreate the commit from the dirty main working tree files and force-add `artifacts/fixture_usdz/url_fixture_comparison.md`.
+- After the push succeeds, start from `artifacts/fixture_usdz/url_fixture_comparison.md` and pick one bounded family, preferably `explicit_surface` predicate failures in `S2-06 Group E`/`S2-01 Group A` or a small low-prim row such as `S2-09 Group F`.
 
 ### User-Facing Update
-- Recovery pass validated all 71 fixtures with USDZ output and zero sweep errors. One student fixture is now complete (`S2-05 Group D`), and several list-heavy fixtures have substantially more exported prims. Push is blocked by DNS/network access to GitHub.
+- All 66 original CSV Desmos URLs are now mapped to frozen fixture states and local USDZ sweep evidence in a local commit. The report records 15 success rows, 51 partial rows, and 66/66 USDZ artifacts present; push is blocked by DNS resolution for `github.com`.

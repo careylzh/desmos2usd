@@ -1,6 +1,6 @@
 # Implementation State
 
-Last updated: 2026-04-26 00:52 SGT
+Last updated: 2026-04-26 09:02 SGT
 
 ## Loop Mode
 - cadence: 10 one-shot cron wakes, 30 minutes apart
@@ -22,16 +22,16 @@ Last updated: 2026-04-26 00:52 SGT
 - viewer: http://chq.singapura-broadnose.ts.net:8765/viewer/
 
 ## Active Task
-- index: 1
-- id: push-recovered-list-expansion
-- title: Push the validated recovered list-expansion tranche
+- index: 2
+- id: push-csv-fixture-comparison-report
+- title: Push the all-CSV URL-to-fixture comparison report commit
 - done-when:
-  - the validated recovered list-expansion commit is pushed to `chektien:fix/student-fixture-usdz-export`
-  - the main checkout no longer has an uncommitted copy of the same recovery tranche
-  - then task 2 can start the all-CSV comparison report
+  - the report/helper/state/handoff commit is pushed to `chektien:fix/student-fixture-usdz-export`
+  - the PR branch includes the all-66-row comparison report
+  - then task 3 can start partial/high-risk fixture prioritization
 
 ## Ordered Task Cycle
-1. [ ] Recover interrupted readable-CSV/list-expansion changes, regenerate all fixture artifacts, validate, commit/push if sound.
+1. [x] Recover interrupted readable-CSV/list-expansion changes, regenerate all fixture artifacts, validate, commit/push if sound.
 2. [ ] Build a CSV-to-fixture comparison report covering all 66 original Desmos URLs, with direct Desmos state/render evidence where available and clear unknowns where not.
 3. [ ] Prioritize remaining partial fixtures by unsupported-count and visual-risk; fix one bounded mismatch category per wake.
 4. [ ] Regenerate affected/full fixture artifacts, validate, commit/push, and comment on PR with concise evidence.
@@ -46,8 +46,20 @@ Last updated: 2026-04-26 00:52 SGT
   - `success_count=19`
   - `partial_count=52`
 - Recovered support covers Desmos ellipsis lists, scalar formulas over lists, `mod`, `\pi` implicit multiplication, and narrow single-letter implicit multiplication during list expansion.
-- A local temp-clone commit was created for the recovery tranche, but it was not pushed because DNS resolution for `github.com` failed.
-- Main checkout `.git` metadata is not writable in the HOME Codex sandbox, so the main checkout still shows these validated changes as uncommitted.
+- Recovery commit `13c4bff` (`Support Desmos list range fixture expansion`) has been pushed to `chektien:fix/student-fixture-usdz-export`.
+- Main checkout is clean at `13c4bff`.
+- CSV comparison report `artifacts/fixture_usdz/url_fixture_comparison.md` now maps all 66 original URLs to frozen fixture states and the current fixture sweep reports:
+  - CSV rows mapped: `66/66`
+  - frozen fixture states present: `66/66`
+  - sweep reports present: `66/66`
+  - USDZ artifacts present: `66/66`
+  - sweep status over CSV rows: `15` success, `51` partial, `0` error
+  - current CSV-row totals: `1533` unsupported expressions, `6942` classified expressions, `5819` exported prims
+  - unsupported kind counts: `inequality_region=561`, `explicit_surface=550`, `classification=401`, `definition=9`, `triangle_mesh=8`, `parametric_surface=4`
+  - highest unsupported rows: `S2-06 Group E` (`329`), `S2-03 Group D` (`122`), `S2-01 Group A` (`119`), `S2-03 Group E` (`97`), `S2-10 Group F` (`82`)
+  - lowest-prim partial risk starts with `S2-09 Group F` (`0` prims, `27` unsupported), then `S2-05 Group A` (`2` prims), `S2-10 Group C` (`3` prims)
+- Live Desmos visual comparison was not available in this wake: `curl -I --max-time 10 https://www.desmos.com/3d/cvggvbbe73` failed with `curl: (6) Could not resolve host: www.desmos.com`. The report records structural/frozen-state evidence only and does not claim live visual parity.
+- A local temp-clone commit (`Add CSV fixture comparison report`) was created in `/tmp/desmos2usd-report-commit.zoq5LN/repo`, but push to GitHub failed with DNS resolution error `ssh: Could not resolve hostname github.com: -65563`.
 - Changed URL evidence from the CSV was recorded for eight affected student fixtures:
   - `https://www.desmos.com/3d/27v0xuv64m` (`S2-01 Group B`): classified `18 -> 116`, prims `15 -> 115`
   - `https://www.desmos.com/3d/1zpiejy9c9` (`S2-02 Group F`): classified `15 -> 111`, prims `4 -> 62`
@@ -60,9 +72,9 @@ Last updated: 2026-04-26 00:52 SGT
 
 ## Blockers
 - Direct browser/Desmos rendering may be flaky; if live Desmos cannot be loaded, use frozen state plus local viewer/artifact structural evidence and say so.
-- HOME Codex sandbox cannot write `.git/index.lock` in this checkout; use a temporary clone under `/tmp` for commit/push if this persists.
-- `git push chektien HEAD:fix/student-fixture-usdz-export` failed from `/tmp/desmos2usd-commit.3Rcaap/repo` with `Could not resolve host: github.com`.
+- Live Desmos DNS failed during the comparison-report wake; continue recording exact live-check failures and do not claim visual parity without an actual live/browser comparison.
+- Push to `chektien:fix/student-fixture-usdz-export` is currently blocked by DNS resolution for `github.com`.
 
 ## Last Wake
-- timestamp: 2026-04-26 00:52 SGT
-- result: recovered dirty list-expansion tranche and created a local temp commit; push blocked by DNS/network
+- timestamp: 2026-04-26 09:02 SGT
+- result: generated and locally committed the all-66-row CSV URL-to-fixture comparison report; push blocked by GitHub DNS failure
