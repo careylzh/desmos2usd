@@ -1,61 +1,59 @@
-# Handoff: 2026-04-26 16:10 SGT
+# Handoff: 2026-04-26 15:46 SGT
 
 ## Active Task
 
-Fix the remaining S2-03 Group B and S2-05 Group D mismatches reported after `fd147db`, without regressing S2-09 Group F.
+Fix the remaining S2-03 Group B and S2-05 Group D visual mismatches after `e78806b`, without regenerating or regressing S2-09 Group F.
+
+## Diagnosis
+
+- S2-05 geometry was already tall and structurally complete: `150` prims, `0` unsupported, red legs to `z=138`, cap/spire to `z=150`.
+- S2-03 geometry already had the long capped blue slab/body after the strict-slab fix.
+- The fresh bad local screenshots were caused by viewer camera orientation. `viewer/app.js` interpreted `desmos:worldRotation3D` rows as right/up/depth basis vectors, which made S2-05 top-down/flat and S2-03 look like a compact front slice.
+- Fixture evidence matches Desmos storing the matrix row-major while the camera basis is column-based: negative first column = depth, negative second column = screen right, third column = screen up.
 
 ## What Changed
 
-- `src/desmos2usd/parse/classify.py`
-  - Parametric curves now use Desmos' stored `parametricDomain` when no explicit LaTeX parameter bound is present.
-  - Parametric surfaces now use `parametricDomain3Du` and `parametricDomain3Dv`.
-  - Stored domains are intersected with explicit LaTeX restrictions when both exist.
-- `src/desmos2usd/tessellate/slabs.py`
-  - Bounded 3D inequality bands now keep visual cap faces even for strict inequalities, so solids like `0<z<2 {-10<y<20} {-10<x<45}` render as filled bodies instead of side-only shells.
-- `tests/test_student_fixture_regressions.py`
-  - Added regressions for stored parametric domains and capped strict inequality slabs.
+- `viewer/app.js`
+  - Changed `cameraBasisFromWorldRotation` to use the fixed column/sign mapping.
+  - No exporter/tessellator semantic changes were made in this pass.
 
 ## Target Artifacts
 
-- Regenerated S2-03 Group B `.usda`, `.usdz`, and `.report.json`.
-- Regenerated S2-05 Group D `.usda`, `.usdz`, and `.report.json`.
-- Rebuilt `artifacts/fixture_usdz/summary.json` from the full existing report set.
-- S2-09 Group F was not regenerated and no S2-09 artifact files changed.
-
-## Target Results
-
-- S2-03 Group B (`dstsug13q6`): `success`, `12` prims, `0` unsupported. Expr `123` now has `30` faces and includes the filled slab caps.
-- S2-05 Group D (`5jh9zwy75e`): `success`, `150` prims, `0` unsupported. Red outer curves now use `t=0..138`; red arch curves now use `t=0..pi`.
+- Regenerated S2-03 Group B `.report.json` and `.usdz`.
+- Regenerated S2-05 Group D `.report.json` and `.usdz`.
+- Rebuilt `artifacts/fixture_usdz/summary.json` from the existing `71` report files.
+- S2-09 Group F was not regenerated and no S2-09 `.usda`, `.usdz`, or `.report.json` file changed.
 
 ## Evidence
 
-- Before screenshots: `artifacts/fixture_usdz/review_evidence/20260426_s203_s205_current_check/`
-- New assessment: `artifacts/fixture_usdz/review_evidence/20260426_s203_s205_after_domain_caps/assessment.md`
-- New capture log: `artifacts/fixture_usdz/review_evidence/20260426_s203_s205_after_domain_caps/capture-results.json`
+- New evidence directory: `artifacts/fixture_usdz/review_evidence/20260426_s203_s205_view_basis_columns/`
+- Includes copied fresh Desmos screenshots, diagnostic local projections using the fixed viewer basis, `diagnostic_contact_sheet.png`, `assessment.md`, and `capture-results.json`.
 
-After-change browser screenshots were not captured:
+Browser recapture is still blocked in this sandbox:
 
-- Playwright Chrome launch failed before navigation with `browserType.launch: Target page, context or browser has been closed`; logs show `SIGABRT` and `kill EPERM`.
-- Chrome DevTools MCP and Playwright MCP navigation both returned `user cancelled MCP tool call`.
+- Playwright MCP navigation returned `user cancelled MCP tool call`.
+- Chrome DevTools MCP navigation returned `user cancelled MCP tool call`.
+- Local `python3 -m http.server` bind failed with `PermissionError`.
+- Chrome headless exited before producing a screenshot.
+- Tailnet viewer DNS lookup failed with `curl: (6) Could not resolve host`.
 
 ## Visual Judgment
 
-- S2-03: structurally improved; the missing filled blue slab is now exported. Browser parity remains unverified because capture failed.
-- S2-05: structurally improved; the collapsed red supports now have the correct parameter domains. Browser parity remains unverified because capture failed.
-- S2-09: not touched in this pass.
+- S2-03 Group B: diagnostic projection now shows the long blue body/slab and rounded end. Browser parity remains unverified.
+- S2-05 Group D: diagnostic projection now shows an upright Eiffel-tower-like structure with red legs, gray lattice, and dark cap/spire. Browser parity remains unverified.
+- S2-09 Group F: no artifact regeneration; diagnostic basis check keeps the previously accepted top-cap orientation, but no browser regression screenshot was captured.
 
 ## Validation
 
-- Focused regressions passed: `PYTHONPATH=src:tests python3 -m unittest tests.test_student_fixture_regressions.StudentFixtureRegressionTests.test_single_u_tuple_exports_as_parametric_curve tests.test_student_fixture_regressions.StudentFixtureRegressionTests.test_desmos_parametric_domain_sets_curve_bounds tests.test_student_fixture_regressions.StudentFixtureRegressionTests.test_strict_bounded_inequality_slab_keeps_visual_caps`
-- Full unit suite passed: `PYTHONPATH=src:tests python3 -m unittest discover -s tests` (`94` tests, OK).
-- `usdcat -l` passed for regenerated S2-03/S2-05 `.usda` and `.usdz`.
-- Full temp fixture sweep passed at `/tmp/desmos2usd-s203-s205-domain-caps-sweep`: `71` fixtures, `21` success, `50` partial, `0` errors, `71` USDZ.
+- `node --check viewer/app.js` passed.
+- `PYTHONPATH=src:tests python3 -m unittest tests.test_fixture_usdz_suite tests.test_usd_writer tests.test_student_fixture_regressions` passed: `26` tests in `35.422s`, OK.
+- `git diff --check` passed.
+- `usdcat -l` passed for regenerated S2-03/S2-05 `.usda` and `.usdz` files.
 
 ## Commit / Push
 
-- Implementation commit created in writable temp clone: `e78806b` (`Fix S2-03 slab and S2-05 parametric domains`).
-- Handoff status commit created in writable temp clone: `fdf8efc` (`Record S2-03 S2-05 handoff status`).
-- Push attempted three times from `/tmp/desmos2usd-s203-s205-domain-caps.RbZp4Y/repo`.
-- Push blocked each time by DNS: `ssh: Could not resolve hostname github.com: -65563`.
+- Implementation commit created in writable temp clone `/tmp/desmos2usd-view-basis.VY6FQS/repo`: `76fb0c4` (`Fix Desmos view rotation basis in viewer`).
+- Push attempted with `git push chektien HEAD:fix/student-fixture-usdz-export`.
+- Push blocked by DNS: `ssh: Could not resolve hostname github.com: -65563`.
 - Required remote: `git@github.com:chektien/desmos2usd.git`
 - Required branch: `fix/student-fixture-usdz-export`
