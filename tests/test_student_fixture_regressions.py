@@ -367,10 +367,24 @@ class StudentFixtureRegressionTests(unittest.TestCase):
         self.assertEqual(classification.classified[0].ir.latex, r"2.7\le x\le4.3\left\{4.2>y>3\right\}\left\{0\le z\le1\right\}")
         self.assertEqual(classification.classified[1].ir.latex, r"-4.3\le x\le-2.7\left\{4.2>y>3\right\}\left\{2\le z\le3\right\}")
 
-    def test_same_axis_comma_restriction_without_list_context_remains_conjunctive(self) -> None:
+    def test_disjoint_same_axis_comma_restriction_without_list_context_expands_as_union(self) -> None:
         graph = GraphIR(
             source=SOURCE,
             expressions=[expr("1", r"y=5.2\left\{2.7<x<4.3\right\}\left\{0\le z\le1,2\le z\le3\right\}")],
+            raw_state={},
+        )
+
+        classification, unsupported = classify_graph_tolerant(graph)
+
+        self.assertEqual(len(unsupported), 0)
+        self.assertEqual([item.ir.expr_id for item in classification.classified], ["1_alt0", "1_alt1"])
+        self.assertEqual(classification.classified[0].ir.latex, r"y=5.2\left\{2.7<x<4.3\right\}\left\{0\le z\le1\right\}")
+        self.assertEqual(classification.classified[1].ir.latex, r"y=5.2\left\{2.7<x<4.3\right\}\left\{2\le z\le3\right\}")
+
+    def test_overlapping_same_axis_comma_restriction_without_list_context_remains_conjunctive(self) -> None:
+        graph = GraphIR(
+            source=SOURCE,
+            expressions=[expr("1", r"y=5.2\left\{2.7<x<4.3\right\}\left\{0\le z\le2,1\le z\le3\right\}")],
             raw_state={},
         )
 

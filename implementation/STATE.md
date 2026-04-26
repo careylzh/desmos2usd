@@ -1,6 +1,6 @@
 # Implementation State
 
-Last updated: 2026-04-27 02:36 SGT
+Last updated: 2026-04-27 03:08 SGT
 
 ## Loop Mode
 - cadence: every 10 minutes via OpenClaw cron
@@ -29,7 +29,7 @@ Last updated: 2026-04-27 02:36 SGT
 - id: one-desmos-input-at-a-time
 - title: Fix one remaining partial Desmos input per bounded tranche using live Desmos screenshots and viewer screenshots
 - current-priority:
-  1. S2-03 Group D — https://www.desmos.com/3d/zvasa1wcgo — 92 unsupported, 269 prims, 361 classified after tuple/list-broadcast tranche; still partial and needs live visual evidence
+  1. S2-03 Group D — https://www.desmos.com/3d/zvasa1wcgo — 12 unsupported, 573 prims, 585 classified after z-band union tranche; still partial and needs live visual evidence
   2. S2-03 Group E — https://www.desmos.com/3d/sqkhp7wnx6 — 85 unsupported, 111 prims, 190 classified
   3. S2-07 Group F — https://www.desmos.com/3d/jkj1z8t8pf — 69 unsupported, 36 prims, 37 classified
   4. S2-06 Group E — https://www.desmos.com/3d/cg2sd6h1ws — 57 unsupported after pass 5, 679 prims, 736 classified
@@ -52,9 +52,9 @@ Last updated: 2026-04-27 02:36 SGT
 7. [ ] Advance to the next input only after the current one is either defensibly fixed or explicitly blocked.
 
 ## Current Baseline
-- HEAD: 4cb884c Clip explicit surface samples outside domain
+- HEAD: 9a939b0 Improve S2-03D list broadcast classification
 - summary: 71 fixtures; 25 success, 46 partial, 0 error
-- S2-03 Group D current worktree tranche: 122 unsupported -> 92 unsupported, 204 prims -> 269 prims; live browser/viewer capture blocked, so structural progress only
+- S2-03 Group D current worktree tranche: 92 unsupported -> 12 unsupported, 269 prims -> 573 prims; live browser/viewer capture blocked, so structural progress only
 - S2-06 Group E pass 5: 321 unsupported -> 57 unsupported, still partial; ccwork approved pass 5 as technically sound
 - S2-08 Group E: success, 83 prims, 0 unsupported; pass-4 visual evidence exists
 - S2-09 Group F: success, 27 prims, 0 unsupported
@@ -70,5 +70,5 @@ Last updated: 2026-04-27 02:36 SGT
 - Do not overlap Codex/ccwork runs.
 
 ## Last Wake
-- timestamp: 2026-04-27 02:36 SGT
-- result: harvested completed raw HOME Codex S2-03D list/literal-broadcast tranche; focused regression validation passed; committing/pushing from main environment; no new implementation pass launched this wake.
+- timestamp: 2026-04-27 03:08 SGT
+- result: completed raw HOME Codex S2-03D z-band union tranche; focused and full regression validation passed; commit/push blocked because Codex could not create `.git/index.lock` (`Operation not permitted`).

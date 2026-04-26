@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import re
 from dataclasses import dataclass, field
+from itertools import product
 from math import isfinite
 
 from desmos2usd.eval.context import EvalContext, FunctionDef
@@ -523,6 +524,75 @@ def restriction_alternative_parts(restriction: str) -> list[str] | None:
     return parts
 
 
+def restriction_union_alternative_parts(restriction: str, context: EvalContext) -> list[str] | None:
+    parts = restriction_alternative_parts(restriction)
+    if parts is None:
+        return None
+    ranges: list[tuple[float, float]] = []
+    for part in parts:
+        try:
+            predicates = parse_predicates(part)
+        except Exception:
+            return None
+        if len(predicates) != 1:
+            return None
+        bounds = predicates[0].variable_bounds()
+        if len(bounds) != 1:
+            return None
+        lower, upper = next(iter(bounds.values()))
+        if lower is None or upper is None:
+            return None
+        try:
+            low_value = lower.eval(context, {})
+            high_value = upper.eval(context, {})
+        except Exception:
+            return None
+        if not (isfinite(low_value) and isfinite(high_value)) or low_value > high_value:
+            return None
+        ranges.append((low_value, high_value))
+    sorted_ranges = sorted(ranges)
+    for previous, current in zip(sorted_ranges, sorted_ranges[1:]):
+        if previous[1] > current[0] - 1e-9:
+            return None
+    return parts
+
+
+def expand_restriction_union_alternatives(expr: ExpressionIR, context: EvalContext) -> list[ExpressionIR]:
+    main, restriction_texts = split_restrictions(expr.latex)
+    options: list[list[str]] = []
+    has_alternative = False
+    for restriction in restriction_texts:
+        alternatives = restriction_union_alternative_parts(restriction, context)
+        if alternatives is None:
+            options.append([restriction])
+            continue
+        has_alternative = True
+        options.append(alternatives)
+    if not has_alternative:
+        return [expr]
+
+    expanded: list[ExpressionIR] = []
+    for index, selected_restrictions in enumerate(product(*options)):
+        raw = dict(expr.raw)
+        raw["expandedFromRestrictionAlternative"] = expr.expr_id
+        raw["restrictionAlternativeIndex"] = index
+        expanded.append(
+            ExpressionIR(
+                source=expr.source,
+                expr_id=f"{expr.expr_id}_alt{index}",
+                order=expr.order,
+                latex=join_latex_with_restrictions(main, list(selected_restrictions)),
+                color=expr.color,
+                color_latex=expr.color_latex,
+                hidden=expr.hidden,
+                folder_id=expr.folder_id,
+                type=expr.type,
+                raw=raw,
+            )
+        )
+    return expanded
+
+
 def expand_literal_list_expression(expr: ExpressionIR, context: EvalContext) -> list[ExpressionIR]:
     main, restriction_texts = split_restrictions(expr.latex)
     main_spans = literal_scalar_list_spans(main, context)
@@ -531,7 +601,7 @@ def expand_literal_list_expression(expr: ExpressionIR, context: EvalContext) -> 
     for spans in restriction_spans:
         lengths.update(len(values) for _, _, values in spans)
     if not lengths:
-        return [expr]
+        return expand_restriction_union_alternatives(expr, context)
     if len(lengths) != 1:
         raise ValueError("Literal scalar lists in expression have mismatched lengths")
     count = lengths.pop()
@@ -545,18 +615,21 @@ def expand_literal_list_expression(expr: ExpressionIR, context: EvalContext) -> 
         raw = dict(expr.raw)
         raw["expandedFromLiteralListExpression"] = expr.expr_id
         raw["listIndex"] = index
-        expanded.append(
-            ExpressionIR(
-                source=expr.source,
-                expr_id=f"{expr.expr_id}_{index}",
-                order=expr.order,
-                latex=join_latex_with_restrictions(expanded_main, expanded_restrictions),
-                color=expr.color,
-                color_latex=expr.color_latex,
-                hidden=expr.hidden,
-                folder_id=expr.folder_id,
-                type=expr.type,
-                raw=raw,
+        expanded.extend(
+            expand_restriction_union_alternatives(
+                ExpressionIR(
+                    source=expr.source,
+                    expr_id=f"{expr.expr_id}_{index}",
+                    order=expr.order,
+                    latex=join_latex_with_restrictions(expanded_main, expanded_restrictions),
+                    color=expr.color,
+                    color_latex=expr.color_latex,
+                    hidden=expr.hidden,
+                    folder_id=expr.folder_id,
+                    type=expr.type,
+                    raw=raw,
+                ),
+                context,
             )
         )
     return expanded
