@@ -62,7 +62,11 @@ Last updated: 2026-04-26 16:10 SGT
   - `PYTHONPATH=src:tests python3 -m unittest discover -s tests` passed: `94` tests in `200.805s`, OK.
   - `usdcat -l` passed for regenerated S2-03/S2-05 `.usda` and `.usdz` files.
   - full temp fixture sweep passed with `fixture_count=71`, `success_count=21`, `partial_count=50`, `error_count=0`, `fixtures_with_usdz_count=71` at `/tmp/desmos2usd-s203-s205-domain-caps-sweep`.
-- commit/push status: implementation commit created in writable temp clone as `e78806b` (`Fix S2-03 slab and S2-05 parametric domains`); push still pending from `/tmp/desmos2usd-s203-s205-domain-caps.RbZp4Y/repo` to `git@github.com:chektien/desmos2usd.git` branch `fix/student-fixture-usdz-export`.
+- commit/push status:
+  - implementation commit in writable temp clone: `e78806b` (`Fix S2-03 slab and S2-05 parametric domains`).
+  - handoff status commit in writable temp clone: `fdf8efc` (`Record S2-03 S2-05 handoff status`).
+  - push attempted three times from `/tmp/desmos2usd-s203-s205-domain-caps.RbZp4Y/repo` with `git push chektien HEAD:fix/student-fixture-usdz-export`.
+  - push blocked by DNS each time: `ssh: Could not resolve hostname github.com: -65563`.
 
 ## Ordered Task Cycle
 1. [x] Recover interrupted readable-CSV/list-expansion changes, regenerate all fixture artifacts, validate, commit/push if sound.

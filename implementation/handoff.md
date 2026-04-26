@@ -54,6 +54,8 @@ After-change browser screenshots were not captured:
 ## Commit / Push
 
 - Implementation commit created in writable temp clone: `e78806b` (`Fix S2-03 slab and S2-05 parametric domains`).
-- Push pending from `/tmp/desmos2usd-s203-s205-domain-caps.RbZp4Y/repo`.
+- Handoff status commit created in writable temp clone: `fdf8efc` (`Record S2-03 S2-05 handoff status`).
+- Push attempted three times from `/tmp/desmos2usd-s203-s205-domain-caps.RbZp4Y/repo`.
+- Push blocked each time by DNS: `ssh: Could not resolve hostname github.com: -65563`.
 - Required remote: `git@github.com:chektien/desmos2usd.git`
 - Required branch: `fix/student-fixture-usdz-export`
