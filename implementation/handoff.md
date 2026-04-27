@@ -1,4 +1,92 @@
-# Handoff: 2026-04-27 12:49 SGT - S2-02F one-axis quadratic guide bands
+# Handoff: 2026-04-27 13:16 SGT - S2-02F constant explicit disk caps
+
+## Current Branch State
+- Repo: `/Users/chek/repos/desmos2usd-carey`
+- Branch: `fix/student-fixture-usdz-export`
+- Push target: `chektien:fix/student-fixture-usdz-export`
+- HEAD before this tranche: `707bd04 Handle one-axis quadratic guide bands`
+
+## Completed This Tranche
+- Targeted fixture: `[4B] 3D Diagram - S2-02 Group F.json`
+- Desmos URL: `https://www.desmos.com/3d/1zpiejy9c9`
+- Implemented one general exporter fix:
+  - explicit surfaces whose solved axis is constant, e.g. `z=c`, and whose restrictions contain a circular/quadratic domain predicate now emit an analytic flat disk mesh
+  - this handles tiny generated cap surfaces such as `z=15.5{(x-1)^2+(y-1)^2<=0.003}` without relying on a broad x/y sample grid landing inside the disk
+- No fixture-specific expression ids, fixture names, or one-off constants were added.
+- Added regression coverage for the S2-02F-style constant-z explicit disk cap.
+- Regenerated tracked S2-02F artifacts, S2-08E and S2-09F guard artifacts, and rebuilt `artifacts/fixture_usdz/summary.json` from all reports.
+
+## Evidence
+- Evidence directory: `artifacts/fixture_usdz/review_evidence/20260427_s202_group_f_ralph_disk_caps/`
+- Local projection files:
+  - `S2-02_Group_F_projection_before.png`
+  - `S2-02_Group_F_projection_before.ppm`
+  - `S2-02_Group_F_projection_before.usda`
+  - `S2-02_Group_F_projection_after.png`
+  - `S2-02_Group_F_projection_after.ppm`
+  - `S2-02_Group_F_projection_after.usda`
+  - `S2-02_Group_F_report_before.json`
+  - `S2-02_Group_F_report_after.json`
+  - `S2-08_Group_E_projection_guard_after.png`
+  - `S2-09_Group_F_projection_guard_after.png`
+  - `capture_results.json`
+  - `projection_results.json`
+  - `assessment.md`
+- Browser/live viewer blockers:
+  - Chrome DevTools Desmos navigation returned `user cancelled MCP tool call`.
+  - Playwright Desmos navigation returned `user cancelled MCP tool call`.
+  - Chrome file-viewer navigation returned `user cancelled MCP tool call`.
+  - Local viewer server command `python3 -m http.server 8765 --bind 127.0.0.1` failed with `PermissionError: [Errno 1] Operation not permitted`.
+  - Tailscale route checks for root, viewer, and summary failed with `curl: (6) Could not resolve host: chq.singapura-broadnose.ts.net`.
+- Visual claim: no live Desmos/viewer parity claim. This tranche has deterministic local projection evidence only.
+
+## Metrics
+- Overall fixture summary: 71 fixtures; 30 success, 41 partial, 0 error, 71 USDZ, acceptance still not met.
+- S2-02F before this tranche: `159 prims / 47 unsupported / 206 classified`.
+- S2-02F after tracked resolution-12 regeneration: `197 prims / 9 unsupported / 206 classified / valid true / usdchecker returncode 0`.
+- Fixed family: all constant-z circular explicit disk caps from `90_*` and `98_*` now export (`38` expressions).
+- Remaining S2-02F unsupported:
+  - `72_*`: 9 malformed chained inequalities like `(y-0.2)^2 <= 0.00250 <= z <= 13.2-0.03 <= x <= 2.03`.
+- S2-08 Group E guard remains success: `87 prims / 0 unsupported / valid true / usdchecker returncode 0`.
+- S2-09 Group F guard remains success: `27 prims / 0 unsupported / valid true / usdchecker returncode 0`.
+
+## Validation
+- Focused regression passed: `PYTHONPATH=src:tests python3 -m unittest tests.test_student_fixture_regressions.StudentFixtureRegressionTests.test_constant_z_explicit_surface_disk_exports_flat_cap`.
+- Focused cap/flat-disk trio passed: `test_constant_z_explicit_surface_disk_exports_flat_cap`, `test_s208_disk_inequality_at_constant_z_renders_as_flat_disk`, and `test_s208_disk_at_z_constant_uses_predicate_value_not_zero`.
+- Targeted modules passed: `PYTHONPATH=src:tests python3 -m unittest tests.test_student_fixture_regressions tests.test_fixture_usdz_suite tests.test_visual_preview` ran 70 tests OK.
+- Full unittest discovery passed: `PYTHONPATH=src:tests python3 -m unittest discover -s tests` ran 140 tests in 130.962s OK.
+- Regenerated artifacts for S2-02F, S2-08E, and S2-09F with `usdchecker --arkit` return code `0`.
+- Report-vs-USDA consistency checked:
+  - S2-02F report prim_count `197`, USDA `Mesh` + `BasisCurves` defs `197`, unsupported `9`
+  - S2-08E report prim_count `87`, USDA defs `87`, unsupported `0`
+  - S2-09F report prim_count `27`, USDA defs `27`, unsupported `0`
+- PNG projection dimensions checked with `sips`: before/after/guard PNGs are `1552x512`.
+- `git diff --check`: passed.
+
+## Commit / Push
+- Blocked in this HOME Codex turn: `git add ...` failed with `fatal: Unable to create '/Users/chek/repos/desmos2usd-carey/.git/index.lock': Operation not permitted`.
+- Worktree is ready to stage, commit, and push from the main environment.
+- Evidence directory is ignored by `.gitignore`; include it with `git add -f artifacts/fixture_usdz/review_evidence/20260427_s202_group_f_ralph_disk_caps/` if committing evidence with the tranche.
+- Suggested commit subject: `Handle constant explicit disk caps`.
+
+## Review Links
+- S2-02 Group F Desmos: `https://www.desmos.com/3d/1zpiejy9c9`
+- S2-02 Group F viewer: `https://chq.singapura-broadnose.ts.net/viewer/?usda=..%2Fartifacts%2Ffixture_usdz%2F%5B4B%5D%203D%20Diagram%20-%20S2-02%20Group%20F.usda&label=S2-02%20Group%20F`
+- S2-08 Group E Desmos: `https://www.desmos.com/3d/g59jqe6nxy`
+- S2-08 Group E viewer: `https://chq.singapura-broadnose.ts.net/viewer/?usda=..%2Fartifacts%2Ffixture_usdz%2F%5B4B%5D%203D%20Diagram%20-%20S2-08%20Group%20E.usda&label=S2-08%20Group%20E`
+- S2-09 Group F Desmos: `https://www.desmos.com/3d/umjxv6ahck`
+- S2-09 Group F viewer: `https://chq.singapura-broadnose.ts.net/viewer/?usda=..%2Fartifacts%2Ffixture_usdz%2F%5B4B%5D%203D%20Diagram%20-%20S2-09%20Group%20F.usda&label=S2-09%20Group%20F`
+- Route verification from this environment failed for root/viewer/summary with `curl: (6) Could not resolve host: chq.singapura-broadnose.ts.net`.
+
+## Remaining Mismatch / Next Wake Instructions
+1. Continue S2-02 Group F if maintaining the one-input policy; it remains partial but narrowed to 9 unsupported.
+2. Next exact target is the malformed chained `72_*` inequalities. Decide whether Desmos interprets `(y-c)^2 <= 0.00250 <= z <= 13.17 <= x <= 2.03` as a narrow y-guide slab plus axis bounds, or whether part of the chain is contradictory/empty.
+3. After S2-02F is fixed or explicitly blocked, compare priority against S2-02 Group C and S2-04 Group G.
+4. Keep S2-08E and S2-09F as regression guards.
+5. Continue to include direct Tailscale viewer links and matching Desmos links in any review update, but do not claim live visual parity unless browser/viewer screenshots are actually captured.
+
+
+# Previous Handoff: 2026-04-27 12:49 SGT - S2-02F one-axis quadratic guide bands
 
 ## Current Branch State
 - Repo: `/Users/chek/repos/desmos2usd-carey`

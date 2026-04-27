@@ -1,6 +1,6 @@
 # Implementation State
 
-Last updated: 2026-04-27 12:58 SGT
+Last updated: 2026-04-27 13:16 SGT
 
 ## Loop Mode
 - cadence: every 10 minutes via OpenClaw cron
@@ -29,7 +29,7 @@ Last updated: 2026-04-27 12:58 SGT
 - id: one-desmos-input-at-a-time
 - title: Fix one remaining partial Desmos input per bounded tranche using live Desmos screenshots and viewer screenshots
 - current-priority:
-  1. TODAY 1530 Class 2-02: S2-02 Group F — https://www.desmos.com/3d/1zpiejy9c9 — still highest-risk early presenter after one-axis quadratic band pass, 47 unsupported, 159 prims
+  1. TODAY 1530 Class 2-02: S2-02 Group F — https://www.desmos.com/3d/1zpiejy9c9 — still active one-input target after disk-cap pass, 9 unsupported chained `72_*` inequalities, 197 prims
   2. TODAY 1530 Class 2-02: S2-02 Group C — https://www.desmos.com/3d/sqn7vxcm4n — second-highest early risk, 36 unsupported, 133 prims
   3. TODAY 1550 Class 2-04: S2-04 Group G — https://www.desmos.com/3d/ratctlkc9i — 36 unsupported, 44 prims
   4. TODAY 1610 Class 2-08: S2-08 Group G — https://www.desmos.com/3d/24vpv4pfwh — 23 unsupported, 1236 prims
@@ -54,9 +54,10 @@ Last updated: 2026-04-27 12:58 SGT
 7. [ ] Advance to the next input only after the current one is either defensibly fixed or explicitly blocked.
 
 ## Current Baseline
-- HEAD before current tranche: 8137dd2 Handle random Gaussian fixture regions
+- HEAD before current tranche: 707bd04 Handle one-axis quadratic guide bands
 - summary: 71 fixtures; 30 success, 41 partial, 0 error
-- S2-02 Group F current tranche: list-expanded one-axis quadratic guide bands improved fresh local export 111 unsupported -> 47 unsupported and 95 prims -> 159 prims; tracked resolution-12 artifact is 159 prims / 47 unsupported / 206 classified; live browser/viewer capture blocked, so visual claim is structural/local projection only
+- S2-02 Group F current tranche: constant-z explicit circular disk caps improved tracked resolution-12 export 47 unsupported -> 9 unsupported and 159 prims -> 197 prims; all `90_*` and `98_*` cap surfaces now export; remaining unsupported are nine malformed chained `72_*` inequalities; live browser/viewer capture blocked, so visual claim is structural/local projection only
+- S2-02 Group F previous tranche: list-expanded one-axis quadratic guide bands improved fresh local export 111 unsupported -> 47 unsupported and 95 prims -> 159 prims; tracked resolution-12 artifact was 159 prims / 47 unsupported / 206 classified; live browser/viewer capture blocked, so visual claim is structural/local projection only
 - S2-07 Group F current tranche: chained quadratic disk inequality support improved 1 unsupported -> 0 unsupported, 887 prims -> 888 prims, 888 classified; live browser/viewer capture blocked, so visual claim is structural/local projection only
 - S2-03 Group E current tranche: predicate-clipped implicit ellipsoid surfaces improved 4 unsupported -> 0 unsupported, 460 prims -> 464 prims, classified remains 464; live browser/viewer capture blocked, so visual claim is structural/local projection only
 - S2-06 Group E current tranche: seeded bounded `random(n)` expansion plus Gaussian local flat-region sampling improved 7 unsupported -> 0 unsupported, 729 prims -> 1625 prims, 736 classified -> 1625 classified; live browser/viewer capture blocked, so visual claim is structural/local projection only
@@ -87,5 +88,5 @@ Last updated: 2026-04-27 12:58 SGT
 - Do not overlap Codex/ccwork runs.
 
 ## Last Wake
-- timestamp: 2026-04-27 12:58 SGT
-- result: Harvested HOME Codex run 20260427-123625-15055 and committed/pushed its coherent S2-02 Group F one-axis quadratic inequality band tessellation work as `707bd04` (`Handle one-axis quadratic guide bands`). Validation passed before commit: focused regression, full unittest discovery, and `git diff --check`. S2-02F remains partial at 47 unsupported; next wake should continue S2-02F, targeting constant-z circular disk caps (`90_*`, `98_*`) and malformed chained `72_*` inequalities. No new implementation pass was launched in this wake.
+- timestamp: 2026-04-27 13:16 SGT
+- result: HOME Codex completed a bounded S2-02 Group F disk-cap tranche. Constant explicit surfaces with circular/quadratic domain predicates now export as analytic flat disks. S2-02F improved from `159 prims / 47 unsupported` to `197 prims / 9 unsupported`; S2-08E and S2-09F guards remain success. Validation passed: focused flat-cap and flat-disk regressions, targeted test modules, full unittest discovery, report-vs-USDA counts, PNG dimensions, `usdchecker --arkit` on target/guards, and `git diff --check`. Browser/live viewer capture remained blocked, so visual claim is structural/local projection only. Commit/push blocked because `git add` could not create `.git/index.lock` (`Operation not permitted`); worktree is ready for the main environment to commit and push. Next wake should continue S2-02F only if staying on the one-input policy, targeting the nine malformed chained `72_*` inequalities.

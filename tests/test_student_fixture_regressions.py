@@ -1251,6 +1251,38 @@ class StudentFixtureRegressionTests(unittest.TestCase):
         self.assertEqual(min(z_values), 8.0)
         self.assertEqual(max(z_values), 8.0)
 
+    def test_constant_z_explicit_surface_disk_exports_flat_cap(self) -> None:
+        """S2-02 Group F has small caps written as ``z=c {circle <= r}``.
+
+        Sampling the full x/y viewport misses the tiny disk, so constant explicit
+        surfaces with circular domain predicates should use an analytic flat disk.
+        """
+        source = SourceInfo(
+            "", "", "", "", viewport_bounds={"x": (0.0, 18.7), "y": (0.0, 18.7), "z": (0.0, 18.7)}
+        )
+        item = classify_expression(
+            ExpressionIR(
+                source,
+                "90_0",
+                0,
+                r"z=15.5\left\{(x-1)^{2}+(y-1)^{2}\le0.003\right\}",
+            ),
+            EvalContext(),
+        )
+
+        geometry = tessellate(item, EvalContext(), resolution=12)
+        used_points = [geometry.points[index] for index in set(geometry.face_vertex_indices)]
+        radius = 0.003**0.5
+
+        self.assertEqual(item.kind, "explicit_surface")
+        self.assertGreater(geometry.face_count, 0)
+        self.assertEqual(min(point[2] for point in used_points), 15.5)
+        self.assertEqual(max(point[2] for point in used_points), 15.5)
+        self.assertGreaterEqual(min(point[0] for point in used_points), 1.0 - radius - 1e-6)
+        self.assertLessEqual(max(point[0] for point in used_points), 1.0 + radius + 1e-6)
+        self.assertGreaterEqual(min(point[1] for point in used_points), 1.0 - radius - 1e-6)
+        self.assertLessEqual(max(point[1] for point in used_points), 1.0 + radius + 1e-6)
+
     def test_s203_empty_affine_inequality_band_exports_empty_mesh(self) -> None:
         """S2-03 Group D includes list-expanded half-plane bands that Desmos renders as
         empty sets. They should not be reported as unsupported sampled-cell failures.

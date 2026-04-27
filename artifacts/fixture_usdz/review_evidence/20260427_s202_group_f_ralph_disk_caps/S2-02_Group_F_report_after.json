@@ -1,0 +1,68 @@
+{
+  "classified_expression_count": 206,
+  "fixture": "[4B] 3D Diagram - S2-02 Group F.json",
+  "prim_count": 197,
+  "renderable_expression_count": 206,
+  "resolution": 12,
+  "unsupported": [
+    {
+      "expr_id": "72_0",
+      "kind": "inequality_region",
+      "latex": "(y-0.2)^{2}\\le0.00250\\le z\\le13.2-0.03\\le x\\le2.03",
+      "reason": "Inequality region for 72_0 did not resolve to sampled cells"
+    },
+    {
+      "expr_id": "72_1",
+      "kind": "inequality_region",
+      "latex": "(y-0.4)^{2}\\le0.00250\\le z\\le13.2-0.03\\le x\\le2.03",
+      "reason": "Inequality region for 72_1 did not resolve to sampled cells"
+    },
+    {
+      "expr_id": "72_2",
+      "kind": "inequality_region",
+      "latex": "(y-0.6)^{2}\\le0.00250\\le z\\le13.2-0.03\\le x\\le2.03",
+      "reason": "Inequality region for 72_2 did not resolve to sampled cells"
+    },
+    {
+      "expr_id": "72_3",
+      "kind": "inequality_region",
+      "latex": "(y-0.8)^{2}\\le0.00250\\le z\\le13.2-0.03\\le x\\le2.03",
+      "reason": "Inequality region for 72_3 did not resolve to sampled cells"
+    },
+    {
+      "expr_id": "72_4",
+      "kind": "inequality_region",
+      "latex": "(y-1.0)^{2}\\le0.00250\\le z\\le13.2-0.03\\le x\\le2.03",
+      "reason": "Inequality region for 72_4 did not resolve to sampled cells"
+    },
+    {
+      "expr_id": "72_5",
+      "kind": "inequality_region",
+      "latex": "(y-1.2)^{2}\\le0.00250\\le z\\le13.2-0.03\\le x\\le2.03",
+      "reason": "Inequality region for 72_5 did not resolve to sampled cells"
+    },
+    {
+      "expr_id": "72_6",
+      "kind": "inequality_region",
+      "latex": "(y-1.4)^{2}\\le0.00250\\le z\\le13.2-0.03\\le x\\le2.03",
+      "reason": "Inequality region for 72_6 did not resolve to sampled cells"
+    },
+    {
+      "expr_id": "72_7",
+      "kind": "inequality_region",
+      "latex": "(y-1.6)^{2}\\le0.00250\\le z\\le13.2-0.03\\le x\\le2.03",
+      "reason": "Inequality region for 72_7 did not resolve to sampled cells"
+    },
+    {
+      "expr_id": "72_8",
+      "kind": "inequality_region",
+      "latex": "(y-1.8)^{2}\\le0.00250\\le z\\le13.2-0.03\\le x\\le2.03",
+      "reason": "Inequality region for 72_8 did not resolve to sampled cells"
+    }
+  ],
+  "unsupported_count": 9,
+  "unsupported_prefix_counts": {
+    "72": 9
+  },
+  "valid": true
+}

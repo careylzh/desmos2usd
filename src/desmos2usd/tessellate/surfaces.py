@@ -1,13 +1,15 @@
 from __future__ import annotations
 
 import ast
+from collections.abc import Callable
 from dataclasses import replace
-from math import isfinite, sqrt
+from math import cos, isfinite, pi, sin, sqrt
+from typing import Any
 
 from desmos2usd.eval.context import EvalContext
 from desmos2usd.parse.classify import ClassifiedExpression
 from desmos2usd.parse.latex_subset import LatexExpression
-from desmos2usd.parse.predicates import collect_constant_bounds
+from desmos2usd.parse.predicates import ComparisonPredicate, collect_constant_bounds
 from desmos2usd.tessellate.mesh import GeometryData, Point, linspace, quad_faces
 
 
@@ -30,6 +32,9 @@ def tessellate_explicit_surface(
 ) -> GeometryData:
     if not item.axis or not item.expression:
         raise ValueError("explicit surface missing axis or expression")
+    flat_disk = tessellate_constant_explicit_surface_disk(item, context, resolution)
+    if flat_disk is not None:
+        return flat_disk
     domain_axes = [axis for axis in ("x", "y", "z") if axis != item.axis]
     reoriented = reorient_steep_explicit_surface(item, context, domain_axes)
     if reoriented is not None:
@@ -93,6 +98,109 @@ def tessellate_explicit_surface(
     if counts and _solved_axis_entirely_outside_viewport(item, points, indices):
         return GeometryData(kind="Mesh", points=[], face_vertex_counts=[], face_vertex_indices=[])
     return GeometryData(kind="Mesh", points=points, face_vertex_counts=counts, face_vertex_indices=indices)
+
+
+def tessellate_constant_explicit_surface_disk(
+    item: ClassifiedExpression,
+    context: EvalContext,
+    resolution: int,
+) -> GeometryData | None:
+    if not item.axis or not item.expression or item.expression.identifiers & {"x", "y", "z"}:
+        return None
+    try:
+        flat_value = float(item.expression.eval(context, {}))
+    except Exception:
+        return None
+    if not isfinite(flat_value):
+        return None
+    shape_axes = tuple(axis for axis in ("x", "y", "z") if axis != item.axis)
+    segment_count = max(24, min(160, resolution * 4))
+    for predicate in item.predicates:
+        residual = signed_residual_for_disk_predicate(predicate)
+        if residual is None:
+            continue
+        profile = fit_constant_surface_disk_profile(context, residual, shape_axes, item.axis, flat_value)
+        if profile is None:
+            continue
+        geometry = build_flat_disk_mesh(shape_axes, item.axis, flat_value, profile, segment_count)
+        if constant_disk_vertices_satisfy_predicates(item, context, geometry):
+            return geometry
+    return None
+
+
+def signed_residual_for_disk_predicate(
+    predicate: ComparisonPredicate,
+) -> Callable[[EvalContext, dict[str, float]], float] | None:
+    if len(predicate.terms) != 2 or len(predicate.ops) != 1:
+        return None
+    left, right = predicate.terms
+    op = predicate.ops[0]
+    if op in {"<", "<="}:
+        return lambda ctx, variables: left.eval(ctx, variables) - right.eval(ctx, variables)
+    if op in {">", ">="}:
+        return lambda ctx, variables: right.eval(ctx, variables) - left.eval(ctx, variables)
+    return None
+
+
+def fit_constant_surface_disk_profile(
+    context: EvalContext,
+    residual: Callable[[EvalContext, dict[str, float]], float],
+    shape_axes: tuple[str, str],
+    flat_axis: str,
+    flat_value: float,
+) -> Any | None:
+    from desmos2usd.tessellate.cylinders import fit_circle_profile
+
+    return fit_circle_profile(context, residual, shape_axes, flat_axis, flat_value)
+
+
+def build_flat_disk_mesh(
+    shape_axes: tuple[str, str],
+    flat_axis: str,
+    flat_value: float,
+    profile: Any,
+    segment_count: int,
+) -> GeometryData:
+    points: list[Point] = []
+    radius_a, radius_b = profile.radii
+    for segment in range(segment_count):
+        angle = 2.0 * pi * segment / segment_count
+        variables = {
+            shape_axes[0]: profile.center[0] + radius_a * cos(angle),
+            shape_axes[1]: profile.center[1] + radius_b * sin(angle),
+            flat_axis: flat_value,
+        }
+        points.append(point_from_variables(variables))
+    center_index = len(points)
+    points.append(
+        point_from_variables(
+            {
+                shape_axes[0]: profile.center[0],
+                shape_axes[1]: profile.center[1],
+                flat_axis: flat_value,
+            }
+        )
+    )
+    counts: list[int] = []
+    indices: list[int] = []
+    for segment in range(segment_count):
+        next_segment = (segment + 1) % segment_count
+        counts.append(3)
+        indices.extend([center_index, segment, next_segment])
+    return GeometryData(kind="Mesh", points=points, face_vertex_counts=counts, face_vertex_indices=indices)
+
+
+def constant_disk_vertices_satisfy_predicates(
+    item: ClassifiedExpression,
+    context: EvalContext,
+    geometry: GeometryData,
+) -> bool:
+    for index in set(geometry.face_vertex_indices):
+        point = geometry.points[index]
+        variables = {"x": point[0], "y": point[1], "z": point[2]}
+        if not explicit_surface_predicates_satisfied(item, context, variables):
+            return False
+    return True
 
 
 def reorient_steep_explicit_surface(
