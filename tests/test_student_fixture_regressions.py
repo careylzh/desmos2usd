@@ -75,6 +75,58 @@ class StudentFixtureRegressionTests(unittest.TestCase):
         self.assertEqual(geometry.kind, "Mesh")
         self.assertGreater(geometry.face_count, 0)
 
+    def test_infinity_implicit_helper_plane_tessellates(self) -> None:
+        source = SourceInfo(
+            "", "", "", "", viewport_bounds={"x": (-40.0, 40.0), "y": (-70.0, 70.0), "z": (0.0, 100.0)}
+        )
+        item = classify_expression(
+            ExpressionIR(
+                source,
+                "25",
+                0,
+                r"\frac{x}{\infty}=z-90\left\{60>y>-60\right\}\left\{30>x>-30\right\}",
+            ),
+            EvalContext(),
+        )
+
+        geometry = tessellate(item, EvalContext(), resolution=12)
+        used_points = [geometry.points[index] for index in set(geometry.face_vertex_indices)]
+
+        self.assertEqual(item.kind, "implicit_surface")
+        self.assertGreater(geometry.face_count, 0)
+        self.assertAlmostEqual(min(point[2] for point in used_points), 90.0, places=5)
+        self.assertAlmostEqual(max(point[2] for point in used_points), 90.0, places=5)
+        self.assertGreaterEqual(min(point[0] for point in used_points), -30.00001)
+        self.assertLessEqual(max(point[0] for point in used_points), 30.00001)
+        self.assertGreaterEqual(min(point[1] for point in used_points), -60.00001)
+        self.assertLessEqual(max(point[1] for point in used_points), 60.00001)
+
+    def test_infinity_explicit_helper_plane_tessellates(self) -> None:
+        source = SourceInfo(
+            "", "", "", "", viewport_bounds={"x": (-20.0, 20.0), "y": (-70.0, 70.0), "z": (0.0, 100.0)}
+        )
+        item = classify_expression(
+            ExpressionIR(
+                source,
+                "110",
+                0,
+                r"y=\frac{z}{\infty}-60\left\{70>z>10\right\}\left\{15<x<18\right\}",
+            ),
+            EvalContext(),
+        )
+
+        geometry = tessellate(item, EvalContext(), resolution=12)
+        used_points = [geometry.points[index] for index in set(geometry.face_vertex_indices)]
+
+        self.assertEqual(item.kind, "explicit_surface")
+        self.assertGreater(geometry.face_count, 0)
+        self.assertAlmostEqual(min(point[1] for point in used_points), -60.0, places=6)
+        self.assertAlmostEqual(max(point[1] for point in used_points), -60.0, places=6)
+        self.assertGreaterEqual(min(point[0] for point in used_points), 15.0)
+        self.assertLessEqual(max(point[0] for point in used_points), 18.0)
+        self.assertGreaterEqual(min(point[2] for point in used_points), 10.0)
+        self.assertLessEqual(max(point[2] for point in used_points), 70.0)
+
     def test_uv_tuple_exports_as_parametric_surface(self) -> None:
         item = classify_expression(expr("1", r"\left(17u-8.5,-2.5,0.4v\right)"), EvalContext())
 

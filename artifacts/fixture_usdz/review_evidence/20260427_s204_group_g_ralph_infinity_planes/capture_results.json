@@ -1,0 +1,42 @@
+{
+  "browser_capture_status": "blocked",
+  "desmos_url": "https://www.desmos.com/3d/ratctlkc9i",
+  "failures": [
+    {
+      "target": "Desmos reference via Playwright",
+      "command": "browser_navigate https://www.desmos.com/3d/ratctlkc9i",
+      "error": "user cancelled MCP tool call"
+    },
+    {
+      "target": "Desmos reference via Chrome DevTools",
+      "command": "new_page https://www.desmos.com/3d/ratctlkc9i",
+      "error": "user cancelled MCP tool call"
+    },
+    {
+      "target": "URL-based local CLI export",
+      "command": "PYTHONPATH=src python3 -m desmos2usd.cli https://www.desmos.com/3d/ratctlkc9i ...",
+      "error": "Could not fetch Desmos state; urlopen error [Errno 8] nodename nor servname provided, or not known"
+    },
+    {
+      "target": "Live viewer via Playwright",
+      "command": "browser_navigate https://chq.singapura-broadnose.ts.net/viewer/?usda=..%2Fartifacts%2Ffixture_usdz%2F%5B4B%5D%203D%20Diagram%20-%20S2-04%20Group%20G.usda&label=S2-04%20Group%20G",
+      "error": "user cancelled MCP tool call"
+    },
+    {
+      "target": "Tailscale root route",
+      "command": "curl -I --max-time 10 https://chq.singapura-broadnose.ts.net/",
+      "error": "curl: (6) Could not resolve host: chq.singapura-broadnose.ts.net"
+    },
+    {
+      "target": "Tailscale viewer route",
+      "command": "curl -I --max-time 10 https://chq.singapura-broadnose.ts.net/viewer/",
+      "error": "curl: (6) Could not resolve host: chq.singapura-broadnose.ts.net"
+    },
+    {
+      "target": "Tailscale summary route",
+      "command": "curl -I --max-time 10 https://chq.singapura-broadnose.ts.net/artifacts/fixture_usdz/summary.json",
+      "error": "curl: (6) Could not resolve host: chq.singapura-broadnose.ts.net"
+    }
+  ],
+  "visual_claim": "No live Desmos or live viewer parity claim. Evidence is deterministic local projection only."
+}

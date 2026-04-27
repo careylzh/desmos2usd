@@ -1,3 +1,98 @@
+# Handoff: 2026-04-27 14:37 SGT - S2-04G infinity helper-plane tranche
+
+## Current Branch State
+- Repo: `/Users/chek/repos/desmos2usd-carey`
+- Branch: `fix/student-fixture-usdz-export`
+- Push target: `chektien:fix/student-fixture-usdz-export`
+- HEAD before this tranche: `29ba7ff Support Desmos sphere operator export`
+
+## Completed This Tranche
+- Targeted fixture: `[4B] 3D Diagram - S2-04 Group G.json`
+- Desmos URL: `https://www.desmos.com/3d/ratctlkc9i`
+- Implemented one general exporter fix:
+  - Desmos `\infty` and unicode `∞` now parse as the numeric infinity constant `infty`.
+  - Finite expressions such as `z/\infty +/- 60` and `x/\infty = z-c` now evaluate as constant helper planes instead of becoming undefined letter products.
+  - This is a parser/evaluator fix, not a fixture-specific expression-id hack.
+- Added regression coverage for:
+  - parser evaluation of `z/\infty`
+  - implicit helper planes like `x/\infty = z-90`
+  - explicit helper planes like `y=z/\infty-60`
+- Regenerated tracked S2-04G USDA/USDZ/report artifacts and rebuilt the full 71-fixture `artifacts/fixture_usdz/summary.json`.
+- Revalidated S2-08 Group E and S2-09 Group F as guard fixtures; both remain success.
+
+## Evidence
+- Evidence directory: `artifacts/fixture_usdz/review_evidence/20260427_s204_group_g_ralph_infinity_planes/`
+- Local projection files:
+  - `S2-04_Group_G_projection_before.png`
+  - `S2-04_Group_G_projection_before.ppm`
+  - `S2-04_Group_G_projection_before.usda`
+  - `S2-04_Group_G_report_before.json`
+  - `S2-04_Group_G_projection_after.png`
+  - `S2-04_Group_G_projection_after.ppm`
+  - `S2-04_Group_G_projection_after.usda`
+  - `S2-04_Group_G_report_after.json`
+  - `S2-08_Group_E_projection_guard_after.png`
+  - `S2-09_Group_F_projection_guard_after.png`
+  - `capture_results.json`
+  - `projection_results.json`
+  - `assessment.md`
+- Browser/live viewer blockers:
+  - Playwright Desmos navigation returned `user cancelled MCP tool call`.
+  - Chrome DevTools Desmos navigation returned `user cancelled MCP tool call`.
+  - Playwright live viewer navigation returned `user cancelled MCP tool call`.
+  - URL-based CLI export could not fetch Desmos state: `urlopen error [Errno 8] nodename nor servname provided, or not known`.
+  - Tailscale route checks for root, viewer, and summary failed with `curl: (6) Could not resolve host: chq.singapura-broadnose.ts.net`.
+- Visual claim: no live Desmos/viewer parity claim. This tranche has deterministic local projection evidence only.
+
+## Metrics
+- S2-04G before this tranche: `91 prims / 15 unsupported / 103 classified / 106 renderable / valid true / partial`.
+- S2-04G after tracked resolution-12 regeneration: `103 prims / 3 unsupported / 103 classified / 106 renderable / valid true / partial / usdchecker returncode 0`.
+- Fixed family: all 12 `\infty` helper-plane expressions now export:
+  - implicit: `25`, `26`, `49`, `93`
+  - explicit: `110`, `111`, `114`, `116`, `119`, `121`, `123`, `125`
+- Remaining S2-04G unsupported:
+  - `109`: `c_{1}=\operatorname{hsv}(160,0,0)`
+  - `130`: `c_{2}=\operatorname{hsv}(160,0,1)`
+  - `131`: `c_{3}=\operatorname{okhsv}(72,0.243,0.99)`
+- Overall fixture summary remains: 71 fixtures; 31 success, 40 partial, 0 error, acceptance not met.
+- S2-08 Group E guard remains success: `87 prims / 0 unsupported / valid true / usdchecker returncode 0`.
+- S2-09 Group F guard remains success: `27 prims / 0 unsupported / valid true / usdchecker returncode 0`.
+
+## Validation
+- Focused regressions passed: parser infinity division, implicit infinity helper plane, explicit infinity helper plane.
+- Targeted suites passed: `PYTHONPATH=src:tests python3 -m unittest tests.test_parser tests.test_student_fixture_regressions tests.test_fixture_usdz_suite tests.test_visual_preview` ran 88 tests OK.
+- Full unittest discovery passed: `PYTHONPATH=src:tests python3 -m unittest discover -s tests` ran 146 tests in 129.690s OK.
+- Regenerated S2-04G, S2-08E, and S2-09F with `usdchecker --arkit` return code `0`.
+- Report-vs-USDA consistency checked:
+  - S2-04G report prim_count `103`, USDA `Mesh` + `BasisCurves` defs `103`, unsupported `3`
+  - S2-08E report prim_count `87`, USDA defs `87`, unsupported `0`
+  - S2-09F report prim_count `27`, USDA defs `27`, unsupported `0`
+- PNG projection dimensions checked with `sips`: before/after/guard PNGs are `1552x512`.
+- `git diff --check`: passed.
+
+## Commit / Push
+- Blocked in this HOME Codex turn: `git add -A` failed with `fatal: Unable to create '/Users/chek/repos/desmos2usd-carey/.git/index.lock': Operation not permitted`.
+- Worktree is ready to stage, commit, and push from the main environment.
+- Evidence directory is ignored by `.gitignore`; include it with:
+  - `git add -f artifacts/fixture_usdz/review_evidence/20260427_s204_group_g_ralph_infinity_planes/`
+- Suggested commit subject: `Handle Desmos infinity helper planes`.
+
+## Review Links
+- Route verification from this environment failed for root/viewer/summary with `curl: (6) Could not resolve host: chq.singapura-broadnose.ts.net`.
+- S2-04 Group G Desmos: `https://www.desmos.com/3d/ratctlkc9i`
+- S2-04 Group G viewer: `https://chq.singapura-broadnose.ts.net/viewer/?usda=..%2Fartifacts%2Ffixture_usdz%2F%5B4B%5D%203D%20Diagram%20-%20S2-04%20Group%20G.usda&label=S2-04%20Group%20G`
+- S2-08 Group E Desmos: `https://www.desmos.com/3d/g59jqe6nxy`
+- S2-08 Group E viewer: `https://chq.singapura-broadnose.ts.net/viewer/?usda=..%2Fartifacts%2Ffixture_usdz%2F%5B4B%5D%203D%20Diagram%20-%20S2-08%20Group%20E.usda&label=S2-08%20Group%20E`
+- S2-09 Group F Desmos: `https://www.desmos.com/3d/umjxv6ahck`
+- S2-09 Group F viewer: `https://chq.singapura-broadnose.ts.net/viewer/?usda=..%2Fartifacts%2Ffixture_usdz%2F%5B4B%5D%203D%20Diagram%20-%20S2-09%20Group%20F.usda&label=S2-09%20Group%20F`
+
+## Remaining Mismatch / Next Wake Instructions
+1. Continue S2-04 Group G if the goal is to close this input completely; only color definitions remain unsupported.
+2. Next exact target inside S2-04G: general color-function support for `hsv(...)` and `okhsv(...)` definitions, then resolve references through `color_latex`.
+3. If Chek decides geometry is good enough for presentation, move to the next STATE priority: S2-02 Group C (`https://www.desmos.com/3d/sqn7vxcm4n`).
+4. Keep S2-08E and S2-09F as regression guards.
+5. Continue to include direct Tailscale viewer links and matching Desmos links in any review update, but do not claim live visual parity unless browser/viewer screenshots are actually captured.
+
 # Handoff: 2026-04-27 13:54 SGT - S2-04G sphere operator tranche
 
 ## Current Branch State

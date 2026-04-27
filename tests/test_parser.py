@@ -51,6 +51,12 @@ class ParserTests(unittest.TestCase):
         self.assertEqual(expr.python, ".515*x+.43*(z+0.6)")
         self.assertAlmostEqual(expr.eval(variables={"x": 2.0, "z": 1.4}), 0.515 * 2.0 + 0.43 * 2.0)
 
+    def test_desmos_infinity_division_evaluates_as_zero(self) -> None:
+        expr = LatexExpression.parse(r"\frac{z}{\infty}+60")
+        self.assertEqual(expr.python, "((z)/(infty))+60")
+        self.assertEqual(expr.identifiers, frozenset({"z"}))
+        self.assertAlmostEqual(expr.eval(variables={"z": 70.0}), 60.0)
+
     def test_degree_mode_trig_uses_degrees(self) -> None:
         expr = LatexExpression.parse(r"\tan\left(45\right)")
 

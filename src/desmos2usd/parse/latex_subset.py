@@ -272,6 +272,7 @@ def convert_latex_to_python(latex: str) -> str:
     text = text.replace("\\cdot", "*").replace("\\times", "*")
     text = text.replace("\\le", "<=").replace("\\ge", ">=")
     text = text.replace("≤", "<=").replace("≥", ">=")
+    text = text.replace("\\infty", "infty").replace("∞", "infty")
     text = re.sub(r"\\pi(?=(?:\\operatorname|\\[A-Za-z]|[A-Za-z_]))", "pi*", text)
     text = text.replace("\\pi", "pi")
     text = text.replace("\\operatorname{ln}", "ln")
