@@ -95,6 +95,12 @@
 3. Browser/live viewer capture is still blocked here; do not claim live visual parity until Desmos and viewer screenshots are captured.
 4. Keep S2-08E and S2-09F as regression guards.
 
+## Orchestrator Harvest: 2026-04-27 20:00 SGT
+- Wrapper reported `harvested_dirty` for run `20260427-193331-22493`; no new implementation pass launched.
+- Re-ran validation before commit: targeted tessellate/student fixture/fixture USDZ/visual preview modules 104 tests OK, full unittest discovery 163 tests OK, `git diff --check` OK.
+- Committed and pushed `ee7335c` (`Render point-list curves`) to `chektien:fix/student-fixture-usdz-export`.
+- Next wake should continue S2-01 Group B expression `74` (`x^{2}+y^{2}<=5000z=0`); do not revisit point-list rows unless visual review finds a mismatch.
+
 # Handoff: 2026-04-27 19:13 SGT - S2-01B point-defined vector-edge tranche
 
 ## Current Branch State

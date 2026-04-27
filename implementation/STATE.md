@@ -1,6 +1,6 @@
 # Implementation State
 
-Last updated: 2026-04-27 19:43 SGT
+Last updated: 2026-04-27 20:00 SGT
 
 ## Loop Mode
 - cadence: every 10 minutes via OpenClaw cron
@@ -99,5 +99,5 @@ Last updated: 2026-04-27 19:43 SGT
 - Do not overlap Codex/ccwork runs.
 
 ## Last Wake
-- timestamp: 2026-04-27 19:43 SGT
-- result: HOME Codex targeted S2-01 Group B point-list rows because S2-04 Group G was already success. Static vector-list rows such as `[A,B]` now export as linear `BasisCurves`; tracked S2-01B improved 133 prims / 10 unsupported -> 142 prims / 1 unsupported. Targeted modules and full unittest discovery passed. Browser/live viewer capture remains blocked. Commit/push is blocked by `.git/index.lock` permission from this environment; main environment should stage/commit/push before another implementation pass. Next target should continue S2-01 Group B expression `74` (`x^{2}+y^{2}<=5000z=0`).
+- timestamp: 2026-04-27 20:00 SGT
+- result: harvested dirty run `20260427-193331-22493`, revalidated targeted modules (104 tests OK), full unittest discovery (163 tests OK), and `git diff --check`, then committed and pushed `ee7335c` (`Render point-list curves`). No new implementation pass launched; next wake should continue S2-01 Group B expression `74` (`x^{2}+y^{2}<=5000z=0`).
