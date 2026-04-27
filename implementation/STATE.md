@@ -1,6 +1,6 @@
 # Implementation State
 
-Last updated: 2026-04-28 05:11 SGT
+Last updated: 2026-04-28 05:34 SGT
 
 ## Loop Mode
 - cadence: every 10 minutes via OpenClaw cron
@@ -56,8 +56,9 @@ Last updated: 2026-04-28 05:11 SGT
 7. [ ] Advance to the next input only after the current one is either defensibly fixed or explicitly blocked.
 
 ## Current Baseline
-- HEAD before current tranche: 03d65f0 Record S2-01B visual retry blocker
+- HEAD before current tranche: 851c9aa Record S2-01B visual retry blocker
 - summary: 71 fixtures; 50 success, 21 partial, 0 error
+- S2-01 Group B visual retry 16 blocker tranche: HOME Codex retried the pinned S2-01B visual gate. Playwright and Chrome DevTools still return `user cancelled MCP tool call` for Desmos and `file://` viewer navigation; Tailscale route checks still fail DNS; local `python3 -m http.server 8765 --bind 127.0.0.1` still fails with `PermissionError: [Errno 1] Operation not permitted`; headless Chrome `file://` screenshot exits `-1` with no screenshot; live Desmos URL refresh fails DNS for all Desmos endpoints. Offline precheck/projections remain success for S2-01B (`143 prims / 0 unsupported`) and guards S2-08E/S2-09F. No exporter/viewer code change was safe without live screenshots or fresh Chek visual feedback.
 - S2-01 Group B visual retry 15 blocker tranche: HOME Codex retried the pinned S2-01B visual gate. Playwright and Chrome DevTools still return `user cancelled MCP tool call` for Desmos and `file://` viewer navigation; Tailscale route checks still fail DNS; local `python3 -m http.server 8765 --bind 127.0.0.1` still fails with `PermissionError: [Errno 1] Operation not permitted`; headless Chrome `file://` screenshot exits `-1` with no screenshot; URL CLI conversion against Desmos fails DNS. Offline precheck/projections remain success for S2-01B (`143 prims / 0 unsupported`) and guards S2-08E/S2-09F. No exporter/viewer code change was safe without live screenshots or fresh Chek visual feedback.
 - S2-01 Group B visual retry 14 blocker tranche: HOME Codex retried the pinned S2-01B visual gate. Playwright and Chrome DevTools still return `user cancelled MCP tool call` for Desmos and `file://` viewer navigation; Tailscale route checks still fail DNS; local `python3 -m http.server 8765 --bind 127.0.0.1` still fails with `PermissionError: [Errno 1] Operation not permitted`; headless Chrome `file://` screenshot exits `-1` with no screenshot; URL CLI conversion against Desmos fails DNS. Offline precheck/projections remain success for S2-01B (`143 prims / 0 unsupported`) and guards S2-08E/S2-09F. No exporter/viewer code change was safe without live screenshots or fresh Chek visual feedback.
 - S2-01 Group B visual retry 13 blocker tranche: HOME Codex retried the pinned S2-01B visual gate. Playwright and Chrome DevTools still return `user cancelled MCP tool call` for Desmos and `file://` viewer navigation; Tailscale route checks still fail DNS; local `python3 -m http.server 8765 --bind 127.0.0.1` still fails with `PermissionError: [Errno 1] Operation not permitted`; headless Chrome `file://` screenshot exits `-1` with no screenshot; URL CLI conversion against Desmos fails DNS. Offline precheck/projections remain success for S2-01B (`143 prims / 0 unsupported`) and guards S2-08E/S2-09F. No exporter/viewer code change was safe without live screenshots or fresh Chek visual feedback.
@@ -121,5 +122,5 @@ Last updated: 2026-04-28 05:11 SGT
 - Do not overlap Codex/ccwork runs.
 
 ## Last Wake
-- timestamp: 2026-04-28 05:11 SGT
-- result: HOME Codex ran one bounded S2-01 Group B visual-gate retry tranche. No exporter/viewer code change was made because S2-01B remains metrics-success and all live Desmos/viewer capture paths are still blocked in this environment. Recorded blocker evidence, regenerated offline precheck/projection artifacts for S2-01B plus S2-08E/S2-09F guards, and validated viewer JS syntax, focused tests, full tests, report-vs-USDA consistency, JSON validity, projection dimensions, and `git diff --check`. Commit/push is blocked here because staging failed with `fatal: Unable to create '/Users/chek/repos/desmos2usd-carey/.git/index.lock': Operation not permitted`; main environment should stage, commit, and push the ready worktree. Next action is Chek review or fresh visual mismatch detail for S2-01B; if accepted/not reopened, advance to S2-09 Group A.
+- timestamp: 2026-04-28 05:34 SGT
+- result: HOME Codex ran one bounded S2-01 Group B visual-gate retry tranche. No exporter/viewer code change was made because S2-01B remains metrics-success and all live Desmos/viewer capture paths are still blocked in this environment. Recorded blocker evidence, regenerated offline precheck/projection artifacts for S2-01B plus S2-08E/S2-09F guards, and validated viewer JS syntax, focused tests, full tests, report-vs-USDA consistency, JSON validity, and projection dimensions. Final `git diff --check` and staging attempt are recorded in `implementation/handoff.md`. Next action is Chek review or fresh visual mismatch detail for S2-01B; if accepted/not reopened, advance to S2-09 Group A.
