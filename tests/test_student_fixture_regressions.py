@@ -188,6 +188,32 @@ class StudentFixtureRegressionTests(unittest.TestCase):
         self.assertAlmostEqual(min(zs), 1.665 - radius, places=6)
         self.assertAlmostEqual(max(zs), 1.665 + radius, places=6)
 
+    def test_axis_restricted_implicit_sphere_exports_surface_cap(self) -> None:
+        source = SourceInfo("", "", "", "", viewport_bounds={"x": (-25.0, 25.0), "y": (-25.0, 25.0), "z": (0.0, 25.0)})
+        context = EvalContext(scalars={"s_top": 0.6})
+        item = classify_expression(
+            ExpressionIR(
+                source,
+                "1",
+                0,
+                r"\left(x-20\right)^{2}+\left(y-20\right)^{2}+\left(z-21.1\right)^{2}=s_{top}^{2}"
+                r"\left\{z\ge21.1\right\}",
+            ),
+            context,
+        )
+
+        geometry = tessellate(item, context, resolution=12)
+        zs = [point[2] for point in geometry.points]
+
+        self.assertEqual(item.kind, "implicit_surface")
+        self.assertEqual(geometry.kind, "Mesh")
+        self.assertGreater(geometry.face_count, 40)
+        self.assertAlmostEqual(min(zs), 21.1, places=6)
+        self.assertAlmostEqual(max(zs), 21.7, places=6)
+        for point in geometry.points:
+            variables = {"x": point[0], "y": point[1], "z": point[2]}
+            self.assertTrue(all(predicate.evaluate(context, variables, tol=1e-4) for predicate in item.predicates))
+
     def test_axis_aligned_ball_cap_inequality_exports_capped_mesh(self) -> None:
         source = SourceInfo("", "", "", "", viewport_bounds={"x": (-12.0, 12.0), "y": (-8.0, 8.0), "z": (0.0, 8.0)})
         context = EvalContext()

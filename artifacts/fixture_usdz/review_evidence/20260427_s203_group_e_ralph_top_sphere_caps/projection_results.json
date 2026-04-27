@@ -1,0 +1,56 @@
+{
+  "all_png_dimensions": {
+    "height": 512,
+    "width": 1552
+  },
+  "files": [
+    {
+      "label": "S2-03 Group E before local USDA projection",
+      "png": "S2-03_Group_E_projection_before.png",
+      "ppm": "S2-03_Group_E_projection_before.ppm",
+      "usda": "S2-03_Group_E_projection_before.usda"
+    },
+    {
+      "label": "S2-03 Group E after local USDA projection",
+      "png": "S2-03_Group_E_projection_after.png",
+      "ppm": "S2-03_Group_E_projection_after.ppm",
+      "usda": "S2-03_Group_E_projection_after.usda"
+    },
+    {
+      "label": "S2-08 Group E guard after local USDA projection",
+      "png": "S2-08_Group_E_projection_guard_after.png",
+      "ppm": "S2-08_Group_E_projection_guard_after.ppm",
+      "usda": "S2-08_Group_E_projection_guard_after.usda"
+    },
+    {
+      "label": "S2-09 Group F guard after local USDA projection",
+      "png": "S2-09_Group_F_projection_guard_after.png",
+      "ppm": "S2-09_Group_F_projection_guard_after.ppm",
+      "usda": "S2-09_Group_F_projection_guard_after.usda"
+    }
+  ],
+  "metrics": {
+    "after": {
+      "classified_expression_count": 464,
+      "prim_count": 464,
+      "status": "success",
+      "unsupported_count": 0
+    },
+    "before": {
+      "classified_expression_count": 464,
+      "prim_count": 460,
+      "status": "partial",
+      "unsupported_count": 4
+    },
+    "new_cap_prims": {
+      "expr_ids": [
+        "363_0",
+        "363_1",
+        "363_2",
+        "363_3"
+      ],
+      "face_count_each": 64,
+      "point_count_each": 65
+    }
+  }
+}

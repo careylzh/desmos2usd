@@ -5,7 +5,7 @@
   "fixture_count": 71,
   "fixtures_with_usdz_count": 71,
   "out_dir": "artifacts/fixture_usdz",
-  "partial_count": 43,
+  "partial_count": 42,
   "reports": [
     {
       "acceptance_success": false,
@@ -19837,45 +19837,20 @@
       }
     },
     {
-      "acceptance_success": false,
+      "acceptance_success": true,
       "classified_expression_count": 464,
-      "complete": false,
+      "complete": true,
       "fixture": "[4B] 3D Diagram - S2-03 Group E.json",
       "fixture_path": "fixtures/states/[4B] 3D Diagram - S2-03 Group E.json",
       "graph_hash": null,
       "output": "artifacts/fixture_usdz/[4B] 3D Diagram - S2-03 Group E.usda",
-      "prim_count": 460,
+      "prim_count": 464,
       "renderable_expression_count": 464,
       "resolution": 8,
-      "status": "partial",
+      "status": "success",
       "title": "Desmos graph",
-      "unsupported": [
-        {
-          "expr_id": "363_0",
-          "kind": "implicit_surface",
-          "latex": "(x-20.0)^{2}+(y-20.0)^{2}+(z-(18.5+2.3+0.3))^{2}=s_{top}^{2}\\left\\{z\\ge18.5+2.3+0.3\\right\\}",
-          "reason": "Implicit surface 363_0 with 3-axis residual has no constant-bounded axis"
-        },
-        {
-          "expr_id": "363_1",
-          "kind": "implicit_surface",
-          "latex": "(x--20.0)^{2}+(y-20.0)^{2}+(z-(18.5+2.3+0.3))^{2}=s_{top}^{2}\\left\\{z\\ge18.5+2.3+0.3\\right\\}",
-          "reason": "Implicit surface 363_1 with 3-axis residual has no constant-bounded axis"
-        },
-        {
-          "expr_id": "363_2",
-          "kind": "implicit_surface",
-          "latex": "(x-20.0)^{2}+(y--20.0)^{2}+(z-(18.5+2.3+0.3))^{2}=s_{top}^{2}\\left\\{z\\ge18.5+2.3+0.3\\right\\}",
-          "reason": "Implicit surface 363_2 with 3-axis residual has no constant-bounded axis"
-        },
-        {
-          "expr_id": "363_3",
-          "kind": "implicit_surface",
-          "latex": "(x--20.0)^{2}+(y--20.0)^{2}+(z-(18.5+2.3+0.3))^{2}=s_{top}^{2}\\left\\{z\\ge18.5+2.3+0.3\\right\\}",
-          "reason": "Implicit surface 363_3 with 3-axis residual has no constant-bounded axis"
-        }
-      ],
-      "unsupported_count": 4,
+      "unsupported": [],
+      "unsupported_count": 0,
       "usda_exists": true,
       "usdz_exists": true,
       "usdz_output": "artifacts/fixture_usdz/[4B] 3D Diagram - S2-03 Group E.usdz",
@@ -23073,6 +23048,46 @@
           "kind": "inequality_region",
           "max_residual": null,
           "point_count": 514,
+          "valid": true
+        },
+        {
+          "constraint_violation_count": 0,
+          "errors": [],
+          "expr_id": "363_0",
+          "face_count": 64,
+          "kind": "implicit_surface",
+          "max_residual": null,
+          "point_count": 65,
+          "valid": true
+        },
+        {
+          "constraint_violation_count": 0,
+          "errors": [],
+          "expr_id": "363_1",
+          "face_count": 64,
+          "kind": "implicit_surface",
+          "max_residual": null,
+          "point_count": 65,
+          "valid": true
+        },
+        {
+          "constraint_violation_count": 0,
+          "errors": [],
+          "expr_id": "363_2",
+          "face_count": 64,
+          "kind": "implicit_surface",
+          "max_residual": null,
+          "point_count": 65,
+          "valid": true
+        },
+        {
+          "constraint_violation_count": 0,
+          "errors": [],
+          "expr_id": "363_3",
+          "face_count": 64,
+          "kind": "implicit_surface",
+          "max_residual": null,
+          "point_count": 65,
           "valid": true
         },
         {
@@ -118634,8 +118649,8 @@
       }
     }
   ],
-  "success_count": 28,
-  "unsupported_fixture_count": 43,
+  "success_count": 29,
+  "unsupported_fixture_count": 42,
   "unsupported_fixture_names": [
     "[4B] 3D Diagram - S2-01 Group A.json",
     "[4B] 3D Diagram - S2-01 Group B.json",
@@ -118648,7 +118663,6 @@
     "[4B] 3D Diagram - S2-02 Group F.json",
     "[4B] 3D Diagram - S2-03 Group A.json",
     "[4B] 3D Diagram - S2-03 Group C.json",
-    "[4B] 3D Diagram - S2-03 Group E.json",
     "[4B] 3D Diagram - S2-04 Group C.json",
     "[4B] 3D Diagram - S2-04 Group D.json",
     "[4B] 3D Diagram - S2-04 Group F.json",

@@ -1,6 +1,6 @@
 # Implementation State
 
-Last updated: 2026-04-27 11:24 SGT
+Last updated: 2026-04-27 11:54 SGT
 
 ## Loop Mode
 - cadence: every 10 minutes via OpenClaw cron
@@ -29,8 +29,8 @@ Last updated: 2026-04-27 11:24 SGT
 - id: one-desmos-input-at-a-time
 - title: Fix one remaining partial Desmos input per bounded tranche using live Desmos screenshots and viewer screenshots
 - current-priority:
-  1. Continue S2-03 Group E remaining top implicit sphere caps — https://www.desmos.com/3d/sqkhp7wnx6 — now 4 unsupported, 460 prims, 464 classified
-  2. Continue S2-07 Group F remaining sampled inequality — https://www.desmos.com/3d/jkj1z8t8pf — now 1 unsupported, 887 prims, 888 classified
+  1. Continue S2-07 Group F remaining sampled inequality — https://www.desmos.com/3d/jkj1z8t8pf — now 1 unsupported, 887 prims, 888 classified
+  2. Revisit S2-03 Group E only for live visual parity evidence when browser capture is available — https://www.desmos.com/3d/sqkhp7wnx6 — structurally success, 464 prims, 0 unsupported
   3. Revisit S2-10 Group F only for live visual parity evidence when browser capture is available — https://www.desmos.com/3d/tejhfrm34m — structurally success, 167 prims, 0 unsupported
   4. Revisit S2-03 Group D only for live visual parity evidence when browser capture is available — https://www.desmos.com/3d/zvasa1wcgo — structurally success, 585 prims, 0 unsupported
   5. Revisit S2-06 Group E only for live visual parity evidence when browser capture is available — https://www.desmos.com/3d/cg2sd6h1ws — structurally success, 1625 prims, 0 unsupported
@@ -52,8 +52,9 @@ Last updated: 2026-04-27 11:24 SGT
 7. [ ] Advance to the next input only after the current one is either defensibly fixed or explicitly blocked.
 
 ## Current Baseline
-- HEAD before current tranche: eeda071 Improve steep explicit surface sampling
-- summary: 71 fixtures; 28 success, 43 partial, 0 error
+- HEAD before current tranche: 8137dd2 Handle random Gaussian fixture regions
+- summary: 71 fixtures; 29 success, 42 partial, 0 error
+- S2-03 Group E current tranche: predicate-clipped implicit ellipsoid surfaces improved 4 unsupported -> 0 unsupported, 460 prims -> 464 prims, classified remains 464; live browser/viewer capture blocked, so visual claim is structural/local projection only
 - S2-06 Group E current tranche: seeded bounded `random(n)` expansion plus Gaussian local flat-region sampling improved 7 unsupported -> 0 unsupported, 729 prims -> 1625 prims, 736 classified -> 1625 classified; live browser/viewer capture blocked, so visual claim is structural/local projection only
 - S2-06 Group E current tranche: steep explicit-surface reorientation improved 9 unsupported -> 7 unsupported, 727 prims -> 729 prims, classified remains 736; live browser/viewer capture blocked, so visual claim is structural/local projection only
 - S2-06 Group E current tranche: annular quadratic slab extrusion improved 13 unsupported -> 9 unsupported, 723 prims -> 727 prims, classified remains 736; live browser/viewer capture blocked, so visual claim is structural/local projection only
@@ -82,5 +83,5 @@ Last updated: 2026-04-27 11:24 SGT
 - Do not overlap Codex/ccwork runs.
 
 ## Last Wake
-- timestamp: 2026-04-27 11:24 SGT
-- result: HOME Codex completed one bounded S2-06E random Gaussian tranche but could not stage/commit because `.git/index.lock` creation failed with `Operation not permitted`. Implemented seeded bounded `random(n)` list expansion and Gaussian local flat-region sampling; S2-06E is now success at `1625 prims / 1625 classified / 0 unsupported`, with S2-08E and S2-09F still success guards. Full unittest discovery passed. Browser/live viewer capture remains blocked (`user cancelled MCP tool call`, tailnet DNS unresolved), so no live Desmos parity claim. Worktree is ready for orchestrator/next wake to stage with forced-add evidence, commit, and push.
+- timestamp: 2026-04-27 11:54 SGT
+- result: HOME Codex completed one bounded S2-03E top sphere-cap tranche but could not stage/commit because `.git/index.lock` creation failed with `Operation not permitted`. Implemented predicate-clipped axis-aligned implicit ellipsoid surfaces; S2-03E is now success at `464 prims / 464 classified / 0 unsupported`, with S2-08E and S2-09F still success guards. Targeted modules and full unittest discovery passed. Browser/live viewer capture remains blocked (`user cancelled MCP tool call`, tailnet DNS unresolved), so no live Desmos parity claim. Worktree is ready for orchestrator/next wake to stage with forced-add evidence, commit, and push. Next implementation target is S2-07 Group F's remaining sampled inequality.
