@@ -418,6 +418,10 @@ def classify_expression(expr: ExpressionIR, context: EvalContext) -> ClassifiedE
         triangle_mesh = parse_triangle_mesh(main, context)
         return ClassifiedExpression(ir=expr, kind="triangle_mesh", predicates=predicates, triangle_mesh=triangle_mesh)
 
+    if looks_like_sphere(main):
+        expression = parse_sphere_surface(main, context)
+        return ClassifiedExpression(ir=expr, kind="implicit_surface", predicates=predicates, expression=expression)
+
     if looks_like_vector(main):
         vector = parse_vector(main, context)
         vector_identifiers = set().union(*(component.identifiers for component in vector.components))
@@ -1299,6 +1303,41 @@ def parse_triangle_mesh(text: str, context: EvalContext) -> TriangleMeshExpressi
     else:
         triangles = ((parse_vector(args[0], context), parse_vector(args[1], context), parse_vector(args[2], context)),)
     return TriangleMeshExpression(raw=normalized, triangles=triangles)
+
+
+SPHERE_PREFIX = "\\operatorname{sphere}"
+
+
+def looks_like_sphere(text: str) -> bool:
+    return normalize_latex_delimiters(text).lstrip().startswith(SPHERE_PREFIX)
+
+
+def parse_sphere_surface(text: str, context: EvalContext) -> LatexExpression:
+    normalized = normalize_latex_delimiters(text).strip()
+    if not normalized.startswith(SPHERE_PREFIX):
+        raise ValueError(f"Expected sphere expression, got {text!r}")
+    open_at = len(SPHERE_PREFIX)
+    while open_at < len(normalized) and normalized[open_at].isspace():
+        open_at += 1
+    if open_at >= len(normalized) or normalized[open_at] != "(":
+        raise ValueError(f"Malformed sphere expression: {text!r}")
+    close_at = matching_paren(normalized, open_at)
+    tail = normalized[close_at + 1 :].strip()
+    if tail and any(char != ")" for char in tail):
+        raise ValueError(f"Unsupported sphere expression tail: {tail!r}")
+    args = split_top_level(normalized[open_at + 1 : close_at], ",")
+    if len(args) != 2:
+        raise ValueError(f"sphere() expects 2 arguments, got {len(args)}")
+    center = parse_vector_components(args[0], context)
+    radius = LatexExpression.parse(args[1])
+    if radius.identifiers & GRAPH_VARIABLES:
+        raise ValueError("sphere() radius must be scalar")
+    for component in center:
+        parsed = LatexExpression.parse(component)
+        if parsed.identifiers & GRAPH_VARIABLES:
+            raise ValueError("sphere() center must be scalar")
+    cx, cy, cz = center
+    return LatexExpression.parse(f"(x-({cx}))^2+(y-({cy}))^2+(z-({cz}))^2-({args[1]})^2")
 
 
 def looks_like_vector_list(text: str) -> bool:

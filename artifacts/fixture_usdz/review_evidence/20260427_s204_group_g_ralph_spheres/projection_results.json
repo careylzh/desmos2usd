@@ -1,0 +1,87 @@
+{
+  "target": "S2-04 Group G",
+  "resolution": 12,
+  "before": {
+    "fresh_pre_edit_export": {
+      "prim_count": 70,
+      "unsupported_count": 36,
+      "classified_expression_count": 82,
+      "valid": true,
+      "complete": false
+    },
+    "tracked_summary_at_start": {
+      "prim_count": 44,
+      "unsupported_count": 36,
+      "classified_expression_count": 56,
+      "valid": true,
+      "complete": false,
+      "status": "partial"
+    },
+    "files": [
+      "S2-04_Group_G_projection_before.usda",
+      "S2-04_Group_G_projection_before.ppm",
+      "S2-04_Group_G_projection_before.png",
+      "S2-04_Group_G_report_before.json"
+    ]
+  },
+  "after": {
+    "tracked_export": {
+      "prim_count": 91,
+      "unsupported_count": 15,
+      "classified_expression_count": 103,
+      "valid": true,
+      "complete": false,
+      "status": "partial",
+      "usdchecker_arkit_returncode": 0
+    },
+    "unsupported_by_kind": [
+      {
+        "kind": "definition",
+        "count": 3
+      },
+      {
+        "kind": "explicit_surface",
+        "count": 8
+      },
+      {
+        "kind": "implicit_surface",
+        "count": 4
+      }
+    ],
+    "files": [
+      "S2-04_Group_G_projection_after.usda",
+      "S2-04_Group_G_projection_after.ppm",
+      "S2-04_Group_G_projection_after.png",
+      "S2-04_Group_G_report_after.json",
+      "S2-04_Group_G_tracked_report_after.json"
+    ]
+  },
+  "guards": [
+    {
+      "fixture": "S2-08 Group E",
+      "prim_count": 87,
+      "unsupported_count": 0,
+      "valid": true,
+      "status": "success",
+      "usdchecker_arkit_returncode": 0,
+      "files": [
+        "S2-08_Group_E_projection_guard_after.usda",
+        "S2-08_Group_E_projection_guard_after.ppm",
+        "S2-08_Group_E_projection_guard_after.png"
+      ]
+    },
+    {
+      "fixture": "S2-09 Group F",
+      "prim_count": 27,
+      "unsupported_count": 0,
+      "valid": true,
+      "status": "success",
+      "usdchecker_arkit_returncode": 0,
+      "files": [
+        "S2-09_Group_F_projection_guard_after.usda",
+        "S2-09_Group_F_projection_guard_after.ppm",
+        "S2-09_Group_F_projection_guard_after.png"
+      ]
+    }
+  ]
+}

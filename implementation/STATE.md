@@ -1,6 +1,6 @@
 # Implementation State
 
-Last updated: 2026-04-27 13:42 SGT
+Last updated: 2026-04-27 14:08 SGT
 
 ## Loop Mode
 - cadence: every 10 minutes via OpenClaw cron
@@ -89,5 +89,5 @@ Last updated: 2026-04-27 13:42 SGT
 - Do not overlap Codex/ccwork runs.
 
 ## Last Wake
-- timestamp: 2026-04-27 13:42 SGT
-- result: HOME Codex completed a bounded S2-02 Group F chained-empty tranche. Long chained predicates now expose adjacent constant bounds, and impossible bounds return valid empty meshes. S2-02F improved from `197 prims / 9 unsupported` to `206 prims / 0 unsupported`, status success; S2-08E and S2-09F guards remain success. Validation passed: focused chained-empty regression, targeted test modules, full unittest discovery, report-vs-USDA counts, PNG dimensions, `usdchecker --arkit` on target/guards, and `git diff --check`. Browser/live viewer capture remained blocked, so visual claim is structural/local projection only. Commit/push blocked because `git add` could not create `.git/index.lock` (`Operation not permitted`); worktree is ready for the main environment to commit and push. Next wake should move to S2-02 Group C (`https://www.desmos.com/3d/sqn7vxcm4n`) unless Chek reprioritises.
+- timestamp: 2026-04-27 14:08 SGT
+- result: HOME Codex completed a bounded S2-04 Group G sphere-operator tranche. `\operatorname{sphere}(center, radius)` now exports as implicit sphere surfaces, including scalar-defined centers/radii. S2-04G improved from `70 prims / 36 unsupported` fresh pre-edit to `91 prims / 15 unsupported` tracked after regeneration; S2-08E and S2-09F guards remain success. Validation passed: focused sphere regressions, targeted test modules, full unittest discovery, report-vs-USDA counts, PNG dimensions, `usdchecker --arkit` on target/guards, and `git diff --check`. Browser/live viewer capture remained blocked, so visual claim is structural/local projection only. Next wake should continue S2-04G with general `\infty` helper-plane handling, then color definitions.

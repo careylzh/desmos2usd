@@ -1,3 +1,96 @@
+# Handoff: 2026-04-27 13:54 SGT - S2-04G sphere operator tranche
+
+## Current Branch State
+- Repo: `/Users/chek/repos/desmos2usd-carey`
+- Branch: `fix/student-fixture-usdz-export`
+- Push target: `chektien:fix/student-fixture-usdz-export`
+- HEAD before this tranche: `0411022 Finish S2-02F chained inequality export`
+
+## Completed This Tranche
+- Targeted fixture: `[4B] 3D Diagram - S2-04 Group G.json`
+- Desmos URL: `https://www.desmos.com/3d/ratctlkc9i`
+- Implemented one general exporter fix:
+  - Desmos `\operatorname{sphere}(center, radius)` calls now classify as implicit sphere surfaces.
+  - Literal centers/radii and scalar-defined centers/radii are supported, e.g. `sphere((s,d,p),o)`.
+  - The implementation lowers the sphere call to an implicit residual and reuses the existing axis-aligned ellipsoid tessellation/validation path.
+- No fixture-specific expression ids, fixture names, or one-off constants were added.
+- Added regression coverage for literal and scalar-definition-backed sphere calls.
+- Regenerated tracked S2-04G artifacts, S2-08E and S2-09F guard USDZ artifacts, and rebuilt the full 71-fixture `artifacts/fixture_usdz/summary.json`.
+
+## Evidence
+- Evidence directory: `artifacts/fixture_usdz/review_evidence/20260427_s204_group_g_ralph_spheres/`
+- Local projection files:
+  - `S2-04_Group_G_projection_before.png`
+  - `S2-04_Group_G_projection_before.ppm`
+  - `S2-04_Group_G_projection_before.usda`
+  - `S2-04_Group_G_report_before.json`
+  - `S2-04_Group_G_projection_after.png`
+  - `S2-04_Group_G_projection_after.ppm`
+  - `S2-04_Group_G_projection_after.usda`
+  - `S2-04_Group_G_report_after.json`
+  - `S2-04_Group_G_tracked_report_after.json`
+  - `S2-08_Group_E_projection_guard_after.png`
+  - `S2-09_Group_F_projection_guard_after.png`
+  - `capture_results.json`
+  - `projection_results.json`
+  - `assessment.md`
+- Browser/live viewer blockers:
+  - Chrome DevTools Desmos navigation returned `user cancelled MCP tool call`.
+  - Playwright Desmos navigation returned `user cancelled MCP tool call`.
+  - Chrome DevTools live viewer navigation returned `user cancelled MCP tool call`.
+  - Tailscale route checks for root, viewer, and summary failed with `curl: (6) Could not resolve host: chq.singapura-broadnose.ts.net`.
+- Visual claim: no live Desmos/viewer parity claim. This tranche has deterministic local projection evidence only; the after projection visibly adds the missing sphere geometry around the tower/lantern structure.
+
+## Metrics
+- Latest tracked S2-04G summary at tranche start: `44 prims / 36 unsupported / 56 classified / valid true / partial`.
+- Fresh pre-edit local S2-04G export from current code: `70 prims / 36 unsupported / 82 classified / valid true`.
+- S2-04G after tracked resolution-12 regeneration: `91 prims / 15 unsupported / 103 classified / valid true / partial / usdchecker returncode 0`.
+- Fixed family: all 21 `\operatorname{sphere}` expressions now export.
+- Remaining S2-04G unsupported:
+  - 3 color definitions: `hsv` / `okhsv`
+  - 4 implicit helper planes using `x/\infty = ...`
+  - 8 explicit helper planes using `z/\infty +/- constant`
+- Overall fixture summary remains: 71 fixtures; 31 success, 40 partial, 0 error, acceptance not met.
+- S2-08 Group E guard remains success: `87 prims / 0 unsupported / valid true / usdchecker returncode 0`.
+- S2-09 Group F guard remains success: `27 prims / 0 unsupported / valid true / usdchecker returncode 0`.
+
+## Validation
+- Focused sphere regressions passed:
+  - `test_sphere_operator_exports_as_implicit_surface`
+  - `test_sphere_operator_uses_scalar_center_and_radius_definitions`
+  - `test_tolerant_fixture_classification_keeps_supported_prims_after_unsupported_expr`
+- Targeted modules passed: `PYTHONPATH=src:tests python3 -m unittest tests.test_student_fixture_regressions tests.test_fixture_usdz_suite tests.test_visual_preview` ran 73 tests OK.
+- Full unittest discovery passed: `PYTHONPATH=src:tests python3 -m unittest discover -s tests` ran 143 tests OK.
+- Regenerated artifacts for S2-04G, S2-08E, and S2-09F with `usdchecker --arkit` return code `0`.
+- Report-vs-USDA consistency checked:
+  - S2-04G report prim_count `91`, USDA `Mesh` + `BasisCurves` defs `91`, unsupported `15`
+  - S2-08E report prim_count `87`, USDA defs `87`, unsupported `0`
+  - S2-09F report prim_count `27`, USDA defs `27`, unsupported `0`
+- PNG projection dimensions checked with `sips`: before/after/guard PNGs are `1552x512`.
+- `git diff --check`: passed.
+
+## Commit / Push
+- Blocked in this HOME Codex turn: `git add -A` failed with `fatal: Unable to create '/Users/chek/repos/desmos2usd-carey/.git/index.lock': Operation not permitted`.
+- Worktree is ready to stage, commit, and push from the main environment.
+- Evidence directory is ignored by `.gitignore`; include it with `git add -f artifacts/fixture_usdz/review_evidence/20260427_s204_group_g_ralph_spheres/` if committing evidence with the tranche.
+- Suggested commit subject: `Support Desmos sphere operator export`.
+
+## Review Links
+- Route verification from this environment failed for root/viewer/summary with `curl: (6) Could not resolve host: chq.singapura-broadnose.ts.net`.
+- S2-04 Group G Desmos: `https://www.desmos.com/3d/ratctlkc9i`
+- S2-04 Group G viewer: `https://chq.singapura-broadnose.ts.net/viewer/?usda=..%2Fartifacts%2Ffixture_usdz%2F%5B4B%5D%203D%20Diagram%20-%20S2-04%20Group%20G.usda&label=S2-04%20Group%20G`
+- S2-08 Group E Desmos: `https://www.desmos.com/3d/g59jqe6nxy`
+- S2-08 Group E viewer: `https://chq.singapura-broadnose.ts.net/viewer/?usda=..%2Fartifacts%2Ffixture_usdz%2F%5B4B%5D%203D%20Diagram%20-%20S2-08%20Group%20E.usda&label=S2-08%20Group%20E`
+- S2-09 Group F Desmos: `https://www.desmos.com/3d/umjxv6ahck`
+- S2-09 Group F viewer: `https://chq.singapura-broadnose.ts.net/viewer/?usda=..%2Fartifacts%2Ffixture_usdz%2F%5B4B%5D%203D%20Diagram%20-%20S2-09%20Group%20F.usda&label=S2-09%20Group%20F`
+
+## Remaining Mismatch / Next Wake Instructions
+1. Continue S2-04 Group G unless Chek reprioritises; it is improved but still partial at 15 unsupported.
+2. Next exact target inside S2-04G: handle Desmos helper-plane expressions containing `\infty`, e.g. `x/\infty = z-90 {...}` and `y = z/\infty +/- 60 {...}`. This should be general support for Desmos' effectively-zero division by infinity, not a fixture-specific hack.
+3. Consider color definitions (`hsv`, `okhsv`) after geometry-impacting `\infty` helper planes.
+4. Keep S2-08E and S2-09F as regression guards.
+5. Continue to include direct Tailscale viewer links and matching Desmos links in any review update, but do not claim live visual parity unless browser/viewer screenshots are actually captured.
+
 # Handoff: 2026-04-27 13:46 SGT - S2-02F success / urgent S2-04G next
 
 ## Orchestrator Note

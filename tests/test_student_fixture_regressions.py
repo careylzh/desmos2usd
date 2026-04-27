@@ -36,6 +36,45 @@ class StudentFixtureRegressionTests(unittest.TestCase):
         self.assertEqual(geometry.points[0], (0.0, -8.2, 0.0))
         self.assertEqual(geometry.points[-1], (0.0, -5.0, 122.6))
 
+    def test_sphere_operator_exports_as_implicit_surface(self) -> None:
+        item = classify_expression(
+            expr("1", r"\operatorname{sphere}\left(\left(0,0,100\right),40\right)"),
+            EvalContext(),
+        )
+
+        geometry = tessellate(item, EvalContext(), resolution=8)
+
+        self.assertEqual(item.kind, "implicit_surface")
+        self.assertEqual(geometry.kind, "Mesh")
+        self.assertGreater(geometry.face_count, 0)
+        xs = [point[0] for point in geometry.points]
+        zs = [point[2] for point in geometry.points]
+        self.assertAlmostEqual(min(xs), -40.0)
+        self.assertAlmostEqual(max(xs), 40.0)
+        self.assertAlmostEqual(min(zs), 60.0)
+        self.assertAlmostEqual(max(zs), 140.0)
+
+    def test_sphere_operator_uses_scalar_center_and_radius_definitions(self) -> None:
+        graph = GraphIR(
+            source=SOURCE,
+            expressions=[
+                expr("1", "s=37"),
+                expr("2", "d=-37"),
+                expr("3", "p=100"),
+                expr("4", "o=13.1"),
+                expr("5", r"\operatorname{sphere}\left(\left(s,d,p\right),o\right)"),
+            ],
+            raw_state={},
+        )
+
+        classification, unsupported = classify_graph_tolerant(graph)
+
+        self.assertEqual(len(unsupported), 0)
+        self.assertEqual(classification.classified[0].kind, "implicit_surface")
+        geometry = tessellate(classification.classified[0], classification.context, resolution=8)
+        self.assertEqual(geometry.kind, "Mesh")
+        self.assertGreater(geometry.face_count, 0)
+
     def test_uv_tuple_exports_as_parametric_surface(self) -> None:
         item = classify_expression(expr("1", r"\left(17u-8.5,-2.5,0.4v\right)"), EvalContext())
 
@@ -433,7 +472,7 @@ class StudentFixtureRegressionTests(unittest.TestCase):
         graph = GraphIR(
             source=SOURCE,
             expressions=[
-                expr("1", r"\operatorname{sphere}\left(\left(0,0,0\right),1\right)"),
+                expr("1", r"\operatorname{unknown}\left(1\right)"),
                 expr("2", "z=0\\left\\{-1<x<1\\right\\}\\left\\{-1<y<1\\right\\}"),
             ],
             raw_state={},

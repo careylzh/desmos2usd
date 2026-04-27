@@ -1,13 +1,13 @@
 {
   "acceptance_success": false,
-  "classified_expression_count": 56,
+  "classified_expression_count": 103,
   "complete": false,
   "fixture": "[4B] 3D Diagram - S2-04 Group G.json",
   "fixture_path": "fixtures/states/[4B] 3D Diagram - S2-04 Group G.json",
   "graph_hash": null,
   "output": "artifacts/fixture_usdz/[4B] 3D Diagram - S2-04 Group G.usda",
-  "prim_count": 44,
-  "renderable_expression_count": 80,
+  "prim_count": 91,
+  "renderable_expression_count": 106,
   "resolution": 12,
   "status": "partial",
   "title": "Desmos graph",
@@ -29,132 +29,6 @@
       "kind": "definition",
       "latex": "c_{3}=\\operatorname{okhsv}(72,0.243,0.99)",
       "reason": "Failed to parse definition: Unsupported expression node Tuple"
-    },
-    {
-      "expr_id": "53",
-      "kind": "classification",
-      "latex": "\\operatorname{sphere}\\left(\\left(0,0,100\\right),40\\right)",
-      "reason": "not a supported renderable geometry form"
-    },
-    {
-      "expr_id": "54",
-      "kind": "classification",
-      "latex": "\\operatorname{sphere}\\left(\\left(85,85,120\\right),8\\right)",
-      "reason": "not a supported renderable geometry form"
-    },
-    {
-      "expr_id": "56",
-      "kind": "classification",
-      "latex": "\\operatorname{sphere}\\left(\\left(-85,85,120\\right),8\\right)",
-      "reason": "not a supported renderable geometry form"
-    },
-    {
-      "expr_id": "57",
-      "kind": "classification",
-      "latex": "\\operatorname{sphere}\\left(\\left(-85,-85,120\\right),8\\right)",
-      "reason": "not a supported renderable geometry form"
-    },
-    {
-      "expr_id": "58",
-      "kind": "classification",
-      "latex": "\\operatorname{sphere}\\left(\\left(85,-85,120\\right),8\\right)",
-      "reason": "not a supported renderable geometry form"
-    },
-    {
-      "expr_id": "68",
-      "kind": "classification",
-      "latex": "\\operatorname{sphere}\\left(\\left(s,d,p\\right),o\\right)",
-      "reason": "not a supported renderable geometry form"
-    },
-    {
-      "expr_id": "75",
-      "kind": "classification",
-      "latex": "\\operatorname{sphere}\\left(\\left(-s,d,p\\right),o\\right)",
-      "reason": "not a supported renderable geometry form"
-    },
-    {
-      "expr_id": "77",
-      "kind": "classification",
-      "latex": "\\operatorname{sphere}\\left(\\left(-s,-d,p\\right),o\\right)",
-      "reason": "not a supported renderable geometry form"
-    },
-    {
-      "expr_id": "79",
-      "kind": "classification",
-      "latex": "\\operatorname{sphere}\\left(\\left(s,-d,p\\right),o\\right)",
-      "reason": "not a supported renderable geometry form"
-    },
-    {
-      "expr_id": "182",
-      "kind": "classification",
-      "latex": "\\operatorname{sphere}\\left(\\left(-37,37,95\\right),13.1\\right)",
-      "reason": "not a supported renderable geometry form"
-    },
-    {
-      "expr_id": "183",
-      "kind": "classification",
-      "latex": "\\operatorname{sphere}\\left(\\left(-37,37,97\\right),13.1\\right)",
-      "reason": "not a supported renderable geometry form"
-    },
-    {
-      "expr_id": "184",
-      "kind": "classification",
-      "latex": "\\operatorname{sphere}\\left(\\left(-37,37,99\\right),13.1\\right)",
-      "reason": "not a supported renderable geometry form"
-    },
-    {
-      "expr_id": "185",
-      "kind": "classification",
-      "latex": "\\operatorname{sphere}\\left(\\left(37,37,95\\right),13.1\\right)",
-      "reason": "not a supported renderable geometry form"
-    },
-    {
-      "expr_id": "186",
-      "kind": "classification",
-      "latex": "\\operatorname{sphere}\\left(\\left(37,37,97\\right),13.1\\right)",
-      "reason": "not a supported renderable geometry form"
-    },
-    {
-      "expr_id": "187",
-      "kind": "classification",
-      "latex": "\\operatorname{sphere}\\left(\\left(37,37,99\\right),13.1\\right)",
-      "reason": "not a supported renderable geometry form"
-    },
-    {
-      "expr_id": "188",
-      "kind": "classification",
-      "latex": "\\operatorname{sphere}\\left(\\left(37,-37,95\\right),13.1\\right)",
-      "reason": "not a supported renderable geometry form"
-    },
-    {
-      "expr_id": "189",
-      "kind": "classification",
-      "latex": "\\operatorname{sphere}\\left(\\left(37,-37,97\\right),13.1\\right)",
-      "reason": "not a supported renderable geometry form"
-    },
-    {
-      "expr_id": "190",
-      "kind": "classification",
-      "latex": "\\operatorname{sphere}\\left(\\left(37,-37,99\\right),13.1\\right)",
-      "reason": "not a supported renderable geometry form"
-    },
-    {
-      "expr_id": "191",
-      "kind": "classification",
-      "latex": "\\operatorname{sphere}\\left(\\left(-37,-37,95\\right),13.1\\right)",
-      "reason": "not a supported renderable geometry form"
-    },
-    {
-      "expr_id": "192",
-      "kind": "classification",
-      "latex": "\\operatorname{sphere}\\left(\\left(-37,-37,97\\right),13.1\\right)",
-      "reason": "not a supported renderable geometry form"
-    },
-    {
-      "expr_id": "193",
-      "kind": "classification",
-      "latex": "\\operatorname{sphere}\\left(\\left(-37,-37,99\\right),13.1\\right)",
-      "reason": "not a supported renderable geometry form"
     },
     {
       "expr_id": "25",
@@ -184,52 +58,52 @@
       "expr_id": "110",
       "kind": "explicit_surface",
       "latex": "y=\\frac{z}{\\infty}-60\\ \\left\\{70>z>10\\right\\}\\left\\{15<x<18\\right\\}",
-      "reason": "Could not evaluate '\\\\frac{z}{\\\\infty}-60' with variables {'x': 15.0, 'z': 10.0}: name 'n' is not defined"
+      "reason": "point 0 validation failed: Could not evaluate '\\\\frac{z}{\\\\infty}-60' with variables {'x': 15.0, 'y': 0.0, 'z': 10.0}: name 'n' is not defined; point 1 validation failed: Could not evaluate '\\\\frac{z}{\\\\infty}-60' with variables {'x': 15.00002, 'y': 0.0, 'z': 10.0}: name 'n' is not defined; point 2 validation failed: Could not evaluate '\\\\frac{z}{\\\\infty}-60' with variables {'x': 15.047619047619047, 'y': 0.0, 'z': 10.0}: name 'n' is not defined; point 3 validation failed: Could not evaluate '\\\\frac{z}{\\\\infty}-60' with variables {'x': 15.095238095238095, 'y': 0.0, 'z': 10.0}: name 'n' is not defined; point 4 validation failed: Could not evaluate '\\\\frac{z}{\\\\infty}-60' with variables {'x': 15.142857142857142, 'y': 0.0, 'z': 10.0}: name 'n' is not defined; point 5 validation failed: Could not evaluate '\\\\frac{z}{\\\\infty}-60' with variables {'x': 15.19047619047619, 'y': 0.0, 'z': 10.0}: name 'n' is not defined; point 6 validation failed: Could not evaluate '\\\\frac{z}{\\\\infty}-60' with variables {'x': 15.238095238095237, 'y': 0.0, 'z': 10.0}: name 'n' is not defined; point 7 validation failed: Could not evaluate '\\\\frac{z}{\\\\infty}-60' with variables {'x': 15.285714285714286, 'y': 0.0, 'z': 10.0}: name 'n' is not defined; point 8 validation failed: Could not evaluate '\\\\frac{z}{\\\\infty}-60' with variables {'x': 15.333333333333334, 'y': 0.0, 'z': 10.0}: name 'n' is not defined; point 9 validation failed: Could not evaluate '\\\\frac{z}{\\\\infty}-60' with variables {'x': 15.380952380952381, 'y': 0.0, 'z': 10.0}: name 'n' is not defined; point 10 validation failed: Could not evaluate '\\\\frac{z}{\\\\infty}-60' with variables {'x': 15.428571428571429, 'y': 0.0, 'z': 10.0}: name 'n' is not defined; point 11 validation failed: Could not evaluate '\\\\frac{z}{\\\\infty}-60' with variables {'x': 15.476190476190476, 'y': 0.0, 'z': 10.0}: name 'n' is not defined; point 12 validation failed: Could not evaluate '\\\\frac{z}{\\\\infty}-60' with variables {'x': 15.523809523809524, 'y': 0.0, 'z': 10.0}: name 'n' is not defined; point 13 validation failed: Could not evaluate '\\\\frac{z}{\\\\infty}-60' with variables {'x': 15.571428571428571, 'y': 0.0, 'z': 10.0}: name 'n' is not defined; point 14 validation failed: Could not evaluate '\\\\frac{z}{\\\\infty}-60' with variables {'x': 15.619047619047619, 'y': 0.0, 'z': 10.0}: name 'n' is not defined; point 15 validation failed: Could not evaluate '\\\\frac{z}{\\\\infty}-60' with variables {'x': 15.666666666666666, 'y': 0.0, 'z': 10.0}: name 'n' is not defined; point 16 validation failed: Could not evaluate '\\\\frac{z}{\\\\infty}-60' with variables {'x': 15.714285714285714, 'y': 0.0, 'z': 10.0}: name 'n' is not defined; point 17 validation failed: Could not evaluate '\\\\frac{z}{\\\\infty}-60' with variables {'x': 15.761904761904763, 'y': 0.0, 'z': 10.0}: name 'n' is not defined; point 18 validation failed: Could not evaluate '\\\\frac{z}{\\\\infty}-60' with variables {'x': 15.80952380952381, 'y': 0.0, 'z': 10.0}: name 'n' is not defined; point 19 validation failed: Could not evaluate '\\\\frac{z}{\\\\infty}-60' with variables {'x': 15.857142857142858, 'y': 0.0, 'z': 10.0}: name 'n' is not defined"
     },
     {
       "expr_id": "111",
       "kind": "explicit_surface",
       "latex": "y=\\frac{z}{\\infty}-60\\ \\left\\{70>z>10\\right\\}\\left\\{-15>x>-18\\right\\}",
-      "reason": "Could not evaluate '\\\\frac{z}{\\\\infty}-60' with variables {'x': -18.0, 'z': 10.0}: name 'n' is not defined"
+      "reason": "point 0 validation failed: Could not evaluate '\\\\frac{z}{\\\\infty}-60' with variables {'x': -18.0, 'y': 0.0, 'z': 10.0}: name 'n' is not defined; point 1 validation failed: Could not evaluate '\\\\frac{z}{\\\\infty}-60' with variables {'x': -17.99998, 'y': 0.0, 'z': 10.0}: name 'n' is not defined; point 2 validation failed: Could not evaluate '\\\\frac{z}{\\\\infty}-60' with variables {'x': -17.952380952380953, 'y': 0.0, 'z': 10.0}: name 'n' is not defined; point 3 validation failed: Could not evaluate '\\\\frac{z}{\\\\infty}-60' with variables {'x': -17.904761904761905, 'y': 0.0, 'z': 10.0}: name 'n' is not defined; point 4 validation failed: Could not evaluate '\\\\frac{z}{\\\\infty}-60' with variables {'x': -17.857142857142858, 'y': 0.0, 'z': 10.0}: name 'n' is not defined; point 5 validation failed: Could not evaluate '\\\\frac{z}{\\\\infty}-60' with variables {'x': -17.80952380952381, 'y': 0.0, 'z': 10.0}: name 'n' is not defined; point 6 validation failed: Could not evaluate '\\\\frac{z}{\\\\infty}-60' with variables {'x': -17.761904761904763, 'y': 0.0, 'z': 10.0}: name 'n' is not defined; point 7 validation failed: Could not evaluate '\\\\frac{z}{\\\\infty}-60' with variables {'x': -17.714285714285715, 'y': 0.0, 'z': 10.0}: name 'n' is not defined; point 8 validation failed: Could not evaluate '\\\\frac{z}{\\\\infty}-60' with variables {'x': -17.666666666666668, 'y': 0.0, 'z': 10.0}: name 'n' is not defined; point 9 validation failed: Could not evaluate '\\\\frac{z}{\\\\infty}-60' with variables {'x': -17.61904761904762, 'y': 0.0, 'z': 10.0}: name 'n' is not defined; point 10 validation failed: Could not evaluate '\\\\frac{z}{\\\\infty}-60' with variables {'x': -17.571428571428573, 'y': 0.0, 'z': 10.0}: name 'n' is not defined; point 11 validation failed: Could not evaluate '\\\\frac{z}{\\\\infty}-60' with variables {'x': -17.523809523809526, 'y': 0.0, 'z': 10.0}: name 'n' is not defined; point 12 validation failed: Could not evaluate '\\\\frac{z}{\\\\infty}-60' with variables {'x': -17.476190476190474, 'y': 0.0, 'z': 10.0}: name 'n' is not defined; point 13 validation failed: Could not evaluate '\\\\frac{z}{\\\\infty}-60' with variables {'x': -17.428571428571427, 'y': 0.0, 'z': 10.0}: name 'n' is not defined; point 14 validation failed: Could not evaluate '\\\\frac{z}{\\\\infty}-60' with variables {'x': -17.38095238095238, 'y': 0.0, 'z': 10.0}: name 'n' is not defined; point 15 validation failed: Could not evaluate '\\\\frac{z}{\\\\infty}-60' with variables {'x': -17.333333333333332, 'y': 0.0, 'z': 10.0}: name 'n' is not defined; point 16 validation failed: Could not evaluate '\\\\frac{z}{\\\\infty}-60' with variables {'x': -17.285714285714285, 'y': 0.0, 'z': 10.0}: name 'n' is not defined; point 17 validation failed: Could not evaluate '\\\\frac{z}{\\\\infty}-60' with variables {'x': -17.238095238095237, 'y': 0.0, 'z': 10.0}: name 'n' is not defined; point 18 validation failed: Could not evaluate '\\\\frac{z}{\\\\infty}-60' with variables {'x': -17.19047619047619, 'y': 0.0, 'z': 10.0}: name 'n' is not defined; point 19 validation failed: Could not evaluate '\\\\frac{z}{\\\\infty}-60' with variables {'x': -17.142857142857142, 'y': 0.0, 'z': 10.0}: name 'n' is not defined"
     },
     {
       "expr_id": "114",
       "kind": "explicit_surface",
       "latex": "y=\\frac{z}{\\infty}+60\\ \\left\\{70>z>10\\right\\}\\left\\{-15>x>-18\\right\\}",
-      "reason": "Could not evaluate '\\\\frac{z}{\\\\infty}+60' with variables {'x': -18.0, 'z': 10.0}: name 'n' is not defined"
+      "reason": "point 0 validation failed: Could not evaluate '\\\\frac{z}{\\\\infty}+60' with variables {'x': -18.0, 'y': 0.0, 'z': 10.0}: name 'n' is not defined; point 1 validation failed: Could not evaluate '\\\\frac{z}{\\\\infty}+60' with variables {'x': -17.99998, 'y': 0.0, 'z': 10.0}: name 'n' is not defined; point 2 validation failed: Could not evaluate '\\\\frac{z}{\\\\infty}+60' with variables {'x': -17.952380952380953, 'y': 0.0, 'z': 10.0}: name 'n' is not defined; point 3 validation failed: Could not evaluate '\\\\frac{z}{\\\\infty}+60' with variables {'x': -17.904761904761905, 'y': 0.0, 'z': 10.0}: name 'n' is not defined; point 4 validation failed: Could not evaluate '\\\\frac{z}{\\\\infty}+60' with variables {'x': -17.857142857142858, 'y': 0.0, 'z': 10.0}: name 'n' is not defined; point 5 validation failed: Could not evaluate '\\\\frac{z}{\\\\infty}+60' with variables {'x': -17.80952380952381, 'y': 0.0, 'z': 10.0}: name 'n' is not defined; point 6 validation failed: Could not evaluate '\\\\frac{z}{\\\\infty}+60' with variables {'x': -17.761904761904763, 'y': 0.0, 'z': 10.0}: name 'n' is not defined; point 7 validation failed: Could not evaluate '\\\\frac{z}{\\\\infty}+60' with variables {'x': -17.714285714285715, 'y': 0.0, 'z': 10.0}: name 'n' is not defined; point 8 validation failed: Could not evaluate '\\\\frac{z}{\\\\infty}+60' with variables {'x': -17.666666666666668, 'y': 0.0, 'z': 10.0}: name 'n' is not defined; point 9 validation failed: Could not evaluate '\\\\frac{z}{\\\\infty}+60' with variables {'x': -17.61904761904762, 'y': 0.0, 'z': 10.0}: name 'n' is not defined; point 10 validation failed: Could not evaluate '\\\\frac{z}{\\\\infty}+60' with variables {'x': -17.571428571428573, 'y': 0.0, 'z': 10.0}: name 'n' is not defined; point 11 validation failed: Could not evaluate '\\\\frac{z}{\\\\infty}+60' with variables {'x': -17.523809523809526, 'y': 0.0, 'z': 10.0}: name 'n' is not defined; point 12 validation failed: Could not evaluate '\\\\frac{z}{\\\\infty}+60' with variables {'x': -17.476190476190474, 'y': 0.0, 'z': 10.0}: name 'n' is not defined; point 13 validation failed: Could not evaluate '\\\\frac{z}{\\\\infty}+60' with variables {'x': -17.428571428571427, 'y': 0.0, 'z': 10.0}: name 'n' is not defined; point 14 validation failed: Could not evaluate '\\\\frac{z}{\\\\infty}+60' with variables {'x': -17.38095238095238, 'y': 0.0, 'z': 10.0}: name 'n' is not defined; point 15 validation failed: Could not evaluate '\\\\frac{z}{\\\\infty}+60' with variables {'x': -17.333333333333332, 'y': 0.0, 'z': 10.0}: name 'n' is not defined; point 16 validation failed: Could not evaluate '\\\\frac{z}{\\\\infty}+60' with variables {'x': -17.285714285714285, 'y': 0.0, 'z': 10.0}: name 'n' is not defined; point 17 validation failed: Could not evaluate '\\\\frac{z}{\\\\infty}+60' with variables {'x': -17.238095238095237, 'y': 0.0, 'z': 10.0}: name 'n' is not defined; point 18 validation failed: Could not evaluate '\\\\frac{z}{\\\\infty}+60' with variables {'x': -17.19047619047619, 'y': 0.0, 'z': 10.0}: name 'n' is not defined; point 19 validation failed: Could not evaluate '\\\\frac{z}{\\\\infty}+60' with variables {'x': -17.142857142857142, 'y': 0.0, 'z': 10.0}: name 'n' is not defined"
     },
     {
       "expr_id": "116",
       "kind": "explicit_surface",
       "latex": "y=\\frac{z}{\\infty}+60\\ \\left\\{70>z>10\\right\\}\\left\\{15<x<18\\right\\}",
-      "reason": "Could not evaluate '\\\\frac{z}{\\\\infty}+60' with variables {'x': 15.0, 'z': 10.0}: name 'n' is not defined"
+      "reason": "point 0 validation failed: Could not evaluate '\\\\frac{z}{\\\\infty}+60' with variables {'x': 15.0, 'y': 0.0, 'z': 10.0}: name 'n' is not defined; point 1 validation failed: Could not evaluate '\\\\frac{z}{\\\\infty}+60' with variables {'x': 15.00002, 'y': 0.0, 'z': 10.0}: name 'n' is not defined; point 2 validation failed: Could not evaluate '\\\\frac{z}{\\\\infty}+60' with variables {'x': 15.047619047619047, 'y': 0.0, 'z': 10.0}: name 'n' is not defined; point 3 validation failed: Could not evaluate '\\\\frac{z}{\\\\infty}+60' with variables {'x': 15.095238095238095, 'y': 0.0, 'z': 10.0}: name 'n' is not defined; point 4 validation failed: Could not evaluate '\\\\frac{z}{\\\\infty}+60' with variables {'x': 15.142857142857142, 'y': 0.0, 'z': 10.0}: name 'n' is not defined; point 5 validation failed: Could not evaluate '\\\\frac{z}{\\\\infty}+60' with variables {'x': 15.19047619047619, 'y': 0.0, 'z': 10.0}: name 'n' is not defined; point 6 validation failed: Could not evaluate '\\\\frac{z}{\\\\infty}+60' with variables {'x': 15.238095238095237, 'y': 0.0, 'z': 10.0}: name 'n' is not defined; point 7 validation failed: Could not evaluate '\\\\frac{z}{\\\\infty}+60' with variables {'x': 15.285714285714286, 'y': 0.0, 'z': 10.0}: name 'n' is not defined; point 8 validation failed: Could not evaluate '\\\\frac{z}{\\\\infty}+60' with variables {'x': 15.333333333333334, 'y': 0.0, 'z': 10.0}: name 'n' is not defined; point 9 validation failed: Could not evaluate '\\\\frac{z}{\\\\infty}+60' with variables {'x': 15.380952380952381, 'y': 0.0, 'z': 10.0}: name 'n' is not defined; point 10 validation failed: Could not evaluate '\\\\frac{z}{\\\\infty}+60' with variables {'x': 15.428571428571429, 'y': 0.0, 'z': 10.0}: name 'n' is not defined; point 11 validation failed: Could not evaluate '\\\\frac{z}{\\\\infty}+60' with variables {'x': 15.476190476190476, 'y': 0.0, 'z': 10.0}: name 'n' is not defined; point 12 validation failed: Could not evaluate '\\\\frac{z}{\\\\infty}+60' with variables {'x': 15.523809523809524, 'y': 0.0, 'z': 10.0}: name 'n' is not defined; point 13 validation failed: Could not evaluate '\\\\frac{z}{\\\\infty}+60' with variables {'x': 15.571428571428571, 'y': 0.0, 'z': 10.0}: name 'n' is not defined; point 14 validation failed: Could not evaluate '\\\\frac{z}{\\\\infty}+60' with variables {'x': 15.619047619047619, 'y': 0.0, 'z': 10.0}: name 'n' is not defined; point 15 validation failed: Could not evaluate '\\\\frac{z}{\\\\infty}+60' with variables {'x': 15.666666666666666, 'y': 0.0, 'z': 10.0}: name 'n' is not defined; point 16 validation failed: Could not evaluate '\\\\frac{z}{\\\\infty}+60' with variables {'x': 15.714285714285714, 'y': 0.0, 'z': 10.0}: name 'n' is not defined; point 17 validation failed: Could not evaluate '\\\\frac{z}{\\\\infty}+60' with variables {'x': 15.761904761904763, 'y': 0.0, 'z': 10.0}: name 'n' is not defined; point 18 validation failed: Could not evaluate '\\\\frac{z}{\\\\infty}+60' with variables {'x': 15.80952380952381, 'y': 0.0, 'z': 10.0}: name 'n' is not defined; point 19 validation failed: Could not evaluate '\\\\frac{z}{\\\\infty}+60' with variables {'x': 15.857142857142858, 'y': 0.0, 'z': 10.0}: name 'n' is not defined"
     },
     {
       "expr_id": "119",
       "kind": "explicit_surface",
       "latex": "x=\\frac{z}{\\infty}+60\\ \\left\\{70>z>10\\right\\}\\left\\{15<y<18\\right\\}",
-      "reason": "Could not evaluate '\\\\frac{z}{\\\\infty}+60' with variables {'y': 15.0, 'z': 10.0}: name 'n' is not defined"
+      "reason": "point 0 validation failed: Could not evaluate '\\\\frac{z}{\\\\infty}+60' with variables {'x': 0.0, 'y': 15.0, 'z': 10.0}: name 'n' is not defined; point 1 validation failed: Could not evaluate '\\\\frac{z}{\\\\infty}+60' with variables {'x': 0.0, 'y': 15.00002, 'z': 10.0}: name 'n' is not defined; point 2 validation failed: Could not evaluate '\\\\frac{z}{\\\\infty}+60' with variables {'x': 0.0, 'y': 15.047619047619047, 'z': 10.0}: name 'n' is not defined; point 3 validation failed: Could not evaluate '\\\\frac{z}{\\\\infty}+60' with variables {'x': 0.0, 'y': 15.095238095238095, 'z': 10.0}: name 'n' is not defined; point 4 validation failed: Could not evaluate '\\\\frac{z}{\\\\infty}+60' with variables {'x': 0.0, 'y': 15.142857142857142, 'z': 10.0}: name 'n' is not defined; point 5 validation failed: Could not evaluate '\\\\frac{z}{\\\\infty}+60' with variables {'x': 0.0, 'y': 15.19047619047619, 'z': 10.0}: name 'n' is not defined; point 6 validation failed: Could not evaluate '\\\\frac{z}{\\\\infty}+60' with variables {'x': 0.0, 'y': 15.238095238095237, 'z': 10.0}: name 'n' is not defined; point 7 validation failed: Could not evaluate '\\\\frac{z}{\\\\infty}+60' with variables {'x': 0.0, 'y': 15.285714285714286, 'z': 10.0}: name 'n' is not defined; point 8 validation failed: Could not evaluate '\\\\frac{z}{\\\\infty}+60' with variables {'x': 0.0, 'y': 15.333333333333334, 'z': 10.0}: name 'n' is not defined; point 9 validation failed: Could not evaluate '\\\\frac{z}{\\\\infty}+60' with variables {'x': 0.0, 'y': 15.380952380952381, 'z': 10.0}: name 'n' is not defined; point 10 validation failed: Could not evaluate '\\\\frac{z}{\\\\infty}+60' with variables {'x': 0.0, 'y': 15.428571428571429, 'z': 10.0}: name 'n' is not defined; point 11 validation failed: Could not evaluate '\\\\frac{z}{\\\\infty}+60' with variables {'x': 0.0, 'y': 15.476190476190476, 'z': 10.0}: name 'n' is not defined; point 12 validation failed: Could not evaluate '\\\\frac{z}{\\\\infty}+60' with variables {'x': 0.0, 'y': 15.523809523809524, 'z': 10.0}: name 'n' is not defined; point 13 validation failed: Could not evaluate '\\\\frac{z}{\\\\infty}+60' with variables {'x': 0.0, 'y': 15.571428571428571, 'z': 10.0}: name 'n' is not defined; point 14 validation failed: Could not evaluate '\\\\frac{z}{\\\\infty}+60' with variables {'x': 0.0, 'y': 15.619047619047619, 'z': 10.0}: name 'n' is not defined; point 15 validation failed: Could not evaluate '\\\\frac{z}{\\\\infty}+60' with variables {'x': 0.0, 'y': 15.666666666666666, 'z': 10.0}: name 'n' is not defined; point 16 validation failed: Could not evaluate '\\\\frac{z}{\\\\infty}+60' with variables {'x': 0.0, 'y': 15.714285714285714, 'z': 10.0}: name 'n' is not defined; point 17 validation failed: Could not evaluate '\\\\frac{z}{\\\\infty}+60' with variables {'x': 0.0, 'y': 15.761904761904763, 'z': 10.0}: name 'n' is not defined; point 18 validation failed: Could not evaluate '\\\\frac{z}{\\\\infty}+60' with variables {'x': 0.0, 'y': 15.80952380952381, 'z': 10.0}: name 'n' is not defined; point 19 validation failed: Could not evaluate '\\\\frac{z}{\\\\infty}+60' with variables {'x': 0.0, 'y': 15.857142857142858, 'z': 10.0}: name 'n' is not defined"
     },
     {
       "expr_id": "121",
       "kind": "explicit_surface",
       "latex": "x=\\frac{z}{\\infty}+60\\ \\left\\{70>z>10\\right\\}\\left\\{-15>y>-18\\right\\}",
-      "reason": "Could not evaluate '\\\\frac{z}{\\\\infty}+60' with variables {'y': -18.0, 'z': 10.0}: name 'n' is not defined"
+      "reason": "point 0 validation failed: Could not evaluate '\\\\frac{z}{\\\\infty}+60' with variables {'x': 0.0, 'y': -18.0, 'z': 10.0}: name 'n' is not defined; point 1 validation failed: Could not evaluate '\\\\frac{z}{\\\\infty}+60' with variables {'x': 0.0, 'y': -17.99998, 'z': 10.0}: name 'n' is not defined; point 2 validation failed: Could not evaluate '\\\\frac{z}{\\\\infty}+60' with variables {'x': 0.0, 'y': -17.952380952380953, 'z': 10.0}: name 'n' is not defined; point 3 validation failed: Could not evaluate '\\\\frac{z}{\\\\infty}+60' with variables {'x': 0.0, 'y': -17.904761904761905, 'z': 10.0}: name 'n' is not defined; point 4 validation failed: Could not evaluate '\\\\frac{z}{\\\\infty}+60' with variables {'x': 0.0, 'y': -17.857142857142858, 'z': 10.0}: name 'n' is not defined; point 5 validation failed: Could not evaluate '\\\\frac{z}{\\\\infty}+60' with variables {'x': 0.0, 'y': -17.80952380952381, 'z': 10.0}: name 'n' is not defined; point 6 validation failed: Could not evaluate '\\\\frac{z}{\\\\infty}+60' with variables {'x': 0.0, 'y': -17.761904761904763, 'z': 10.0}: name 'n' is not defined; point 7 validation failed: Could not evaluate '\\\\frac{z}{\\\\infty}+60' with variables {'x': 0.0, 'y': -17.714285714285715, 'z': 10.0}: name 'n' is not defined; point 8 validation failed: Could not evaluate '\\\\frac{z}{\\\\infty}+60' with variables {'x': 0.0, 'y': -17.666666666666668, 'z': 10.0}: name 'n' is not defined; point 9 validation failed: Could not evaluate '\\\\frac{z}{\\\\infty}+60' with variables {'x': 0.0, 'y': -17.61904761904762, 'z': 10.0}: name 'n' is not defined; point 10 validation failed: Could not evaluate '\\\\frac{z}{\\\\infty}+60' with variables {'x': 0.0, 'y': -17.571428571428573, 'z': 10.0}: name 'n' is not defined; point 11 validation failed: Could not evaluate '\\\\frac{z}{\\\\infty}+60' with variables {'x': 0.0, 'y': -17.523809523809526, 'z': 10.0}: name 'n' is not defined; point 12 validation failed: Could not evaluate '\\\\frac{z}{\\\\infty}+60' with variables {'x': 0.0, 'y': -17.476190476190474, 'z': 10.0}: name 'n' is not defined; point 13 validation failed: Could not evaluate '\\\\frac{z}{\\\\infty}+60' with variables {'x': 0.0, 'y': -17.428571428571427, 'z': 10.0}: name 'n' is not defined; point 14 validation failed: Could not evaluate '\\\\frac{z}{\\\\infty}+60' with variables {'x': 0.0, 'y': -17.38095238095238, 'z': 10.0}: name 'n' is not defined; point 15 validation failed: Could not evaluate '\\\\frac{z}{\\\\infty}+60' with variables {'x': 0.0, 'y': -17.333333333333332, 'z': 10.0}: name 'n' is not defined; point 16 validation failed: Could not evaluate '\\\\frac{z}{\\\\infty}+60' with variables {'x': 0.0, 'y': -17.285714285714285, 'z': 10.0}: name 'n' is not defined; point 17 validation failed: Could not evaluate '\\\\frac{z}{\\\\infty}+60' with variables {'x': 0.0, 'y': -17.238095238095237, 'z': 10.0}: name 'n' is not defined; point 18 validation failed: Could not evaluate '\\\\frac{z}{\\\\infty}+60' with variables {'x': 0.0, 'y': -17.19047619047619, 'z': 10.0}: name 'n' is not defined; point 19 validation failed: Could not evaluate '\\\\frac{z}{\\\\infty}+60' with variables {'x': 0.0, 'y': -17.142857142857142, 'z': 10.0}: name 'n' is not defined"
     },
     {
       "expr_id": "123",
       "kind": "explicit_surface",
       "latex": "x=\\frac{z}{\\infty}-60\\ \\left\\{70>z>10\\right\\}\\left\\{-15>y>-18\\right\\}",
-      "reason": "Could not evaluate '\\\\frac{z}{\\\\infty}-60' with variables {'y': -18.0, 'z': 10.0}: name 'n' is not defined"
+      "reason": "point 0 validation failed: Could not evaluate '\\\\frac{z}{\\\\infty}-60' with variables {'x': 0.0, 'y': -18.0, 'z': 10.0}: name 'n' is not defined; point 1 validation failed: Could not evaluate '\\\\frac{z}{\\\\infty}-60' with variables {'x': 0.0, 'y': -17.99998, 'z': 10.0}: name 'n' is not defined; point 2 validation failed: Could not evaluate '\\\\frac{z}{\\\\infty}-60' with variables {'x': 0.0, 'y': -17.952380952380953, 'z': 10.0}: name 'n' is not defined; point 3 validation failed: Could not evaluate '\\\\frac{z}{\\\\infty}-60' with variables {'x': 0.0, 'y': -17.904761904761905, 'z': 10.0}: name 'n' is not defined; point 4 validation failed: Could not evaluate '\\\\frac{z}{\\\\infty}-60' with variables {'x': 0.0, 'y': -17.857142857142858, 'z': 10.0}: name 'n' is not defined; point 5 validation failed: Could not evaluate '\\\\frac{z}{\\\\infty}-60' with variables {'x': 0.0, 'y': -17.80952380952381, 'z': 10.0}: name 'n' is not defined; point 6 validation failed: Could not evaluate '\\\\frac{z}{\\\\infty}-60' with variables {'x': 0.0, 'y': -17.761904761904763, 'z': 10.0}: name 'n' is not defined; point 7 validation failed: Could not evaluate '\\\\frac{z}{\\\\infty}-60' with variables {'x': 0.0, 'y': -17.714285714285715, 'z': 10.0}: name 'n' is not defined; point 8 validation failed: Could not evaluate '\\\\frac{z}{\\\\infty}-60' with variables {'x': 0.0, 'y': -17.666666666666668, 'z': 10.0}: name 'n' is not defined; point 9 validation failed: Could not evaluate '\\\\frac{z}{\\\\infty}-60' with variables {'x': 0.0, 'y': -17.61904761904762, 'z': 10.0}: name 'n' is not defined; point 10 validation failed: Could not evaluate '\\\\frac{z}{\\\\infty}-60' with variables {'x': 0.0, 'y': -17.571428571428573, 'z': 10.0}: name 'n' is not defined; point 11 validation failed: Could not evaluate '\\\\frac{z}{\\\\infty}-60' with variables {'x': 0.0, 'y': -17.523809523809526, 'z': 10.0}: name 'n' is not defined; point 12 validation failed: Could not evaluate '\\\\frac{z}{\\\\infty}-60' with variables {'x': 0.0, 'y': -17.476190476190474, 'z': 10.0}: name 'n' is not defined; point 13 validation failed: Could not evaluate '\\\\frac{z}{\\\\infty}-60' with variables {'x': 0.0, 'y': -17.428571428571427, 'z': 10.0}: name 'n' is not defined; point 14 validation failed: Could not evaluate '\\\\frac{z}{\\\\infty}-60' with variables {'x': 0.0, 'y': -17.38095238095238, 'z': 10.0}: name 'n' is not defined; point 15 validation failed: Could not evaluate '\\\\frac{z}{\\\\infty}-60' with variables {'x': 0.0, 'y': -17.333333333333332, 'z': 10.0}: name 'n' is not defined; point 16 validation failed: Could not evaluate '\\\\frac{z}{\\\\infty}-60' with variables {'x': 0.0, 'y': -17.285714285714285, 'z': 10.0}: name 'n' is not defined; point 17 validation failed: Could not evaluate '\\\\frac{z}{\\\\infty}-60' with variables {'x': 0.0, 'y': -17.238095238095237, 'z': 10.0}: name 'n' is not defined; point 18 validation failed: Could not evaluate '\\\\frac{z}{\\\\infty}-60' with variables {'x': 0.0, 'y': -17.19047619047619, 'z': 10.0}: name 'n' is not defined; point 19 validation failed: Could not evaluate '\\\\frac{z}{\\\\infty}-60' with variables {'x': 0.0, 'y': -17.142857142857142, 'z': 10.0}: name 'n' is not defined"
     },
     {
       "expr_id": "125",
       "kind": "explicit_surface",
       "latex": "x=\\frac{z}{\\infty}-60\\ \\left\\{70>z>10\\right\\}\\left\\{15<y<18\\right\\}",
-      "reason": "Could not evaluate '\\\\frac{z}{\\\\infty}-60' with variables {'y': 15.0, 'z': 10.0}: name 'n' is not defined"
+      "reason": "point 0 validation failed: Could not evaluate '\\\\frac{z}{\\\\infty}-60' with variables {'x': 0.0, 'y': 15.0, 'z': 10.0}: name 'n' is not defined; point 1 validation failed: Could not evaluate '\\\\frac{z}{\\\\infty}-60' with variables {'x': 0.0, 'y': 15.00002, 'z': 10.0}: name 'n' is not defined; point 2 validation failed: Could not evaluate '\\\\frac{z}{\\\\infty}-60' with variables {'x': 0.0, 'y': 15.047619047619047, 'z': 10.0}: name 'n' is not defined; point 3 validation failed: Could not evaluate '\\\\frac{z}{\\\\infty}-60' with variables {'x': 0.0, 'y': 15.095238095238095, 'z': 10.0}: name 'n' is not defined; point 4 validation failed: Could not evaluate '\\\\frac{z}{\\\\infty}-60' with variables {'x': 0.0, 'y': 15.142857142857142, 'z': 10.0}: name 'n' is not defined; point 5 validation failed: Could not evaluate '\\\\frac{z}{\\\\infty}-60' with variables {'x': 0.0, 'y': 15.19047619047619, 'z': 10.0}: name 'n' is not defined; point 6 validation failed: Could not evaluate '\\\\frac{z}{\\\\infty}-60' with variables {'x': 0.0, 'y': 15.238095238095237, 'z': 10.0}: name 'n' is not defined; point 7 validation failed: Could not evaluate '\\\\frac{z}{\\\\infty}-60' with variables {'x': 0.0, 'y': 15.285714285714286, 'z': 10.0}: name 'n' is not defined; point 8 validation failed: Could not evaluate '\\\\frac{z}{\\\\infty}-60' with variables {'x': 0.0, 'y': 15.333333333333334, 'z': 10.0}: name 'n' is not defined; point 9 validation failed: Could not evaluate '\\\\frac{z}{\\\\infty}-60' with variables {'x': 0.0, 'y': 15.380952380952381, 'z': 10.0}: name 'n' is not defined; point 10 validation failed: Could not evaluate '\\\\frac{z}{\\\\infty}-60' with variables {'x': 0.0, 'y': 15.428571428571429, 'z': 10.0}: name 'n' is not defined; point 11 validation failed: Could not evaluate '\\\\frac{z}{\\\\infty}-60' with variables {'x': 0.0, 'y': 15.476190476190476, 'z': 10.0}: name 'n' is not defined; point 12 validation failed: Could not evaluate '\\\\frac{z}{\\\\infty}-60' with variables {'x': 0.0, 'y': 15.523809523809524, 'z': 10.0}: name 'n' is not defined; point 13 validation failed: Could not evaluate '\\\\frac{z}{\\\\infty}-60' with variables {'x': 0.0, 'y': 15.571428571428571, 'z': 10.0}: name 'n' is not defined; point 14 validation failed: Could not evaluate '\\\\frac{z}{\\\\infty}-60' with variables {'x': 0.0, 'y': 15.619047619047619, 'z': 10.0}: name 'n' is not defined; point 15 validation failed: Could not evaluate '\\\\frac{z}{\\\\infty}-60' with variables {'x': 0.0, 'y': 15.666666666666666, 'z': 10.0}: name 'n' is not defined; point 16 validation failed: Could not evaluate '\\\\frac{z}{\\\\infty}-60' with variables {'x': 0.0, 'y': 15.714285714285714, 'z': 10.0}: name 'n' is not defined; point 17 validation failed: Could not evaluate '\\\\frac{z}{\\\\infty}-60' with variables {'x': 0.0, 'y': 15.761904761904763, 'z': 10.0}: name 'n' is not defined; point 18 validation failed: Could not evaluate '\\\\frac{z}{\\\\infty}-60' with variables {'x': 0.0, 'y': 15.80952380952381, 'z': 10.0}: name 'n' is not defined; point 19 validation failed: Could not evaluate '\\\\frac{z}{\\\\infty}-60' with variables {'x': 0.0, 'y': 15.857142857142858, 'z': 10.0}: name 'n' is not defined"
     }
   ],
-  "unsupported_count": 36,
+  "unsupported_count": 15,
   "usda_exists": true,
   "usdz_exists": true,
   "usdz_output": "artifacts/fixture_usdz/[4B] 3D Diagram - S2-04 Group G.usdz",
@@ -532,6 +406,56 @@
     {
       "constraint_violation_count": 0,
       "errors": [],
+      "expr_id": "53",
+      "face_count": 288,
+      "kind": "implicit_surface",
+      "max_residual": null,
+      "point_count": 266,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "54",
+      "face_count": 288,
+      "kind": "implicit_surface",
+      "max_residual": null,
+      "point_count": 266,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "56",
+      "face_count": 288,
+      "kind": "implicit_surface",
+      "max_residual": null,
+      "point_count": 266,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "57",
+      "face_count": 288,
+      "kind": "implicit_surface",
+      "max_residual": null,
+      "point_count": 266,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "58",
+      "face_count": 288,
+      "kind": "implicit_surface",
+      "max_residual": null,
+      "point_count": 266,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
       "expr_id": "59",
       "face_count": 0,
       "kind": "implicit_surface",
@@ -577,6 +501,46 @@
       "kind": "implicit_surface",
       "max_residual": null,
       "point_count": 0,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "68",
+      "face_count": 288,
+      "kind": "implicit_surface",
+      "max_residual": null,
+      "point_count": 266,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "75",
+      "face_count": 288,
+      "kind": "implicit_surface",
+      "max_residual": null,
+      "point_count": 266,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "77",
+      "face_count": 288,
+      "kind": "implicit_surface",
+      "max_residual": null,
+      "point_count": 266,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "79",
+      "face_count": 288,
+      "kind": "implicit_surface",
+      "max_residual": null,
+      "point_count": 266,
       "valid": true
     },
     {
@@ -642,6 +606,266 @@
     {
       "constraint_violation_count": 0,
       "errors": [],
+      "expr_id": "137",
+      "face_count": 288,
+      "kind": "implicit_surface",
+      "max_residual": null,
+      "point_count": 266,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "138",
+      "face_count": 288,
+      "kind": "implicit_surface",
+      "max_residual": null,
+      "point_count": 266,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "139",
+      "face_count": 288,
+      "kind": "implicit_surface",
+      "max_residual": null,
+      "point_count": 266,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "140",
+      "face_count": 288,
+      "kind": "implicit_surface",
+      "max_residual": null,
+      "point_count": 266,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "141",
+      "face_count": 288,
+      "kind": "implicit_surface",
+      "max_residual": null,
+      "point_count": 266,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "142",
+      "face_count": 288,
+      "kind": "implicit_surface",
+      "max_residual": null,
+      "point_count": 266,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "143",
+      "face_count": 288,
+      "kind": "implicit_surface",
+      "max_residual": null,
+      "point_count": 266,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "144",
+      "face_count": 288,
+      "kind": "implicit_surface",
+      "max_residual": null,
+      "point_count": 266,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "145",
+      "face_count": 288,
+      "kind": "implicit_surface",
+      "max_residual": null,
+      "point_count": 266,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "146",
+      "face_count": 288,
+      "kind": "implicit_surface",
+      "max_residual": null,
+      "point_count": 266,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "147",
+      "face_count": 288,
+      "kind": "implicit_surface",
+      "max_residual": null,
+      "point_count": 266,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "148",
+      "face_count": 288,
+      "kind": "implicit_surface",
+      "max_residual": null,
+      "point_count": 266,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "149",
+      "face_count": 288,
+      "kind": "implicit_surface",
+      "max_residual": null,
+      "point_count": 266,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "164",
+      "face_count": 288,
+      "kind": "implicit_surface",
+      "max_residual": null,
+      "point_count": 266,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "165",
+      "face_count": 288,
+      "kind": "implicit_surface",
+      "max_residual": null,
+      "point_count": 266,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "166",
+      "face_count": 288,
+      "kind": "implicit_surface",
+      "max_residual": null,
+      "point_count": 266,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "167",
+      "face_count": 288,
+      "kind": "implicit_surface",
+      "max_residual": null,
+      "point_count": 266,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "168",
+      "face_count": 288,
+      "kind": "implicit_surface",
+      "max_residual": null,
+      "point_count": 266,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "169",
+      "face_count": 288,
+      "kind": "implicit_surface",
+      "max_residual": null,
+      "point_count": 266,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "170",
+      "face_count": 288,
+      "kind": "implicit_surface",
+      "max_residual": null,
+      "point_count": 266,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "171",
+      "face_count": 288,
+      "kind": "implicit_surface",
+      "max_residual": null,
+      "point_count": 266,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "172",
+      "face_count": 288,
+      "kind": "implicit_surface",
+      "max_residual": null,
+      "point_count": 266,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "173",
+      "face_count": 288,
+      "kind": "implicit_surface",
+      "max_residual": null,
+      "point_count": 266,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "174",
+      "face_count": 288,
+      "kind": "implicit_surface",
+      "max_residual": null,
+      "point_count": 266,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "175",
+      "face_count": 288,
+      "kind": "implicit_surface",
+      "max_residual": null,
+      "point_count": 266,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "176",
+      "face_count": 288,
+      "kind": "implicit_surface",
+      "max_residual": null,
+      "point_count": 266,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
       "expr_id": "177",
       "face_count": 1,
       "kind": "inequality_region",
@@ -677,6 +901,126 @@
       "kind": "implicit_surface",
       "max_residual": null,
       "point_count": 64,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "182",
+      "face_count": 288,
+      "kind": "implicit_surface",
+      "max_residual": null,
+      "point_count": 266,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "183",
+      "face_count": 288,
+      "kind": "implicit_surface",
+      "max_residual": null,
+      "point_count": 266,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "184",
+      "face_count": 288,
+      "kind": "implicit_surface",
+      "max_residual": null,
+      "point_count": 266,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "185",
+      "face_count": 288,
+      "kind": "implicit_surface",
+      "max_residual": null,
+      "point_count": 266,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "186",
+      "face_count": 288,
+      "kind": "implicit_surface",
+      "max_residual": null,
+      "point_count": 266,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "187",
+      "face_count": 288,
+      "kind": "implicit_surface",
+      "max_residual": null,
+      "point_count": 266,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "188",
+      "face_count": 288,
+      "kind": "implicit_surface",
+      "max_residual": null,
+      "point_count": 266,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "189",
+      "face_count": 288,
+      "kind": "implicit_surface",
+      "max_residual": null,
+      "point_count": 266,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "190",
+      "face_count": 288,
+      "kind": "implicit_surface",
+      "max_residual": null,
+      "point_count": 266,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "191",
+      "face_count": 288,
+      "kind": "implicit_surface",
+      "max_residual": null,
+      "point_count": 266,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "192",
+      "face_count": 288,
+      "kind": "implicit_surface",
+      "max_residual": null,
+      "point_count": 266,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "193",
+      "face_count": 288,
+      "kind": "implicit_surface",
+      "max_residual": null,
+      "point_count": 266,
       "valid": true
     },
     {
