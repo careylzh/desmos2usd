@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import ast
+from dataclasses import replace
 from math import isfinite, sqrt
 
 from desmos2usd.eval.context import EvalContext
@@ -18,6 +19,7 @@ QUAD_BOUNDARY_REFINE_ITERATIONS = 8
 HALF_OPEN_TOL = 1e-5
 BOUNDARY_NUDGE = 2e-5
 DEGENERATE_AXIS_HALF_WIDTH = 5e-4
+STEEP_EXPLICIT_SURFACE_SLOPE = 1e8
 
 
 def tessellate_explicit_surface(
@@ -29,6 +31,11 @@ def tessellate_explicit_surface(
     if not item.axis or not item.expression:
         raise ValueError("explicit surface missing axis or expression")
     domain_axes = [axis for axis in ("x", "y", "z") if axis != item.axis]
+    reoriented = reorient_steep_explicit_surface(item, context, domain_axes)
+    if reoriented is not None:
+        geometry = tessellate_explicit_surface(reoriented, context, resolution=resolution)
+        if geometry.face_count:
+            return geometry
     surface_bounds = explicit_surface_domain_bounds(item, context)
     flat_axis = _explicit_flat_axis(item, domain_axes, collect_constant_bounds(item.predicates, context))
     a0, a1 = surface_bounds[domain_axes[0]]
@@ -86,6 +93,35 @@ def tessellate_explicit_surface(
     if counts and _solved_axis_entirely_outside_viewport(item, points, indices):
         return GeometryData(kind="Mesh", points=[], face_vertex_counts=[], face_vertex_indices=[])
     return GeometryData(kind="Mesh", points=points, face_vertex_counts=counts, face_vertex_indices=indices)
+
+
+def reorient_steep_explicit_surface(
+    item: ClassifiedExpression,
+    context: EvalContext,
+    domain_axes: list[str],
+) -> ClassifiedExpression | None:
+    """Solve near-vertical affine explicit surfaces for the better sampling axis.
+
+    A generated surface like ``y=m*x+b`` with ``abs(m)`` in the trillions is really a
+    near-vertical sheet. Sampling x as a domain axis can miss all predicate-valid
+    points because the allowed x interval is sub-float-grid wide. Re-solving it as
+    ``x=(y-b)/m`` lets the existing explicit-surface sampler use the wide y domain
+    while preserving the same predicates and original metadata.
+    """
+    if not item.axis or not item.expression:
+        return None
+    graph_domain_axes = [axis for axis in domain_axes if axis in item.expression.identifiers]
+    if len(graph_domain_axes) != 1:
+        return None
+    reoriented_axis = graph_domain_axes[0]
+    fit = affine_fit_for_axis(item.expression, context, reoriented_axis)
+    if fit is None:
+        return None
+    slope, intercept = fit
+    if not isfinite(slope) or not isfinite(intercept) or abs(slope) <= STEEP_EXPLICIT_SURFACE_SLOPE:
+        return None
+    expression = LatexExpression.parse(f"({item.axis}-({intercept:.17g}))/({slope:.17g})")
+    return replace(item, axis=reoriented_axis, expression=expression)
 
 
 def _surface_predicates_constrain_solved_axis(item: ClassifiedExpression) -> bool:

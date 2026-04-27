@@ -822,6 +822,34 @@ class StudentFixtureRegressionTests(unittest.TestCase):
         geometry = tessellate(item, EvalContext(), resolution=12)
         self.assertGreater(geometry.face_count, 0)
 
+    def test_near_vertical_explicit_surface_reorients_sampling_axis(self) -> None:
+        """Very steep affine explicit surfaces should be sampled along their wide axis."""
+        source = SourceInfo("", "", "", "", viewport_bounds={"x": (-1.0, 1.0), "y": (-400.0, 400.0), "z": (0.0, 1.0)})
+        context = EvalContext()
+        item = classify_expression(
+            ExpressionIR(
+                source,
+                "1",
+                0,
+                r"y=1000000000000x\left\{60000<y^{2}<100000\right\}\left\{0<z<1\right\}",
+            ),
+            context,
+        )
+
+        geometry = tessellate(item, context, resolution=8)
+
+        self.assertEqual(item.kind, "explicit_surface")
+        self.assertGreater(geometry.face_count, 0)
+        used = sorted(set(geometry.face_vertex_indices))
+        self.assertLess(max(abs(geometry.points[index][0]) for index in used), 1e-8)
+        self.assertTrue(any(geometry.points[index][1] > 0 for index in used))
+        self.assertTrue(any(geometry.points[index][1] < 0 for index in used))
+        for index in used:
+            point = geometry.points[index]
+            variables = {"x": point[0], "y": point[1], "z": point[2]}
+            self.assertAlmostEqual(point[1], 1000000000000 * point[0], places=4)
+            self.assertTrue(all(predicate.evaluate(context, variables, tol=1e-4) for predicate in item.predicates))
+
     def test_parabolic_inequality_band_skips_circular_fast_path(self) -> None:
         """S2-05 Group E: parabolic slab bands are not circular profiles. The circular
         fast path should decline them instead of dividing by a zero quadratic axis.

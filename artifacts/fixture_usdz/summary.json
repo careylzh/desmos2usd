@@ -41551,24 +41551,12 @@
       "fixture_path": "fixtures/states/[4B] 3D Diagram - S2-06 Group E.json",
       "graph_hash": null,
       "output": "artifacts/fixture_usdz/[4B] 3D Diagram - S2-06 Group E.usda",
-      "prim_count": 727,
+      "prim_count": 729,
       "renderable_expression_count": 736,
       "resolution": 8,
       "status": "partial",
       "title": "Desmos graph",
       "unsupported": [
-        {
-          "expr_id": "209_18",
-          "kind": "explicit_surface",
-          "latex": "y=\\frac{b_{6}\\sin(1.5707963267948966)-b_{5}\\sin(1.5707963267948966)}{a_{6}\\cos(1.5707963267948966)-a_{5}\\cos(1.5707963267948966)}(x-a_{5}\\cos(1.5707963267948966))+b_{5}\\sin(1.5707963267948966)\\left\\{-60000(\\frac{x^{2}}{120000}-1)<y^{2}<-100000(\\frac{x^{2}}{200000}-1)\\right\\}\\left\\{180<z<185\\right\\}",
-          "reason": "point 0 violates predicate '-60000(\\\\frac{x^{2}}{120000}-1)<y^{2}<-100000(\\\\frac{x^{2}}{200000}-1)'; point 1 violates predicate '-60000(\\\\frac{x^{2}}{120000}-1)<y^{2}<-100000(\\\\frac{x^{2}}{200000}-1)'; point 2 violates predicate '-60000(\\\\frac{x^{2}}{120000}-1)<y^{2}<-100000(\\\\frac{x^{2}}{200000}-1)'; point 3 violates predicate '-60000(\\\\frac{x^{2}}{120000}-1)<y^{2}<-100000(\\\\frac{x^{2}}{200000}-1)'; point 4 violates predicate '-60000(\\\\frac{x^{2}}{120000}-1)<y^{2}<-100000(\\\\frac{x^{2}}{200000}-1)'; point 5 violates predicate '-60000(\\\\frac{x^{2}}{120000}-1)<y^{2}<-100000(\\\\frac{x^{2}}{200000}-1)'; point 6 violates predicate '-60000(\\\\frac{x^{2}}{120000}-1)<y^{2}<-100000(\\\\frac{x^{2}}{200000}-1)'; point 7 violates predicate '-60000(\\\\frac{x^{2}}{120000}-1)<y^{2}<-100000(\\\\frac{x^{2}}{200000}-1)'; point 8 violates predicate '-60000(\\\\frac{x^{2}}{120000}-1)<y^{2}<-100000(\\\\frac{x^{2}}{200000}-1)'; point 9 violates predicate '-60000(\\\\frac{x^{2}}{120000}-1)<y^{2}<-100000(\\\\frac{x^{2}}{200000}-1)'; point 10 violates predicate '-60000(\\\\frac{x^{2}}{120000}-1)<y^{2}<-100000(\\\\frac{x^{2}}{200000}-1)'; point 11 violates predicate '-60000(\\\\frac{x^{2}}{120000}-1)<y^{2}<-100000(\\\\frac{x^{2}}{200000}-1)'; point 12 violates predicate '-60000(\\\\frac{x^{2}}{120000}-1)<y^{2}<-100000(\\\\frac{x^{2}}{200000}-1)'; point 13 violates predicate '-60000(\\\\frac{x^{2}}{120000}-1)<y^{2}<-100000(\\\\frac{x^{2}}{200000}-1)'; point 14 violates predicate '-60000(\\\\frac{x^{2}}{120000}-1)<y^{2}<-100000(\\\\frac{x^{2}}{200000}-1)'; point 15 violates predicate '-60000(\\\\frac{x^{2}}{120000}-1)<y^{2}<-100000(\\\\frac{x^{2}}{200000}-1)'; point 16 violates predicate '-60000(\\\\frac{x^{2}}{120000}-1)<y^{2}<-100000(\\\\frac{x^{2}}{200000}-1)'; point 17 violates predicate '-60000(\\\\frac{x^{2}}{120000}-1)<y^{2}<-100000(\\\\frac{x^{2}}{200000}-1)'; point 18 violates predicate '-60000(\\\\frac{x^{2}}{120000}-1)<y^{2}<-100000(\\\\frac{x^{2}}{200000}-1)'; point 19 violates predicate '-60000(\\\\frac{x^{2}}{120000}-1)<y^{2}<-100000(\\\\frac{x^{2}}{200000}-1)'"
-        },
-        {
-          "expr_id": "209_54",
-          "kind": "explicit_surface",
-          "latex": "y=\\frac{b_{6}\\sin(4.71238898038469)-b_{5}\\sin(4.71238898038469)}{a_{6}\\cos(4.71238898038469)-a_{5}\\cos(4.71238898038469)}(x-a_{5}\\cos(4.71238898038469))+b_{5}\\sin(4.71238898038469)\\left\\{-60000(\\frac{x^{2}}{120000}-1)<y^{2}<-100000(\\frac{x^{2}}{200000}-1)\\right\\}\\left\\{180<z<185\\right\\}",
-          "reason": "point 0 violates predicate '-60000(\\\\frac{x^{2}}{120000}-1)<y^{2}<-100000(\\\\frac{x^{2}}{200000}-1)'; point 1 violates predicate '-60000(\\\\frac{x^{2}}{120000}-1)<y^{2}<-100000(\\\\frac{x^{2}}{200000}-1)'; point 2 violates predicate '-60000(\\\\frac{x^{2}}{120000}-1)<y^{2}<-100000(\\\\frac{x^{2}}{200000}-1)'; point 3 violates predicate '-60000(\\\\frac{x^{2}}{120000}-1)<y^{2}<-100000(\\\\frac{x^{2}}{200000}-1)'; point 4 violates predicate '-60000(\\\\frac{x^{2}}{120000}-1)<y^{2}<-100000(\\\\frac{x^{2}}{200000}-1)'; point 5 violates predicate '-60000(\\\\frac{x^{2}}{120000}-1)<y^{2}<-100000(\\\\frac{x^{2}}{200000}-1)'; point 6 violates predicate '-60000(\\\\frac{x^{2}}{120000}-1)<y^{2}<-100000(\\\\frac{x^{2}}{200000}-1)'; point 7 violates predicate '-60000(\\\\frac{x^{2}}{120000}-1)<y^{2}<-100000(\\\\frac{x^{2}}{200000}-1)'; point 8 violates predicate '-60000(\\\\frac{x^{2}}{120000}-1)<y^{2}<-100000(\\\\frac{x^{2}}{200000}-1)'; point 9 violates predicate '-60000(\\\\frac{x^{2}}{120000}-1)<y^{2}<-100000(\\\\frac{x^{2}}{200000}-1)'; point 10 violates predicate '-60000(\\\\frac{x^{2}}{120000}-1)<y^{2}<-100000(\\\\frac{x^{2}}{200000}-1)'; point 11 violates predicate '-60000(\\\\frac{x^{2}}{120000}-1)<y^{2}<-100000(\\\\frac{x^{2}}{200000}-1)'; point 12 violates predicate '-60000(\\\\frac{x^{2}}{120000}-1)<y^{2}<-100000(\\\\frac{x^{2}}{200000}-1)'; point 13 violates predicate '-60000(\\\\frac{x^{2}}{120000}-1)<y^{2}<-100000(\\\\frac{x^{2}}{200000}-1)'; point 14 violates predicate '-60000(\\\\frac{x^{2}}{120000}-1)<y^{2}<-100000(\\\\frac{x^{2}}{200000}-1)'; point 15 violates predicate '-60000(\\\\frac{x^{2}}{120000}-1)<y^{2}<-100000(\\\\frac{x^{2}}{200000}-1)'; point 16 violates predicate '-60000(\\\\frac{x^{2}}{120000}-1)<y^{2}<-100000(\\\\frac{x^{2}}{200000}-1)'; point 17 violates predicate '-60000(\\\\frac{x^{2}}{120000}-1)<y^{2}<-100000(\\\\frac{x^{2}}{200000}-1)'; point 18 violates predicate '-60000(\\\\frac{x^{2}}{120000}-1)<y^{2}<-100000(\\\\frac{x^{2}}{200000}-1)'; point 19 violates predicate '-60000(\\\\frac{x^{2}}{120000}-1)<y^{2}<-100000(\\\\frac{x^{2}}{200000}-1)'"
-        },
         {
           "expr_id": "214",
           "kind": "inequality_region",
@@ -41612,7 +41600,7 @@
           "reason": "Could not evaluate 'e^{-\\\\frac{(x-\\\\operatorname{random}(10000)\\\\cdot1000+500)^{2}+(y-\\\\operatorname{random}(10000)\\\\cdot600+300)^{2}}{1.1}}' with variables {'x': -250000.0, 'y': -250000.0, 'z': 0.0}: name 'r' is not defined"
         }
       ],
-      "unsupported_count": 9,
+      "unsupported_count": 7,
       "usda_exists": true,
       "usdz_exists": true,
       "usdz_output": "artifacts/fixture_usdz/[4B] 3D Diagram - S2-06 Group E.usdz",
@@ -48385,6 +48373,16 @@
         {
           "constraint_violation_count": 0,
           "errors": [],
+          "expr_id": "209_18",
+          "face_count": 54,
+          "kind": "explicit_surface",
+          "max_residual": 1.1368683772161603e-13,
+          "point_count": 140,
+          "valid": true
+        },
+        {
+          "constraint_violation_count": 0,
+          "errors": [],
           "expr_id": "209_19",
           "face_count": 54,
           "kind": "explicit_surface",
@@ -48729,6 +48727,16 @@
           "face_count": 54,
           "kind": "explicit_surface",
           "max_residual": 0.0,
+          "point_count": 140,
+          "valid": true
+        },
+        {
+          "constraint_violation_count": 0,
+          "errors": [],
+          "expr_id": "209_54",
+          "face_count": 54,
+          "kind": "explicit_surface",
+          "max_residual": 1.1368683772161603e-13,
           "point_count": 140,
           "valid": true
         },
@@ -64358,7 +64366,7 @@
         ],
         "cwd": null,
         "returncode": 0,
-        "stderr": "Coding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'BasisCurves' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'BasisCurves' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'BasisCurves' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'BasisCurves' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'BasisCurves' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'BasisCurves' type and apischemas.\n",
+        "stderr": "",
         "stdout": "\nValidation Result with no explicit variants set\nSuccess!\n",
         "tool": "usdchecker"
       },

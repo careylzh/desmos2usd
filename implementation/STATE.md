@@ -1,6 +1,6 @@
 # Implementation State
 
-Last updated: 2026-04-27 10:07 SGT
+Last updated: 2026-04-27 10:37 SGT
 
 ## Loop Mode
 - cadence: every 10 minutes via OpenClaw cron
@@ -29,7 +29,7 @@ Last updated: 2026-04-27 10:07 SGT
 - id: one-desmos-input-at-a-time
 - title: Fix one remaining partial Desmos input per bounded tranche using live Desmos screenshots and viewer screenshots
 - current-priority:
-  1. Continue S2-06 Group E remaining y-squared bridge surfaces / random Gaussian regions — https://www.desmos.com/3d/cg2sd6h1ws — now 9 unsupported, 727 prims, 736 classified
+  1. Continue S2-06 Group E remaining random Gaussian regions — https://www.desmos.com/3d/cg2sd6h1ws — now 7 unsupported, 729 prims, 736 classified
   2. Continue S2-03 Group E remaining top implicit sphere caps — https://www.desmos.com/3d/sqkhp7wnx6 — now 4 unsupported, 460 prims, 464 classified
   3. Continue S2-07 Group F remaining sampled inequality — https://www.desmos.com/3d/jkj1z8t8pf — now 1 unsupported, 887 prims, 888 classified
   4. Revisit S2-10 Group F only for live visual parity evidence when browser capture is available — https://www.desmos.com/3d/tejhfrm34m — structurally success, 167 prims, 0 unsupported
@@ -52,8 +52,9 @@ Last updated: 2026-04-27 10:07 SGT
 7. [ ] Advance to the next input only after the current one is either defensibly fixed or explicitly blocked.
 
 ## Current Baseline
-- HEAD before current tranche: b08c9e0 Handle leading-dot implicit multipliers
+- HEAD before current tranche: 3ea9f2d Record S2-06E annular slab harvest
 - summary: 71 fixtures; 27 success, 44 partial, 0 error
+- S2-06 Group E current tranche: steep explicit-surface reorientation improved 9 unsupported -> 7 unsupported, 727 prims -> 729 prims, classified remains 736; live browser/viewer capture blocked, so visual claim is structural/local projection only
 - S2-06 Group E current tranche: annular quadratic slab extrusion improved 13 unsupported -> 9 unsupported, 723 prims -> 727 prims, classified remains 736; live browser/viewer capture blocked, so visual claim is structural/local projection only
 - S2-07 Group F current tranche: leading-dot decimal implicit multiplication pass improved 14 unsupported -> 1 unsupported, 874 prims -> 887 prims, 875 classified -> 888 classified; live browser/viewer capture blocked, so visual claim is structural/local projection only
 - S2-03 Group E current tranche: fresh pre-edit export was 12 unsupported / 452 prims; adaptive sampled inequality retry improved it to 4 unsupported / 460 prims, classified remains 464; live browser/viewer capture blocked, so visual claim is structural/local projection only
@@ -80,5 +81,5 @@ Last updated: 2026-04-27 10:07 SGT
 - Do not overlap Codex/ccwork runs.
 
 ## Last Wake
-- timestamp: 2026-04-27 10:13 SGT
-- result: harvested dirty S2-06E annular quadratic slab tranche from HOME Codex run `20260427-091613-16078`, validated in the main environment, committed, and pushed as `2a1c047 Improve S2-06E annular slab export`. Implemented a general analytic extrusion path for chained axis-aligned quadratic annuli such as `98000 < x^2/2 + y^2 < 100000 {35 < z < 40}`; S2-06E improved from `723 prims / 736 classified / 13 unsupported` to `727 prims / 736 classified / 9 unsupported`. S2-08E and S2-09F remain success guards. Browser/live viewer capture remains blocked (`user cancelled MCP tool call`, tailnet DNS unresolved), so no live Desmos parity claim. No new implementation pass launched in this wake.
+- timestamp: 2026-04-27 10:37 SGT
+- result: HOME Codex completed one bounded S2-06E steep bridge tranche but could not stage/commit because `.git/index.lock` creation failed with `Operation not permitted`. Implemented general reorientation for very steep affine explicit surfaces, improving S2-06E from `727 prims / 736 classified / 9 unsupported` to `729 prims / 736 classified / 7 unsupported`; removed unsupported ids `209_18`, `209_54`. S2-08E and S2-09F remain success guards. Full unittest discovery passed. Browser/live viewer capture remains blocked (`user cancelled MCP tool call`, local server bind permission denied, tailnet DNS unresolved), so no live Desmos parity claim. Worktree is ready for orchestrator/next wake to stage with forced-add evidence, commit, and push.

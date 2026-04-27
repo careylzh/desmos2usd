@@ -1,0 +1,19 @@
+{
+  "classified_expression_count": 736,
+  "complete": false,
+  "fixture": "[4B] 3D Diagram - S2-06 Group E.json",
+  "prim_count": 729,
+  "renderable_expression_count": 736,
+  "status": "partial",
+  "unsupported": [
+    "214",
+    "217",
+    "218",
+    "222",
+    "230",
+    "248",
+    "246"
+  ],
+  "unsupported_count": 7,
+  "valid": true
+}
