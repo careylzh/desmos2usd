@@ -80,5 +80,5 @@ Last updated: 2026-04-27 10:07 SGT
 - Do not overlap Codex/ccwork runs.
 
 ## Last Wake
-- timestamp: 2026-04-27 10:07 SGT
-- result: HOME Codex completed one S2-06E annular quadratic slab tranche. Implemented a general analytic extrusion path for chained axis-aligned quadratic annuli such as `98000 < x^2/2 + y^2 < 100000 {35 < z < 40}`; S2-06E improved from `723 prims / 736 classified / 13 unsupported` to `727 prims / 736 classified / 9 unsupported`. S2-08E and S2-09F remain success guards. Browser/live viewer capture remains blocked (`user cancelled MCP tool call`, tailnet DNS unresolved), so no live Desmos parity claim. Commit/push blocked because `git add` cannot create `.git/index.lock` (`Operation not permitted`); worktree is ready for main-environment staging.
+- timestamp: 2026-04-27 10:13 SGT
+- result: harvested dirty S2-06E annular quadratic slab tranche from HOME Codex run `20260427-091613-16078`, validated in the main environment, committed, and pushed as `2a1c047 Improve S2-06E annular slab export`. Implemented a general analytic extrusion path for chained axis-aligned quadratic annuli such as `98000 < x^2/2 + y^2 < 100000 {35 < z < 40}`; S2-06E improved from `723 prims / 736 classified / 13 unsupported` to `727 prims / 736 classified / 9 unsupported`. S2-08E and S2-09F remain success guards. Browser/live viewer capture remains blocked (`user cancelled MCP tool call`, tailnet DNS unresolved), so no live Desmos parity claim. No new implementation pass launched in this wake.
