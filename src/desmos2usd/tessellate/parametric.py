@@ -20,6 +20,20 @@ def tessellate_parametric_curve(item: ClassifiedExpression, context: EvalContext
     return GeometryData(kind="BasisCurves", points=points, curve_vertex_counts=[len(points)], sample_parameters=params)
 
 
+def tessellate_point_list_curve(item: ClassifiedExpression, context: EvalContext) -> GeometryData:
+    if not item.point_list:
+        raise ValueError("point list curve missing points")
+    points = [vector.eval(context, {}) for vector in item.point_list]
+    if len(points) < 2:
+        raise ValueError("point list curve requires at least two points")
+    return GeometryData(
+        kind="BasisCurves",
+        points=points,
+        curve_vertex_counts=[len(points)],
+        sample_parameters=[{} for _ in points],
+    )
+
+
 def tessellate_parametric_surface(item: ClassifiedExpression, context: EvalContext, resolution: int = 18) -> GeometryData:
     if not item.vector:
         raise ValueError("parametric surface missing vector")

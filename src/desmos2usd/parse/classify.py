@@ -49,6 +49,7 @@ class ClassifiedExpression:
     expression: LatexExpression | None = None
     inequality: ComparisonPredicate | None = None
     vector: VectorExpression | None = None
+    point_list: tuple[VectorExpression, ...] | None = None
     triangle_mesh: TriangleMeshExpression | None = None
     parameter: str = "t"
     t_bounds: tuple[float, float] = (0.0, 1.0)
@@ -423,6 +424,15 @@ def classify_expression(expr: ExpressionIR, context: EvalContext) -> ClassifiedE
     if looks_like_sphere(main):
         expression = parse_sphere_surface(main, context)
         return ClassifiedExpression(ir=expr, kind="implicit_surface", predicates=predicates, expression=expression)
+
+    point_list = parse_renderable_vector_list_expression(main, context)
+    if point_list is not None:
+        return ClassifiedExpression(
+            ir=expr,
+            kind="point_list_curve",
+            predicates=predicates,
+            point_list=point_list,
+        )
 
     vector = parse_renderable_vector_expression(main, context)
     if vector is not None:
@@ -1367,6 +1377,23 @@ def parse_renderable_vector_expression(text: str, context: EvalContext) -> Vecto
         if looks_like_vector(text):
             raise
         return None
+
+
+def parse_renderable_vector_list_expression(text: str, context: EvalContext) -> tuple[VectorExpression, ...] | None:
+    if not looks_like_vector_list(text):
+        return None
+    vectors = tuple(parse_vector_list(text, context))
+    if len(vectors) < 2:
+        raise ValueError("Vector list renderable requires at least two points")
+    identifiers = {
+        identifier
+        for vector in vectors
+        for component in vector.components
+        for identifier in component.identifiers
+    }
+    if identifiers & GRAPH_VARIABLES:
+        raise ValueError("Vector list renderable entries must be static 3D points")
+    return vectors
 
 
 def references_known_vector(text: str, context: EvalContext) -> bool:

@@ -388,6 +388,20 @@ class StudentFixtureRegressionTests(unittest.TestCase):
         self.assertEqual(geometry.points[0], (0.0, 0.0, 2.0))
         self.assertEqual(geometry.points[-1], (10.0, 0.0, 4.0))
 
+    def test_point_defined_vector_list_exports_curve(self) -> None:
+        context = EvalContext()
+        self.assertTrue(register_definition(expr("1", r"A=\left(0,0,2\right)", hidden=True), context))
+        self.assertTrue(register_definition(expr("2", r"B=\left(10,0,4\right)", hidden=True), context))
+        item = classify_expression(expr("3", r"\left[A,B\right]"), context)
+
+        geometry = tessellate(item, context, resolution=4)
+
+        self.assertEqual(item.kind, "point_list_curve")
+        self.assertEqual(geometry.kind, "BasisCurves")
+        self.assertEqual(geometry.curve_vertex_counts, [2])
+        self.assertEqual(geometry.points[0], (0.0, 0.0, 2.0))
+        self.assertEqual(geometry.points[-1], (10.0, 0.0, 4.0))
+
     def test_s201_group_b_point_defined_edge_curves_no_longer_unsupported(self) -> None:
         fixture = (
             Path(__file__).resolve().parents[1]
@@ -415,6 +429,7 @@ class StudentFixtureRegressionTests(unittest.TestCase):
             "56",
             "57",
         }
+        point_list_ids = {"12", "15", "18", "24", "31", "36", "39", "48", "49"}
 
         classification, classification_unsupported = classify_graph_tolerant(graph)
         with tempfile.TemporaryDirectory() as tmp:
@@ -428,6 +443,8 @@ class StudentFixtureRegressionTests(unittest.TestCase):
         unsupported_ids = {item.expr_id for item in [*classification_unsupported, *export_unsupported]}
         prim_ids = {prim.item.ir.expr_id for prim in prims}
         self.assertTrue(edge_ids.issubset(prim_ids))
+        self.assertTrue(point_list_ids.issubset(prim_ids))
+        self.assertTrue(point_list_ids.isdisjoint(unsupported_ids))
         self.assertTrue(edge_ids.isdisjoint(unsupported_ids))
         self.assertGreaterEqual(len(prims), 133)
 

@@ -1,0 +1,32 @@
+[
+  {
+    "classified_expression_count": 143,
+    "fixture": "[4B] 3D Diagram - S2-01 Group B.json",
+    "prim_count": 142,
+    "renderable_expression_count": 143,
+    "status": "partial",
+    "unsupported_count": 1,
+    "usdchecker_returncode": 0,
+    "valid": true
+  },
+  {
+    "classified_expression_count": 87,
+    "fixture": "[4B] 3D Diagram - S2-08 Group E.json",
+    "prim_count": 87,
+    "renderable_expression_count": 87,
+    "status": "success",
+    "unsupported_count": 0,
+    "usdchecker_returncode": 0,
+    "valid": true
+  },
+  {
+    "classified_expression_count": 27,
+    "fixture": "[4B] 3D Diagram - S2-09 Group F.json",
+    "prim_count": 27,
+    "renderable_expression_count": 27,
+    "status": "success",
+    "unsupported_count": 0,
+    "usdchecker_returncode": 0,
+    "valid": true
+  }
+]

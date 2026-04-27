@@ -1,71 +1,17 @@
 {
   "acceptance_success": false,
-  "classified_expression_count": 134,
+  "classified_expression_count": 143,
   "complete": false,
   "fixture": "[4B] 3D Diagram - S2-01 Group B.json",
   "fixture_path": "fixtures/states/[4B] 3D Diagram - S2-01 Group B.json",
   "graph_hash": null,
   "output": "artifacts/fixture_usdz/[4B] 3D Diagram - S2-01 Group B.usda",
-  "prim_count": 133,
+  "prim_count": 142,
   "renderable_expression_count": 143,
   "resolution": 12,
   "status": "partial",
   "title": "Desmos graph",
   "unsupported": [
-    {
-      "expr_id": "12",
-      "kind": "classification",
-      "latex": "\\left[A,B\\right]",
-      "reason": "not a supported renderable geometry form"
-    },
-    {
-      "expr_id": "15",
-      "kind": "classification",
-      "latex": "\\left[A,C\\right]",
-      "reason": "not a supported renderable geometry form"
-    },
-    {
-      "expr_id": "18",
-      "kind": "classification",
-      "latex": "\\left[A,E\\right]",
-      "reason": "not a supported renderable geometry form"
-    },
-    {
-      "expr_id": "24",
-      "kind": "classification",
-      "latex": "\\left[A,D\\right]",
-      "reason": "not a supported renderable geometry form"
-    },
-    {
-      "expr_id": "31",
-      "kind": "classification",
-      "latex": "\\left[A,F\\right]",
-      "reason": "not a supported renderable geometry form"
-    },
-    {
-      "expr_id": "36",
-      "kind": "classification",
-      "latex": "\\left[A,G\\right]",
-      "reason": "not a supported renderable geometry form"
-    },
-    {
-      "expr_id": "39",
-      "kind": "classification",
-      "latex": "\\left[A,H\\right]",
-      "reason": "not a supported renderable geometry form"
-    },
-    {
-      "expr_id": "48",
-      "kind": "classification",
-      "latex": "\\left[A,I\\right]",
-      "reason": "not a supported renderable geometry form"
-    },
-    {
-      "expr_id": "49",
-      "kind": "classification",
-      "latex": "\\left[A,J\\right]",
-      "reason": "not a supported renderable geometry form"
-    },
     {
       "expr_id": "74",
       "kind": "inequality_region",
@@ -73,7 +19,7 @@
       "reason": "Inequality region for 74 did not resolve to sampled cells"
     }
   ],
-  "unsupported_count": 10,
+  "unsupported_count": 1,
   "usda_exists": true,
   "usdz_exists": true,
   "usdz_output": "artifacts/fixture_usdz/[4B] 3D Diagram - S2-01 Group B.usdz",
@@ -97,7 +43,7 @@
     ],
     "cwd": null,
     "returncode": 0,
-    "stderr": "",
+    "stderr": "Coding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'BasisCurves' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'BasisCurves' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'BasisCurves' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'BasisCurves' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'BasisCurves' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'BasisCurves' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'BasisCurves' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\n",
     "stdout": "\nValidation Result with no explicit variants set\nSuccess!\n",
     "tool": "usdchecker"
   },
@@ -116,11 +62,31 @@
     {
       "constraint_violation_count": 0,
       "errors": [],
+      "expr_id": "12",
+      "face_count": 0,
+      "kind": "point_list_curve",
+      "max_residual": null,
+      "point_count": 2,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
       "expr_id": "13",
       "face_count": 0,
       "kind": "parametric_curve",
       "max_residual": 0.0,
       "point_count": 24,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "15",
+      "face_count": 0,
+      "kind": "point_list_curve",
+      "max_residual": null,
+      "point_count": 2,
       "valid": true
     },
     {
@@ -136,11 +102,31 @@
     {
       "constraint_violation_count": 0,
       "errors": [],
+      "expr_id": "18",
+      "face_count": 0,
+      "kind": "point_list_curve",
+      "max_residual": null,
+      "point_count": 2,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
       "expr_id": "19",
       "face_count": 0,
       "kind": "parametric_curve",
       "max_residual": 0.0,
       "point_count": 24,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "24",
+      "face_count": 0,
+      "kind": "point_list_curve",
+      "max_residual": null,
+      "point_count": 2,
       "valid": true
     },
     {
@@ -196,6 +182,16 @@
     {
       "constraint_violation_count": 0,
       "errors": [],
+      "expr_id": "31",
+      "face_count": 0,
+      "kind": "point_list_curve",
+      "max_residual": null,
+      "point_count": 2,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
       "expr_id": "32",
       "face_count": 0,
       "kind": "parametric_curve",
@@ -226,11 +222,31 @@
     {
       "constraint_violation_count": 0,
       "errors": [],
+      "expr_id": "36",
+      "face_count": 0,
+      "kind": "point_list_curve",
+      "max_residual": null,
+      "point_count": 2,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
       "expr_id": "37",
       "face_count": 0,
       "kind": "parametric_curve",
       "max_residual": 0.0,
       "point_count": 24,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "39",
+      "face_count": 0,
+      "kind": "point_list_curve",
+      "max_residual": null,
+      "point_count": 2,
       "valid": true
     },
     {
@@ -266,6 +282,16 @@
     {
       "constraint_violation_count": 0,
       "errors": [],
+      "expr_id": "48",
+      "face_count": 0,
+      "kind": "point_list_curve",
+      "max_residual": null,
+      "point_count": 2,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
       "expr_id": "46",
       "face_count": 0,
       "kind": "parametric_curve",
@@ -281,6 +307,16 @@
       "kind": "parametric_curve",
       "max_residual": 0.0,
       "point_count": 24,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "49",
+      "face_count": 0,
+      "kind": "point_list_curve",
+      "max_residual": null,
+      "point_count": 2,
       "valid": true
     },
     {

@@ -37,6 +37,26 @@ def Xform "DesmosGraph"
         int[] faceVertexIndices = []
     }
 
+    def BasisCurves "expr_0003__12"
+    {
+        custom string desmos:url = ""
+        custom string desmos:hash = ""
+        custom string desmos:exprId = "12"
+        custom int desmos:order = 3
+        custom string desmos:latex = "\\left[A,B\\right]"
+        custom string desmos:constraints = ""
+        custom string desmos:kind = "point_list_curve"
+        custom string desmos:color = "#aaaaaa"
+        custom bool desmos:hidden = false
+        uniform token type = "linear"
+        color3f[] primvars:displayColor = [(0.666666667, 0.666666667, 0.666666667)] (
+            interpolation = "constant"
+        )
+        int[] curveVertexCounts = [2]
+        point3f[] points = [(0, 0, 150), (10, -10, 130)]
+        float[] widths = [0.025]
+    }
+
     def BasisCurves "expr_0004__13"
     {
         custom string desmos:url = ""
@@ -54,6 +74,26 @@ def Xform "DesmosGraph"
         )
         int[] curveVertexCounts = [24]
         point3f[] points = [(0, 0, 150), (0.434782609, -0.434782609, 149.130435), (0.869565217, -0.869565217, 148.26087), (1.30434783, -1.30434783, 147.391304), (1.73913043, -1.73913043, 146.521739), (2.17391304, -2.17391304, 145.652174), (2.60869565, -2.60869565, 144.782609), (3.04347826, -3.04347826, 143.913043), (3.47826087, -3.47826087, 143.043478), (3.91304348, -3.91304348, 142.173913), (4.34782609, -4.34782609, 141.304348), (4.7826087, -4.7826087, 140.434783), (5.2173913, -5.2173913, 139.565217), (5.65217391, -5.65217391, 138.695652), (6.08695652, -6.08695652, 137.826087), (6.52173913, -6.52173913, 136.956522), (6.95652174, -6.95652174, 136.086957), (7.39130435, -7.39130435, 135.217391), (7.82608696, -7.82608696, 134.347826), (8.26086957, -8.26086957, 133.478261), (8.69565217, -8.69565217, 132.608696), (9.13043478, -9.13043478, 131.73913), (9.56521739, -9.56521739, 130.869565), (10, -10, 130)]
+        float[] widths = [0.025]
+    }
+
+    def BasisCurves "expr_0006__15"
+    {
+        custom string desmos:url = ""
+        custom string desmos:hash = ""
+        custom string desmos:exprId = "15"
+        custom int desmos:order = 6
+        custom string desmos:latex = "\\left[A,C\\right]"
+        custom string desmos:constraints = ""
+        custom string desmos:kind = "point_list_curve"
+        custom string desmos:color = "#aaaaaa"
+        custom bool desmos:hidden = false
+        uniform token type = "linear"
+        color3f[] primvars:displayColor = [(0.666666667, 0.666666667, 0.666666667)] (
+            interpolation = "constant"
+        )
+        int[] curveVertexCounts = [2]
+        point3f[] points = [(0, 0, 150), (-10, -10, 130)]
         float[] widths = [0.025]
     }
 
@@ -77,6 +117,26 @@ def Xform "DesmosGraph"
         float[] widths = [0.025]
     }
 
+    def BasisCurves "expr_0009__18"
+    {
+        custom string desmos:url = ""
+        custom string desmos:hash = ""
+        custom string desmos:exprId = "18"
+        custom int desmos:order = 9
+        custom string desmos:latex = "\\left[A,E\\right]"
+        custom string desmos:constraints = ""
+        custom string desmos:kind = "point_list_curve"
+        custom string desmos:color = "#aaaaaa"
+        custom bool desmos:hidden = false
+        uniform token type = "linear"
+        color3f[] primvars:displayColor = [(0.666666667, 0.666666667, 0.666666667)] (
+            interpolation = "constant"
+        )
+        int[] curveVertexCounts = [2]
+        point3f[] points = [(0, 0, 150), (-10, 10, 130)]
+        float[] widths = [0.025]
+    }
+
     def BasisCurves "expr_0010__19"
     {
         custom string desmos:url = ""
@@ -94,6 +154,26 @@ def Xform "DesmosGraph"
         )
         int[] curveVertexCounts = [24]
         point3f[] points = [(0, 0, 150), (-0.434782609, 0.434782609, 149.130435), (-0.869565217, 0.869565217, 148.26087), (-1.30434783, 1.30434783, 147.391304), (-1.73913043, 1.73913043, 146.521739), (-2.17391304, 2.17391304, 145.652174), (-2.60869565, 2.60869565, 144.782609), (-3.04347826, 3.04347826, 143.913043), (-3.47826087, 3.47826087, 143.043478), (-3.91304348, 3.91304348, 142.173913), (-4.34782609, 4.34782609, 141.304348), (-4.7826087, 4.7826087, 140.434783), (-5.2173913, 5.2173913, 139.565217), (-5.65217391, 5.65217391, 138.695652), (-6.08695652, 6.08695652, 137.826087), (-6.52173913, 6.52173913, 136.956522), (-6.95652174, 6.95652174, 136.086957), (-7.39130435, 7.39130435, 135.217391), (-7.82608696, 7.82608696, 134.347826), (-8.26086957, 8.26086957, 133.478261), (-8.69565217, 8.69565217, 132.608696), (-9.13043478, 9.13043478, 131.73913), (-9.56521739, 9.56521739, 130.869565), (-10, 10, 130)]
+        float[] widths = [0.025]
+    }
+
+    def BasisCurves "expr_0012__24"
+    {
+        custom string desmos:url = ""
+        custom string desmos:hash = ""
+        custom string desmos:exprId = "24"
+        custom int desmos:order = 12
+        custom string desmos:latex = "\\left[A,D\\right]"
+        custom string desmos:constraints = ""
+        custom string desmos:kind = "point_list_curve"
+        custom string desmos:color = "#aaaaaa"
+        custom bool desmos:hidden = false
+        uniform token type = "linear"
+        color3f[] primvars:displayColor = [(0.666666667, 0.666666667, 0.666666667)] (
+            interpolation = "constant"
+        )
+        int[] curveVertexCounts = [2]
+        point3f[] points = [(0, 0, 150), (-10, 10, 130)]
         float[] widths = [0.025]
     }
 
@@ -197,6 +277,26 @@ def Xform "DesmosGraph"
         int[] faceVertexIndices = [0, 1, 2]
     }
 
+    def BasisCurves "expr_0019__31"
+    {
+        custom string desmos:url = ""
+        custom string desmos:hash = ""
+        custom string desmos:exprId = "31"
+        custom int desmos:order = 19
+        custom string desmos:latex = "\\left[A,F\\right]"
+        custom string desmos:constraints = ""
+        custom string desmos:kind = "point_list_curve"
+        custom string desmos:color = "#aaaaaa"
+        custom bool desmos:hidden = false
+        uniform token type = "linear"
+        color3f[] primvars:displayColor = [(0.666666667, 0.666666667, 0.666666667)] (
+            interpolation = "constant"
+        )
+        int[] curveVertexCounts = [2]
+        point3f[] points = [(0, 0, 150), (10, 10, 130)]
+        float[] widths = [0.025]
+    }
+
     def BasisCurves "expr_0020__32"
     {
         custom string desmos:url = ""
@@ -257,6 +357,26 @@ def Xform "DesmosGraph"
         int[] faceVertexIndices = [0, 1, 2]
     }
 
+    def BasisCurves "expr_0024__36"
+    {
+        custom string desmos:url = ""
+        custom string desmos:hash = ""
+        custom string desmos:exprId = "36"
+        custom int desmos:order = 24
+        custom string desmos:latex = "\\left[A,G\\right]"
+        custom string desmos:constraints = ""
+        custom string desmos:kind = "point_list_curve"
+        custom string desmos:color = "#aaaaaa"
+        custom bool desmos:hidden = false
+        uniform token type = "linear"
+        color3f[] primvars:displayColor = [(0.666666667, 0.666666667, 0.666666667)] (
+            interpolation = "constant"
+        )
+        int[] curveVertexCounts = [2]
+        point3f[] points = [(0, 0, 150), (20, 20, 0)]
+        float[] widths = [0.025]
+    }
+
     def BasisCurves "expr_0025__37"
     {
         custom string desmos:url = ""
@@ -274,6 +394,26 @@ def Xform "DesmosGraph"
         )
         int[] curveVertexCounts = [24]
         point3f[] points = [(10, 10, 130), (10.4347826, 10.4347826, 124.347826), (10.8695652, 10.8695652, 118.695652), (11.3043478, 11.3043478, 113.043478), (11.7391304, 11.7391304, 107.391304), (12.173913, 12.173913, 101.73913), (12.6086957, 12.6086957, 96.0869565), (13.0434783, 13.0434783, 90.4347826), (13.4782609, 13.4782609, 84.7826087), (13.9130435, 13.9130435, 79.1304348), (14.3478261, 14.3478261, 73.4782609), (14.7826087, 14.7826087, 67.826087), (15.2173913, 15.2173913, 62.173913), (15.6521739, 15.6521739, 56.5217391), (16.0869565, 16.0869565, 50.8695652), (16.5217391, 16.5217391, 45.2173913), (16.9565217, 16.9565217, 39.5652174), (17.3913043, 17.3913043, 33.9130435), (17.826087, 17.826087, 28.2608696), (18.2608696, 18.2608696, 22.6086957), (18.6956522, 18.6956522, 16.9565217), (19.1304348, 19.1304348, 11.3043478), (19.5652174, 19.5652174, 5.65217391), (20, 20, 0)]
+        float[] widths = [0.025]
+    }
+
+    def BasisCurves "expr_0027__39"
+    {
+        custom string desmos:url = ""
+        custom string desmos:hash = ""
+        custom string desmos:exprId = "39"
+        custom int desmos:order = 27
+        custom string desmos:latex = "\\left[A,H\\right]"
+        custom string desmos:constraints = ""
+        custom string desmos:kind = "point_list_curve"
+        custom string desmos:color = "#aaaaaa"
+        custom bool desmos:hidden = false
+        uniform token type = "linear"
+        color3f[] primvars:displayColor = [(0.666666667, 0.666666667, 0.666666667)] (
+            interpolation = "constant"
+        )
+        int[] curveVertexCounts = [2]
+        point3f[] points = [(0, 0, 150), (-20, 20, 0)]
         float[] widths = [0.025]
     }
 
@@ -337,6 +477,26 @@ def Xform "DesmosGraph"
         float[] widths = [0.025]
     }
 
+    def BasisCurves "expr_0032__48"
+    {
+        custom string desmos:url = ""
+        custom string desmos:hash = ""
+        custom string desmos:exprId = "48"
+        custom int desmos:order = 32
+        custom string desmos:latex = "\\left[A,I\\right]"
+        custom string desmos:constraints = ""
+        custom string desmos:kind = "point_list_curve"
+        custom string desmos:color = "#aaaaaa"
+        custom bool desmos:hidden = false
+        uniform token type = "linear"
+        color3f[] primvars:displayColor = [(0.666666667, 0.666666667, 0.666666667)] (
+            interpolation = "constant"
+        )
+        int[] curveVertexCounts = [2]
+        point3f[] points = [(0, 0, 150), (-20, -20, 0)]
+        float[] widths = [0.025]
+    }
+
     def BasisCurves "expr_0033__46"
     {
         custom string desmos:url = ""
@@ -374,6 +534,26 @@ def Xform "DesmosGraph"
         )
         int[] curveVertexCounts = [24]
         point3f[] points = [(20, -20, 0), (20, -18.2608696, 0), (20, -16.5217391, 0), (20, -14.7826087, 0), (20, -13.0434783, 0), (20, -11.3043478, 0), (20, -9.56521739, 0), (20, -7.82608696, 0), (20, -6.08695652, 0), (20, -4.34782609, 0), (20, -2.60869565, 0), (20, -0.869565217, 0), (20, 0.869565217, 0), (20, 2.60869565, 0), (20, 4.34782609, 0), (20, 6.08695652, 0), (20, 7.82608696, 0), (20, 9.56521739, 0), (20, 11.3043478, 0), (20, 13.0434783, 0), (20, 14.7826087, 0), (20, 16.5217391, 0), (20, 18.2608696, 0), (20, 20, 0)]
+        float[] widths = [0.025]
+    }
+
+    def BasisCurves "expr_0036__49"
+    {
+        custom string desmos:url = ""
+        custom string desmos:hash = ""
+        custom string desmos:exprId = "49"
+        custom int desmos:order = 36
+        custom string desmos:latex = "\\left[A,J\\right]"
+        custom string desmos:constraints = ""
+        custom string desmos:kind = "point_list_curve"
+        custom string desmos:color = "#aaaaaa"
+        custom bool desmos:hidden = false
+        uniform token type = "linear"
+        color3f[] primvars:displayColor = [(0.666666667, 0.666666667, 0.666666667)] (
+            interpolation = "constant"
+        )
+        int[] curveVertexCounts = [2]
+        point3f[] points = [(0, 0, 150), (20, -20, 0)]
         float[] widths = [0.025]
     }
 

@@ -1,6 +1,6 @@
 # Implementation State
 
-Last updated: 2026-04-27 19:13 SGT
+Last updated: 2026-04-27 19:43 SGT
 
 ## Loop Mode
 - cadence: every 10 minutes via OpenClaw cron
@@ -36,7 +36,7 @@ Last updated: 2026-04-27 19:13 SGT
   5. Fixed today: S2-04 Group G — https://www.desmos.com/3d/ratctlkc9i — success after hsv/okhsv color-function pass, 103 prims, 0 unsupported
   6. Fixed today: S2-02 Group F — https://www.desmos.com/3d/1zpiejy9c9 — success after chained-empty pass, 206 prims, 0 unsupported
   7. Fixed today: S2-01 Group A — https://www.desmos.com/3d/cvggvbbe73 — success after affine-clipped explicit-surface domain inference, 208 prims, 0 unsupported
-  8. Current partial: S2-01 Group B — https://www.desmos.com/3d/27v0xuv64m — point-defined vector edge pass improved 116 prims / 27 unsupported -> 133 prims / 10 unsupported; continue this fixture next, targeting point-list rows `[A,B]` or malformed disk expression `74`
+  8. Current partial: S2-01 Group B — https://www.desmos.com/3d/27v0xuv64m — point-list pass improved 133 prims / 10 unsupported -> 142 prims / 1 unsupported; continue this fixture next, targeting malformed disk expression `74`
 - done-when:
   - one chosen fixture has fresh Desmos reference screenshots
   - live viewer screenshots/projections exist for the generated USD artifact
@@ -55,9 +55,10 @@ Last updated: 2026-04-27 19:13 SGT
 7. [ ] Advance to the next input only after the current one is either defensibly fixed or explicitly blocked.
 
 ## Current Baseline
-- HEAD before current tranche: c453265 Infer affine explicit surface domains
+- HEAD before current tranche: d9a8424 Render point-defined vector edges
 - summary: 71 fixtures; 47 success, 24 partial, 0 error
-- S2-01 Group B current tranche: point-defined vector expressions such as `A+t(B-A)` now classify/export as parametric `BasisCurves`; tracked resolution-12 export improved 116 prims / 27 unsupported -> 133 prims / 10 unsupported, still partial. Remaining unsupported are nine point-list rows like `[A,B]` and malformed flat-disk inequality `74` (`x^{2}+y^{2}<=5000z=0`). Browser/live viewer capture remains blocked by MCP cancellation and Tailscale DNS failure, so visual claim is structural/local projection only.
+- S2-01 Group B current tranche: static 3D vector-list rows such as `[A,B]` now classify/export as linear `BasisCurves` when entries resolve to point/vector definitions; tracked resolution-12 export improved 133 prims / 10 unsupported -> 142 prims / 1 unsupported, still partial. Remaining unsupported is malformed flat-disk inequality `74` (`x^{2}+y^{2}<=5000z=0`). Browser/live viewer capture remains blocked by MCP cancellation and Tailscale DNS failure, so visual claim is structural/local projection only.
+- S2-01 Group B previous tranche: point-defined vector expressions such as `A+t(B-A)` now classify/export as parametric `BasisCurves`; tracked resolution-12 export improved 116 prims / 27 unsupported -> 133 prims / 10 unsupported, still partial. Remaining unsupported were nine point-list rows like `[A,B]` and malformed flat-disk inequality `74` (`x^{2}+y^{2}<=5000z=0`). Browser/live viewer capture remained blocked by MCP cancellation and Tailscale DNS failure, so visual claim was structural/local projection only.
 - S2-01 Group A current tranche: affine-clipped explicit-surface domain inference now substitutes the solved axis into linear predicates and clips the two domain axes before grid sampling; tracked export improved from HEAD-projection 90 prims / 118 unsupported to regenerated 208 prims / 0 unsupported, success. Browser/live viewer capture remains blocked by MCP cancellation and Tailscale DNS failure, so visual claim is structural/local projection only.
 - S2-10 Group A current tranche: affine-clipped function-band variable extrusion fixed expression `41`, the obliquely clipped parabolic inequality region; tracked export improved 39 prims / 1 unsupported to 40 prims / 0 unsupported, success. Browser/live viewer capture remains blocked by MCP cancellation and Tailscale DNS failure, so visual claim is structural/local projection only.
 - S2-10 Group A previous tranche: unbraced Desmos trig commands such as `\sin7x` now parse as function calls with implicit argument multiplication; tracked export improved 35 prims / 5 unsupported to 39 prims / 1 unsupported, with all four sinusoidal border surfaces `59`, `60`, `61`, and `62` exported. Browser/live viewer capture blocked by MCP cancellation and Tailscale DNS failure, so visual claim is structural/local projection only.
@@ -98,5 +99,5 @@ Last updated: 2026-04-27 19:13 SGT
 - Do not overlap Codex/ccwork runs.
 
 ## Last Wake
-- timestamp: 2026-04-27 19:23 SGT
-- result: harvested dirty HOME Codex run 20260427-190335-31421 for S2-01 Group B point-defined vector edges; main environment revalidated targeted modules (103 tests), full unittest discovery (162 tests), and `git diff --check`, then committed/pushed the coherent tranche. Browser/live viewer capture remains blocked; next target should continue S2-01 Group B remaining point-list rows or expression `74`.
+- timestamp: 2026-04-27 19:43 SGT
+- result: HOME Codex targeted S2-01 Group B point-list rows because S2-04 Group G was already success. Static vector-list rows such as `[A,B]` now export as linear `BasisCurves`; tracked S2-01B improved 133 prims / 10 unsupported -> 142 prims / 1 unsupported. Targeted modules and full unittest discovery passed. Browser/live viewer capture remains blocked. Commit/push is blocked by `.git/index.lock` permission from this environment; main environment should stage/commit/push before another implementation pass. Next target should continue S2-01 Group B expression `74` (`x^{2}+y^{2}<=5000z=0`).
