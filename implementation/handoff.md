@@ -1,3 +1,95 @@
+# Handoff: 2026-04-27 13:46 SGT - S2-02F success / urgent S2-04G next
+
+## Orchestrator Note
+- S2-02 Group F has reached structural success in the current worktree: `206 prims / 0 unsupported / valid true`.
+- Chek reported S2-04 Group G looks very bad and asked if we are on it. Prioritise S2-04G next, before S2-02C.
+- S2-04 Group G Desmos: `https://www.desmos.com/3d/ratctlkc9i`
+- S2-04 Group G viewer: `https://chq.singapura-broadnose.ts.net/viewer/?usda=..%2Fartifacts%2Ffixture_usdz%2F%5B4B%5D%203D%20Diagram%20-%20S2-04%20Group%20G.usda&label=S2-04%20Group%20G`
+- Keep S2-08E and S2-09F as guards.
+
+# Handoff: 2026-04-27 13:42 SGT - S2-02F chained empty inequalities
+
+## Current Branch State
+- Repo: `/Users/chek/repos/desmos2usd-carey`
+- Branch: `fix/student-fixture-usdz-export`
+- Push target: `chektien:fix/student-fixture-usdz-export`
+- HEAD before this tranche: `e17b005 Handle constant explicit disk caps`
+
+## Completed This Tranche
+- Targeted fixture: `[4B] 3D Diagram - S2-02 Group F.json`
+- Desmos URL: `https://www.desmos.com/3d/1zpiejy9c9`
+- Implemented one general exporter fix:
+  - chained predicates now expose every adjacent variable bound to constant-bound collection
+  - inequality regions whose collected constant bounds are contradictory now emit a valid empty mesh instead of falling through to unsupported sampled cells
+  - this handles expressions such as `(y-c)^2 <= 0.00250 <= z <= 13.2-0.03 <= x <= 2.03`, where `13.17 <= x <= 2.03` proves the Desmos region is empty
+- No fixture-specific expression ids, fixture names, or one-off constants were added.
+- Added regression coverage for the contradictory chained inequality family.
+- Regenerated tracked S2-02F artifacts, S2-08E and S2-09F guard USDZ artifacts, and rebuilt `artifacts/fixture_usdz/summary.json` from all reports.
+
+## Evidence
+- Evidence directory: `artifacts/fixture_usdz/review_evidence/20260427_s202_group_f_ralph_chained_72/`
+- Local projection files:
+  - `S2-02_Group_F_projection_before.png`
+  - `S2-02_Group_F_projection_before.ppm`
+  - `S2-02_Group_F_projection_before.usda`
+  - `S2-02_Group_F_projection_after.png`
+  - `S2-02_Group_F_projection_after.ppm`
+  - `S2-02_Group_F_projection_after.usda`
+  - `S2-02_Group_F_report_before.json`
+  - `S2-02_Group_F_report_after.json`
+  - `S2-08_Group_E_projection_guard_after.png`
+  - `S2-09_Group_F_projection_guard_after.png`
+  - `capture_results.json`
+  - `projection_results.json`
+  - `assessment.md`
+- Browser/live viewer blockers:
+  - Playwright Desmos navigation returned `user cancelled MCP tool call`.
+  - Chrome DevTools Desmos navigation returned `user cancelled MCP tool call`.
+  - Tailscale route checks for root, viewer, and summary failed with `curl: (6) Could not resolve host: chq.singapura-broadnose.ts.net`.
+  - Local viewer server command `python3 -m http.server 8765 --bind 127.0.0.1` failed with `PermissionError: [Errno 1] Operation not permitted`.
+- Visual claim: no live Desmos/viewer parity claim. This tranche has deterministic local projection evidence only.
+
+## Metrics
+- Overall fixture summary: 71 fixtures; 31 success, 40 partial, 0 error, 71 USDZ, acceptance still not met.
+- S2-02F before this tranche: `197 prims / 9 unsupported / 206 classified / valid true / complete false`.
+- S2-02F after tracked resolution-12 regeneration: `206 prims / 0 unsupported / 206 classified / valid true / complete true / status success`.
+- Fixed family: all nine `72_*` chained inequalities now export as empty meshes because their constant x-bounds are contradictory.
+- S2-08 Group E guard remains success: `87 prims / 0 unsupported / valid true / usdchecker returncode 0`.
+- S2-09 Group F guard remains success: `27 prims / 0 unsupported / valid true / usdchecker returncode 0`.
+
+## Validation
+- Focused regression passed: `PYTHONPATH=src:tests python3 -m unittest tests.test_student_fixture_regressions.StudentFixtureRegressionTests.test_contradictory_chained_inequality_exports_empty_mesh tests.test_student_fixture_regressions.StudentFixtureRegressionTests.test_single_axis_quadratic_inequality_band_tessellates_as_slab tests.test_student_fixture_regressions.StudentFixtureRegressionTests.test_chained_quadratic_disk_inequality_extrudes_as_cylinder`.
+- Targeted modules passed: `PYTHONPATH=src:tests python3 -m unittest tests.test_student_fixture_regressions tests.test_fixture_usdz_suite tests.test_visual_preview` ran 71 tests OK.
+- Full unittest discovery passed: `PYTHONPATH=src:tests python3 -m unittest discover -s tests` ran 141 tests in 130.827s OK.
+- Regenerated artifacts for S2-02F, S2-08E, and S2-09F with `usdchecker --arkit` return code `0`.
+- Report-vs-USDA consistency checked:
+  - S2-02F report prim_count `206`, USDA `Mesh` + `BasisCurves` defs `206`, unsupported `0`
+  - S2-08E report prim_count `87`, USDA defs `87`, unsupported `0`
+  - S2-09F report prim_count `27`, USDA defs `27`, unsupported `0`
+- PNG projection dimensions checked with `sips`: before/after/guard PNGs are `1552x512`.
+
+## Commit / Push
+- Blocked in this HOME Codex turn: `git add ...` failed with `fatal: Unable to create '/Users/chek/repos/desmos2usd-carey/.git/index.lock': Operation not permitted`.
+- Worktree is ready to stage, commit, and push from the main environment.
+- Evidence directory is ignored by `.gitignore`; include it with `git add -f artifacts/fixture_usdz/review_evidence/20260427_s202_group_f_ralph_chained_72/` if committing evidence with the tranche.
+- Suggested commit subject: `Handle contradictory chained inequalities`.
+
+## Review Links
+- S2-02 Group F Desmos: `https://www.desmos.com/3d/1zpiejy9c9`
+- S2-02 Group F viewer: `https://chq.singapura-broadnose.ts.net/viewer/?usda=..%2Fartifacts%2Ffixture_usdz%2F%5B4B%5D%203D%20Diagram%20-%20S2-02%20Group%20F.usda&label=S2-02%20Group%20F`
+- S2-08 Group E Desmos: `https://www.desmos.com/3d/g59jqe6nxy`
+- S2-08 Group E viewer: `https://chq.singapura-broadnose.ts.net/viewer/?usda=..%2Fartifacts%2Ffixture_usdz%2F%5B4B%5D%203D%20Diagram%20-%20S2-08%20Group%20E.usda&label=S2-08%20Group%20E`
+- S2-09 Group F Desmos: `https://www.desmos.com/3d/umjxv6ahck`
+- S2-09 Group F viewer: `https://chq.singapura-broadnose.ts.net/viewer/?usda=..%2Fartifacts%2Ffixture_usdz%2F%5B4B%5D%203D%20Diagram%20-%20S2-09%20Group%20F.usda&label=S2-09%20Group%20F`
+- Route verification from this environment failed for root/viewer/summary with `curl: (6) Could not resolve host: chq.singapura-broadnose.ts.net`.
+
+## Remaining Mismatch / Next Wake Instructions
+1. S2-02 Group F is now a tracked success and should be skipped unless visual review later finds a mismatch.
+2. Next scheduled target is S2-02 Group C (`https://www.desmos.com/3d/sqn7vxcm4n`), currently `133 prims / 36 unsupported / 149 classified`.
+3. Keep S2-08E and S2-09F as regression guards.
+4. Continue to include direct Tailscale viewer links and matching Desmos links in any review update, but do not claim live visual parity unless browser/viewer screenshots are actually captured.
+
+
 # Handoff: 2026-04-27 13:16 SGT - S2-02F constant explicit disk caps
 
 ## Current Branch State

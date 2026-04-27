@@ -1182,6 +1182,33 @@ class StudentFixtureRegressionTests(unittest.TestCase):
         self.assertAlmostEqual(min(y_values), -0.03, places=6)
         self.assertAlmostEqual(max(y_values), 2.03, places=6)
 
+    def test_contradictory_chained_inequality_exports_empty_mesh(self) -> None:
+        """S2-02 Group F has malformed list expansions whose chained bounds are empty.
+
+        ``13.2-0.03 <= x <= 2.03`` proves the Desmos region has no points, so the
+        exporter should emit a valid empty mesh instead of falling through to a sampled
+        unsupported error.
+        """
+        source = SourceInfo(
+            "", "", "", "", viewport_bounds={"x": (0.0, 18.7), "y": (0.0, 18.7), "z": (0.0, 18.7)}
+        )
+        item = classify_expression(
+            ExpressionIR(
+                source,
+                "72_0",
+                0,
+                r"(y-0.2)^{2}\le0.00250\le z\le13.2-0.03\le x\le2.03",
+            ),
+            EvalContext(),
+        )
+
+        geometry = tessellate(item, EvalContext(), resolution=8)
+
+        self.assertEqual(item.kind, "inequality_region")
+        self.assertEqual(geometry.kind, "Mesh")
+        self.assertEqual(geometry.point_count, 0)
+        self.assertEqual(geometry.face_count, 0)
+
     def test_explicit_surface_expression_undefined_samples_are_outside_domain(self) -> None:
         """An explicit function's natural domain should clip the mesh just like Desmos.
         Pre-fix, z=sqrt(1-x^2-y^2) over a larger viewport raised on the first outside

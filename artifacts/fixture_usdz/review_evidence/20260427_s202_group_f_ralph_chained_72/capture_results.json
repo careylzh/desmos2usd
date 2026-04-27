@@ -1,0 +1,44 @@
+{
+  "desmos_url": "https://www.desmos.com/3d/1zpiejy9c9",
+  "fixture": "[4B] 3D Diagram - S2-02 Group F.json",
+  "live_capture_status": "blocked",
+  "attempts": [
+    {
+      "target": "Desmos reference",
+      "tool": "mcp__playwright__.browser_navigate",
+      "url": "https://www.desmos.com/3d/1zpiejy9c9",
+      "result": "user cancelled MCP tool call"
+    },
+    {
+      "target": "Desmos reference",
+      "tool": "mcp__chrome_devtools__.new_page",
+      "url": "https://www.desmos.com/3d/1zpiejy9c9",
+      "result": "user cancelled MCP tool call"
+    },
+    {
+      "target": "Tailscale root",
+      "command": "curl -I --max-time 8 https://chq.singapura-broadnose.ts.net/",
+      "exit_code": 6,
+      "result": "curl: (6) Could not resolve host: chq.singapura-broadnose.ts.net"
+    },
+    {
+      "target": "Tailscale viewer",
+      "command": "curl -I --max-time 8 https://chq.singapura-broadnose.ts.net/viewer/",
+      "exit_code": 6,
+      "result": "curl: (6) Could not resolve host: chq.singapura-broadnose.ts.net"
+    },
+    {
+      "target": "Tailscale summary",
+      "command": "curl -I --max-time 8 https://chq.singapura-broadnose.ts.net/artifacts/fixture_usdz/summary.json",
+      "exit_code": 6,
+      "result": "curl: (6) Could not resolve host: chq.singapura-broadnose.ts.net"
+    },
+    {
+      "target": "local viewer server",
+      "command": "python3 -m http.server 8765 --bind 127.0.0.1",
+      "exit_code": 1,
+      "result": "PermissionError: [Errno 1] Operation not permitted"
+    }
+  ],
+  "visual_claim": "No live Desmos/viewer parity claim. Deterministic local projection evidence only."
+}

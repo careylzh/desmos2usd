@@ -1,6 +1,6 @@
 # Implementation State
 
-Last updated: 2026-04-27 13:16 SGT
+Last updated: 2026-04-27 13:42 SGT
 
 ## Loop Mode
 - cadence: every 10 minutes via OpenClaw cron
@@ -29,12 +29,12 @@ Last updated: 2026-04-27 13:16 SGT
 - id: one-desmos-input-at-a-time
 - title: Fix one remaining partial Desmos input per bounded tranche using live Desmos screenshots and viewer screenshots
 - current-priority:
-  1. TODAY 1530 Class 2-02: S2-02 Group F — https://www.desmos.com/3d/1zpiejy9c9 — still active one-input target after disk-cap pass, 9 unsupported chained `72_*` inequalities, 197 prims
-  2. TODAY 1530 Class 2-02: S2-02 Group C — https://www.desmos.com/3d/sqn7vxcm4n — second-highest early risk, 36 unsupported, 133 prims
-  3. TODAY 1550 Class 2-04: S2-04 Group G — https://www.desmos.com/3d/ratctlkc9i — 36 unsupported, 44 prims
-  4. TODAY 1610 Class 2-08: S2-08 Group G — https://www.desmos.com/3d/24vpv4pfwh — 23 unsupported, 1236 prims
-  5. TODAY 1630 Class 2-10: S2-10 Group E — https://www.desmos.com/3d/xzhfl6m1td — 10 unsupported, 249 prims
-  6. TODAY 1630 Class 2-10: S2-10 Group A — https://www.desmos.com/3d/g53xte50e7 — 8 unsupported, 32 prims
+  1. URGENT TODAY 1550 Class 2-04: S2-04 Group G — https://www.desmos.com/3d/ratctlkc9i — Chek reported it looks very bad; 36 unsupported, 44 prims
+  2. TODAY 1530 Class 2-02: S2-02 Group C — https://www.desmos.com/3d/sqn7vxcm4n — next early-risk presenter, 36 unsupported, 133 prims
+  3. TODAY 1610 Class 2-08: S2-08 Group G — https://www.desmos.com/3d/24vpv4pfwh — 23 unsupported, 1236 prims
+  4. TODAY 1630 Class 2-10: S2-10 Group E — https://www.desmos.com/3d/xzhfl6m1td — 10 unsupported, 249 prims
+  5. TODAY 1630 Class 2-10: S2-10 Group A — https://www.desmos.com/3d/g53xte50e7 — 8 unsupported, 32 prims
+  6. Fixed today: S2-02 Group F — https://www.desmos.com/3d/1zpiejy9c9 — success after chained-empty pass, 206 prims, 0 unsupported
   7. Only after today's presenters are improved: resume global queue, starting with S2-01 Group A and S2-06 Group F
 - done-when:
   - one chosen fixture has fresh Desmos reference screenshots
@@ -54,9 +54,10 @@ Last updated: 2026-04-27 13:16 SGT
 7. [ ] Advance to the next input only after the current one is either defensibly fixed or explicitly blocked.
 
 ## Current Baseline
-- HEAD before current tranche: 707bd04 Handle one-axis quadratic guide bands
-- summary: 71 fixtures; 30 success, 41 partial, 0 error
-- S2-02 Group F current tranche: constant-z explicit circular disk caps improved tracked resolution-12 export 47 unsupported -> 9 unsupported and 159 prims -> 197 prims; all `90_*` and `98_*` cap surfaces now export; remaining unsupported are nine malformed chained `72_*` inequalities; live browser/viewer capture blocked, so visual claim is structural/local projection only
+- HEAD before current tranche: e17b005 Handle constant explicit disk caps
+- summary: 71 fixtures; 31 success, 40 partial, 0 error
+- S2-02 Group F current tranche: chained predicate constant-bound contradictions now export as valid empty meshes; tracked resolution-12 export improved 197 prims / 9 unsupported -> 206 prims / 0 unsupported, success. Browser/live viewer capture blocked, so visual claim is structural/local projection only.
+- S2-02 Group F previous tranche: constant-z explicit circular disk caps improved tracked resolution-12 export 47 unsupported -> 9 unsupported and 159 prims -> 197 prims; all `90_*` and `98_*` cap surfaces now export; remaining unsupported were nine malformed chained `72_*` inequalities; live browser/viewer capture blocked, so visual claim is structural/local projection only
 - S2-02 Group F previous tranche: list-expanded one-axis quadratic guide bands improved fresh local export 111 unsupported -> 47 unsupported and 95 prims -> 159 prims; tracked resolution-12 artifact was 159 prims / 47 unsupported / 206 classified; live browser/viewer capture blocked, so visual claim is structural/local projection only
 - S2-07 Group F current tranche: chained quadratic disk inequality support improved 1 unsupported -> 0 unsupported, 887 prims -> 888 prims, 888 classified; live browser/viewer capture blocked, so visual claim is structural/local projection only
 - S2-03 Group E current tranche: predicate-clipped implicit ellipsoid surfaces improved 4 unsupported -> 0 unsupported, 460 prims -> 464 prims, classified remains 464; live browser/viewer capture blocked, so visual claim is structural/local projection only
@@ -88,5 +89,5 @@ Last updated: 2026-04-27 13:16 SGT
 - Do not overlap Codex/ccwork runs.
 
 ## Last Wake
-- timestamp: 2026-04-27 13:16 SGT
-- result: HOME Codex completed a bounded S2-02 Group F disk-cap tranche. Constant explicit surfaces with circular/quadratic domain predicates now export as analytic flat disks. S2-02F improved from `159 prims / 47 unsupported` to `197 prims / 9 unsupported`; S2-08E and S2-09F guards remain success. Validation passed: focused flat-cap and flat-disk regressions, targeted test modules, full unittest discovery, report-vs-USDA counts, PNG dimensions, `usdchecker --arkit` on target/guards, and `git diff --check`. Browser/live viewer capture remained blocked, so visual claim is structural/local projection only. Commit/push blocked because `git add` could not create `.git/index.lock` (`Operation not permitted`); worktree is ready for the main environment to commit and push. Next wake should continue S2-02F only if staying on the one-input policy, targeting the nine malformed chained `72_*` inequalities.
+- timestamp: 2026-04-27 13:42 SGT
+- result: HOME Codex completed a bounded S2-02 Group F chained-empty tranche. Long chained predicates now expose adjacent constant bounds, and impossible bounds return valid empty meshes. S2-02F improved from `197 prims / 9 unsupported` to `206 prims / 0 unsupported`, status success; S2-08E and S2-09F guards remain success. Validation passed: focused chained-empty regression, targeted test modules, full unittest discovery, report-vs-USDA counts, PNG dimensions, `usdchecker --arkit` on target/guards, and `git diff --check`. Browser/live viewer capture remained blocked, so visual claim is structural/local projection only. Commit/push blocked because `git add` could not create `.git/index.lock` (`Operation not permitted`); worktree is ready for the main environment to commit and push. Next wake should move to S2-02 Group C (`https://www.desmos.com/3d/sqn7vxcm4n`) unless Chek reprioritises.

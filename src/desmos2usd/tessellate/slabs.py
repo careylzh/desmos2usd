@@ -37,6 +37,8 @@ from desmos2usd.tessellate.surfaces import (
 def tessellate_inequality_region(item: ClassifiedExpression, context: EvalContext, resolution: int = 14) -> GeometryData:
     if not item.inequality:
         raise ValueError("inequality region missing predicate")
+    if has_contradictory_constant_bounds(item, context):
+        return GeometryData(kind="Mesh", points=[])
     flat = _flat_region_geometry(item, context, resolution)
     if flat is not None:
         return flat
@@ -134,6 +136,14 @@ def ellipsoid_interior_residual(predicate: ComparisonPredicate) -> LatexExpressi
     if op in {">", ">="}:
         return LatexExpression.parse(f"({right.latex})-({left.latex})")
     return None
+
+
+def has_contradictory_constant_bounds(item: ClassifiedExpression, context: EvalContext) -> bool:
+    bounds = collect_constant_bounds(item.predicates, context)
+    return any(
+        low is not None and high is not None and low > high + 1e-9
+        for low, high in bounds.values()
+    )
 
 
 def extract_single_axis_quadratic_band(
