@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import ast
 from dataclasses import dataclass, replace
-from math import ceil, floor, isfinite
+from math import ceil, cos, floor, isfinite, pi, sin
 
 from desmos2usd.eval.context import EvalContext
 from desmos2usd.eval.numeric import CONSTANTS
@@ -10,6 +10,11 @@ from desmos2usd.parse.classify import ClassifiedExpression
 from desmos2usd.parse.latex_subset import LatexExpression
 from desmos2usd.parse.predicates import ComparisonPredicate, collect_constant_bounds, single_identifier
 from desmos2usd.tessellate.cylinders import tessellate_circular_inequality_extrusion
+from desmos2usd.tessellate.implicit import (
+    AxisAlignedEllipsoid,
+    build_axis_aligned_ellipsoid_mesh,
+    fit_axis_aligned_ellipsoid,
+)
 from desmos2usd.tessellate.mesh import GeometryData, Point, linspace
 from desmos2usd.tessellate.surfaces import (
     DEFAULT_BOUNDS,
@@ -30,6 +35,9 @@ def tessellate_inequality_region(item: ClassifiedExpression, context: EvalContex
     modulo = tessellate_modulo_repeated_region(item, context, resolution)
     if modulo is not None:
         return modulo
+    ellipsoid = tessellate_axis_aligned_ellipsoid_region(item, context, resolution=max(8, resolution * 4))
+    if ellipsoid is not None and mesh_vertices_satisfy_predicates(item, context, ellipsoid):
+        return ellipsoid
     circular = tessellate_circular_inequality_extrusion(item, context, resolution=max(16, resolution * 4))
     if circular is not None and mesh_vertices_satisfy_predicates(item, context, circular):
         return circular
@@ -58,6 +66,134 @@ def tessellate_inequality_region(item: ClassifiedExpression, context: EvalContex
         return tessellate_box(item, context)
     except Exception:
         return tessellate_sampled_inequality_region(item, context, resolution=max(8, resolution * 2))
+
+
+def tessellate_axis_aligned_ellipsoid_region(
+    item: ClassifiedExpression,
+    context: EvalContext,
+    resolution: int,
+) -> GeometryData | None:
+    if item.inequality is None:
+        return None
+    residual = ellipsoid_interior_residual(item.inequality)
+    if residual is None:
+        return None
+    profile = fit_axis_aligned_ellipsoid(residual, context)
+    if profile is None:
+        return None
+
+    latitude_segments = max(8, min(32, resolution))
+    longitude_segments = max(16, min(64, resolution * 2))
+    surface = build_axis_aligned_ellipsoid_mesh(profile, latitude_segments, longitude_segments)
+    points: list[Point] = []
+    counts: list[int] = []
+    indices: list[int] = []
+    append_predicate_faces(points, counts, indices, surface, item, context)
+    append_axis_aligned_ellipsoid_caps(points, counts, indices, profile, item, context, longitude_segments)
+    if not counts:
+        return None
+    return GeometryData(kind="Mesh", points=points, face_vertex_counts=counts, face_vertex_indices=indices)
+
+
+def ellipsoid_interior_residual(predicate: ComparisonPredicate) -> LatexExpression | None:
+    if len(predicate.terms) != 2 or len(predicate.ops) != 1:
+        return None
+    left, right = predicate.terms
+    op = predicate.ops[0]
+    if op in {"<", "<="}:
+        return LatexExpression.parse(f"({left.latex})-({right.latex})")
+    if op in {">", ">="}:
+        return LatexExpression.parse(f"({right.latex})-({left.latex})")
+    return None
+
+
+def append_predicate_faces(
+    points: list[Point],
+    counts: list[int],
+    indices: list[int],
+    surface: GeometryData,
+    item: ClassifiedExpression,
+    context: EvalContext,
+) -> None:
+    remap: dict[int, int] = {}
+    cursor = 0
+    for count in surface.face_vertex_counts:
+        face = surface.face_vertex_indices[cursor : cursor + count]
+        cursor += count
+        if len(face) != count:
+            continue
+        if not all(point_satisfies_predicates(surface.points[index], item, context) for index in face):
+            continue
+        counts.append(count)
+        for index in face:
+            if index not in remap:
+                remap[index] = len(points)
+                points.append(surface.points[index])
+            indices.append(remap[index])
+
+
+def append_axis_aligned_ellipsoid_caps(
+    points: list[Point],
+    counts: list[int],
+    indices: list[int],
+    profile: AxisAlignedEllipsoid,
+    item: ClassifiedExpression,
+    context: EvalContext,
+    segment_count: int,
+) -> None:
+    bounds = collect_constant_bounds(item.predicates, context)
+    for axis_index, axis in enumerate(("x", "y", "z")):
+        low, high = bounds.get(axis, (None, None))
+        if low is not None:
+            append_axis_aligned_ellipsoid_cap(
+                points, counts, indices, profile, item, context, axis_index, low, segment_count, reverse=True
+            )
+        if high is not None:
+            append_axis_aligned_ellipsoid_cap(
+                points, counts, indices, profile, item, context, axis_index, high, segment_count, reverse=False
+            )
+
+
+def append_axis_aligned_ellipsoid_cap(
+    points: list[Point],
+    counts: list[int],
+    indices: list[int],
+    profile: AxisAlignedEllipsoid,
+    item: ClassifiedExpression,
+    context: EvalContext,
+    axis_index: int,
+    value: float,
+    segment_count: int,
+    reverse: bool,
+) -> None:
+    center = profile.center
+    radii = profile.radii
+    radius = radii[axis_index]
+    if radius <= 0.0:
+        return
+    normalized = (value - center[axis_index]) / radius
+    if normalized < -1.0 - 1e-8 or normalized > 1.0 + 1e-8:
+        return
+    scale = max(0.0, 1.0 - normalized * normalized) ** 0.5
+    if scale <= 1e-8:
+        return
+    other_axes = [index for index in range(3) if index != axis_index]
+    ring: list[Point] = []
+    for segment in range(segment_count):
+        angle = 2.0 * pi * segment / segment_count
+        values = [center[0], center[1], center[2]]
+        values[axis_index] = value
+        values[other_axes[0]] = center[other_axes[0]] + radii[other_axes[0]] * scale * cos(angle)
+        values[other_axes[1]] = center[other_axes[1]] + radii[other_axes[1]] * scale * sin(angle)
+        ring.append((values[0], values[1], values[2]))
+    if not all(point_satisfies_predicates(point, item, context) for point in ring):
+        return
+    if reverse:
+        ring.reverse()
+    base = len(points)
+    points.extend(ring)
+    counts.append(len(ring))
+    indices.extend(range(base, base + len(ring)))
 
 
 def extract_band(predicate: ComparisonPredicate) -> tuple[str, LatexExpression, LatexExpression, bool, bool] | None:

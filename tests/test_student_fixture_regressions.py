@@ -188,6 +188,32 @@ class StudentFixtureRegressionTests(unittest.TestCase):
         self.assertAlmostEqual(min(zs), 1.665 - radius, places=6)
         self.assertAlmostEqual(max(zs), 1.665 + radius, places=6)
 
+    def test_axis_aligned_ball_cap_inequality_exports_capped_mesh(self) -> None:
+        source = SourceInfo("", "", "", "", viewport_bounds={"x": (-12.0, 12.0), "y": (-8.0, 8.0), "z": (0.0, 8.0)})
+        context = EvalContext()
+        item = classify_expression(
+            ExpressionIR(
+                source,
+                "1",
+                0,
+                r"\left(x-7\right)^{2}+\left(y-4\right)^{2}+\left(z-5\right)^{2}<0.5^{2}\left\{z<5\right\}",
+            ),
+            context,
+        )
+
+        geometry = tessellate(item, context, resolution=8)
+        zs = [point[2] for point in geometry.points]
+
+        self.assertEqual(item.kind, "inequality_region")
+        self.assertEqual(geometry.kind, "Mesh")
+        self.assertGreater(geometry.face_count, 100)
+        self.assertAlmostEqual(min(zs), 4.5, places=6)
+        self.assertLessEqual(max(zs), 5.00001)
+        self.assertTrue(has_coplanar_face(geometry, axis=2, value=5.0))
+        for point in geometry.points:
+            variables = {"x": point[0], "y": point[1], "z": point[2]}
+            self.assertTrue(all(predicate.evaluate(context, variables, tol=1e-4) for predicate in item.predicates))
+
     def test_variable_adjacent_trig_inequality_region_tessellates(self) -> None:
         source = SourceInfo("", "", "", "", viewport_bounds={"x": (-10.0, 10.0), "y": (-10.0, 10.0), "z": (0.0, 2.0)})
         item = classify_expression(

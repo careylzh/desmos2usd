@@ -1,0 +1,57 @@
+{
+  "after": {
+    "classified_expression_count": 167,
+    "prim_count": 167,
+    "projection": "S2-10_Group_F_projection_after.png",
+    "renderable_expression_count": 167,
+    "unsupported_count": 0,
+    "usdz_package_returncode": 0,
+    "usdz_validation_returncode": 0,
+    "valid": true
+  },
+  "before": {
+    "classified_expression_count": 167,
+    "prim_count": 147,
+    "projection": "S2-10_Group_F_projection_before.png",
+    "renderable_expression_count": 167,
+    "unsupported_count": 20,
+    "valid": true
+  },
+  "desmos_url": "https://www.desmos.com/3d/tejhfrm34m",
+  "fixture": "[4B] 3D Diagram - S2-10 Group F.json",
+  "guards": {
+    "S2-08 Group E": {
+      "prim_count": 87,
+      "projection": "S2-08_Group_E_projection_guard_after.png",
+      "status": "success",
+      "unsupported_count": 0
+    },
+    "S2-09 Group F": {
+      "prim_count": 27,
+      "projection": "S2-09_Group_F_projection_guard_after.png",
+      "status": "success",
+      "unsupported_count": 0
+    }
+  },
+  "report_vs_usda_defs": {
+    "S2-08 Group E": {
+      "parsed_usda_mesh_or_curve_defs": 87,
+      "report_prim_count": 87
+    },
+    "S2-09 Group F": {
+      "parsed_usda_mesh_or_curve_defs": 27,
+      "report_prim_count": 27
+    },
+    "S2-10 Group F": {
+      "parsed_usda_mesh_or_curve_defs": 167,
+      "report_prim_count": 167
+    }
+  },
+  "summary_after": {
+    "error_count": 0,
+    "fixture_count": 71,
+    "partial_count": 44,
+    "success_count": 27,
+    "unsupported_fixture_count": 44
+  }
+}

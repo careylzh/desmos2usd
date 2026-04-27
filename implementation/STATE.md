@@ -1,6 +1,6 @@
 # Implementation State
 
-Last updated: 2026-04-27 07:28 SGT
+Last updated: 2026-04-27 07:58 SGT
 
 ## Loop Mode
 - cadence: every 10 minutes via OpenClaw cron
@@ -29,10 +29,10 @@ Last updated: 2026-04-27 07:28 SGT
 - id: one-desmos-input-at-a-time
 - title: Fix one remaining partial Desmos input per bounded tranche using live Desmos screenshots and viewer screenshots
 - current-priority:
-  1. Continue S2-10 Group F remaining spherical/ball cap inequalities — https://www.desmos.com/3d/tejhfrm34m — now 20 unsupported, 147 prims, 167 classified
-  2. Continue S2-03 Group E remaining spherical caps / non-affine arc cutouts — https://www.desmos.com/3d/sqkhp7wnx6 — now 17 unsupported, 447 prims, 464 classified
-  3. Continue S2-07 Group F remaining parser/classifier slabs and sampled inequality — https://www.desmos.com/3d/jkj1z8t8pf — now 14 unsupported, 874 prims, 875 classified
-  4. Continue S2-06 Group E remaining elliptical annular slabs / y-squared bridge surfaces / random Gaussian regions — https://www.desmos.com/3d/cg2sd6h1ws — now 13 unsupported, 723 prims, 736 classified
+  1. Continue S2-03 Group E remaining spherical caps / non-affine arc cutouts — https://www.desmos.com/3d/sqkhp7wnx6 — now 17 unsupported, 447 prims, 464 classified
+  2. Continue S2-07 Group F remaining parser/classifier slabs and sampled inequality — https://www.desmos.com/3d/jkj1z8t8pf — now 14 unsupported, 874 prims, 875 classified
+  3. Continue S2-06 Group E remaining elliptical annular slabs / y-squared bridge surfaces / random Gaussian regions — https://www.desmos.com/3d/cg2sd6h1ws — now 13 unsupported, 723 prims, 736 classified
+  4. Revisit S2-10 Group F only for live visual parity evidence when browser capture is available — https://www.desmos.com/3d/tejhfrm34m — structurally success, 167 prims, 0 unsupported
   5. Revisit S2-03 Group D only for live visual parity evidence when browser capture is available — https://www.desmos.com/3d/zvasa1wcgo — structurally success, 585 prims, 0 unsupported
 - done-when:
   - one chosen fixture has fresh Desmos reference screenshots
@@ -52,8 +52,9 @@ Last updated: 2026-04-27 07:28 SGT
 7. [ ] Advance to the next input only after the current one is either defensibly fixed or explicitly blocked.
 
 ## Current Baseline
-- HEAD before current tranche: 75d33bb Improve S2-07F ellipsoid implicit export
-- summary: 71 fixtures; 26 success, 45 partial, 0 error
+- HEAD before current tranche: 9b4b25e Improve S2-10F modulo inequality regions
+- summary: 71 fixtures; 27 success, 44 partial, 0 error
+- S2-10 Group F current tranche: ball-cap pass improved 20 unsupported -> 0 unsupported, 147 prims -> 167 prims, classified remains 167; live browser/viewer capture blocked, so visual claim is structural/local projection only
 - S2-10 Group F current tranche: modulo cylinder/slat/box pass improved 47 unsupported -> 20 unsupported, 120 prims -> 147 prims, classified remains 167; live browser/viewer capture blocked, so visual claim is structural/local projection only
 - S2-07 Group F current tranche: unbounded implicit sphere pass improved 53 unsupported -> 14 unsupported, 835 prims -> 874 prims, classified remains 875; live browser/viewer capture blocked, so visual claim is structural/local projection only
 - S2-07 Group F current tranche: point-list triangle indexing pass improved 69 unsupported -> 53 unsupported, 36 prims -> 835 prims, 37 classified -> 875 classified; live browser/viewer capture blocked, so visual claim is structural/local projection only
@@ -76,5 +77,5 @@ Last updated: 2026-04-27 07:28 SGT
 - Do not overlap Codex/ccwork runs.
 
 ## Last Wake
-- timestamp: 2026-04-27 07:28 SGT
-- result: HOME Codex completed one S2-10F modulo-region tranche. Implemented a general modulo stripe decomposition for inequality regions and reused circular/box extrusion per active interval; S2-10F improved to 147 prims, 20 unsupported. S2-08E and S2-09F remain success guards. Browser/live viewer capture remains blocked by MCP cancellation and local server bind denial, so no live visual parity claim.
+- timestamp: 2026-04-27 07:58 SGT
+- result: HOME Codex completed one S2-10F ball-cap tranche. Implemented a general axis-aligned ellipsoid inequality-region cap path; S2-10F improved to success at 167 prims, 0 unsupported. S2-08E and S2-09F remain success guards. Browser/live viewer capture remains blocked by MCP cancellation and local server bind denial, so no live visual parity claim. Commit/push blocked before staging by `.git/index.lock` permission denial.

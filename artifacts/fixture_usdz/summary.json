@@ -5,7 +5,7 @@
   "fixture_count": 71,
   "fixtures_with_usdz_count": 71,
   "out_dir": "artifacts/fixture_usdz",
-  "partial_count": 45,
+  "partial_count": 44,
   "reports": [
     {
       "acceptance_success": false,
@@ -64238,7 +64238,7 @@
         ],
         "cwd": null,
         "returncode": 0,
-        "stderr": "Coding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'BasisCurves' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'BasisCurves' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'BasisCurves' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'BasisCurves' type and apischemas.\n",
+        "stderr": "Coding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'BasisCurves' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'BasisCurves' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'BasisCurves' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'BasisCurves' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'BasisCurves' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'BasisCurves' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'BasisCurves' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'BasisCurves' type and apischemas.\n",
         "stdout": "\nValidation Result with no explicit variants set\nSuccess!\n",
         "tool": "usdchecker"
       },
@@ -81308,7 +81308,7 @@
         ],
         "cwd": null,
         "returncode": 0,
-        "stderr": "Coding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\n",
+        "stderr": "",
         "stdout": "\nValidation Result with no explicit variants set\nSuccess!\n",
         "tool": "usdchecker"
       },
@@ -87317,141 +87317,20 @@
       }
     },
     {
-      "acceptance_success": false,
+      "acceptance_success": true,
       "classified_expression_count": 167,
-      "complete": false,
+      "complete": true,
       "fixture": "[4B] 3D Diagram - S2-10 Group F.json",
       "fixture_path": "fixtures/states/[4B] 3D Diagram - S2-10 Group F.json",
       "graph_hash": null,
       "output": "artifacts/fixture_usdz/[4B] 3D Diagram - S2-10 Group F.usda",
-      "prim_count": 147,
+      "prim_count": 167,
       "renderable_expression_count": 167,
       "resolution": 8,
-      "status": "partial",
+      "status": "success",
       "title": "Desmos graph",
-      "unsupported": [
-        {
-          "expr_id": "296",
-          "kind": "inequality_region",
-          "latex": "\\left(x-7\\right)^{2}+\\left(y-4\\right)^{2}+\\left(z-5\\right)^{2}<0.5^{2}\\left\\{z<5\\right\\}",
-          "reason": "Inequality region for 296 did not resolve to sampled cells"
-        },
-        {
-          "expr_id": "298",
-          "kind": "inequality_region",
-          "latex": "\\left(x-3\\right)^{2}+\\left(y-4\\right)^{2}+\\left(z-5\\right)^{2}<0.5^{2}\\left\\{z<5\\right\\}",
-          "reason": "Inequality region for 298 did not resolve to sampled cells"
-        },
-        {
-          "expr_id": "301",
-          "kind": "inequality_region",
-          "latex": "\\left(x+3\\right)^{2}+\\left(y-4\\right)^{2}+\\left(z-5\\right)^{2}<0.5^{2}\\left\\{z<5\\right\\}",
-          "reason": "Inequality region for 301 did not resolve to sampled cells"
-        },
-        {
-          "expr_id": "303",
-          "kind": "inequality_region",
-          "latex": "\\left(x+7\\right)^{2}+\\left(y-4\\right)^{2}+\\left(z-5\\right)^{2}<0.5^{2}\\left\\{z<5\\right\\}",
-          "reason": "Inequality region for 303 did not resolve to sampled cells"
-        },
-        {
-          "expr_id": "306",
-          "kind": "inequality_region",
-          "latex": "\\left(x+9\\right)^{2}+y^{2}+\\left(z-5\\right)^{2}<0.5^{2}\\left\\{z<5\\right\\}",
-          "reason": "Inequality region for 306 did not resolve to sampled cells"
-        },
-        {
-          "expr_id": "309",
-          "kind": "inequality_region",
-          "latex": "\\left(x+7\\right)^{2}+\\left(y+4\\right)^{2}+\\left(z-5\\right)^{2}<0.5^{2}\\left\\{z<5\\right\\}",
-          "reason": "Inequality region for 309 did not resolve to sampled cells"
-        },
-        {
-          "expr_id": "311",
-          "kind": "inequality_region",
-          "latex": "\\left(x+3\\right)^{2}+\\left(y+4\\right)^{2}+\\left(z-5\\right)^{2}<0.5^{2}\\left\\{z<5\\right\\}",
-          "reason": "Inequality region for 311 did not resolve to sampled cells"
-        },
-        {
-          "expr_id": "314",
-          "kind": "inequality_region",
-          "latex": "\\left(x-3\\right)^{2}+\\left(y+4\\right)^{2}+\\left(z-5\\right)^{2}<0.5^{2}\\left\\{z<5\\right\\}",
-          "reason": "Inequality region for 314 did not resolve to sampled cells"
-        },
-        {
-          "expr_id": "316",
-          "kind": "inequality_region",
-          "latex": "\\left(x-7\\right)^{2}+\\left(y+4\\right)^{2}+\\left(z-5\\right)^{2}<0.5^{2}\\left\\{z<5\\right\\}",
-          "reason": "Inequality region for 316 did not resolve to sampled cells"
-        },
-        {
-          "expr_id": "319",
-          "kind": "inequality_region",
-          "latex": "\\left(x-9\\right)^{2}+y^{2}+\\left(z-5\\right)^{2}<0.5^{2}\\left\\{z<5\\right\\}",
-          "reason": "Inequality region for 319 did not resolve to sampled cells"
-        },
-        {
-          "expr_id": "347",
-          "kind": "inequality_region",
-          "latex": "\\left(x-7.6\\right)^{2}+\\left(y-2.6\\right)^{2}+\\left(z-5\\right)^{2}<0.5^{2}\\left\\{z<5\\right\\}",
-          "reason": "Inequality region for 347 did not resolve to sampled cells"
-        },
-        {
-          "expr_id": "349",
-          "kind": "inequality_region",
-          "latex": "\\left(x-7.6\\right)^{2}+\\left(y-1.3\\right)^{2}+\\left(z-5\\right)^{2}<0.5^{2}\\left\\{z<5\\right\\}",
-          "reason": "Inequality region for 349 did not resolve to sampled cells"
-        },
-        {
-          "expr_id": "350",
-          "kind": "inequality_region",
-          "latex": "\\left(x-7.6\\right)^{2}+y^{2}+\\left(z-5\\right)^{2}<0.5^{2}\\left\\{z<5\\right\\}",
-          "reason": "Inequality region for 350 did not resolve to sampled cells"
-        },
-        {
-          "expr_id": "351",
-          "kind": "inequality_region",
-          "latex": "\\left(x-7.6\\right)^{2}+\\left(y+1.3\\right)^{2}+\\left(z-5\\right)^{2}<0.5^{2}\\left\\{z<5\\right\\}",
-          "reason": "Inequality region for 351 did not resolve to sampled cells"
-        },
-        {
-          "expr_id": "352",
-          "kind": "inequality_region",
-          "latex": "\\left(x-7.6\\right)^{2}+\\left(y+2.6\\right)^{2}+\\left(z-5\\right)^{2}<0.5^{2}\\left\\{z<5\\right\\}",
-          "reason": "Inequality region for 352 did not resolve to sampled cells"
-        },
-        {
-          "expr_id": "353",
-          "kind": "inequality_region",
-          "latex": "\\left(x+7.6\\right)^{2}+\\left(y-2.6\\right)^{2}+\\left(z-5\\right)^{2}<0.5^{2}\\left\\{z<5\\right\\}",
-          "reason": "Inequality region for 353 did not resolve to sampled cells"
-        },
-        {
-          "expr_id": "354",
-          "kind": "inequality_region",
-          "latex": "\\left(x+7.6\\right)^{2}+\\left(y-1.3\\right)^{2}+\\left(z-5\\right)^{2}<0.5^{2}\\left\\{z<5\\right\\}",
-          "reason": "Inequality region for 354 did not resolve to sampled cells"
-        },
-        {
-          "expr_id": "356",
-          "kind": "inequality_region",
-          "latex": "\\left(x+7.6\\right)^{2}+y^{2}+\\left(z-5\\right)^{2}<0.5^{2}\\left\\{z<5\\right\\}",
-          "reason": "Inequality region for 356 did not resolve to sampled cells"
-        },
-        {
-          "expr_id": "357",
-          "kind": "inequality_region",
-          "latex": "\\left(x+7.6\\right)^{2}+\\left(y+1.3\\right)^{2}+\\left(z-5\\right)^{2}<0.5^{2}\\left\\{z<5\\right\\}",
-          "reason": "Inequality region for 357 did not resolve to sampled cells"
-        },
-        {
-          "expr_id": "358",
-          "kind": "inequality_region",
-          "latex": "\\left(x+7.6\\right)^{2}+\\left(y+2.6\\right)^{2}+\\left(z-5\\right)^{2}<0.5^{2}\\left\\{z<5\\right\\}",
-          "reason": "Inequality region for 358 did not resolve to sampled cells"
-        }
-      ],
-      "unsupported_count": 20,
+      "unsupported": [],
+      "unsupported_count": 0,
       "usda_exists": true,
       "usdz_exists": true,
       "usdz_output": "artifacts/fixture_usdz/[4B] 3D Diagram - S2-10 Group F.usdz",
@@ -87475,7 +87354,7 @@
         ],
         "cwd": null,
         "returncode": 0,
-        "stderr": "Coding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\n",
+        "stderr": "",
         "stdout": "\nValidation Result with no explicit variants set\nSuccess!\n",
         "tool": "usdchecker"
       },
@@ -87525,10 +87404,10 @@
           "constraint_violation_count": 0,
           "errors": [],
           "expr_id": "295",
-          "face_count": 6,
+          "face_count": 257,
           "kind": "inequality_region",
           "max_residual": null,
-          "point_count": 8,
+          "point_count": 289,
           "valid": true
         },
         {
@@ -87559,6 +87438,16 @@
           "kind": "inequality_region",
           "max_residual": null,
           "point_count": 514,
+          "valid": true
+        },
+        {
+          "constraint_violation_count": 0,
+          "errors": [],
+          "expr_id": "296",
+          "face_count": 257,
+          "kind": "inequality_region",
+          "max_residual": null,
+          "point_count": 289,
           "valid": true
         },
         {
@@ -87595,10 +87484,10 @@
           "constraint_violation_count": 0,
           "errors": [],
           "expr_id": "297",
-          "face_count": 6,
+          "face_count": 257,
           "kind": "inequality_region",
           "max_residual": null,
-          "point_count": 8,
+          "point_count": 289,
           "valid": true
         },
         {
@@ -87629,6 +87518,16 @@
           "kind": "inequality_region",
           "max_residual": null,
           "point_count": 514,
+          "valid": true
+        },
+        {
+          "constraint_violation_count": 0,
+          "errors": [],
+          "expr_id": "298",
+          "face_count": 257,
+          "kind": "inequality_region",
+          "max_residual": null,
+          "point_count": 289,
           "valid": true
         },
         {
@@ -87665,10 +87564,10 @@
           "constraint_violation_count": 0,
           "errors": [],
           "expr_id": "299",
-          "face_count": 6,
+          "face_count": 257,
           "kind": "inequality_region",
           "max_residual": null,
-          "point_count": 8,
+          "point_count": 289,
           "valid": true
         },
         {
@@ -87705,10 +87604,10 @@
           "constraint_violation_count": 0,
           "errors": [],
           "expr_id": "300",
-          "face_count": 6,
+          "face_count": 257,
           "kind": "inequality_region",
           "max_residual": null,
-          "point_count": 8,
+          "point_count": 289,
           "valid": true
         },
         {
@@ -87739,6 +87638,16 @@
           "kind": "inequality_region",
           "max_residual": null,
           "point_count": 514,
+          "valid": true
+        },
+        {
+          "constraint_violation_count": 0,
+          "errors": [],
+          "expr_id": "301",
+          "face_count": 257,
+          "kind": "inequality_region",
+          "max_residual": null,
+          "point_count": 289,
           "valid": true
         },
         {
@@ -87775,10 +87684,10 @@
           "constraint_violation_count": 0,
           "errors": [],
           "expr_id": "302",
-          "face_count": 6,
+          "face_count": 257,
           "kind": "inequality_region",
           "max_residual": null,
-          "point_count": 8,
+          "point_count": 289,
           "valid": true
         },
         {
@@ -87809,6 +87718,16 @@
           "kind": "inequality_region",
           "max_residual": null,
           "point_count": 514,
+          "valid": true
+        },
+        {
+          "constraint_violation_count": 0,
+          "errors": [],
+          "expr_id": "303",
+          "face_count": 257,
+          "kind": "inequality_region",
+          "max_residual": null,
+          "point_count": 289,
           "valid": true
         },
         {
@@ -87845,10 +87764,10 @@
           "constraint_violation_count": 0,
           "errors": [],
           "expr_id": "304",
-          "face_count": 6,
+          "face_count": 257,
           "kind": "inequality_region",
           "max_residual": null,
-          "point_count": 8,
+          "point_count": 289,
           "valid": true
         },
         {
@@ -87885,10 +87804,10 @@
           "constraint_violation_count": 0,
           "errors": [],
           "expr_id": "305",
-          "face_count": 12,
+          "face_count": 257,
           "kind": "inequality_region",
           "max_residual": null,
-          "point_count": 16,
+          "point_count": 289,
           "valid": true
         },
         {
@@ -87919,6 +87838,16 @@
           "kind": "inequality_region",
           "max_residual": null,
           "point_count": 514,
+          "valid": true
+        },
+        {
+          "constraint_violation_count": 0,
+          "errors": [],
+          "expr_id": "306",
+          "face_count": 257,
+          "kind": "inequality_region",
+          "max_residual": null,
+          "point_count": 289,
           "valid": true
         },
         {
@@ -87955,10 +87884,10 @@
           "constraint_violation_count": 0,
           "errors": [],
           "expr_id": "307",
-          "face_count": 12,
+          "face_count": 257,
           "kind": "inequality_region",
           "max_residual": null,
-          "point_count": 16,
+          "point_count": 289,
           "valid": true
         },
         {
@@ -87995,10 +87924,10 @@
           "constraint_violation_count": 0,
           "errors": [],
           "expr_id": "308",
-          "face_count": 6,
+          "face_count": 257,
           "kind": "inequality_region",
           "max_residual": null,
-          "point_count": 8,
+          "point_count": 289,
           "valid": true
         },
         {
@@ -88029,6 +87958,16 @@
           "kind": "inequality_region",
           "max_residual": null,
           "point_count": 514,
+          "valid": true
+        },
+        {
+          "constraint_violation_count": 0,
+          "errors": [],
+          "expr_id": "309",
+          "face_count": 257,
+          "kind": "inequality_region",
+          "max_residual": null,
+          "point_count": 289,
           "valid": true
         },
         {
@@ -88065,10 +88004,10 @@
           "constraint_violation_count": 0,
           "errors": [],
           "expr_id": "310",
-          "face_count": 6,
+          "face_count": 257,
           "kind": "inequality_region",
           "max_residual": null,
-          "point_count": 8,
+          "point_count": 289,
           "valid": true
         },
         {
@@ -88099,6 +88038,16 @@
           "kind": "inequality_region",
           "max_residual": null,
           "point_count": 514,
+          "valid": true
+        },
+        {
+          "constraint_violation_count": 0,
+          "errors": [],
+          "expr_id": "311",
+          "face_count": 257,
+          "kind": "inequality_region",
+          "max_residual": null,
+          "point_count": 289,
           "valid": true
         },
         {
@@ -88135,10 +88084,10 @@
           "constraint_violation_count": 0,
           "errors": [],
           "expr_id": "312",
-          "face_count": 6,
+          "face_count": 257,
           "kind": "inequality_region",
           "max_residual": null,
-          "point_count": 8,
+          "point_count": 289,
           "valid": true
         },
         {
@@ -88175,10 +88124,10 @@
           "constraint_violation_count": 0,
           "errors": [],
           "expr_id": "313",
-          "face_count": 6,
+          "face_count": 257,
           "kind": "inequality_region",
           "max_residual": null,
-          "point_count": 8,
+          "point_count": 289,
           "valid": true
         },
         {
@@ -88209,6 +88158,16 @@
           "kind": "inequality_region",
           "max_residual": null,
           "point_count": 514,
+          "valid": true
+        },
+        {
+          "constraint_violation_count": 0,
+          "errors": [],
+          "expr_id": "314",
+          "face_count": 257,
+          "kind": "inequality_region",
+          "max_residual": null,
+          "point_count": 289,
           "valid": true
         },
         {
@@ -88245,10 +88204,10 @@
           "constraint_violation_count": 0,
           "errors": [],
           "expr_id": "315",
-          "face_count": 6,
+          "face_count": 257,
           "kind": "inequality_region",
           "max_residual": null,
-          "point_count": 8,
+          "point_count": 289,
           "valid": true
         },
         {
@@ -88279,6 +88238,16 @@
           "kind": "inequality_region",
           "max_residual": null,
           "point_count": 514,
+          "valid": true
+        },
+        {
+          "constraint_violation_count": 0,
+          "errors": [],
+          "expr_id": "316",
+          "face_count": 257,
+          "kind": "inequality_region",
+          "max_residual": null,
+          "point_count": 289,
           "valid": true
         },
         {
@@ -88315,10 +88284,10 @@
           "constraint_violation_count": 0,
           "errors": [],
           "expr_id": "317",
-          "face_count": 6,
+          "face_count": 257,
           "kind": "inequality_region",
           "max_residual": null,
-          "point_count": 8,
+          "point_count": 289,
           "valid": true
         },
         {
@@ -88355,10 +88324,10 @@
           "constraint_violation_count": 0,
           "errors": [],
           "expr_id": "318",
-          "face_count": 12,
+          "face_count": 257,
           "kind": "inequality_region",
           "max_residual": null,
-          "point_count": 16,
+          "point_count": 289,
           "valid": true
         },
         {
@@ -88389,6 +88358,16 @@
           "kind": "inequality_region",
           "max_residual": null,
           "point_count": 514,
+          "valid": true
+        },
+        {
+          "constraint_violation_count": 0,
+          "errors": [],
+          "expr_id": "319",
+          "face_count": 257,
+          "kind": "inequality_region",
+          "max_residual": null,
+          "point_count": 289,
           "valid": true
         },
         {
@@ -88425,10 +88404,10 @@
           "constraint_violation_count": 0,
           "errors": [],
           "expr_id": "320",
-          "face_count": 12,
+          "face_count": 257,
           "kind": "inequality_region",
           "max_residual": null,
-          "point_count": 16,
+          "point_count": 289,
           "valid": true
         },
         {
@@ -88484,6 +88463,16 @@
         {
           "constraint_violation_count": 0,
           "errors": [],
+          "expr_id": "347",
+          "face_count": 257,
+          "kind": "inequality_region",
+          "max_residual": null,
+          "point_count": 289,
+          "valid": true
+        },
+        {
+          "constraint_violation_count": 0,
+          "errors": [],
           "expr_id": "359",
           "face_count": 30,
           "kind": "inequality_region",
@@ -88509,6 +88498,16 @@
           "kind": "inequality_region",
           "max_residual": null,
           "point_count": 514,
+          "valid": true
+        },
+        {
+          "constraint_violation_count": 0,
+          "errors": [],
+          "expr_id": "349",
+          "face_count": 257,
+          "kind": "inequality_region",
+          "max_residual": null,
+          "point_count": 289,
           "valid": true
         },
         {
@@ -88544,6 +88543,16 @@
         {
           "constraint_violation_count": 0,
           "errors": [],
+          "expr_id": "350",
+          "face_count": 257,
+          "kind": "inequality_region",
+          "max_residual": null,
+          "point_count": 289,
+          "valid": true
+        },
+        {
+          "constraint_violation_count": 0,
+          "errors": [],
           "expr_id": "361",
           "face_count": 30,
           "kind": "inequality_region",
@@ -88569,6 +88578,16 @@
           "kind": "inequality_region",
           "max_residual": null,
           "point_count": 514,
+          "valid": true
+        },
+        {
+          "constraint_violation_count": 0,
+          "errors": [],
+          "expr_id": "351",
+          "face_count": 257,
+          "kind": "inequality_region",
+          "max_residual": null,
+          "point_count": 289,
           "valid": true
         },
         {
@@ -88604,6 +88623,16 @@
         {
           "constraint_violation_count": 0,
           "errors": [],
+          "expr_id": "352",
+          "face_count": 257,
+          "kind": "inequality_region",
+          "max_residual": null,
+          "point_count": 289,
+          "valid": true
+        },
+        {
+          "constraint_violation_count": 0,
+          "errors": [],
           "expr_id": "363",
           "face_count": 30,
           "kind": "inequality_region",
@@ -88634,6 +88663,16 @@
         {
           "constraint_violation_count": 0,
           "errors": [],
+          "expr_id": "353",
+          "face_count": 257,
+          "kind": "inequality_region",
+          "max_residual": null,
+          "point_count": 289,
+          "valid": true
+        },
+        {
+          "constraint_violation_count": 0,
+          "errors": [],
           "expr_id": "364",
           "face_count": 30,
           "kind": "inequality_region",
@@ -88649,6 +88688,16 @@
           "kind": "inequality_region",
           "max_residual": null,
           "point_count": 5140,
+          "valid": true
+        },
+        {
+          "constraint_violation_count": 0,
+          "errors": [],
+          "expr_id": "354",
+          "face_count": 257,
+          "kind": "inequality_region",
+          "max_residual": null,
+          "point_count": 289,
           "valid": true
         },
         {
@@ -88694,6 +88743,16 @@
         {
           "constraint_violation_count": 0,
           "errors": [],
+          "expr_id": "356",
+          "face_count": 257,
+          "kind": "inequality_region",
+          "max_residual": null,
+          "point_count": 289,
+          "valid": true
+        },
+        {
+          "constraint_violation_count": 0,
+          "errors": [],
           "expr_id": "366",
           "face_count": 30,
           "kind": "inequality_region",
@@ -88724,6 +88783,16 @@
         {
           "constraint_violation_count": 0,
           "errors": [],
+          "expr_id": "357",
+          "face_count": 257,
+          "kind": "inequality_region",
+          "max_residual": null,
+          "point_count": 289,
+          "valid": true
+        },
+        {
+          "constraint_violation_count": 0,
+          "errors": [],
           "expr_id": "367",
           "face_count": 30,
           "kind": "inequality_region",
@@ -88749,6 +88818,16 @@
           "kind": "inequality_region",
           "max_residual": null,
           "point_count": 514,
+          "valid": true
+        },
+        {
+          "constraint_violation_count": 0,
+          "errors": [],
+          "expr_id": "358",
+          "face_count": 257,
+          "kind": "inequality_region",
+          "max_residual": null,
+          "point_count": 289,
           "valid": true
         },
         {
@@ -109510,8 +109589,8 @@
       }
     }
   ],
-  "success_count": 26,
-  "unsupported_fixture_count": 45,
+  "success_count": 27,
+  "unsupported_fixture_count": 44,
   "unsupported_fixture_names": [
     "[4B] 3D Diagram - S2-01 Group A.json",
     "[4B] 3D Diagram - S2-01 Group B.json",
@@ -109555,7 +109634,6 @@
     "[4B] 3D Diagram - S2-10 Group C.json",
     "[4B] 3D Diagram - S2-10 Group D.json",
     "[4B] 3D Diagram - S2-10 Group E.json",
-    "[4B] 3D Diagram - S2-10 Group F.json",
     "[4B] 3D Diagram - S2-10 Group G.json",
     "vyp9ogyimt.json"
   ]

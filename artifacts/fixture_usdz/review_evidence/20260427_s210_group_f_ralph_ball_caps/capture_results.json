@@ -1,0 +1,39 @@
+{
+  "desmos_screenshots": [],
+  "desmos_url": "https://www.desmos.com/3d/tejhfrm34m",
+  "fixture": "[4B] 3D Diagram - S2-10 Group F.json",
+  "local_projection_evidence": [
+    "S2-10_Group_F_projection_before.png",
+    "S2-10_Group_F_projection_after.png",
+    "S2-08_Group_E_projection_guard_after.png",
+    "S2-09_Group_F_projection_guard_after.png"
+  ],
+  "live_capture_blockers": [
+    {
+      "path": "Chrome DevTools",
+      "step": "resize_page",
+      "target": "1440x1000",
+      "result": "user cancelled MCP tool call"
+    },
+    {
+      "path": "Playwright",
+      "step": "browser_resize",
+      "target": "1440x1000",
+      "result": "user cancelled MCP tool call"
+    },
+    {
+      "path": "Playwright",
+      "step": "browser_navigate",
+      "target": "https://www.desmos.com/3d/tejhfrm34m",
+      "result": "user cancelled MCP tool call"
+    },
+    {
+      "path": "local viewer",
+      "step": "start server",
+      "target": "python3 -m http.server 8765 --bind 127.0.0.1",
+      "result": "PermissionError: [Errno 1] Operation not permitted"
+    }
+  ],
+  "viewer_screenshots": [],
+  "visual_claim": "No live Desmos/viewer parity claim; browser capture and local viewer serving were blocked."
+}
