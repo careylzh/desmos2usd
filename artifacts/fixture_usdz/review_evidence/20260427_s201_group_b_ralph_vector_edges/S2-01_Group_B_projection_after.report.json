@@ -1,0 +1,84 @@
+{
+  "classified_expression_count": 134,
+  "complete": false,
+  "fixture": "[4B] 3D Diagram - S2-01 Group B.json",
+  "prim_count": 133,
+  "renderable_expression_count": 143,
+  "unsupported": [
+    {
+      "expr_id": "12",
+      "kind": "classification",
+      "latex": "\\left[A,B\\right]",
+      "reason": "not a supported renderable geometry form"
+    },
+    {
+      "expr_id": "15",
+      "kind": "classification",
+      "latex": "\\left[A,C\\right]",
+      "reason": "not a supported renderable geometry form"
+    },
+    {
+      "expr_id": "18",
+      "kind": "classification",
+      "latex": "\\left[A,E\\right]",
+      "reason": "not a supported renderable geometry form"
+    },
+    {
+      "expr_id": "24",
+      "kind": "classification",
+      "latex": "\\left[A,D\\right]",
+      "reason": "not a supported renderable geometry form"
+    },
+    {
+      "expr_id": "31",
+      "kind": "classification",
+      "latex": "\\left[A,F\\right]",
+      "reason": "not a supported renderable geometry form"
+    },
+    {
+      "expr_id": "36",
+      "kind": "classification",
+      "latex": "\\left[A,G\\right]",
+      "reason": "not a supported renderable geometry form"
+    },
+    {
+      "expr_id": "39",
+      "kind": "classification",
+      "latex": "\\left[A,H\\right]",
+      "reason": "not a supported renderable geometry form"
+    },
+    {
+      "expr_id": "48",
+      "kind": "classification",
+      "latex": "\\left[A,I\\right]",
+      "reason": "not a supported renderable geometry form"
+    },
+    {
+      "expr_id": "49",
+      "kind": "classification",
+      "latex": "\\left[A,J\\right]",
+      "reason": "not a supported renderable geometry form"
+    },
+    {
+      "expr_id": "74",
+      "kind": "inequality_region",
+      "latex": "x^{2}+y^{2}<=5000z=0",
+      "reason": "Inequality region for 74 did not resolve to sampled cells"
+    }
+  ],
+  "unsupported_count": 10,
+  "url": "",
+  "usdz_package": {
+    "command": [
+      "/usr/bin/usdzip",
+      "/Users/chek/repos/desmos2usd-carey/artifacts/fixture_usdz/review_evidence/20260427_s201_group_b_ralph_vector_edges/S2-01_Group_B_projection_after.usdz",
+      "S2-01_Group_B_projection_after.usda"
+    ],
+    "cwd": "/Users/chek/repos/desmos2usd-carey/artifacts/fixture_usdz/review_evidence/20260427_s201_group_b_ralph_vector_edges",
+    "returncode": 0,
+    "stderr": "",
+    "stdout": "",
+    "tool": "usdzip"
+  },
+  "valid": true
+}

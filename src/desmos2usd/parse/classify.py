@@ -424,8 +424,8 @@ def classify_expression(expr: ExpressionIR, context: EvalContext) -> ClassifiedE
         expression = parse_sphere_surface(main, context)
         return ClassifiedExpression(ir=expr, kind="implicit_surface", predicates=predicates, expression=expression)
 
-    if looks_like_vector(main):
-        vector = parse_vector(main, context)
+    vector = parse_renderable_vector_expression(main, context)
+    if vector is not None:
         vector_identifiers = set().union(*(component.identifiers for component in vector.components))
         if {"u", "v"} <= vector_identifiers:
             return ClassifiedExpression(
@@ -1358,6 +1358,22 @@ def looks_like_vector(text: str) -> bool:
     return False
 
 
+def parse_renderable_vector_expression(text: str, context: EvalContext) -> VectorExpression | None:
+    if not looks_like_vector(text) and not references_known_vector(text, context):
+        return None
+    try:
+        return parse_vector(text, context)
+    except Exception:
+        if looks_like_vector(text):
+            raise
+        return None
+
+
+def references_known_vector(text: str, context: EvalContext) -> bool:
+    normalized = normalize_latex_delimiters(text)
+    return any(latex_identifier_present(normalized, name) for name in context.vectors)
+
+
 def matching_paren(text: str, start: int) -> int:
     depth = 0
     for index in range(start, len(text)):
@@ -1418,10 +1434,52 @@ def expand_vector_expression(text: str, context: EvalContext) -> str:
             scalar = left_text
             vector = parse_vector_components(right_text, context)
         return "(" + ",".join(f"(({scalar})*({component}))" for component in vector) + ")"
+    implicit_product = split_implicit_vector_product(s, context)
+    if implicit_product is not None:
+        scalar, vector_text = implicit_product
+        vector = parse_vector_components(vector_text, context)
+        return "(" + ",".join(f"(({scalar})*({component}))" for component in vector) + ")"
     name = normalize_identifier_safe(s)
     if name in context.vectors:
         return "(" + ",".join(repr(v) for v in context.vectors[name]) + ")"
     return s
+
+
+def split_implicit_vector_product(text: str, context: EvalContext) -> tuple[str, str] | None:
+    open_at = find_top_level_implicit_vector_product_open(text)
+    if open_at <= 0:
+        return None
+    try:
+        close_at = matching_paren(text, open_at)
+    except ValueError:
+        return None
+    if close_at != len(text) - 1:
+        return None
+    scalar = text[:open_at].strip()
+    vector_text = text[open_at + 1 : close_at].strip()
+    if not scalar or not vector_text:
+        return None
+    try:
+        scalar_expr = LatexExpression.parse(scalar)
+    except Exception:
+        return None
+    if scalar_expr.identifiers & set(context.vectors):
+        return None
+    if not references_known_vector(vector_text, context) and not looks_like_vector(vector_text):
+        return None
+    return scalar, vector_text
+
+
+def find_top_level_implicit_vector_product_open(text: str) -> int:
+    depth = 0
+    for index, char in enumerate(text):
+        if char == "(":
+            if depth == 0:
+                return index
+            depth += 1
+        elif char == ")":
+            depth -= 1
+    return -1
 
 
 SEGMENT_PREFIX = "\\operatorname{segment}"

@@ -1,0 +1,32 @@
+{
+  "guards_after": {
+    "S2-08 Group E": {
+      "complete": true,
+      "prim_count": 87,
+      "unsupported_count": 0,
+      "valid": true
+    },
+    "S2-09 Group F": {
+      "complete": true,
+      "prim_count": 27,
+      "unsupported_count": 0,
+      "valid": true
+    }
+  },
+  "target_after": {
+    "classified_expression_count": 134,
+    "complete": false,
+    "prim_count": 133,
+    "renderable_expression_count": 143,
+    "unsupported_count": 10,
+    "valid": true
+  },
+  "target_before": {
+    "classified_expression_count": 117,
+    "complete": false,
+    "prim_count": 116,
+    "renderable_expression_count": 143,
+    "unsupported_count": 27,
+    "valid": true
+  }
+}

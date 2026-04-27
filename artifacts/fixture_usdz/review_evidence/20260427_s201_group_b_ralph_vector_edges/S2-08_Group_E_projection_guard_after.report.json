@@ -1,0 +1,23 @@
+{
+  "classified_expression_count": 87,
+  "complete": true,
+  "fixture": "[4B] 3D Diagram - S2-08 Group E.json",
+  "prim_count": 87,
+  "renderable_expression_count": 87,
+  "unsupported": [],
+  "unsupported_count": 0,
+  "url": "",
+  "usdz_package": {
+    "command": [
+      "/usr/bin/usdzip",
+      "/Users/chek/repos/desmos2usd-carey/artifacts/fixture_usdz/review_evidence/20260427_s201_group_b_ralph_vector_edges/S2-08_Group_E_projection_guard_after.usdz",
+      "S2-08_Group_E_projection_guard_after.usda"
+    ],
+    "cwd": "/Users/chek/repos/desmos2usd-carey/artifacts/fixture_usdz/review_evidence/20260427_s201_group_b_ralph_vector_edges",
+    "returncode": 0,
+    "stderr": "",
+    "stdout": "",
+    "tool": "usdzip"
+  },
+  "valid": true
+}

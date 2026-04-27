@@ -375,6 +375,62 @@ class StudentFixtureRegressionTests(unittest.TestCase):
         self.assertEqual(geometry.points[0], (0.0, 0.0, 0.0))
         self.assertEqual(geometry.points[-1], (2.0, 0.0, 4.0))
 
+    def test_point_defined_affine_vector_expression_exports_curve(self) -> None:
+        context = EvalContext()
+        self.assertTrue(register_definition(expr("1", r"A=\left(0,0,2\right)", hidden=True), context))
+        self.assertTrue(register_definition(expr("2", r"B=\left(10,0,4\right)", hidden=True), context))
+        item = classify_expression(expr("3", r"A+t\left(B-A\right)"), context)
+
+        geometry = tessellate(item, context, resolution=4)
+
+        self.assertEqual(item.kind, "parametric_curve")
+        self.assertEqual(geometry.kind, "BasisCurves")
+        self.assertEqual(geometry.points[0], (0.0, 0.0, 2.0))
+        self.assertEqual(geometry.points[-1], (10.0, 0.0, 4.0))
+
+    def test_s201_group_b_point_defined_edge_curves_no_longer_unsupported(self) -> None:
+        fixture = (
+            Path(__file__).resolve().parents[1]
+            / "fixtures"
+            / "states"
+            / "[4B] 3D Diagram - S2-01 Group B.json"
+        )
+        graph = graph_ir_from_state(json.loads(fixture.read_text(encoding="utf-8")))
+        edge_ids = {
+            "13",
+            "16",
+            "19",
+            "25",
+            "32",
+            "37",
+            "40",
+            "41",
+            "43",
+            "46",
+            "47",
+            "51",
+            "52",
+            "53",
+            "55",
+            "56",
+            "57",
+        }
+
+        classification, classification_unsupported = classify_graph_tolerant(graph)
+        with tempfile.TemporaryDirectory() as tmp:
+            prims, _validations, export_unsupported = export_graph(
+                graph,
+                classification,
+                Path(tmp) / "s201b.usda",
+                resolution=12,
+            )
+
+        unsupported_ids = {item.expr_id for item in [*classification_unsupported, *export_unsupported]}
+        prim_ids = {prim.item.ir.expr_id for prim in prims}
+        self.assertTrue(edge_ids.issubset(prim_ids))
+        self.assertTrue(edge_ids.isdisjoint(unsupported_ids))
+        self.assertGreaterEqual(len(prims), 133)
+
     def test_desmos_parametric_domain_sets_curve_bounds(self) -> None:
         item = classify_expression(
             ExpressionIR(
