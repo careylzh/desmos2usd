@@ -8,7 +8,7 @@ Last updated: 2026-04-27 20:00 SGT
 - repo: /Users/chek/repos/desmos2usd-carey
 - branch: fix/student-fixture-usdz-export
 - push-target: chektien:fix/student-fixture-usdz-export
-- pr: https://github.com/careylzh/desmos2usd/pull/1
+- pr: https://github.com/careylzh/desmos2usd/pull/2
 - non-overlap: true; if a previous Codex or ccwork run is still active, a cron wake must leave it running and not start another implementation pass
 
 ## Executor Policy
@@ -29,14 +29,14 @@ Last updated: 2026-04-27 20:00 SGT
 - id: one-desmos-input-at-a-time
 - title: Fix one remaining partial Desmos input per bounded tranche using live Desmos screenshots and viewer screenshots
 - current-priority:
-  1. Fixed today: S2-10 Group A — https://www.desmos.com/3d/g53xte50e7 — success after affine-clipped function-band variable extrusion, 40 prims, 0 unsupported
-  2. Fixed today: S2-10 Group E — https://www.desmos.com/3d/xzhfl6m1td — success after non-graphable label-row filtering, 249 prims, 0 unsupported
-  3. Fixed today: S2-08 Group G — https://www.desmos.com/3d/24vpv4pfwh — success after list tuple regeneration plus constant-z flat-disk pass, 1835 prims, 0 unsupported
-  4. Fixed today: S2-02 Group C — https://www.desmos.com/3d/sqn7vxcm4n — success after nested restriction pass, 169 prims, 0 unsupported
-  5. Fixed today: S2-04 Group G — https://www.desmos.com/3d/ratctlkc9i — success after hsv/okhsv color-function pass, 103 prims, 0 unsupported
-  6. Fixed today: S2-02 Group F — https://www.desmos.com/3d/1zpiejy9c9 — success after chained-empty pass, 206 prims, 0 unsupported
-  7. Fixed today: S2-01 Group A — https://www.desmos.com/3d/cvggvbbe73 — success after affine-clipped explicit-surface domain inference, 208 prims, 0 unsupported
-  8. Current partial: S2-01 Group B — https://www.desmos.com/3d/27v0xuv64m — point-list pass improved 133 prims / 10 unsupported -> 142 prims / 1 unsupported; continue this fixture next, targeting malformed disk expression `74`
+  1. TOMORROW focus: S2-01 Group E — https://www.desmos.com/3d/nzokib2plm — partial, 23 prims, 20 unsupported; highest remaining S2-01 gap
+  2. TOMORROW focus: S2-01 Group C — https://www.desmos.com/3d/upbjmsjpzq — partial, 15 prims, 4 unsupported
+  3. TOMORROW focus: S2-01 Group B — https://www.desmos.com/3d/27v0xuv64m — partial, 142 prims, 1 unsupported; remaining malformed disk expression `74`
+  4. TOMORROW already success: S2-01 Group A — https://www.desmos.com/3d/cvggvbbe73 — 208 prims, 0 unsupported
+  5. TOMORROW already success: S2-01 Group D — https://www.desmos.com/3d/z68jgsnw24 — 21 prims, 0 unsupported
+  6. TOMORROW already success: S2-01 Group F — https://www.desmos.com/3d/sbrpw8amwn — 10 prims, 0 unsupported
+  7. TOMORROW already success: S2-01 Group G — https://www.desmos.com/3d/jbmqctn5ic — 129 prims, 0 unsupported
+  8. Defer unless Chek reopens it: S2-10 Group E — https://www.desmos.com/3d/xzhfl6m1td — metrics say success after label filtering, but Chek reported the viewer still looks broken; do not call it visually fixed from metrics alone
 - done-when:
   - one chosen fixture has fresh Desmos reference screenshots
   - live viewer screenshots/projections exist for the generated USD artifact
