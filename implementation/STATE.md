@@ -1,6 +1,6 @@
 # Implementation State
 
-Last updated: 2026-04-27 14:48 SGT
+Last updated: 2026-04-27 14:56 SGT
 
 ## Loop Mode
 - cadence: every 10 minutes via OpenClaw cron
@@ -29,11 +29,11 @@ Last updated: 2026-04-27 14:48 SGT
 - id: one-desmos-input-at-a-time
 - title: Fix one remaining partial Desmos input per bounded tranche using live Desmos screenshots and viewer screenshots
 - current-priority:
-  1. URGENT TODAY 1550 Class 2-04: S2-04 Group G — https://www.desmos.com/3d/ratctlkc9i — Chek reported it looks very bad; 36 unsupported, 44 prims
-  2. TODAY 1530 Class 2-02: S2-02 Group C — https://www.desmos.com/3d/sqn7vxcm4n — next early-risk presenter, 36 unsupported, 133 prims
-  3. TODAY 1610 Class 2-08: S2-08 Group G — https://www.desmos.com/3d/24vpv4pfwh — 23 unsupported, 1236 prims
-  4. TODAY 1630 Class 2-10: S2-10 Group E — https://www.desmos.com/3d/xzhfl6m1td — 10 unsupported, 249 prims
-  5. TODAY 1630 Class 2-10: S2-10 Group A — https://www.desmos.com/3d/g53xte50e7 — 8 unsupported, 32 prims
+  1. TODAY 1530 Class 2-02: S2-02 Group C — https://www.desmos.com/3d/sqn7vxcm4n — next early-risk presenter, 36 unsupported, 133 prims
+  2. TODAY 1610 Class 2-08: S2-08 Group G — https://www.desmos.com/3d/24vpv4pfwh — 23 unsupported, 1236 prims
+  3. TODAY 1630 Class 2-10: S2-10 Group E — https://www.desmos.com/3d/xzhfl6m1td — 10 unsupported, 249 prims
+  4. TODAY 1630 Class 2-10: S2-10 Group A — https://www.desmos.com/3d/g53xte50e7 — 8 unsupported, 32 prims
+  5. Fixed today: S2-04 Group G — https://www.desmos.com/3d/ratctlkc9i — success after hsv/okhsv color-function pass, 103 prims, 0 unsupported
   6. Fixed today: S2-02 Group F — https://www.desmos.com/3d/1zpiejy9c9 — success after chained-empty pass, 206 prims, 0 unsupported
   7. Only after today's presenters are improved: resume global queue, starting with S2-01 Group A and S2-06 Group F
 - done-when:
@@ -55,7 +55,8 @@ Last updated: 2026-04-27 14:48 SGT
 
 ## Current Baseline
 - HEAD before current tranche: a464494 Handle Desmos infinity helper planes
-- summary: 71 fixtures; 31 success, 40 partial, 0 error
+- summary: 71 fixtures; 32 success, 39 partial, 0 error
+- S2-04 Group G current tranche: static Desmos `hsv(...)`/`okhsv(...)` color definitions now resolve through `colorLatex`; tracked resolution-12 export improved 103 prims / 3 unsupported -> 103 prims / 0 unsupported, success. Browser/live viewer capture blocked, so visual claim is structural/local projection only.
 - S2-02 Group F current tranche: chained predicate constant-bound contradictions now export as valid empty meshes; tracked resolution-12 export improved 197 prims / 9 unsupported -> 206 prims / 0 unsupported, success. Browser/live viewer capture blocked, so visual claim is structural/local projection only.
 - S2-02 Group F previous tranche: constant-z explicit circular disk caps improved tracked resolution-12 export 47 unsupported -> 9 unsupported and 159 prims -> 197 prims; all `90_*` and `98_*` cap surfaces now export; remaining unsupported were nine malformed chained `72_*` inequalities; live browser/viewer capture blocked, so visual claim is structural/local projection only
 - S2-02 Group F previous tranche: list-expanded one-axis quadratic guide bands improved fresh local export 111 unsupported -> 47 unsupported and 95 prims -> 159 prims; tracked resolution-12 artifact was 159 prims / 47 unsupported / 206 classified; live browser/viewer capture blocked, so visual claim is structural/local projection only
@@ -89,5 +90,5 @@ Last updated: 2026-04-27 14:48 SGT
 - Do not overlap Codex/ccwork runs.
 
 ## Last Wake
-- timestamp: 2026-04-27 14:48 SGT
-- result: Harvested HOME Codex run `20260427-141326-879` and committed/pushed `a464494` (`Handle Desmos infinity helper planes`). S2-04G improved from `91 prims / 15 unsupported` to `103 prims / 3 unsupported`; only `hsv`/`okhsv` color definitions remain unsupported. Revalidated targeted parser/student fixture/fixture USDZ/visual preview modules (88 tests OK), full unittest discovery (146 tests OK), and `git diff --check`. Browser/live viewer capture remained blocked, so visual claim is structural/local projection only. Per cron policy, no new implementation pass launched after commit; next wake should handle general color-function support for S2-04G or move to S2-02C if geometry is good enough.
+- timestamp: 2026-04-27 14:56 SGT
+- result: HOME Codex tranche completed S2-04G color-function support. S2-04G improved from `103 prims / 3 unsupported` to `103 prims / 0 unsupported`, success; overall summary is now 32 success / 39 partial / 0 error. Revalidated focused color regressions, targeted parser/student fixture/fixture USDZ/visual preview modules (90 tests OK), full unittest discovery (148 tests OK), report-vs-USDA consistency, and `git diff --check`. Browser/live viewer capture remained blocked, so visual claim is structural/local projection only. Commit/push is blocked in HOME Codex because `git add -A` cannot create `.git/index.lock` (`Operation not permitted`); main environment should stage, commit, and push this ready worktree before launching the next tranche. Next wake after commit should move to S2-02 Group C unless Chek reprioritizes.

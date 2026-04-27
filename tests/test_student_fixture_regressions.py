@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import json
 import tempfile
 import unittest
 from math import cos, sin
@@ -8,7 +9,7 @@ from pathlib import Path
 import _path  # noqa: F401
 from desmos2usd.converter import export_graph
 from desmos2usd.eval.context import EvalContext
-from desmos2usd.ir import ExpressionIR, GraphIR, SourceInfo
+from desmos2usd.ir import ExpressionIR, GraphIR, SourceInfo, graph_ir_from_state
 from desmos2usd.parse.classify import classify_expression, classify_graph, expand_list_expression, register_definition
 from desmos2usd.parse.latex_subset import LatexExpression
 from desmos2usd.tessellate import tessellate
@@ -18,8 +19,23 @@ from desmos2usd.validate.fixture_usdz_suite import classify_graph_tolerant
 SOURCE = SourceInfo(url="", graph_hash="fixture", state_url="", title="fixture")
 
 
-def expr(expr_id: str, latex: str, *, color: str = "#c74440", hidden: bool = False) -> ExpressionIR:
-    return ExpressionIR(source=SOURCE, expr_id=expr_id, order=int(expr_id) if expr_id.isdigit() else 0, latex=latex, color=color, hidden=hidden)
+def expr(
+    expr_id: str,
+    latex: str,
+    *,
+    color: str = "#c74440",
+    color_latex: str | None = None,
+    hidden: bool = False,
+) -> ExpressionIR:
+    return ExpressionIR(
+        source=SOURCE,
+        expr_id=expr_id,
+        order=int(expr_id) if expr_id.isdigit() else 0,
+        latex=latex,
+        color=color,
+        color_latex=color_latex,
+        hidden=hidden,
+    )
 
 
 class StudentFixtureRegressionTests(unittest.TestCase):
@@ -126,6 +142,55 @@ class StudentFixtureRegressionTests(unittest.TestCase):
         self.assertLessEqual(max(point[0] for point in used_points), 18.0)
         self.assertGreaterEqual(min(point[2] for point in used_points), 10.0)
         self.assertLessEqual(max(point[2] for point in used_points), 70.0)
+
+    def test_hsv_and_okhsv_color_definitions_resolve_color_latex(self) -> None:
+        graph = GraphIR(
+            source=SOURCE,
+            expressions=[
+                expr("1", r"c_{1}=\operatorname{hsv}(0,1,1)"),
+                expr("2", r"c_{2}=\operatorname{hsv}\left(160,0,1\right)"),
+                expr("3", r"c_{3}=\operatorname{okhsv}(72,0.243,0.99)"),
+                expr(
+                    "4",
+                    r"z=0\left\{-1<x<1\right\}\left\{-1<y<1\right\}",
+                    color="#aaaaaa",
+                    color_latex="c_{1}",
+                ),
+                expr(
+                    "5",
+                    r"x=0\left\{-1<y<1\right\}\left\{-1<z<1\right\}",
+                    color="#aaaaaa",
+                    color_latex="c_{2}",
+                ),
+                expr(
+                    "6",
+                    r"y=0\left\{-1<x<1\right\}\left\{-1<z<1\right\}",
+                    color="#aaaaaa",
+                    color_latex="c_{3}",
+                ),
+            ],
+            raw_state={},
+        )
+
+        classification, unsupported = classify_graph_tolerant(graph)
+
+        self.assertEqual(unsupported, [])
+        self.assertEqual([item.ir.color for item in classification.classified], ["#ff0000", "#ffffff", "#fcdcb5"])
+
+    def test_s204_group_g_color_definitions_do_not_remain_unsupported(self) -> None:
+        fixture = (
+            Path(__file__).resolve().parents[1]
+            / "fixtures"
+            / "states"
+            / "[4B] 3D Diagram - S2-04 Group G.json"
+        )
+        graph = graph_ir_from_state(json.loads(fixture.read_text(encoding="utf-8")))
+
+        _classification, unsupported = classify_graph_tolerant(graph)
+
+        self.assertNotIn("109", {item.expr_id for item in unsupported})
+        self.assertNotIn("130", {item.expr_id for item in unsupported})
+        self.assertNotIn("131", {item.expr_id for item in unsupported})
 
     def test_uv_tuple_exports_as_parametric_surface(self) -> None:
         item = classify_expression(expr("1", r"\left(17u-8.5,-2.5,0.4v\right)"), EvalContext())

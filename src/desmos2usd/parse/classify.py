@@ -1,6 +1,8 @@
 from __future__ import annotations
 
+import colorsys
 import hashlib
+import math
 import random as py_random
 import re
 from dataclasses import dataclass, field
@@ -174,9 +176,9 @@ def register_definition(expr: ExpressionIR, context: EvalContext) -> bool:
         return True
 
     if looks_like_ignored_definition(rhs):
-        rgb = parse_rgb_definition(rhs, context)
-        if rgb is not None:
-            context.colors[name] = rgb
+        color = parse_color_definition(rhs, context)
+        if color is not None:
+            context.colors[name] = color
         return True
 
     try:
@@ -519,32 +521,212 @@ def predicate_identifiers(predicates: list[ComparisonPredicate]) -> set[str]:
 
 def looks_like_ignored_definition(rhs: str) -> bool:
     normalized = normalize_latex_delimiters(rhs)
-    return normalized.startswith("\\operatorname{rgb}")
+    return color_function_call(normalized) is not None
 
 
-RGB_PREFIX = "\\operatorname{rgb}"
+COLOR_FUNCTION_NAMES = ("rgb", "hsv", "okhsv")
 
 
 def parse_rgb_definition(rhs: str, context: EvalContext) -> tuple[int, int, int] | None:
-    normalized = normalize_latex_delimiters(rhs).strip()
-    if not normalized.startswith(RGB_PREFIX):
+    return parse_color_definition(rhs, context, allowed_names={"rgb"})
+
+
+def parse_color_definition(
+    rhs: str,
+    context: EvalContext,
+    *,
+    allowed_names: set[str] | None = None,
+) -> tuple[int, int, int] | None:
+    call = color_function_call(rhs)
+    if call is None:
         return None
-    remainder = normalized[len(RGB_PREFIX):].lstrip()
-    if not remainder.startswith("(") or not remainder.endswith(")"):
+    name, args = call
+    if allowed_names is not None and name not in allowed_names:
         return None
-    parts = split_top_level(remainder[1:-1], ",")
-    if len(parts) != 3:
+    if len(args) != 3:
         return None
-    channels: list[int] = []
-    for part in parts:
-        if not part:
+    values: list[float] = []
+    for arg in args:
+        if not arg:
             return None
         try:
-            value = LatexExpression.parse(part).eval(context, {})
+            values.append(LatexExpression.parse(arg).eval(context, {}))
         except Exception:
             return None
-        channels.append(max(0, min(255, int(round(value)))))
-    return (channels[0], channels[1], channels[2])
+    if name == "rgb":
+        return (clamp_rgb8(values[0]), clamp_rgb8(values[1]), clamp_rgb8(values[2]))
+    hue, saturation, value = values
+    if name == "hsv":
+        return hsv_to_rgb8(hue, saturation, value)
+    if name == "okhsv":
+        return okhsv_to_rgb8(hue, saturation, value)
+    return None
+
+
+def color_function_call(text: str) -> tuple[str, list[str]] | None:
+    normalized = normalize_latex_delimiters(text).strip()
+    for name in COLOR_FUNCTION_NAMES:
+        for prefix in (f"\\operatorname{{{name}}}", name):
+            if not normalized.startswith(prefix):
+                continue
+            remainder = normalized[len(prefix):].lstrip()
+            if not remainder.startswith("(") or not remainder.endswith(")"):
+                return None
+            return name, split_top_level(remainder[1:-1], ",")
+    return None
+
+
+def clamp_rgb8(value: float) -> int:
+    return max(0, min(255, int(round(value))))
+
+
+def clamp_unit(value: float) -> float:
+    return max(0.0, min(1.0, float(value)))
+
+
+def rgb_float_to_rgb8(red: float, green: float, blue: float) -> tuple[int, int, int]:
+    return (
+        clamp_rgb8(clamp_unit(red) * 255.0),
+        clamp_rgb8(clamp_unit(green) * 255.0),
+        clamp_rgb8(clamp_unit(blue) * 255.0),
+    )
+
+
+def hsv_to_rgb8(hue: float, saturation: float, value: float) -> tuple[int, int, int]:
+    red, green, blue = colorsys.hsv_to_rgb(
+        (float(hue) % 360.0) / 360.0,
+        clamp_unit(saturation),
+        clamp_unit(value),
+    )
+    return rgb_float_to_rgb8(red, green, blue)
+
+
+def okhsv_to_rgb8(hue: float, saturation: float, value: float) -> tuple[int, int, int]:
+    red, green, blue = okhsv_to_srgb(
+        (float(hue) % 360.0) / 360.0,
+        clamp_unit(saturation),
+        clamp_unit(value),
+    )
+    return rgb_float_to_rgb8(red, green, blue)
+
+
+def okhsv_to_srgb(hue: float, saturation: float, value: float) -> tuple[float, float, float]:
+    # Python port of Bjorn Ottosson's MIT-licensed OKHSV reference algorithm,
+    # Copyright (c) 2021 Bjorn Ottosson.
+    if value <= 0.0:
+        return (0.0, 0.0, 0.0)
+    a_ = math.cos(2.0 * math.pi * hue)
+    b_ = math.sin(2.0 * math.pi * hue)
+
+    cusp_l, cusp_c = ok_find_cusp(a_, b_)
+    s_max = cusp_c / cusp_l
+    t_max = cusp_c / (1.0 - cusp_l)
+    s_0 = 0.5
+    k = 1.0 - s_0 / s_max
+    denominator = s_0 + t_max - t_max * k * saturation
+    if denominator == 0.0:
+        return (0.0, 0.0, 0.0)
+
+    l_v = 1.0 - saturation * s_0 / denominator
+    c_v = saturation * t_max * s_0 / denominator
+    lightness = value * l_v
+    chroma = value * c_v
+    if lightness <= 0.0:
+        return (0.0, 0.0, 0.0)
+
+    l_vt = ok_toe_inv(l_v)
+    c_vt = c_v * l_vt / l_v
+    lightness_new = ok_toe_inv(lightness)
+    chroma = chroma * lightness_new / lightness
+    lightness = lightness_new
+
+    scale_rgb = ok_oklab_to_linear_srgb(l_vt, a_ * c_vt, b_ * c_vt)
+    scale_max = max(scale_rgb[0], scale_rgb[1], scale_rgb[2], 0.0)
+    if scale_max <= 0.0:
+        return (0.0, 0.0, 0.0)
+    scale_l = (1.0 / scale_max) ** (1.0 / 3.0)
+
+    lightness *= scale_l
+    chroma *= scale_l
+    linear = ok_oklab_to_linear_srgb(lightness, chroma * a_, chroma * b_)
+    return (
+        ok_srgb_transfer(linear[0]),
+        ok_srgb_transfer(linear[1]),
+        ok_srgb_transfer(linear[2]),
+    )
+
+
+def ok_toe_inv(value: float) -> float:
+    k_1 = 0.206
+    k_2 = 0.03
+    k_3 = (1.0 + k_1) / (1.0 + k_2)
+    return (value * value + k_1 * value) / (k_3 * (value + k_2))
+
+
+def ok_oklab_to_linear_srgb(lightness: float, a: float, b: float) -> tuple[float, float, float]:
+    l_ = lightness + 0.3963377774 * a + 0.2158037573 * b
+    m_ = lightness - 0.1055613458 * a - 0.0638541728 * b
+    s_ = lightness - 0.0894841775 * a - 1.2914855480 * b
+
+    l = l_ * l_ * l_
+    m = m_ * m_ * m_
+    s = s_ * s_ * s_
+
+    return (
+        4.0767416621 * l - 3.3077115913 * m + 0.2309699292 * s,
+        -1.2684380046 * l + 2.6097574011 * m - 0.3413193965 * s,
+        -0.0041960863 * l - 0.7034186147 * m + 1.7076147010 * s,
+    )
+
+
+def ok_srgb_transfer(value: float) -> float:
+    if value <= 0.0031308:
+        return 12.92 * value
+    return 1.055 * (value ** (1.0 / 2.4)) - 0.055
+
+
+def ok_compute_max_saturation(a: float, b: float) -> float:
+    if -1.88170328 * a - 0.80936493 * b > 1.0:
+        k0, k1, k2, k3, k4 = 1.19086277, 1.76576728, 0.59662641, 0.75515197, 0.56771245
+        wl, wm, ws = 4.0767416621, -3.3077115913, 0.2309699292
+    elif 1.81444104 * a - 1.19445276 * b > 1.0:
+        k0, k1, k2, k3, k4 = 0.73956515, -0.45954404, 0.08285427, 0.12541070, 0.14503204
+        wl, wm, ws = -1.2684380046, 2.6097574011, -0.3413193965
+    else:
+        k0, k1, k2, k3, k4 = 1.35733652, -0.00915799, -1.15130210, -0.50559606, 0.00692167
+        wl, wm, ws = -0.0041960863, -0.7034186147, 1.7076147010
+
+    sat = k0 + k1 * a + k2 * b + k3 * a * a + k4 * a * b
+    k_l = 0.3963377774 * a + 0.2158037573 * b
+    k_m = -0.1055613458 * a - 0.0638541728 * b
+    k_s = -0.0894841775 * a - 1.2914855480 * b
+
+    l_ = 1.0 + sat * k_l
+    m_ = 1.0 + sat * k_m
+    s_ = 1.0 + sat * k_s
+    l = l_ * l_ * l_
+    m = m_ * m_ * m_
+    s = s_ * s_ * s_
+    l_ds = 3.0 * k_l * l_ * l_
+    m_ds = 3.0 * k_m * m_ * m_
+    s_ds = 3.0 * k_s * s_ * s_
+    l_ds2 = 6.0 * k_l * k_l * l_
+    m_ds2 = 6.0 * k_m * k_m * m_
+    s_ds2 = 6.0 * k_s * k_s * s_
+    f = wl * l + wm * m + ws * s
+    f1 = wl * l_ds + wm * m_ds + ws * s_ds
+    f2 = wl * l_ds2 + wm * m_ds2 + ws * s_ds2
+    return sat - f * f1 / (f1 * f1 - 0.5 * f * f2)
+
+
+def ok_find_cusp(a: float, b: float) -> tuple[float, float]:
+    saturation = ok_compute_max_saturation(a, b)
+    rgb_at_max = ok_oklab_to_linear_srgb(1.0, saturation * a, saturation * b)
+    max_component = max(rgb_at_max)
+    if max_component <= 0.0:
+        return (1.0, 0.0)
+    cusp_l = (1.0 / max_component) ** (1.0 / 3.0)
+    return cusp_l, cusp_l * saturation
 
 
 def resolve_color_latex(color_latex: str | None, context: EvalContext) -> tuple[int, int, int] | None:
@@ -554,8 +736,9 @@ def resolve_color_latex(color_latex: str | None, context: EvalContext) -> tuple[
     if not text:
         return None
     normalized = normalize_latex_delimiters(text).strip()
-    if normalized.startswith(RGB_PREFIX):
-        return parse_rgb_definition(normalized, context)
+    color = parse_color_definition(normalized, context)
+    if color is not None:
+        return color
     try:
         identifier = normalize_identifier(normalized)
     except Exception:

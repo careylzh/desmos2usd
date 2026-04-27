@@ -1,3 +1,86 @@
+# Handoff: 2026-04-27 14:56 SGT - S2-04G color-function tranche
+
+## Current Branch State
+- Repo: `/Users/chek/repos/desmos2usd-carey`
+- Branch: `fix/student-fixture-usdz-export`
+- Push target: `chektien:fix/student-fixture-usdz-export`
+- HEAD before this tranche: `a464494 Handle Desmos infinity helper planes`
+
+## Completed This Tranche
+- Targeted fixture: `[4B] 3D Diagram - S2-04 Group G.json`
+- Desmos URL: `https://www.desmos.com/3d/ratctlkc9i`
+- Implemented one general exporter fix:
+  - Static Desmos color definitions now register `hsv(...)` and `okhsv(...)` in addition to existing `rgb(...)`.
+  - `colorLatex` references now resolve S2-04G's `c_1`, `c_2`, and `c_3` to `#000000`, `#ffffff`, and `#fcdcb5` respectively.
+  - Dynamic/unevaluable color maps remain ignored as color definitions, matching the previous `rgb(...)` behavior.
+- Added regression coverage for:
+  - `hsv(...)` and `okhsv(...)` color definitions resolving through `color_latex`
+  - the real S2-04G fixture no longer reporting unsupported color definitions
+- Regenerated tracked S2-04G USDA/USDZ/report artifacts, S2-08E and S2-09F guard USDZ artifacts, and rebuilt the full 71-fixture `artifacts/fixture_usdz/summary.json`.
+
+## Evidence
+- Evidence directory: `artifacts/fixture_usdz/review_evidence/20260427_s204_group_g_ralph_color_functions/`
+- Local projection files:
+  - `S2-04_Group_G_projection_before.png`
+  - `S2-04_Group_G_projection_before.ppm`
+  - `S2-04_Group_G_projection_before.usda`
+  - `S2-04_Group_G_report_before.json`
+  - `S2-04_Group_G_projection_after.png`
+  - `S2-04_Group_G_projection_after.ppm`
+  - `S2-04_Group_G_projection_after.usda`
+  - `S2-04_Group_G_report_after.json`
+  - `S2-08_Group_E_projection_guard_after.png`
+  - `S2-09_Group_F_projection_guard_after.png`
+  - `capture_results.json`
+  - `projection_results.json`
+  - `assessment.md`
+- Browser/live viewer blockers:
+  - Chrome DevTools `resize_page` returned `user cancelled MCP tool call`.
+  - Playwright navigation to `https://www.desmos.com/3d/ratctlkc9i` returned `user cancelled MCP tool call`.
+  - Tailscale route checks for root, viewer, and summary failed with `curl: (6) Could not resolve host: chq.singapura-broadnose.ts.net`.
+- Visual claim: no live Desmos/viewer parity claim. This tranche has deterministic local projection evidence only; the local after projection reflects the intended black/white/OKHSV color resolution.
+
+## Metrics
+- S2-04G before this tranche: `103 prims / 3 unsupported / 103 classified / 106 renderable / valid true / partial`.
+- S2-04G after tracked resolution-12 regeneration: `103 prims / 0 unsupported / 103 classified / 103 renderable / valid true / success / usdchecker returncode 0`.
+- Overall fixture summary: 71 fixtures; 32 success, 39 partial, 0 error, acceptance not met.
+- S2-08 Group E guard remains success: `87 prims / 0 unsupported / valid true / usdchecker returncode 0`.
+- S2-09 Group F guard remains success: `27 prims / 0 unsupported / valid true / usdchecker returncode 0`.
+
+## Validation
+- Focused color regressions passed: `test_hsv_and_okhsv_color_definitions_resolve_color_latex`, `test_s204_group_g_color_definitions_do_not_remain_unsupported`.
+- Targeted modules passed: `PYTHONPATH=src:tests python3 -m unittest tests.test_parser tests.test_student_fixture_regressions tests.test_fixture_usdz_suite tests.test_visual_preview` ran 90 tests OK.
+- Full unittest discovery passed: `PYTHONPATH=src:tests python3 -m unittest discover -s tests` ran 148 tests in 130.692s OK.
+- Regenerated S2-04G, S2-08E, and S2-09F with `usdchecker --arkit` return code `0`.
+- Report-vs-USDA consistency checked:
+  - S2-04G report prim_count `103`, USDA `Mesh` + `BasisCurves` defs `103`, unsupported `0`
+  - S2-08E report prim_count `87`, USDA defs `87`, unsupported `0`
+  - S2-09F report prim_count `27`, USDA defs `27`, unsupported `0`
+- PNG projection dimensions checked with `sips`: before/after/guard PNGs are `1552x512`.
+- `git diff --check`: passed.
+
+## Commit / Push
+- Blocked in this HOME Codex turn: `git add -A && git add -f artifacts/fixture_usdz/review_evidence/20260427_s204_group_g_ralph_color_functions` failed with `fatal: Unable to create '/Users/chek/repos/desmos2usd-carey/.git/index.lock': Operation not permitted`.
+- Worktree is ready to stage, commit, and push from the main environment.
+- Evidence directory is ignored by `.gitignore`; include it with:
+  - `git add -f artifacts/fixture_usdz/review_evidence/20260427_s204_group_g_ralph_color_functions/`
+- Suggested commit subject: `Support Desmos hsv color definitions`
+
+## Review Links
+- Route verification from this environment failed for root/viewer/summary with `curl: (6) Could not resolve host: chq.singapura-broadnose.ts.net`.
+- S2-04 Group G Desmos: `https://www.desmos.com/3d/ratctlkc9i`
+- S2-04 Group G viewer: `https://chq.singapura-broadnose.ts.net/viewer/?usda=..%2Fartifacts%2Ffixture_usdz%2F%5B4B%5D%203D%20Diagram%20-%20S2-04%20Group%20G.usda&label=S2-04%20Group%20G`
+- S2-08 Group E Desmos: `https://www.desmos.com/3d/g59jqe6nxy`
+- S2-08 Group E viewer: `https://chq.singapura-broadnose.ts.net/viewer/?usda=..%2Fartifacts%2Ffixture_usdz%2F%5B4B%5D%203D%20Diagram%20-%20S2-08%20Group%20E.usda&label=S2-08%20Group%20E`
+- S2-09 Group F Desmos: `https://www.desmos.com/3d/umjxv6ahck`
+- S2-09 Group F viewer: `https://chq.singapura-broadnose.ts.net/viewer/?usda=..%2Fartifacts%2Ffixture_usdz%2F%5B4B%5D%203D%20Diagram%20-%20S2-09%20Group%20F.usda&label=S2-09%20Group%20F`
+
+## Remaining Mismatch / Next Wake Instructions
+1. S2-04 Group G is structurally complete and should not be picked again unless Chek reports a live visual issue.
+2. Next exact target per STATE priority: S2-02 Group C (`https://www.desmos.com/3d/sqn7vxcm4n`), currently `133 prims / 36 unsupported / 149 classified`.
+3. Keep S2-08E and S2-09F as regression guards.
+4. Continue to include direct Tailscale viewer links and matching Desmos links in any review update, but do not claim live visual parity unless browser/viewer screenshots are actually captured.
+
 # Handoff: 2026-04-27 14:37 SGT - S2-04G infinity helper-plane tranche
 
 ## Current Branch State

@@ -5,7 +5,7 @@
   "fixture_count": 71,
   "fixtures_with_usdz_count": 71,
   "out_dir": "artifacts/fixture_usdz",
-  "partial_count": 40,
+  "partial_count": 39,
   "reports": [
     {
       "acceptance_success": false,
@@ -29951,39 +29951,20 @@
       }
     },
     {
-      "acceptance_success": false,
+      "acceptance_success": true,
       "classified_expression_count": 103,
-      "complete": false,
+      "complete": true,
       "fixture": "[4B] 3D Diagram - S2-04 Group G.json",
       "fixture_path": "fixtures/states/[4B] 3D Diagram - S2-04 Group G.json",
       "graph_hash": null,
       "output": "artifacts/fixture_usdz/[4B] 3D Diagram - S2-04 Group G.usda",
       "prim_count": 103,
-      "renderable_expression_count": 106,
+      "renderable_expression_count": 103,
       "resolution": 12,
-      "status": "partial",
+      "status": "success",
       "title": "Desmos graph",
-      "unsupported": [
-        {
-          "expr_id": "109",
-          "kind": "definition",
-          "latex": "c_{1}=\\operatorname{hsv}(160,0,0)",
-          "reason": "Failed to parse definition: Unsupported expression node Tuple"
-        },
-        {
-          "expr_id": "130",
-          "kind": "definition",
-          "latex": "c_{2}=\\operatorname{hsv}\\left(160,0,1\\right)",
-          "reason": "Failed to parse definition: Unsupported expression node Tuple"
-        },
-        {
-          "expr_id": "131",
-          "kind": "definition",
-          "latex": "c_{3}=\\operatorname{okhsv}(72,0.243,0.99)",
-          "reason": "Failed to parse definition: Unsupported expression node Tuple"
-        }
-      ],
-      "unsupported_count": 3,
+      "unsupported": [],
+      "unsupported_count": 0,
       "usda_exists": true,
       "usdz_exists": true,
       "usdz_output": "artifacts/fixture_usdz/[4B] 3D Diagram - S2-04 Group G.usdz",
@@ -91846,7 +91827,7 @@
         ],
         "cwd": null,
         "returncode": 0,
-        "stderr": "",
+        "stderr": "Coding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\n",
         "stdout": "\nValidation Result with no explicit variants set\nSuccess!\n",
         "tool": "usdchecker"
       },
@@ -120127,8 +120108,8 @@
       }
     }
   ],
-  "success_count": 31,
-  "unsupported_fixture_count": 40,
+  "success_count": 32,
+  "unsupported_fixture_count": 39,
   "unsupported_fixture_names": [
     "[4B] 3D Diagram - S2-01 Group A.json",
     "[4B] 3D Diagram - S2-01 Group B.json",
@@ -120143,7 +120124,6 @@
     "[4B] 3D Diagram - S2-04 Group C.json",
     "[4B] 3D Diagram - S2-04 Group D.json",
     "[4B] 3D Diagram - S2-04 Group F.json",
-    "[4B] 3D Diagram - S2-04 Group G.json",
     "[4B] 3D Diagram - S2-05 Group B.json",
     "[4B] 3D Diagram - S2-05 Group F.json",
     "[4B] 3D Diagram - S2-06 Group A.json",
