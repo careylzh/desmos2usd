@@ -5,7 +5,7 @@
   "fixture_count": 71,
   "fixtures_with_usdz_count": 71,
   "out_dir": "artifacts/fixture_usdz",
-  "partial_count": 26,
+  "partial_count": 25,
   "reports": [
     {
       "acceptance_success": false,
@@ -99580,27 +99580,20 @@
       }
     },
     {
-      "acceptance_success": false,
+      "acceptance_success": true,
       "classified_expression_count": 40,
-      "complete": false,
+      "complete": true,
       "fixture": "[4B] 3D Diagram - S2-10 Group A.json",
       "fixture_path": "fixtures/states/[4B] 3D Diagram - S2-10 Group A.json",
       "graph_hash": null,
       "output": "artifacts/fixture_usdz/[4B] 3D Diagram - S2-10 Group A.usda",
-      "prim_count": 39,
+      "prim_count": 40,
       "renderable_expression_count": 40,
       "resolution": 12,
-      "status": "partial",
+      "status": "success",
       "title": "Desmos graph",
-      "unsupported": [
-        {
-          "expr_id": "41",
-          "kind": "inequality_region",
-          "latex": "-0.7y^{2}+2.3<z<-0.7y^{2}+2.8\\ \\left\\{-1<2.8x+1.25z-8.4<0\\right\\}\\left\\{z>0\\right\\}",
-          "reason": "Inequality region for 41 did not resolve to sampled cells"
-        }
-      ],
-      "unsupported_count": 1,
+      "unsupported": [],
+      "unsupported_count": 0,
       "usda_exists": true,
       "usdz_exists": true,
       "usdz_output": "artifacts/fixture_usdz/[4B] 3D Diagram - S2-10 Group A.usdz",
@@ -99624,7 +99617,7 @@
         ],
         "cwd": null,
         "returncode": 0,
-        "stderr": "Coding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\n",
+        "stderr": "",
         "stdout": "\nValidation Result with no explicit variants set\nSuccess!\n",
         "tool": "usdchecker"
       },
@@ -99954,30 +99947,40 @@
           "constraint_violation_count": 0,
           "errors": [],
           "expr_id": "39",
-          "face_count": 12,
+          "face_count": 2496,
           "kind": "inequality_region",
           "max_residual": null,
-          "point_count": 16,
+          "point_count": 3328,
           "valid": true
         },
         {
           "constraint_violation_count": 0,
           "errors": [],
           "expr_id": "40",
-          "face_count": 24,
+          "face_count": 2496,
           "kind": "inequality_region",
           "max_residual": null,
-          "point_count": 32,
+          "point_count": 3328,
+          "valid": true
+        },
+        {
+          "constraint_violation_count": 0,
+          "errors": [],
+          "expr_id": "41",
+          "face_count": 2496,
+          "kind": "inequality_region",
+          "max_residual": null,
+          "point_count": 3328,
           "valid": true
         },
         {
           "constraint_violation_count": 0,
           "errors": [],
           "expr_id": "42",
-          "face_count": 6,
+          "face_count": 2496,
           "kind": "inequality_region",
           "max_residual": null,
-          "point_count": 8,
+          "point_count": 3328,
           "valid": true
         },
         {
@@ -126647,8 +126650,8 @@
       }
     }
   ],
-  "success_count": 45,
-  "unsupported_fixture_count": 26,
+  "success_count": 46,
+  "unsupported_fixture_count": 25,
   "unsupported_fixture_names": [
     "[4B] 3D Diagram - S2-01 Group A.json",
     "[4B] 3D Diagram - S2-01 Group B.json",
@@ -126672,7 +126675,6 @@
     "[4B] 3D Diagram - S2-09 Group D.json",
     "[4B] 3D Diagram - S2-09 Group E.json",
     "[4B] 3D Diagram - S2-09 Group G.json",
-    "[4B] 3D Diagram - S2-10 Group A.json",
     "[4B] 3D Diagram - S2-10 Group B.json",
     "[4B] 3D Diagram - S2-10 Group C.json",
     "[4B] 3D Diagram - S2-10 Group G.json"

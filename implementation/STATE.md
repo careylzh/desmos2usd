@@ -1,6 +1,6 @@
 # Implementation State
 
-Last updated: 2026-04-27 17:43 SGT
+Last updated: 2026-04-27 18:07 SGT
 
 ## Loop Mode
 - cadence: every 10 minutes via OpenClaw cron
@@ -29,7 +29,7 @@ Last updated: 2026-04-27 17:43 SGT
 - id: one-desmos-input-at-a-time
 - title: Fix one remaining partial Desmos input per bounded tranche using live Desmos screenshots and viewer screenshots
 - current-priority:
-  1. TODAY 1630 Class 2-10: S2-10 Group A — https://www.desmos.com/3d/g53xte50e7 — current tranche improved to 1 unsupported, 39 prims; next exact target is expression `41`
+  1. Fixed today: S2-10 Group A — https://www.desmos.com/3d/g53xte50e7 — success after affine-clipped function-band variable extrusion, 40 prims, 0 unsupported
   2. Fixed today: S2-10 Group E — https://www.desmos.com/3d/xzhfl6m1td — success after non-graphable label-row filtering, 249 prims, 0 unsupported
   3. Fixed today: S2-08 Group G — https://www.desmos.com/3d/24vpv4pfwh — success after list tuple regeneration plus constant-z flat-disk pass, 1835 prims, 0 unsupported
   4. Fixed today: S2-02 Group C — https://www.desmos.com/3d/sqn7vxcm4n — success after nested restriction pass, 169 prims, 0 unsupported
@@ -54,9 +54,10 @@ Last updated: 2026-04-27 17:43 SGT
 7. [ ] Advance to the next input only after the current one is either defensibly fixed or explicitly blocked.
 
 ## Current Baseline
-- HEAD before current tranche: 78f06b3 Support flat circular disks on constant planes
-- summary: 71 fixtures; 45 success, 26 partial, 0 error
-- S2-10 Group A current tranche: unbraced Desmos trig commands such as `\sin7x` now parse as function calls with implicit argument multiplication; tracked export improved 35 prims / 5 unsupported in the latest summary to 39 prims / 1 unsupported, with all four sinusoidal border surfaces `59`, `60`, `61`, and `62` exported. Remaining unsupported is expression `41`, an obliquely clipped parabolic inequality region. Browser/live viewer capture blocked by MCP cancellation and Tailscale DNS failure, so visual claim is structural/local projection only.
+- HEAD before current tranche: a3fc7cf Record S2-10A trig harvest
+- summary: 71 fixtures; 46 success, 25 partial, 0 error
+- S2-10 Group A current tranche: affine-clipped function-band variable extrusion fixed expression `41`, the obliquely clipped parabolic inequality region; tracked export improved 39 prims / 1 unsupported to 40 prims / 0 unsupported, success. Browser/live viewer capture remains blocked by MCP cancellation and Tailscale DNS failure, so visual claim is structural/local projection only.
+- S2-10 Group A previous tranche: unbraced Desmos trig commands such as `\sin7x` now parse as function calls with implicit argument multiplication; tracked export improved 35 prims / 5 unsupported to 39 prims / 1 unsupported, with all four sinusoidal border surfaces `59`, `60`, `61`, and `62` exported. Browser/live viewer capture blocked by MCP cancellation and Tailscale DNS failure, so visual claim is structural/local projection only.
 - S2-10 Group E current tranche: tracked artifact improved 249 prims / 10 unsupported / 259 renderable -> 249 prims / 0 unsupported / 249 renderable, success. The unsupported rows were non-graphable section labels/separators such as `pyramid 4 sketch`, not Desmos geometry; visible expression rows with only label text are now filtered out before classification. Browser/live viewer capture blocked, so visual claim is structural/local projection only and geometry projection is unchanged.
 - S2-08 Group G current tranche: tracked artifact improved 1236 prims / 23 unsupported -> fresh pre-disk 1833 prims / 2 unsupported -> regenerated 1835 prims / 0 unsupported, success. Existing list tuple expansion covered the stale tracked unsupported family; this tranche added a general zero-height circular inequality flat-disk mesh for strict constant-z disks `800` and `801`. Browser/live viewer capture blocked, so visual claim is structural/local projection only.
 - S2-02 Group C current tranche: nested restriction flattening fixed Desmos predicates like `quadratic > 1 {2.7 > y > 2}`; tracked resolution-12 export improved 133 prims / 36 unsupported -> 169 prims / 0 unsupported, success. Fresh local pre-edit from current code was 149 prims / 20 unsupported. Browser/live viewer capture blocked, so visual claim is structural/local projection only.

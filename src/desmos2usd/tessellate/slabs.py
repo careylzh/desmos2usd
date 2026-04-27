@@ -93,6 +93,9 @@ def tessellate_inequality_region(item: ClassifiedExpression, context: EvalContex
             return geometry
     except Exception:
         pass
+    geometry = tessellate_function_band_variable_extrusion(item, context, resolution=max(16, resolution * 4))
+    if geometry is not None and geometry.face_count and mesh_vertices_satisfy_predicates(item, context, geometry):
+        return geometry
     try:
         return tessellate_box(item, context)
     except Exception:
@@ -1772,6 +1775,295 @@ def sampled_extrusion_mesh(
     if not counts:
         raise ValueError(f"Inequality region for {item.ir.expr_id} did not resolve to extruded cells")
     return GeometryData(kind="Mesh", points=points, face_vertex_counts=counts, face_vertex_indices=indices)
+
+
+def tessellate_function_band_variable_extrusion(
+    item: ClassifiedExpression,
+    context: EvalContext,
+    resolution: int,
+) -> GeometryData | None:
+    bounds = collect_constant_bounds(item.predicates, context)
+    graph_axes = {"x", "y", "z"}
+    for band_axis in ("x", "y", "z"):
+        lower_exprs, upper_exprs = function_bounds_for_axis(item.predicates, band_axis)
+        if not lower_exprs or not upper_exprs:
+            continue
+        band_dependencies = set().union(
+            *(expression.identifiers & graph_axes for expression in [*lower_exprs, *upper_exprs])
+        )
+        band_dependencies.discard(band_axis)
+        if len(band_dependencies) != 1:
+            continue
+        param_axis = next(iter(band_dependencies))
+        extrude_axes = [axis for axis in ("x", "y", "z") if axis not in {band_axis, param_axis}]
+        if len(extrude_axes) != 1:
+            continue
+        extrude_axis = extrude_axes[0]
+        param_bounds = infer_variable_extrusion_param_bounds(
+            item,
+            context,
+            param_axis,
+            band_axis,
+            extrude_axis,
+            lower_exprs,
+            upper_exprs,
+            bounds,
+            resolution,
+        )
+        if param_bounds is None:
+            continue
+        geometry = build_function_band_variable_extrusion(
+            item,
+            context,
+            param_axis,
+            band_axis,
+            extrude_axis,
+            lower_exprs,
+            upper_exprs,
+            bounds,
+            param_bounds,
+            resolution,
+        )
+        if geometry.face_count:
+            return geometry
+    return None
+
+
+def infer_variable_extrusion_param_bounds(
+    item: ClassifiedExpression,
+    context: EvalContext,
+    param_axis: str,
+    band_axis: str,
+    extrude_axis: str,
+    lower_exprs: list[LatexExpression],
+    upper_exprs: list[LatexExpression],
+    bounds: dict[str, tuple[float | None, float | None]],
+    resolution: int,
+) -> tuple[float, float] | None:
+    constants = numeric_constants_for_item(item)
+    broad_low, broad_high = broad_bounds_from_constants(constants)
+    param_low, param_high = bounds.get(param_axis, (None, None))
+    scan_low = broad_low if param_low is None else param_low
+    scan_high = broad_high if param_high is None else param_high
+    if scan_low >= scan_high:
+        return None
+
+    active: list[float] = []
+    scan_count = max(64, min(192, resolution * 4))
+    for param_value in linspace(scan_low, scan_high, scan_count):
+        band_interval = evaluated_band_interval(
+            context,
+            band_axis,
+            param_axis,
+            param_value,
+            lower_exprs,
+            upper_exprs,
+            bounds.get(band_axis, (None, None)),
+        )
+        if band_interval is None:
+            continue
+        band_low, band_high = band_interval
+        for fraction in (0.25, 0.5, 0.75):
+            band_value = band_low + (band_high - band_low) * fraction
+            variables = {param_axis: param_value, band_axis: band_value}
+            extrude_interval = evaluate_affine_axis_interval(item.predicates, context, extrude_axis, variables)
+            if extrude_interval is None or extrude_interval[0] >= extrude_interval[1]:
+                continue
+            mid_extrude = (extrude_interval[0] + extrude_interval[1]) / 2.0
+            if predicates_satisfied(
+                item.predicates,
+                context,
+                {param_axis: param_value, band_axis: band_value, extrude_axis: mid_extrude},
+                tol=1e-5,
+            ):
+                active.append(param_value)
+                break
+
+    if not active:
+        return None
+    step = (scan_high - scan_low) / max(1, scan_count - 1)
+    inferred_low = max(scan_low, min(active) - 2.0 * step)
+    inferred_high = min(scan_high, max(active) + 2.0 * step)
+    if inferred_low >= inferred_high:
+        return None
+    return inferred_low, inferred_high
+
+
+def build_function_band_variable_extrusion(
+    item: ClassifiedExpression,
+    context: EvalContext,
+    param_axis: str,
+    band_axis: str,
+    extrude_axis: str,
+    lower_exprs: list[LatexExpression],
+    upper_exprs: list[LatexExpression],
+    bounds: dict[str, tuple[float | None, float | None]],
+    param_bounds: tuple[float, float],
+    resolution: int,
+) -> GeometryData:
+    points: list[Point] = []
+    counts: list[int] = []
+    indices: list[int] = []
+    param_segments = max(2, min(48, resolution))
+    band_segments = max(1, min(24, resolution // 2))
+    param_values = linspace(param_bounds[0], param_bounds[1], param_segments + 1)
+    fractions = linspace(0.0, 1.0, band_segments + 1)
+    for left_param, right_param in zip(param_values[:-1], param_values[1:], strict=True):
+        for low_fraction, high_fraction in zip(fractions[:-1], fractions[1:], strict=True):
+            shape_corners = variable_extrusion_shape_corners(
+                item,
+                context,
+                param_axis,
+                band_axis,
+                extrude_axis,
+                lower_exprs,
+                upper_exprs,
+                bounds,
+                [
+                    (left_param, low_fraction),
+                    (right_param, low_fraction),
+                    (right_param, high_fraction),
+                    (left_param, high_fraction),
+                ],
+            )
+            if shape_corners is None:
+                continue
+            corners: list[Point] = []
+            variable_corners: list[dict[str, float]] = []
+            for side in (0, 1):
+                for param_value, band_value, extrude_low, extrude_high in shape_corners:
+                    extrude_value = extrude_low if side == 0 else extrude_high
+                    variables = {
+                        param_axis: param_value,
+                        band_axis: band_value,
+                        extrude_axis: extrude_value,
+                    }
+                    variable_corners.append(variables)
+                    corners.append(point_from_variables(variables))
+            if all(predicates_satisfied(item.predicates, context, variables, tol=1e-5) for variables in variable_corners):
+                add_box(points, counts, indices, corners)
+    return GeometryData(kind="Mesh", points=points, face_vertex_counts=counts, face_vertex_indices=indices)
+
+
+def variable_extrusion_shape_corners(
+    item: ClassifiedExpression,
+    context: EvalContext,
+    param_axis: str,
+    band_axis: str,
+    extrude_axis: str,
+    lower_exprs: list[LatexExpression],
+    upper_exprs: list[LatexExpression],
+    bounds: dict[str, tuple[float | None, float | None]],
+    param_fraction_pairs: list[tuple[float, float]],
+) -> list[tuple[float, float, float, float]] | None:
+    shape_corners: list[tuple[float, float, float, float]] = []
+    for param_value, fraction in param_fraction_pairs:
+        band_interval = evaluated_band_interval(
+            context,
+            band_axis,
+            param_axis,
+            param_value,
+            lower_exprs,
+            upper_exprs,
+            bounds.get(band_axis, (None, None)),
+        )
+        if band_interval is None:
+            return None
+        band_low, band_high = band_interval
+        band_value = band_low + (band_high - band_low) * fraction
+        extrude_interval = evaluate_affine_axis_interval(
+            item.predicates,
+            context,
+            extrude_axis,
+            {param_axis: param_value, band_axis: band_value},
+        )
+        if extrude_interval is None:
+            return None
+        extrude_low, extrude_high = extrude_interval
+        if extrude_low >= extrude_high:
+            return None
+        shape_corners.append((param_value, band_value, extrude_low, extrude_high))
+    return shape_corners
+
+
+def evaluate_affine_axis_interval(
+    predicates: list[ComparisonPredicate],
+    context: EvalContext,
+    axis: str,
+    variables: dict[str, float],
+) -> tuple[float, float] | None:
+    lower: float | None = None
+    upper: float | None = None
+    for predicate in predicates:
+        for left, op, right in zip(predicate.terms[:-1], predicate.ops, predicate.terms[1:], strict=True):
+            bound = affine_comparison_axis_bound(left, op, right, context, axis, variables)
+            if bound is None:
+                return None
+            side, value = bound
+            if side == "pass":
+                continue
+            if side == "lower":
+                lower = value if lower is None else max(lower, value)
+            elif side == "upper":
+                upper = value if upper is None else min(upper, value)
+            elif side == "equal":
+                lower = value if lower is None else max(lower, value)
+                upper = value if upper is None else min(upper, value)
+    if lower is None or upper is None:
+        return None
+    return lower, upper
+
+
+def affine_comparison_axis_bound(
+    left: LatexExpression,
+    op: str,
+    right: LatexExpression,
+    context: EvalContext,
+    axis: str,
+    variables: dict[str, float],
+) -> tuple[str, float] | None:
+    if op in {"<", "<="}:
+        residual = lambda axis_value: left.eval(context, {**variables, axis: axis_value}) - right.eval(
+            context, {**variables, axis: axis_value}
+        )
+        return affine_residual_axis_bound(residual, op="le")
+    if op in {">", ">="}:
+        residual = lambda axis_value: right.eval(context, {**variables, axis: axis_value}) - left.eval(
+            context, {**variables, axis: axis_value}
+        )
+        return affine_residual_axis_bound(residual, op="le")
+    if op == "=":
+        residual = lambda axis_value: left.eval(context, {**variables, axis: axis_value}) - right.eval(
+            context, {**variables, axis: axis_value}
+        )
+        return affine_residual_axis_bound(residual, op="eq")
+    return None
+
+
+def affine_residual_axis_bound(residual, op: str) -> tuple[str, float] | None:
+    try:
+        origin = residual(0.0)
+        coefficient = residual(1.0) - origin
+        for sample in (-2.0, 0.5, 3.0):
+            actual = residual(sample)
+            predicted = origin + coefficient * sample
+            scale = max(1.0, abs(actual), abs(predicted))
+            if abs(actual - predicted) > 1e-8 * scale:
+                return None
+    except Exception:
+        return None
+    if not isfinite(origin) or not isfinite(coefficient):
+        return None
+    if abs(coefficient) <= 1e-12:
+        if op == "eq":
+            return ("pass", 0.0) if abs(origin) <= 1e-8 else None
+        return ("pass", 0.0) if origin <= 1e-8 else None
+    value = -origin / coefficient
+    if op == "eq":
+        return ("equal", value)
+    if coefficient > 0:
+        return ("upper", value)
+    return ("lower", value)
 
 
 def tessellate_function_band_extrusion(

@@ -240,6 +240,52 @@ class StudentFixtureRegressionTests(unittest.TestCase):
         self.assertTrue(trig_ids.issubset(prim_ids))
         self.assertTrue(trig_ids.isdisjoint(unsupported_ids))
 
+    def test_oblique_affine_clipped_function_band_tessellates(self) -> None:
+        item = classify_expression(
+            expr(
+                "41",
+                r"-0.7y^{2}+2.3<z<-0.7y^{2}+2.8\left\{-1<2.8x+1.25z-8.4<0\right\}\left\{z>0\right\}",
+            ),
+            EvalContext(),
+        )
+
+        geometry = tessellate(item, EvalContext(), resolution=12)
+        used_points = [geometry.points[index] for index in set(geometry.face_vertex_indices)]
+
+        self.assertEqual(item.kind, "inequality_region")
+        self.assertGreater(geometry.face_count, 0)
+        self.assertGreater(min(point[0] for point in used_points), 1.0)
+        self.assertGreater(max(point[0] for point in used_points), 2.5)
+        self.assertGreater(max(point[1] for point in used_points), 1.5)
+        self.assertLess(min(point[1] for point in used_points), -1.5)
+        self.assertGreaterEqual(min(point[2] for point in used_points), -1e-8)
+        self.assertLessEqual(max(point[2] for point in used_points), 2.80001)
+
+    def test_s210_group_a_oblique_parabolic_band_no_longer_unsupported(self) -> None:
+        fixture = (
+            Path(__file__).resolve().parents[1]
+            / "fixtures"
+            / "states"
+            / "[4B] 3D Diagram - S2-10 Group A.json"
+        )
+        graph = graph_ir_from_state(json.loads(fixture.read_text(encoding="utf-8")))
+
+        classification, classification_unsupported = classify_graph_tolerant(graph)
+        with tempfile.TemporaryDirectory() as tmp:
+            prims, _validations, export_unsupported = export_graph(
+                graph,
+                classification,
+                Path(tmp) / "s210a.usda",
+                resolution=12,
+            )
+
+        unsupported_ids = {item.expr_id for item in [*classification_unsupported, *export_unsupported]}
+        prim_ids = {prim.item.ir.expr_id for prim in prims}
+        self.assertIn("41", prim_ids)
+        self.assertNotIn("41", unsupported_ids)
+        self.assertEqual(unsupported_ids, set())
+        self.assertEqual(len(prims), 40)
+
     def test_s202_group_c_nested_restrictions_classify(self) -> None:
         fixture = (
             Path(__file__).resolve().parents[1]

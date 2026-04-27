@@ -1,0 +1,20 @@
+{
+  "S2-08_Group_E_projection_guard_after": {
+    "complete": true,
+    "prim_count": 87,
+    "unsupported_count": 0,
+    "valid": true
+  },
+  "S2-09_Group_F_projection_guard_after": {
+    "complete": true,
+    "prim_count": 27,
+    "unsupported_count": 0,
+    "valid": true
+  },
+  "S2-10_Group_A_projection_after": {
+    "complete": true,
+    "prim_count": 40,
+    "unsupported_count": 0,
+    "valid": true
+  }
+}
