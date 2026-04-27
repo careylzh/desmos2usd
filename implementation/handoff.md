@@ -1,3 +1,102 @@
+# Handoff: 2026-04-27 21:17 SGT - S2-01B malformed flat-disk tranche
+
+## Current Branch State
+- Repo: `/Users/chek/repos/desmos2usd-carey`
+- Branch: `fix/student-fixture-usdz-export`
+- Push target: `chektien:fix/student-fixture-usdz-export`
+- HEAD before this tranche: `bd5effe Record S2-01C harvest commit`
+
+## Completed This Tranche
+- Targeted fixture: `[4B] 3D Diagram - S2-01 Group B.json`
+- Desmos URL: `https://www.desmos.com/3d/27v0xuv64m`
+- Implemented one general parser/exporter fix:
+  - Malformed flat-axis chained comparisons such as `x^{2}+y^{2}<=5000z=0` now normalize to an ordinary 2D inequality plus a constant-axis predicate, equivalent to `x^{2}+y^{2}<=5000 {z=0}`.
+  - The normalized predicates flow through the existing flat-region disk path and validation, so expression `74` emits a flat mesh at `z=0` instead of falling through sampled cells.
+  - No fixture-specific ids, fixture names, or hard-coded S2-01 constants were added.
+- Added regression coverage for:
+  - a synthetic malformed chained disk inequality normalizing to `x^{2}+y^{2}<=5000` plus `z=0`
+  - the real S2-01B fixture exporting all 143 renderable expressions with no unsupported rows
+- Regenerated tracked S2-01B USDA/USDZ/report artifacts and updated the 71-fixture `artifacts/fixture_usdz/summary.json` entry.
+- Revalidated S2-08E and S2-09F as guard fixtures; both remain success.
+
+## Evidence
+- Evidence directory: `artifacts/fixture_usdz/review_evidence/20260427_s201_group_b_ralph_flat_disk/`
+- Local projection files:
+  - `S2-01_Group_B_projection_before.png`
+  - `S2-01_Group_B_projection_before.ppm`
+  - `S2-01_Group_B_projection_before.usda`
+  - `S2-01_Group_B_projection_before.usdz`
+  - `S2-01_Group_B_projection_before.report.json`
+  - `S2-01_Group_B_projection_after.png`
+  - `S2-01_Group_B_projection_after.ppm`
+  - `S2-01_Group_B_projection_after.usda`
+  - `S2-01_Group_B_projection_after.usdz`
+  - `S2-01_Group_B_projection_after.report.json`
+  - `S2-08_Group_E_projection_guard_after.png`
+  - `S2-08_Group_E_projection_guard_after.ppm`
+  - `S2-08_Group_E_projection_guard_after.usda`
+  - `S2-08_Group_E_projection_guard_after.usdz`
+  - `S2-08_Group_E_projection_guard_after.report.json`
+  - `S2-09_Group_F_projection_guard_after.png`
+  - `S2-09_Group_F_projection_guard_after.ppm`
+  - `S2-09_Group_F_projection_guard_after.usda`
+  - `S2-09_Group_F_projection_guard_after.usdz`
+  - `S2-09_Group_F_projection_guard_after.report.json`
+  - `capture_results.json`
+  - `projection_results.json`
+  - `assessment.md`
+- Browser/live viewer blockers:
+  - Playwright Desmos navigation to `https://www.desmos.com/3d/27v0xuv64m` returned `user cancelled MCP tool call`.
+  - Chrome DevTools Desmos navigation to `https://www.desmos.com/3d/27v0xuv64m` returned `user cancelled MCP tool call`.
+  - Tailscale route checks for root, viewer, and summary failed with `curl: (6) Could not resolve host: chq.singapura-broadnose.ts.net`.
+  - Playwright and Chrome DevTools live-viewer navigation both returned `user cancelled MCP tool call`.
+  - Local viewer server startup failed: `PermissionError: [Errno 1] Operation not permitted` for `python3 -m http.server 8765 --bind 127.0.0.1`.
+  - Playwright `file://` viewer fallback returned `user cancelled MCP tool call`.
+- Visual claim: no live Desmos/viewer parity claim. This tranche has deterministic local projection evidence only. The after projection adds expression `74` as a flat disk at `z=0`, mostly redundant with expression `58`'s existing base disk.
+
+## Metrics
+- S2-01B before this tranche: `142 prims / 1 unsupported / 143 classified / 143 renderable / valid true / partial`.
+- S2-01B after tracked resolution-12 regeneration: `143 prims / 0 unsupported / 143 classified / 143 renderable / valid true / success / usdchecker returncode 0`.
+- Fixed unsupported row:
+  - expression `74`: `x^{2}+y^{2}<=5000z=0`, now normalized to constraints `x^{2}+y^{2}<=5000; z=0` and exported as a 64-face flat disk mesh.
+- Overall fixture summary is now: 71 fixtures; 50 success, 21 partial, 0 error, acceptance not met.
+- S2-08 Group E guard remains success: `87 prims / 0 unsupported / valid true / usdchecker returncode 0`.
+- S2-09 Group F guard remains success: `27 prims / 0 unsupported / valid true / usdchecker returncode 0`.
+
+## Validation
+- Focused regressions passed: `test_malformed_chained_disk_inequality_normalizes_to_flat_axis`, `test_s201_group_b_point_defined_edge_curves_no_longer_unsupported`.
+- Targeted modules passed: `PYTHONPATH=src:tests python3 -m unittest tests.test_tessellate tests.test_student_fixture_regressions tests.test_fixture_usdz_suite tests.test_visual_preview` ran 111 tests OK.
+- Full unittest discovery passed: `PYTHONPATH=src:tests python3 -m unittest discover -s tests` ran 170 tests OK.
+- Report-vs-USDA consistency checked:
+  - S2-01B report prim_count `143`, USDA `Mesh` + `BasisCurves` defs `143`, unsupported `0`
+  - S2-08E report prim_count `87`, USDA defs `87`, unsupported `0`
+  - S2-09F report prim_count `27`, USDA defs `27`, unsupported `0`
+- PNG projection dimensions checked with `sips`: target before/after and guard PNGs are `776x256`.
+- JSON validity checked for summary and evidence JSON.
+- `git diff --check`: passed.
+
+## Commit / Push
+- Blocked in this HOME Codex turn: `git add src/desmos2usd/parse/classify.py tests/test_student_fixture_regressions.py implementation/STATE.md implementation/handoff.md artifacts/fixture_usdz/summary.json 'artifacts/fixture_usdz/[4B] 3D Diagram - S2-01 Group B.report.json' 'artifacts/fixture_usdz/[4B] 3D Diagram - S2-01 Group B.usda' 'artifacts/fixture_usdz/[4B] 3D Diagram - S2-01 Group B.usdz' 'artifacts/fixture_usdz/[4B] 3D Diagram - S2-08 Group E.report.json' 'artifacts/fixture_usdz/[4B] 3D Diagram - S2-08 Group E.usdz' 'artifacts/fixture_usdz/[4B] 3D Diagram - S2-09 Group F.report.json' 'artifacts/fixture_usdz/[4B] 3D Diagram - S2-09 Group F.usdz' && git add -f artifacts/fixture_usdz/review_evidence/20260427_s201_group_b_ralph_flat_disk` failed with `fatal: Unable to create '/Users/chek/repos/desmos2usd-carey/.git/index.lock': Operation not permitted`.
+- Worktree is ready to stage, commit, and push from the main environment.
+- Suggested commit subject: `Export S2-01B malformed flat disk`
+- Evidence directory is ignored by `.gitignore`; include it with:
+  - `git add -f artifacts/fixture_usdz/review_evidence/20260427_s201_group_b_ralph_flat_disk`
+
+## Review Links
+- Route verification from this environment failed for root/viewer/summary with `curl: (6) Could not resolve host: chq.singapura-broadnose.ts.net`.
+- S2-01 Group B Desmos: `https://www.desmos.com/3d/27v0xuv64m`
+- S2-01 Group B viewer: `https://chq.singapura-broadnose.ts.net/viewer/?usda=..%2Fartifacts%2Ffixture_usdz%2F%5B4B%5D%203D%20Diagram%20-%20S2-01%20Group%20B.usda&label=S2-01%20Group%20B`
+- S2-08 Group E Desmos: `https://www.desmos.com/3d/g59jqe6nxy`
+- S2-08 Group E viewer: `https://chq.singapura-broadnose.ts.net/viewer/?usda=..%2Fartifacts%2Ffixture_usdz%2F%5B4B%5D%203D%20Diagram%20-%20S2-08%20Group%20E.usda&label=S2-08%20Group%20E`
+- S2-09 Group F Desmos: `https://www.desmos.com/3d/umjxv6ahck`
+- S2-09 Group F viewer: `https://chq.singapura-broadnose.ts.net/viewer/?usda=..%2Fartifacts%2Ffixture_usdz%2F%5B4B%5D%203D%20Diagram%20-%20S2-09%20Group%20F.usda&label=S2-09%20Group%20F`
+
+## Remaining Mismatch / Next Wake Instructions
+1. S2-01 Group B is structurally complete and should not be picked again unless Chek reports a live visual issue.
+2. The tomorrow S2-01 priority queue is now structurally complete for Groups A-G. Do not return to the global queue or S2-10E unless Chek or `STATE.md` explicitly reprioritizes.
+3. Browser/live viewer capture is still blocked here; do not claim live visual parity until Desmos and viewer screenshots are captured.
+4. Keep S2-08E and S2-09F as regression guards.
+
 # Handoff: 2026-04-27 20:49 SGT - S2-01C absolute/list tube tranche
 
 ## Current Branch State
@@ -1536,3 +1635,9 @@
 - Re-ran validation before commit: targeted tessellate/student fixture/fixture USDZ/visual preview modules 101 tests OK, full unittest discovery 160 tests OK, `git diff --check` OK.
 - Committed and pushed from the main environment.
 - Next wake should continue with S2-01 Group B unless Chek reprioritizes.
+
+## Orchestrator update - 2026-04-27 21:20 SGT
+- Checked the earlier main schedule: Tue 28 Apr main slots are 2-01 (1400), 2-03 (1420), 2-05 (1440), 2-06 (1500), 2-07 (1520), and 2-09 (1540). Exceptions noted earlier: 201C at 1440 and 205C at 1500.
+- Tomorrow queue is therefore not only S2-01.
+- Chek reports S2-01B still looks wrong in the live viewer. Treat S2-01B as a visual blocker despite metrics success (`143 prims / 0 unsupported`) and keep it pinned first until a visual-fidelity pass records/fixes the mismatch.
+- After S2-01B visual triage, prioritize remaining tomorrow partials by current unsupported count/risk: S2-09A (40), S2-06A (18), S2-09D (12), S2-03C (9), S2-09B (4), S2-05F (3), then S2-03A/S2-07C/S2-09C/S2-09E/S2-09G (2 each), then S2-07D/S2-07E (1 each).

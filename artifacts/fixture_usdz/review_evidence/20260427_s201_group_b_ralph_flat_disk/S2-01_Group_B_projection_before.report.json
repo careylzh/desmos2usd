@@ -1,28 +1,35 @@
 {
-  "acceptance_success": true,
+  "acceptance_success": false,
   "classified_expression_count": 143,
-  "complete": true,
+  "complete": false,
   "fixture": "[4B] 3D Diagram - S2-01 Group B.json",
   "fixture_path": "fixtures/states/[4B] 3D Diagram - S2-01 Group B.json",
   "graph_hash": null,
-  "output": "artifacts/fixture_usdz/[4B] 3D Diagram - S2-01 Group B.usda",
-  "prim_count": 143,
+  "output": "artifacts/fixture_usdz/review_evidence/20260427_s201_group_b_ralph_flat_disk/S2-01_Group_B_projection_before.usda",
+  "prim_count": 142,
   "renderable_expression_count": 143,
   "resolution": 12,
-  "status": "success",
+  "status": "partial",
   "title": "Desmos graph",
-  "unsupported": [],
-  "unsupported_count": 0,
+  "unsupported": [
+    {
+      "expr_id": "74",
+      "kind": "inequality_region",
+      "latex": "x^{2}+y^{2}<=5000z=0",
+      "reason": "Inequality region for 74 did not resolve to sampled cells"
+    }
+  ],
+  "unsupported_count": 1,
   "usda_exists": true,
   "usdz_exists": true,
-  "usdz_output": "artifacts/fixture_usdz/[4B] 3D Diagram - S2-01 Group B.usdz",
+  "usdz_output": "artifacts/fixture_usdz/review_evidence/20260427_s201_group_b_ralph_flat_disk/S2-01_Group_B_projection_before.usdz",
   "usdz_package": {
     "command": [
       "/usr/bin/usdzip",
-      "/Users/chek/repos/desmos2usd-carey/artifacts/fixture_usdz/[4B] 3D Diagram - S2-01 Group B.usdz",
-      "[4B] 3D Diagram - S2-01 Group B.usda"
+      "/Users/chek/repos/desmos2usd-carey/artifacts/fixture_usdz/review_evidence/20260427_s201_group_b_ralph_flat_disk/S2-01_Group_B_projection_before.usdz",
+      "S2-01_Group_B_projection_before.usda"
     ],
-    "cwd": "/Users/chek/repos/desmos2usd-carey/artifacts/fixture_usdz",
+    "cwd": "/Users/chek/repos/desmos2usd-carey/artifacts/fixture_usdz/review_evidence/20260427_s201_group_b_ralph_flat_disk",
     "returncode": 0,
     "stderr": "",
     "stdout": "",
@@ -32,11 +39,11 @@
     "command": [
       "/usr/bin/usdchecker",
       "--arkit",
-      "/Users/chek/repos/desmos2usd-carey/artifacts/fixture_usdz/[4B] 3D Diagram - S2-01 Group B.usdz"
+      "/Users/chek/repos/desmos2usd-carey/artifacts/fixture_usdz/review_evidence/20260427_s201_group_b_ralph_flat_disk/S2-01_Group_B_projection_before.usdz"
     ],
     "cwd": null,
     "returncode": 0,
-    "stderr": "Coding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'BasisCurves' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'BasisCurves' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'BasisCurves' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'BasisCurves' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'BasisCurves' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'BasisCurves' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'BasisCurves' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\n",
+    "stderr": "",
     "stdout": "\nValidation Result with no explicit variants set\nSuccess!\n",
     "tool": "usdchecker"
   },
@@ -380,16 +387,6 @@
       "kind": "inequality_region",
       "max_residual": null,
       "point_count": 13568,
-      "valid": true
-    },
-    {
-      "constraint_violation_count": 0,
-      "errors": [],
-      "expr_id": "74",
-      "face_count": 64,
-      "kind": "inequality_region",
-      "max_residual": null,
-      "point_count": 65,
       "valid": true
     },
     {

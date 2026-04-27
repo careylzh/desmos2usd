@@ -476,8 +476,14 @@ def classify_expression(expr: ExpressionIR, context: EvalContext) -> ClassifiedE
         )
 
     if has_top_level_comparison(main):
-        inequality = parse_predicate(main)
-        return ClassifiedExpression(ir=expr, kind="inequality_region", predicates=[inequality, *predicates], inequality=inequality)
+        parsed = parse_predicate(main)
+        inequality, derived_predicates = normalize_flat_axis_chained_inequality(parsed, context)
+        return ClassifiedExpression(
+            ir=expr,
+            kind="inequality_region",
+            predicates=[inequality, *derived_predicates, *predicates],
+            inequality=inequality,
+        )
 
     equals = find_top_level(main, "=")
     if equals >= 0:
@@ -527,6 +533,112 @@ def predicate_identifiers(predicates: list[ComparisonPredicate]) -> set[str]:
         for term in predicate.terms:
             identifiers.update(term.identifiers & {"x", "y", "z"})
     return identifiers
+
+
+def normalize_flat_axis_chained_inequality(
+    predicate: ComparisonPredicate,
+    context: EvalContext,
+) -> tuple[ComparisonPredicate, list[ComparisonPredicate]]:
+    """Recover flat-axis intent from malformed chains like ``x^2+y^2<=5000z=0``.
+
+    Desmos accepts this common missing-braces form as a flat region: the middle
+    coefficient is the inequality bound and the trailing equality locks the axis.
+    Normalize it before tessellation so downstream geometry and validation both see
+    explicit predicates equivalent to ``x^2+y^2<=5000 {z=0}``.
+    """
+    if len(predicate.terms) != 3 or len(predicate.ops) != 2:
+        return predicate, []
+    left, middle, right = predicate.terms
+    first_op, second_op = predicate.ops
+    if second_op == "=" and first_op in {"<", "<=", ">", ">="}:
+        return (
+            normalize_flat_axis_chain_parts(
+                shape=left,
+                op=first_op,
+                scaled_axis=middle,
+                flat_value=right,
+                context=context,
+            )
+            or (predicate, [])
+        )
+    if first_op == "=" and second_op in {"<", "<=", ">", ">="}:
+        return normalize_flat_axis_chain_parts(
+            shape=right,
+            op=reverse_comparison_op(second_op),
+            scaled_axis=middle,
+            flat_value=left,
+            context=context,
+        ) or (predicate, [])
+    return predicate, []
+
+
+def normalize_flat_axis_chain_parts(
+    *,
+    shape: LatexExpression,
+    op: str,
+    scaled_axis: LatexExpression,
+    flat_value: LatexExpression,
+    context: EvalContext,
+) -> tuple[ComparisonPredicate, list[ComparisonPredicate]] | None:
+    scaled = positive_zero_intercept_scaled_axis(scaled_axis, context)
+    if scaled is None:
+        return None
+    axis, coefficient = scaled
+    if axis in (shape.identifiers & {"x", "y", "z"}):
+        return None
+    try:
+        target_value = flat_value.eval(context, {})
+    except Exception:
+        return None
+    if not isfinite(target_value):
+        return None
+    threshold = format_float_for_latex(coefficient)
+    axis_value = format_float_for_latex(target_value / coefficient)
+    inequality = ComparisonPredicate(
+        raw=f"{shape.latex}{op}{threshold}",
+        terms=(shape, LatexExpression.parse(threshold)),
+        ops=(op,),
+    )
+    axis_predicate = ComparisonPredicate(
+        raw=f"{axis}={axis_value}",
+        terms=(LatexExpression.parse(axis), LatexExpression.parse(axis_value)),
+        ops=("=",),
+    )
+    return inequality, [axis_predicate]
+
+
+def positive_zero_intercept_scaled_axis(
+    expression: LatexExpression,
+    context: EvalContext,
+) -> tuple[str, float] | None:
+    axes = expression.identifiers & {"x", "y", "z"}
+    if len(axes) != 1:
+        return None
+    axis = next(iter(axes))
+    try:
+        at_zero = expression.eval(context, {axis: 0.0})
+        at_one = expression.eval(context, {axis: 1.0})
+        at_two = expression.eval(context, {axis: 2.0})
+    except Exception:
+        return None
+    if not (isfinite(at_zero) and isfinite(at_one) and isfinite(at_two)):
+        return None
+    coefficient = at_one - at_zero
+    if coefficient <= 1e-12 or abs(at_zero) > 1e-9:
+        return None
+    if abs((at_two - at_one) - coefficient) > max(1e-9, abs(coefficient) * 1e-9):
+        return None
+    return axis, coefficient
+
+
+def reverse_comparison_op(op: str) -> str:
+    return {"<=": ">=", "<": ">", ">=": "<=", ">": "<"}.get(op, op)
+
+
+def format_float_for_latex(value: float) -> str:
+    if abs(value) < 5e-13:
+        return "0"
+    return f"{value:.12g}"
 
 
 def looks_like_ignored_definition(rhs: str) -> bool:

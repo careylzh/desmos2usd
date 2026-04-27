@@ -1,6 +1,6 @@
 # Implementation State
 
-Last updated: 2026-04-27 20:58 SGT
+Last updated: 2026-04-27 21:20 SGT
 
 ## Loop Mode
 - cadence: every 10 minutes via OpenClaw cron
@@ -29,13 +29,13 @@ Last updated: 2026-04-27 20:58 SGT
 - id: one-desmos-input-at-a-time
 - title: Fix one remaining partial Desmos input per bounded tranche using live Desmos screenshots and viewer screenshots
 - current-priority:
-  1. TOMORROW focus: S2-01 Group B — https://www.desmos.com/3d/27v0xuv64m — partial, 142 prims, 1 unsupported; remaining malformed disk expression `74`
-  2. TOMORROW already success: S2-01 Group C — https://www.desmos.com/3d/upbjmsjpzq — 27 prims, 0 unsupported
-  3. TOMORROW already success: S2-01 Group E — https://www.desmos.com/3d/nzokib2plm — 43 prims, 0 unsupported
-  4. TOMORROW already success: S2-01 Group A — https://www.desmos.com/3d/cvggvbbe73 — 208 prims, 0 unsupported
-  5. TOMORROW already success: S2-01 Group D — https://www.desmos.com/3d/z68jgsnw24 — 21 prims, 0 unsupported
-  6. TOMORROW already success: S2-01 Group F — https://www.desmos.com/3d/sbrpw8amwn — 10 prims, 0 unsupported
-  7. TOMORROW already success: S2-01 Group G — https://www.desmos.com/3d/jbmqctn5ic — 129 prims, 0 unsupported
+  1. TOMORROW visual blocker / first class: S2-01 Group B — https://www.desmos.com/3d/27v0xuv64m — metrics now say 143 prims / 0 unsupported after expression `74`, but Chek reports the viewer still looks wrong; keep pinned for visual-fidelity diagnosis before calling it done
+  2. TOMORROW high gap: S2-09 Group A — https://www.desmos.com/3d/gk9kr8h9ki — partial, 22 prims, 40 unsupported
+  3. TOMORROW high gap: S2-06 Group A — https://www.desmos.com/3d/lvj5ymlrba — partial, 499 prims, 18 unsupported
+  4. TOMORROW high gap: S2-09 Group D — https://www.desmos.com/3d/zxjnvkynzf — partial, 102 prims, 12 unsupported
+  5. TOMORROW high gap: S2-03 Group C — https://www.desmos.com/3d/xyvxakzxdj — partial, 122 prims, 9 unsupported
+  6. TOMORROW remaining partials: S2-09B (4), S2-05F (3), S2-03A (2), S2-07C (2), S2-09C (2), S2-09E (2), S2-09G (2), S2-07D (1), S2-07E (1)
+  7. TOMORROW already metrics-success: S2-01A/C/D/E/F/G, S2-03B/D/E/F, S2-05A/B/C/D/E, S2-06B/C/D/E/F/G, S2-07A/B/F, S2-09F
   8. Defer unless Chek reopens it: S2-10 Group E — https://www.desmos.com/3d/xzhfl6m1td — metrics say success after label filtering, but Chek reported the viewer still looks broken; do not call it visually fixed from metrics alone
 - done-when:
   - one chosen fixture has fresh Desmos reference screenshots
@@ -55,11 +55,12 @@ Last updated: 2026-04-27 20:58 SGT
 7. [ ] Advance to the next input only after the current one is either defensibly fixed or explicitly blocked.
 
 ## Current Baseline
-- HEAD before current tranche: 6a31b14 Export curved S2-01E bands
-- summary: 71 fixtures; 49 success, 22 partial, 0 error
+- HEAD before current tranche: bd5effe Record S2-01C harvest commit
+- summary: 71 fixtures; 50 success, 21 partial, 0 error
+- S2-01 Group B current tranche: malformed flat-axis chained comparisons such as `x^{2}+y^{2}<=5000z=0` now normalize to an ordinary 2D inequality plus a constant-axis predicate, equivalent to `x^{2}+y^{2}<=5000 {z=0}`. Tracked resolution-12 export improved 142 prims / 1 unsupported / 143 classified / 143 renderable -> 143 prims / 0 unsupported / 143 classified / 143 renderable, success. S2-08 Group E and S2-09 Group F guards remain success. Browser/live viewer capture remains blocked by MCP cancellation, local server permission failure, and Tailscale DNS failure, so visual claim is deterministic local projection only.
 - S2-01 Group C current tranche: scalar-list expressions with implicit numeric multiplication such as `3n` now expand from hidden list definitions, axis-aligned `abs(axis)` interval regions export as disjoint rectangular shell extrusions, and one-axis implicit equalities with bounded cross axes export as sheet meshes. Tracked resolution-12 export improved 15 prims / 4 unsupported / 18 classified / 19 renderable -> 27 prims / 0 unsupported / 27 classified / 27 renderable, success. S2-08 Group E and S2-09 Group F guards remain success. Browser/live viewer capture remains blocked by MCP cancellation, local server permission failure, and Tailscale DNS failure, so visual claim is deterministic local projection only.
 - S2-01 Group E current tranche: scaled band-axis comparisons such as `2z < f(x)` now produce normalized function bounds, and curved thin bands can extrude through affine cross-axis bounds. Tracked resolution-12 export improved 23 prims / 20 unsupported -> fresh pre-edit local 39 prims / 4 unsupported -> regenerated 43 prims / 0 unsupported, success. S2-08 Group E and S2-09 Group F guards remain success. Browser/live viewer capture remains blocked by MCP cancellation, local server permission failure, and Tailscale DNS failure, so visual claim is deterministic local projection only.
-- S2-01 Group B current tranche: static 3D vector-list rows such as `[A,B]` now classify/export as linear `BasisCurves` when entries resolve to point/vector definitions; tracked resolution-12 export improved 133 prims / 10 unsupported -> 142 prims / 1 unsupported, still partial. Remaining unsupported is malformed flat-disk inequality `74` (`x^{2}+y^{2}<=5000z=0`). Browser/live viewer capture remains blocked by MCP cancellation and Tailscale DNS failure, so visual claim is structural/local projection only.
+- S2-01 Group B previous tranche: static 3D vector-list rows such as `[A,B]` now classify/export as linear `BasisCurves` when entries resolve to point/vector definitions; tracked resolution-12 export improved 133 prims / 10 unsupported -> 142 prims / 1 unsupported, still partial. Remaining unsupported was malformed flat-disk inequality `74` (`x^{2}+y^{2}<=5000z=0`). Browser/live viewer capture remained blocked by MCP cancellation and Tailscale DNS failure, so visual claim was structural/local projection only.
 - S2-01 Group B previous tranche: point-defined vector expressions such as `A+t(B-A)` now classify/export as parametric `BasisCurves`; tracked resolution-12 export improved 116 prims / 27 unsupported -> 133 prims / 10 unsupported, still partial. Remaining unsupported were nine point-list rows like `[A,B]` and malformed flat-disk inequality `74` (`x^{2}+y^{2}<=5000z=0`). Browser/live viewer capture remained blocked by MCP cancellation and Tailscale DNS failure, so visual claim was structural/local projection only.
 - S2-01 Group A current tranche: affine-clipped explicit-surface domain inference now substitutes the solved axis into linear predicates and clips the two domain axes before grid sampling; tracked export improved from HEAD-projection 90 prims / 118 unsupported to regenerated 208 prims / 0 unsupported, success. Browser/live viewer capture remains blocked by MCP cancellation and Tailscale DNS failure, so visual claim is structural/local projection only.
 - S2-10 Group A current tranche: affine-clipped function-band variable extrusion fixed expression `41`, the obliquely clipped parabolic inequality region; tracked export improved 39 prims / 1 unsupported to 40 prims / 0 unsupported, success. Browser/live viewer capture remains blocked by MCP cancellation and Tailscale DNS failure, so visual claim is structural/local projection only.

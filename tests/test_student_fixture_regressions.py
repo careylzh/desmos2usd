@@ -444,9 +444,9 @@ class StudentFixtureRegressionTests(unittest.TestCase):
         prim_ids = {prim.item.ir.expr_id for prim in prims}
         self.assertTrue(edge_ids.issubset(prim_ids))
         self.assertTrue(point_list_ids.issubset(prim_ids))
-        self.assertTrue(point_list_ids.isdisjoint(unsupported_ids))
-        self.assertTrue(edge_ids.isdisjoint(unsupported_ids))
-        self.assertGreaterEqual(len(prims), 133)
+        self.assertIn("74", prim_ids)
+        self.assertEqual(set(), unsupported_ids)
+        self.assertEqual(len(prims), 143)
 
     def test_curved_band_with_scaled_axis_and_affine_cross_bounds_tessellates(self) -> None:
         source = SourceInfo(
@@ -1789,6 +1789,27 @@ class StudentFixtureRegressionTests(unittest.TestCase):
         self.assertGreater(min(x_values), -3.0)
         self.assertLess(max(y_values), 3.0)
         self.assertGreater(min(y_values), -3.0)
+
+    def test_malformed_chained_disk_inequality_normalizes_to_flat_axis(self) -> None:
+        source = SourceInfo(
+            "", "", "", "", viewport_bounds={"x": (-80.0, 80.0), "y": (-80.0, 80.0), "z": (-10.0, 10.0)}
+        )
+        item = classify_expression(
+            ExpressionIR(source, "74", 0, r"x^{2}+y^{2}<=5000z=0"),
+            EvalContext(),
+        )
+
+        geometry = tessellate(item, EvalContext(), resolution=12)
+        used_points = [geometry.points[index] for index in set(geometry.face_vertex_indices)]
+        radial_values = [point[0] ** 2 + point[1] ** 2 for point in used_points]
+        z_values = [point[2] for point in used_points]
+
+        self.assertEqual(item.kind, "inequality_region")
+        self.assertEqual([predicate.raw for predicate in item.predicates], [r"x^{2}+y^{2}<=5000", "z=0"])
+        self.assertGreater(geometry.face_count, 0)
+        self.assertLessEqual(max(radial_values), 5000.0 + 1e-5)
+        self.assertEqual(min(z_values), 0.0)
+        self.assertEqual(max(z_values), 0.0)
 
     def test_s208_disk_at_z_constant_uses_predicate_value_not_zero(self) -> None:
         """S2-08 Group E: ``x^2+y^2+x <= 1.5 {z=8}`` is a flat region at z=8 (the top of
