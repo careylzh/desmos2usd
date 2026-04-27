@@ -192,6 +192,20 @@ class StudentFixtureRegressionTests(unittest.TestCase):
         self.assertNotIn("130", {item.expr_id for item in unsupported})
         self.assertNotIn("131", {item.expr_id for item in unsupported})
 
+    def test_s202_group_c_nested_restrictions_classify(self) -> None:
+        fixture = (
+            Path(__file__).resolve().parents[1]
+            / "fixtures"
+            / "states"
+            / "[4B] 3D Diagram - S2-02 Group C.json"
+        )
+        graph = graph_ir_from_state(json.loads(fixture.read_text(encoding="utf-8")))
+
+        classification, unsupported = classify_graph_tolerant(graph)
+
+        self.assertEqual(unsupported, [])
+        self.assertEqual(len(classification.classified), 169)
+
     def test_uv_tuple_exports_as_parametric_surface(self) -> None:
         item = classify_expression(expr("1", r"\left(17u-8.5,-2.5,0.4v\right)"), EvalContext())
 

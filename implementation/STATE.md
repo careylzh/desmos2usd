@@ -1,6 +1,6 @@
 # Implementation State
 
-Last updated: 2026-04-27 15:08 SGT
+Last updated: 2026-04-27 15:24 SGT
 
 ## Loop Mode
 - cadence: every 10 minutes via OpenClaw cron
@@ -29,10 +29,10 @@ Last updated: 2026-04-27 15:08 SGT
 - id: one-desmos-input-at-a-time
 - title: Fix one remaining partial Desmos input per bounded tranche using live Desmos screenshots and viewer screenshots
 - current-priority:
-  1. TODAY 1530 Class 2-02: S2-02 Group C — https://www.desmos.com/3d/sqn7vxcm4n — next early-risk presenter, 36 unsupported, 133 prims
-  2. TODAY 1610 Class 2-08: S2-08 Group G — https://www.desmos.com/3d/24vpv4pfwh — 23 unsupported, 1236 prims
-  3. TODAY 1630 Class 2-10: S2-10 Group E — https://www.desmos.com/3d/xzhfl6m1td — 10 unsupported, 249 prims
-  4. TODAY 1630 Class 2-10: S2-10 Group A — https://www.desmos.com/3d/g53xte50e7 — 8 unsupported, 32 prims
+  1. TODAY 1610 Class 2-08: S2-08 Group G — https://www.desmos.com/3d/24vpv4pfwh — 23 unsupported, 1236 prims
+  2. TODAY 1630 Class 2-10: S2-10 Group E — https://www.desmos.com/3d/xzhfl6m1td — 10 unsupported, 249 prims
+  3. TODAY 1630 Class 2-10: S2-10 Group A — https://www.desmos.com/3d/g53xte50e7 — 8 unsupported, 32 prims
+  4. Fixed today: S2-02 Group C — https://www.desmos.com/3d/sqn7vxcm4n — success after nested restriction pass, 169 prims, 0 unsupported
   5. Fixed today: S2-04 Group G — https://www.desmos.com/3d/ratctlkc9i — success after hsv/okhsv color-function pass, 103 prims, 0 unsupported
   6. Fixed today: S2-02 Group F — https://www.desmos.com/3d/1zpiejy9c9 — success after chained-empty pass, 206 prims, 0 unsupported
   7. Only after today's presenters are improved: resume global queue, starting with S2-01 Group A and S2-06 Group F
@@ -54,8 +54,9 @@ Last updated: 2026-04-27 15:08 SGT
 7. [ ] Advance to the next input only after the current one is either defensibly fixed or explicitly blocked.
 
 ## Current Baseline
-- HEAD before current tranche: a464494 Handle Desmos infinity helper planes
-- summary: 71 fixtures; 32 success, 39 partial, 0 error
+- HEAD before current tranche: 6e1b1ef Record hsv color harvest
+- summary: 71 fixtures; 33 success, 38 partial, 0 error
+- S2-02 Group C current tranche: nested restriction flattening fixed Desmos predicates like `quadratic > 1 {2.7 > y > 2}`; tracked resolution-12 export improved 133 prims / 36 unsupported -> 169 prims / 0 unsupported, success. Fresh local pre-edit from current code was 149 prims / 20 unsupported. Browser/live viewer capture blocked, so visual claim is structural/local projection only.
 - S2-04 Group G current tranche: static Desmos `hsv(...)`/`okhsv(...)` color definitions now resolve through `colorLatex`; tracked resolution-12 export improved 103 prims / 3 unsupported -> 103 prims / 0 unsupported, success. Browser/live viewer capture blocked, so visual claim is structural/local projection only.
 - S2-02 Group F current tranche: chained predicate constant-bound contradictions now export as valid empty meshes; tracked resolution-12 export improved 197 prims / 9 unsupported -> 206 prims / 0 unsupported, success. Browser/live viewer capture blocked, so visual claim is structural/local projection only.
 - S2-02 Group F previous tranche: constant-z explicit circular disk caps improved tracked resolution-12 export 47 unsupported -> 9 unsupported and 159 prims -> 197 prims; all `90_*` and `98_*` cap surfaces now export; remaining unsupported were nine malformed chained `72_*` inequalities; live browser/viewer capture blocked, so visual claim is structural/local projection only
@@ -90,5 +91,5 @@ Last updated: 2026-04-27 15:08 SGT
 - Do not overlap Codex/ccwork runs.
 
 ## Last Wake
-- timestamp: 2026-04-27 15:08 SGT
-- result: Orchestrator harvested HOME Codex run 20260427-144330-659, revalidated targeted parser/student fixture/fixture USDZ/visual preview modules (90 tests OK), full unittest discovery (148 tests OK), and `git diff --check`, then committed and pushed `69b970f` (`Support Desmos hsv color definitions`). No new implementation pass launched in this wake. Next wake should move to S2-02 Group C unless Chek reprioritizes.
+- timestamp: 2026-04-27 15:24 SGT
+- result: HOME Codex tranche fixed S2-02 Group C nested restrictions, regenerated S2-02C plus S2-08E/S2-09F guards, rebuilt the 71-fixture summary, and validated targeted tests (92 OK), full unittest discovery (150 OK), report-vs-USDA consistency, PNG dimensions, and `git diff --check`. Browser/live viewer capture remained blocked. Commit/push blocked by `.git/index.lock` permission failure during `git add`; worktree is ready for main-environment commit. Next wake should move to S2-08 Group G only after this dirty worktree is committed/pushed or intentionally carried forward.

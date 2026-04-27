@@ -1,0 +1,56 @@
+{
+  "desmos_url": "https://www.desmos.com/3d/sqn7vxcm4n",
+  "fixture": "[4B] 3D Diagram - S2-02 Group C.json",
+  "live_capture_status": "blocked",
+  "attempts": [
+    {
+      "target": "Desmos reference",
+      "tool": "mcp__playwright__.browser_navigate",
+      "url": "https://www.desmos.com/3d/sqn7vxcm4n",
+      "result": "user cancelled MCP tool call"
+    },
+    {
+      "target": "Desmos reference",
+      "tool": "mcp__chrome_devtools__.navigate_page",
+      "url": "https://www.desmos.com/3d/sqn7vxcm4n",
+      "result": "user cancelled MCP tool call"
+    },
+    {
+      "target": "Desmos state fetch",
+      "tool": "PYTHONPATH=src python3 -m desmos2usd.cli",
+      "url": "https://www.desmos.com/3d/sqn7vxcm4n",
+      "result": "FetchError: urlopen error [Errno 8] nodename nor servname provided, or not known"
+    },
+    {
+      "target": "Tailscale root",
+      "tool": "curl -I --max-time 8",
+      "url": "https://chq.singapura-broadnose.ts.net/",
+      "result": "curl: (6) Could not resolve host: chq.singapura-broadnose.ts.net"
+    },
+    {
+      "target": "Tailscale viewer",
+      "tool": "curl -I --max-time 8",
+      "url": "https://chq.singapura-broadnose.ts.net/viewer/",
+      "result": "curl: (6) Could not resolve host: chq.singapura-broadnose.ts.net"
+    },
+    {
+      "target": "Tailscale summary",
+      "tool": "curl -I --max-time 8",
+      "url": "https://chq.singapura-broadnose.ts.net/artifacts/fixture_usdz/summary.json",
+      "result": "curl: (6) Could not resolve host: chq.singapura-broadnose.ts.net"
+    },
+    {
+      "target": "Live viewer for S2-02 Group C",
+      "tool": "mcp__playwright__.browser_navigate",
+      "url": "https://chq.singapura-broadnose.ts.net/viewer/?usda=..%2Fartifacts%2Ffixture_usdz%2F%5B4B%5D%203D%20Diagram%20-%20S2-02%20Group%20C.usda&label=S2-02%20Group%20C",
+      "result": "user cancelled MCP tool call"
+    },
+    {
+      "target": "Live viewer for S2-02 Group C",
+      "tool": "mcp__chrome_devtools__.navigate_page",
+      "url": "https://chq.singapura-broadnose.ts.net/viewer/?usda=..%2Fartifacts%2Ffixture_usdz%2F%5B4B%5D%203D%20Diagram%20-%20S2-02%20Group%20C.usda&label=S2-02%20Group%20C",
+      "result": "user cancelled MCP tool call"
+    }
+  ],
+  "claim": "No live Desmos/viewer parity claim. Evidence is structural export metrics plus deterministic local projection PNGs."
+}

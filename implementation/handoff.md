@@ -1,3 +1,89 @@
+# Handoff: 2026-04-27 15:24 SGT - S2-02C nested restriction tranche
+
+## Current Branch State
+- Repo: `/Users/chek/repos/desmos2usd-carey`
+- Branch: `fix/student-fixture-usdz-export`
+- Push target: `chektien:fix/student-fixture-usdz-export`
+- HEAD before this tranche: `6e1b1ef Record hsv color harvest`
+
+## Completed This Tranche
+- Targeted fixture: `[4B] 3D Diagram - S2-02 Group C.json`
+- Desmos URL: `https://www.desmos.com/3d/sqn7vxcm4n`
+- Implemented one general exporter/parser fix:
+  - Nested Desmos restriction braces inside another restriction are flattened into separate predicates.
+  - Expressions like `quadratic > 1 {2.7 > y > 2}` now classify as two predicates instead of trying to parse `1{2.7` as implicit multiplication.
+  - No fixture-specific expression ids, fixture names, or hard-coded geometry constants were added.
+- Added regression coverage for:
+  - unit-level nested restriction splitting
+  - the real S2-02C fixture classifying all 169 renderable expressions with zero classification unsupported
+- Regenerated tracked S2-02C USDA/USDZ/report artifacts, S2-08E and S2-09F guard USDZ artifacts/reports as applicable, and rebuilt the full 71-fixture `artifacts/fixture_usdz/summary.json`.
+
+## Evidence
+- Evidence directory: `artifacts/fixture_usdz/review_evidence/20260427_s202_group_c_ralph_affine_bands/`
+- Local projection files:
+  - `S2-02_Group_C_projection_before.png`
+  - `S2-02_Group_C_projection_before.ppm`
+  - `S2-02_Group_C_projection_before.usda`
+  - `S2-02_Group_C_report_before.json`
+  - `S2-02_Group_C_projection_after.png`
+  - `S2-02_Group_C_projection_after.ppm`
+  - `S2-02_Group_C_projection_after.usda`
+  - `S2-02_Group_C_report_after.json`
+  - `S2-08_Group_E_projection_guard_after.png`
+  - `S2-09_Group_F_projection_guard_after.png`
+  - `capture_results.json`
+  - `projection_results.json`
+  - `assessment.md`
+- Browser/live viewer blockers:
+  - Playwright Desmos navigation returned `user cancelled MCP tool call`.
+  - Chrome DevTools Desmos navigation returned `user cancelled MCP tool call`.
+  - URL-based CLI export could not fetch Desmos state: `urlopen error [Errno 8] nodename nor servname provided, or not known`.
+  - Tailscale route checks for root, viewer, and summary failed with `curl: (6) Could not resolve host: chq.singapura-broadnose.ts.net`.
+  - Playwright and Chrome DevTools live-viewer navigation both returned `user cancelled MCP tool call`.
+- Visual claim: no live Desmos/viewer parity claim. This tranche has deterministic local projection evidence only. The after projection adds the missing orange curved/banded side geometry around the lower central structure.
+
+## Metrics
+- S2-02C tracked baseline before this tranche: `133 prims / 36 unsupported / 149 classified / 169 renderable / valid true / partial`.
+- S2-02C fresh local pre-edit from current code: `149 prims / 20 unsupported / 149 classified / 169 renderable / valid true / partial`.
+- S2-02C after tracked resolution-12 regeneration: `169 prims / 0 unsupported / 169 classified / 169 renderable / valid true / success / usdchecker returncode 0`.
+- Overall fixture summary: 71 fixtures; 33 success, 38 partial, 0 error, acceptance not met.
+- S2-08 Group E guard remains success: `87 prims / 0 unsupported / valid true / usdchecker returncode 0`.
+- S2-09 Group F guard remains success: `27 prims / 0 unsupported / valid true / usdchecker returncode 0`.
+
+## Validation
+- Focused regressions passed: `test_nested_restriction_split`, `test_s202_group_c_nested_restrictions_classify`.
+- Targeted modules passed: `PYTHONPATH=src:tests python3 -m unittest tests.test_parser tests.test_student_fixture_regressions tests.test_fixture_usdz_suite tests.test_visual_preview` ran 92 tests OK.
+- Full unittest discovery passed: `PYTHONPATH=src:tests python3 -m unittest discover -s tests` ran 150 tests in 133.466s OK.
+- Regenerated S2-02C, S2-08E, and S2-09F with `usdchecker --arkit` return code `0`.
+- Report-vs-USDA consistency checked:
+  - S2-02C report prim_count `169`, USDA `Mesh` + `BasisCurves` defs `169`, unsupported `0`
+  - S2-08E report prim_count `87`, USDA defs `87`, unsupported `0`
+  - S2-09F report prim_count `27`, USDA defs `27`, unsupported `0`
+- PNG projection dimensions checked with `sips`: before/after/guard PNGs are `1552x512`.
+- `git diff --check`: passed.
+
+## Commit / Push
+- Blocked in this HOME Codex turn: `git add -A && git add -f artifacts/fixture_usdz/review_evidence/20260427_s202_group_c_ralph_affine_bands/` failed with `fatal: Unable to create '/Users/chek/repos/desmos2usd-carey/.git/index.lock': Operation not permitted`.
+- Worktree is ready to stage, commit, and push from the main environment.
+- Evidence directory is ignored by `.gitignore`; include it with:
+  - `git add -f artifacts/fixture_usdz/review_evidence/20260427_s202_group_c_ralph_affine_bands/`
+- Suggested commit subject: `Support nested Desmos restrictions`
+
+## Review Links
+- Route verification from this environment failed for root/viewer/summary with `curl: (6) Could not resolve host: chq.singapura-broadnose.ts.net`.
+- S2-02 Group C Desmos: `https://www.desmos.com/3d/sqn7vxcm4n`
+- S2-02 Group C viewer: `https://chq.singapura-broadnose.ts.net/viewer/?usda=..%2Fartifacts%2Ffixture_usdz%2F%5B4B%5D%203D%20Diagram%20-%20S2-02%20Group%20C.usda&label=S2-02%20Group%20C`
+- S2-08 Group E Desmos: `https://www.desmos.com/3d/g59jqe6nxy`
+- S2-08 Group E viewer: `https://chq.singapura-broadnose.ts.net/viewer/?usda=..%2Fartifacts%2Ffixture_usdz%2F%5B4B%5D%203D%20Diagram%20-%20S2-08%20Group%20E.usda&label=S2-08%20Group%20E`
+- S2-09 Group F Desmos: `https://www.desmos.com/3d/umjxv6ahck`
+- S2-09 Group F viewer: `https://chq.singapura-broadnose.ts.net/viewer/?usda=..%2Fartifacts%2Ffixture_usdz%2F%5B4B%5D%203D%20Diagram%20-%20S2-09%20Group%20F.usda&label=S2-09%20Group%20F`
+
+## Remaining Mismatch / Next Wake Instructions
+1. S2-02 Group C is structurally complete and should not be picked again unless Chek reports a live visual issue.
+2. Next exact target per STATE priority: S2-08 Group G (`https://www.desmos.com/3d/24vpv4pfwh`), currently `1236 prims / 23 unsupported`.
+3. Keep S2-08E and S2-09F as regression guards.
+4. Continue to include direct Tailscale viewer links and matching Desmos links in any review update, but do not claim live visual parity unless browser/viewer screenshots are actually captured.
+
 # Handoff: 2026-04-27 14:56 SGT - S2-04G color-function tranche
 
 ## Current Branch State

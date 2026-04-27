@@ -27,6 +27,13 @@ class ParserTests(unittest.TestCase):
         self.assertEqual(main, "z=0")
         self.assertEqual(restrictions, ["-3<x<3", "-32<y<32"])
 
+    def test_nested_restriction_split(self) -> None:
+        main, restrictions = split_restrictions(
+            r"0.57<z<2.17\left\{\frac{x^{2}}{0.2}+\frac{\left(z-0.6\right)^{2}}{1}>1\left\{2.7>y>2\right\}\right\}"
+        )
+        self.assertEqual(main, "0.57<z<2.17")
+        self.assertEqual(restrictions, [r"\frac{x^{2}}{0.2}+\frac{(z-0.6)^{2}}{1}>1", "2.7>y>2"])
+
     def test_list_definition_parses(self) -> None:
         expr = LatexExpression.parse(r"a_{1}x^{2}+b_{1}x+c_{1}")
         self.assertEqual(expr.python, "a_1*x**(2)+b_1*x+c_1")

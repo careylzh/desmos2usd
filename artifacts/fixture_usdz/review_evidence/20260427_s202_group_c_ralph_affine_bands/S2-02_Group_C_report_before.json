@@ -1,0 +1,132 @@
+{
+  "classified_expression_count": 149,
+  "complete": false,
+  "fixture": "[4B] 3D Diagram - S2-02 Group C.json",
+  "prim_count": 149,
+  "renderable_expression_count": 169,
+  "unsupported": [
+    {
+      "expr_id": "163",
+      "kind": "classification",
+      "latex": "2.17<z<3.97\\ \\left\\{-0.8<x<0.8\\right\\}\\left\\{\\frac{\\left(x+0\\right)^{2}}{0.35}+\\frac{\\left(z-2.3\\right)^{2}}{1.3}>1\\left\\{2.7>y>2\\right\\}\\right\\}",
+      "reason": "Could not parse '1{2.7' as '1*(2.7': '(' was never closed (<unknown>, line 1)"
+    },
+    {
+      "expr_id": "165",
+      "kind": "classification",
+      "latex": "2.17<z<3.97\\left\\{-0.8<x<0.8\\right\\}\\ \\left\\{\\frac{\\left(x+0\\right)^{2}}{0.35}+\\frac{\\left(z-2.3\\right)^{2}}{1.3}>1\\left\\{-2>y>-2.7\\right\\}\\right\\}",
+      "reason": "Could not parse '1{-2' as '1*(-2': '(' was never closed (<unknown>, line 1)"
+    },
+    {
+      "expr_id": "166",
+      "kind": "classification",
+      "latex": "2.17<z<3.97\\ \\left\\{-0.8<y<0.8\\right\\}\\left\\{\\frac{\\left(y+0\\right)^{2}}{0.35}+\\frac{\\left(z-2.3\\right)^{2}}{1.3}>1\\left\\{2.7>x>2\\right\\}\\right\\}",
+      "reason": "Could not parse '1{2.7' as '1*(2.7': '(' was never closed (<unknown>, line 1)"
+    },
+    {
+      "expr_id": "168",
+      "kind": "classification",
+      "latex": "2.17<z<3.97\\ \\left\\{-0.8<y<0.8\\right\\}\\left\\{\\frac{\\left(y+0\\right)^{2}}{0.35}+\\frac{\\left(z-2.3\\right)^{2}}{1.3}>1\\left\\{-2>x>-2.7\\right\\}\\right\\}",
+      "reason": "Could not parse '1{-2' as '1*(-2': '(' was never closed (<unknown>, line 1)"
+    },
+    {
+      "expr_id": "169",
+      "kind": "classification",
+      "latex": "2.17<z<3.97\\ \\left\\{-2.0<x<-0.8\\right\\}\\left\\{\\frac{\\left(x--1.4\\right)^{2}}{0.2}+\\frac{\\left(z-2.3\\right)^{2}}{1}>1\\ \\left\\{2.7>y>2\\right\\}\\right\\}",
+      "reason": "Could not parse '1{2.7' as '1*(2.7': '(' was never closed (<unknown>, line 1)"
+    },
+    {
+      "expr_id": "245",
+      "kind": "classification",
+      "latex": "0.57<z<2.17\\ \\left\\{-2.0<x<-0.8\\right\\}\\left\\{\\frac{\\left(x--1.4\\right)^{2}}{0.2}+\\frac{\\left(z-0.6\\right)^{2}}{1}>1\\ \\left\\{2.7>y>2\\right\\}\\right\\}",
+      "reason": "Could not parse '1{2.7' as '1*(2.7': '(' was never closed (<unknown>, line 1)"
+    },
+    {
+      "expr_id": "176",
+      "kind": "classification",
+      "latex": "2.17<z<3.97\\ \\left\\{2.0>y>0.8\\right\\}\\left\\{\\frac{\\left(y-1.4\\right)^{2}}{0.2}+\\frac{\\left(z-2.3\\right)^{2}}{1}>1\\left\\{-2.0>x>-2.7\\right\\}\\right\\}",
+      "reason": "Could not parse '1{-2.0' as '1*(-2.0': '(' was never closed (<unknown>, line 1)"
+    },
+    {
+      "expr_id": "258",
+      "kind": "classification",
+      "latex": "0.57<z<2.17\\ \\left\\{2.0>y>0.8\\right\\}\\left\\{\\frac{\\left(y-1.4\\right)^{2}}{0.2}+\\frac{\\left(z-0.6\\right)^{2}}{1}>1\\left\\{-2.0>x>-2.7\\right\\}\\right\\}",
+      "reason": "Could not parse '1{-2.0' as '1*(-2.0': '(' was never closed (<unknown>, line 1)"
+    },
+    {
+      "expr_id": "170",
+      "kind": "classification",
+      "latex": "2.17<z<3.97\\ \\left\\{2.0>x>0.8\\right\\}\\left\\{\\frac{\\left(x-1.4\\right)^{2}}{0.2}+\\frac{\\left(z-2.3\\right)^{2}}{1}>1\\ \\left\\{2.7>y>2\\right\\}\\right\\}",
+      "reason": "Could not parse '1{2.7' as '1*(2.7': '(' was never closed (<unknown>, line 1)"
+    },
+    {
+      "expr_id": "246",
+      "kind": "classification",
+      "latex": "0.57<z<2.17\\ \\left\\{2.0>x>0.8\\right\\}\\left\\{\\frac{\\left(x-1.4\\right)^{2}}{0.2}+\\frac{\\left(z-0.6\\right)^{2}}{1}>1\\ \\left\\{2.7>y>2\\right\\}\\right\\}",
+      "reason": "Could not parse '1{2.7' as '1*(2.7': '(' was never closed (<unknown>, line 1)"
+    },
+    {
+      "expr_id": "174",
+      "kind": "classification",
+      "latex": "2.17<z<3.97\\ \\left\\{2.0>y>0.8\\right\\}\\left\\{\\frac{\\left(y-1.4\\right)^{2}}{0.2}+\\frac{\\left(z-2.3\\right)^{2}}{1}>1\\left\\{2.0<x<2.7\\right\\}\\right\\}",
+      "reason": "Could not parse '1{2.0' as '1*(2.0': '(' was never closed (<unknown>, line 1)"
+    },
+    {
+      "expr_id": "257",
+      "kind": "classification",
+      "latex": "0.57<z<2.17\\left\\{2.0>y>0.8\\right\\}\\left\\{\\frac{\\left(y-1.4\\right)^{2}}{0.2}+\\frac{\\left(z-0.6\\right)^{2}}{1}>1\\left\\{2.0<x<2.7\\right\\}\\right\\}",
+      "reason": "Could not parse '1{2.0' as '1*(2.0': '(' was never closed (<unknown>, line 1)"
+    },
+    {
+      "expr_id": "172",
+      "kind": "classification",
+      "latex": "2.17<z<3.97\\ \\left\\{-2.0<x<-0.8\\right\\}\\left\\{\\frac{\\left(x--1.4\\right)^{2}}{0.2}+\\frac{\\left(z-2.3\\right)^{2}}{1}>1\\ \\left\\{-2.7<y<-2\\right\\}\\right\\}",
+      "reason": "Could not parse '1{-2.7' as '1*(-2.7': '(' was never closed (<unknown>, line 1)"
+    },
+    {
+      "expr_id": "247",
+      "kind": "classification",
+      "latex": "0.57<z<2.17\\ \\left\\{-2.0<x<-0.8\\right\\}\\left\\{\\frac{\\left(x--1.4\\right)^{2}}{0.2}+\\frac{\\left(z-0.6\\right)^{2}}{1}>1\\ \\left\\{-2.7<y<-2\\right\\}\\right\\}",
+      "reason": "Could not parse '1{-2.7' as '1*(-2.7': '(' was never closed (<unknown>, line 1)"
+    },
+    {
+      "expr_id": "175",
+      "kind": "classification",
+      "latex": "2.17<z<3.97\\ \\left\\{-2.0<y<-0.8\\right\\}\\left\\{\\frac{\\left(y--1.4\\right)^{2}}{0.2}+\\frac{\\left(z-2.3\\right)^{2}}{1}>1\\left\\{-2.7<x<-2\\right\\}\\right\\}",
+      "reason": "Could not parse '1{-2.7' as '1*(-2.7': '(' was never closed (<unknown>, line 1)"
+    },
+    {
+      "expr_id": "255",
+      "kind": "classification",
+      "latex": "0.57<z<2.17\\ \\left\\{-2.0<y<-0.8\\right\\}\\left\\{\\frac{\\left(y--1.4\\right)^{2}}{0.2}+\\frac{\\left(z-0.6\\right)^{2}}{1}>1\\left\\{-2.7<x<-2\\right\\}\\right\\}",
+      "reason": "Could not parse '1{-2.7' as '1*(-2.7': '(' was never closed (<unknown>, line 1)"
+    },
+    {
+      "expr_id": "171",
+      "kind": "classification",
+      "latex": "2.17<z<3.97\\ \\left\\{2>x>0.8\\right\\}\\left\\{\\frac{\\left(x-1.4\\right)^{2}}{0.2}+\\frac{\\left(z-2.3\\right)^{2}}{1}>1\\ \\left\\{-2.7<y<-2\\right\\}\\right\\}",
+      "reason": "Could not parse '1{-2.7' as '1*(-2.7': '(' was never closed (<unknown>, line 1)"
+    },
+    {
+      "expr_id": "248",
+      "kind": "classification",
+      "latex": "0.57<z<2.17\\ \\left\\{2>x>0.8\\right\\}\\left\\{\\frac{\\left(x-1.4\\right)^{2}}{0.2}+\\frac{\\left(z-0.6\\right)^{2}}{1}>1\\ \\left\\{-2.7<y<-2\\right\\}\\right\\}",
+      "reason": "Could not parse '1{-2.7' as '1*(-2.7': '(' was never closed (<unknown>, line 1)"
+    },
+    {
+      "expr_id": "173",
+      "kind": "classification",
+      "latex": "2.17<z<3.97\\ \\left\\{-2.0<y<-0.8\\right\\}\\left\\{\\frac{\\left(y--1.4\\right)^{2}}{0.2}+\\frac{\\left(z-2.3\\right)^{2}}{1}>1\\left\\{2.7>x>2\\right\\}\\right\\}",
+      "reason": "Could not parse '1{2.7' as '1*(2.7': '(' was never closed (<unknown>, line 1)"
+    },
+    {
+      "expr_id": "252",
+      "kind": "classification",
+      "latex": "0.57<z<2.17\\ \\left\\{-2.0<y<-0.8\\right\\}\\left\\{\\frac{\\left(y--1.4\\right)^{2}}{0.2}+\\frac{\\left(z-0.6\\right)^{2}}{1}>1\\left\\{2.7>x>2\\right\\}\\right\\}",
+      "reason": "Could not parse '1{2.7' as '1*(2.7': '(' was never closed (<unknown>, line 1)"
+    }
+  ],
+  "unsupported_count": 20,
+  "url": "",
+  "valid": true
+}

@@ -150,7 +150,33 @@ def split_restrictions(latex: str) -> tuple[str, list[str]]:
                         output.pop()
                     if output and output[-1] in "+-*/":
                         output.pop()
-                    restrictions.append(inner)
+                    flattened, nested_restrictions = split_nested_restrictions(inner)
+                    restrictions.append(flattened)
+                    restrictions.extend(nested_restrictions)
+                    i = end + 1
+                    continue
+        output.append(text[i])
+        i += 1
+    return "".join(output).strip(), restrictions
+
+
+def split_nested_restrictions(text: str) -> tuple[str, list[str]]:
+    restrictions: list[str] = []
+    output: list[str] = []
+    i = 0
+    while i < len(text):
+        if text[i] == "{":
+            end = find_matching_close_brace(text, i)
+            if end >= 0:
+                inner = text[i + 1 : end].strip()
+                if looks_like_restriction(inner):
+                    while output and output[-1].isspace():
+                        output.pop()
+                    if output and output[-1] in "+-*/":
+                        output.pop()
+                    flattened, nested = split_nested_restrictions(inner)
+                    restrictions.append(flattened)
+                    restrictions.extend(nested)
                     i = end + 1
                     continue
         output.append(text[i])
