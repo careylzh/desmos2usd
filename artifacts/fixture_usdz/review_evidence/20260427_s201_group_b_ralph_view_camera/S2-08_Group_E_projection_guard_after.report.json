@@ -1,45 +1,11 @@
 {
-  "acceptance_success": true,
   "classified_expression_count": 87,
-  "complete": true,
+  "desmos_url": "https://www.desmos.com/3d/g59jqe6nxy",
   "fixture": "[4B] 3D Diagram - S2-08 Group E.json",
-  "fixture_path": "fixtures/states/[4B] 3D Diagram - S2-08 Group E.json",
-  "graph_hash": null,
-  "output": "artifacts/fixture_usdz/[4B] 3D Diagram - S2-08 Group E.usda",
   "prim_count": 87,
   "renderable_expression_count": 87,
-  "resolution": 12,
-  "status": "success",
-  "title": "Desmos graph",
   "unsupported": [],
   "unsupported_count": 0,
-  "usda_exists": true,
-  "usdz_exists": true,
-  "usdz_output": "artifacts/fixture_usdz/[4B] 3D Diagram - S2-08 Group E.usdz",
-  "usdz_package": {
-    "command": [
-      "/usr/bin/usdzip",
-      "/Users/chek/repos/desmos2usd-carey/artifacts/fixture_usdz/[4B] 3D Diagram - S2-08 Group E.usdz",
-      "[4B] 3D Diagram - S2-08 Group E.usda"
-    ],
-    "cwd": "/Users/chek/repos/desmos2usd-carey/artifacts/fixture_usdz",
-    "returncode": 0,
-    "stderr": "",
-    "stdout": "",
-    "tool": "usdzip"
-  },
-  "usdz_validation": {
-    "command": [
-      "/usr/bin/usdchecker",
-      "--arkit",
-      "/Users/chek/repos/desmos2usd-carey/artifacts/fixture_usdz/[4B] 3D Diagram - S2-08 Group E.usdz"
-    ],
-    "cwd": null,
-    "returncode": 0,
-    "stderr": "",
-    "stdout": "\nValidation Result with no explicit variants set\nSuccess!\n",
-    "tool": "usdchecker"
-  },
   "valid": true,
   "validations": [
     {

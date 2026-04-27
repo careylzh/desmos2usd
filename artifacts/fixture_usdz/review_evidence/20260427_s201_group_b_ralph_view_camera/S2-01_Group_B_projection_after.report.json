@@ -1,45 +1,11 @@
 {
-  "acceptance_success": true,
   "classified_expression_count": 143,
-  "complete": true,
+  "desmos_url": "https://www.desmos.com/3d/27v0xuv64m",
   "fixture": "[4B] 3D Diagram - S2-01 Group B.json",
-  "fixture_path": "fixtures/states/[4B] 3D Diagram - S2-01 Group B.json",
-  "graph_hash": null,
-  "output": "artifacts/fixture_usdz/[4B] 3D Diagram - S2-01 Group B.usda",
   "prim_count": 143,
   "renderable_expression_count": 143,
-  "resolution": 12,
-  "status": "success",
-  "title": "Desmos graph",
   "unsupported": [],
   "unsupported_count": 0,
-  "usda_exists": true,
-  "usdz_exists": true,
-  "usdz_output": "artifacts/fixture_usdz/[4B] 3D Diagram - S2-01 Group B.usdz",
-  "usdz_package": {
-    "command": [
-      "/usr/bin/usdzip",
-      "/Users/chek/repos/desmos2usd-carey/artifacts/fixture_usdz/[4B] 3D Diagram - S2-01 Group B.usdz",
-      "[4B] 3D Diagram - S2-01 Group B.usda"
-    ],
-    "cwd": "/Users/chek/repos/desmos2usd-carey/artifacts/fixture_usdz",
-    "returncode": 0,
-    "stderr": "",
-    "stdout": "",
-    "tool": "usdzip"
-  },
-  "usdz_validation": {
-    "command": [
-      "/usr/bin/usdchecker",
-      "--arkit",
-      "/Users/chek/repos/desmos2usd-carey/artifacts/fixture_usdz/[4B] 3D Diagram - S2-01 Group B.usdz"
-    ],
-    "cwd": null,
-    "returncode": 0,
-    "stderr": "Coding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'BasisCurves' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'BasisCurves' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'BasisCurves' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\n",
-    "stdout": "\nValidation Result with no explicit variants set\nSuccess!\n",
-    "tool": "usdchecker"
-  },
   "valid": true,
   "validations": [
     {

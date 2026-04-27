@@ -1,6 +1,6 @@
 # Implementation State
 
-Last updated: 2026-04-27 21:35 SGT
+Last updated: 2026-04-27 22:14 SGT
 
 ## Loop Mode
 - cadence: every 10 minutes via OpenClaw cron
@@ -30,7 +30,7 @@ Last updated: 2026-04-27 21:35 SGT
 - id: one-desmos-input-at-a-time
 - title: Fix one remaining partial Desmos input per bounded tranche using live Desmos screenshots and viewer screenshots
 - current-priority:
-  1. TOMORROW visual blocker / first class: S2-01 Group B — https://www.desmos.com/3d/27v0xuv64m — metrics now say 143 prims / 0 unsupported after expression `74`, but Chek reports the viewer still looks wrong; keep pinned for visual-fidelity diagnosis before calling it done
+  1. TOMORROW visual blocker / first class: S2-01 Group B — https://www.desmos.com/3d/27v0xuv64m — metrics say 143 prims / 0 unsupported, but Chek reported the viewer still looked wrong; latest tranche fixed the viewer's saved Desmos camera basis interpretation, but live browser/viewer evidence remains blocked here, so keep it review-pinned until Chek accepts the direct viewer link or gives fresh visual feedback
   2. TOMORROW high gap: S2-09 Group A — https://www.desmos.com/3d/gk9kr8h9ki — partial, 22 prims, 40 unsupported
   3. TOMORROW high gap: S2-06 Group A — https://www.desmos.com/3d/lvj5ymlrba — partial, 499 prims, 18 unsupported
   4. TOMORROW high gap: S2-09 Group D — https://www.desmos.com/3d/zxjnvkynzf — partial, 102 prims, 12 unsupported
@@ -56,8 +56,9 @@ Last updated: 2026-04-27 21:35 SGT
 7. [ ] Advance to the next input only after the current one is either defensibly fixed or explicitly blocked.
 
 ## Current Baseline
-- HEAD before current tranche: bd5effe Record S2-01C harvest commit
+- HEAD before current tranche: 0ac0553 Restore S2-01B bounded top panel
 - summary: 71 fixtures; 50 success, 21 partial, 0 error
+- S2-01 Group B current viewer-camera tranche: static viewer `worldRotation3D` handling now uses Desmos row-major camera basis rows directly (`row0` screen-right, `row1` screen-up, `row2` depth) instead of transposed columns with sign flips. This is a general viewer fix for saved-source-view mismatch and does not change geometry metrics: S2-01B remains 143 prims / 0 unsupported / success; S2-08 Group E and S2-09 Group F guards remain success. Browser/live viewer capture remains blocked by MCP cancellation, local server permission failure, headless Chrome failure, and Tailscale DNS failure, so visual claim is structural/local projection plus camera-basis diagnostics only.
 - S2-01 Group B current visual tranche: constant explicit panels with finite constant bounds on both domain axes are no longer dropped solely because the solved axis is outside the saved source viewport. Tracked S2-01B remains 143 prims / 0 unsupported / success, but expression `8` (`z=130 {-10<=x<=10}{-10<=y<=10}`) improved from a valid empty mesh (`0 points / 0 faces`) to `196 points / 169 faces`. Nonconstant out-of-viewport suppression remains guarded by `ghnr7txz47` expr `835`. Browser/live viewer capture remains blocked by MCP cancellation, local server permission failure, headless Chrome sandbox failure, and Tailscale DNS failure, so visual claim is structural/local projection only.
 - S2-01 Group B current tranche: malformed flat-axis chained comparisons such as `x^{2}+y^{2}<=5000z=0` now normalize to an ordinary 2D inequality plus a constant-axis predicate, equivalent to `x^{2}+y^{2}<=5000 {z=0}`. Tracked resolution-12 export improved 142 prims / 1 unsupported / 143 classified / 143 renderable -> 143 prims / 0 unsupported / 143 classified / 143 renderable, success. S2-08 Group E and S2-09 Group F guards remain success. Browser/live viewer capture remains blocked by MCP cancellation, local server permission failure, and Tailscale DNS failure, so visual claim is deterministic local projection only.
 - S2-01 Group C current tranche: scalar-list expressions with implicit numeric multiplication such as `3n` now expand from hidden list definitions, axis-aligned `abs(axis)` interval regions export as disjoint rectangular shell extrusions, and one-axis implicit equalities with bounded cross axes export as sheet meshes. Tracked resolution-12 export improved 15 prims / 4 unsupported / 18 classified / 19 renderable -> 27 prims / 0 unsupported / 27 classified / 27 renderable, success. S2-08 Group E and S2-09 Group F guards remain success. Browser/live viewer capture remains blocked by MCP cancellation, local server permission failure, and Tailscale DNS failure, so visual claim is deterministic local projection only.
@@ -104,5 +105,5 @@ Last updated: 2026-04-27 21:35 SGT
 - Do not overlap Codex/ccwork runs.
 
 ## Last Wake
-- timestamp: 2026-04-27 20:58 SGT
-- result: Harvested HOME Codex run 20260427-203331-12723 for S2-01 Group C. Dirty changes were coherent and validated from the main environment: targeted modules 110 tests OK, full unittest discovery 169 tests OK, and `git diff --check` OK. Committed and pushed `81cc02b` (`Export S2-01C absolute tube details`) to `chektien:fix/student-fixture-usdz-export`. No new implementation pass was launched in this wake; next wake should continue tomorrow's S2-01 priority with S2-01 Group B expression `74` unless Chek reprioritizes.
+- timestamp: 2026-04-27 22:14 SGT
+- result: HOME Codex ran one bounded S2-01 Group B viewer-camera tranche. Implemented a general viewer fix for saved Desmos `worldRotation3D` basis interpretation, added Node-backed camera tests, regenerated S2-01B plus S2-08E/S2-09F guard artifacts, and validated focused suites plus full unittest discovery. Commit/push is blocked here by `.git/index.lock` permission failure; main environment should stage, commit, and push the ready worktree. Browser/live viewer capture remains blocked in this environment, so ask Chek to review S2-01B before advancing to S2-09 Group A.

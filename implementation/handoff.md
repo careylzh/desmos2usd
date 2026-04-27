@@ -1,3 +1,100 @@
+# Handoff: 2026-04-27 22:14 SGT - S2-01B saved-view camera tranche
+
+## Current Branch State
+- Repo: `/Users/chek/repos/desmos2usd-carey`
+- Branch: `fix/student-fixture-usdz-export`
+- Push target: `chektien:fix/student-fixture-usdz-export`
+- HEAD before this tranche: `0ac0553 Restore S2-01B bounded top panel`
+
+## Completed This Tranche
+- Targeted fixture: `[4B] 3D Diagram - S2-01 Group B.json`
+- Desmos URL: `https://www.desmos.com/3d/27v0xuv64m`
+- Diagnosed a general live-viewer mismatch candidate:
+  - the USDA stores Desmos `worldRotation3D` in `customLayerData`
+  - the viewer had interpreted that matrix by columns with sign flips
+  - the existing diagnostics and frozen view metadata treat the matrix rows as Desmos screen-right, screen-up, and camera-depth vectors
+  - this could make a metrics-complete model open from the wrong saved Desmos view, which matches Chek's "viewer looks wrong" report better than another exporter unsupported-family issue
+- Implemented one general viewer fix:
+  - added `viewer/camera.js`, a small reusable camera-basis helper
+  - loaded it before `viewer/app.js`
+  - changed the viewer camera basis to use row 0 as right, row 1 as up, and row 2 as depth
+  - no fixture ids, S2-01 constants, or fixture-specific hacks were added
+- Added regression coverage:
+  - `tests/test_viewer_camera.py` checks the S2-01B `worldRotation3D` matrix maps rows directly into the viewer basis
+  - it also checks `camera.js` loads before `app.js`
+- Regenerated tracked S2-01B, S2-08E, and S2-09F USDZ/report artifacts and merged the refreshed entries back into the 71-fixture `summary.json`.
+
+## Evidence
+- Evidence directory: `artifacts/fixture_usdz/review_evidence/20260427_s201_group_b_ralph_view_camera/`
+- Files:
+  - `S2-01_Group_B_projection_after.png`
+  - `S2-01_Group_B_projection_after.ppm`
+  - `S2-01_Group_B_projection_after.usda`
+  - `S2-01_Group_B_projection_after.usdz`
+  - `S2-01_Group_B_projection_after.report.json`
+  - `S2-08_Group_E_projection_guard_after.png`
+  - `S2-08_Group_E_projection_guard_after.ppm`
+  - `S2-08_Group_E_projection_guard_after.usda`
+  - `S2-08_Group_E_projection_guard_after.usdz`
+  - `S2-08_Group_E_projection_guard_after.report.json`
+  - `S2-09_Group_F_projection_guard_after.png`
+  - `S2-09_Group_F_projection_guard_after.ppm`
+  - `S2-09_Group_F_projection_guard_after.usda`
+  - `S2-09_Group_F_projection_guard_after.usdz`
+  - `S2-09_Group_F_projection_guard_after.report.json`
+  - `camera_basis_comparison.json`
+  - `capture_results.json`
+  - `projection_results.json`
+  - `assessment.md`
+- Browser/live viewer blockers this tranche:
+  - Playwright Desmos navigation to `https://www.desmos.com/3d/27v0xuv64m` returned `user cancelled MCP tool call`.
+  - Chrome DevTools Desmos navigation to `https://www.desmos.com/3d/27v0xuv64m` returned `user cancelled MCP tool call`.
+  - Tailscale route checks for root, viewer, and summary failed with `curl: (6) Could not resolve host: chq.singapura-broadnose.ts.net`.
+  - Local viewer server startup failed with `PermissionError: [Errno 1] Operation not permitted` for `python3 -m http.server 8765 --bind 127.0.0.1`.
+  - Headless Chrome `file://` viewer screenshot exited `-1` and did not create `S2-01_Group_B_file_viewer_probe.png`.
+- Visual claim: no live Desmos/viewer parity claim. This tranche is structural viewer progress plus deterministic local projection and camera-basis evidence only.
+
+## Metrics
+- S2-01B before this tranche: `143 prims / 0 unsupported / 143 classified / 143 renderable / valid true / success`.
+- S2-01B after tracked resolution-12 regeneration: `143 prims / 0 unsupported / 143 classified / 143 renderable / valid true / success`.
+- Overall fixture summary remains: 71 fixtures; 50 success, 21 partial, 0 error, acceptance not met.
+- S2-08 Group E guard remains success: `87 prims / 0 unsupported / valid true / usdchecker returncode 0`.
+- S2-09 Group F guard remains success: `27 prims / 0 unsupported / valid true / usdchecker returncode 0`.
+
+## Validation
+- Focused viewer-camera tests passed: `PYTHONPATH=src:tests python3 -m unittest tests.test_viewer_camera` ran 2 tests OK.
+- Targeted modules passed: `PYTHONPATH=src:tests python3 -m unittest tests.test_viewer_camera tests.test_visual_preview tests.test_fixture_usdz_suite tests.test_student_fixture_regressions` ran 101 tests OK.
+- Full unittest discovery passed: `PYTHONPATH=src:tests python3 -m unittest discover -s tests` ran 174 tests OK.
+- Report-vs-USDA consistency checked:
+  - S2-01B report prim_count `143`, USDA `Mesh` + `BasisCurves` defs `143`, unsupported `0`
+  - S2-08E report prim_count `87`, USDA defs `87`, unsupported `0`
+  - S2-09F report prim_count `27`, USDA defs `27`, unsupported `0`
+- PNG projection dimensions checked with `sips`: target and guard PNGs are `776x256`.
+- JSON validity checked for summary and evidence JSON.
+- `git diff --check`: passed.
+
+## Commit / Push
+- Blocked in this HOME Codex turn: staging failed with `fatal: Unable to create '/Users/chek/repos/desmos2usd-carey/.git/index.lock': Operation not permitted`.
+- Worktree is ready to stage, commit, and push from the main environment.
+- Suggested commit subject: `Align viewer to Desmos saved camera`.
+- Include ignored evidence with:
+  - `git add -f artifacts/fixture_usdz/review_evidence/20260427_s201_group_b_ralph_view_camera`
+
+## Review Links
+- Route verification from this environment failed for root/viewer/summary with `curl: (6) Could not resolve host: chq.singapura-broadnose.ts.net`.
+- S2-01 Group B Desmos: `https://www.desmos.com/3d/27v0xuv64m`
+- S2-01 Group B viewer: `https://chq.singapura-broadnose.ts.net/viewer/?usda=..%2Fartifacts%2Ffixture_usdz%2F%5B4B%5D%203D%20Diagram%20-%20S2-01%20Group%20B.usda&label=S2-01%20Group%20B`
+- S2-08 Group E Desmos: `https://www.desmos.com/3d/g59jqe6nxy`
+- S2-08 Group E viewer: `https://chq.singapura-broadnose.ts.net/viewer/?usda=..%2Fartifacts%2Ffixture_usdz%2F%5B4B%5D%203D%20Diagram%20-%20S2-08%20Group%20E.usda&label=S2-08%20Group%20E`
+- S2-09 Group F Desmos: `https://www.desmos.com/3d/umjxv6ahck`
+- S2-09 Group F viewer: `https://chq.singapura-broadnose.ts.net/viewer/?usda=..%2Fartifacts%2Ffixture_usdz%2F%5B4B%5D%203D%20Diagram%20-%20S2-09%20Group%20F.usda&label=S2-09%20Group%20F`
+
+## Remaining Mismatch / Next Wake Instructions
+1. Ask Chek to review S2-01B again in the direct viewer link against the Desmos URL. The likely saved-view orientation mismatch is fixed, but this environment still cannot capture live browser evidence.
+2. If Chek still reports S2-01B wrong, continue S2-01B using the fresh visual feedback as blocker context.
+3. If Chek accepts S2-01B or does not reopen it, advance to tomorrow's next largest priority gap: S2-09 Group A (`https://www.desmos.com/3d/gk9kr8h9ki`), currently about `22 prims / 40 unsupported` in STATE.
+4. Keep S2-08E and S2-09F as regression guards.
+
 # Handoff: 2026-04-27 21:35 SGT - S2-01B bounded top-panel visual tranche
 
 ## Current Branch State
