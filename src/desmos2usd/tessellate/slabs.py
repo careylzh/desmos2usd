@@ -1,8 +1,9 @@
 from __future__ import annotations
 
 import ast
+import copy
 from dataclasses import dataclass, replace
-from math import ceil, cos, floor, isclose, isfinite, pi, sin
+from math import ceil, cos, floor, isclose, isfinite, log, pi, sin
 
 from desmos2usd.eval.context import EvalContext
 from desmos2usd.eval.numeric import CONSTANTS
@@ -443,7 +444,7 @@ def tessellate_box(item: ClassifiedExpression, context: EvalContext) -> Geometry
     valid_points = []
     for point in points:
         variables = {"x": point[0], "y": point[1], "z": point[2]}
-        valid_points.append(all(predicate.evaluate(context, variables, tol=1e-5) for predicate in item.predicates))
+        valid_points.append(predicates_satisfied(item.predicates, context, variables, tol=1e-5))
     if not all(valid_points):
         raise ValueError(f"Inequality region for {item.ir.expr_id} did not resolve to a bounded box")
     return GeometryData(kind="Mesh", points=points, face_vertex_counts=counts, face_vertex_indices=indices)
@@ -895,10 +896,18 @@ def _flat_region_geometry(
     if flat_axis is None or flat_value is None:
         return None
     shape_axes = [axis for axis in ("x", "y", "z") if axis != flat_axis]
+    localized_ranges = gaussian_flat_region_ranges(item, context, tuple(shape_axes), flat_axis, flat_value)
+    used_localized_ranges = bool(localized_ranges)
     seed_ranges: dict[str, tuple[float, float]] = {}
     for axis in shape_axes:
         low, high = bounds.get(axis, (None, None))
-        if low is None or high is None or low >= high:
+        localized = localized_ranges.get(axis)
+        if localized is not None:
+            local_low, local_high = localized
+            seed_low = local_low if low is None else max(low, local_low)
+            seed_high = local_high if high is None else min(high, local_high)
+            seed_ranges[axis] = (seed_low, seed_high)
+        elif low is None or high is None or low >= high:
             seed_ranges[axis] = _flat_shape_axis_range(item, context, axis)
         else:
             seed_ranges[axis] = (low, high)
@@ -919,7 +928,7 @@ def _flat_region_geometry(
         seed_ranges[b_axis],
     )
     if sampling is None:
-        return None
+        return GeometryData(kind="Mesh", points=[]) if used_localized_ranges else None
     a_low, a_high, b_low, b_high = sampling
     grid = max(resolution, 16)
     a_values = linspace(a_low, a_high, grid)
@@ -931,7 +940,7 @@ def _flat_region_geometry(
         for a in a_values:
             variables = {a_axis: a, b_axis: b, flat_axis: flat_value}
             points.append((variables["x"], variables["y"], variables["z"]))
-            row_valid.append(all(predicate.evaluate(context, variables, tol=1e-5) for predicate in item.predicates))
+            row_valid.append(predicates_satisfied(item.predicates, context, variables, tol=1e-5))
         valid_grid.append(row_valid)
     counts: list[int] = []
     indices: list[int] = []
@@ -951,8 +960,87 @@ def _flat_region_geometry(
             counts.append(4)
             indices.extend([a, a + 1, a + width + 1, a + width])
     if not counts:
-        return None
+        return GeometryData(kind="Mesh", points=[]) if used_localized_ranges else None
     return GeometryData(kind="Mesh", points=points, face_vertex_counts=counts, face_vertex_indices=indices)
+
+
+def gaussian_flat_region_ranges(
+    item: ClassifiedExpression,
+    context: EvalContext,
+    shape_axes: tuple[str, str],
+    flat_axis: str,
+    flat_value: float,
+) -> dict[str, tuple[float, float]]:
+    profile = gaussian_flat_region_profile(item, context, shape_axes, flat_axis, flat_value)
+    if profile is None:
+        return {}
+    ranges: dict[str, tuple[float, float]] = {}
+    for axis, center, radius in zip(shape_axes, profile.center, profile.radii, strict=True):
+        pad = max(0.25, radius * 0.1)
+        ranges[axis] = (center - radius - pad, center + radius + pad)
+    return ranges
+
+
+def gaussian_flat_region_profile(
+    item: ClassifiedExpression,
+    context: EvalContext,
+    shape_axes: tuple[str, str],
+    flat_axis: str,
+    flat_value: float,
+) -> CircleProfile | None:
+    if item.inequality is None or len(item.inequality.terms) != 2 or len(item.inequality.ops) != 1:
+        return None
+    left, right = item.inequality.terms
+    op = item.inequality.ops[0]
+    exponent_node: ast.AST | None = None
+    threshold_expression: LatexExpression | None = None
+    if op in {">", ">="}:
+        exponent_node = exponential_exponent_node(left.tree.body)
+        threshold_expression = right
+    elif op in {"<", "<="}:
+        exponent_node = exponential_exponent_node(right.tree.body)
+        threshold_expression = left
+    if exponent_node is None or threshold_expression is None:
+        return None
+    if threshold_expression.identifiers & {"x", "y", "z"}:
+        return None
+    try:
+        threshold = threshold_expression.eval(context, {})
+    except Exception:
+        return None
+    if not (0.0 < threshold < 1.0):
+        return None
+    log_threshold = log(threshold)
+
+    def residual(ctx: EvalContext, variables: dict[str, float]) -> float:
+        exponent = eval_latex_ast_node(exponent_node, ctx, variables)
+        return log_threshold - exponent
+
+    return fit_circle_profile(context, residual, shape_axes, flat_axis, flat_value)
+
+
+def exponential_exponent_node(node: ast.AST) -> ast.AST | None:
+    if (
+        isinstance(node, ast.BinOp)
+        and isinstance(node.op, ast.Pow)
+        and isinstance(node.left, ast.Name)
+        and node.left.id == "e"
+    ):
+        return node.right
+    if isinstance(node, ast.Call) and isinstance(node.func, ast.Name) and node.func.id == "exp" and len(node.args) == 1:
+        return node.args[0]
+    return None
+
+
+def eval_latex_ast_node(node: ast.AST, context: EvalContext, variables: dict[str, float]) -> float:
+    tree = ast.Expression(body=copy.deepcopy(node))
+    ast.fix_missing_locations(tree)
+    identifiers = frozenset(
+        candidate.id
+        for candidate in ast.walk(tree)
+        if isinstance(candidate, ast.Name) and candidate.id not in CONSTANTS
+    )
+    return LatexExpression(latex="", python="", tree=tree, identifiers=identifiers).eval(context, variables)
 
 
 def _refine_flat_region_window(
@@ -975,7 +1063,7 @@ def _refine_flat_region_window(
     for b in b_samples:
         for a in a_samples:
             variables = {a_axis: a, b_axis: b, flat_axis: flat_value}
-            if all(predicate.evaluate(context, variables, tol=1e-5) for predicate in item.predicates):
+            if predicates_satisfied(item.predicates, context, variables, tol=1e-5):
                 a_min = a if a_min is None else min(a_min, a)
                 a_max = a if a_max is None else max(a_max, a)
                 b_min = b if b_min is None else min(b_min, b)
@@ -1065,7 +1153,7 @@ def infer_2d_region_bounds(
     for b in linspace(b0, b1, scan_count):
         for a in linspace(a0, a1, scan_count):
             variables = {a_axis: a, b_axis: b, extrude_axis: extrude_mid}
-            if all(predicate.evaluate(context, variables, tol=1e-5) for predicate in item.predicates):
+            if predicates_satisfied(item.predicates, context, variables, tol=1e-5):
                 active[a_axis].append(a)
                 active[b_axis].append(b)
 
@@ -1614,7 +1702,7 @@ def band_extrusion_corner_satisfies(
 ) -> bool:
     for extrude_value in (low, high, (low + high) / 2.0):
         variables = {band_axis: pair[0], param_axis: pair[1], extrude_axis: extrude_value}
-        if not all(predicate.evaluate(context, variables, tol=1e-5) for predicate in item.predicates):
+        if not predicates_satisfied(item.predicates, context, variables, tol=1e-5):
             return False
     return True
 
@@ -1630,7 +1718,7 @@ def extruded_corner_satisfies(
 ) -> bool:
     for extrude_value in (low, high, (low + high) / 2.0):
         variables = {shape_axes[0]: pair[0], shape_axes[1]: pair[1], extrude_axis: extrude_value}
-        if not all(predicate.evaluate(context, variables, tol=1e-5) for predicate in item.predicates):
+        if not predicates_satisfied(item.predicates, context, variables, tol=1e-5):
             return False
     return True
 
@@ -1659,7 +1747,7 @@ def mesh_vertices_satisfy_predicates(item: ClassifiedExpression, context: EvalCo
         variables = {"x": point[0], "y": point[1], "z": point[2]}
         if index < len(geometry.sample_parameters):
             variables.update(geometry.sample_parameters[index])
-        if not all(predicate.evaluate(context, variables, tol=1e-5) for predicate in item.predicates):
+        if not predicates_satisfied(item.predicates, context, variables, tol=1e-5):
             return False
     return True
 
@@ -1702,7 +1790,19 @@ def tessellate_sampled_inequality_region(item: ClassifiedExpression, context: Ev
 
 def point_satisfies_predicates(point: Point, item: ClassifiedExpression, context: EvalContext) -> bool:
     variables = {"x": point[0], "y": point[1], "z": point[2]}
-    return all(predicate.evaluate(context, variables, tol=1e-5) for predicate in item.predicates)
+    return predicates_satisfied(item.predicates, context, variables, tol=1e-5)
+
+
+def predicates_satisfied(
+    predicates: list[ComparisonPredicate],
+    context: EvalContext,
+    variables: dict[str, float],
+    tol: float,
+) -> bool:
+    try:
+        return all(predicate.evaluate(context, variables, tol=tol) for predicate in predicates)
+    except Exception:
+        return False
 
 
 def _refine_inequality_bbox(

@@ -14,6 +14,8 @@ class FunctionDef:
 @dataclass
 class EvalContext:
     degree_mode: bool = False
+    random_seed: str = ""
+    random_list_limit: int = 128
     scalars: dict[str, float] = field(default_factory=dict)
     lists: dict[str, tuple[float, ...]] = field(default_factory=dict)
     point_lists: dict[str, tuple[tuple[float, ...], ...]] = field(default_factory=dict)

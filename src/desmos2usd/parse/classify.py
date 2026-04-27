@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+import hashlib
+import random as py_random
 import re
 from dataclasses import dataclass, field
 from itertools import product
@@ -71,7 +73,10 @@ class DefinitionRegistrationResult:
 
 
 def classify_graph(graph: GraphIR) -> ClassificationResult:
-    context = EvalContext(degree_mode=bool(graph.source.view_metadata.get("degree_mode")))
+    context = EvalContext(
+        degree_mode=bool(graph.source.view_metadata.get("degree_mode")),
+        random_seed=str(graph.raw_state.get("randomSeed") or graph.source.graph_hash or ""),
+    )
     classified: list[ClassifiedExpression] = []
     registration = register_definitions(graph.expressions, context)
     for expr, exc in registration.failures:
@@ -939,6 +944,13 @@ def expand_literal_list_expression(expr: ExpressionIR, context: EvalContext) -> 
     return expanded
 
 
+@dataclass(frozen=True)
+class RandomCallSpan:
+    start: int
+    end: int
+    values: tuple[float, ...]
+
+
 def expand_list_expression(expr: ExpressionIR, context: EvalContext) -> list[ExpressionIR]:
     resolved_latex = replace_list_index_references(expr.latex, context)
     if resolved_latex != expr.latex:
@@ -956,29 +968,46 @@ def expand_list_expression(expr: ExpressionIR, context: EvalContext) -> list[Exp
             type=expr.type,
             raw=raw,
         )
+    main, restriction_texts = split_restrictions(expr.latex)
+    random_main_spans, next_random_occurrence = random_call_spans(main, context, expr.expr_id)
+    random_restriction_spans: list[list[RandomCallSpan]] = []
+    for restriction in restriction_texts:
+        spans, next_random_occurrence = random_call_spans(restriction, context, expr.expr_id, next_random_occurrence)
+        random_restriction_spans.append(spans)
+    has_random_calls = bool(random_main_spans) or any(random_restriction_spans)
     names = [name for name in context.lists if latex_identifier_present(expr.latex, name)]
-    if not names:
+    if not names and not has_random_calls:
         return expand_literal_list_expression(expr, context)
+
     lengths = {len(context.lists[name]) for name in names}
+    lengths.update(len(span.values) for span in random_main_spans)
+    for spans in random_restriction_spans:
+        lengths.update(len(span.values) for span in spans)
     if len(lengths) != 1:
-        raise ValueError(f"Expression references lists with mismatched lengths: {', '.join(names)}")
+        sources = [*names]
+        if has_random_calls:
+            sources.append("random")
+        raise ValueError(f"Expression references lists with mismatched lengths: {', '.join(sources)}")
     count = lengths.pop()
     expanded: list[ExpressionIR] = []
     for index in range(count):
-        main, restriction_texts = split_restrictions(expr.latex)
-        latex = main
+        latex = replace_random_calls(main, random_main_spans, index)
         for name in names:
             latex = replace_latex_identifier(latex, name, repr(context.lists[name][index]))
         latex = replace_list_index_references(latex, context)
         expanded_restrictions: list[str] = []
-        for restriction in restriction_texts:
-            replaced_restriction = restriction
+        for restriction, random_spans in zip(restriction_texts, random_restriction_spans, strict=True):
+            replaced_restriction = replace_random_calls(restriction, random_spans, index)
             for name in names:
                 replaced_restriction = replace_latex_identifier(replaced_restriction, name, repr(context.lists[name][index]))
             replaced_restriction = replace_list_index_references(replaced_restriction, context)
             expanded_restrictions.append(select_broadcast_restriction(replaced_restriction, index, count))
         raw = dict(expr.raw)
-        raw["expandedFromListExpression"] = expr.expr_id
+        if names:
+            raw["expandedFromListExpression"] = expr.expr_id
+        if has_random_calls:
+            raw["expandedFromRandomExpression"] = expr.expr_id
+            raw["randomListLimit"] = context.random_list_limit
         raw["listIndex"] = index
         expanded.extend(
             expand_literal_list_expression(
@@ -998,6 +1027,81 @@ def expand_list_expression(expr: ExpressionIR, context: EvalContext) -> list[Exp
             )
         )
     return expanded
+
+
+def random_call_spans(
+    text: str,
+    context: EvalContext,
+    expr_id: str,
+    occurrence_start: int = 0,
+) -> tuple[list[RandomCallSpan], int]:
+    spans: list[RandomCallSpan] = []
+    occurrence = occurrence_start
+    index = 0
+    while index < len(text):
+        match = random_call_prefix_at(text, index)
+        if match is None:
+            index += 1
+            continue
+        prefix_start, prefix_end = match
+        open_at = prefix_end
+        while open_at < len(text) and text[open_at].isspace():
+            open_at += 1
+        if open_at >= len(text) or text[open_at] != "(":
+            index += 1
+            continue
+        close_at = matching_paren(text, open_at)
+        count = random_call_count(text[open_at + 1 : close_at], context)
+        values = deterministic_random_values(context, expr_id, occurrence, count)
+        spans.append(RandomCallSpan(prefix_start, close_at + 1, values))
+        occurrence += 1
+        index = close_at + 1
+    return spans, occurrence
+
+
+def random_call_prefix_at(text: str, index: int) -> tuple[int, int] | None:
+    prefixes = (r"\operatorname{random}", "random")
+    for prefix in prefixes:
+        if not text.startswith(prefix, index):
+            continue
+        before = text[index - 1] if index > 0 else ""
+        after = text[index + len(prefix)] if index + len(prefix) < len(text) else ""
+        if prefix == "random" and (before.isalnum() or before in "_\\"):
+            continue
+        if after and (after.isalnum() or after == "_"):
+            continue
+        return index, index + len(prefix)
+    return None
+
+
+def random_call_count(arg_text: str, context: EvalContext) -> int:
+    value = LatexExpression.parse(arg_text).eval(context, {})
+    count = int(round(value))
+    if abs(value - count) > 1e-9 or count <= 0:
+        raise ValueError(f"random() expects a positive integer count, got {arg_text!r}")
+    return count
+
+
+def deterministic_random_values(context: EvalContext, expr_id: str, occurrence: int, count: int) -> tuple[float, ...]:
+    capped_count = min(count, max(1, context.random_list_limit))
+    seed = context.random_seed or "desmos2usd"
+    material = f"{seed}:{expr_id}:{occurrence}:{count}".encode("utf-8")
+    seed_int = int.from_bytes(hashlib.blake2b(material, digest_size=16).digest(), "big")
+    rng = py_random.Random(seed_int)
+    return tuple(rng.random() for _ in range(capped_count))
+
+
+def replace_random_calls(text: str, spans: list[RandomCallSpan], list_index: int) -> str:
+    if not spans:
+        return text
+    output: list[str] = []
+    cursor = 0
+    for span in spans:
+        output.append(text[cursor : span.start])
+        output.append(repr(span.values[list_index]))
+        cursor = span.end
+    output.append(text[cursor:])
+    return "".join(output)
 
 
 def latex_identifier_present(text: str, identifier: str) -> bool:

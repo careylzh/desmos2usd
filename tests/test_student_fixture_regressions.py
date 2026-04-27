@@ -9,7 +9,7 @@ import _path  # noqa: F401
 from desmos2usd.converter import export_graph
 from desmos2usd.eval.context import EvalContext
 from desmos2usd.ir import ExpressionIR, GraphIR, SourceInfo
-from desmos2usd.parse.classify import classify_expression, classify_graph, register_definition
+from desmos2usd.parse.classify import classify_expression, classify_graph, expand_list_expression, register_definition
 from desmos2usd.parse.latex_subset import LatexExpression
 from desmos2usd.tessellate import tessellate
 from desmos2usd.validate.fixture_usdz_suite import classify_graph_tolerant
@@ -486,6 +486,77 @@ class StudentFixtureRegressionTests(unittest.TestCase):
 
         self.assertEqual(len(unsupported), 0)
         self.assertEqual([item.ir.expr_id for item in classification.classified], ["3_0", "3_1", "3_2", "3_3"])
+
+    def test_inline_random_list_expansion_is_seeded_and_bounded(self) -> None:
+        context = EvalContext(random_seed="fixture-seed", random_list_limit=3)
+        source = expr("1", r"x=\operatorname{random}\left(10\right)\left\{0<y<1\right\}")
+
+        expanded = expand_list_expression(source, context)
+        expanded_again = expand_list_expression(source, context)
+
+        self.assertEqual([item.expr_id for item in expanded], ["1_0", "1_1", "1_2"])
+        self.assertEqual([item.latex for item in expanded], [item.latex for item in expanded_again])
+        self.assertNotIn("random", "".join(item.latex for item in expanded))
+        self.assertTrue(all(item.raw["expandedFromRandomExpression"] == "1" for item in expanded))
+
+    def test_random_gaussian_flat_regions_sample_in_local_bounds(self) -> None:
+        source = SourceInfo(
+            "",
+            "",
+            "",
+            "",
+            viewport_bounds={"x": (-500.0, 500.0), "y": (-500.0, 500.0), "z": (-500.0, 500.0)},
+        )
+        graph = GraphIR(
+            source=source,
+            expressions=[
+                ExpressionIR(
+                    source,
+                    "1",
+                    0,
+                    r"e^{-\frac{(x-\operatorname{random}\left(3\right))^{2}"
+                    r"+(y-\operatorname{random}\left(3\right))^{2}}{1.1}}>0.0000001",
+                )
+            ],
+            raw_state={"randomSeed": "fixture-seed"},
+        )
+
+        classification, unsupported = classify_graph_tolerant(graph)
+
+        self.assertEqual(unsupported, [])
+        self.assertEqual([item.ir.expr_id for item in classification.classified], ["1_0", "1_1", "1_2"])
+        for item in classification.classified:
+            geometry = tessellate(item, classification.context, resolution=8)
+            self.assertEqual(geometry.kind, "Mesh")
+            self.assertGreater(geometry.face_count, 0)
+            self.assertEqual({point[2] for point in geometry.points}, {0.0})
+
+    def test_gaussian_flat_region_outside_function_restriction_exports_empty_mesh(self) -> None:
+        source = SourceInfo(
+            "",
+            "",
+            "",
+            "",
+            viewport_bounds={"x": (-600.0, 600.0), "y": (-600.0, 600.0), "z": (-600.0, 600.0)},
+        )
+        item = classify_expression(
+            ExpressionIR(
+                source,
+                "1",
+                0,
+                r"e^{-\frac{(x-500)^{2}+y^{2}}{1.1}}>0.0000001"
+                r"\left\{-\sqrt{100000\left(1-\frac{x^{2}}{200000}\right)}<y"
+                r"<\sqrt{100000\left(1-\frac{x^{2}}{200000}\right)}\right\}",
+            ),
+            EvalContext(),
+        )
+
+        geometry = tessellate(item, EvalContext(), resolution=8)
+
+        self.assertEqual(item.kind, "inequality_region")
+        self.assertEqual(geometry.kind, "Mesh")
+        self.assertEqual(geometry.point_count, 0)
+        self.assertEqual(geometry.face_count, 0)
 
     def test_desmos_mod_is_available_in_list_definitions(self) -> None:
         graph = GraphIR(
