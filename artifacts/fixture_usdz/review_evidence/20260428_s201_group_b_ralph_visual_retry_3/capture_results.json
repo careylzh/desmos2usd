@@ -1,0 +1,66 @@
+{
+  "attempts": [
+    {
+      "path": "playwright_desmos",
+      "result": "user cancelled MCP tool call",
+      "target": "https://www.desmos.com/3d/27v0xuv64m"
+    },
+    {
+      "path": "chrome_devtools_desmos",
+      "result": "user cancelled MCP tool call",
+      "target": "https://www.desmos.com/3d/27v0xuv64m"
+    },
+    {
+      "path": "tailscale_root",
+      "result": "curl: (6) Could not resolve host: chq.singapura-broadnose.ts.net",
+      "target": "https://chq.singapura-broadnose.ts.net/"
+    },
+    {
+      "path": "tailscale_viewer",
+      "result": "curl: (6) Could not resolve host: chq.singapura-broadnose.ts.net",
+      "target": "https://chq.singapura-broadnose.ts.net/viewer/"
+    },
+    {
+      "path": "tailscale_summary",
+      "result": "curl: (6) Could not resolve host: chq.singapura-broadnose.ts.net",
+      "target": "https://chq.singapura-broadnose.ts.net/artifacts/fixture_usdz/summary.json"
+    },
+    {
+      "path": "local_http_server",
+      "result": "PermissionError: [Errno 1] Operation not permitted",
+      "target": "python3 -m http.server 8765 --bind 127.0.0.1"
+    },
+    {
+      "path": "playwright_file_viewer",
+      "result": "user cancelled MCP tool call",
+      "target": "file:///Users/chek/repos/desmos2usd-carey/viewer/index.html?usda=../artifacts/fixture_usdz/%5B4B%5D%203D%20Diagram%20-%20S2-01%20Group%20B.usda&label=S2-01%20Group%20B"
+    },
+    {
+      "path": "chrome_devtools_file_viewer",
+      "result": "user cancelled MCP tool call",
+      "target": "file:///Users/chek/repos/desmos2usd-carey/viewer/index.html?usda=../artifacts/fixture_usdz/%5B4B%5D%203D%20Diagram%20-%20S2-01%20Group%20B.usda&label=S2-01%20Group%20B"
+    },
+    {
+      "path": "headless_chrome_file_viewer",
+      "result": "exit=-1; screenshot not created",
+      "target": "file viewer URL"
+    },
+    {
+      "path": "headless_chrome_file_viewer_user_data_dir",
+      "result": "exit=-1; screenshot not created",
+      "target": "file viewer URL"
+    },
+    {
+      "path": "desmos_live_url_refresh",
+      "result": "FetchError: unable to fetch calculator_backend or page endpoints; nodename nor servname provided, or not known",
+      "target": "PYTHONPATH=src python3 -m desmos2usd.cli --refresh --output artifacts/fixture_usdz/review_evidence/20260428_s201_group_b_ralph_visual_retry_3/S2-01_Group_B_live_refresh.usda https://www.desmos.com/3d/27v0xuv64m"
+    }
+  ],
+  "conclusion": "blocked_no_live_visual_capture",
+  "desmos_url": "https://www.desmos.com/3d/27v0xuv64m",
+  "evidence_dir": "artifacts/fixture_usdz/review_evidence/20260428_s201_group_b_ralph_visual_retry_3",
+  "fixture": "[4B] 3D Diagram - S2-01 Group B.json",
+  "timestamp_sgt": "2026-04-28 00:10 SGT",
+  "viewer_file_url": "file:///Users/chek/repos/desmos2usd-carey/viewer/index.html?usda=../artifacts/fixture_usdz/%5B4B%5D%203D%20Diagram%20-%20S2-01%20Group%20B.usda&label=S2-01%20Group%20B",
+  "viewer_tailscale_url": "https://chq.singapura-broadnose.ts.net/viewer/?usda=..%2Fartifacts%2Ffixture_usdz%2F%5B4B%5D%203D%20Diagram%20-%20S2-01%20Group%20B.usda&label=S2-01%20Group%20B"
+}
