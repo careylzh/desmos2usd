@@ -1,0 +1,69 @@
+{
+  "browser_capture_attempts": [
+    {
+      "error": "user cancelled MCP tool call",
+      "status": "blocked",
+      "target": "https://www.desmos.com/3d/27v0xuv64m",
+      "tool": "playwright.browser_navigate"
+    },
+    {
+      "error": "user cancelled MCP tool call",
+      "status": "blocked",
+      "target": "https://www.desmos.com/3d/27v0xuv64m",
+      "tool": "chrome_devtools.new_page"
+    },
+    {
+      "error": "user cancelled MCP tool call",
+      "status": "blocked",
+      "target": "file:///Users/chek/repos/desmos2usd-carey/viewer/index.html?usda=../artifacts/fixture_usdz/%5B4B%5D%203D%20Diagram%20-%20S2-01%20Group%20B.usda",
+      "tool": "playwright.browser_navigate"
+    },
+    {
+      "error": "user cancelled MCP tool call",
+      "status": "blocked",
+      "target": "file:///Users/chek/repos/desmos2usd-carey/viewer/index.html?usda=../artifacts/fixture_usdz/%5B4B%5D%203D%20Diagram%20-%20S2-01%20Group%20B.usda",
+      "tool": "chrome_devtools.new_page"
+    }
+  ],
+  "claim": "Live Desmos/viewer parity is not claimed; this evidence is structural plus deterministic local projection only.",
+  "evidence_dir": "artifacts/fixture_usdz/review_evidence/20260427_s201_group_b_ralph_top_panel",
+  "local_viewer_attempts": [
+    {
+      "command": "python3 -m http.server 8765 --bind 127.0.0.1",
+      "error": "PermissionError: [Errno 1] Operation not permitted",
+      "returncode": 1,
+      "status": "failed"
+    },
+    {
+      "command": "Google Chrome --headless=new --allow-file-access-from-files --screenshot=/tmp/s201b_viewer_probe.png file:///Users/chek/repos/desmos2usd-carey/viewer/index.html?...",
+      "error": "No screenshot or user-data-dir was created; command returned no stderr/stdout before sandbox termination.",
+      "returncode": -1,
+      "status": "failed"
+    }
+  ],
+  "route_checks": [
+    {
+      "command": "curl -I --max-time 10 https://chq.singapura-broadnose.ts.net/",
+      "error": "curl: (6) Could not resolve host: chq.singapura-broadnose.ts.net",
+      "returncode": 6,
+      "status": "failed"
+    },
+    {
+      "command": "curl -I --max-time 10 https://chq.singapura-broadnose.ts.net/viewer/",
+      "error": "curl: (6) Could not resolve host: chq.singapura-broadnose.ts.net",
+      "returncode": 6,
+      "status": "failed"
+    },
+    {
+      "command": "curl -I --max-time 10 https://chq.singapura-broadnose.ts.net/artifacts/fixture_usdz/summary.json",
+      "error": "curl: (6) Could not resolve host: chq.singapura-broadnose.ts.net",
+      "returncode": 6,
+      "status": "failed"
+    }
+  ],
+  "target": {
+    "desmos_url": "https://www.desmos.com/3d/27v0xuv64m",
+    "fixture": "[4B] 3D Diagram - S2-01 Group B.json",
+    "viewer_usda": "../artifacts/fixture_usdz/%5B4B%5D%203D%20Diagram%20-%20S2-01%20Group%20B.usda"
+  }
+}

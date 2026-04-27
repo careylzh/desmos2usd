@@ -448,6 +448,55 @@ class StudentFixtureRegressionTests(unittest.TestCase):
         self.assertEqual(set(), unsupported_ids)
         self.assertEqual(len(prims), 143)
 
+    def test_s201_group_b_top_panel_is_not_dropped_by_viewport_clip(self) -> None:
+        fixture = (
+            Path(__file__).resolve().parents[1]
+            / "fixtures"
+            / "states"
+            / "[4B] 3D Diagram - S2-01 Group B.json"
+        )
+        graph = graph_ir_from_state(json.loads(fixture.read_text(encoding="utf-8")))
+        classification, _classification_unsupported = classify_graph_tolerant(graph)
+
+        with tempfile.TemporaryDirectory() as tmp:
+            prims, _validations, export_unsupported = export_graph(
+                graph,
+                classification,
+                Path(tmp) / "s201b.usda",
+                resolution=12,
+            )
+
+        by_id = {prim.item.ir.expr_id: prim for prim in prims}
+        top_panel = by_id["8"].geometry
+        self.assertEqual([], export_unsupported)
+        self.assertGreater(top_panel.face_count, 0)
+        self.assertGreater(top_panel.point_count, 0)
+        self.assertEqual({round(point[2], 9) for point in top_panel.points}, {130.0})
+
+    def test_finite_bounded_explicit_panel_outside_viewport_still_exports(self) -> None:
+        source = SourceInfo(
+            "",
+            "",
+            "",
+            "",
+            viewport_bounds={"x": (-5.0, 5.0), "y": (-5.0, 5.0), "z": (-1.0, 1.0)},
+        )
+        item = classify_expression(
+            ExpressionIR(
+                source,
+                "1",
+                0,
+                r"z=130\left\{-10\le x\le10\right\}\left\{-10\le y\le10\right\}",
+            ),
+            EvalContext(),
+        )
+
+        geometry = tessellate(item, EvalContext(), resolution=8)
+
+        self.assertEqual(item.kind, "explicit_surface")
+        self.assertGreater(geometry.face_count, 0)
+        self.assertEqual({round(point[2], 9) for point in geometry.points}, {130.0})
+
     def test_curved_band_with_scaled_axis_and_affine_cross_bounds_tessellates(self) -> None:
         source = SourceInfo(
             "",

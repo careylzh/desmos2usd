@@ -1,6 +1,6 @@
 # Implementation State
 
-Last updated: 2026-04-27 21:20 SGT
+Last updated: 2026-04-27 21:35 SGT
 
 ## Loop Mode
 - cadence: every 10 minutes via OpenClaw cron
@@ -23,6 +23,7 @@ Last updated: 2026-04-27 21:20 SGT
 - Iterate until the viewer rendering visually matches the Desmos screenshots enough to be defensible, or record the exact blocker.
 - Metrics, prim counts, unsupported counts, valid USD, and report consistency are necessary but not sufficient; live visual evidence is authoritative.
 - Do not claim full parity without browser/viewer screenshots.
+- Do not claim a fixture/model is done until the rendered model from the Desmos URL has been checked against the generated viewer/USDZ and the match is defensible; metrics-only success is structural progress only.
 
 ## Active Task
 - index: 1
@@ -57,6 +58,7 @@ Last updated: 2026-04-27 21:20 SGT
 ## Current Baseline
 - HEAD before current tranche: bd5effe Record S2-01C harvest commit
 - summary: 71 fixtures; 50 success, 21 partial, 0 error
+- S2-01 Group B current visual tranche: constant explicit panels with finite constant bounds on both domain axes are no longer dropped solely because the solved axis is outside the saved source viewport. Tracked S2-01B remains 143 prims / 0 unsupported / success, but expression `8` (`z=130 {-10<=x<=10}{-10<=y<=10}`) improved from a valid empty mesh (`0 points / 0 faces`) to `196 points / 169 faces`. Nonconstant out-of-viewport suppression remains guarded by `ghnr7txz47` expr `835`. Browser/live viewer capture remains blocked by MCP cancellation, local server permission failure, headless Chrome sandbox failure, and Tailscale DNS failure, so visual claim is structural/local projection only.
 - S2-01 Group B current tranche: malformed flat-axis chained comparisons such as `x^{2}+y^{2}<=5000z=0` now normalize to an ordinary 2D inequality plus a constant-axis predicate, equivalent to `x^{2}+y^{2}<=5000 {z=0}`. Tracked resolution-12 export improved 142 prims / 1 unsupported / 143 classified / 143 renderable -> 143 prims / 0 unsupported / 143 classified / 143 renderable, success. S2-08 Group E and S2-09 Group F guards remain success. Browser/live viewer capture remains blocked by MCP cancellation, local server permission failure, and Tailscale DNS failure, so visual claim is deterministic local projection only.
 - S2-01 Group C current tranche: scalar-list expressions with implicit numeric multiplication such as `3n` now expand from hidden list definitions, axis-aligned `abs(axis)` interval regions export as disjoint rectangular shell extrusions, and one-axis implicit equalities with bounded cross axes export as sheet meshes. Tracked resolution-12 export improved 15 prims / 4 unsupported / 18 classified / 19 renderable -> 27 prims / 0 unsupported / 27 classified / 27 renderable, success. S2-08 Group E and S2-09 Group F guards remain success. Browser/live viewer capture remains blocked by MCP cancellation, local server permission failure, and Tailscale DNS failure, so visual claim is deterministic local projection only.
 - S2-01 Group E current tranche: scaled band-axis comparisons such as `2z < f(x)` now produce normalized function bounds, and curved thin bands can extrude through affine cross-axis bounds. Tracked resolution-12 export improved 23 prims / 20 unsupported -> fresh pre-edit local 39 prims / 4 unsupported -> regenerated 43 prims / 0 unsupported, success. S2-08 Group E and S2-09 Group F guards remain success. Browser/live viewer capture remains blocked by MCP cancellation, local server permission failure, and Tailscale DNS failure, so visual claim is deterministic local projection only.
