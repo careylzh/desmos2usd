@@ -84,8 +84,12 @@
 - Route verification from this environment failed for root/viewer/summary with `curl: (6) Could not resolve host: chq.singapura-broadnose.ts.net`.
 
 ## Remaining Mismatch / Next Wake Instructions
-1. Do not start a new implementation tranche until this S2-07F work is staged, committed, and pushed from an environment that can write `.git`.
-2. Do not claim visual parity until live Desmos reference screenshots and live viewer screenshots can be captured.
-3. After committing, next highest-impact partial by current summary is S2-01 Group A. Desmos URL: `https://www.desmos.com/3d/cvggvbbe73`; current metrics: `162 prims / 46 unsupported`.
-4. If Chek wants the visual-only path first and browser capture works, revisit S2-03 Group D live visual parity evidence. Desmos URL: `https://www.desmos.com/3d/zvasa1wcgo`; current metrics: `585 prims / 0 unsupported`.
-5. Preserve S2-08 Group E and S2-09 Group F as regression guards.
+1. The harvested S2-07F fix was committed and pushed by the orchestrator as `8babd2b Handle chained quadratic disk inequalities`.
+2. Chek requested that the loop prioritise fixtures for today's presentations. Do not continue the global queue until today's highest-risk fixtures have had bounded passes.
+3. Presentation schedule and priority order:
+   - 1530 Class 2-02: start with S2-02 Group F (`https://www.desmos.com/3d/1zpiejy9c9`, 41 unsupported), then S2-02 Group C (`https://www.desmos.com/3d/sqn7vxcm4n`, 36 unsupported).
+   - 1550 Class 2-04: S2-04 Group G (`https://www.desmos.com/3d/ratctlkc9i`, 36 unsupported).
+   - 1610 Class 2-08: S2-08 Group G (`https://www.desmos.com/3d/24vpv4pfwh`, 23 unsupported).
+   - 1630 Class 2-10: S2-10 Group E (`https://www.desmos.com/3d/xzhfl6m1td`, 10 unsupported), then S2-10 Group A (`https://www.desmos.com/3d/g53xte50e7`, 8 unsupported).
+4. Use S2-08E and S2-09F as regression guards, but do not spend the next tranche on tomorrow-only classes unless all today's high-risk items are either improved or explicitly blocked.
+5. Continue to include direct Tailscale viewer links and matching Desmos links in any review update.

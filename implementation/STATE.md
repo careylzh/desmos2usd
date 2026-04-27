@@ -1,6 +1,6 @@
 # Implementation State
 
-Last updated: 2026-04-27 12:22 SGT
+Last updated: 2026-04-27 12:36 SGT
 
 ## Loop Mode
 - cadence: every 10 minutes via OpenClaw cron
@@ -29,11 +29,13 @@ Last updated: 2026-04-27 12:22 SGT
 - id: one-desmos-input-at-a-time
 - title: Fix one remaining partial Desmos input per bounded tranche using live Desmos screenshots and viewer screenshots
 - current-priority:
-  1. Commit/push the completed S2-07 Group F final inequality tranche — https://www.desmos.com/3d/jkj1z8t8pf — now success, 888 prims, 888 classified, 0 unsupported; HOME Codex cannot write `.git/index.lock`
-  2. After commit, next highest-impact partial by current summary: S2-01 Group A — https://www.desmos.com/3d/cvggvbbe73 — 46 unsupported, 162 prims
-  3. Then S2-06 Group F — https://www.desmos.com/3d/wd6jilpijy — 44 unsupported, 50 prims
-  4. Then S2-02 Group F — https://www.desmos.com/3d/1zpiejy9c9 — 41 unsupported, 73 prims
-  5. Browser-only visual revisit requested by Chek when capture works: S2-03 Group D — https://www.desmos.com/3d/zvasa1wcgo — structurally success, 585 prims, 0 unsupported
+  1. TODAY 1530 Class 2-02: S2-02 Group F — https://www.desmos.com/3d/1zpiejy9c9 — highest-risk early presenter, 41 unsupported, 73 prims
+  2. TODAY 1530 Class 2-02: S2-02 Group C — https://www.desmos.com/3d/sqn7vxcm4n — second-highest early risk, 36 unsupported, 133 prims
+  3. TODAY 1550 Class 2-04: S2-04 Group G — https://www.desmos.com/3d/ratctlkc9i — 36 unsupported, 44 prims
+  4. TODAY 1610 Class 2-08: S2-08 Group G — https://www.desmos.com/3d/24vpv4pfwh — 23 unsupported, 1236 prims
+  5. TODAY 1630 Class 2-10: S2-10 Group E — https://www.desmos.com/3d/xzhfl6m1td — 10 unsupported, 249 prims
+  6. TODAY 1630 Class 2-10: S2-10 Group A — https://www.desmos.com/3d/g53xte50e7 — 8 unsupported, 32 prims
+  7. Only after today's presenters are improved: resume global queue, starting with S2-01 Group A and S2-06 Group F
 - done-when:
   - one chosen fixture has fresh Desmos reference screenshots
   - live viewer screenshots/projections exist for the generated USD artifact
@@ -84,5 +86,5 @@ Last updated: 2026-04-27 12:22 SGT
 - Do not overlap Codex/ccwork runs.
 
 ## Last Wake
-- timestamp: 2026-04-27 12:22 SGT
-- result: HOME Codex completed one bounded S2-07F final inequality tranche but could not stage/commit because `.git/index.lock` creation failed with `Operation not permitted` during `git add -A`. Implemented general chained quadratic disk extrusion for small disk-to-z-band inequalities; S2-07F is now success at `888 prims / 888 classified / 0 unsupported`, with S2-08E and S2-09F still success guards. Targeted modules and full unittest discovery passed. Browser/live viewer capture remains blocked (`user cancelled MCP tool call`, tailnet DNS unresolved), so no live Desmos parity claim. Worktree is ready for orchestrator/next wake to stage with forced-add evidence, commit, and push. Do not start a new tranche until this work is committed.
+- timestamp: 2026-04-27 12:36 SGT
+- result: Orchestrator committed and pushed the harvested S2-07F fix as `8babd2b Handle chained quadratic disk inequalities`. Chek then requested prioritising today's presenting classes (2-02, 2-04, 2-08, 2-10), so the active queue was changed to today's highest-risk fixtures in schedule order: S2-02F, S2-02C, S2-04G, S2-08G, S2-10E, S2-10A. Next launch should start with S2-02F unless it is already fixed or blocked.
