@@ -216,6 +216,30 @@ class StudentFixtureRegressionTests(unittest.TestCase):
         self.assertEqual(unsupported, [])
         self.assertEqual(len(classification.classified), 249)
 
+    def test_s210_group_a_unbraced_trig_surfaces_tessellate(self) -> None:
+        fixture = (
+            Path(__file__).resolve().parents[1]
+            / "fixtures"
+            / "states"
+            / "[4B] 3D Diagram - S2-10 Group A.json"
+        )
+        graph = graph_ir_from_state(json.loads(fixture.read_text(encoding="utf-8")))
+
+        classification, classification_unsupported = classify_graph_tolerant(graph)
+        with tempfile.TemporaryDirectory() as tmp:
+            prims, _validations, export_unsupported = export_graph(
+                graph,
+                classification,
+                Path(tmp) / "s210a.usda",
+                resolution=12,
+            )
+
+        unsupported_ids = {item.expr_id for item in [*classification_unsupported, *export_unsupported]}
+        prim_ids = {prim.item.ir.expr_id for prim in prims}
+        trig_ids = {"59", "60", "61", "62"}
+        self.assertTrue(trig_ids.issubset(prim_ids))
+        self.assertTrue(trig_ids.isdisjoint(unsupported_ids))
+
     def test_s202_group_c_nested_restrictions_classify(self) -> None:
         fixture = (
             Path(__file__).resolve().parents[1]

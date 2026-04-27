@@ -15,6 +15,22 @@ class LatexSyntaxError(ValueError):
 
 
 FUNCTION_NAMES = set(ALLOWED_FUNCTIONS)
+LATEX_FUNCTION_COMMANDS = [
+    "arcsin",
+    "arccos",
+    "arctan",
+    "sinh",
+    "cosh",
+    "tanh",
+    "sin",
+    "cos",
+    "tan",
+]
+LATEX_FUNCTION_ALIASES = {
+    "arcsin": "asin",
+    "arccos": "acos",
+    "arctan": "atan",
+}
 
 DEGREE_MODE_FUNCTIONS = {
     "acos": lambda value: math.degrees(math.acos(value)),
@@ -209,6 +225,62 @@ def replace_abs_bars(text: str) -> str:
     return output
 
 
+def wrap_unbraced_function_arguments(text: str) -> str:
+    output = ""
+    i = 0
+    commands = sorted(LATEX_FUNCTION_COMMANDS, key=len, reverse=True)
+    while i < len(text):
+        matched = False
+        if text[i] == "\\":
+            for command in commands:
+                target = f"\\{command}"
+                if not text.startswith(target, i):
+                    continue
+                start = i + len(target)
+                arg_start = start
+                while arg_start < len(text) and text[arg_start].isspace():
+                    arg_start += 1
+                if arg_start >= len(text) or text[arg_start] in "({^_":
+                    output += target
+                    i = start
+                    matched = True
+                    break
+                arg_end = unbraced_function_arg_end(text, arg_start)
+                if arg_end <= arg_start:
+                    output += target
+                    i = start
+                    matched = True
+                    break
+                py_name = LATEX_FUNCTION_ALIASES.get(command, command)
+                arg = convert_latex_to_python(text[arg_start:arg_end].strip())
+                output += f"{py_name}({arg})"
+                i = arg_end
+                matched = True
+                break
+        if matched:
+            continue
+        output += text[i]
+        i += 1
+    return output
+
+
+def unbraced_function_arg_end(text: str, start: int) -> int:
+    depth = 0
+    i = start
+    while i < len(text):
+        char = text[i]
+        if char in "({[":
+            depth += 1
+        elif char in ")}]":
+            if depth == 0:
+                break
+            depth -= 1
+        elif depth == 0 and char in "+-*/,<>=|":
+            break
+        i += 1
+    return i
+
+
 def insert_implicit_multiplication(expr: str) -> str:
     token_re = re.compile(r"\d+(?:\.\d*)?|\.\d+|[A-Za-z_][A-Za-z0-9_]*|\*\*|[()+\-*/,]")
     tokens = token_re.findall(expr)
@@ -281,8 +353,9 @@ def convert_latex_to_python(latex: str) -> str:
     text = replace_frac(text)
     text = replace_command_with_braced_arg(text, "sqrt", "sqrt")
     text = replace_command_with_braced_arg(text, "abs", "abs")
+    text = wrap_unbraced_function_arguments(text)
     for command in ["sin", "cos", "tan", "arcsin", "arccos", "arctan", "sinh", "cosh", "tanh"]:
-        py_name = {"arcsin": "asin", "arccos": "acos", "arctan": "atan"}.get(command, command)
+        py_name = LATEX_FUNCTION_ALIASES.get(command, command)
         text = text.replace(f"\\{command}", py_name)
     text = replace_abs_bars(text)
     text = re.sub(r"([A-Za-z]_\{[^{}]+\})(?=[A-Za-z])", lambda m: normalize_identifier(m.group(1)) + "*", text)

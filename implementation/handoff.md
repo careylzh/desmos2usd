@@ -1,3 +1,105 @@
+# Handoff: 2026-04-27 17:33 SGT - S2-10A unbraced trig tranche
+
+## Current Branch State
+- Repo: `/Users/chek/repos/desmos2usd-carey`
+- Branch: `fix/student-fixture-usdz-export`
+- Push target: `chektien:fix/student-fixture-usdz-export`
+- HEAD before this tranche: `3954845 Ignore non-graphable label rows`
+
+## Completed This Tranche
+- Targeted fixture: `[4B] 3D Diagram - S2-10 Group A.json`
+- Desmos URL: `https://www.desmos.com/3d/g53xte50e7`
+- S2-04 Group G urgent override was skipped because `STATE.md` and the latest summary already mark it success with `103 prims / 0 unsupported`.
+- Implemented one general parser/exporter fix:
+  - Unbraced Desmos trig/function commands such as `\sin7x` and `\sin7y` now parse as function calls with implicit argument multiplication, e.g. `sin(7*x)`.
+  - This prevents the previous bad split into `s*i*n*7*x`, which made validation fail with `name 's' is not defined`.
+  - No fixture-specific ids, fixture names, or hard-coded geometry constants were added.
+- Added regression coverage for:
+  - parser-level unbraced function arguments inside absolute value bars
+  - real S2-10A expression ids `59`, `60`, `61`, and `62` tessellating instead of remaining unsupported
+- Regenerated tracked S2-10A USDA/USDZ/report artifacts and updated the 71-fixture `artifacts/fixture_usdz/summary.json` entry.
+- Revalidated S2-08E and S2-09F as guard fixtures; both remain success.
+
+## Evidence
+- Evidence directory: `artifacts/fixture_usdz/review_evidence/20260427_s210_group_a_ralph_trig_implicit/`
+- Local projection files:
+  - `S2-10_Group_A_projection_before.png`
+  - `S2-10_Group_A_projection_before.ppm`
+  - `S2-10_Group_A_projection_before.usda`
+  - `S2-10_Group_A_projection_before.usdz`
+  - `S2-10_Group_A_projection_before.report.json`
+  - `S2-10_Group_A_projection_after.png`
+  - `S2-10_Group_A_projection_after.ppm`
+  - `S2-10_Group_A_projection_after.usda`
+  - `S2-10_Group_A_projection_after.usdz`
+  - `S2-10_Group_A_projection_after.report.json`
+  - `S2-08_Group_E_projection_guard_after.png`
+  - `S2-08_Group_E_projection_guard_after.ppm`
+  - `S2-08_Group_E_projection_guard_after.usda`
+  - `S2-08_Group_E_projection_guard_after.usdz`
+  - `S2-08_Group_E_projection_guard_after.report.json`
+  - `S2-09_Group_F_projection_guard_after.png`
+  - `S2-09_Group_F_projection_guard_after.ppm`
+  - `S2-09_Group_F_projection_guard_after.usda`
+  - `S2-09_Group_F_projection_guard_after.usdz`
+  - `S2-09_Group_F_projection_guard_after.report.json`
+  - `capture_results.json`
+  - `projection_results.json`
+  - `assessment.md`
+- Browser/live viewer blockers:
+  - Playwright Desmos navigation returned `user cancelled MCP tool call`.
+  - Chrome DevTools Desmos navigation returned `user cancelled MCP tool call`.
+  - URL-based CLI export could not fetch live Desmos state: `urlopen error [Errno 8] nodename nor servname provided, or not known`.
+  - Tailscale route checks for root, viewer, and summary failed with `curl: (6) Could not resolve host: chq.singapura-broadnose.ts.net`.
+  - Playwright and Chrome DevTools live-viewer navigation both returned `user cancelled MCP tool call`.
+- Visual claim: no live Desmos/viewer parity claim. This tranche has deterministic local projection evidence only. The after projection adds the four gray sinusoidal border surfaces around the small central structure.
+
+## Metrics
+- S2-10A latest summary baseline before this tranche: `35 prims / 5 unsupported / 40 classified / 40 renderable / partial`.
+- S2-10A deterministic local before projection from current code: `35 prims / 5 unsupported / 40 classified / 40 renderable / valid true / partial`.
+- S2-10A after tracked resolution-12 regeneration: `39 prims / 1 unsupported / 40 classified / 40 renderable / valid true / partial / usdchecker returncode 0`.
+- Remaining unsupported:
+  - expression `41`: `-0.7y^{2}+2.3<z<-0.7y^{2}+2.8 {-1<2.8x+1.25z-8.4<0}{z>0}`
+  - reason: `Inequality region for 41 did not resolve to sampled cells`
+- Overall fixture summary remains: 71 fixtures; 45 success, 26 partial, 0 error, acceptance not met.
+- S2-08 Group E guard remains success: `87 prims / 0 unsupported / valid true / usdchecker returncode 0`.
+- S2-09 Group F guard remains success: `27 prims / 0 unsupported / valid true / usdchecker returncode 0`.
+
+## Validation
+- Focused regressions passed: `test_unbraced_latex_function_argument_parses_as_function_call`, `test_s210_group_a_unbraced_trig_surfaces_tessellate`.
+- Targeted modules passed: `PYTHONPATH=src:tests python3 -m unittest tests.test_parser tests.test_student_fixture_regressions tests.test_fixture_usdz_suite tests.test_visual_preview` ran 98 tests OK.
+- Full unittest discovery passed: `PYTHONPATH=src:tests python3 -m unittest discover -s tests` ran 156 tests in 136.380s OK.
+- Full fixture artifact sweep completed and produced a 71-fixture summary. Unrelated generated artifact rewrites from that sweep were restored to keep this tranche scoped; the final committed summary is based on HEAD summary plus the regenerated S2-10A report entry.
+- Report-vs-USDA consistency checked:
+  - S2-10A report prim_count `39`, USDA `Mesh` + `BasisCurves` defs `39`, unsupported `1`
+  - S2-08E report prim_count `87`, USDA defs `87`, unsupported `0`
+  - S2-09F report prim_count `27`, USDA defs `27`, unsupported `0`
+- PNG projection dimensions checked with `sips`: before/after/guard PNGs are `1552x512`.
+- `git diff --check`: passed.
+
+## Commit / Push
+- Blocked in this HOME Codex turn: `git add src/desmos2usd/parse/latex_subset.py tests/test_parser.py tests/test_student_fixture_regressions.py implementation/STATE.md artifacts/fixture_usdz/summary.json 'artifacts/fixture_usdz/[4B] 3D Diagram - S2-10 Group A.report.json' 'artifacts/fixture_usdz/[4B] 3D Diagram - S2-10 Group A.usda' 'artifacts/fixture_usdz/[4B] 3D Diagram - S2-10 Group A.usdz'` failed with `fatal: Unable to create '/Users/chek/repos/desmos2usd-carey/.git/index.lock': Operation not permitted`.
+- `git add -f artifacts/fixture_usdz/review_evidence/20260427_s210_group_a_ralph_trig_implicit/` failed with the same `.git/index.lock` permission error.
+- Worktree is ready to stage, commit, and push from the main environment.
+- Evidence directory is ignored by `.gitignore`; include it with:
+  - `git add -f artifacts/fixture_usdz/review_evidence/20260427_s210_group_a_ralph_trig_implicit/`
+- Suggested commit subject: `Parse unbraced Desmos trig arguments`
+
+## Review Links
+- Route verification from this environment failed for root/viewer/summary with `curl: (6) Could not resolve host: chq.singapura-broadnose.ts.net`.
+- S2-10 Group A Desmos: `https://www.desmos.com/3d/g53xte50e7`
+- S2-10 Group A viewer: `https://chq.singapura-broadnose.ts.net/viewer/?usda=..%2Fartifacts%2Ffixture_usdz%2F%5B4B%5D%203D%20Diagram%20-%20S2-10%20Group%20A.usda&label=S2-10%20Group%20A`
+- S2-08 Group E Desmos: `https://www.desmos.com/3d/g59jqe6nxy`
+- S2-08 Group E viewer: `https://chq.singapura-broadnose.ts.net/viewer/?usda=..%2Fartifacts%2Ffixture_usdz%2F%5B4B%5D%203D%20Diagram%20-%20S2-08%20Group%20E.usda&label=S2-08%20Group%20E`
+- S2-09 Group F Desmos: `https://www.desmos.com/3d/umjxv6ahck`
+- S2-09 Group F viewer: `https://chq.singapura-broadnose.ts.net/viewer/?usda=..%2Fartifacts%2Ffixture_usdz%2F%5B4B%5D%203D%20Diagram%20-%20S2-09%20Group%20F.usda&label=S2-09%20Group%20F`
+
+## Remaining Mismatch / Next Wake Instructions
+1. Commit/push the scoped dirty worktree from the main environment first, including the ignored evidence directory with `git add -f`.
+2. Continue S2-10 Group A before moving to the global queue: exact next target is expression `41`, an obliquely clipped parabolic inequality region.
+3. Keep S2-08E and S2-09F as regression guards.
+4. Continue to include direct Tailscale viewer links and matching Desmos links in any review update, but do not claim live visual parity unless browser/viewer screenshots are actually captured.
+
 # Handoff: 2026-04-27 16:47 SGT - S2-10E label-row tranche
 
 ## Current Branch State

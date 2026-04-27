@@ -1,0 +1,44 @@
+{
+  "classified_expression_count": 40,
+  "complete": false,
+  "fixture": "[4B] 3D Diagram - S2-10 Group A.json",
+  "output": "artifacts/fixture_usdz/review_evidence/20260427_s210_group_a_ralph_trig_implicit/S2-10_Group_A_projection_after.usda",
+  "prim_count": 39,
+  "renderable_expression_count": 40,
+  "resolution": 12,
+  "unsupported": [
+    {
+      "expr_id": "41",
+      "kind": "inequality_region",
+      "latex": "-0.7y^{2}+2.3<z<-0.7y^{2}+2.8\\ \\left\\{-1<2.8x+1.25z-8.4<0\\right\\}\\left\\{z>0\\right\\}",
+      "reason": "Inequality region for 41 did not resolve to sampled cells"
+    }
+  ],
+  "unsupported_count": 1,
+  "usdz_output": "artifacts/fixture_usdz/review_evidence/20260427_s210_group_a_ralph_trig_implicit/S2-10_Group_A_projection_after.usdz",
+  "usdz_package": {
+    "command": [
+      "/usr/bin/usdzip",
+      "/Users/chek/repos/desmos2usd-carey/artifacts/fixture_usdz/review_evidence/20260427_s210_group_a_ralph_trig_implicit/S2-10_Group_A_projection_after.usdz",
+      "S2-10_Group_A_projection_after.usda"
+    ],
+    "cwd": "/Users/chek/repos/desmos2usd-carey/artifacts/fixture_usdz/review_evidence/20260427_s210_group_a_ralph_trig_implicit",
+    "returncode": 0,
+    "stderr": "",
+    "stdout": "",
+    "tool": "usdzip"
+  },
+  "usdz_validation": {
+    "command": [
+      "/usr/bin/usdchecker",
+      "--arkit",
+      "artifacts/fixture_usdz/review_evidence/20260427_s210_group_a_ralph_trig_implicit/S2-10_Group_A_projection_after.usdz"
+    ],
+    "cwd": null,
+    "returncode": 0,
+    "stderr": "",
+    "stdout": "\nValidation Result with no explicit variants set\nSuccess!\n",
+    "tool": "usdchecker"
+  },
+  "valid": true
+}

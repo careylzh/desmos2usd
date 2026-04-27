@@ -53,6 +53,12 @@ class ParserTests(unittest.TestCase):
         self.assertEqual(expr.python, "x-z*tan(5.5)")
         self.assertAlmostEqual(expr.eval(variables={"x": 2.0, "z": 3.0}), 2.0 - 3.0 * math.tan(5.5))
 
+    def test_unbraced_latex_function_argument_parses_as_function_call(self) -> None:
+        expr = LatexExpression.parse(r"0.3\left|\sin7x\ \right|+3")
+
+        self.assertEqual(expr.python, "0.3*abs(sin(7*x))+3")
+        self.assertAlmostEqual(expr.eval(variables={"x": 0.25}), 0.3 * abs(math.sin(7 * 0.25)) + 3)
+
     def test_leading_dot_decimal_coefficients_multiply(self) -> None:
         expr = LatexExpression.parse(r".515x+.43\left(z+0.6\right)")
         self.assertEqual(expr.python, ".515*x+.43*(z+0.6)")

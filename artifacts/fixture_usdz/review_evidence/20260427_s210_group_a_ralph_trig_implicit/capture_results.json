@@ -1,0 +1,23 @@
+{
+  "desmos_url": "https://www.desmos.com/3d/g53xte50e7",
+  "fixture": "[4B] 3D Diagram - S2-10 Group A.json",
+  "live_browser_capture": {
+    "chrome_devtools_desmos": "user cancelled MCP tool call",
+    "chrome_devtools_viewer": "user cancelled MCP tool call",
+    "playwright_desmos": "user cancelled MCP tool call",
+    "playwright_viewer": "user cancelled MCP tool call"
+  },
+  "network_capture": {
+    "desmos_cli_fetch": "Could not fetch Desmos state for https://www.desmos.com/3d/g53xte50e7: urlopen error [Errno 8] nodename nor servname provided, or not known",
+    "tailscale_artifacts_summary": "curl: (6) Could not resolve host: chq.singapura-broadnose.ts.net",
+    "tailscale_root": "curl: (6) Could not resolve host: chq.singapura-broadnose.ts.net",
+    "tailscale_viewer": "curl: (6) Could not resolve host: chq.singapura-broadnose.ts.net"
+  },
+  "local_projection_evidence": {
+    "after": "S2-10_Group_A_projection_after.png",
+    "before": "S2-10_Group_A_projection_before.png",
+    "guard_s208e": "S2-08_Group_E_projection_guard_after.png",
+    "guard_s209f": "S2-09_Group_F_projection_guard_after.png"
+  },
+  "visual_claim": "No live Desmos/viewer parity claim; browser and Tailscale routes were blocked. Local projection evidence shows structural progress."
+}
