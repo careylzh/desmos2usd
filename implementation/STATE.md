@@ -1,6 +1,6 @@
 # Implementation State
 
-Last updated: 2026-04-27 14:08 SGT
+Last updated: 2026-04-27 14:48 SGT
 
 ## Loop Mode
 - cadence: every 10 minutes via OpenClaw cron
@@ -54,7 +54,7 @@ Last updated: 2026-04-27 14:08 SGT
 7. [ ] Advance to the next input only after the current one is either defensibly fixed or explicitly blocked.
 
 ## Current Baseline
-- HEAD before current tranche: e17b005 Handle constant explicit disk caps
+- HEAD before current tranche: a464494 Handle Desmos infinity helper planes
 - summary: 71 fixtures; 31 success, 40 partial, 0 error
 - S2-02 Group F current tranche: chained predicate constant-bound contradictions now export as valid empty meshes; tracked resolution-12 export improved 197 prims / 9 unsupported -> 206 prims / 0 unsupported, success. Browser/live viewer capture blocked, so visual claim is structural/local projection only.
 - S2-02 Group F previous tranche: constant-z explicit circular disk caps improved tracked resolution-12 export 47 unsupported -> 9 unsupported and 159 prims -> 197 prims; all `90_*` and `98_*` cap surfaces now export; remaining unsupported were nine malformed chained `72_*` inequalities; live browser/viewer capture blocked, so visual claim is structural/local projection only
@@ -89,5 +89,5 @@ Last updated: 2026-04-27 14:08 SGT
 - Do not overlap Codex/ccwork runs.
 
 ## Last Wake
-- timestamp: 2026-04-27 14:08 SGT
-- result: HOME Codex completed a bounded S2-04 Group G sphere-operator tranche. `\operatorname{sphere}(center, radius)` now exports as implicit sphere surfaces, including scalar-defined centers/radii. S2-04G improved from `70 prims / 36 unsupported` fresh pre-edit to `91 prims / 15 unsupported` tracked after regeneration; S2-08E and S2-09F guards remain success. Validation passed: focused sphere regressions, targeted test modules, full unittest discovery, report-vs-USDA counts, PNG dimensions, `usdchecker --arkit` on target/guards, and `git diff --check`. Browser/live viewer capture remained blocked, so visual claim is structural/local projection only. Next wake should continue S2-04G with general `\infty` helper-plane handling, then color definitions.
+- timestamp: 2026-04-27 14:48 SGT
+- result: Harvested HOME Codex run `20260427-141326-879` and committed/pushed `a464494` (`Handle Desmos infinity helper planes`). S2-04G improved from `91 prims / 15 unsupported` to `103 prims / 3 unsupported`; only `hsv`/`okhsv` color definitions remain unsupported. Revalidated targeted parser/student fixture/fixture USDZ/visual preview modules (88 tests OK), full unittest discovery (146 tests OK), and `git diff --check`. Browser/live viewer capture remained blocked, so visual claim is structural/local projection only. Per cron policy, no new implementation pass launched after commit; next wake should handle general color-function support for S2-04G or move to S2-02C if geometry is good enough.
