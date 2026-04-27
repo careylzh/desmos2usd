@@ -1,0 +1,69 @@
+{
+  "results": [
+    {
+      "classified_expression_count": 1833,
+      "complete": false,
+      "fixture": "[4B] 3D Diagram - S2-08 Group G.json",
+      "ppm": "artifacts/fixture_usdz/review_evidence/20260427_s208_group_g_ralph_flat_disks/S2-08_Group_G_projection_before.ppm",
+      "prim_count": 1833,
+      "renderable_expression_count": 1835,
+      "report": "artifacts/fixture_usdz/review_evidence/20260427_s208_group_g_ralph_flat_disks/S2-08_Group_G_projection_before.report.json",
+      "unsupported": [
+        {
+          "expr_id": "800",
+          "kind": "inequality_region",
+          "latex": "x^{2}+y^{2}<2.5^{2}\\left\\{z=146.5\\right\\}",
+          "reason": "fresh pre-fix constant-z disk missed by sampled fallback"
+        },
+        {
+          "expr_id": "801",
+          "kind": "inequality_region",
+          "latex": "x^{2}+y^{2}<1.5^{2}\\left\\{z=155\\right\\}",
+          "reason": "fresh pre-fix constant-z disk missed by sampled fallback"
+        }
+      ],
+      "unsupported_count": 2,
+      "usda": "artifacts/fixture_usdz/review_evidence/20260427_s208_group_g_ralph_flat_disks/S2-08_Group_G_projection_before.usda",
+      "valid": true
+    },
+    {
+      "classified_expression_count": 1835,
+      "complete": true,
+      "fixture": "[4B] 3D Diagram - S2-08 Group G.json",
+      "ppm": "artifacts/fixture_usdz/review_evidence/20260427_s208_group_g_ralph_flat_disks/S2-08_Group_G_projection_after.ppm",
+      "prim_count": 1835,
+      "renderable_expression_count": 1835,
+      "report": "artifacts/fixture_usdz/review_evidence/20260427_s208_group_g_ralph_flat_disks/S2-08_Group_G_projection_after.report.json",
+      "unsupported": [],
+      "unsupported_count": 0,
+      "usda": "artifacts/fixture_usdz/review_evidence/20260427_s208_group_g_ralph_flat_disks/S2-08_Group_G_projection_after.usda",
+      "valid": true
+    },
+    {
+      "classified_expression_count": 87,
+      "complete": true,
+      "fixture": "[4B] 3D Diagram - S2-08 Group E.json",
+      "ppm": "artifacts/fixture_usdz/review_evidence/20260427_s208_group_g_ralph_flat_disks/S2-08_Group_E_projection_guard_after.ppm",
+      "prim_count": 87,
+      "renderable_expression_count": 87,
+      "report": "artifacts/fixture_usdz/review_evidence/20260427_s208_group_g_ralph_flat_disks/S2-08_Group_E_projection_guard_after.report.json",
+      "unsupported": [],
+      "unsupported_count": 0,
+      "usda": "artifacts/fixture_usdz/review_evidence/20260427_s208_group_g_ralph_flat_disks/S2-08_Group_E_projection_guard_after.usda",
+      "valid": true
+    },
+    {
+      "classified_expression_count": 27,
+      "complete": true,
+      "fixture": "[4B] 3D Diagram - S2-09 Group F.json",
+      "ppm": "artifacts/fixture_usdz/review_evidence/20260427_s208_group_g_ralph_flat_disks/S2-09_Group_F_projection_guard_after.ppm",
+      "prim_count": 27,
+      "renderable_expression_count": 27,
+      "report": "artifacts/fixture_usdz/review_evidence/20260427_s208_group_g_ralph_flat_disks/S2-09_Group_F_projection_guard_after.report.json",
+      "unsupported": [],
+      "unsupported_count": 0,
+      "usda": "artifacts/fixture_usdz/review_evidence/20260427_s208_group_g_ralph_flat_disks/S2-09_Group_F_projection_guard_after.usda",
+      "valid": true
+    }
+  ]
+}

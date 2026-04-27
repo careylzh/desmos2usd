@@ -1,0 +1,13 @@
+{
+  "classified_expression_count": 1835,
+  "complete": true,
+  "fixture": "[4B] 3D Diagram - S2-08 Group G.json",
+  "ppm": "artifacts/fixture_usdz/review_evidence/20260427_s208_group_g_ralph_flat_disks/S2-08_Group_G_projection_after.ppm",
+  "prim_count": 1835,
+  "renderable_expression_count": 1835,
+  "report": "artifacts/fixture_usdz/review_evidence/20260427_s208_group_g_ralph_flat_disks/S2-08_Group_G_projection_after.report.json",
+  "unsupported": [],
+  "unsupported_count": 0,
+  "usda": "artifacts/fixture_usdz/review_evidence/20260427_s208_group_g_ralph_flat_disks/S2-08_Group_G_projection_after.usda",
+  "valid": true
+}

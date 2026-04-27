@@ -1,3 +1,92 @@
+# Handoff: 2026-04-27 16:11 SGT - S2-08G constant-z flat-disk tranche
+
+## Current Branch State
+- Repo: `/Users/chek/repos/desmos2usd-carey`
+- Branch: `fix/student-fixture-usdz-export`
+- Push target: `chektien:fix/student-fixture-usdz-export`
+- HEAD before this tranche: `74a6a72 Support nested Desmos restrictions`
+
+## Completed This Tranche
+- Targeted fixture: `[4B] 3D Diagram - S2-08 Group G.json`
+- Desmos URL: `https://www.desmos.com/3d/24vpv4pfwh`
+- Implemented one general exporter fix:
+  - Circular inequality regions with a constant locked extrusion axis now emit a single flat disk mesh when caps are requested.
+  - This fixes strict constant-z disks such as `x^{2}+y^{2}<2.5^{2}{z=146.5}` without relying on broad sampled-cell fallback windows.
+  - No fixture-specific ids, fixture names, or hard-coded geometry constants were added.
+- Added regression coverage for:
+  - strict high-z circular inequalities tessellating as analytic flat disks
+  - the real S2-08G fixture expanding tuple/list expressions and tessellating disk expressions `800` and `801`
+- Regenerated tracked S2-08G USDA/USDZ/report artifacts and rebuilt the full 71-fixture `artifacts/fixture_usdz/summary.json`.
+- Revalidated S2-08E and S2-09F as guard fixtures; both remain success in the rebuilt summary.
+
+## Evidence
+- Evidence directory: `artifacts/fixture_usdz/review_evidence/20260427_s208_group_g_ralph_flat_disks/`
+- Local projection files:
+  - `S2-08_Group_G_projection_before.png`
+  - `S2-08_Group_G_projection_before.ppm`
+  - `S2-08_Group_G_projection_before.usda`
+  - `S2-08_Group_G_projection_before.report.json`
+  - `S2-08_Group_G_projection_after.png`
+  - `S2-08_Group_G_projection_after.ppm`
+  - `S2-08_Group_G_projection_after.usda`
+  - `S2-08_Group_G_projection_after.report.json`
+  - `S2-08_Group_G_tracked_report_before.json`
+  - `S2-08_Group_G_report_after.json`
+  - `S2-08_Group_E_projection_guard_after.png`
+  - `S2-09_Group_F_projection_guard_after.png`
+  - `capture_results.json`
+  - `projection_results.json`
+  - `assessment.md`
+- Browser/live viewer blockers:
+  - Playwright Desmos navigation returned `user cancelled MCP tool call`.
+  - Chrome DevTools Desmos navigation returned `user cancelled MCP tool call`.
+  - Playwright Tailscale viewer navigation returned `user cancelled MCP tool call`.
+  - Chrome DevTools Tailscale viewer navigation returned `user cancelled MCP tool call`.
+  - Tailscale route checks for root, viewer, and summary failed with `curl: (6) Could not resolve host: chq.singapura-broadnose.ts.net`.
+- Visual claim: no live Desmos/viewer parity claim. This tranche has deterministic local projection evidence only. The after projection adds the two previously unsupported flat top disk meshes while retaining the earlier list-tuple expansion geometry.
+
+## Metrics
+- S2-08G tracked baseline before this tranche: `1236 prims / 23 unsupported / 1239 classified / 1259 renderable / partial`.
+- S2-08G fresh local pre-disk export from current code before this fix: `1833 prims / 2 unsupported / 1833 classified / 1835 renderable / valid true / partial`.
+- S2-08G after tracked resolution-12 regeneration: `1835 prims / 0 unsupported / 1835 classified / 1835 renderable / valid true / success / usdchecker returncode 0`.
+- Overall fixture summary: 71 fixtures; 43 success, 28 partial, 0 error, acceptance not met.
+- S2-08 Group E guard remains success: `87 prims / 0 unsupported / valid true / usdchecker returncode 0`.
+- S2-09 Group F guard remains success: `27 prims / 0 unsupported / valid true / usdchecker returncode 0`.
+
+## Validation
+- Focused regressions passed: `test_strict_constant_z_circular_inequality_uses_analytic_flat_disk`, `test_s208_group_g_tuple_lists_and_constant_z_disks_tessellate`.
+- Targeted modules passed: `PYTHONPATH=src:tests python3 -m unittest tests.test_student_fixture_regressions tests.test_fixture_usdz_suite tests.test_visual_preview` ran 80 tests OK.
+- Full unittest discovery passed: `PYTHONPATH=src:tests python3 -m unittest discover -s tests` ran 152 tests in 132.636s OK.
+- Full fixture summary regeneration completed: 71 fixtures; 43 success, 28 partial, 0 error.
+- Report-vs-USDA consistency checked:
+  - S2-08G report prim_count `1835`, USDA `Mesh` + `BasisCurves` defs `1835`, unsupported `0`
+  - S2-08E report prim_count `87`, USDA defs `87`, unsupported `0`
+  - S2-09F report prim_count `27`, USDA defs `27`, unsupported `0`
+- PNG projection dimensions checked with `sips`: before/after/guard PNGs are `1552x512`.
+- `git diff --check`: passed.
+
+## Commit / Push
+- Blocked in this HOME Codex turn: `git add -A` failed with `fatal: Unable to create '/Users/chek/repos/desmos2usd-carey/.git/index.lock': Operation not permitted`.
+- Worktree is ready to stage, commit, and push from the main environment.
+- Evidence directory is ignored by `.gitignore`; include it with:
+  - `git add -f artifacts/fixture_usdz/review_evidence/20260427_s208_group_g_ralph_flat_disks/`
+- Suggested commit subject: `Render constant-z circular inequality disks`
+
+## Review Links
+- Route verification from this environment failed for root/viewer/summary with `curl: (6) Could not resolve host: chq.singapura-broadnose.ts.net`.
+- S2-08 Group G Desmos: `https://www.desmos.com/3d/24vpv4pfwh`
+- S2-08 Group G viewer: `https://chq.singapura-broadnose.ts.net/viewer/?usda=..%2Fartifacts%2Ffixture_usdz%2F%5B4B%5D%203D%20Diagram%20-%20S2-08%20Group%20G.usda&label=S2-08%20Group%20G`
+- S2-08 Group E Desmos: `https://www.desmos.com/3d/g59jqe6nxy`
+- S2-08 Group E viewer: `https://chq.singapura-broadnose.ts.net/viewer/?usda=..%2Fartifacts%2Ffixture_usdz%2F%5B4B%5D%203D%20Diagram%20-%20S2-08%20Group%20E.usda&label=S2-08%20Group%20E`
+- S2-09 Group F Desmos: `https://www.desmos.com/3d/umjxv6ahck`
+- S2-09 Group F viewer: `https://chq.singapura-broadnose.ts.net/viewer/?usda=..%2Fartifacts%2Ffixture_usdz%2F%5B4B%5D%203D%20Diagram%20-%20S2-09%20Group%20F.usda&label=S2-09%20Group%20F`
+
+## Remaining Mismatch / Next Wake Instructions
+1. S2-08 Group G is structurally complete and should not be picked again unless Chek reports a live visual issue.
+2. Next exact target per STATE priority: S2-10 Group E (`https://www.desmos.com/3d/xzhfl6m1td`), currently `249 prims / 10 unsupported`.
+3. Keep S2-08E and S2-09F as regression guards.
+4. Continue to include direct Tailscale viewer links and matching Desmos links in any review update, but do not claim live visual parity unless browser/viewer screenshots are actually captured.
+
 # Handoff: 2026-04-27 15:24 SGT - S2-02C nested restriction tranche
 
 ## Current Branch State

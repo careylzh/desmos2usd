@@ -1448,6 +1448,50 @@ class StudentFixtureRegressionTests(unittest.TestCase):
         self.assertEqual(min(z_values), 8.0)
         self.assertEqual(max(z_values), 8.0)
 
+    def test_strict_constant_z_circular_inequality_uses_analytic_flat_disk(self) -> None:
+        """S2-08 Group G has small strict disks high above the origin.
+
+        The large z constant should not widen the x/y sampling window so much that the
+        tiny disk is missed.
+        """
+        source = SourceInfo(
+            "", "", "", "", viewport_bounds={"x": (-220.0, 220.0), "y": (-220.0, 220.0), "z": (-220.0, 220.0)}
+        )
+        item = classify_expression(
+            ExpressionIR(source, "800", 0, r"x^{2}+y^{2}<2.5^{2}\left\{z=146.5\right\}"),
+            EvalContext(),
+        )
+
+        geometry = tessellate(item, EvalContext(), resolution=12)
+        used_points = [geometry.points[index] for index in set(geometry.face_vertex_indices)]
+        radial_values = [point[0] ** 2 + point[1] ** 2 for point in used_points]
+        z_values = [point[2] for point in used_points]
+
+        self.assertEqual(item.kind, "inequality_region")
+        self.assertGreater(geometry.face_count, 0)
+        self.assertLessEqual(max(radial_values), 2.5**2 + 1e-5)
+        self.assertEqual(min(z_values), 146.5)
+        self.assertEqual(max(z_values), 146.5)
+
+    def test_s208_group_g_tuple_lists_and_constant_z_disks_tessellate(self) -> None:
+        fixture = (
+            Path(__file__).resolve().parents[1]
+            / "fixtures"
+            / "states"
+            / "[4B] 3D Diagram - S2-08 Group G.json"
+        )
+        graph = graph_ir_from_state(json.loads(fixture.read_text(encoding="utf-8")))
+
+        classification, unsupported = classify_graph_tolerant(graph)
+
+        self.assertEqual(unsupported, [])
+        self.assertIn("596_0", {item.ir.expr_id for item in classification.classified})
+        for expr_id in ("800", "801"):
+            item = next(item for item in classification.classified if item.ir.expr_id == expr_id)
+            geometry = tessellate(item, classification.context, resolution=12)
+            self.assertEqual(geometry.kind, "Mesh")
+            self.assertGreater(geometry.face_count, 0)
+
     def test_constant_z_explicit_surface_disk_exports_flat_cap(self) -> None:
         """S2-02 Group F has small caps written as ``z=c {circle <= r}``.
 
