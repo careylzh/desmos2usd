@@ -6,36 +6,12 @@
   "fixture_path": "fixtures/states/[4B] 3D Diagram - S2-06 Group E.json",
   "graph_hash": null,
   "output": "artifacts/fixture_usdz/[4B] 3D Diagram - S2-06 Group E.usda",
-  "prim_count": 723,
+  "prim_count": 727,
   "renderable_expression_count": 736,
   "resolution": 8,
   "status": "partial",
   "title": "Desmos graph",
   "unsupported": [
-    {
-      "expr_id": "169",
-      "kind": "inequality_region",
-      "latex": "98000<\\frac{x^{2}}{2}+y^{2}<100000\\left\\{35<z<40\\right\\}",
-      "reason": "Inequality region for 169 did not resolve to sampled cells"
-    },
-    {
-      "expr_id": "177",
-      "kind": "inequality_region",
-      "latex": "90000<\\frac{x^{2}}{2}+y^{2}<96000\\left\\{70<z<75\\right\\}",
-      "reason": "Inequality region for 177 did not resolve to sampled cells"
-    },
-    {
-      "expr_id": "183",
-      "kind": "inequality_region",
-      "latex": "94000<\\frac{x^{2}}{2}+y^{2}<100000\\left\\{105<z<110\\right\\}",
-      "reason": "Inequality region for 183 did not resolve to sampled cells"
-    },
-    {
-      "expr_id": "191",
-      "kind": "inequality_region",
-      "latex": "55000<\\frac{x^{2}}{2}+y^{2}<60000\\left\\{170<z<175\\right\\}",
-      "reason": "Inequality region for 191 did not resolve to sampled cells"
-    },
     {
       "expr_id": "209_18",
       "kind": "explicit_surface",
@@ -91,7 +67,7 @@
       "reason": "Could not evaluate 'e^{-\\\\frac{(x-\\\\operatorname{random}(10000)\\\\cdot1000+500)^{2}+(y-\\\\operatorname{random}(10000)\\\\cdot600+300)^{2}}{1.1}}' with variables {'x': -250000.0, 'y': -250000.0, 'z': 0.0}: name 'r' is not defined"
     }
   ],
-  "unsupported_count": 13,
+  "unsupported_count": 9,
   "usda_exists": true,
   "usdz_exists": true,
   "usdz_output": "artifacts/fixture_usdz/[4B] 3D Diagram - S2-06 Group E.usdz",
@@ -115,7 +91,7 @@
     ],
     "cwd": null,
     "returncode": 0,
-    "stderr": "Coding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\n",
+    "stderr": "",
     "stdout": "\nValidation Result with no explicit variants set\nSuccess!\n",
     "tool": "usdchecker"
   },
@@ -3394,6 +3370,16 @@
     {
       "constraint_violation_count": 0,
       "errors": [],
+      "expr_id": "169",
+      "face_count": 128,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 128,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
       "expr_id": "175_0",
       "face_count": 78,
       "kind": "inequality_region",
@@ -5014,6 +5000,16 @@
     {
       "constraint_violation_count": 0,
       "errors": [],
+      "expr_id": "177",
+      "face_count": 128,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 128,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
       "expr_id": "182_0",
       "face_count": 78,
       "kind": "inequality_region",
@@ -5819,6 +5815,16 @@
       "kind": "inequality_region",
       "max_residual": null,
       "point_count": 104,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "183",
+      "face_count": 128,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 128,
       "valid": true
     },
     {
@@ -6635,10 +6641,20 @@
       "constraint_violation_count": 0,
       "errors": [],
       "expr_id": "189",
-      "face_count": 144,
+      "face_count": 128,
       "kind": "inequality_region",
       "max_residual": null,
-      "point_count": 192,
+      "point_count": 128,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "191",
+      "face_count": 128,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 128,
       "valid": true
     },
     {

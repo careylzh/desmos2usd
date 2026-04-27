@@ -1,6 +1,6 @@
 # Implementation State
 
-Last updated: 2026-04-27 08:57 SGT
+Last updated: 2026-04-27 10:07 SGT
 
 ## Loop Mode
 - cadence: every 10 minutes via OpenClaw cron
@@ -29,7 +29,7 @@ Last updated: 2026-04-27 08:57 SGT
 - id: one-desmos-input-at-a-time
 - title: Fix one remaining partial Desmos input per bounded tranche using live Desmos screenshots and viewer screenshots
 - current-priority:
-  1. Continue S2-06 Group E remaining elliptical annular slabs / y-squared bridge surfaces / random Gaussian regions — https://www.desmos.com/3d/cg2sd6h1ws — now 13 unsupported, 723 prims, 736 classified
+  1. Continue S2-06 Group E remaining y-squared bridge surfaces / random Gaussian regions — https://www.desmos.com/3d/cg2sd6h1ws — now 9 unsupported, 727 prims, 736 classified
   2. Continue S2-03 Group E remaining top implicit sphere caps — https://www.desmos.com/3d/sqkhp7wnx6 — now 4 unsupported, 460 prims, 464 classified
   3. Continue S2-07 Group F remaining sampled inequality — https://www.desmos.com/3d/jkj1z8t8pf — now 1 unsupported, 887 prims, 888 classified
   4. Revisit S2-10 Group F only for live visual parity evidence when browser capture is available — https://www.desmos.com/3d/tejhfrm34m — structurally success, 167 prims, 0 unsupported
@@ -52,8 +52,9 @@ Last updated: 2026-04-27 08:57 SGT
 7. [ ] Advance to the next input only after the current one is either defensibly fixed or explicitly blocked.
 
 ## Current Baseline
-- HEAD before current tranche: dde00b5 Update Ralph handoff for S2-03E tranche
+- HEAD before current tranche: b08c9e0 Handle leading-dot implicit multipliers
 - summary: 71 fixtures; 27 success, 44 partial, 0 error
+- S2-06 Group E current tranche: annular quadratic slab extrusion improved 13 unsupported -> 9 unsupported, 723 prims -> 727 prims, classified remains 736; live browser/viewer capture blocked, so visual claim is structural/local projection only
 - S2-07 Group F current tranche: leading-dot decimal implicit multiplication pass improved 14 unsupported -> 1 unsupported, 874 prims -> 887 prims, 875 classified -> 888 classified; live browser/viewer capture blocked, so visual claim is structural/local projection only
 - S2-03 Group E current tranche: fresh pre-edit export was 12 unsupported / 452 prims; adaptive sampled inequality retry improved it to 4 unsupported / 460 prims, classified remains 464; live browser/viewer capture blocked, so visual claim is structural/local projection only
 - S2-10 Group F current tranche: ball-cap pass improved 20 unsupported -> 0 unsupported, 147 prims -> 167 prims, classified remains 167; live browser/viewer capture blocked, so visual claim is structural/local projection only
@@ -79,5 +80,5 @@ Last updated: 2026-04-27 08:57 SGT
 - Do not overlap Codex/ccwork runs.
 
 ## Last Wake
-- timestamp: 2026-04-27 08:57 SGT
-- result: HOME Codex completed one S2-07F leading-dot decimal slab tranche. Implemented a general parser fix for implicit multiplication after leading-dot decimals such as `.515x` and `.43(x+0.6)`; S2-07F improved from `874 prims / 875 classified / 14 unsupported` to `887 prims / 888 classified / 1 unsupported`. S2-08E and S2-09F remain success guards. Browser/live viewer capture remains blocked (`user cancelled MCP tool call`, local headless browsers exited without screenshots, local HTTP server bind denied, tailnet DNS unresolved), so no live Desmos parity claim. Commit/push blocked because `git add` cannot create `.git/index.lock` (`Operation not permitted`); worktree is ready for main-environment staging.
+- timestamp: 2026-04-27 10:07 SGT
+- result: HOME Codex completed one S2-06E annular quadratic slab tranche. Implemented a general analytic extrusion path for chained axis-aligned quadratic annuli such as `98000 < x^2/2 + y^2 < 100000 {35 < z < 40}`; S2-06E improved from `723 prims / 736 classified / 13 unsupported` to `727 prims / 736 classified / 9 unsupported`. S2-08E and S2-09F remain success guards. Browser/live viewer capture remains blocked (`user cancelled MCP tool call`, tailnet DNS unresolved), so no live Desmos parity claim. Commit/push blocked because `git add` cannot create `.git/index.lock` (`Operation not permitted`); worktree is ready for main-environment staging.

@@ -2,14 +2,14 @@ from __future__ import annotations
 
 import ast
 from dataclasses import dataclass, replace
-from math import ceil, cos, floor, isfinite, pi, sin
+from math import ceil, cos, floor, isclose, isfinite, pi, sin
 
 from desmos2usd.eval.context import EvalContext
 from desmos2usd.eval.numeric import CONSTANTS
 from desmos2usd.parse.classify import ClassifiedExpression
 from desmos2usd.parse.latex_subset import LatexExpression
 from desmos2usd.parse.predicates import ComparisonPredicate, collect_constant_bounds, single_identifier
-from desmos2usd.tessellate.cylinders import tessellate_circular_inequality_extrusion
+from desmos2usd.tessellate.cylinders import CircleProfile, fit_circle_profile, tessellate_circular_inequality_extrusion
 from desmos2usd.tessellate.implicit import (
     AxisAlignedEllipsoid,
     build_axis_aligned_ellipsoid_mesh,
@@ -41,6 +41,9 @@ def tessellate_inequality_region(item: ClassifiedExpression, context: EvalContex
     circular = tessellate_circular_inequality_extrusion(item, context, resolution=max(16, resolution * 4))
     if circular is not None and mesh_vertices_satisfy_predicates(item, context, circular):
         return circular
+    annular = tessellate_axis_aligned_annular_extrusion(item, context, resolution=max(16, resolution * 4))
+    if annular is not None and mesh_vertices_satisfy_predicates(item, context, annular):
+        return annular
     band = extract_band(item.inequality)
     if band:
         axis, lower, upper, lower_closed, upper_closed = band
@@ -194,6 +197,127 @@ def append_axis_aligned_ellipsoid_cap(
     points.extend(ring)
     counts.append(len(ring))
     indices.extend(range(base, base + len(ring)))
+
+
+@dataclass(frozen=True)
+class AnnularQuadraticBand:
+    expression: LatexExpression
+    lower: float
+    upper: float
+    shape_axes: tuple[str, str]
+
+
+def tessellate_axis_aligned_annular_extrusion(
+    item: ClassifiedExpression,
+    context: EvalContext,
+    resolution: int,
+) -> GeometryData | None:
+    band = extract_annular_quadratic_band(item, context)
+    if band is None:
+        return None
+    bounds = collect_constant_bounds(item.predicates, context)
+    extrude_axes = [axis for axis in ("x", "y", "z") if axis not in band.shape_axes]
+    if len(extrude_axes) != 1:
+        return None
+    extrude_axis = extrude_axes[0]
+    low, high = bounds.get(extrude_axis, (None, None))
+    if low is None or high is None or low >= high:
+        return None
+
+    def residual_for(target: float):
+        def residual(ctx: EvalContext, variables: dict[str, float]) -> float:
+            return band.expression.eval(ctx, variables) - target
+
+        return residual
+
+    mid = (low + high) / 2.0
+    inner = fit_circle_profile(context, residual_for(band.lower), band.shape_axes, extrude_axis, mid)
+    outer = fit_circle_profile(context, residual_for(band.upper), band.shape_axes, extrude_axis, mid)
+    if inner is None or outer is None:
+        return None
+    if not compatible_annular_profiles(inner, outer):
+        return None
+    return build_annular_extrusion_mesh(band.shape_axes, extrude_axis, (low, high), inner, outer, resolution)
+
+
+def extract_annular_quadratic_band(
+    item: ClassifiedExpression,
+    context: EvalContext,
+) -> AnnularQuadraticBand | None:
+    predicate = item.inequality
+    if predicate is None or len(predicate.terms) != 3 or len(predicate.ops) != 2:
+        return None
+    if predicate.ops[0] in {"<", "<="} and predicate.ops[1] in {"<", "<="}:
+        lower_expr, middle_expr, upper_expr = predicate.terms
+    elif predicate.ops[0] in {">", ">="} and predicate.ops[1] in {">", ">="}:
+        upper_expr, middle_expr, lower_expr = predicate.terms
+    else:
+        return None
+    graph_axes = tuple(axis for axis in ("x", "y", "z") if axis in middle_expr.identifiers)
+    if len(graph_axes) != 2:
+        return None
+    if middle_expr.identifiers - set(graph_axes) - set(context.scalars):
+        return None
+    try:
+        lower = lower_expr.eval(context, {})
+        upper = upper_expr.eval(context, {})
+    except Exception:
+        return None
+    if not (isfinite(lower) and isfinite(upper)) or lower >= upper:
+        return None
+    return AnnularQuadraticBand(expression=middle_expr, lower=lower, upper=upper, shape_axes=graph_axes)  # type: ignore[arg-type]
+
+
+def compatible_annular_profiles(inner: CircleProfile, outer: CircleProfile) -> bool:
+    scale = max(abs(value) for value in (*inner.radii, *outer.radii, 1.0))
+    tolerance = max(1e-5, scale * 1e-5)
+    if not all(isclose(a, b, abs_tol=tolerance) for a, b in zip(inner.center, outer.center, strict=True)):
+        return False
+    return all(inner_radius < outer_radius for inner_radius, outer_radius in zip(inner.radii, outer.radii, strict=True))
+
+
+def build_annular_extrusion_mesh(
+    shape_axes: tuple[str, str],
+    extrude_axis: str,
+    extrude_bounds: tuple[float, float],
+    inner: CircleProfile,
+    outer: CircleProfile,
+    resolution: int,
+) -> GeometryData:
+    segment_count = max(24, min(160, resolution * 2))
+    angles = [2.0 * pi * index / segment_count for index in range(segment_count)]
+    points: list[Point] = []
+    counts: list[int] = []
+    indices: list[int] = []
+
+    def add_ring(profile: CircleProfile, extrude_value: float) -> list[int]:
+        ring: list[int] = []
+        for angle in angles:
+            variables = {
+                shape_axes[0]: profile.center[0] + profile.radii[0] * cos(angle),
+                shape_axes[1]: profile.center[1] + profile.radii[1] * sin(angle),
+                extrude_axis: extrude_value,
+            }
+            ring.append(len(points))
+            points.append(point_from_variables(variables))
+        return ring
+
+    low, high = extrude_bounds
+    outer_low = add_ring(outer, low)
+    inner_low = add_ring(inner, low)
+    outer_high = add_ring(outer, high)
+    inner_high = add_ring(inner, high)
+    for index in range(segment_count):
+        next_index = (index + 1) % segment_count
+        counts.append(4)
+        indices.extend([outer_low[index], outer_low[next_index], outer_high[next_index], outer_high[index]])
+        counts.append(4)
+        indices.extend([inner_low[next_index], inner_low[index], inner_high[index], inner_high[next_index]])
+        counts.append(4)
+        indices.extend([outer_low[next_index], outer_low[index], inner_low[index], inner_low[next_index]])
+        counts.append(4)
+        indices.extend([outer_high[index], outer_high[next_index], inner_high[next_index], inner_high[index]])
+    return GeometryData(kind="Mesh", points=points, face_vertex_counts=counts, face_vertex_indices=indices)
 
 
 def extract_band(predicate: ComparisonPredicate) -> tuple[str, LatexExpression, LatexExpression, bool, bool] | None:

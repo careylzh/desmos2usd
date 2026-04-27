@@ -962,6 +962,36 @@ class StudentFixtureRegressionTests(unittest.TestCase):
         self.assertGreater(min(used_x_values), -0.25)
         self.assertLess(max(used_x_values), 0.2)
 
+    def test_annular_quadratic_inequality_extrudes_as_ellipse_ring(self) -> None:
+        """S2-06 Group E uses tall elliptical ring slabs such as
+        ``98000 < x^2/2 + y^2 < 100000 {35 < z < 40}``. The analytic path should emit
+        the annular extrusion directly instead of missing every valid voxel cell.
+        """
+        source = SourceInfo(
+            "", "", "", "", viewport_bounds={"x": (-500.0, 500.0), "y": (-500.0, 500.0), "z": (0.0, 200.0)}
+        )
+        item = classify_expression(
+            ExpressionIR(
+                source,
+                "1",
+                0,
+                r"98000<\frac{x^{2}}{2}+y^{2}<100000\left\{35<z<40\right\}",
+            ),
+            EvalContext(),
+        )
+
+        geometry = tessellate(item, EvalContext(), resolution=12)
+        used_points = [geometry.points[index] for index in set(geometry.face_vertex_indices)]
+        q_values = [point[0] ** 2 / 2.0 + point[1] ** 2 for point in used_points]
+        z_values = [point[2] for point in used_points]
+
+        self.assertEqual(item.kind, "inequality_region")
+        self.assertGreater(geometry.face_count, 100)
+        self.assertAlmostEqual(min(q_values), 98000.0, delta=1e-3)
+        self.assertAlmostEqual(max(q_values), 100000.0, delta=1e-3)
+        self.assertEqual(min(z_values), 35.0)
+        self.assertEqual(max(z_values), 40.0)
+
     def test_explicit_surface_expression_undefined_samples_are_outside_domain(self) -> None:
         """An explicit function's natural domain should clip the mesh just like Desmos.
         Pre-fix, z=sqrt(1-x^2-y^2) over a larger viewport raised on the first outside

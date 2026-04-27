@@ -1,0 +1,52 @@
+{
+  "capture_status": "blocked",
+  "desmos_url": "https://www.desmos.com/3d/cg2sd6h1ws",
+  "target_viewer_url": "https://chq.singapura-broadnose.ts.net/viewer/?usda=..%2Fartifacts%2Ffixture_usdz%2F%5B4B%5D%203D%20Diagram%20-%20S2-06%20Group%20E.usda&label=S2-06%20Group%20E",
+  "attempts": [
+    {
+      "tool": "mcp__playwright__.browser_navigate",
+      "target": "Desmos reference",
+      "url": "https://www.desmos.com/3d/cg2sd6h1ws",
+      "result": "user cancelled MCP tool call"
+    },
+    {
+      "tool": "mcp__chrome_devtools__.new_page",
+      "target": "Desmos reference",
+      "url": "https://www.desmos.com/3d/cg2sd6h1ws",
+      "result": "user cancelled MCP tool call"
+    },
+    {
+      "tool": "mcp__chrome_devtools__.new_page",
+      "target": "Tailscale live viewer",
+      "url": "https://chq.singapura-broadnose.ts.net/viewer/?usda=..%2Fartifacts%2Ffixture_usdz%2F%5B4B%5D%203D%20Diagram%20-%20S2-06%20Group%20E.usda&label=S2-06%20Group%20E",
+      "result": "user cancelled MCP tool call"
+    },
+    {
+      "tool": "curl",
+      "target": "Tailscale root",
+      "url": "https://chq.singapura-broadnose.ts.net/",
+      "result": "curl: (6) Could not resolve host: chq.singapura-broadnose.ts.net"
+    },
+    {
+      "tool": "curl",
+      "target": "Tailscale viewer",
+      "url": "https://chq.singapura-broadnose.ts.net/viewer/",
+      "result": "curl: (6) Could not resolve host: chq.singapura-broadnose.ts.net"
+    },
+    {
+      "tool": "curl",
+      "target": "Tailscale summary",
+      "url": "https://chq.singapura-broadnose.ts.net/artifacts/fixture_usdz/summary.json",
+      "result": "curl: (6) Could not resolve host: chq.singapura-broadnose.ts.net"
+    }
+  ],
+  "local_projection_evidence": {
+    "claim": "structural/local projection only; no live Desmos or live viewer parity claim",
+    "files": [
+      "S2-06_Group_E_projection_before.png",
+      "S2-06_Group_E_projection_after.png",
+      "S2-08_Group_E_projection_guard_after.png",
+      "S2-09_Group_F_projection_guard_after.png"
+    ]
+  }
+}
