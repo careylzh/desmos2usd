@@ -1,6 +1,6 @@
 # Implementation State
 
-Last updated: 2026-04-27 22:38 SGT
+Last updated: 2026-04-27 23:07 SGT
 
 ## Loop Mode
 - cadence: every 10 minutes via OpenClaw cron
@@ -56,8 +56,9 @@ Last updated: 2026-04-27 22:38 SGT
 7. [ ] Advance to the next input only after the current one is either defensibly fixed or explicitly blocked.
 
 ## Current Baseline
-- HEAD before current tranche: 32e8bd1 Align viewer to Desmos saved camera
+- HEAD before current tranche: 25c3934 Record S2-01B live review blocker
 - summary: 71 fixtures; 50 success, 21 partial, 0 error
+- S2-01 Group B visual gate retry blocker tranche: HOME Codex retried the pinned S2-01B visual gate. Chrome DevTools and Playwright still return `user cancelled MCP tool call` for both Desmos and `file://` viewer navigation; Tailscale route checks still fail DNS; local `python3 -m http.server 8765 --bind 127.0.0.1` still fails with `PermissionError: [Errno 1] Operation not permitted`; headless Chrome `file://` screenshot exits `-1` with no screenshot; URL conversion against Desmos also fails DNS. Offline precheck/projections remain success for S2-01B (`143 prims / 0 unsupported`) and guards S2-08E/S2-09F. No new code fix was safe without live screenshots or fresh Chek visual feedback.
 - S2-01 Group B live-review blocker tranche: HOME Codex retried the pinned S2-01B visual gate after the camera-basis fix. Chrome DevTools and Playwright still return `user cancelled MCP tool call` for both Desmos and `file://` viewer navigation; Tailscale route checks still fail DNS; local `python3 -m http.server 8765 --bind 127.0.0.1` still fails with `PermissionError: [Errno 1] Operation not permitted`; headless Chrome `file://` screenshot exits `-1` with no screenshot. Offline precheck remains success for S2-01B (`143 prims / 0 unsupported`) and guards S2-08E/S2-09F. No new code fix was safe without live screenshots or fresh Chek visual feedback.
 - S2-01 Group B current viewer-camera tranche: static viewer `worldRotation3D` handling now uses Desmos row-major camera basis rows directly (`row0` screen-right, `row1` screen-up, `row2` depth) instead of transposed columns with sign flips. This is a general viewer fix for saved-source-view mismatch and does not change geometry metrics: S2-01B remains 143 prims / 0 unsupported / success; S2-08 Group E and S2-09 Group F guards remain success. Browser/live viewer capture remains blocked by MCP cancellation, local server permission failure, headless Chrome failure, and Tailscale DNS failure, so visual claim is structural/local projection plus camera-basis diagnostics only.
 - S2-01 Group B current visual tranche: constant explicit panels with finite constant bounds on both domain axes are no longer dropped solely because the solved axis is outside the saved source viewport. Tracked S2-01B remains 143 prims / 0 unsupported / success, but expression `8` (`z=130 {-10<=x<=10}{-10<=y<=10}`) improved from a valid empty mesh (`0 points / 0 faces`) to `196 points / 169 faces`. Nonconstant out-of-viewport suppression remains guarded by `ghnr7txz47` expr `835`. Browser/live viewer capture remains blocked by MCP cancellation, local server permission failure, headless Chrome sandbox failure, and Tailscale DNS failure, so visual claim is structural/local projection only.
@@ -106,5 +107,5 @@ Last updated: 2026-04-27 22:38 SGT
 - Do not overlap Codex/ccwork runs.
 
 ## Last Wake
-- timestamp: 2026-04-27 22:38 SGT
-- result: HOME Codex ran one bounded S2-01 Group B live-review blocker tranche. No exporter/viewer code change was made because S2-01B remains metrics-success and all live Desmos/viewer capture paths are still blocked in this environment. Recorded blocker evidence, regenerated offline precheck artifacts/projections for S2-01B plus S2-08E/S2-09F guards, and validated viewer JS syntax plus focused/full tests. Commit/push is blocked here by `.git/index.lock` permission failure; main environment should stage, commit, and push the ready worktree. Next action is Chek review or fresh visual mismatch detail for S2-01B; if accepted/not reopened, advance to S2-09 Group A.
+- timestamp: 2026-04-27 23:07 SGT
+- result: HOME Codex ran one bounded S2-01 Group B visual-gate retry tranche. No exporter/viewer code change was made because S2-01B remains metrics-success and all live Desmos/viewer capture paths are still blocked in this environment. Recorded blocker evidence, regenerated offline precheck/projection artifacts for S2-01B plus S2-08E/S2-09F guards, and validated viewer JS syntax, focused tests, full tests, report-vs-USDA consistency, JSON validity, projection dimensions, and `git diff --check`. Commit/push is blocked here by `.git/index.lock` permission failure; main environment should stage, commit, and push the ready worktree. Next action is Chek review or fresh visual mismatch detail for S2-01B; if accepted/not reopened, advance to S2-09 Group A.
