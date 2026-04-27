@@ -1117,6 +1117,38 @@ class StudentFixtureRegressionTests(unittest.TestCase):
         self.assertEqual(min(z_values), 35.0)
         self.assertEqual(max(z_values), 40.0)
 
+    def test_chained_quadratic_disk_inequality_extrudes_as_cylinder(self) -> None:
+        """S2-07 Group F has a small disk chained into the z band:
+        ``(x-u)^2+(y-v)^2 <= r^2 <= z <= q+t/2 {5<z<5.9}``.
+        The analytic path should emit the cylinder shell directly instead of relying on
+        coarse voxel cells that can miss the tiny radius.
+        """
+        source = SourceInfo(
+            "", "", "", "", viewport_bounds={"x": (-8.0, 8.0), "y": (-8.0, 8.0), "z": (-8.0, 8.0)}
+        )
+        context = EvalContext(scalars={"u": -0.3, "v": 0.5, "w": 0.21, "q": 5.9, "t": 0.5})
+        item = classify_expression(
+            ExpressionIR(
+                source,
+                "325",
+                0,
+                r"(x-u)^{2}+(y-v)^{2}\le w^{2}q-t/2\le z\le q+t/2\left\{5<z<5.9\right\}",
+            ),
+            context,
+        )
+
+        geometry = tessellate(item, context, resolution=12)
+        used_points = [geometry.points[index] for index in set(geometry.face_vertex_indices)]
+        radial_values = [(point[0] + 0.3) ** 2 + (point[1] - 0.5) ** 2 for point in used_points]
+        z_values = [point[2] for point in used_points]
+
+        self.assertEqual(item.kind, "inequality_region")
+        self.assertEqual(geometry.kind, "Mesh")
+        self.assertGreater(geometry.face_count, 100)
+        self.assertAlmostEqual(max(radial_values), 0.21**2 * 5.9 - 0.5 / 2.0, delta=1e-6)
+        self.assertEqual(min(z_values), 5.0)
+        self.assertEqual(max(z_values), 5.9)
+
     def test_explicit_surface_expression_undefined_samples_are_outside_domain(self) -> None:
         """An explicit function's natural domain should clip the mesh just like Desmos.
         Pre-fix, z=sqrt(1-x^2-y^2) over a larger viewport raised on the first outside

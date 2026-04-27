@@ -1,0 +1,14 @@
+{
+  "classification_unsupported": 0,
+  "classified_expression_count": 888,
+  "complete": true,
+  "export_unsupported": 0,
+  "fixture": "[4B] 3D Diagram - S2-07 Group F.json",
+  "png": "artifacts/fixture_usdz/review_evidence/20260427_s207_group_f_ralph_final_inequality/S2-07_Group_F_projection_after.png",
+  "ppm": "artifacts/fixture_usdz/review_evidence/20260427_s207_group_f_ralph_final_inequality/S2-07_Group_F_projection_after.ppm",
+  "prim_count": 888,
+  "unsupported": [],
+  "unsupported_count": 0,
+  "usda": "artifacts/fixture_usdz/review_evidence/20260427_s207_group_f_ralph_final_inequality/S2-07_Group_F_projection_after.usda",
+  "valid": true
+}

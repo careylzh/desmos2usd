@@ -10,7 +10,12 @@ from desmos2usd.eval.numeric import CONSTANTS
 from desmos2usd.parse.classify import ClassifiedExpression
 from desmos2usd.parse.latex_subset import LatexExpression
 from desmos2usd.parse.predicates import ComparisonPredicate, collect_constant_bounds, single_identifier
-from desmos2usd.tessellate.cylinders import CircleProfile, fit_circle_profile, tessellate_circular_inequality_extrusion
+from desmos2usd.tessellate.cylinders import (
+    CircleProfile,
+    build_circular_mesh,
+    fit_circle_profile,
+    tessellate_circular_inequality_extrusion,
+)
 from desmos2usd.tessellate.implicit import (
     AxisAlignedEllipsoid,
     build_axis_aligned_ellipsoid_mesh,
@@ -42,6 +47,9 @@ def tessellate_inequality_region(item: ClassifiedExpression, context: EvalContex
     circular = tessellate_circular_inequality_extrusion(item, context, resolution=max(16, resolution * 4))
     if circular is not None and mesh_vertices_satisfy_predicates(item, context, circular):
         return circular
+    disk = tessellate_quadratic_disk_extrusion(item, context, resolution=max(16, resolution * 4))
+    if disk is not None and mesh_vertices_satisfy_predicates(item, context, disk):
+        return disk
     annular = tessellate_axis_aligned_annular_extrusion(item, context, resolution=max(16, resolution * 4))
     if annular is not None and mesh_vertices_satisfy_predicates(item, context, annular):
         return annular
@@ -206,6 +214,101 @@ class AnnularQuadraticBand:
     lower: float
     upper: float
     shape_axes: tuple[str, str]
+
+
+@dataclass(frozen=True)
+class QuadraticDiskExtrusion:
+    residual: LatexExpression
+    shape_axes: tuple[str, str]
+    extrude_axis: str
+    extrude_bounds: tuple[float, float]
+
+
+def tessellate_quadratic_disk_extrusion(
+    item: ClassifiedExpression,
+    context: EvalContext,
+    resolution: int,
+) -> GeometryData | None:
+    disk = extract_quadratic_disk_extrusion(item, context)
+    if disk is None:
+        return None
+
+    def residual(ctx: EvalContext, variables: dict[str, float]) -> float:
+        return disk.residual.eval(ctx, variables)
+
+    low, high = disk.extrude_bounds
+    mid = (low + high) / 2.0
+    profile = fit_circle_profile(context, residual, disk.shape_axes, disk.extrude_axis, mid)
+    if profile is None:
+        return None
+    segment_count = max(24, min(160, resolution * 2))
+    return build_circular_mesh(
+        disk.shape_axes,
+        disk.extrude_axis,
+        [(low, profile), (high, profile)],
+        segment_count,
+        caps=True,
+    )
+
+
+def extract_quadratic_disk_extrusion(
+    item: ClassifiedExpression,
+    context: EvalContext,
+) -> QuadraticDiskExtrusion | None:
+    predicate = item.inequality
+    if predicate is None or len(predicate.terms) < 3:
+        return None
+    normalized = normalize_increasing_chain(predicate)
+    if normalized is None:
+        return None
+    terms, _ops = normalized
+
+    for axis_index in range(1, len(terms) - 1):
+        extrude_axis = single_identifier(terms[axis_index])
+        if extrude_axis not in {"x", "y", "z"}:
+            continue
+        try:
+            chain_low = terms[axis_index - 1].eval(context, {})
+            chain_high = terms[axis_index + 1].eval(context, {})
+        except Exception:
+            continue
+        if not (isfinite(chain_low) and isfinite(chain_high)):
+            continue
+        bounds = collect_constant_bounds(item.predicates, context)
+        bound_low, bound_high = bounds.get(extrude_axis, (None, None))
+        low = chain_low if bound_low is None else max(chain_low, bound_low)
+        high = chain_high if bound_high is None else min(chain_high, bound_high)
+        if low >= high:
+            continue
+
+        for pair_index, (left, right) in enumerate(zip(terms[:-1], terms[1:], strict=True)):
+            if pair_index != 0:
+                continue
+            graph_axes = tuple(axis for axis in ("x", "y", "z") if axis in left.identifiers)
+            if len(graph_axes) != 2 or extrude_axis in graph_axes:
+                continue
+            if left.identifiers - set(graph_axes) - set(context.scalars):
+                continue
+            if right.identifiers & {"x", "y", "z"}:
+                continue
+            residual = LatexExpression.parse(f"({left.latex})-({right.latex})")
+            return QuadraticDiskExtrusion(
+                residual=residual,
+                shape_axes=graph_axes,  # type: ignore[arg-type]
+                extrude_axis=extrude_axis,
+                extrude_bounds=(low, high),
+            )
+    return None
+
+
+def normalize_increasing_chain(
+    predicate: ComparisonPredicate,
+) -> tuple[tuple[LatexExpression, ...], tuple[str, ...]] | None:
+    if all(op in {"<", "<="} for op in predicate.ops):
+        return predicate.terms, predicate.ops
+    if all(op in {">", ">="} for op in predicate.ops):
+        return tuple(reversed(predicate.terms)), tuple(reversed(predicate.ops))
+    return None
 
 
 def tessellate_axis_aligned_annular_extrusion(

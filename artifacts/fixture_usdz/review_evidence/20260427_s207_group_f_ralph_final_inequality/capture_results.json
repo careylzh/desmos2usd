@@ -1,0 +1,46 @@
+{
+  "browser_capture_available": false,
+  "claim": "No live Desmos/viewer parity claim; structural/local projection evidence only.",
+  "desmos_url": "https://www.desmos.com/3d/jkj1z8t8pf",
+  "failures": [
+    {
+      "result": "user cancelled MCP tool call",
+      "target": "https://www.desmos.com/3d/jkj1z8t8pf",
+      "tool": "mcp__playwright__.browser_navigate"
+    },
+    {
+      "result": "user cancelled MCP tool call",
+      "target": "https://www.desmos.com/3d/jkj1z8t8pf",
+      "tool": "mcp__chrome_devtools__.new_page"
+    },
+    {
+      "result": "curl: (6) Could not resolve host: chq.singapura-broadnose.ts.net",
+      "target": "https://chq.singapura-broadnose.ts.net/",
+      "tool": "curl -I --max-time 10"
+    },
+    {
+      "result": "curl: (6) Could not resolve host: chq.singapura-broadnose.ts.net",
+      "target": "https://chq.singapura-broadnose.ts.net/viewer/",
+      "tool": "curl -I --max-time 10"
+    },
+    {
+      "result": "curl: (6) Could not resolve host: chq.singapura-broadnose.ts.net",
+      "target": "https://chq.singapura-broadnose.ts.net/artifacts/fixture_usdz/summary.json",
+      "tool": "curl -I --max-time 10"
+    }
+  ],
+  "review_links": {
+    "S2-07 Group F": {
+      "desmos": "https://www.desmos.com/3d/jkj1z8t8pf",
+      "viewer": "https://chq.singapura-broadnose.ts.net/viewer/?usda=..%2Fartifacts%2Ffixture_usdz%2F%5B4B%5D%203D%20Diagram%20-%20S2-07%20Group%20F.usda&label=S2-07%20Group%20F"
+    },
+    "S2-08 Group E": {
+      "desmos": "https://www.desmos.com/3d/g59jqe6nxy",
+      "viewer": "https://chq.singapura-broadnose.ts.net/viewer/?usda=..%2Fartifacts%2Ffixture_usdz%2F%5B4B%5D%203D%20Diagram%20-%20S2-08%20Group%20E.usda&label=S2-08%20Group%20E"
+    },
+    "S2-09 Group F": {
+      "desmos": "https://www.desmos.com/3d/umjxv6ahck",
+      "viewer": "https://chq.singapura-broadnose.ts.net/viewer/?usda=..%2Fartifacts%2Ffixture_usdz%2F%5B4B%5D%203D%20Diagram%20-%20S2-09%20Group%20F.usda&label=S2-09%20Group%20F"
+    }
+  }
+}
