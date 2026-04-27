@@ -1568,6 +1568,9 @@ def tessellate_sampled_inequality_region(item: ClassifiedExpression, context: Ev
                 ]
                 if all(point_satisfies_predicates(point, item, context) for point in corners):
                     add_box(points, counts, indices, corners)
+    if not counts and resolution < 32:
+        next_resolution = min(32, max(resolution + 1, resolution * 2))
+        return tessellate_sampled_inequality_region(item, context, next_resolution)
     if not counts:
         raise ValueError(f"Inequality region for {item.ir.expr_id} did not resolve to sampled cells")
     return GeometryData(kind="Mesh", points=points, face_vertex_counts=counts, face_vertex_indices=indices)

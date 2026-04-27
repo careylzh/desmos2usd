@@ -19844,7 +19844,7 @@
       "fixture_path": "fixtures/states/[4B] 3D Diagram - S2-03 Group E.json",
       "graph_hash": null,
       "output": "artifacts/fixture_usdz/[4B] 3D Diagram - S2-03 Group E.usda",
-      "prim_count": 447,
+      "prim_count": 460,
       "renderable_expression_count": 464,
       "resolution": 8,
       "status": "partial",
@@ -19873,87 +19873,9 @@
           "kind": "implicit_surface",
           "latex": "(x--20.0)^{2}+(y--20.0)^{2}+(z-(18.5+2.3+0.3))^{2}=s_{top}^{2}\\left\\{z\\ge18.5+2.3+0.3\\right\\}",
           "reason": "Implicit surface 363_3 with 3-axis residual has no constant-bounded axis"
-        },
-        {
-          "expr_id": "254",
-          "kind": "inequality_region",
-          "latex": "\\left(\\frac{x\\ -\\ y}{\\sqrt{2}}\\ -\\ p_{3}\\right)^{2}\\ +\\ \\left(z\\ -\\ p_{2}\\right)^{2}\\ \\ge\\ r_{arc}^{2}\\ \\left\\{-\\frac{d_{length}}{2}\\ \\le\\ \\frac{x\\ -\\ y}{\\sqrt{2}}\\ \\le\\ \\frac{d_{length}}{2}\\right\\}\\left\\{d_{height}\\ +\\ 2.5\\ \\ge z\\ \\ge\\ p_{2}\\right\\}\\left\\{\\sqrt{162}\\ -\\ 2\\ <\\ \\frac{x\\ +\\ y}{\\sqrt{2}}\\ <\\ \\sqrt{162}\\right\\}",
-          "reason": "Inequality region for 254 did not resolve to sampled cells"
-        },
-        {
-          "expr_id": "268",
-          "kind": "inequality_region",
-          "latex": "\\left(\\frac{x\\ +\\ y}{\\sqrt{2}}\\ -\\ p_{3}\\right)^{2}\\ +\\ \\left(z\\ -\\ p_{2}\\right)^{2}\\ \\ge\\ r_{arc}^{2}\\ \\left\\{-\\frac{d_{length}}{2}\\ \\le\\ \\frac{x\\ +\\ y}{\\sqrt{2}}\\ \\le\\ \\frac{d_{length}}{2}\\right\\}\\left\\{d_{height}\\ +\\ 2.5\\ \\ge z\\ \\ge\\ p_{2}\\right\\}\\left\\{\\sqrt{162}\\ -\\ 2\\ <\\ \\frac{x\\ -\\ y}{\\sqrt{2}}\\ <\\ \\sqrt{162}\\right\\}",
-          "reason": "Inequality region for 268 did not resolve to sampled cells"
-        },
-        {
-          "expr_id": "261",
-          "kind": "inequality_region",
-          "latex": "\\left(\\frac{x\\ -\\ y}{\\sqrt{2}}\\ -\\ p_{3}\\right)^{2}\\ +\\ \\left(z\\ -\\ p_{2}\\right)^{2}\\ \\ge\\ r_{arc}^{2}\\ \\left\\{-\\frac{d_{length}}{2}\\ \\le\\ \\frac{x\\ -\\ y}{\\sqrt{2}}\\ \\le\\ \\frac{d_{length}}{2}\\right\\}\\left\\{d_{height}\\ +\\ 2.5\\ \\ge z\\ \\ge\\ p_{2}\\right\\}\\left\\{-\\sqrt{162}\\ +\\ 2\\ >\\ \\frac{x\\ +\\ y}{\\sqrt{2}}\\ >\\ -\\sqrt{162}\\right\\}",
-          "reason": "Inequality region for 261 did not resolve to sampled cells"
-        },
-        {
-          "expr_id": "269",
-          "kind": "inequality_region",
-          "latex": "\\left(\\frac{x\\ +\\ y}{\\sqrt{2}}\\ -\\ p_{3}\\right)^{2}\\ +\\ \\left(z\\ -\\ p_{2}\\right)^{2}\\ \\ge\\ r_{arc}^{2}\\ \\left\\{-\\frac{d_{length}}{2}\\ \\le\\ \\frac{x\\ +\\ y}{\\sqrt{2}}\\ \\le\\ \\frac{d_{length}}{2}\\right\\}\\left\\{d_{height}\\ +\\ 2.5\\ \\ge z\\ \\ge\\ p_{2}\\right\\}\\left\\{-\\sqrt{162}\\ +\\ 2\\ >\\ \\frac{x\\ -\\ y}{\\sqrt{2}}\\ >\\ -\\sqrt{162}\\right\\}",
-          "reason": "Inequality region for 269 did not resolve to sampled cells"
-        },
-        {
-          "expr_id": "257",
-          "kind": "inequality_region",
-          "latex": "\\left(\\frac{x\\ -\\ y}{\\sqrt{2}}\\ -\\ p_{3}\\right)^{2}\\ +\\ \\left(z\\ -\\ \\frac{p_{2}}{2}\\right)^{2}\\ \\ge\\ r_{arc}^{2}\\ \\left\\{-\\frac{d_{length}}{2}\\ \\le\\ \\frac{x\\ -\\ y}{\\sqrt{2}}\\ \\le\\ \\frac{d_{length}}{2}\\right\\}\\left\\{d_{height}\\ \\ -\\ \\frac{p_{2}}{2}\\ \\ge z\\ \\ge\\ \\frac{p_{2}}{2}\\right\\}\\left\\{\\sqrt{162}\\ -\\ 2\\ <\\ \\frac{x\\ +\\ y}{\\sqrt{2}}\\ <\\ \\sqrt{162}\\right\\}",
-          "reason": "Inequality region for 257 did not resolve to sampled cells"
-        },
-        {
-          "expr_id": "270",
-          "kind": "inequality_region",
-          "latex": "\\left(\\frac{x\\ +\\ y}{\\sqrt{2}}\\ -\\ p_{3}\\right)^{2}\\ +\\ \\left(z\\ -\\ \\frac{p_{2}}{2}\\right)^{2}\\ \\ge\\ r_{arc}^{2}\\ \\left\\{-\\frac{d_{length}}{2}\\ \\le\\ \\frac{x\\ +\\ y}{\\sqrt{2}}\\ \\le\\ \\frac{d_{length}}{2}\\right\\}\\left\\{d_{height}\\ \\ -\\ \\frac{p_{2}}{2}\\ \\ge z\\ \\ge\\ \\frac{p_{2}}{2}\\right\\}\\left\\{\\sqrt{162}\\ -\\ 2\\ <\\ \\frac{x\\ -\\ y}{\\sqrt{2}}\\ <\\ \\sqrt{162}\\right\\}",
-          "reason": "Inequality region for 270 did not resolve to sampled cells"
-        },
-        {
-          "expr_id": "263",
-          "kind": "inequality_region",
-          "latex": "\\left(\\frac{x\\ -\\ y}{\\sqrt{2}}\\ -\\ p_{3}\\right)^{2}\\ +\\ \\left(z\\ -\\ \\frac{p_{2}}{2}\\right)^{2}\\ \\ge\\ r_{arc}^{2}\\ \\left\\{-\\frac{d_{length}}{2}\\ \\le\\ \\frac{x\\ -\\ y}{\\sqrt{2}}\\ \\le\\ \\frac{d_{length}}{2}\\right\\}\\left\\{d_{height}\\ \\ -\\ \\frac{p_{2}}{2}\\ \\ge z\\ \\ge\\ \\frac{p_{2}}{2}\\right\\}\\left\\{-\\sqrt{162}\\ +\\ 2\\ >\\ \\frac{x\\ +\\ y}{\\sqrt{2}}\\ >\\ -\\sqrt{162}\\right\\}",
-          "reason": "Inequality region for 263 did not resolve to sampled cells"
-        },
-        {
-          "expr_id": "271",
-          "kind": "inequality_region",
-          "latex": "\\left(\\frac{x\\ +\\ y}{\\sqrt{2}}\\ -\\ p_{3}\\right)^{2}\\ +\\ \\left(z\\ -\\ \\frac{p_{2}}{2}\\right)^{2}\\ \\ge\\ r_{arc}^{2}\\ \\left\\{-\\frac{d_{length}}{2}\\ \\le\\ \\frac{x\\ +\\ y}{\\sqrt{2}}\\ \\le\\ \\frac{d_{length}}{2}\\right\\}\\left\\{d_{height}\\ \\ -\\ \\frac{p_{2}}{2}\\ \\ge z\\ \\ge\\ \\frac{p_{2}}{2}\\right\\}\\left\\{-\\sqrt{162}\\ +\\ 2\\ >\\ \\frac{x\\ -\\ y}{\\sqrt{2}}\\ >\\ -\\sqrt{162}\\right\\}",
-          "reason": "Inequality region for 271 did not resolve to sampled cells"
-        },
-        {
-          "expr_id": "189",
-          "kind": "implicit_surface",
-          "latex": "x^{2}\\ +\\ y^{2}\\ +\\ \\left(z\\ -\\ \\left(2.5\\ +\\ d_{height}\\ +\\ 4\\ +\\ 2.5\\right)\\right)^{2}\\ =\\ \\left(t\\ +\\ 0.5\\right)^{2}\\ ",
-          "reason": "Implicit surface 189 with 3-axis residual has no constant-bounded axis"
-        },
-        {
-          "expr_id": "300_0",
-          "kind": "implicit_surface",
-          "latex": "(x-6.7)^{2}+(y-6.7)^{2}+(z-17.8)^{2}=c^{2}",
-          "reason": "Implicit surface 300_0 with 3-axis residual has no constant-bounded axis"
-        },
-        {
-          "expr_id": "300_1",
-          "kind": "implicit_surface",
-          "latex": "(x-6.7)^{2}+(y--6.7)^{2}+(z-17.8)^{2}=c^{2}",
-          "reason": "Implicit surface 300_1 with 3-axis residual has no constant-bounded axis"
-        },
-        {
-          "expr_id": "300_2",
-          "kind": "implicit_surface",
-          "latex": "(x--6.7)^{2}+(y-6.7)^{2}+(z-17.8)^{2}=c^{2}",
-          "reason": "Implicit surface 300_2 with 3-axis residual has no constant-bounded axis"
-        },
-        {
-          "expr_id": "300_3",
-          "kind": "implicit_surface",
-          "latex": "(x--6.7)^{2}+(y--6.7)^{2}+(z-17.8)^{2}=c^{2}",
-          "reason": "Implicit surface 300_3 with 3-axis residual has no constant-bounded axis"
         }
       ],
-      "unsupported_count": 17,
+      "unsupported_count": 4,
       "usda_exists": true,
       "usdz_exists": true,
       "usdz_output": "artifacts/fixture_usdz/[4B] 3D Diagram - S2-03 Group E.usdz",
@@ -19977,7 +19899,7 @@
         ],
         "cwd": null,
         "returncode": 0,
-        "stderr": "Coding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\n",
+        "stderr": "",
         "stdout": "\nValidation Result with no explicit variants set\nSuccess!\n",
         "tool": "usdchecker"
       },
@@ -23556,6 +23478,86 @@
         {
           "constraint_violation_count": 0,
           "errors": [],
+          "expr_id": "254",
+          "face_count": 360,
+          "kind": "inequality_region",
+          "max_residual": null,
+          "point_count": 480,
+          "valid": true
+        },
+        {
+          "constraint_violation_count": 0,
+          "errors": [],
+          "expr_id": "268",
+          "face_count": 360,
+          "kind": "inequality_region",
+          "max_residual": null,
+          "point_count": 480,
+          "valid": true
+        },
+        {
+          "constraint_violation_count": 0,
+          "errors": [],
+          "expr_id": "261",
+          "face_count": 360,
+          "kind": "inequality_region",
+          "max_residual": null,
+          "point_count": 480,
+          "valid": true
+        },
+        {
+          "constraint_violation_count": 0,
+          "errors": [],
+          "expr_id": "269",
+          "face_count": 360,
+          "kind": "inequality_region",
+          "max_residual": null,
+          "point_count": 480,
+          "valid": true
+        },
+        {
+          "constraint_violation_count": 0,
+          "errors": [],
+          "expr_id": "257",
+          "face_count": 336,
+          "kind": "inequality_region",
+          "max_residual": null,
+          "point_count": 448,
+          "valid": true
+        },
+        {
+          "constraint_violation_count": 0,
+          "errors": [],
+          "expr_id": "270",
+          "face_count": 336,
+          "kind": "inequality_region",
+          "max_residual": null,
+          "point_count": 448,
+          "valid": true
+        },
+        {
+          "constraint_violation_count": 0,
+          "errors": [],
+          "expr_id": "263",
+          "face_count": 336,
+          "kind": "inequality_region",
+          "max_residual": null,
+          "point_count": 448,
+          "valid": true
+        },
+        {
+          "constraint_violation_count": 0,
+          "errors": [],
+          "expr_id": "271",
+          "face_count": 336,
+          "kind": "inequality_region",
+          "max_residual": null,
+          "point_count": 448,
+          "valid": true
+        },
+        {
+          "constraint_violation_count": 0,
+          "errors": [],
           "expr_id": "259",
           "face_count": 6,
           "kind": "inequality_region",
@@ -23641,6 +23643,16 @@
           "kind": "inequality_region",
           "max_residual": null,
           "point_count": 514,
+          "valid": true
+        },
+        {
+          "constraint_violation_count": 0,
+          "errors": [],
+          "expr_id": "189",
+          "face_count": 128,
+          "kind": "implicit_surface",
+          "max_residual": null,
+          "point_count": 114,
           "valid": true
         },
         {
@@ -23841,6 +23853,46 @@
           "kind": "inequality_region",
           "max_residual": null,
           "point_count": 2800,
+          "valid": true
+        },
+        {
+          "constraint_violation_count": 0,
+          "errors": [],
+          "expr_id": "300_0",
+          "face_count": 128,
+          "kind": "implicit_surface",
+          "max_residual": null,
+          "point_count": 114,
+          "valid": true
+        },
+        {
+          "constraint_violation_count": 0,
+          "errors": [],
+          "expr_id": "300_1",
+          "face_count": 128,
+          "kind": "implicit_surface",
+          "max_residual": null,
+          "point_count": 114,
+          "valid": true
+        },
+        {
+          "constraint_violation_count": 0,
+          "errors": [],
+          "expr_id": "300_2",
+          "face_count": 128,
+          "kind": "implicit_surface",
+          "max_residual": null,
+          "point_count": 114,
+          "valid": true
+        },
+        {
+          "constraint_violation_count": 0,
+          "errors": [],
+          "expr_id": "300_3",
+          "face_count": 128,
+          "kind": "implicit_surface",
+          "max_residual": null,
+          "point_count": 114,
           "valid": true
         },
         {
@@ -64238,7 +64290,7 @@
         ],
         "cwd": null,
         "returncode": 0,
-        "stderr": "Coding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'BasisCurves' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'BasisCurves' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'BasisCurves' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'BasisCurves' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'BasisCurves' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'BasisCurves' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'BasisCurves' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'BasisCurves' type and apischemas.\n",
+        "stderr": "",
         "stdout": "\nValidation Result with no explicit variants set\nSuccess!\n",
         "tool": "usdchecker"
       },

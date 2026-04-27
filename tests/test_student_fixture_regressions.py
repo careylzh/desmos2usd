@@ -1064,6 +1064,45 @@ class StudentFixtureRegressionTests(unittest.TestCase):
         self.assertEqual(min(z_values), 2.8)
         self.assertEqual(max(z_values), 3.0)
 
+    def test_s203_rotated_arc_cutout_retries_sampled_cells(self) -> None:
+        """S2-03 Group E includes rotated arc cutouts that a coarse 3D grid misses."""
+        source = SourceInfo(
+            "",
+            "",
+            "",
+            "",
+            viewport_bounds={"x": (-38.3, 38.3), "y": (-38.3, 38.3), "z": (-30.0, 46.7)},
+        )
+        context = EvalContext(
+            scalars={
+                "d_height": 11.5,
+                "d_length": 5.656854249492381,
+                "p_2": 9.0,
+                "p_3": 0.0,
+                "r_arc": 2.0,
+            }
+        )
+        item = classify_expression(
+            ExpressionIR(
+                source,
+                "254",
+                0,
+                r"\left(\frac{x-y}{\sqrt{2}}-p_{3}\right)^{2}+\left(z-p_{2}\right)^{2}\ge r_{arc}^{2}"
+                r"\left\{-\frac{d_{length}}{2}\le\frac{x-y}{\sqrt{2}}\le\frac{d_{length}}{2}\right\}"
+                r"\left\{d_{height}+2.5\ge z\ge p_{2}\right\}"
+                r"\left\{\sqrt{162}-2<\frac{x+y}{\sqrt{2}}<\sqrt{162}\right\}",
+            ),
+            context,
+        )
+
+        geometry = tessellate(item, context, resolution=8)
+
+        self.assertEqual(item.kind, "inequality_region")
+        self.assertEqual(geometry.kind, "Mesh")
+        self.assertGreater(geometry.face_count, 0)
+        z_values = [point[2] for point in geometry.points]
+        self.assertGreater(max(z_values), min(z_values))
+
 
 def has_coplanar_face(geometry, axis: int, value: float) -> bool:
     cursor = 0
