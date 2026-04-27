@@ -79,11 +79,10 @@
 - `git diff --check`: passed.
 
 ## Commit / Push
-- Blocked in this HOME Codex turn: `git add src/desmos2usd/parse/classify.py src/desmos2usd/tessellate/implicit.py src/desmos2usd/tessellate/slabs.py tests/test_student_fixture_regressions.py implementation/STATE.md implementation/handoff.md artifacts/fixture_usdz/summary.json 'artifacts/fixture_usdz/[4B] 3D Diagram - S2-01 Group C.report.json' 'artifacts/fixture_usdz/[4B] 3D Diagram - S2-01 Group C.usda' 'artifacts/fixture_usdz/[4B] 3D Diagram - S2-01 Group C.usdz' 'artifacts/fixture_usdz/[4B] 3D Diagram - S2-08 Group E.report.json' 'artifacts/fixture_usdz/[4B] 3D Diagram - S2-08 Group E.usdz' 'artifacts/fixture_usdz/[4B] 3D Diagram - S2-09 Group F.report.json' 'artifacts/fixture_usdz/[4B] 3D Diagram - S2-09 Group F.usdz' && git add -f artifacts/fixture_usdz/review_evidence/20260427_s201_group_c_ralph_abs_tubes` failed with `fatal: Unable to create '/Users/chek/repos/desmos2usd-carey/.git/index.lock': Operation not permitted`.
-- Worktree is ready to stage, commit, and push from the main environment.
-- Evidence directory is ignored by `.gitignore`; include it with:
-  - `git add -f artifacts/fixture_usdz/review_evidence/20260427_s201_group_c_ralph_abs_tubes`
-- Suggested commit subject: `Export S2-01C absolute tube details`
+- Harvested by cron wake and committed from the main environment.
+- Commit: `81cc02b` (`Export S2-01C absolute tube details`)
+- Pushed to `chektien:fix/student-fixture-usdz-export`.
+- Evidence directory included with `git add -f artifacts/fixture_usdz/review_evidence/20260427_s201_group_c_ralph_abs_tubes`.
 
 ## Review Links
 - Route verification from this environment failed for root/viewer/summary with `curl: (6) Could not resolve host: chq.singapura-broadnose.ts.net`.
