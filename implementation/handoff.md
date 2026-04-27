@@ -1,3 +1,105 @@
+# Handoff: 2026-04-27 20:49 SGT - S2-01C absolute/list tube tranche
+
+## Current Branch State
+- Repo: `/Users/chek/repos/desmos2usd-carey`
+- Branch: `fix/student-fixture-usdz-export`
+- Push target: `chektien:fix/student-fixture-usdz-export`
+- HEAD before this tranche: `6a31b14 Export curved S2-01E bands`
+
+## Completed This Tranche
+- Targeted fixture: `[4B] 3D Diagram - S2-01 Group C.json`
+- Desmos URL: `https://www.desmos.com/3d/upbjmsjpzq`
+- Implemented general exporter fixes:
+  - Scalar-list expansion now detects single-letter list variables in implicit numeric products such as `3n`, so hidden definitions like `n=[2,3,4,5,6]` broadcast into repeated renderable expressions.
+  - Axis-aligned `abs(axis)` interval inequalities with bounded cross axes export as disjoint rectangular shell extrusions instead of falling through to coarse sampled cells.
+  - One-axis implicit equalities with bounded cross axes export as sheet meshes by solving the one-dimensional residual roots.
+  - No fixture-specific ids, fixture names, or hard-coded S2-01 constants were added.
+- Added regression coverage for:
+  - numeric-coefficient list expansion
+  - `abs(x)` interval shell extrusion
+  - bounded one-axis `abs(abs(x)-c)=r` sheet extrusion
+  - the real S2-01C fixture exporting all 27 renderable expressions with no unsupported rows
+- Regenerated tracked S2-01C USDA/USDZ/report artifacts and updated the 71-fixture `artifacts/fixture_usdz/summary.json` entry.
+- Revalidated S2-08E and S2-09F as guard fixtures; both remain success.
+
+## Evidence
+- Evidence directory: `artifacts/fixture_usdz/review_evidence/20260427_s201_group_c_ralph_abs_tubes/`
+- Local projection files:
+  - `S2-01_Group_C_projection_before.png`
+  - `S2-01_Group_C_projection_before.ppm`
+  - `S2-01_Group_C_projection_before.usda`
+  - `S2-01_Group_C_projection_before.usdz`
+  - `S2-01_Group_C_projection_before.report.json`
+  - `S2-01_Group_C_projection_after.png`
+  - `S2-01_Group_C_projection_after.ppm`
+  - `S2-01_Group_C_projection_after.usda`
+  - `S2-01_Group_C_projection_after.usdz`
+  - `S2-01_Group_C_projection_after.report.json`
+  - `S2-08_Group_E_projection_guard_after.png`
+  - `S2-08_Group_E_projection_guard_after.ppm`
+  - `S2-08_Group_E_projection_guard_after.usda`
+  - `S2-08_Group_E_projection_guard_after.usdz`
+  - `S2-08_Group_E_projection_guard_after.report.json`
+  - `S2-09_Group_F_projection_guard_after.png`
+  - `S2-09_Group_F_projection_guard_after.ppm`
+  - `S2-09_Group_F_projection_guard_after.usda`
+  - `S2-09_Group_F_projection_guard_after.usdz`
+  - `S2-09_Group_F_projection_guard_after.report.json`
+  - `capture_results.json`
+  - `projection_results.json`
+  - `assessment.md`
+- Browser/live viewer blockers:
+  - Playwright Desmos navigation to `https://www.desmos.com/3d/upbjmsjpzq` returned `user cancelled MCP tool call`.
+  - Chrome DevTools Desmos navigation to `https://www.desmos.com/3d/upbjmsjpzq` returned `user cancelled MCP tool call`.
+  - Tailscale route checks for root, viewer, and summary failed with `curl: (6) Could not resolve host: chq.singapura-broadnose.ts.net`.
+  - Local viewer server startup failed: `PermissionError: [Errno 1] Operation not permitted` for `python3 -m http.server 8765 --bind 127.0.0.1`.
+  - Playwright and Chrome DevTools viewer navigation for S2-01C both returned `user cancelled MCP tool call`.
+- Visual claim: no live Desmos/viewer parity claim. This tranche has deterministic local projection evidence only. The after projection adds the repeated green tube posts and the missing gray absolute-value shell/sheet geometry around the small structure.
+
+## Metrics
+- S2-01C before this tranche: `15 prims / 4 unsupported / 18 classified / 19 renderable / valid true / partial`.
+- S2-01C after tracked resolution-12 regeneration: `27 prims / 0 unsupported / 27 classified / 27 renderable / valid true / success / usdchecker returncode 0`.
+- Fixed unsupported rows:
+  - expression `28`: `abs(x)` shell band, previously sampled-cell miss
+  - expressions `40` and `42`: repeated circular posts using `3n`, now expanded into `40_0..40_4` and `42_0..42_4`
+  - expression `47`: bounded `abs(abs(x)-2.5)=0.3` side sheets
+- Overall fixture summary is now: 71 fixtures; 49 success, 22 partial, 0 error, acceptance not met.
+- S2-08 Group E guard remains success: `87 prims / 0 unsupported / valid true / usdchecker returncode 0`.
+- S2-09 Group F guard remains success: `27 prims / 0 unsupported / valid true / usdchecker returncode 0`.
+
+## Validation
+- Focused regressions passed: `test_list_definition_after_numeric_coefficient_expands_and_tessellates`, `test_abs_axis_interval_extrudes_as_disjoint_shells`, `test_one_axis_abs_equality_with_bounded_cross_axes_tessellates`, `test_s201_group_c_abs_and_list_regions_no_longer_unsupported`.
+- Targeted modules passed: `PYTHONPATH=src:tests python3 -m unittest tests.test_tessellate tests.test_student_fixture_regressions tests.test_fixture_usdz_suite tests.test_visual_preview` ran 110 tests OK.
+- Full unittest discovery passed: `PYTHONPATH=src:tests python3 -m unittest discover -s tests` ran 169 tests OK.
+- Report-vs-USDA consistency checked:
+  - S2-01C report prim_count `27`, USDA `Mesh` + `BasisCurves` defs `27`, unsupported `0`
+  - S2-08E report prim_count `87`, USDA defs `87`, unsupported `0`
+  - S2-09F report prim_count `27`, USDA defs `27`, unsupported `0`
+- PNG projection dimensions checked with `sips`: target before/after and guard PNGs are `776x256`.
+- `git diff --check`: passed.
+
+## Commit / Push
+- Blocked in this HOME Codex turn: `git add src/desmos2usd/parse/classify.py src/desmos2usd/tessellate/implicit.py src/desmos2usd/tessellate/slabs.py tests/test_student_fixture_regressions.py implementation/STATE.md implementation/handoff.md artifacts/fixture_usdz/summary.json 'artifacts/fixture_usdz/[4B] 3D Diagram - S2-01 Group C.report.json' 'artifacts/fixture_usdz/[4B] 3D Diagram - S2-01 Group C.usda' 'artifacts/fixture_usdz/[4B] 3D Diagram - S2-01 Group C.usdz' 'artifacts/fixture_usdz/[4B] 3D Diagram - S2-08 Group E.report.json' 'artifacts/fixture_usdz/[4B] 3D Diagram - S2-08 Group E.usdz' 'artifacts/fixture_usdz/[4B] 3D Diagram - S2-09 Group F.report.json' 'artifacts/fixture_usdz/[4B] 3D Diagram - S2-09 Group F.usdz' && git add -f artifacts/fixture_usdz/review_evidence/20260427_s201_group_c_ralph_abs_tubes` failed with `fatal: Unable to create '/Users/chek/repos/desmos2usd-carey/.git/index.lock': Operation not permitted`.
+- Worktree is ready to stage, commit, and push from the main environment.
+- Evidence directory is ignored by `.gitignore`; include it with:
+  - `git add -f artifacts/fixture_usdz/review_evidence/20260427_s201_group_c_ralph_abs_tubes`
+- Suggested commit subject: `Export S2-01C absolute tube details`
+
+## Review Links
+- Route verification from this environment failed for root/viewer/summary with `curl: (6) Could not resolve host: chq.singapura-broadnose.ts.net`.
+- S2-01 Group C Desmos: `https://www.desmos.com/3d/upbjmsjpzq`
+- S2-01 Group C viewer: `https://chq.singapura-broadnose.ts.net/viewer/?usda=..%2Fartifacts%2Ffixture_usdz%2F%5B4B%5D%203D%20Diagram%20-%20S2-01%20Group%20C.usda&label=S2-01%20Group%20C`
+- S2-08 Group E Desmos: `https://www.desmos.com/3d/g59jqe6nxy`
+- S2-08 Group E viewer: `https://chq.singapura-broadnose.ts.net/viewer/?usda=..%2Fartifacts%2Ffixture_usdz%2F%5B4B%5D%203D%20Diagram%20-%20S2-08%20Group%20E.usda&label=S2-08%20Group%20E`
+- S2-09 Group F Desmos: `https://www.desmos.com/3d/umjxv6ahck`
+- S2-09 Group F viewer: `https://chq.singapura-broadnose.ts.net/viewer/?usda=..%2Fartifacts%2Ffixture_usdz%2F%5B4B%5D%203D%20Diagram%20-%20S2-09%20Group%20F.usda&label=S2-09%20Group%20F`
+
+## Remaining Mismatch / Next Wake Instructions
+1. S2-01 Group C is structurally complete and should not be picked again unless Chek reports a live visual issue.
+2. Browser/live viewer capture is still blocked here; do not claim live visual parity until Desmos and viewer screenshots are captured.
+3. Continue tomorrow's S2-01 priority queue with S2-01 Group B (`https://www.desmos.com/3d/27v0xuv64m`), currently `142 prims / 1 unsupported`; next exact target remains expression `74` (`x^{2}+y^{2}<=5000z=0`).
+4. Keep S2-08E and S2-09F as regression guards.
+
 # Handoff: 2026-04-27 20:17 SGT - S2-01E curved thin-band tranche
 
 ## Current Branch State

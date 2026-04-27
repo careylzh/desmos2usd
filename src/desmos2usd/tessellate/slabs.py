@@ -72,6 +72,9 @@ def tessellate_inequality_region(item: ClassifiedExpression, context: EvalContex
     annular = tessellate_axis_aligned_annular_extrusion(item, context, resolution=max(16, resolution * 4))
     if annular is not None and mesh_vertices_satisfy_predicates(item, context, annular):
         return annular
+    abs_interval = tessellate_abs_axis_interval_extrusion(item, context)
+    if abs_interval is not None and mesh_vertices_satisfy_predicates(item, context, abs_interval):
+        return abs_interval
     band = extract_band(item.inequality)
     if band:
         axis, lower, upper, lower_closed, upper_closed = band
@@ -984,6 +987,157 @@ def constant_expression_value(expression: LatexExpression, context: EvalContext)
     except Exception:
         return None
     return value if isfinite(value) else None
+
+
+def tessellate_abs_axis_interval_extrusion(item: ClassifiedExpression, context: EvalContext) -> GeometryData | None:
+    bounds = collect_constant_bounds(item.predicates, context)
+    for axis in ("x", "y", "z"):
+        interval = abs_axis_interval(item, context, axis)
+        if interval is None:
+            continue
+        if not all(predicate_supported_by_abs_interval(predicate, context, axis) for predicate in item.predicates):
+            continue
+        lower, upper = interval
+        direct_low, direct_high = bounds.get(axis, (None, None))
+        intervals = abs_axis_intervals(lower, upper)
+        if direct_low is not None or direct_high is not None:
+            clipped: list[tuple[float, float]] = []
+            for low, high in intervals:
+                clipped_low = low if direct_low is None else max(low, direct_low)
+                clipped_high = high if direct_high is None else min(high, direct_high)
+                if clipped_low < clipped_high:
+                    clipped.append((clipped_low, clipped_high))
+            intervals = clipped
+        if not intervals:
+            return GeometryData(kind="Mesh", points=[])
+
+        other_axes = [other for other in ("x", "y", "z") if other != axis]
+        other_ranges: dict[str, tuple[float, float]] = {}
+        for other in other_axes:
+            low, high = bounds.get(other, (None, None))
+            if low is None or high is None or low >= high:
+                break
+            other_ranges[other] = (low, high)
+        if len(other_ranges) != 2:
+            continue
+
+        geometries = []
+        for low, high in intervals:
+            ranges = {axis: (low, high), **other_ranges}
+            geometries.append(box_mesh_from_ranges(ranges))
+        return combine_meshes(geometries)
+    return None
+
+
+def abs_axis_interval(
+    item: ClassifiedExpression,
+    context: EvalContext,
+    axis: str,
+) -> tuple[float, float] | None:
+    lower = 0.0
+    upper: float | None = None
+    used_abs_bound = False
+    for predicate in item.predicates:
+        bound = abs_axis_bound(predicate, context, axis)
+        if bound is None:
+            continue
+        used_abs_bound = True
+        bound_kind, value = bound
+        if bound_kind == "lower":
+            lower = max(lower, value)
+        else:
+            upper = value if upper is None else min(upper, value)
+    if not used_abs_bound or upper is None:
+        return None
+    lower = max(0.0, lower)
+    if upper <= lower:
+        return (0.0, 0.0)
+    return (lower, upper)
+
+
+def abs_axis_bound(
+    predicate: ComparisonPredicate,
+    context: EvalContext,
+    axis: str,
+) -> tuple[str, float] | None:
+    if len(predicate.terms) != 2 or len(predicate.ops) != 1:
+        return None
+    left, right = predicate.terms
+    op = predicate.ops[0]
+    left_abs = abs_axis_identifier(left)
+    right_abs = abs_axis_identifier(right)
+    if left_abs == axis and not right.identifiers:
+        value = constant_expression_value(right, context)
+        if value is None or value < 0.0:
+            return None
+        return abs_axis_bound_from_op(op, value)
+    if right_abs == axis and not left.identifiers:
+        value = constant_expression_value(left, context)
+        if value is None or value < 0.0:
+            return None
+        return abs_axis_bound_from_op(reverse_op(op), value)
+    return None
+
+
+def abs_axis_bound_from_op(op: str, value: float) -> tuple[str, float] | None:
+    if op in {"<", "<="}:
+        return ("upper", value)
+    if op in {">", ">="}:
+        return ("lower", value)
+    return None
+
+
+def abs_axis_identifier(expression: LatexExpression) -> str | None:
+    node = expression.tree.body
+    if (
+        isinstance(node, ast.Call)
+        and isinstance(node.func, ast.Name)
+        and node.func.id == "abs"
+        and len(node.args) == 1
+        and isinstance(node.args[0], ast.Name)
+        and node.args[0].id in {"x", "y", "z"}
+    ):
+        return node.args[0].id
+    return None
+
+
+def predicate_supported_by_abs_interval(
+    predicate: ComparisonPredicate,
+    context: EvalContext,
+    axis: str,
+) -> bool:
+    if abs_axis_bound(predicate, context, axis) is not None:
+        return True
+    return bool(predicate.iter_variable_bounds())
+
+
+def abs_axis_intervals(lower: float, upper: float) -> list[tuple[float, float]]:
+    if upper <= lower:
+        return []
+    if lower <= 0.0:
+        return [(-upper, upper)]
+    return [(-upper, -lower), (lower, upper)]
+
+
+def box_mesh_from_ranges(ranges: dict[str, tuple[float, float]]) -> GeometryData:
+    xb = ranges["x"]
+    yb = ranges["y"]
+    zb = ranges["z"]
+    corners: list[Point] = [
+        (xb[0], yb[0], zb[0]),
+        (xb[1], yb[0], zb[0]),
+        (xb[1], yb[1], zb[0]),
+        (xb[0], yb[1], zb[0]),
+        (xb[0], yb[0], zb[1]),
+        (xb[1], yb[0], zb[1]),
+        (xb[1], yb[1], zb[1]),
+        (xb[0], yb[1], zb[1]),
+    ]
+    points: list[Point] = []
+    counts: list[int] = []
+    indices: list[int] = []
+    add_box(points, counts, indices, corners)
+    return GeometryData(kind="Mesh", points=points, face_vertex_counts=counts, face_vertex_indices=indices)
 
 
 def constant_node_value(node: ast.AST, context: EvalContext, variable: str) -> float | None:

@@ -511,7 +511,7 @@ def classify_expression(expr: ExpressionIR, context: EvalContext) -> ClassifiedE
                 expression=residual,
             )
         predicate_axes = predicate_identifiers(predicates)
-        if len(residual_axes) == 1 and len(residual_axes | predicate_axes) == 2:
+        if len(residual_axes) == 1 and 2 <= len(residual_axes | predicate_axes) <= 3:
             return ClassifiedExpression(
                 ir=expr,
                 kind="implicit_surface",
@@ -1305,7 +1305,10 @@ def latex_identifier_present(text: str, identifier: str) -> bool:
     if re.search(latex_identifier_pattern(identifier), text) is not None:
         return True
     if re.match(r"^[a-z]$", identifier):
-        return re.search(rf"(?<![A-Za-z0-9_\\{{]){re.escape(identifier)}(?=[A-Za-z\\])", text) is not None
+        return (
+            re.search(rf"(?<![A-Za-z0-9_\\{{]){re.escape(identifier)}(?=[A-Za-z\\])", text) is not None
+            or re.search(rf"(?<=[0-9.)\]}}]){re.escape(identifier)}(?![A-Za-z0-9_\[])", text) is not None
+        )
     return False
 
 
@@ -1316,6 +1319,7 @@ def replace_latex_identifier(text: str, identifier: str, replacement: str) -> st
         # identifier boundary intentionally avoids replacing inside longer names,
         # so add the narrow single-letter implicit-multiplication case here.
         replaced = re.sub(rf"(?<![A-Za-z0-9_\\{{]){re.escape(identifier)}(?=[A-Za-z\\])", replacement, replaced)
+        replaced = re.sub(rf"(?<=[0-9.)\]}}]){re.escape(identifier)}(?![A-Za-z0-9_\[])", f"*{replacement}", replaced)
     return replaced
 
 

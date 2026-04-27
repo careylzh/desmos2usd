@@ -501,6 +501,96 @@ class StudentFixtureRegressionTests(unittest.TestCase):
         self.assertEqual(unsupported_ids, set())
         self.assertEqual(len(prims), 43)
 
+    def test_list_definition_after_numeric_coefficient_expands_and_tessellates(self) -> None:
+        graph = GraphIR(
+            source=SourceInfo("", "", "", "", viewport_bounds={"x": (-10.0, 10.0), "y": (-5.0, 5.0), "z": (0.0, 2.0)}),
+            expressions=[
+                expr("1", r"n=\left[2,3\right]", hidden=True),
+                expr("2", r"\left(x+3n\right)^{2}+y^{2}<0.2\left\{0<z<1\right\}"),
+            ],
+            raw_state={},
+        )
+
+        classification, classification_unsupported = classify_graph_tolerant(graph)
+        with tempfile.TemporaryDirectory() as tmp:
+            prims, _validations, export_unsupported = export_graph(
+                graph,
+                classification,
+                Path(tmp) / "list_cylinders.usda",
+                resolution=12,
+            )
+
+        unsupported_ids = {item.expr_id for item in [*classification_unsupported, *export_unsupported]}
+        self.assertEqual(unsupported_ids, set())
+        self.assertEqual({item.ir.expr_id for item in classification.classified}, {"2_0", "2_1"})
+        self.assertEqual(len(prims), 2)
+
+    def test_abs_axis_interval_extrudes_as_disjoint_shells(self) -> None:
+        item = classify_expression(
+            expr(
+                "28",
+                r"\operatorname{abs}(x)<1.5"
+                r"\left\{\operatorname{abs}(x)>1.4\right\}"
+                r"\left\{y>-4\right\}"
+                r"\left\{y<-3\right\}"
+                r"\left\{0.5<z<2.5\right\}",
+            ),
+            EvalContext(),
+        )
+
+        geometry = tessellate(item, EvalContext(), resolution=8)
+        used_points = [geometry.points[index] for index in set(geometry.face_vertex_indices)]
+
+        self.assertEqual(item.kind, "inequality_region")
+        self.assertEqual(geometry.kind, "Mesh")
+        self.assertEqual(geometry.face_count, 12)
+        self.assertAlmostEqual(min(point[0] for point in used_points), -1.5)
+        self.assertAlmostEqual(max(point[0] for point in used_points), 1.5)
+        self.assertTrue(any(-1.41 < point[0] < -1.39 for point in used_points))
+        self.assertTrue(any(1.39 < point[0] < 1.41 for point in used_points))
+
+    def test_one_axis_abs_equality_with_bounded_cross_axes_tessellates(self) -> None:
+        item = classify_expression(
+            expr(
+                "47",
+                r"\operatorname{abs}\left(\operatorname{abs}(x)-2.5\right)=0.3"
+                r"\left\{y<-3\right\}"
+                r"\left\{y>-3.5\right\}"
+                r"\left\{1.2<z<2.5\right\}",
+            ),
+            EvalContext(),
+        )
+
+        geometry = tessellate(item, EvalContext(), resolution=8)
+        sheet_xs = sorted({round(point[0], 1) for point in geometry.points})
+
+        self.assertEqual(item.kind, "implicit_surface")
+        self.assertEqual(geometry.kind, "Mesh")
+        self.assertEqual(geometry.face_count, 4)
+        self.assertEqual(sheet_xs, [-2.8, -2.2, 2.2, 2.8])
+
+    def test_s201_group_c_abs_and_list_regions_no_longer_unsupported(self) -> None:
+        fixture = (
+            Path(__file__).resolve().parents[1]
+            / "fixtures"
+            / "states"
+            / "[4B] 3D Diagram - S2-01 Group C.json"
+        )
+        graph = graph_ir_from_state(json.loads(fixture.read_text(encoding="utf-8")))
+
+        classification, classification_unsupported = classify_graph_tolerant(graph)
+        with tempfile.TemporaryDirectory() as tmp:
+            prims, _validations, export_unsupported = export_graph(
+                graph,
+                classification,
+                Path(tmp) / "s201c.usda",
+                resolution=12,
+            )
+
+        unsupported_ids = {item.expr_id for item in [*classification_unsupported, *export_unsupported]}
+        self.assertEqual(unsupported_ids, set())
+        self.assertGreaterEqual(len(prims), 26)
+
     def test_desmos_parametric_domain_sets_curve_bounds(self) -> None:
         item = classify_expression(
             ExpressionIR(
