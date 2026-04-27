@@ -1,6 +1,6 @@
 # Implementation State
 
-Last updated: 2026-04-27 07:58 SGT
+Last updated: 2026-04-27 08:30 SGT
 
 ## Loop Mode
 - cadence: every 10 minutes via OpenClaw cron
@@ -29,9 +29,9 @@ Last updated: 2026-04-27 07:58 SGT
 - id: one-desmos-input-at-a-time
 - title: Fix one remaining partial Desmos input per bounded tranche using live Desmos screenshots and viewer screenshots
 - current-priority:
-  1. Continue S2-03 Group E remaining spherical caps / non-affine arc cutouts — https://www.desmos.com/3d/sqkhp7wnx6 — now 17 unsupported, 447 prims, 464 classified
-  2. Continue S2-07 Group F remaining parser/classifier slabs and sampled inequality — https://www.desmos.com/3d/jkj1z8t8pf — now 14 unsupported, 874 prims, 875 classified
-  3. Continue S2-06 Group E remaining elliptical annular slabs / y-squared bridge surfaces / random Gaussian regions — https://www.desmos.com/3d/cg2sd6h1ws — now 13 unsupported, 723 prims, 736 classified
+  1. Continue S2-07 Group F remaining parser/classifier slabs and sampled inequality — https://www.desmos.com/3d/jkj1z8t8pf — now 14 unsupported, 874 prims, 875 classified
+  2. Continue S2-06 Group E remaining elliptical annular slabs / y-squared bridge surfaces / random Gaussian regions — https://www.desmos.com/3d/cg2sd6h1ws — now 13 unsupported, 723 prims, 736 classified
+  3. Continue S2-03 Group E remaining top implicit sphere caps — https://www.desmos.com/3d/sqkhp7wnx6 — now 4 unsupported, 460 prims, 464 classified
   4. Revisit S2-10 Group F only for live visual parity evidence when browser capture is available — https://www.desmos.com/3d/tejhfrm34m — structurally success, 167 prims, 0 unsupported
   5. Revisit S2-03 Group D only for live visual parity evidence when browser capture is available — https://www.desmos.com/3d/zvasa1wcgo — structurally success, 585 prims, 0 unsupported
 - done-when:
@@ -52,8 +52,9 @@ Last updated: 2026-04-27 07:58 SGT
 7. [ ] Advance to the next input only after the current one is either defensibly fixed or explicitly blocked.
 
 ## Current Baseline
-- HEAD before current tranche: 9b4b25e Improve S2-10F modulo inequality regions
+- HEAD before current tranche: 7b29d28 Improve S2-03E rotated arc export
 - summary: 71 fixtures; 27 success, 44 partial, 0 error
+- S2-03 Group E current tranche: fresh pre-edit export was 12 unsupported / 452 prims; adaptive sampled inequality retry improved it to 4 unsupported / 460 prims, classified remains 464; live browser/viewer capture blocked, so visual claim is structural/local projection only
 - S2-10 Group F current tranche: ball-cap pass improved 20 unsupported -> 0 unsupported, 147 prims -> 167 prims, classified remains 167; live browser/viewer capture blocked, so visual claim is structural/local projection only
 - S2-10 Group F current tranche: modulo cylinder/slat/box pass improved 47 unsupported -> 20 unsupported, 120 prims -> 147 prims, classified remains 167; live browser/viewer capture blocked, so visual claim is structural/local projection only
 - S2-07 Group F current tranche: unbounded implicit sphere pass improved 53 unsupported -> 14 unsupported, 835 prims -> 874 prims, classified remains 875; live browser/viewer capture blocked, so visual claim is structural/local projection only
@@ -77,5 +78,5 @@ Last updated: 2026-04-27 07:58 SGT
 - Do not overlap Codex/ccwork runs.
 
 ## Last Wake
-- timestamp: 2026-04-27 07:58 SGT
-- result: HOME Codex completed one S2-10F ball-cap tranche. Implemented a general axis-aligned ellipsoid inequality-region cap path; S2-10F improved to success at 167 prims, 0 unsupported. S2-08E and S2-09F remain success guards. Browser/live viewer capture remains blocked by MCP cancellation and local server bind denial, so no live visual parity claim. Commit/push blocked before staging by `.git/index.lock` permission denial.
+- timestamp: 2026-04-27 08:30 SGT
+- result: HOME Codex completed one S2-03E rotated arc-cutout tranche. Implemented a general adaptive retry for sampled 3D inequality regions; S2-03E improved from a fresh pre-edit `452 prims / 12 unsupported` to `460 prims / 4 unsupported`. S2-08E and S2-09F remain success guards. Browser/live viewer capture remains blocked by MCP cancellation, so no live visual parity claim. Commit exists locally at `7b29d28` and local `chektien/fix/student-fixture-usdz-export` points there, but staging evidence/handoff/state notes is blocked by `.git/index.lock` permission denial; push attempt failed because SSH could not resolve `github.com`.
