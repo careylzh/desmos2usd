@@ -1,3 +1,95 @@
+# Handoff: 2026-04-27 16:47 SGT - S2-10E label-row tranche
+
+## Current Branch State
+- Repo: `/Users/chek/repos/desmos2usd-carey`
+- Branch: `fix/student-fixture-usdz-export`
+- Push target: `chektien:fix/student-fixture-usdz-export`
+- HEAD before this tranche: `78f06b3 Support flat circular disks on constant planes`
+
+## Completed This Tranche
+- Targeted fixture: `[4B] 3D Diagram - S2-10 Group E.json`
+- Desmos URL: `https://www.desmos.com/3d/xzhfl6m1td`
+- Implemented one general exporter/accounting fix:
+  - Visible expression rows that contain only non-graphable label/separator text are no longer treated as renderable graph candidates.
+  - This removes S2-10E section labels such as `pyramid 4 sketch` and `--------sph inx lines--------` from unsupported geometry accounting.
+  - Equations, inequalities, tuples, `operatorname(...)` geometry, and definitions still pass through normal classification.
+- Added regression coverage for:
+  - label-only math rows not being renderable candidates
+  - real S2-10E fixture classifying 249 geometry expressions with zero unsupported rows
+- Regenerated tracked S2-10E report/USDZ artifacts and rebuilt the full 71-fixture `artifacts/fixture_usdz/summary.json`.
+- Revalidated S2-08E and S2-09F as guard fixtures; both remain success in the rebuilt summary.
+
+## Evidence
+- Evidence directory: `artifacts/fixture_usdz/review_evidence/20260427_s210_group_e_ralph_text_labels/`
+- Local projection files:
+  - `S2-10_Group_E_projection_before.png`
+  - `S2-10_Group_E_projection_before.ppm`
+  - `S2-10_Group_E_projection_before.usda`
+  - `S2-10_Group_E_projection_before.report.json`
+  - `S2-10_Group_E_projection_after.png`
+  - `S2-10_Group_E_projection_after.ppm`
+  - `S2-10_Group_E_projection_after.usda`
+  - `S2-10_Group_E_projection_after.report.json`
+  - `S2-08_Group_E_projection_guard_after.png`
+  - `S2-08_Group_E_projection_guard_after.ppm`
+  - `S2-08_Group_E_projection_guard_after.usda`
+  - `S2-08_Group_E_projection_guard_after.report.json`
+  - `S2-09_Group_F_projection_guard_after.png`
+  - `S2-09_Group_F_projection_guard_after.ppm`
+  - `S2-09_Group_F_projection_guard_after.usda`
+  - `S2-09_Group_F_projection_guard_after.report.json`
+  - `capture_results.json`
+  - `projection_results.json`
+  - `assessment.md`
+- Browser/live viewer blockers:
+  - Playwright Desmos navigation returned `user cancelled MCP tool call`.
+  - Chrome DevTools Desmos navigation returned `user cancelled MCP tool call`.
+  - Playwright Tailscale viewer navigation returned `user cancelled MCP tool call`.
+  - Tailscale route checks for root, viewer, and summary failed with `curl: (6) Could not resolve host: chq.singapura-broadnose.ts.net`.
+- Visual claim: no live Desmos/viewer parity claim. This tranche has deterministic local projection evidence only. The before/after projection is expected to be geometrically unchanged because the fix removes non-rendered labels from accounting rather than adding meshes.
+
+## Metrics
+- S2-10E before this tranche: `249 prims / 10 unsupported / 249 classified / 259 renderable / valid true / partial`.
+- S2-10E after tracked resolution-12 regeneration: `249 prims / 0 unsupported / 249 classified / 249 renderable / valid true / success / usdchecker returncode 0`.
+- Overall fixture summary: 71 fixtures; 45 success, 26 partial, 0 error, acceptance not met.
+- S2-08 Group E guard remains success: `87 prims / 0 unsupported / valid true / usdchecker returncode 0`.
+- S2-09 Group F guard remains success: `27 prims / 0 unsupported / valid true / usdchecker returncode 0`.
+
+## Validation
+- Focused regressions passed: `test_label_only_math_rows_are_not_renderable_candidates`, `test_s210_group_e_label_rows_do_not_remain_unsupported`.
+- Targeted modules passed: `PYTHONPATH=src:tests python3 -m unittest tests.test_student_fixture_regressions tests.test_fixture_usdz_suite tests.test_visual_preview` ran 82 tests OK.
+- Full unittest discovery passed: `PYTHONPATH=src:tests python3 -m unittest discover -s tests` ran 154 tests in 133.161s OK.
+- Full fixture summary regeneration completed: 71 fixtures; 45 success, 26 partial, 0 error.
+- Report-vs-USDA consistency checked:
+  - S2-10E report prim_count `249`, USDA `Mesh` + `BasisCurves` defs `249`, unsupported `0`
+  - S2-08E report prim_count `87`, USDA defs `87`, unsupported `0`
+  - S2-09F report prim_count `27`, USDA defs `27`, unsupported `0`
+- PNG projection dimensions checked with `sips`: before/after/guard PNGs are `1552x512`.
+- `git diff --check`: passed.
+
+## Commit / Push
+- Blocked in this HOME Codex turn: `git add src/desmos2usd/ir.py tests/test_student_fixture_regressions.py implementation/STATE.md implementation/handoff.md artifacts/fixture_usdz/summary.json 'artifacts/fixture_usdz/[4B] 3D Diagram - S2-10 Group E.report.json' 'artifacts/fixture_usdz/[4B] 3D Diagram - S2-10 Group E.usdz'` failed with `fatal: Unable to create '/Users/chek/repos/desmos2usd-carey/.git/index.lock': Operation not permitted`.
+- `git add -f artifacts/fixture_usdz/review_evidence/20260427_s210_group_e_ralph_text_labels/` failed with the same `.git/index.lock` permission error.
+- Worktree is ready to stage, commit, and push from the main environment.
+- Evidence directory is ignored by `.gitignore`; include it with:
+  - `git add -f artifacts/fixture_usdz/review_evidence/20260427_s210_group_e_ralph_text_labels/`
+- Suggested commit subject: `Ignore non-graphable label rows`
+
+## Review Links
+- Route verification from this environment failed for root/viewer/summary with `curl: (6) Could not resolve host: chq.singapura-broadnose.ts.net`.
+- S2-10 Group E Desmos: `https://www.desmos.com/3d/xzhfl6m1td`
+- S2-10 Group E viewer: `https://chq.singapura-broadnose.ts.net/viewer/?usda=..%2Fartifacts%2Ffixture_usdz%2F%5B4B%5D%203D%20Diagram%20-%20S2-10%20Group%20E.usda&label=S2-10%20Group%20E`
+- S2-08 Group E Desmos: `https://www.desmos.com/3d/g59jqe6nxy`
+- S2-08 Group E viewer: `https://chq.singapura-broadnose.ts.net/viewer/?usda=..%2Fartifacts%2Ffixture_usdz%2F%5B4B%5D%203D%20Diagram%20-%20S2-08%20Group%20E.usda&label=S2-08%20Group%20E`
+- S2-09 Group F Desmos: `https://www.desmos.com/3d/umjxv6ahck`
+- S2-09 Group F viewer: `https://chq.singapura-broadnose.ts.net/viewer/?usda=..%2Fartifacts%2Ffixture_usdz%2F%5B4B%5D%203D%20Diagram%20-%20S2-09%20Group%20F.usda&label=S2-09%20Group%20F`
+
+## Remaining Mismatch / Next Wake Instructions
+1. S2-10 Group E is structurally complete and should not be picked again unless Chek reports a live visual issue.
+2. Next exact target per STATE priority: S2-10 Group A (`https://www.desmos.com/3d/g53xte50e7`), currently `35 prims / 5 unsupported` in the regenerated summary.
+3. Keep S2-08E and S2-09F as regression guards.
+4. Continue to include direct Tailscale viewer links and matching Desmos links in any review update, but do not claim live visual parity unless browser/viewer screenshots are actually captured.
+
 # Handoff: 2026-04-27 16:11 SGT - S2-08G constant-z flat-disk tranche
 
 ## Current Branch State

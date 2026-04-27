@@ -9,7 +9,7 @@ from pathlib import Path
 import _path  # noqa: F401
 from desmos2usd.converter import export_graph
 from desmos2usd.eval.context import EvalContext
-from desmos2usd.ir import ExpressionIR, GraphIR, SourceInfo, graph_ir_from_state
+from desmos2usd.ir import ExpressionIR, GraphIR, SourceInfo, graph_ir_from_state, looks_like_non_graphable_label_latex
 from desmos2usd.parse.classify import classify_expression, classify_graph, expand_list_expression, register_definition
 from desmos2usd.parse.latex_subset import LatexExpression
 from desmos2usd.tessellate import tessellate
@@ -191,6 +191,30 @@ class StudentFixtureRegressionTests(unittest.TestCase):
         self.assertNotIn("109", {item.expr_id for item in unsupported})
         self.assertNotIn("130", {item.expr_id for item in unsupported})
         self.assertNotIn("131", {item.expr_id for item in unsupported})
+
+    def test_label_only_math_rows_are_not_renderable_candidates(self) -> None:
+        self.assertTrue(looks_like_non_graphable_label_latex(r"------first\ pyramid\ lines------"))
+        self.assertTrue(looks_like_non_graphable_label_latex(r"\sec ond\ pyramid\ sketch"))
+        self.assertTrue(looks_like_non_graphable_label_latex(r"pyramid\ 4\ lines\ "))
+        self.assertFalse(looks_like_non_graphable_label_latex(r"z=0\left\{-3<x<3\right\}"))
+        self.assertFalse(looks_like_non_graphable_label_latex(r"\operatorname{sphere}\left(\left(0,0,0\right),1\right)"))
+
+        self.assertFalse(expr("1", r"------first\ pyramid\ lines------").renderable_candidate)
+        self.assertTrue(expr("2", r"z=0\left\{-3<x<3\right\}").renderable_candidate)
+
+    def test_s210_group_e_label_rows_do_not_remain_unsupported(self) -> None:
+        fixture = (
+            Path(__file__).resolve().parents[1]
+            / "fixtures"
+            / "states"
+            / "[4B] 3D Diagram - S2-10 Group E.json"
+        )
+        graph = graph_ir_from_state(json.loads(fixture.read_text(encoding="utf-8")))
+
+        classification, unsupported = classify_graph_tolerant(graph)
+
+        self.assertEqual(unsupported, [])
+        self.assertEqual(len(classification.classified), 249)
 
     def test_s202_group_c_nested_restrictions_classify(self) -> None:
         fixture = (

@@ -1,0 +1,72 @@
+{
+  "classified_expression_count": 249,
+  "complete": false,
+  "fixture": "[4B] 3D Diagram - S2-10 Group E.json",
+  "prim_count": 249,
+  "renderable_expression_count": 259,
+  "stage": "before",
+  "unsupported": [
+    {
+      "expr_id": "45",
+      "kind": "classification",
+      "latex": "------first\\ pyramid\\ lines------",
+      "reason": "not a supported renderable geometry form"
+    },
+    {
+      "expr_id": "75",
+      "kind": "classification",
+      "latex": "\\sec ond\\ pyramid\\ sketch",
+      "reason": "not a supported renderable geometry form"
+    },
+    {
+      "expr_id": "83",
+      "kind": "classification",
+      "latex": "\\sec ond\\ pyramid\\ lines",
+      "reason": "not a supported renderable geometry form"
+    },
+    {
+      "expr_id": "79",
+      "kind": "classification",
+      "latex": "third\\ pyramid\\ sketch",
+      "reason": "not a supported renderable geometry form"
+    },
+    {
+      "expr_id": "97",
+      "kind": "classification",
+      "latex": "third\\ pyramid\\ lines",
+      "reason": "not a supported renderable geometry form"
+    },
+    {
+      "expr_id": "293",
+      "kind": "classification",
+      "latex": "pyramid\\ 4\\ sketch",
+      "reason": "not a supported renderable geometry form"
+    },
+    {
+      "expr_id": "301",
+      "kind": "classification",
+      "latex": "pyramid\\ 4\\ lines\\ ",
+      "reason": "not a supported renderable geometry form"
+    },
+    {
+      "expr_id": "329",
+      "kind": "classification",
+      "latex": "pyramid\\ 5\\ sketch\\ ",
+      "reason": "not a supported renderable geometry form"
+    },
+    {
+      "expr_id": "337",
+      "kind": "classification",
+      "latex": "pyramid\\ 5\\ lines",
+      "reason": "not a supported renderable geometry form"
+    },
+    {
+      "expr_id": "111",
+      "kind": "classification",
+      "latex": "--------sph\\ inx\\ lines--------",
+      "reason": "not a supported renderable geometry form"
+    }
+  ],
+  "unsupported_count": 10,
+  "valid": true
+}

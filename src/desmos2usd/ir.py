@@ -1,8 +1,25 @@
 from __future__ import annotations
 
+import re
 from dataclasses import dataclass, field
 from math import isfinite
 from typing import Any
+
+
+GRAPHING_SYNTAX_RE = re.compile(r"[=<>(),{}\[\]^*/+|]")
+LATEX_COMMAND_RE = re.compile(r"\\[A-Za-z]+")
+ESCAPED_SPACE_RE = re.compile(r"\\[ ,;:]+")
+LABEL_TEXT_RE = re.compile(r"[A-Za-z0-9\s:;.'\"!?&\\-]+")
+
+
+def looks_like_non_graphable_label_latex(latex: str) -> bool:
+    text = latex.strip()
+    if not text or GRAPHING_SYNTAX_RE.search(text):
+        return False
+    normalized = ESCAPED_SPACE_RE.sub(" ", text)
+    normalized = LATEX_COMMAND_RE.sub("A", normalized)
+    normalized = normalized.replace("\\", " ")
+    return bool(LABEL_TEXT_RE.fullmatch(normalized.strip()))
 
 
 @dataclass(frozen=True)
@@ -32,7 +49,11 @@ class ExpressionIR:
     def renderable_candidate(self) -> bool:
         if self.type not in {"expression", "table"}:
             return False
-        return bool(self.latex.strip()) and not self.hidden
+        if not self.latex.strip() or self.hidden:
+            return False
+        if self.type == "expression" and looks_like_non_graphable_label_latex(self.latex):
+            return False
+        return True
 
 
 @dataclass
