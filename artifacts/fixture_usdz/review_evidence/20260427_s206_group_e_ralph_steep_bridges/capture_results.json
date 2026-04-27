@@ -1,0 +1,33 @@
+{
+  "captured_at": "2026-04-27 10:37 +08",
+  "desmos_url": "https://www.desmos.com/3d/cg2sd6h1ws",
+  "browser_capture": {
+    "status": "blocked",
+    "desmos_screenshots": [],
+    "viewer_screenshots": [],
+    "attempts": [
+      "mcp__playwright.browser_navigate https://www.desmos.com/3d/cg2sd6h1ws -> user cancelled MCP tool call",
+      "mcp__chrome_devtools.new_page https://www.desmos.com/3d/cg2sd6h1ws -> user cancelled MCP tool call",
+      "mcp__chrome_devtools.new_page file:///Users/chek/repos/desmos2usd-carey/viewer/index.html?usda=../artifacts/fixture_usdz/%5B4B%5D%203D%20Diagram%20-%20S2-06%20Group%20E.usda&label=S2-06%20Group%20E -> user cancelled MCP tool call",
+      "mcp__playwright.browser_navigate file:///Users/chek/repos/desmos2usd-carey/viewer/index.html?usda=../artifacts/fixture_usdz/%5B4B%5D%203D%20Diagram%20-%20S2-06%20Group%20E.usda&label=S2-06%20Group%20E -> user cancelled MCP tool call",
+      "python3 -m http.server 8765 --bind 127.0.0.1 -> PermissionError: [Errno 1] Operation not permitted"
+    ],
+    "tailnet_route_checks": [
+      "curl -I --max-time 8 https://chq.singapura-broadnose.ts.net/ -> curl: (6) Could not resolve host: chq.singapura-broadnose.ts.net",
+      "curl -I --max-time 8 https://chq.singapura-broadnose.ts.net/viewer/ -> curl: (6) Could not resolve host: chq.singapura-broadnose.ts.net",
+      "curl -I --max-time 8 https://chq.singapura-broadnose.ts.net/artifacts/fixture_usdz/summary.json -> curl: (6) Could not resolve host: chq.singapura-broadnose.ts.net"
+    ],
+    "claim": "No live Desmos/viewer parity claim; deterministic local projections only."
+  },
+  "local_projection_evidence": [
+    "S2-06_Group_E_projection_before.png",
+    "S2-06_Group_E_projection_after.png",
+    "S2-08_Group_E_projection_guard_after.png",
+    "S2-09_Group_F_projection_guard_after.png"
+  ],
+  "viewer_urls": {
+    "S2-06_Group_E": "https://chq.singapura-broadnose.ts.net/viewer/?usda=..%2Fartifacts%2Ffixture_usdz%2F%5B4B%5D%203D%20Diagram%20-%20S2-06%20Group%20E.usda&label=%5B4B%5D%203D%20Diagram%20-%20S2-06%20Group%20E",
+    "S2-08_Group_E": "https://chq.singapura-broadnose.ts.net/viewer/?usda=..%2Fartifacts%2Ffixture_usdz%2F%5B4B%5D%203D%20Diagram%20-%20S2-08%20Group%20E.usda&label=%5B4B%5D%203D%20Diagram%20-%20S2-08%20Group%20E",
+    "S2-09_Group_F": "https://chq.singapura-broadnose.ts.net/viewer/?usda=..%2Fartifacts%2Ffixture_usdz%2F%5B4B%5D%203D%20Diagram%20-%20S2-09%20Group%20F.usda&label=%5B4B%5D%203D%20Diagram%20-%20S2-09%20Group%20F"
+  }
+}

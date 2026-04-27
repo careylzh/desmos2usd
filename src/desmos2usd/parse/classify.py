@@ -1,5 +1,9 @@
 from __future__ import annotations
 
+import colorsys
+import hashlib
+import math
+import random as py_random
 import re
 from dataclasses import dataclass, field
 from itertools import product
@@ -45,6 +49,7 @@ class ClassifiedExpression:
     expression: LatexExpression | None = None
     inequality: ComparisonPredicate | None = None
     vector: VectorExpression | None = None
+    point_list: tuple[VectorExpression, ...] | None = None
     triangle_mesh: TriangleMeshExpression | None = None
     parameter: str = "t"
     t_bounds: tuple[float, float] = (0.0, 1.0)
@@ -71,7 +76,10 @@ class DefinitionRegistrationResult:
 
 
 def classify_graph(graph: GraphIR) -> ClassificationResult:
-    context = EvalContext(degree_mode=bool(graph.source.view_metadata.get("degree_mode")))
+    context = EvalContext(
+        degree_mode=bool(graph.source.view_metadata.get("degree_mode")),
+        random_seed=str(graph.raw_state.get("randomSeed") or graph.source.graph_hash or ""),
+    )
     classified: list[ClassifiedExpression] = []
     registration = register_definitions(graph.expressions, context)
     for expr, exc in registration.failures:
@@ -169,9 +177,9 @@ def register_definition(expr: ExpressionIR, context: EvalContext) -> bool:
         return True
 
     if looks_like_ignored_definition(rhs):
-        rgb = parse_rgb_definition(rhs, context)
-        if rgb is not None:
-            context.colors[name] = rgb
+        color = parse_color_definition(rhs, context)
+        if color is not None:
+            context.colors[name] = color
         return True
 
     try:
@@ -413,8 +421,21 @@ def classify_expression(expr: ExpressionIR, context: EvalContext) -> ClassifiedE
         triangle_mesh = parse_triangle_mesh(main, context)
         return ClassifiedExpression(ir=expr, kind="triangle_mesh", predicates=predicates, triangle_mesh=triangle_mesh)
 
-    if looks_like_vector(main):
-        vector = parse_vector(main, context)
+    if looks_like_sphere(main):
+        expression = parse_sphere_surface(main, context)
+        return ClassifiedExpression(ir=expr, kind="implicit_surface", predicates=predicates, expression=expression)
+
+    point_list = parse_renderable_vector_list_expression(main, context)
+    if point_list is not None:
+        return ClassifiedExpression(
+            ir=expr,
+            kind="point_list_curve",
+            predicates=predicates,
+            point_list=point_list,
+        )
+
+    vector = parse_renderable_vector_expression(main, context)
+    if vector is not None:
         vector_identifiers = set().union(*(component.identifiers for component in vector.components))
         if {"u", "v"} <= vector_identifiers:
             return ClassifiedExpression(
@@ -510,32 +531,212 @@ def predicate_identifiers(predicates: list[ComparisonPredicate]) -> set[str]:
 
 def looks_like_ignored_definition(rhs: str) -> bool:
     normalized = normalize_latex_delimiters(rhs)
-    return normalized.startswith("\\operatorname{rgb}")
+    return color_function_call(normalized) is not None
 
 
-RGB_PREFIX = "\\operatorname{rgb}"
+COLOR_FUNCTION_NAMES = ("rgb", "hsv", "okhsv")
 
 
 def parse_rgb_definition(rhs: str, context: EvalContext) -> tuple[int, int, int] | None:
-    normalized = normalize_latex_delimiters(rhs).strip()
-    if not normalized.startswith(RGB_PREFIX):
+    return parse_color_definition(rhs, context, allowed_names={"rgb"})
+
+
+def parse_color_definition(
+    rhs: str,
+    context: EvalContext,
+    *,
+    allowed_names: set[str] | None = None,
+) -> tuple[int, int, int] | None:
+    call = color_function_call(rhs)
+    if call is None:
         return None
-    remainder = normalized[len(RGB_PREFIX):].lstrip()
-    if not remainder.startswith("(") or not remainder.endswith(")"):
+    name, args = call
+    if allowed_names is not None and name not in allowed_names:
         return None
-    parts = split_top_level(remainder[1:-1], ",")
-    if len(parts) != 3:
+    if len(args) != 3:
         return None
-    channels: list[int] = []
-    for part in parts:
-        if not part:
+    values: list[float] = []
+    for arg in args:
+        if not arg:
             return None
         try:
-            value = LatexExpression.parse(part).eval(context, {})
+            values.append(LatexExpression.parse(arg).eval(context, {}))
         except Exception:
             return None
-        channels.append(max(0, min(255, int(round(value)))))
-    return (channels[0], channels[1], channels[2])
+    if name == "rgb":
+        return (clamp_rgb8(values[0]), clamp_rgb8(values[1]), clamp_rgb8(values[2]))
+    hue, saturation, value = values
+    if name == "hsv":
+        return hsv_to_rgb8(hue, saturation, value)
+    if name == "okhsv":
+        return okhsv_to_rgb8(hue, saturation, value)
+    return None
+
+
+def color_function_call(text: str) -> tuple[str, list[str]] | None:
+    normalized = normalize_latex_delimiters(text).strip()
+    for name in COLOR_FUNCTION_NAMES:
+        for prefix in (f"\\operatorname{{{name}}}", name):
+            if not normalized.startswith(prefix):
+                continue
+            remainder = normalized[len(prefix):].lstrip()
+            if not remainder.startswith("(") or not remainder.endswith(")"):
+                return None
+            return name, split_top_level(remainder[1:-1], ",")
+    return None
+
+
+def clamp_rgb8(value: float) -> int:
+    return max(0, min(255, int(round(value))))
+
+
+def clamp_unit(value: float) -> float:
+    return max(0.0, min(1.0, float(value)))
+
+
+def rgb_float_to_rgb8(red: float, green: float, blue: float) -> tuple[int, int, int]:
+    return (
+        clamp_rgb8(clamp_unit(red) * 255.0),
+        clamp_rgb8(clamp_unit(green) * 255.0),
+        clamp_rgb8(clamp_unit(blue) * 255.0),
+    )
+
+
+def hsv_to_rgb8(hue: float, saturation: float, value: float) -> tuple[int, int, int]:
+    red, green, blue = colorsys.hsv_to_rgb(
+        (float(hue) % 360.0) / 360.0,
+        clamp_unit(saturation),
+        clamp_unit(value),
+    )
+    return rgb_float_to_rgb8(red, green, blue)
+
+
+def okhsv_to_rgb8(hue: float, saturation: float, value: float) -> tuple[int, int, int]:
+    red, green, blue = okhsv_to_srgb(
+        (float(hue) % 360.0) / 360.0,
+        clamp_unit(saturation),
+        clamp_unit(value),
+    )
+    return rgb_float_to_rgb8(red, green, blue)
+
+
+def okhsv_to_srgb(hue: float, saturation: float, value: float) -> tuple[float, float, float]:
+    # Python port of Bjorn Ottosson's MIT-licensed OKHSV reference algorithm,
+    # Copyright (c) 2021 Bjorn Ottosson.
+    if value <= 0.0:
+        return (0.0, 0.0, 0.0)
+    a_ = math.cos(2.0 * math.pi * hue)
+    b_ = math.sin(2.0 * math.pi * hue)
+
+    cusp_l, cusp_c = ok_find_cusp(a_, b_)
+    s_max = cusp_c / cusp_l
+    t_max = cusp_c / (1.0 - cusp_l)
+    s_0 = 0.5
+    k = 1.0 - s_0 / s_max
+    denominator = s_0 + t_max - t_max * k * saturation
+    if denominator == 0.0:
+        return (0.0, 0.0, 0.0)
+
+    l_v = 1.0 - saturation * s_0 / denominator
+    c_v = saturation * t_max * s_0 / denominator
+    lightness = value * l_v
+    chroma = value * c_v
+    if lightness <= 0.0:
+        return (0.0, 0.0, 0.0)
+
+    l_vt = ok_toe_inv(l_v)
+    c_vt = c_v * l_vt / l_v
+    lightness_new = ok_toe_inv(lightness)
+    chroma = chroma * lightness_new / lightness
+    lightness = lightness_new
+
+    scale_rgb = ok_oklab_to_linear_srgb(l_vt, a_ * c_vt, b_ * c_vt)
+    scale_max = max(scale_rgb[0], scale_rgb[1], scale_rgb[2], 0.0)
+    if scale_max <= 0.0:
+        return (0.0, 0.0, 0.0)
+    scale_l = (1.0 / scale_max) ** (1.0 / 3.0)
+
+    lightness *= scale_l
+    chroma *= scale_l
+    linear = ok_oklab_to_linear_srgb(lightness, chroma * a_, chroma * b_)
+    return (
+        ok_srgb_transfer(linear[0]),
+        ok_srgb_transfer(linear[1]),
+        ok_srgb_transfer(linear[2]),
+    )
+
+
+def ok_toe_inv(value: float) -> float:
+    k_1 = 0.206
+    k_2 = 0.03
+    k_3 = (1.0 + k_1) / (1.0 + k_2)
+    return (value * value + k_1 * value) / (k_3 * (value + k_2))
+
+
+def ok_oklab_to_linear_srgb(lightness: float, a: float, b: float) -> tuple[float, float, float]:
+    l_ = lightness + 0.3963377774 * a + 0.2158037573 * b
+    m_ = lightness - 0.1055613458 * a - 0.0638541728 * b
+    s_ = lightness - 0.0894841775 * a - 1.2914855480 * b
+
+    l = l_ * l_ * l_
+    m = m_ * m_ * m_
+    s = s_ * s_ * s_
+
+    return (
+        4.0767416621 * l - 3.3077115913 * m + 0.2309699292 * s,
+        -1.2684380046 * l + 2.6097574011 * m - 0.3413193965 * s,
+        -0.0041960863 * l - 0.7034186147 * m + 1.7076147010 * s,
+    )
+
+
+def ok_srgb_transfer(value: float) -> float:
+    if value <= 0.0031308:
+        return 12.92 * value
+    return 1.055 * (value ** (1.0 / 2.4)) - 0.055
+
+
+def ok_compute_max_saturation(a: float, b: float) -> float:
+    if -1.88170328 * a - 0.80936493 * b > 1.0:
+        k0, k1, k2, k3, k4 = 1.19086277, 1.76576728, 0.59662641, 0.75515197, 0.56771245
+        wl, wm, ws = 4.0767416621, -3.3077115913, 0.2309699292
+    elif 1.81444104 * a - 1.19445276 * b > 1.0:
+        k0, k1, k2, k3, k4 = 0.73956515, -0.45954404, 0.08285427, 0.12541070, 0.14503204
+        wl, wm, ws = -1.2684380046, 2.6097574011, -0.3413193965
+    else:
+        k0, k1, k2, k3, k4 = 1.35733652, -0.00915799, -1.15130210, -0.50559606, 0.00692167
+        wl, wm, ws = -0.0041960863, -0.7034186147, 1.7076147010
+
+    sat = k0 + k1 * a + k2 * b + k3 * a * a + k4 * a * b
+    k_l = 0.3963377774 * a + 0.2158037573 * b
+    k_m = -0.1055613458 * a - 0.0638541728 * b
+    k_s = -0.0894841775 * a - 1.2914855480 * b
+
+    l_ = 1.0 + sat * k_l
+    m_ = 1.0 + sat * k_m
+    s_ = 1.0 + sat * k_s
+    l = l_ * l_ * l_
+    m = m_ * m_ * m_
+    s = s_ * s_ * s_
+    l_ds = 3.0 * k_l * l_ * l_
+    m_ds = 3.0 * k_m * m_ * m_
+    s_ds = 3.0 * k_s * s_ * s_
+    l_ds2 = 6.0 * k_l * k_l * l_
+    m_ds2 = 6.0 * k_m * k_m * m_
+    s_ds2 = 6.0 * k_s * k_s * s_
+    f = wl * l + wm * m + ws * s
+    f1 = wl * l_ds + wm * m_ds + ws * s_ds
+    f2 = wl * l_ds2 + wm * m_ds2 + ws * s_ds2
+    return sat - f * f1 / (f1 * f1 - 0.5 * f * f2)
+
+
+def ok_find_cusp(a: float, b: float) -> tuple[float, float]:
+    saturation = ok_compute_max_saturation(a, b)
+    rgb_at_max = ok_oklab_to_linear_srgb(1.0, saturation * a, saturation * b)
+    max_component = max(rgb_at_max)
+    if max_component <= 0.0:
+        return (1.0, 0.0)
+    cusp_l = (1.0 / max_component) ** (1.0 / 3.0)
+    return cusp_l, cusp_l * saturation
 
 
 def resolve_color_latex(color_latex: str | None, context: EvalContext) -> tuple[int, int, int] | None:
@@ -545,8 +746,9 @@ def resolve_color_latex(color_latex: str | None, context: EvalContext) -> tuple[
     if not text:
         return None
     normalized = normalize_latex_delimiters(text).strip()
-    if normalized.startswith(RGB_PREFIX):
-        return parse_rgb_definition(normalized, context)
+    color = parse_color_definition(normalized, context)
+    if color is not None:
+        return color
     try:
         identifier = normalize_identifier(normalized)
     except Exception:
@@ -939,6 +1141,13 @@ def expand_literal_list_expression(expr: ExpressionIR, context: EvalContext) -> 
     return expanded
 
 
+@dataclass(frozen=True)
+class RandomCallSpan:
+    start: int
+    end: int
+    values: tuple[float, ...]
+
+
 def expand_list_expression(expr: ExpressionIR, context: EvalContext) -> list[ExpressionIR]:
     resolved_latex = replace_list_index_references(expr.latex, context)
     if resolved_latex != expr.latex:
@@ -956,29 +1165,46 @@ def expand_list_expression(expr: ExpressionIR, context: EvalContext) -> list[Exp
             type=expr.type,
             raw=raw,
         )
+    main, restriction_texts = split_restrictions(expr.latex)
+    random_main_spans, next_random_occurrence = random_call_spans(main, context, expr.expr_id)
+    random_restriction_spans: list[list[RandomCallSpan]] = []
+    for restriction in restriction_texts:
+        spans, next_random_occurrence = random_call_spans(restriction, context, expr.expr_id, next_random_occurrence)
+        random_restriction_spans.append(spans)
+    has_random_calls = bool(random_main_spans) or any(random_restriction_spans)
     names = [name for name in context.lists if latex_identifier_present(expr.latex, name)]
-    if not names:
+    if not names and not has_random_calls:
         return expand_literal_list_expression(expr, context)
+
     lengths = {len(context.lists[name]) for name in names}
+    lengths.update(len(span.values) for span in random_main_spans)
+    for spans in random_restriction_spans:
+        lengths.update(len(span.values) for span in spans)
     if len(lengths) != 1:
-        raise ValueError(f"Expression references lists with mismatched lengths: {', '.join(names)}")
+        sources = [*names]
+        if has_random_calls:
+            sources.append("random")
+        raise ValueError(f"Expression references lists with mismatched lengths: {', '.join(sources)}")
     count = lengths.pop()
     expanded: list[ExpressionIR] = []
     for index in range(count):
-        main, restriction_texts = split_restrictions(expr.latex)
-        latex = main
+        latex = replace_random_calls(main, random_main_spans, index)
         for name in names:
             latex = replace_latex_identifier(latex, name, repr(context.lists[name][index]))
         latex = replace_list_index_references(latex, context)
         expanded_restrictions: list[str] = []
-        for restriction in restriction_texts:
-            replaced_restriction = restriction
+        for restriction, random_spans in zip(restriction_texts, random_restriction_spans, strict=True):
+            replaced_restriction = replace_random_calls(restriction, random_spans, index)
             for name in names:
                 replaced_restriction = replace_latex_identifier(replaced_restriction, name, repr(context.lists[name][index]))
             replaced_restriction = replace_list_index_references(replaced_restriction, context)
             expanded_restrictions.append(select_broadcast_restriction(replaced_restriction, index, count))
         raw = dict(expr.raw)
-        raw["expandedFromListExpression"] = expr.expr_id
+        if names:
+            raw["expandedFromListExpression"] = expr.expr_id
+        if has_random_calls:
+            raw["expandedFromRandomExpression"] = expr.expr_id
+            raw["randomListLimit"] = context.random_list_limit
         raw["listIndex"] = index
         expanded.extend(
             expand_literal_list_expression(
@@ -998,6 +1224,81 @@ def expand_list_expression(expr: ExpressionIR, context: EvalContext) -> list[Exp
             )
         )
     return expanded
+
+
+def random_call_spans(
+    text: str,
+    context: EvalContext,
+    expr_id: str,
+    occurrence_start: int = 0,
+) -> tuple[list[RandomCallSpan], int]:
+    spans: list[RandomCallSpan] = []
+    occurrence = occurrence_start
+    index = 0
+    while index < len(text):
+        match = random_call_prefix_at(text, index)
+        if match is None:
+            index += 1
+            continue
+        prefix_start, prefix_end = match
+        open_at = prefix_end
+        while open_at < len(text) and text[open_at].isspace():
+            open_at += 1
+        if open_at >= len(text) or text[open_at] != "(":
+            index += 1
+            continue
+        close_at = matching_paren(text, open_at)
+        count = random_call_count(text[open_at + 1 : close_at], context)
+        values = deterministic_random_values(context, expr_id, occurrence, count)
+        spans.append(RandomCallSpan(prefix_start, close_at + 1, values))
+        occurrence += 1
+        index = close_at + 1
+    return spans, occurrence
+
+
+def random_call_prefix_at(text: str, index: int) -> tuple[int, int] | None:
+    prefixes = (r"\operatorname{random}", "random")
+    for prefix in prefixes:
+        if not text.startswith(prefix, index):
+            continue
+        before = text[index - 1] if index > 0 else ""
+        after = text[index + len(prefix)] if index + len(prefix) < len(text) else ""
+        if prefix == "random" and (before.isalnum() or before in "_\\"):
+            continue
+        if after and (after.isalnum() or after == "_"):
+            continue
+        return index, index + len(prefix)
+    return None
+
+
+def random_call_count(arg_text: str, context: EvalContext) -> int:
+    value = LatexExpression.parse(arg_text).eval(context, {})
+    count = int(round(value))
+    if abs(value - count) > 1e-9 or count <= 0:
+        raise ValueError(f"random() expects a positive integer count, got {arg_text!r}")
+    return count
+
+
+def deterministic_random_values(context: EvalContext, expr_id: str, occurrence: int, count: int) -> tuple[float, ...]:
+    capped_count = min(count, max(1, context.random_list_limit))
+    seed = context.random_seed or "desmos2usd"
+    material = f"{seed}:{expr_id}:{occurrence}:{count}".encode("utf-8")
+    seed_int = int.from_bytes(hashlib.blake2b(material, digest_size=16).digest(), "big")
+    rng = py_random.Random(seed_int)
+    return tuple(rng.random() for _ in range(capped_count))
+
+
+def replace_random_calls(text: str, spans: list[RandomCallSpan], list_index: int) -> str:
+    if not spans:
+        return text
+    output: list[str] = []
+    cursor = 0
+    for span in spans:
+        output.append(text[cursor : span.start])
+        output.append(repr(span.values[list_index]))
+        cursor = span.end
+    output.append(text[cursor:])
+    return "".join(output)
 
 
 def latex_identifier_present(text: str, identifier: str) -> bool:
@@ -1067,6 +1368,39 @@ def looks_like_vector(text: str) -> bool:
     return False
 
 
+def parse_renderable_vector_expression(text: str, context: EvalContext) -> VectorExpression | None:
+    if not looks_like_vector(text) and not references_known_vector(text, context):
+        return None
+    try:
+        return parse_vector(text, context)
+    except Exception:
+        if looks_like_vector(text):
+            raise
+        return None
+
+
+def parse_renderable_vector_list_expression(text: str, context: EvalContext) -> tuple[VectorExpression, ...] | None:
+    if not looks_like_vector_list(text):
+        return None
+    vectors = tuple(parse_vector_list(text, context))
+    if len(vectors) < 2:
+        raise ValueError("Vector list renderable requires at least two points")
+    identifiers = {
+        identifier
+        for vector in vectors
+        for component in vector.components
+        for identifier in component.identifiers
+    }
+    if identifiers & GRAPH_VARIABLES:
+        raise ValueError("Vector list renderable entries must be static 3D points")
+    return vectors
+
+
+def references_known_vector(text: str, context: EvalContext) -> bool:
+    normalized = normalize_latex_delimiters(text)
+    return any(latex_identifier_present(normalized, name) for name in context.vectors)
+
+
 def matching_paren(text: str, start: int) -> int:
     depth = 0
     for index in range(start, len(text)):
@@ -1127,10 +1461,52 @@ def expand_vector_expression(text: str, context: EvalContext) -> str:
             scalar = left_text
             vector = parse_vector_components(right_text, context)
         return "(" + ",".join(f"(({scalar})*({component}))" for component in vector) + ")"
+    implicit_product = split_implicit_vector_product(s, context)
+    if implicit_product is not None:
+        scalar, vector_text = implicit_product
+        vector = parse_vector_components(vector_text, context)
+        return "(" + ",".join(f"(({scalar})*({component}))" for component in vector) + ")"
     name = normalize_identifier_safe(s)
     if name in context.vectors:
         return "(" + ",".join(repr(v) for v in context.vectors[name]) + ")"
     return s
+
+
+def split_implicit_vector_product(text: str, context: EvalContext) -> tuple[str, str] | None:
+    open_at = find_top_level_implicit_vector_product_open(text)
+    if open_at <= 0:
+        return None
+    try:
+        close_at = matching_paren(text, open_at)
+    except ValueError:
+        return None
+    if close_at != len(text) - 1:
+        return None
+    scalar = text[:open_at].strip()
+    vector_text = text[open_at + 1 : close_at].strip()
+    if not scalar or not vector_text:
+        return None
+    try:
+        scalar_expr = LatexExpression.parse(scalar)
+    except Exception:
+        return None
+    if scalar_expr.identifiers & set(context.vectors):
+        return None
+    if not references_known_vector(vector_text, context) and not looks_like_vector(vector_text):
+        return None
+    return scalar, vector_text
+
+
+def find_top_level_implicit_vector_product_open(text: str) -> int:
+    depth = 0
+    for index, char in enumerate(text):
+        if char == "(":
+            if depth == 0:
+                return index
+            depth += 1
+        elif char == ")":
+            depth -= 1
+    return -1
 
 
 SEGMENT_PREFIX = "\\operatorname{segment}"
@@ -1195,6 +1571,41 @@ def parse_triangle_mesh(text: str, context: EvalContext) -> TriangleMeshExpressi
     else:
         triangles = ((parse_vector(args[0], context), parse_vector(args[1], context), parse_vector(args[2], context)),)
     return TriangleMeshExpression(raw=normalized, triangles=triangles)
+
+
+SPHERE_PREFIX = "\\operatorname{sphere}"
+
+
+def looks_like_sphere(text: str) -> bool:
+    return normalize_latex_delimiters(text).lstrip().startswith(SPHERE_PREFIX)
+
+
+def parse_sphere_surface(text: str, context: EvalContext) -> LatexExpression:
+    normalized = normalize_latex_delimiters(text).strip()
+    if not normalized.startswith(SPHERE_PREFIX):
+        raise ValueError(f"Expected sphere expression, got {text!r}")
+    open_at = len(SPHERE_PREFIX)
+    while open_at < len(normalized) and normalized[open_at].isspace():
+        open_at += 1
+    if open_at >= len(normalized) or normalized[open_at] != "(":
+        raise ValueError(f"Malformed sphere expression: {text!r}")
+    close_at = matching_paren(normalized, open_at)
+    tail = normalized[close_at + 1 :].strip()
+    if tail and any(char != ")" for char in tail):
+        raise ValueError(f"Unsupported sphere expression tail: {tail!r}")
+    args = split_top_level(normalized[open_at + 1 : close_at], ",")
+    if len(args) != 2:
+        raise ValueError(f"sphere() expects 2 arguments, got {len(args)}")
+    center = parse_vector_components(args[0], context)
+    radius = LatexExpression.parse(args[1])
+    if radius.identifiers & GRAPH_VARIABLES:
+        raise ValueError("sphere() radius must be scalar")
+    for component in center:
+        parsed = LatexExpression.parse(component)
+        if parsed.identifiers & GRAPH_VARIABLES:
+            raise ValueError("sphere() center must be scalar")
+    cx, cy, cz = center
+    return LatexExpression.parse(f"(x-({cx}))^2+(y-({cy}))^2+(z-({cz}))^2-({args[1]})^2")
 
 
 def looks_like_vector_list(text: str) -> bool:

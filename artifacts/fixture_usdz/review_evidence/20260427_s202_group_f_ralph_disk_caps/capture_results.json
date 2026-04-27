@@ -1,0 +1,30 @@
+{
+  "desmos_url": "https://www.desmos.com/3d/1zpiejy9c9",
+  "evidence_dir": "artifacts/fixture_usdz/review_evidence/20260427_s202_group_f_ralph_disk_caps",
+  "local_http_viewer": {
+    "command": "python3 -m http.server 8765 --bind 127.0.0.1",
+    "ok": false,
+    "stderr": "PermissionError: [Errno 1] Operation not permitted"
+  },
+  "playwright_desmos": {
+    "ok": false,
+    "url": "https://www.desmos.com/3d/1zpiejy9c9",
+    "result": "user cancelled MCP tool call"
+  },
+  "chrome_desmos": {
+    "ok": false,
+    "url": "https://www.desmos.com/3d/1zpiejy9c9",
+    "result": "user cancelled MCP tool call"
+  },
+  "chrome_file_viewer": {
+    "ok": false,
+    "url": "file:///Users/chek/repos/desmos2usd-carey/viewer/index.html?usda=..%2Fartifacts%2Ffixture_usdz%2F%5B4B%5D%203D%20Diagram%20-%20S2-02%20Group%20F.usda&label=S2-02%20Group%20F",
+    "result": "user cancelled MCP tool call"
+  },
+  "tailscale_routes": {
+    "root": "curl: (6) Could not resolve host: chq.singapura-broadnose.ts.net",
+    "viewer": "curl: (6) Could not resolve host: chq.singapura-broadnose.ts.net",
+    "summary": "curl: (6) Could not resolve host: chq.singapura-broadnose.ts.net"
+  },
+  "visual_claim": "No live Desmos or live viewer parity claim; browser-capable capture was blocked. Local deterministic projection evidence only."
+}

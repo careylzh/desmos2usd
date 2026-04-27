@@ -1,0 +1,18 @@
+{
+  "classification_unsupported_count": 0,
+  "classified_expression_count": 888,
+  "complete": false,
+  "export_unsupported_count": 1,
+  "fixture": "[4B] 3D Diagram - S2-07 Group F.json",
+  "prim_count": 887,
+  "unsupported": [
+    {
+      "expr_id": "325",
+      "kind": "inequality_region",
+      "latex": "(x-u)^{2}+(y-v)^{2}\\le w^{2}q-t/2\\le z\\le q+t/2\\ \\left\\{5<z<5.9\\right\\}",
+      "reason": "Inequality region for 325 did not resolve to sampled cells"
+    }
+  ],
+  "unsupported_count": 1,
+  "valid": true
+}

@@ -1,12 +1,15 @@
 from __future__ import annotations
 
 import ast
-from math import isfinite, sqrt
+from collections.abc import Callable
+from dataclasses import dataclass, replace
+from math import cos, isfinite, pi, sin, sqrt
+from typing import Any
 
 from desmos2usd.eval.context import EvalContext
 from desmos2usd.parse.classify import ClassifiedExpression
 from desmos2usd.parse.latex_subset import LatexExpression
-from desmos2usd.parse.predicates import collect_constant_bounds
+from desmos2usd.parse.predicates import ComparisonPredicate, collect_constant_bounds
 from desmos2usd.tessellate.mesh import GeometryData, Point, linspace, quad_faces
 
 
@@ -18,6 +21,7 @@ QUAD_BOUNDARY_REFINE_ITERATIONS = 8
 HALF_OPEN_TOL = 1e-5
 BOUNDARY_NUDGE = 2e-5
 DEGENERATE_AXIS_HALF_WIDTH = 5e-4
+STEEP_EXPLICIT_SURFACE_SLOPE = 1e8
 
 
 def tessellate_explicit_surface(
@@ -28,7 +32,15 @@ def tessellate_explicit_surface(
 ) -> GeometryData:
     if not item.axis or not item.expression:
         raise ValueError("explicit surface missing axis or expression")
+    flat_disk = tessellate_constant_explicit_surface_disk(item, context, resolution)
+    if flat_disk is not None:
+        return flat_disk
     domain_axes = [axis for axis in ("x", "y", "z") if axis != item.axis]
+    reoriented = reorient_steep_explicit_surface(item, context, domain_axes)
+    if reoriented is not None:
+        geometry = tessellate_explicit_surface(reoriented, context, resolution=resolution)
+        if geometry.face_count:
+            return geometry
     surface_bounds = explicit_surface_domain_bounds(item, context)
     flat_axis = _explicit_flat_axis(item, domain_axes, collect_constant_bounds(item.predicates, context))
     a0, a1 = surface_bounds[domain_axes[0]]
@@ -86,6 +98,138 @@ def tessellate_explicit_surface(
     if counts and _solved_axis_entirely_outside_viewport(item, points, indices):
         return GeometryData(kind="Mesh", points=[], face_vertex_counts=[], face_vertex_indices=[])
     return GeometryData(kind="Mesh", points=points, face_vertex_counts=counts, face_vertex_indices=indices)
+
+
+def tessellate_constant_explicit_surface_disk(
+    item: ClassifiedExpression,
+    context: EvalContext,
+    resolution: int,
+) -> GeometryData | None:
+    if not item.axis or not item.expression or item.expression.identifiers & {"x", "y", "z"}:
+        return None
+    try:
+        flat_value = float(item.expression.eval(context, {}))
+    except Exception:
+        return None
+    if not isfinite(flat_value):
+        return None
+    shape_axes = tuple(axis for axis in ("x", "y", "z") if axis != item.axis)
+    segment_count = max(24, min(160, resolution * 4))
+    for predicate in item.predicates:
+        residual = signed_residual_for_disk_predicate(predicate)
+        if residual is None:
+            continue
+        profile = fit_constant_surface_disk_profile(context, residual, shape_axes, item.axis, flat_value)
+        if profile is None:
+            continue
+        geometry = build_flat_disk_mesh(shape_axes, item.axis, flat_value, profile, segment_count)
+        if constant_disk_vertices_satisfy_predicates(item, context, geometry):
+            return geometry
+    return None
+
+
+def signed_residual_for_disk_predicate(
+    predicate: ComparisonPredicate,
+) -> Callable[[EvalContext, dict[str, float]], float] | None:
+    if len(predicate.terms) != 2 or len(predicate.ops) != 1:
+        return None
+    left, right = predicate.terms
+    op = predicate.ops[0]
+    if op in {"<", "<="}:
+        return lambda ctx, variables: left.eval(ctx, variables) - right.eval(ctx, variables)
+    if op in {">", ">="}:
+        return lambda ctx, variables: right.eval(ctx, variables) - left.eval(ctx, variables)
+    return None
+
+
+def fit_constant_surface_disk_profile(
+    context: EvalContext,
+    residual: Callable[[EvalContext, dict[str, float]], float],
+    shape_axes: tuple[str, str],
+    flat_axis: str,
+    flat_value: float,
+) -> Any | None:
+    from desmos2usd.tessellate.cylinders import fit_circle_profile
+
+    return fit_circle_profile(context, residual, shape_axes, flat_axis, flat_value)
+
+
+def build_flat_disk_mesh(
+    shape_axes: tuple[str, str],
+    flat_axis: str,
+    flat_value: float,
+    profile: Any,
+    segment_count: int,
+) -> GeometryData:
+    points: list[Point] = []
+    radius_a, radius_b = profile.radii
+    for segment in range(segment_count):
+        angle = 2.0 * pi * segment / segment_count
+        variables = {
+            shape_axes[0]: profile.center[0] + radius_a * cos(angle),
+            shape_axes[1]: profile.center[1] + radius_b * sin(angle),
+            flat_axis: flat_value,
+        }
+        points.append(point_from_variables(variables))
+    center_index = len(points)
+    points.append(
+        point_from_variables(
+            {
+                shape_axes[0]: profile.center[0],
+                shape_axes[1]: profile.center[1],
+                flat_axis: flat_value,
+            }
+        )
+    )
+    counts: list[int] = []
+    indices: list[int] = []
+    for segment in range(segment_count):
+        next_segment = (segment + 1) % segment_count
+        counts.append(3)
+        indices.extend([center_index, segment, next_segment])
+    return GeometryData(kind="Mesh", points=points, face_vertex_counts=counts, face_vertex_indices=indices)
+
+
+def constant_disk_vertices_satisfy_predicates(
+    item: ClassifiedExpression,
+    context: EvalContext,
+    geometry: GeometryData,
+) -> bool:
+    for index in set(geometry.face_vertex_indices):
+        point = geometry.points[index]
+        variables = {"x": point[0], "y": point[1], "z": point[2]}
+        if not explicit_surface_predicates_satisfied(item, context, variables):
+            return False
+    return True
+
+
+def reorient_steep_explicit_surface(
+    item: ClassifiedExpression,
+    context: EvalContext,
+    domain_axes: list[str],
+) -> ClassifiedExpression | None:
+    """Solve near-vertical affine explicit surfaces for the better sampling axis.
+
+    A generated surface like ``y=m*x+b`` with ``abs(m)`` in the trillions is really a
+    near-vertical sheet. Sampling x as a domain axis can miss all predicate-valid
+    points because the allowed x interval is sub-float-grid wide. Re-solving it as
+    ``x=(y-b)/m`` lets the existing explicit-surface sampler use the wide y domain
+    while preserving the same predicates and original metadata.
+    """
+    if not item.axis or not item.expression:
+        return None
+    graph_domain_axes = [axis for axis in domain_axes if axis in item.expression.identifiers]
+    if len(graph_domain_axes) != 1:
+        return None
+    reoriented_axis = graph_domain_axes[0]
+    fit = affine_fit_for_axis(item.expression, context, reoriented_axis)
+    if fit is None:
+        return None
+    slope, intercept = fit
+    if not isfinite(slope) or not isfinite(intercept) or abs(slope) <= STEEP_EXPLICIT_SURFACE_SLOPE:
+        return None
+    expression = LatexExpression.parse(f"({item.axis}-({intercept:.17g}))/({slope:.17g})")
+    return replace(item, axis=reoriented_axis, expression=expression)
 
 
 def _surface_predicates_constrain_solved_axis(item: ClassifiedExpression) -> bool:
@@ -327,6 +471,12 @@ def infer_explicit_domain_bounds(
     if sqrt_bounds is not None:
         return sqrt_bounds
 
+    affine_bounds = infer_affine_clipped_domain_bounds(item, context, domain_axes, inferred)
+    if affine_bounds is not None and all(axis_has_complete_bounds(axis, affine_bounds) for axis in domain_axes):
+        return affine_bounds
+    if affine_bounds is not None:
+        inferred = affine_bounds
+
     constants = numeric_constants_for_item(item)
     broad_low, broad_high = broad_bounds_from_constants(constants)
     ranges: dict[str, tuple[float, float]] = {}
@@ -377,6 +527,162 @@ def infer_explicit_domain_bounds(
         if low < high:
             inferred[axis] = (low, high)
     return inferred
+
+
+@dataclass(frozen=True)
+class AffineHalfPlane:
+    a: float
+    b: float
+    c: float
+
+    def evaluate(self, point: tuple[float, float]) -> float:
+        return self.a * point[0] + self.b * point[1] + self.c
+
+
+def infer_affine_clipped_domain_bounds(
+    item: ClassifiedExpression,
+    context: EvalContext,
+    domain_axes: list[str],
+    bounds: dict[str, tuple[float | None, float | None]],
+) -> dict[str, tuple[float | None, float | None]] | None:
+    if not item.axis or not item.expression or len(domain_axes) != 2:
+        return None
+    halfplanes = affine_domain_halfplanes(item, context, domain_axes)
+    if len(halfplanes) < 2:
+        return None
+
+    constants = numeric_constants_for_item(item)
+    broad_low, broad_high = broad_bounds_from_constants(constants)
+    viewport_bounds = item.ir.source.viewport_bounds or {}
+    ranges: dict[str, tuple[float, float]] = {}
+    for axis in domain_axes:
+        low, high = bounds.get(axis, (None, None))
+        viewport = viewport_bounds.get(axis)
+        sample_low = (viewport[0] if viewport is not None else broad_low) if low is None else low
+        sample_high = (viewport[1] if viewport is not None else broad_high) if high is None else high
+        if sample_low >= sample_high:
+            return None
+        ranges[axis] = (sample_low, sample_high)
+
+    a_axis, b_axis = domain_axes
+    a0, a1 = ranges[a_axis]
+    b0, b1 = ranges[b_axis]
+    polygon = [(a0, b0), (a1, b0), (a1, b1), (a0, b1)]
+    for halfplane in halfplanes:
+        polygon = clip_polygon_to_halfplane(polygon, halfplane)
+        if not polygon:
+            return None
+
+    a_values = [point[0] for point in polygon]
+    b_values = [point[1] for point in polygon]
+    if not a_values or not b_values:
+        return None
+    inferred = dict(bounds)
+    changed = False
+    for axis, values in ((a_axis, a_values), (b_axis, b_values)):
+        previous_low, previous_high = inferred.get(axis, (None, None))
+        range_low, range_high = ranges[axis]
+        polygon_low = min(values)
+        polygon_high = max(values)
+        low = previous_low
+        high = previous_high
+        if low is None and polygon_low > range_low + POLYNOMIAL_FIT_TOLERANCE:
+            low = polygon_low
+            changed = True
+        if high is None and polygon_high < range_high - POLYNOMIAL_FIT_TOLERANCE:
+            high = polygon_high
+            changed = True
+        if low is not None and high is not None and low >= high:
+            return None
+        if low is not None or high is not None:
+            inferred[axis] = (low, high)
+    return inferred if changed else None
+
+
+def affine_domain_halfplanes(
+    item: ClassifiedExpression,
+    context: EvalContext,
+    domain_axes: list[str],
+) -> list[AffineHalfPlane]:
+    halfplanes: list[AffineHalfPlane] = []
+    for predicate in item.predicates:
+        for left, op, right in zip(predicate.terms[:-1], predicate.ops, predicate.terms[1:], strict=True):
+            if op in {"<", "<="}:
+                fit = fit_affine_domain_residual(item, context, domain_axes, left, right)
+            elif op in {">", ">="}:
+                fit = fit_affine_domain_residual(item, context, domain_axes, right, left)
+            else:
+                continue
+            if fit is None:
+                continue
+            a, b, c = fit
+            if abs(a) <= POLYNOMIAL_FIT_TOLERANCE and abs(b) <= POLYNOMIAL_FIT_TOLERANCE:
+                continue
+            halfplanes.append(AffineHalfPlane(a, b, c))
+    return halfplanes
+
+
+def fit_affine_domain_residual(
+    item: ClassifiedExpression,
+    context: EvalContext,
+    domain_axes: list[str],
+    left: LatexExpression,
+    right: LatexExpression,
+) -> tuple[float, float, float] | None:
+    if not item.axis or not item.expression:
+        return None
+    a_axis, b_axis = domain_axes
+    samples = [(0.0, 0.0), (1.0, 0.0), (0.0, 1.0), (1.0, 1.0), (-1.0, 2.0)]
+    observed: list[tuple[float, float, float]] = []
+    for a_value, b_value in samples:
+        variables = {a_axis: a_value, b_axis: b_value}
+        try:
+            variables[item.axis] = item.expression.eval(context, variables)
+            value = left.eval(context, variables) - right.eval(context, variables)
+        except Exception:
+            return None
+        if not isfinite(value):
+            return None
+        observed.append((a_value, b_value, value))
+    c = observed[0][2]
+    a = observed[1][2] - c
+    b = observed[2][2] - c
+    for a_value, b_value, value in observed:
+        predicted = a * a_value + b * b_value + c
+        if abs(predicted - value) > POLYNOMIAL_FIT_TOLERANCE * max(1.0, abs(value)):
+            return None
+    return (a, b, c)
+
+
+def clip_polygon_to_halfplane(
+    polygon: list[tuple[float, float]],
+    halfplane: AffineHalfPlane,
+) -> list[tuple[float, float]]:
+    clipped: list[tuple[float, float]] = []
+    if not polygon:
+        return clipped
+    previous = polygon[-1]
+    previous_value = halfplane.evaluate(previous)
+    previous_inside = previous_value <= POLYNOMIAL_FIT_TOLERANCE
+    for current in polygon:
+        current_value = halfplane.evaluate(current)
+        current_inside = current_value <= POLYNOMIAL_FIT_TOLERANCE
+        if current_inside != previous_inside:
+            denominator = previous_value - current_value
+            if abs(denominator) > QUADRATIC_SOLVE_TOLERANCE:
+                t = previous_value / denominator
+                clipped.append(
+                    (
+                        previous[0] + t * (current[0] - previous[0]),
+                        previous[1] + t * (current[1] - previous[1]),
+                    )
+                )
+        if current_inside:
+            clipped.append(current)
+        previous = current
+        previous_value = current_value
+        previous_inside = current_inside
+    return clipped
 
 
 def explicit_axis_is_unconstrained(item: ClassifiedExpression, axis: str) -> bool:

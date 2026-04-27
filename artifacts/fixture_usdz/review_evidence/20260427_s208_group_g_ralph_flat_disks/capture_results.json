@@ -1,0 +1,22 @@
+{
+  "desmos_url": "https://www.desmos.com/3d/24vpv4pfwh",
+  "errors": [
+    "Playwright browser_navigate to https://www.desmos.com/3d/24vpv4pfwh returned: user cancelled MCP tool call",
+    "Chrome DevTools new_page to https://www.desmos.com/3d/24vpv4pfwh returned: user cancelled MCP tool call",
+    "Playwright browser_navigate to S2-08G Tailscale viewer returned: user cancelled MCP tool call",
+    "Chrome DevTools new_page to S2-08G Tailscale viewer returned: user cancelled MCP tool call",
+    "curl -I https://chq.singapura-broadnose.ts.net/ failed: curl: (6) Could not resolve host: chq.singapura-broadnose.ts.net",
+    "curl -I https://chq.singapura-broadnose.ts.net/viewer/ failed: curl: (6) Could not resolve host: chq.singapura-broadnose.ts.net",
+    "curl -I https://chq.singapura-broadnose.ts.net/artifacts/fixture_usdz/summary.json failed: curl: (6) Could not resolve host: chq.singapura-broadnose.ts.net"
+  ],
+  "live_capture_attempted": true,
+  "live_capture_succeeded": false,
+  "local_projection_evidence": [
+    "S2-08_Group_G_projection_before.png",
+    "S2-08_Group_G_projection_after.png",
+    "S2-08_Group_E_projection_guard_after.png",
+    "S2-09_Group_F_projection_guard_after.png"
+  ],
+  "target_viewer_url": "https://chq.singapura-broadnose.ts.net/viewer/?usda=..%2Fartifacts%2Ffixture_usdz%2F%5B4B%5D%203D%20Diagram%20-%20S2-08%20Group%20G.usda&label=S2-08%20Group%20G",
+  "visual_claim": "structural/local projection only; live Desmos and live viewer parity not claimed"
+}

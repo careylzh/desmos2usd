@@ -1,0 +1,746 @@
+{
+  "classified_expression_count": 208,
+  "complete": false,
+  "fixture": "[4B] 3D Diagram - S2-01 Group A.json",
+  "prim_count": 90,
+  "renderable_expression_count": 208,
+  "resolution": 12,
+  "source": "HEAD before affine explicit-domain inference",
+  "status": "partial",
+  "unsupported": [
+    {
+      "expr_id": "82",
+      "kind": "explicit_surface",
+      "latex": "z=\\left(-ax+0y+5.6\\right)\\left\\{0.3<y+x<0.4\\right\\}\\left\\{4.5<z<5.45\\right\\}",
+      "reason": "point 0 violates predicate '0.3<y+x<0.4'; point 0 violates predicate '4.5<z<5.45'; point 1 violates predicate '0.3<y+x<0.4'; point 1 violates predicate '4.5<z<5.45'; point 2 violates predicate '0.3<y+x<0.4'; point 2 violates predicate '4.5<z<5.45'; point 3 violates predicate '0.3<y+x<0.4'; point 3 violates predicate '4.5<z<5.45'; point 4 violates predicate '0.3<y+x<0.4'; point 4 violates predicate '4.5<z<5.45'; point 5 violates predicate '0.3<y+x<0.4'; point 5 violates predicate '4.5<z<5.45'; point 6 violates predicate '0.3<y+x<0.4'; point 6 violates predicate '4.5<z<5.45'; point 7 violates predicate '0.3<y+x<0.4'; point 7 violates predicate '4.5<z<5.45'; point 8 violates predicate '0.3<y+x<0.4'; point 8 violates predicate '4.5<z<5.45'; point 9 violates predicate '0.3<y+x<0.4'; point 9 violates predicate '4.5<z<5.45'"
+    },
+    {
+      "expr_id": "83",
+      "kind": "explicit_surface",
+      "latex": "z=\\left(-ax+0y+5.6\\right)\\left\\{0.3<x-y<0.4\\right\\}\\left\\{4.5<z<5.45\\right\\}",
+      "reason": "point 0 violates predicate '0.3<x-y<0.4'; point 0 violates predicate '4.5<z<5.45'; point 1 violates predicate '0.3<x-y<0.4'; point 1 violates predicate '4.5<z<5.45'; point 2 violates predicate '0.3<x-y<0.4'; point 2 violates predicate '4.5<z<5.45'; point 3 violates predicate '0.3<x-y<0.4'; point 3 violates predicate '4.5<z<5.45'; point 4 violates predicate '0.3<x-y<0.4'; point 4 violates predicate '4.5<z<5.45'; point 5 violates predicate '0.3<x-y<0.4'; point 5 violates predicate '4.5<z<5.45'; point 6 violates predicate '0.3<x-y<0.4'; point 6 violates predicate '4.5<z<5.45'; point 7 violates predicate '0.3<x-y<0.4'; point 7 violates predicate '4.5<z<5.45'; point 8 violates predicate '0.3<x-y<0.4'; point 8 violates predicate '4.5<z<5.45'; point 9 violates predicate '0.3<x-y<0.4'; point 9 violates predicate '4.5<z<5.45'"
+    },
+    {
+      "expr_id": "63",
+      "kind": "explicit_surface",
+      "latex": "z=\\left(-ax+0y+5.6\\right)\\left\\{1.1<y+x<1.2\\right\\}\\left\\{0<z<5.2\\right\\}",
+      "reason": "point 0 violates predicate '1.1<y+x<1.2'; point 0 violates predicate '0<z<5.2'; point 1 violates predicate '1.1<y+x<1.2'; point 1 violates predicate '0<z<5.2'; point 2 violates predicate '1.1<y+x<1.2'; point 2 violates predicate '0<z<5.2'; point 3 violates predicate '1.1<y+x<1.2'; point 3 violates predicate '0<z<5.2'; point 4 violates predicate '1.1<y+x<1.2'; point 4 violates predicate '0<z<5.2'; point 5 violates predicate '1.1<y+x<1.2'; point 5 violates predicate '0<z<5.2'; point 6 violates predicate '1.1<y+x<1.2'; point 6 violates predicate '0<z<5.2'; point 7 violates predicate '1.1<y+x<1.2'; point 7 violates predicate '0<z<5.2'; point 8 violates predicate '1.1<y+x<1.2'; point 8 violates predicate '0<z<5.2'; point 9 violates predicate '1.1<y+x<1.2'; point 9 violates predicate '0<z<5.2'"
+    },
+    {
+      "expr_id": "84",
+      "kind": "explicit_surface",
+      "latex": "z=\\left(-ax+0y+5.6\\right)\\left\\{1.1<x-y<1.2\\right\\}\\left\\{0<z<5.2\\right\\}",
+      "reason": "point 0 violates predicate '1.1<x-y<1.2'; point 0 violates predicate '0<z<5.2'; point 1 violates predicate '1.1<x-y<1.2'; point 1 violates predicate '0<z<5.2'; point 2 violates predicate '1.1<x-y<1.2'; point 2 violates predicate '0<z<5.2'; point 3 violates predicate '1.1<x-y<1.2'; point 3 violates predicate '0<z<5.2'; point 4 violates predicate '1.1<x-y<1.2'; point 4 violates predicate '0<z<5.2'; point 5 violates predicate '1.1<x-y<1.2'; point 5 violates predicate '0<z<5.2'; point 6 violates predicate '1.1<x-y<1.2'; point 6 violates predicate '0<z<5.2'; point 7 violates predicate '1.1<x-y<1.2'; point 7 violates predicate '0<z<5.2'; point 8 violates predicate '1.1<x-y<1.2'; point 8 violates predicate '0<z<5.2'; point 9 violates predicate '1.1<x-y<1.2'; point 9 violates predicate '0<z<5.2'"
+    },
+    {
+      "expr_id": "66",
+      "kind": "explicit_surface",
+      "latex": "z=\\left(-ax+0y+5.6\\right)\\left\\{1.9<y+x<2\\right\\}\\left\\{0<z<4.86\\right\\}",
+      "reason": "point 0 violates predicate '1.9<y+x<2'; point 0 violates predicate '0<z<4.86'; point 1 violates predicate '1.9<y+x<2'; point 1 violates predicate '0<z<4.86'; point 2 violates predicate '1.9<y+x<2'; point 2 violates predicate '0<z<4.86'; point 3 violates predicate '1.9<y+x<2'; point 3 violates predicate '0<z<4.86'; point 4 violates predicate '1.9<y+x<2'; point 4 violates predicate '0<z<4.86'; point 5 violates predicate '1.9<y+x<2'; point 5 violates predicate '0<z<4.86'; point 6 violates predicate '1.9<y+x<2'; point 6 violates predicate '0<z<4.86'; point 7 violates predicate '1.9<y+x<2'; point 7 violates predicate '0<z<4.86'; point 8 violates predicate '1.9<y+x<2'; point 8 violates predicate '0<z<4.86'; point 9 violates predicate '1.9<y+x<2'; point 9 violates predicate '0<z<4.86'"
+    },
+    {
+      "expr_id": "85",
+      "kind": "explicit_surface",
+      "latex": "z=\\left(-ax+0y+5.6\\right)\\left\\{1.9<x-y<2\\right\\}\\left\\{0<z<4.86\\right\\}",
+      "reason": "point 0 violates predicate '1.9<x-y<2'; point 0 violates predicate '0<z<4.86'; point 1 violates predicate '1.9<x-y<2'; point 1 violates predicate '0<z<4.86'; point 2 violates predicate '1.9<x-y<2'; point 2 violates predicate '0<z<4.86'; point 3 violates predicate '1.9<x-y<2'; point 3 violates predicate '0<z<4.86'; point 4 violates predicate '1.9<x-y<2'; point 4 violates predicate '0<z<4.86'; point 5 violates predicate '1.9<x-y<2'; point 5 violates predicate '0<z<4.86'; point 6 violates predicate '1.9<x-y<2'; point 6 violates predicate '0<z<4.86'; point 7 violates predicate '1.9<x-y<2'; point 7 violates predicate '0<z<4.86'; point 8 violates predicate '1.9<x-y<2'; point 8 violates predicate '0<z<4.86'; point 9 violates predicate '1.9<x-y<2'; point 9 violates predicate '0<z<4.86'"
+    },
+    {
+      "expr_id": "69",
+      "kind": "explicit_surface",
+      "latex": "z=\\left(-ax+0y+5.6\\right)\\left\\{2.8<y+x<2.9\\right\\}\\left\\{0<z<4.6\\right\\}",
+      "reason": "point 0 violates predicate '2.8<y+x<2.9'; point 0 violates predicate '0<z<4.6'; point 1 violates predicate '2.8<y+x<2.9'; point 1 violates predicate '0<z<4.6'; point 2 violates predicate '2.8<y+x<2.9'; point 2 violates predicate '0<z<4.6'; point 3 violates predicate '2.8<y+x<2.9'; point 3 violates predicate '0<z<4.6'; point 4 violates predicate '2.8<y+x<2.9'; point 4 violates predicate '0<z<4.6'; point 5 violates predicate '2.8<y+x<2.9'; point 5 violates predicate '0<z<4.6'; point 6 violates predicate '2.8<y+x<2.9'; point 6 violates predicate '0<z<4.6'; point 7 violates predicate '2.8<y+x<2.9'; point 7 violates predicate '0<z<4.6'; point 8 violates predicate '2.8<y+x<2.9'; point 8 violates predicate '0<z<4.6'; point 9 violates predicate '2.8<y+x<2.9'; point 9 violates predicate '0<z<4.6'"
+    },
+    {
+      "expr_id": "86",
+      "kind": "explicit_surface",
+      "latex": "z=\\left(-ax+0y+5.6\\right)\\left\\{2.8<x-y<2.9\\right\\}\\left\\{0<z<4.6\\right\\}",
+      "reason": "point 0 violates predicate '2.8<x-y<2.9'; point 0 violates predicate '0<z<4.6'; point 1 violates predicate '2.8<x-y<2.9'; point 1 violates predicate '0<z<4.6'; point 2 violates predicate '2.8<x-y<2.9'; point 2 violates predicate '0<z<4.6'; point 3 violates predicate '2.8<x-y<2.9'; point 3 violates predicate '0<z<4.6'; point 4 violates predicate '2.8<x-y<2.9'; point 4 violates predicate '0<z<4.6'; point 5 violates predicate '2.8<x-y<2.9'; point 5 violates predicate '0<z<4.6'; point 6 violates predicate '2.8<x-y<2.9'; point 6 violates predicate '0<z<4.6'; point 7 violates predicate '2.8<x-y<2.9'; point 7 violates predicate '0<z<4.6'; point 8 violates predicate '2.8<x-y<2.9'; point 8 violates predicate '0<z<4.6'; point 9 violates predicate '2.8<x-y<2.9'; point 9 violates predicate '0<z<4.6'"
+    },
+    {
+      "expr_id": "72",
+      "kind": "explicit_surface",
+      "latex": "z=\\left(-ax+0y+5.6\\right)\\left\\{3.6<y+x<3.7\\right\\}\\left\\{0<z<4.3\\right\\}",
+      "reason": "point 0 violates predicate '3.6<y+x<3.7'; point 0 violates predicate '0<z<4.3'; point 1 violates predicate '3.6<y+x<3.7'; point 1 violates predicate '0<z<4.3'; point 2 violates predicate '3.6<y+x<3.7'; point 2 violates predicate '0<z<4.3'; point 3 violates predicate '3.6<y+x<3.7'; point 3 violates predicate '0<z<4.3'; point 4 violates predicate '3.6<y+x<3.7'; point 4 violates predicate '0<z<4.3'; point 5 violates predicate '3.6<y+x<3.7'; point 5 violates predicate '0<z<4.3'; point 6 violates predicate '3.6<y+x<3.7'; point 6 violates predicate '0<z<4.3'; point 7 violates predicate '3.6<y+x<3.7'; point 7 violates predicate '0<z<4.3'; point 8 violates predicate '3.6<y+x<3.7'; point 8 violates predicate '0<z<4.3'; point 9 violates predicate '3.6<y+x<3.7'; point 9 violates predicate '0<z<4.3'"
+    },
+    {
+      "expr_id": "87",
+      "kind": "explicit_surface",
+      "latex": "z=\\left(-ax+0y+5.6\\right)\\left\\{3.6<x-y<3.7\\right\\}\\left\\{0<z<4.3\\right\\}",
+      "reason": "point 0 violates predicate '3.6<x-y<3.7'; point 0 violates predicate '0<z<4.3'; point 1 violates predicate '3.6<x-y<3.7'; point 1 violates predicate '0<z<4.3'; point 2 violates predicate '3.6<x-y<3.7'; point 2 violates predicate '0<z<4.3'; point 3 violates predicate '3.6<x-y<3.7'; point 3 violates predicate '0<z<4.3'; point 4 violates predicate '3.6<x-y<3.7'; point 4 violates predicate '0<z<4.3'; point 5 violates predicate '3.6<x-y<3.7'; point 5 violates predicate '0<z<4.3'; point 6 violates predicate '3.6<x-y<3.7'; point 6 violates predicate '0<z<4.3'; point 7 violates predicate '3.6<x-y<3.7'; point 7 violates predicate '0<z<4.3'; point 8 violates predicate '3.6<x-y<3.7'; point 8 violates predicate '0<z<4.3'; point 9 violates predicate '3.6<x-y<3.7'; point 9 violates predicate '0<z<4.3'"
+    },
+    {
+      "expr_id": "92",
+      "kind": "explicit_surface",
+      "latex": "z=\\left(-ax+0y+5.6\\right)\\left\\{6.2<y+x<6.3\\right\\}\\left\\{0<z<3.4\\right\\}",
+      "reason": "point 0 violates predicate '6.2<y+x<6.3'; point 0 violates predicate '0<z<3.4'; point 1 violates predicate '6.2<y+x<6.3'; point 1 violates predicate '0<z<3.4'; point 2 violates predicate '6.2<y+x<6.3'; point 2 violates predicate '0<z<3.4'; point 3 violates predicate '6.2<y+x<6.3'; point 3 violates predicate '0<z<3.4'; point 4 violates predicate '6.2<y+x<6.3'; point 4 violates predicate '0<z<3.4'; point 5 violates predicate '6.2<y+x<6.3'; point 5 violates predicate '0<z<3.4'; point 6 violates predicate '6.2<y+x<6.3'; point 6 violates predicate '0<z<3.4'; point 7 violates predicate '6.2<y+x<6.3'; point 7 violates predicate '0<z<3.4'; point 8 violates predicate '6.2<y+x<6.3'; point 8 violates predicate '0<z<3.4'; point 9 violates predicate '6.2<y+x<6.3'; point 9 violates predicate '0<z<3.4'"
+    },
+    {
+      "expr_id": "93",
+      "kind": "explicit_surface",
+      "latex": "z=\\left(-ax+0y+5.6\\right)\\left\\{6.2<x-y<6.3\\right\\}\\left\\{0<z<3.4\\right\\}",
+      "reason": "point 0 violates predicate '6.2<x-y<6.3'; point 0 violates predicate '0<z<3.4'; point 1 violates predicate '6.2<x-y<6.3'; point 1 violates predicate '0<z<3.4'; point 2 violates predicate '6.2<x-y<6.3'; point 2 violates predicate '0<z<3.4'; point 3 violates predicate '6.2<x-y<6.3'; point 3 violates predicate '0<z<3.4'; point 4 violates predicate '6.2<x-y<6.3'; point 4 violates predicate '0<z<3.4'; point 5 violates predicate '6.2<x-y<6.3'; point 5 violates predicate '0<z<3.4'; point 6 violates predicate '6.2<x-y<6.3'; point 6 violates predicate '0<z<3.4'; point 7 violates predicate '6.2<x-y<6.3'; point 7 violates predicate '0<z<3.4'; point 8 violates predicate '6.2<x-y<6.3'; point 8 violates predicate '0<z<3.4'; point 9 violates predicate '6.2<x-y<6.3'; point 9 violates predicate '0<z<3.4'"
+    },
+    {
+      "expr_id": "94",
+      "kind": "explicit_surface",
+      "latex": "z=\\left(-ax+0y+5.6\\right)\\left\\{7<y+x<7.1\\right\\}\\left\\{0<z<3.2\\right\\}",
+      "reason": "point 0 violates predicate '7<y+x<7.1'; point 0 violates predicate '0<z<3.2'; point 1 violates predicate '7<y+x<7.1'; point 1 violates predicate '0<z<3.2'; point 2 violates predicate '7<y+x<7.1'; point 2 violates predicate '0<z<3.2'; point 3 violates predicate '7<y+x<7.1'; point 3 violates predicate '0<z<3.2'; point 4 violates predicate '7<y+x<7.1'; point 4 violates predicate '0<z<3.2'; point 5 violates predicate '7<y+x<7.1'; point 5 violates predicate '0<z<3.2'; point 6 violates predicate '7<y+x<7.1'; point 6 violates predicate '0<z<3.2'; point 7 violates predicate '7<y+x<7.1'; point 7 violates predicate '0<z<3.2'; point 8 violates predicate '7<y+x<7.1'; point 8 violates predicate '0<z<3.2'; point 9 violates predicate '7<y+x<7.1'; point 9 violates predicate '0<z<3.2'"
+    },
+    {
+      "expr_id": "95",
+      "kind": "explicit_surface",
+      "latex": "z=\\left(-ax+0y+5.6\\right)\\left\\{7<x-y<7.1\\right\\}\\left\\{0<z<3.2\\right\\}",
+      "reason": "point 0 violates predicate '7<x-y<7.1'; point 0 violates predicate '0<z<3.2'; point 1 violates predicate '7<x-y<7.1'; point 1 violates predicate '0<z<3.2'; point 2 violates predicate '7<x-y<7.1'; point 2 violates predicate '0<z<3.2'; point 3 violates predicate '7<x-y<7.1'; point 3 violates predicate '0<z<3.2'; point 4 violates predicate '7<x-y<7.1'; point 4 violates predicate '0<z<3.2'; point 5 violates predicate '7<x-y<7.1'; point 5 violates predicate '0<z<3.2'; point 6 violates predicate '7<x-y<7.1'; point 6 violates predicate '0<z<3.2'; point 7 violates predicate '7<x-y<7.1'; point 7 violates predicate '0<z<3.2'; point 8 violates predicate '7<x-y<7.1'; point 8 violates predicate '0<z<3.2'; point 9 violates predicate '7<x-y<7.1'; point 9 violates predicate '0<z<3.2'"
+    },
+    {
+      "expr_id": "96",
+      "kind": "explicit_surface",
+      "latex": "z=\\left(-ax+0y+5.6\\right)\\left\\{7.9<y+x<8\\right\\}\\left\\{0<z<2.9\\right\\}",
+      "reason": "point 0 violates predicate '7.9<y+x<8'; point 0 violates predicate '0<z<2.9'; point 1 violates predicate '7.9<y+x<8'; point 1 violates predicate '0<z<2.9'; point 2 violates predicate '7.9<y+x<8'; point 2 violates predicate '0<z<2.9'; point 3 violates predicate '7.9<y+x<8'; point 3 violates predicate '0<z<2.9'; point 4 violates predicate '7.9<y+x<8'; point 4 violates predicate '0<z<2.9'; point 5 violates predicate '7.9<y+x<8'; point 5 violates predicate '0<z<2.9'; point 6 violates predicate '7.9<y+x<8'; point 6 violates predicate '0<z<2.9'; point 7 violates predicate '7.9<y+x<8'; point 7 violates predicate '0<z<2.9'; point 8 violates predicate '7.9<y+x<8'; point 8 violates predicate '0<z<2.9'; point 9 violates predicate '7.9<y+x<8'; point 9 violates predicate '0<z<2.9'"
+    },
+    {
+      "expr_id": "97",
+      "kind": "explicit_surface",
+      "latex": "z=\\left(-ax+0y+5.6\\right)\\left\\{7.9<x-y<8\\right\\}\\left\\{0<z<2.9\\right\\}",
+      "reason": "point 0 violates predicate '7.9<x-y<8'; point 0 violates predicate '0<z<2.9'; point 1 violates predicate '7.9<x-y<8'; point 1 violates predicate '0<z<2.9'; point 2 violates predicate '7.9<x-y<8'; point 2 violates predicate '0<z<2.9'; point 3 violates predicate '7.9<x-y<8'; point 3 violates predicate '0<z<2.9'; point 4 violates predicate '7.9<x-y<8'; point 4 violates predicate '0<z<2.9'; point 5 violates predicate '7.9<x-y<8'; point 5 violates predicate '0<z<2.9'; point 6 violates predicate '7.9<x-y<8'; point 6 violates predicate '0<z<2.9'; point 7 violates predicate '7.9<x-y<8'; point 7 violates predicate '0<z<2.9'; point 8 violates predicate '7.9<x-y<8'; point 8 violates predicate '0<z<2.9'; point 9 violates predicate '7.9<x-y<8'; point 9 violates predicate '0<z<2.9'"
+    },
+    {
+      "expr_id": "100",
+      "kind": "explicit_surface",
+      "latex": "z=\\left(-ax+0y+5.6\\right)\\left\\{9.5<y+x<9.6\\right\\}\\left\\{0<z<2.4\\right\\}",
+      "reason": "point 0 violates predicate '9.5<y+x<9.6'; point 0 violates predicate '0<z<2.4'; point 1 violates predicate '9.5<y+x<9.6'; point 1 violates predicate '0<z<2.4'; point 2 violates predicate '9.5<y+x<9.6'; point 2 violates predicate '0<z<2.4'; point 3 violates predicate '9.5<y+x<9.6'; point 3 violates predicate '0<z<2.4'; point 4 violates predicate '9.5<y+x<9.6'; point 4 violates predicate '0<z<2.4'; point 5 violates predicate '9.5<y+x<9.6'; point 5 violates predicate '0<z<2.4'; point 6 violates predicate '9.5<y+x<9.6'; point 6 violates predicate '0<z<2.4'; point 7 violates predicate '9.5<y+x<9.6'; point 7 violates predicate '0<z<2.4'; point 8 violates predicate '9.5<y+x<9.6'; point 8 violates predicate '0<z<2.4'; point 9 violates predicate '9.5<y+x<9.6'; point 9 violates predicate '0<z<2.4'"
+    },
+    {
+      "expr_id": "101",
+      "kind": "explicit_surface",
+      "latex": "z=\\left(-ax+0y+5.6\\right)\\left\\{9.5<x-y<9.6\\right\\}\\left\\{0<z<2.4\\right\\}",
+      "reason": "point 0 violates predicate '9.5<x-y<9.6'; point 0 violates predicate '0<z<2.4'; point 1 violates predicate '9.5<x-y<9.6'; point 1 violates predicate '0<z<2.4'; point 2 violates predicate '9.5<x-y<9.6'; point 2 violates predicate '0<z<2.4'; point 3 violates predicate '9.5<x-y<9.6'; point 3 violates predicate '0<z<2.4'; point 4 violates predicate '9.5<x-y<9.6'; point 4 violates predicate '0<z<2.4'; point 5 violates predicate '9.5<x-y<9.6'; point 5 violates predicate '0<z<2.4'; point 6 violates predicate '9.5<x-y<9.6'; point 6 violates predicate '0<z<2.4'; point 7 violates predicate '9.5<x-y<9.6'; point 7 violates predicate '0<z<2.4'; point 8 violates predicate '9.5<x-y<9.6'; point 8 violates predicate '0<z<2.4'; point 9 violates predicate '9.5<x-y<9.6'; point 9 violates predicate '0<z<2.4'"
+    },
+    {
+      "expr_id": "102",
+      "kind": "explicit_surface",
+      "latex": "z=\\left(-ax+0y+5.6\\right)\\left\\{10.3<y+x<10.4\\right\\}\\left\\{0<z<2.1\\right\\}",
+      "reason": "point 0 violates predicate '10.3<y+x<10.4'; point 0 violates predicate '0<z<2.1'; point 1 violates predicate '10.3<y+x<10.4'; point 1 violates predicate '0<z<2.1'; point 2 violates predicate '10.3<y+x<10.4'; point 2 violates predicate '0<z<2.1'; point 3 violates predicate '10.3<y+x<10.4'; point 3 violates predicate '0<z<2.1'; point 4 violates predicate '10.3<y+x<10.4'; point 4 violates predicate '0<z<2.1'; point 5 violates predicate '10.3<y+x<10.4'; point 5 violates predicate '0<z<2.1'; point 6 violates predicate '10.3<y+x<10.4'; point 6 violates predicate '0<z<2.1'; point 7 violates predicate '10.3<y+x<10.4'; point 7 violates predicate '0<z<2.1'; point 8 violates predicate '10.3<y+x<10.4'; point 8 violates predicate '0<z<2.1'; point 9 violates predicate '10.3<y+x<10.4'; point 9 violates predicate '0<z<2.1'"
+    },
+    {
+      "expr_id": "103",
+      "kind": "explicit_surface",
+      "latex": "z=\\left(-ax+0y+5.6\\right)\\left\\{10.3<x-y<10.4\\right\\}\\left\\{0<z<2.1\\right\\}",
+      "reason": "point 0 violates predicate '10.3<x-y<10.4'; point 0 violates predicate '0<z<2.1'; point 1 violates predicate '10.3<x-y<10.4'; point 1 violates predicate '0<z<2.1'; point 2 violates predicate '10.3<x-y<10.4'; point 2 violates predicate '0<z<2.1'; point 3 violates predicate '10.3<x-y<10.4'; point 3 violates predicate '0<z<2.1'; point 4 violates predicate '10.3<x-y<10.4'; point 4 violates predicate '0<z<2.1'; point 5 violates predicate '10.3<x-y<10.4'; point 5 violates predicate '0<z<2.1'; point 6 violates predicate '10.3<x-y<10.4'; point 6 violates predicate '0<z<2.1'; point 7 violates predicate '10.3<x-y<10.4'; point 7 violates predicate '0<z<2.1'; point 8 violates predicate '10.3<x-y<10.4'; point 8 violates predicate '0<z<2.1'; point 9 violates predicate '10.3<x-y<10.4'; point 9 violates predicate '0<z<2.1'"
+    },
+    {
+      "expr_id": "110",
+      "kind": "explicit_surface",
+      "latex": "z=\\left(-ax+0y+5.6\\right)\\left\\{13.7<y+x<13.8\\right\\}\\left\\{0<z<1\\right\\}",
+      "reason": "point 0 violates predicate '13.7<y+x<13.8'; point 0 violates predicate '0<z<1'; point 1 violates predicate '13.7<y+x<13.8'; point 1 violates predicate '0<z<1'; point 2 violates predicate '13.7<y+x<13.8'; point 2 violates predicate '0<z<1'; point 3 violates predicate '13.7<y+x<13.8'; point 3 violates predicate '0<z<1'; point 4 violates predicate '13.7<y+x<13.8'; point 4 violates predicate '0<z<1'; point 5 violates predicate '13.7<y+x<13.8'; point 5 violates predicate '0<z<1'; point 6 violates predicate '13.7<y+x<13.8'; point 6 violates predicate '0<z<1'; point 7 violates predicate '13.7<y+x<13.8'; point 7 violates predicate '0<z<1'; point 8 violates predicate '13.7<y+x<13.8'; point 8 violates predicate '0<z<1'; point 9 violates predicate '13.7<y+x<13.8'; point 9 violates predicate '0<z<1'"
+    },
+    {
+      "expr_id": "111",
+      "kind": "explicit_surface",
+      "latex": "z=\\left(-ax+0y+5.6\\right)\\left\\{13.7<x-y<13.8\\right\\}\\left\\{0<z<1\\right\\}",
+      "reason": "point 0 violates predicate '13.7<x-y<13.8'; point 0 violates predicate '0<z<1'; point 1 violates predicate '13.7<x-y<13.8'; point 1 violates predicate '0<z<1'; point 2 violates predicate '13.7<x-y<13.8'; point 2 violates predicate '0<z<1'; point 3 violates predicate '13.7<x-y<13.8'; point 3 violates predicate '0<z<1'; point 4 violates predicate '13.7<x-y<13.8'; point 4 violates predicate '0<z<1'; point 5 violates predicate '13.7<x-y<13.8'; point 5 violates predicate '0<z<1'; point 6 violates predicate '13.7<x-y<13.8'; point 6 violates predicate '0<z<1'; point 7 violates predicate '13.7<x-y<13.8'; point 7 violates predicate '0<z<1'; point 8 violates predicate '13.7<x-y<13.8'; point 8 violates predicate '0<z<1'; point 9 violates predicate '13.7<x-y<13.8'; point 9 violates predicate '0<z<1'"
+    },
+    {
+      "expr_id": "113",
+      "kind": "explicit_surface",
+      "latex": "z=\\left(-ax+0y+5.6\\right)\\left\\{14.6<y+x<14.7\\right\\}\\left\\{0<z<0.7\\right\\}",
+      "reason": "point 0 violates predicate '14.6<y+x<14.7'; point 0 violates predicate '0<z<0.7'; point 1 violates predicate '14.6<y+x<14.7'; point 1 violates predicate '0<z<0.7'; point 2 violates predicate '14.6<y+x<14.7'; point 2 violates predicate '0<z<0.7'; point 3 violates predicate '14.6<y+x<14.7'; point 3 violates predicate '0<z<0.7'; point 4 violates predicate '14.6<y+x<14.7'; point 4 violates predicate '0<z<0.7'; point 5 violates predicate '14.6<y+x<14.7'; point 5 violates predicate '0<z<0.7'; point 6 violates predicate '14.6<y+x<14.7'; point 6 violates predicate '0<z<0.7'; point 7 violates predicate '14.6<y+x<14.7'; point 7 violates predicate '0<z<0.7'; point 8 violates predicate '14.6<y+x<14.7'; point 8 violates predicate '0<z<0.7'; point 9 violates predicate '14.6<y+x<14.7'; point 9 violates predicate '0<z<0.7'"
+    },
+    {
+      "expr_id": "114",
+      "kind": "explicit_surface",
+      "latex": "z=\\left(-ax+0y+5.6\\right)\\left\\{14.6<x-y<14.7\\right\\}\\left\\{0<z<0.8\\right\\}",
+      "reason": "point 0 violates predicate '14.6<x-y<14.7'; point 0 violates predicate '0<z<0.8'; point 1 violates predicate '14.6<x-y<14.7'; point 1 violates predicate '0<z<0.8'; point 2 violates predicate '14.6<x-y<14.7'; point 2 violates predicate '0<z<0.8'; point 3 violates predicate '14.6<x-y<14.7'; point 3 violates predicate '0<z<0.8'; point 4 violates predicate '14.6<x-y<14.7'; point 4 violates predicate '0<z<0.8'; point 5 violates predicate '14.6<x-y<14.7'; point 5 violates predicate '0<z<0.8'; point 6 violates predicate '14.6<x-y<14.7'; point 6 violates predicate '0<z<0.8'; point 7 violates predicate '14.6<x-y<14.7'; point 7 violates predicate '0<z<0.8'; point 8 violates predicate '14.6<x-y<14.7'; point 8 violates predicate '0<z<0.8'; point 9 violates predicate '14.6<x-y<14.7'; point 9 violates predicate '0<z<0.8'"
+    },
+    {
+      "expr_id": "277",
+      "kind": "explicit_surface",
+      "latex": "z=\\left(-ax+5.5\\right)\\left\\{15.4<y+x<15.5\\right\\}\\left\\{0<z<0.6\\right\\}",
+      "reason": "point 0 violates predicate '15.4<y+x<15.5'; point 0 violates predicate '0<z<0.6'; point 1 violates predicate '15.4<y+x<15.5'; point 1 violates predicate '0<z<0.6'; point 2 violates predicate '15.4<y+x<15.5'; point 2 violates predicate '0<z<0.6'; point 3 violates predicate '15.4<y+x<15.5'; point 3 violates predicate '0<z<0.6'; point 4 violates predicate '15.4<y+x<15.5'; point 4 violates predicate '0<z<0.6'; point 5 violates predicate '15.4<y+x<15.5'; point 5 violates predicate '0<z<0.6'; point 6 violates predicate '15.4<y+x<15.5'; point 6 violates predicate '0<z<0.6'; point 7 violates predicate '15.4<y+x<15.5'; point 7 violates predicate '0<z<0.6'; point 8 violates predicate '15.4<y+x<15.5'; point 8 violates predicate '0<z<0.6'; point 9 violates predicate '15.4<y+x<15.5'; point 9 violates predicate '0<z<0.6'"
+    },
+    {
+      "expr_id": "278",
+      "kind": "explicit_surface",
+      "latex": "z=\\left(-ax+5.5\\right)\\left\\{15.4<x-y<15.5\\right\\}\\left\\{0<z<0.6\\right\\}",
+      "reason": "point 0 violates predicate '15.4<x-y<15.5'; point 0 violates predicate '0<z<0.6'; point 1 violates predicate '15.4<x-y<15.5'; point 1 violates predicate '0<z<0.6'; point 2 violates predicate '15.4<x-y<15.5'; point 2 violates predicate '0<z<0.6'; point 3 violates predicate '15.4<x-y<15.5'; point 3 violates predicate '0<z<0.6'; point 4 violates predicate '15.4<x-y<15.5'; point 4 violates predicate '0<z<0.6'; point 5 violates predicate '15.4<x-y<15.5'; point 5 violates predicate '0<z<0.6'; point 6 violates predicate '15.4<x-y<15.5'; point 6 violates predicate '0<z<0.6'; point 7 violates predicate '15.4<x-y<15.5'; point 7 violates predicate '0<z<0.6'; point 8 violates predicate '15.4<x-y<15.5'; point 8 violates predicate '0<z<0.6'; point 9 violates predicate '15.4<x-y<15.5'; point 9 violates predicate '0<z<0.6'"
+    },
+    {
+      "expr_id": "117",
+      "kind": "explicit_surface",
+      "latex": "z=\\left(ax+5.5\\right)\\left\\{-0.4<y+x<-0.3\\right\\}\\left\\{4.3<z<5.4\\right\\}",
+      "reason": "point 0 violates predicate '-0.4<y+x<-0.3'; point 0 violates predicate '4.3<z<5.4'; point 1 violates predicate '-0.4<y+x<-0.3'; point 1 violates predicate '4.3<z<5.4'; point 2 violates predicate '-0.4<y+x<-0.3'; point 2 violates predicate '4.3<z<5.4'; point 3 violates predicate '-0.4<y+x<-0.3'; point 3 violates predicate '4.3<z<5.4'; point 4 violates predicate '-0.4<y+x<-0.3'; point 4 violates predicate '4.3<z<5.4'; point 5 violates predicate '-0.4<y+x<-0.3'; point 5 violates predicate '4.3<z<5.4'; point 6 violates predicate '-0.4<y+x<-0.3'; point 6 violates predicate '4.3<z<5.4'; point 7 violates predicate '-0.4<y+x<-0.3'; point 7 violates predicate '4.3<z<5.4'; point 8 violates predicate '-0.4<y+x<-0.3'; point 8 violates predicate '4.3<z<5.4'; point 9 violates predicate '-0.4<y+x<-0.3'; point 9 violates predicate '4.3<z<5.4'"
+    },
+    {
+      "expr_id": "119",
+      "kind": "explicit_surface",
+      "latex": "z=\\left(ax+5.5\\right)\\left\\{-0.4<x-y<-0.3\\right\\}\\left\\{4.3<z<5.4\\right\\}",
+      "reason": "point 0 violates predicate '-0.4<x-y<-0.3'; point 0 violates predicate '4.3<z<5.4'; point 1 violates predicate '-0.4<x-y<-0.3'; point 1 violates predicate '4.3<z<5.4'; point 2 violates predicate '-0.4<x-y<-0.3'; point 2 violates predicate '4.3<z<5.4'; point 3 violates predicate '-0.4<x-y<-0.3'; point 3 violates predicate '4.3<z<5.4'; point 4 violates predicate '-0.4<x-y<-0.3'; point 4 violates predicate '4.3<z<5.4'; point 5 violates predicate '-0.4<x-y<-0.3'; point 5 violates predicate '4.3<z<5.4'; point 6 violates predicate '-0.4<x-y<-0.3'; point 6 violates predicate '4.3<z<5.4'; point 7 violates predicate '-0.4<x-y<-0.3'; point 7 violates predicate '4.3<z<5.4'; point 8 violates predicate '-0.4<x-y<-0.3'; point 8 violates predicate '4.3<z<5.4'; point 9 violates predicate '-0.4<x-y<-0.3'; point 9 violates predicate '4.3<z<5.4'"
+    },
+    {
+      "expr_id": "121",
+      "kind": "explicit_surface",
+      "latex": "z=\\left(ax+5.5\\right)\\left\\{-1.2<x+y<-1.1\\right\\}\\left\\{0<z<5.1\\right\\}",
+      "reason": "point 0 violates predicate '-1.2<x+y<-1.1'; point 0 violates predicate '0<z<5.1'; point 1 violates predicate '-1.2<x+y<-1.1'; point 1 violates predicate '0<z<5.1'; point 2 violates predicate '-1.2<x+y<-1.1'; point 2 violates predicate '0<z<5.1'; point 3 violates predicate '-1.2<x+y<-1.1'; point 3 violates predicate '0<z<5.1'; point 4 violates predicate '-1.2<x+y<-1.1'; point 4 violates predicate '0<z<5.1'; point 5 violates predicate '-1.2<x+y<-1.1'; point 5 violates predicate '0<z<5.1'; point 6 violates predicate '-1.2<x+y<-1.1'; point 6 violates predicate '0<z<5.1'; point 7 violates predicate '-1.2<x+y<-1.1'; point 7 violates predicate '0<z<5.1'; point 8 violates predicate '-1.2<x+y<-1.1'; point 8 violates predicate '0<z<5.1'; point 9 violates predicate '-1.2<x+y<-1.1'; point 9 violates predicate '0<z<5.1'"
+    },
+    {
+      "expr_id": "122",
+      "kind": "explicit_surface",
+      "latex": "z=\\left(ax+5.5\\right)\\left\\{-1.2<x-y<-1.1\\right\\}\\left\\{0<z<5.1\\right\\}",
+      "reason": "point 0 violates predicate '-1.2<x-y<-1.1'; point 0 violates predicate '0<z<5.1'; point 1 violates predicate '-1.2<x-y<-1.1'; point 1 violates predicate '0<z<5.1'; point 2 violates predicate '-1.2<x-y<-1.1'; point 2 violates predicate '0<z<5.1'; point 3 violates predicate '-1.2<x-y<-1.1'; point 3 violates predicate '0<z<5.1'; point 4 violates predicate '-1.2<x-y<-1.1'; point 4 violates predicate '0<z<5.1'; point 5 violates predicate '-1.2<x-y<-1.1'; point 5 violates predicate '0<z<5.1'; point 6 violates predicate '-1.2<x-y<-1.1'; point 6 violates predicate '0<z<5.1'; point 7 violates predicate '-1.2<x-y<-1.1'; point 7 violates predicate '0<z<5.1'; point 8 violates predicate '-1.2<x-y<-1.1'; point 8 violates predicate '0<z<5.1'; point 9 violates predicate '-1.2<x-y<-1.1'; point 9 violates predicate '0<z<5.1'"
+    },
+    {
+      "expr_id": "123",
+      "kind": "explicit_surface",
+      "latex": "z=\\left(ax+5.5\\right)\\left\\{-2<x+y<-1.9\\right\\}\\left\\{0<z<4.8\\right\\}",
+      "reason": "point 0 violates predicate '-2<x+y<-1.9'; point 0 violates predicate '0<z<4.8'; point 1 violates predicate '-2<x+y<-1.9'; point 1 violates predicate '0<z<4.8'; point 2 violates predicate '-2<x+y<-1.9'; point 2 violates predicate '0<z<4.8'; point 3 violates predicate '-2<x+y<-1.9'; point 3 violates predicate '0<z<4.8'; point 4 violates predicate '-2<x+y<-1.9'; point 4 violates predicate '0<z<4.8'; point 5 violates predicate '-2<x+y<-1.9'; point 5 violates predicate '0<z<4.8'; point 6 violates predicate '-2<x+y<-1.9'; point 6 violates predicate '0<z<4.8'; point 7 violates predicate '-2<x+y<-1.9'; point 7 violates predicate '0<z<4.8'; point 8 violates predicate '-2<x+y<-1.9'; point 8 violates predicate '0<z<4.8'; point 9 violates predicate '-2<x+y<-1.9'; point 9 violates predicate '0<z<4.8'"
+    },
+    {
+      "expr_id": "124",
+      "kind": "explicit_surface",
+      "latex": "z=\\left(ax+5.5\\right)\\left\\{-2<x-y<-1.9\\right\\}\\left\\{0<z<4.8\\right\\}",
+      "reason": "point 0 violates predicate '-2<x-y<-1.9'; point 0 violates predicate '0<z<4.8'; point 1 violates predicate '-2<x-y<-1.9'; point 1 violates predicate '0<z<4.8'; point 2 violates predicate '-2<x-y<-1.9'; point 2 violates predicate '0<z<4.8'; point 3 violates predicate '-2<x-y<-1.9'; point 3 violates predicate '0<z<4.8'; point 4 violates predicate '-2<x-y<-1.9'; point 4 violates predicate '0<z<4.8'; point 5 violates predicate '-2<x-y<-1.9'; point 5 violates predicate '0<z<4.8'; point 6 violates predicate '-2<x-y<-1.9'; point 6 violates predicate '0<z<4.8'; point 7 violates predicate '-2<x-y<-1.9'; point 7 violates predicate '0<z<4.8'; point 8 violates predicate '-2<x-y<-1.9'; point 8 violates predicate '0<z<4.8'; point 9 violates predicate '-2<x-y<-1.9'; point 9 violates predicate '0<z<4.8'"
+    },
+    {
+      "expr_id": "125",
+      "kind": "explicit_surface",
+      "latex": "z=\\left(ax+5.5\\right)\\left\\{-2.8<x+y<-2.7\\right\\}\\left\\{0<z<4.6\\right\\}",
+      "reason": "point 0 violates predicate '-2.8<x+y<-2.7'; point 0 violates predicate '0<z<4.6'; point 1 violates predicate '-2.8<x+y<-2.7'; point 1 violates predicate '0<z<4.6'; point 2 violates predicate '-2.8<x+y<-2.7'; point 2 violates predicate '0<z<4.6'; point 3 violates predicate '-2.8<x+y<-2.7'; point 3 violates predicate '0<z<4.6'; point 4 violates predicate '-2.8<x+y<-2.7'; point 4 violates predicate '0<z<4.6'; point 5 violates predicate '-2.8<x+y<-2.7'; point 5 violates predicate '0<z<4.6'; point 6 violates predicate '-2.8<x+y<-2.7'; point 6 violates predicate '0<z<4.6'; point 7 violates predicate '-2.8<x+y<-2.7'; point 7 violates predicate '0<z<4.6'; point 8 violates predicate '-2.8<x+y<-2.7'; point 8 violates predicate '0<z<4.6'; point 9 violates predicate '-2.8<x+y<-2.7'; point 9 violates predicate '0<z<4.6'"
+    },
+    {
+      "expr_id": "126",
+      "kind": "explicit_surface",
+      "latex": "z=\\left(ax+5.5\\right)\\left\\{-2.8<x-y<-2.7\\right\\}\\left\\{0<z<4.6\\right\\}",
+      "reason": "point 0 violates predicate '-2.8<x-y<-2.7'; point 0 violates predicate '0<z<4.6'; point 1 violates predicate '-2.8<x-y<-2.7'; point 1 violates predicate '0<z<4.6'; point 2 violates predicate '-2.8<x-y<-2.7'; point 2 violates predicate '0<z<4.6'; point 3 violates predicate '-2.8<x-y<-2.7'; point 3 violates predicate '0<z<4.6'; point 4 violates predicate '-2.8<x-y<-2.7'; point 4 violates predicate '0<z<4.6'; point 5 violates predicate '-2.8<x-y<-2.7'; point 5 violates predicate '0<z<4.6'; point 6 violates predicate '-2.8<x-y<-2.7'; point 6 violates predicate '0<z<4.6'; point 7 violates predicate '-2.8<x-y<-2.7'; point 7 violates predicate '0<z<4.6'; point 8 violates predicate '-2.8<x-y<-2.7'; point 8 violates predicate '0<z<4.6'; point 9 violates predicate '-2.8<x-y<-2.7'; point 9 violates predicate '0<z<4.6'"
+    },
+    {
+      "expr_id": "127",
+      "kind": "explicit_surface",
+      "latex": "z=\\left(ax+5.5\\right)\\left\\{-3.6<x+y<-3.5\\right\\}\\left\\{0<z<4.3\\right\\}",
+      "reason": "point 0 violates predicate '-3.6<x+y<-3.5'; point 0 violates predicate '0<z<4.3'; point 1 violates predicate '-3.6<x+y<-3.5'; point 1 violates predicate '0<z<4.3'; point 2 violates predicate '-3.6<x+y<-3.5'; point 2 violates predicate '0<z<4.3'; point 3 violates predicate '-3.6<x+y<-3.5'; point 3 violates predicate '0<z<4.3'; point 4 violates predicate '-3.6<x+y<-3.5'; point 4 violates predicate '0<z<4.3'; point 5 violates predicate '-3.6<x+y<-3.5'; point 5 violates predicate '0<z<4.3'; point 6 violates predicate '-3.6<x+y<-3.5'; point 6 violates predicate '0<z<4.3'; point 7 violates predicate '-3.6<x+y<-3.5'; point 7 violates predicate '0<z<4.3'; point 8 violates predicate '-3.6<x+y<-3.5'; point 8 violates predicate '0<z<4.3'; point 9 violates predicate '-3.6<x+y<-3.5'; point 9 violates predicate '0<z<4.3'"
+    },
+    {
+      "expr_id": "128",
+      "kind": "explicit_surface",
+      "latex": "z=\\left(ax+5.5\\right)\\left\\{-3.6<x-y<-3.5\\right\\}\\left\\{0<z<4.3\\right\\}",
+      "reason": "point 0 violates predicate '-3.6<x-y<-3.5'; point 0 violates predicate '0<z<4.3'; point 1 violates predicate '-3.6<x-y<-3.5'; point 1 violates predicate '0<z<4.3'; point 2 violates predicate '-3.6<x-y<-3.5'; point 2 violates predicate '0<z<4.3'; point 3 violates predicate '-3.6<x-y<-3.5'; point 3 violates predicate '0<z<4.3'; point 4 violates predicate '-3.6<x-y<-3.5'; point 4 violates predicate '0<z<4.3'; point 5 violates predicate '-3.6<x-y<-3.5'; point 5 violates predicate '0<z<4.3'; point 6 violates predicate '-3.6<x-y<-3.5'; point 6 violates predicate '0<z<4.3'; point 7 violates predicate '-3.6<x-y<-3.5'; point 7 violates predicate '0<z<4.3'; point 8 violates predicate '-3.6<x-y<-3.5'; point 8 violates predicate '0<z<4.3'; point 9 violates predicate '-3.6<x-y<-3.5'; point 9 violates predicate '0<z<4.3'"
+    },
+    {
+      "expr_id": "129",
+      "kind": "explicit_surface",
+      "latex": "z=\\left(ax+5.5\\right)\\left\\{-4.5<x+y<-4.4\\right\\}\\left\\{0<z<4\\right\\}",
+      "reason": "point 0 violates predicate '-4.5<x+y<-4.4'; point 0 violates predicate '0<z<4'; point 1 violates predicate '-4.5<x+y<-4.4'; point 1 violates predicate '0<z<4'; point 2 violates predicate '-4.5<x+y<-4.4'; point 2 violates predicate '0<z<4'; point 3 violates predicate '-4.5<x+y<-4.4'; point 3 violates predicate '0<z<4'; point 4 violates predicate '-4.5<x+y<-4.4'; point 4 violates predicate '0<z<4'; point 5 violates predicate '-4.5<x+y<-4.4'; point 5 violates predicate '0<z<4'; point 6 violates predicate '-4.5<x+y<-4.4'; point 6 violates predicate '0<z<4'; point 7 violates predicate '-4.5<x+y<-4.4'; point 7 violates predicate '0<z<4'; point 8 violates predicate '-4.5<x+y<-4.4'; point 8 violates predicate '0<z<4'; point 9 violates predicate '-4.5<x+y<-4.4'; point 9 violates predicate '0<z<4'"
+    },
+    {
+      "expr_id": "130",
+      "kind": "explicit_surface",
+      "latex": "z=\\left(ax+5.5\\right)\\left\\{-4.5<x-y<-4.4\\right\\}\\left\\{0<z<4\\right\\}",
+      "reason": "point 0 violates predicate '-4.5<x-y<-4.4'; point 0 violates predicate '0<z<4'; point 1 violates predicate '-4.5<x-y<-4.4'; point 1 violates predicate '0<z<4'; point 2 violates predicate '-4.5<x-y<-4.4'; point 2 violates predicate '0<z<4'; point 3 violates predicate '-4.5<x-y<-4.4'; point 3 violates predicate '0<z<4'; point 4 violates predicate '-4.5<x-y<-4.4'; point 4 violates predicate '0<z<4'; point 5 violates predicate '-4.5<x-y<-4.4'; point 5 violates predicate '0<z<4'; point 6 violates predicate '-4.5<x-y<-4.4'; point 6 violates predicate '0<z<4'; point 7 violates predicate '-4.5<x-y<-4.4'; point 7 violates predicate '0<z<4'; point 8 violates predicate '-4.5<x-y<-4.4'; point 8 violates predicate '0<z<4'; point 9 violates predicate '-4.5<x-y<-4.4'; point 9 violates predicate '0<z<4'"
+    },
+    {
+      "expr_id": "131",
+      "kind": "explicit_surface",
+      "latex": "z=\\left(ax+5.5\\right)\\left\\{-5.3<x+y<-5.2\\right\\}\\left\\{0<z<3.67\\right\\}",
+      "reason": "point 0 violates predicate '-5.3<x+y<-5.2'; point 0 violates predicate '0<z<3.67'; point 1 violates predicate '-5.3<x+y<-5.2'; point 1 violates predicate '0<z<3.67'; point 2 violates predicate '-5.3<x+y<-5.2'; point 2 violates predicate '0<z<3.67'; point 3 violates predicate '-5.3<x+y<-5.2'; point 3 violates predicate '0<z<3.67'; point 4 violates predicate '-5.3<x+y<-5.2'; point 4 violates predicate '0<z<3.67'; point 5 violates predicate '-5.3<x+y<-5.2'; point 5 violates predicate '0<z<3.67'; point 6 violates predicate '-5.3<x+y<-5.2'; point 6 violates predicate '0<z<3.67'; point 7 violates predicate '-5.3<x+y<-5.2'; point 7 violates predicate '0<z<3.67'; point 8 violates predicate '-5.3<x+y<-5.2'; point 8 violates predicate '0<z<3.67'; point 9 violates predicate '-5.3<x+y<-5.2'; point 9 violates predicate '0<z<3.67'"
+    },
+    {
+      "expr_id": "132",
+      "kind": "explicit_surface",
+      "latex": "z=\\left(ax+5.5\\right)\\left\\{-5.3<x-y<-5.2\\right\\}\\left\\{0<z<3.67\\right\\}",
+      "reason": "point 0 violates predicate '-5.3<x-y<-5.2'; point 0 violates predicate '0<z<3.67'; point 1 violates predicate '-5.3<x-y<-5.2'; point 1 violates predicate '0<z<3.67'; point 2 violates predicate '-5.3<x-y<-5.2'; point 2 violates predicate '0<z<3.67'; point 3 violates predicate '-5.3<x-y<-5.2'; point 3 violates predicate '0<z<3.67'; point 4 violates predicate '-5.3<x-y<-5.2'; point 4 violates predicate '0<z<3.67'; point 5 violates predicate '-5.3<x-y<-5.2'; point 5 violates predicate '0<z<3.67'; point 6 violates predicate '-5.3<x-y<-5.2'; point 6 violates predicate '0<z<3.67'; point 7 violates predicate '-5.3<x-y<-5.2'; point 7 violates predicate '0<z<3.67'; point 8 violates predicate '-5.3<x-y<-5.2'; point 8 violates predicate '0<z<3.67'; point 9 violates predicate '-5.3<x-y<-5.2'; point 9 violates predicate '0<z<3.67'"
+    },
+    {
+      "expr_id": "133",
+      "kind": "explicit_surface",
+      "latex": "z=\\left(ax+5.5\\right)\\left\\{-6.2<x+y<-6.1\\right\\}\\left\\{0<z<3.34\\right\\}",
+      "reason": "point 0 violates predicate '-6.2<x+y<-6.1'; point 0 violates predicate '0<z<3.34'; point 1 violates predicate '-6.2<x+y<-6.1'; point 1 violates predicate '0<z<3.34'; point 2 violates predicate '-6.2<x+y<-6.1'; point 2 violates predicate '0<z<3.34'; point 3 violates predicate '-6.2<x+y<-6.1'; point 3 violates predicate '0<z<3.34'; point 4 violates predicate '-6.2<x+y<-6.1'; point 4 violates predicate '0<z<3.34'; point 5 violates predicate '-6.2<x+y<-6.1'; point 5 violates predicate '0<z<3.34'; point 6 violates predicate '-6.2<x+y<-6.1'; point 6 violates predicate '0<z<3.34'; point 7 violates predicate '-6.2<x+y<-6.1'; point 7 violates predicate '0<z<3.34'; point 8 violates predicate '-6.2<x+y<-6.1'; point 8 violates predicate '0<z<3.34'; point 9 violates predicate '-6.2<x+y<-6.1'; point 9 violates predicate '0<z<3.34'"
+    },
+    {
+      "expr_id": "134",
+      "kind": "explicit_surface",
+      "latex": "z=\\left(ax+5.5\\right)\\left\\{-6.2<x-y<-6.1\\right\\}\\left\\{0<z<3.45\\right\\}",
+      "reason": "point 0 violates predicate '-6.2<x-y<-6.1'; point 0 violates predicate '0<z<3.45'; point 1 violates predicate '-6.2<x-y<-6.1'; point 1 violates predicate '0<z<3.45'; point 2 violates predicate '-6.2<x-y<-6.1'; point 2 violates predicate '0<z<3.45'; point 3 violates predicate '-6.2<x-y<-6.1'; point 3 violates predicate '0<z<3.45'; point 4 violates predicate '-6.2<x-y<-6.1'; point 4 violates predicate '0<z<3.45'; point 5 violates predicate '-6.2<x-y<-6.1'; point 5 violates predicate '0<z<3.45'; point 6 violates predicate '-6.2<x-y<-6.1'; point 6 violates predicate '0<z<3.45'; point 7 violates predicate '-6.2<x-y<-6.1'; point 7 violates predicate '0<z<3.45'; point 8 violates predicate '-6.2<x-y<-6.1'; point 8 violates predicate '0<z<3.45'; point 9 violates predicate '-6.2<x-y<-6.1'; point 9 violates predicate '0<z<3.45'"
+    },
+    {
+      "expr_id": "135",
+      "kind": "explicit_surface",
+      "latex": "z=\\left(ax+5.5\\right)\\left\\{-7<x+y<-6.9\\right\\}\\left\\{0<z<3.2\\right\\}",
+      "reason": "point 0 violates predicate '-7<x+y<-6.9'; point 0 violates predicate '0<z<3.2'; point 1 violates predicate '-7<x+y<-6.9'; point 1 violates predicate '0<z<3.2'; point 2 violates predicate '-7<x+y<-6.9'; point 2 violates predicate '0<z<3.2'; point 3 violates predicate '-7<x+y<-6.9'; point 3 violates predicate '0<z<3.2'; point 4 violates predicate '-7<x+y<-6.9'; point 4 violates predicate '0<z<3.2'; point 5 violates predicate '-7<x+y<-6.9'; point 5 violates predicate '0<z<3.2'; point 6 violates predicate '-7<x+y<-6.9'; point 6 violates predicate '0<z<3.2'; point 7 violates predicate '-7<x+y<-6.9'; point 7 violates predicate '0<z<3.2'; point 8 violates predicate '-7<x+y<-6.9'; point 8 violates predicate '0<z<3.2'; point 9 violates predicate '-7<x+y<-6.9'; point 9 violates predicate '0<z<3.2'"
+    },
+    {
+      "expr_id": "136",
+      "kind": "explicit_surface",
+      "latex": "z=\\left(ax+5.5\\right)\\left\\{-7<x-y<-6.9\\right\\}\\left\\{0<z<3.2\\right\\}",
+      "reason": "point 0 violates predicate '-7<x-y<-6.9'; point 0 violates predicate '0<z<3.2'; point 1 violates predicate '-7<x-y<-6.9'; point 1 violates predicate '0<z<3.2'; point 2 violates predicate '-7<x-y<-6.9'; point 2 violates predicate '0<z<3.2'; point 3 violates predicate '-7<x-y<-6.9'; point 3 violates predicate '0<z<3.2'; point 4 violates predicate '-7<x-y<-6.9'; point 4 violates predicate '0<z<3.2'; point 5 violates predicate '-7<x-y<-6.9'; point 5 violates predicate '0<z<3.2'; point 6 violates predicate '-7<x-y<-6.9'; point 6 violates predicate '0<z<3.2'; point 7 violates predicate '-7<x-y<-6.9'; point 7 violates predicate '0<z<3.2'; point 8 violates predicate '-7<x-y<-6.9'; point 8 violates predicate '0<z<3.2'; point 9 violates predicate '-7<x-y<-6.9'; point 9 violates predicate '0<z<3.2'"
+    },
+    {
+      "expr_id": "138",
+      "kind": "explicit_surface",
+      "latex": "z=\\left(ax+5.5\\right)\\left\\{-7.8<x+y<-7.7\\right\\}\\left\\{0<z<2.9\\right\\}",
+      "reason": "point 0 violates predicate '-7.8<x+y<-7.7'; point 0 violates predicate '0<z<2.9'; point 1 violates predicate '-7.8<x+y<-7.7'; point 1 violates predicate '0<z<2.9'; point 2 violates predicate '-7.8<x+y<-7.7'; point 2 violates predicate '0<z<2.9'; point 3 violates predicate '-7.8<x+y<-7.7'; point 3 violates predicate '0<z<2.9'; point 4 violates predicate '-7.8<x+y<-7.7'; point 4 violates predicate '0<z<2.9'; point 5 violates predicate '-7.8<x+y<-7.7'; point 5 violates predicate '0<z<2.9'; point 6 violates predicate '-7.8<x+y<-7.7'; point 6 violates predicate '0<z<2.9'; point 7 violates predicate '-7.8<x+y<-7.7'; point 7 violates predicate '0<z<2.9'; point 8 violates predicate '-7.8<x+y<-7.7'; point 8 violates predicate '0<z<2.9'; point 9 violates predicate '-7.8<x+y<-7.7'; point 9 violates predicate '0<z<2.9'"
+    },
+    {
+      "expr_id": "139",
+      "kind": "explicit_surface",
+      "latex": "z=\\left(ax+5.5\\right)\\left\\{-7.8<x-y<-7.7\\right\\}\\left\\{0<z<2.9\\right\\}",
+      "reason": "point 0 violates predicate '-7.8<x-y<-7.7'; point 0 violates predicate '0<z<2.9'; point 1 violates predicate '-7.8<x-y<-7.7'; point 1 violates predicate '0<z<2.9'; point 2 violates predicate '-7.8<x-y<-7.7'; point 2 violates predicate '0<z<2.9'; point 3 violates predicate '-7.8<x-y<-7.7'; point 3 violates predicate '0<z<2.9'; point 4 violates predicate '-7.8<x-y<-7.7'; point 4 violates predicate '0<z<2.9'; point 5 violates predicate '-7.8<x-y<-7.7'; point 5 violates predicate '0<z<2.9'; point 6 violates predicate '-7.8<x-y<-7.7'; point 6 violates predicate '0<z<2.9'; point 7 violates predicate '-7.8<x-y<-7.7'; point 7 violates predicate '0<z<2.9'; point 8 violates predicate '-7.8<x-y<-7.7'; point 8 violates predicate '0<z<2.9'; point 9 violates predicate '-7.8<x-y<-7.7'; point 9 violates predicate '0<z<2.9'"
+    },
+    {
+      "expr_id": "140",
+      "kind": "explicit_surface",
+      "latex": "z=\\left(ax+5.5\\right)\\left\\{-8.6<x+y<-8.5\\right\\}\\left\\{0<z<2.6\\right\\}",
+      "reason": "point 0 violates predicate '-8.6<x+y<-8.5'; point 0 violates predicate '0<z<2.6'; point 1 violates predicate '-8.6<x+y<-8.5'; point 1 violates predicate '0<z<2.6'; point 2 violates predicate '-8.6<x+y<-8.5'; point 2 violates predicate '0<z<2.6'; point 3 violates predicate '-8.6<x+y<-8.5'; point 3 violates predicate '0<z<2.6'; point 4 violates predicate '-8.6<x+y<-8.5'; point 4 violates predicate '0<z<2.6'; point 5 violates predicate '-8.6<x+y<-8.5'; point 5 violates predicate '0<z<2.6'; point 6 violates predicate '-8.6<x+y<-8.5'; point 6 violates predicate '0<z<2.6'; point 7 violates predicate '-8.6<x+y<-8.5'; point 7 violates predicate '0<z<2.6'; point 8 violates predicate '-8.6<x+y<-8.5'; point 8 violates predicate '0<z<2.6'; point 9 violates predicate '-8.6<x+y<-8.5'; point 9 violates predicate '0<z<2.6'"
+    },
+    {
+      "expr_id": "141",
+      "kind": "explicit_surface",
+      "latex": "z=\\left(ax+5.5\\right)\\left\\{-8.6<x-y<-8.5\\right\\}\\left\\{0<z<2.6\\right\\}",
+      "reason": "point 0 violates predicate '-8.6<x-y<-8.5'; point 0 violates predicate '0<z<2.6'; point 1 violates predicate '-8.6<x-y<-8.5'; point 1 violates predicate '0<z<2.6'; point 2 violates predicate '-8.6<x-y<-8.5'; point 2 violates predicate '0<z<2.6'; point 3 violates predicate '-8.6<x-y<-8.5'; point 3 violates predicate '0<z<2.6'; point 4 violates predicate '-8.6<x-y<-8.5'; point 4 violates predicate '0<z<2.6'; point 5 violates predicate '-8.6<x-y<-8.5'; point 5 violates predicate '0<z<2.6'; point 6 violates predicate '-8.6<x-y<-8.5'; point 6 violates predicate '0<z<2.6'; point 7 violates predicate '-8.6<x-y<-8.5'; point 7 violates predicate '0<z<2.6'; point 8 violates predicate '-8.6<x-y<-8.5'; point 8 violates predicate '0<z<2.6'; point 9 violates predicate '-8.6<x-y<-8.5'; point 9 violates predicate '0<z<2.6'"
+    },
+    {
+      "expr_id": "142",
+      "kind": "explicit_surface",
+      "latex": "z=\\left(ax+5.5\\right)\\left\\{-9.4<x+y<-9.3\\right\\}\\left\\{0<z<2.4\\right\\}",
+      "reason": "point 0 violates predicate '-9.4<x+y<-9.3'; point 0 violates predicate '0<z<2.4'; point 1 violates predicate '-9.4<x+y<-9.3'; point 1 violates predicate '0<z<2.4'; point 2 violates predicate '-9.4<x+y<-9.3'; point 2 violates predicate '0<z<2.4'; point 3 violates predicate '-9.4<x+y<-9.3'; point 3 violates predicate '0<z<2.4'; point 4 violates predicate '-9.4<x+y<-9.3'; point 4 violates predicate '0<z<2.4'; point 5 violates predicate '-9.4<x+y<-9.3'; point 5 violates predicate '0<z<2.4'; point 6 violates predicate '-9.4<x+y<-9.3'; point 6 violates predicate '0<z<2.4'; point 7 violates predicate '-9.4<x+y<-9.3'; point 7 violates predicate '0<z<2.4'; point 8 violates predicate '-9.4<x+y<-9.3'; point 8 violates predicate '0<z<2.4'; point 9 violates predicate '-9.4<x+y<-9.3'; point 9 violates predicate '0<z<2.4'"
+    },
+    {
+      "expr_id": "143",
+      "kind": "explicit_surface",
+      "latex": "z=\\left(ax+5.5\\right)\\left\\{-9.4<x-y<-9.3\\right\\}\\left\\{0<z<2.4\\right\\}",
+      "reason": "point 0 violates predicate '-9.4<x-y<-9.3'; point 0 violates predicate '0<z<2.4'; point 1 violates predicate '-9.4<x-y<-9.3'; point 1 violates predicate '0<z<2.4'; point 2 violates predicate '-9.4<x-y<-9.3'; point 2 violates predicate '0<z<2.4'; point 3 violates predicate '-9.4<x-y<-9.3'; point 3 violates predicate '0<z<2.4'; point 4 violates predicate '-9.4<x-y<-9.3'; point 4 violates predicate '0<z<2.4'; point 5 violates predicate '-9.4<x-y<-9.3'; point 5 violates predicate '0<z<2.4'; point 6 violates predicate '-9.4<x-y<-9.3'; point 6 violates predicate '0<z<2.4'; point 7 violates predicate '-9.4<x-y<-9.3'; point 7 violates predicate '0<z<2.4'; point 8 violates predicate '-9.4<x-y<-9.3'; point 8 violates predicate '0<z<2.4'; point 9 violates predicate '-9.4<x-y<-9.3'; point 9 violates predicate '0<z<2.4'"
+    },
+    {
+      "expr_id": "144",
+      "kind": "explicit_surface",
+      "latex": "z=\\left(ax+5.5\\right)\\left\\{-10.2<x+y<-10.1\\right\\}\\left\\{0<z<2.1\\right\\}",
+      "reason": "point 0 violates predicate '-10.2<x+y<-10.1'; point 0 violates predicate '0<z<2.1'; point 1 violates predicate '-10.2<x+y<-10.1'; point 1 violates predicate '0<z<2.1'; point 2 violates predicate '-10.2<x+y<-10.1'; point 2 violates predicate '0<z<2.1'; point 3 violates predicate '-10.2<x+y<-10.1'; point 3 violates predicate '0<z<2.1'; point 4 violates predicate '-10.2<x+y<-10.1'; point 4 violates predicate '0<z<2.1'; point 5 violates predicate '-10.2<x+y<-10.1'; point 5 violates predicate '0<z<2.1'; point 6 violates predicate '-10.2<x+y<-10.1'; point 6 violates predicate '0<z<2.1'; point 7 violates predicate '-10.2<x+y<-10.1'; point 7 violates predicate '0<z<2.1'; point 8 violates predicate '-10.2<x+y<-10.1'; point 8 violates predicate '0<z<2.1'; point 9 violates predicate '-10.2<x+y<-10.1'; point 9 violates predicate '0<z<2.1'"
+    },
+    {
+      "expr_id": "145",
+      "kind": "explicit_surface",
+      "latex": "z=\\left(ax+5.5\\right)\\left\\{-10.2<x-y<-10.1\\right\\}\\left\\{0<z<2.1\\right\\}",
+      "reason": "point 0 violates predicate '-10.2<x-y<-10.1'; point 0 violates predicate '0<z<2.1'; point 1 violates predicate '-10.2<x-y<-10.1'; point 1 violates predicate '0<z<2.1'; point 2 violates predicate '-10.2<x-y<-10.1'; point 2 violates predicate '0<z<2.1'; point 3 violates predicate '-10.2<x-y<-10.1'; point 3 violates predicate '0<z<2.1'; point 4 violates predicate '-10.2<x-y<-10.1'; point 4 violates predicate '0<z<2.1'; point 5 violates predicate '-10.2<x-y<-10.1'; point 5 violates predicate '0<z<2.1'; point 6 violates predicate '-10.2<x-y<-10.1'; point 6 violates predicate '0<z<2.1'; point 7 violates predicate '-10.2<x-y<-10.1'; point 7 violates predicate '0<z<2.1'; point 8 violates predicate '-10.2<x-y<-10.1'; point 8 violates predicate '0<z<2.1'; point 9 violates predicate '-10.2<x-y<-10.1'; point 9 violates predicate '0<z<2.1'"
+    },
+    {
+      "expr_id": "146",
+      "kind": "explicit_surface",
+      "latex": "z=\\left(ax+5.5\\right)\\left\\{-11.1<x+y<-11\\right\\}\\left\\{0<z<2\\right\\}",
+      "reason": "point 0 violates predicate '-11.1<x+y<-11'; point 0 violates predicate '0<z<2'; point 1 violates predicate '-11.1<x+y<-11'; point 1 violates predicate '0<z<2'; point 2 violates predicate '-11.1<x+y<-11'; point 2 violates predicate '0<z<2'; point 3 violates predicate '-11.1<x+y<-11'; point 3 violates predicate '0<z<2'; point 4 violates predicate '-11.1<x+y<-11'; point 4 violates predicate '0<z<2'; point 5 violates predicate '-11.1<x+y<-11'; point 5 violates predicate '0<z<2'; point 6 violates predicate '-11.1<x+y<-11'; point 6 violates predicate '0<z<2'; point 7 violates predicate '-11.1<x+y<-11'; point 7 violates predicate '0<z<2'; point 8 violates predicate '-11.1<x+y<-11'; point 8 violates predicate '0<z<2'; point 9 violates predicate '-11.1<x+y<-11'; point 9 violates predicate '0<z<2'"
+    },
+    {
+      "expr_id": "147",
+      "kind": "explicit_surface",
+      "latex": "z=\\left(ax+5.5\\right)\\left\\{-11.1<x-y<-11\\right\\}\\left\\{0<z<2\\right\\}",
+      "reason": "point 0 violates predicate '-11.1<x-y<-11'; point 0 violates predicate '0<z<2'; point 1 violates predicate '-11.1<x-y<-11'; point 1 violates predicate '0<z<2'; point 2 violates predicate '-11.1<x-y<-11'; point 2 violates predicate '0<z<2'; point 3 violates predicate '-11.1<x-y<-11'; point 3 violates predicate '0<z<2'; point 4 violates predicate '-11.1<x-y<-11'; point 4 violates predicate '0<z<2'; point 5 violates predicate '-11.1<x-y<-11'; point 5 violates predicate '0<z<2'; point 6 violates predicate '-11.1<x-y<-11'; point 6 violates predicate '0<z<2'; point 7 violates predicate '-11.1<x-y<-11'; point 7 violates predicate '0<z<2'; point 8 violates predicate '-11.1<x-y<-11'; point 8 violates predicate '0<z<2'; point 9 violates predicate '-11.1<x-y<-11'; point 9 violates predicate '0<z<2'"
+    },
+    {
+      "expr_id": "150",
+      "kind": "explicit_surface",
+      "latex": "z=\\left(ax+5.5\\right)\\left\\{-12.8<x+y<-12.7\\right\\}\\left\\{0<z<1.4\\right\\}",
+      "reason": "point 0 violates predicate '-12.8<x+y<-12.7'; point 0 violates predicate '0<z<1.4'; point 1 violates predicate '-12.8<x+y<-12.7'; point 1 violates predicate '0<z<1.4'; point 2 violates predicate '-12.8<x+y<-12.7'; point 2 violates predicate '0<z<1.4'; point 3 violates predicate '-12.8<x+y<-12.7'; point 3 violates predicate '0<z<1.4'; point 4 violates predicate '-12.8<x+y<-12.7'; point 4 violates predicate '0<z<1.4'; point 5 violates predicate '-12.8<x+y<-12.7'; point 5 violates predicate '0<z<1.4'; point 6 violates predicate '-12.8<x+y<-12.7'; point 6 violates predicate '0<z<1.4'; point 7 violates predicate '-12.8<x+y<-12.7'; point 7 violates predicate '0<z<1.4'; point 8 violates predicate '-12.8<x+y<-12.7'; point 8 violates predicate '0<z<1.4'; point 9 violates predicate '-12.8<x+y<-12.7'; point 9 violates predicate '0<z<1.4'"
+    },
+    {
+      "expr_id": "151",
+      "kind": "explicit_surface",
+      "latex": "z=\\left(ax+5.5\\right)\\left\\{-12.8<x-y<-12.7\\right\\}\\left\\{0<z<1.4\\right\\}",
+      "reason": "point 0 violates predicate '-12.8<x-y<-12.7'; point 0 violates predicate '0<z<1.4'; point 1 violates predicate '-12.8<x-y<-12.7'; point 1 violates predicate '0<z<1.4'; point 2 violates predicate '-12.8<x-y<-12.7'; point 2 violates predicate '0<z<1.4'; point 3 violates predicate '-12.8<x-y<-12.7'; point 3 violates predicate '0<z<1.4'; point 4 violates predicate '-12.8<x-y<-12.7'; point 4 violates predicate '0<z<1.4'; point 5 violates predicate '-12.8<x-y<-12.7'; point 5 violates predicate '0<z<1.4'; point 6 violates predicate '-12.8<x-y<-12.7'; point 6 violates predicate '0<z<1.4'; point 7 violates predicate '-12.8<x-y<-12.7'; point 7 violates predicate '0<z<1.4'; point 8 violates predicate '-12.8<x-y<-12.7'; point 8 violates predicate '0<z<1.4'; point 9 violates predicate '-12.8<x-y<-12.7'; point 9 violates predicate '0<z<1.4'"
+    },
+    {
+      "expr_id": "153",
+      "kind": "explicit_surface",
+      "latex": "z=\\left(ax+5.5\\right)\\left\\{-13.6<x+y<-13.5\\right\\}\\left\\{0<z<1\\right\\}",
+      "reason": "point 0 violates predicate '-13.6<x+y<-13.5'; point 0 violates predicate '0<z<1'; point 1 violates predicate '-13.6<x+y<-13.5'; point 1 violates predicate '0<z<1'; point 2 violates predicate '-13.6<x+y<-13.5'; point 2 violates predicate '0<z<1'; point 3 violates predicate '-13.6<x+y<-13.5'; point 3 violates predicate '0<z<1'; point 4 violates predicate '-13.6<x+y<-13.5'; point 4 violates predicate '0<z<1'; point 5 violates predicate '-13.6<x+y<-13.5'; point 5 violates predicate '0<z<1'; point 6 violates predicate '-13.6<x+y<-13.5'; point 6 violates predicate '0<z<1'; point 7 violates predicate '-13.6<x+y<-13.5'; point 7 violates predicate '0<z<1'; point 8 violates predicate '-13.6<x+y<-13.5'; point 8 violates predicate '0<z<1'; point 9 violates predicate '-13.6<x+y<-13.5'; point 9 violates predicate '0<z<1'"
+    },
+    {
+      "expr_id": "154",
+      "kind": "explicit_surface",
+      "latex": "z=\\left(ax+5.5\\right)\\left\\{-13.6<x-y<-13.5\\right\\}\\left\\{0<z<1\\right\\}",
+      "reason": "point 0 violates predicate '-13.6<x-y<-13.5'; point 0 violates predicate '0<z<1'; point 1 violates predicate '-13.6<x-y<-13.5'; point 1 violates predicate '0<z<1'; point 2 violates predicate '-13.6<x-y<-13.5'; point 2 violates predicate '0<z<1'; point 3 violates predicate '-13.6<x-y<-13.5'; point 3 violates predicate '0<z<1'; point 4 violates predicate '-13.6<x-y<-13.5'; point 4 violates predicate '0<z<1'; point 5 violates predicate '-13.6<x-y<-13.5'; point 5 violates predicate '0<z<1'; point 6 violates predicate '-13.6<x-y<-13.5'; point 6 violates predicate '0<z<1'; point 7 violates predicate '-13.6<x-y<-13.5'; point 7 violates predicate '0<z<1'; point 8 violates predicate '-13.6<x-y<-13.5'; point 8 violates predicate '0<z<1'; point 9 violates predicate '-13.6<x-y<-13.5'; point 9 violates predicate '0<z<1'"
+    },
+    {
+      "expr_id": "279",
+      "kind": "explicit_surface",
+      "latex": "z=\\left(ax+5.5\\right)\\left\\{-15.5<x+y<-15.4\\right\\}\\left\\{0<z<0.6\\right\\}",
+      "reason": "point 0 violates predicate '-15.5<x+y<-15.4'; point 0 violates predicate '0<z<0.6'; point 1 violates predicate '-15.5<x+y<-15.4'; point 1 violates predicate '0<z<0.6'; point 2 violates predicate '-15.5<x+y<-15.4'; point 2 violates predicate '0<z<0.6'; point 3 violates predicate '-15.5<x+y<-15.4'; point 3 violates predicate '0<z<0.6'; point 4 violates predicate '-15.5<x+y<-15.4'; point 4 violates predicate '0<z<0.6'; point 5 violates predicate '-15.5<x+y<-15.4'; point 5 violates predicate '0<z<0.6'; point 6 violates predicate '-15.5<x+y<-15.4'; point 6 violates predicate '0<z<0.6'; point 7 violates predicate '-15.5<x+y<-15.4'; point 7 violates predicate '0<z<0.6'; point 8 violates predicate '-15.5<x+y<-15.4'; point 8 violates predicate '0<z<0.6'; point 9 violates predicate '-15.5<x+y<-15.4'; point 9 violates predicate '0<z<0.6'"
+    },
+    {
+      "expr_id": "280",
+      "kind": "explicit_surface",
+      "latex": "z=\\left(ax+5.5\\right)\\left\\{-15.5<x-y<-15.4\\right\\}\\left\\{0<z<0.6\\right\\}",
+      "reason": "point 0 violates predicate '-15.5<x-y<-15.4'; point 0 violates predicate '0<z<0.6'; point 1 violates predicate '-15.5<x-y<-15.4'; point 1 violates predicate '0<z<0.6'; point 2 violates predicate '-15.5<x-y<-15.4'; point 2 violates predicate '0<z<0.6'; point 3 violates predicate '-15.5<x-y<-15.4'; point 3 violates predicate '0<z<0.6'; point 4 violates predicate '-15.5<x-y<-15.4'; point 4 violates predicate '0<z<0.6'; point 5 violates predicate '-15.5<x-y<-15.4'; point 5 violates predicate '0<z<0.6'; point 6 violates predicate '-15.5<x-y<-15.4'; point 6 violates predicate '0<z<0.6'; point 7 violates predicate '-15.5<x-y<-15.4'; point 7 violates predicate '0<z<0.6'; point 8 violates predicate '-15.5<x-y<-15.4'; point 8 violates predicate '0<z<0.6'; point 9 violates predicate '-15.5<x-y<-15.4'; point 9 violates predicate '0<z<0.6'"
+    },
+    {
+      "expr_id": "164",
+      "kind": "explicit_surface",
+      "latex": "z=\\left(-ay+0y+5.6\\right)\\left\\{0.3<y+x<0.4\\right\\}\\left\\{4.5<z<5.45\\right\\}",
+      "reason": "point 0 violates predicate '0.3<y+x<0.4'; point 0 violates predicate '4.5<z<5.45'; point 1 violates predicate '0.3<y+x<0.4'; point 1 violates predicate '4.5<z<5.45'; point 2 violates predicate '0.3<y+x<0.4'; point 2 violates predicate '4.5<z<5.45'; point 3 violates predicate '0.3<y+x<0.4'; point 3 violates predicate '4.5<z<5.45'; point 4 violates predicate '0.3<y+x<0.4'; point 4 violates predicate '4.5<z<5.45'; point 5 violates predicate '0.3<y+x<0.4'; point 5 violates predicate '4.5<z<5.45'; point 6 violates predicate '0.3<y+x<0.4'; point 6 violates predicate '4.5<z<5.45'; point 7 violates predicate '0.3<y+x<0.4'; point 7 violates predicate '4.5<z<5.45'; point 8 violates predicate '0.3<y+x<0.4'; point 8 violates predicate '4.5<z<5.45'; point 9 violates predicate '0.3<y+x<0.4'; point 9 violates predicate '4.5<z<5.45'"
+    },
+    {
+      "expr_id": "165",
+      "kind": "explicit_surface",
+      "latex": "z=\\left(-ay+0y+5.6\\right)\\left\\{0.3<y-x<0.4\\right\\}\\left\\{4.5<z<5.45\\right\\}",
+      "reason": "point 0 violates predicate '0.3<y-x<0.4'; point 0 violates predicate '4.5<z<5.45'; point 1 violates predicate '0.3<y-x<0.4'; point 1 violates predicate '4.5<z<5.45'; point 2 violates predicate '0.3<y-x<0.4'; point 2 violates predicate '4.5<z<5.45'; point 3 violates predicate '0.3<y-x<0.4'; point 3 violates predicate '4.5<z<5.45'; point 4 violates predicate '0.3<y-x<0.4'; point 4 violates predicate '4.5<z<5.45'; point 5 violates predicate '0.3<y-x<0.4'; point 5 violates predicate '4.5<z<5.45'; point 6 violates predicate '0.3<y-x<0.4'; point 6 violates predicate '4.5<z<5.45'; point 7 violates predicate '0.3<y-x<0.4'; point 7 violates predicate '4.5<z<5.45'; point 8 violates predicate '0.3<y-x<0.4'; point 8 violates predicate '4.5<z<5.45'; point 9 violates predicate '0.3<y-x<0.4'; point 9 violates predicate '4.5<z<5.45'"
+    },
+    {
+      "expr_id": "166",
+      "kind": "explicit_surface",
+      "latex": "z=\\left(-ay+0y+5.6\\right)\\left\\{1.1<y+x<1.2\\right\\}\\left\\{0<z<5.2\\right\\}",
+      "reason": "point 0 violates predicate '1.1<y+x<1.2'; point 0 violates predicate '0<z<5.2'; point 1 violates predicate '1.1<y+x<1.2'; point 1 violates predicate '0<z<5.2'; point 2 violates predicate '1.1<y+x<1.2'; point 2 violates predicate '0<z<5.2'; point 3 violates predicate '1.1<y+x<1.2'; point 3 violates predicate '0<z<5.2'; point 4 violates predicate '1.1<y+x<1.2'; point 4 violates predicate '0<z<5.2'; point 5 violates predicate '1.1<y+x<1.2'; point 5 violates predicate '0<z<5.2'; point 6 violates predicate '1.1<y+x<1.2'; point 6 violates predicate '0<z<5.2'; point 7 violates predicate '1.1<y+x<1.2'; point 7 violates predicate '0<z<5.2'; point 8 violates predicate '1.1<y+x<1.2'; point 8 violates predicate '0<z<5.2'; point 9 violates predicate '1.1<y+x<1.2'; point 9 violates predicate '0<z<5.2'"
+    },
+    {
+      "expr_id": "167",
+      "kind": "explicit_surface",
+      "latex": "z=\\left(-ay+0y+5.6\\right)\\left\\{1.1<y-x<1.2\\right\\}\\left\\{0<z<5.2\\right\\}",
+      "reason": "point 0 violates predicate '1.1<y-x<1.2'; point 0 violates predicate '0<z<5.2'; point 1 violates predicate '1.1<y-x<1.2'; point 1 violates predicate '0<z<5.2'; point 2 violates predicate '1.1<y-x<1.2'; point 2 violates predicate '0<z<5.2'; point 3 violates predicate '1.1<y-x<1.2'; point 3 violates predicate '0<z<5.2'; point 4 violates predicate '1.1<y-x<1.2'; point 4 violates predicate '0<z<5.2'; point 5 violates predicate '1.1<y-x<1.2'; point 5 violates predicate '0<z<5.2'; point 6 violates predicate '1.1<y-x<1.2'; point 6 violates predicate '0<z<5.2'; point 7 violates predicate '1.1<y-x<1.2'; point 7 violates predicate '0<z<5.2'; point 8 violates predicate '1.1<y-x<1.2'; point 8 violates predicate '0<z<5.2'; point 9 violates predicate '1.1<y-x<1.2'; point 9 violates predicate '0<z<5.2'"
+    },
+    {
+      "expr_id": "168",
+      "kind": "explicit_surface",
+      "latex": "z=\\left(-ay+0y+5.6\\right)\\left\\{1.9<y+x<2\\right\\}\\left\\{0<z<4.86\\right\\}",
+      "reason": "point 0 violates predicate '1.9<y+x<2'; point 0 violates predicate '0<z<4.86'; point 1 violates predicate '1.9<y+x<2'; point 1 violates predicate '0<z<4.86'; point 2 violates predicate '1.9<y+x<2'; point 2 violates predicate '0<z<4.86'; point 3 violates predicate '1.9<y+x<2'; point 3 violates predicate '0<z<4.86'; point 4 violates predicate '1.9<y+x<2'; point 4 violates predicate '0<z<4.86'; point 5 violates predicate '1.9<y+x<2'; point 5 violates predicate '0<z<4.86'; point 6 violates predicate '1.9<y+x<2'; point 6 violates predicate '0<z<4.86'; point 7 violates predicate '1.9<y+x<2'; point 7 violates predicate '0<z<4.86'; point 8 violates predicate '1.9<y+x<2'; point 8 violates predicate '0<z<4.86'; point 9 violates predicate '1.9<y+x<2'; point 9 violates predicate '0<z<4.86'"
+    },
+    {
+      "expr_id": "169",
+      "kind": "explicit_surface",
+      "latex": "z=\\left(-ay+0y+5.6\\right)\\left\\{1.9<y-x<2\\right\\}\\left\\{0<z<4.86\\right\\}",
+      "reason": "point 0 violates predicate '1.9<y-x<2'; point 0 violates predicate '0<z<4.86'; point 1 violates predicate '1.9<y-x<2'; point 1 violates predicate '0<z<4.86'; point 2 violates predicate '1.9<y-x<2'; point 2 violates predicate '0<z<4.86'; point 3 violates predicate '1.9<y-x<2'; point 3 violates predicate '0<z<4.86'; point 4 violates predicate '1.9<y-x<2'; point 4 violates predicate '0<z<4.86'; point 5 violates predicate '1.9<y-x<2'; point 5 violates predicate '0<z<4.86'; point 6 violates predicate '1.9<y-x<2'; point 6 violates predicate '0<z<4.86'; point 7 violates predicate '1.9<y-x<2'; point 7 violates predicate '0<z<4.86'; point 8 violates predicate '1.9<y-x<2'; point 8 violates predicate '0<z<4.86'; point 9 violates predicate '1.9<y-x<2'; point 9 violates predicate '0<z<4.86'"
+    },
+    {
+      "expr_id": "170",
+      "kind": "explicit_surface",
+      "latex": "z=\\left(-ay+0y+5.6\\right)\\left\\{2.8<y+x<2.9\\right\\}\\left\\{0<z<4.6\\right\\}",
+      "reason": "point 0 violates predicate '2.8<y+x<2.9'; point 0 violates predicate '0<z<4.6'; point 1 violates predicate '2.8<y+x<2.9'; point 1 violates predicate '0<z<4.6'; point 2 violates predicate '2.8<y+x<2.9'; point 2 violates predicate '0<z<4.6'; point 3 violates predicate '2.8<y+x<2.9'; point 3 violates predicate '0<z<4.6'; point 4 violates predicate '2.8<y+x<2.9'; point 4 violates predicate '0<z<4.6'; point 5 violates predicate '2.8<y+x<2.9'; point 5 violates predicate '0<z<4.6'; point 6 violates predicate '2.8<y+x<2.9'; point 6 violates predicate '0<z<4.6'; point 7 violates predicate '2.8<y+x<2.9'; point 7 violates predicate '0<z<4.6'; point 8 violates predicate '2.8<y+x<2.9'; point 8 violates predicate '0<z<4.6'; point 9 violates predicate '2.8<y+x<2.9'; point 9 violates predicate '0<z<4.6'"
+    },
+    {
+      "expr_id": "171",
+      "kind": "explicit_surface",
+      "latex": "z=\\left(-ay+0y+5.6\\right)\\left\\{2.8<y-x<2.9\\right\\}\\left\\{0<z<4.6\\right\\}",
+      "reason": "point 0 violates predicate '2.8<y-x<2.9'; point 0 violates predicate '0<z<4.6'; point 1 violates predicate '2.8<y-x<2.9'; point 1 violates predicate '0<z<4.6'; point 2 violates predicate '2.8<y-x<2.9'; point 2 violates predicate '0<z<4.6'; point 3 violates predicate '2.8<y-x<2.9'; point 3 violates predicate '0<z<4.6'; point 4 violates predicate '2.8<y-x<2.9'; point 4 violates predicate '0<z<4.6'; point 5 violates predicate '2.8<y-x<2.9'; point 5 violates predicate '0<z<4.6'; point 6 violates predicate '2.8<y-x<2.9'; point 6 violates predicate '0<z<4.6'; point 7 violates predicate '2.8<y-x<2.9'; point 7 violates predicate '0<z<4.6'; point 8 violates predicate '2.8<y-x<2.9'; point 8 violates predicate '0<z<4.6'; point 9 violates predicate '2.8<y-x<2.9'; point 9 violates predicate '0<z<4.6'"
+    },
+    {
+      "expr_id": "172",
+      "kind": "explicit_surface",
+      "latex": "z=\\left(-ay+0y+5.6\\right)\\left\\{3.6<y+x<3.7\\right\\}\\left\\{0<z<4.3\\right\\}",
+      "reason": "point 0 violates predicate '3.6<y+x<3.7'; point 0 violates predicate '0<z<4.3'; point 1 violates predicate '3.6<y+x<3.7'; point 1 violates predicate '0<z<4.3'; point 2 violates predicate '3.6<y+x<3.7'; point 2 violates predicate '0<z<4.3'; point 3 violates predicate '3.6<y+x<3.7'; point 3 violates predicate '0<z<4.3'; point 4 violates predicate '3.6<y+x<3.7'; point 4 violates predicate '0<z<4.3'; point 5 violates predicate '3.6<y+x<3.7'; point 5 violates predicate '0<z<4.3'; point 6 violates predicate '3.6<y+x<3.7'; point 6 violates predicate '0<z<4.3'; point 7 violates predicate '3.6<y+x<3.7'; point 7 violates predicate '0<z<4.3'; point 8 violates predicate '3.6<y+x<3.7'; point 8 violates predicate '0<z<4.3'; point 9 violates predicate '3.6<y+x<3.7'; point 9 violates predicate '0<z<4.3'"
+    },
+    {
+      "expr_id": "173",
+      "kind": "explicit_surface",
+      "latex": "z=\\left(-ay+0y+5.6\\right)\\left\\{3.6<y-x<3.7\\right\\}\\left\\{0<z<4.3\\right\\}",
+      "reason": "point 0 violates predicate '3.6<y-x<3.7'; point 0 violates predicate '0<z<4.3'; point 1 violates predicate '3.6<y-x<3.7'; point 1 violates predicate '0<z<4.3'; point 2 violates predicate '3.6<y-x<3.7'; point 2 violates predicate '0<z<4.3'; point 3 violates predicate '3.6<y-x<3.7'; point 3 violates predicate '0<z<4.3'; point 4 violates predicate '3.6<y-x<3.7'; point 4 violates predicate '0<z<4.3'; point 5 violates predicate '3.6<y-x<3.7'; point 5 violates predicate '0<z<4.3'; point 6 violates predicate '3.6<y-x<3.7'; point 6 violates predicate '0<z<4.3'; point 7 violates predicate '3.6<y-x<3.7'; point 7 violates predicate '0<z<4.3'; point 8 violates predicate '3.6<y-x<3.7'; point 8 violates predicate '0<z<4.3'; point 9 violates predicate '3.6<y-x<3.7'; point 9 violates predicate '0<z<4.3'"
+    },
+    {
+      "expr_id": "178",
+      "kind": "explicit_surface",
+      "latex": "z=\\left(-ay+0y+5.6\\right)\\left\\{6.2<y+x<6.3\\right\\}\\left\\{0<z<3.4\\right\\}",
+      "reason": "point 0 violates predicate '6.2<y+x<6.3'; point 0 violates predicate '0<z<3.4'; point 1 violates predicate '6.2<y+x<6.3'; point 1 violates predicate '0<z<3.4'; point 2 violates predicate '6.2<y+x<6.3'; point 2 violates predicate '0<z<3.4'; point 3 violates predicate '6.2<y+x<6.3'; point 3 violates predicate '0<z<3.4'; point 4 violates predicate '6.2<y+x<6.3'; point 4 violates predicate '0<z<3.4'; point 5 violates predicate '6.2<y+x<6.3'; point 5 violates predicate '0<z<3.4'; point 6 violates predicate '6.2<y+x<6.3'; point 6 violates predicate '0<z<3.4'; point 7 violates predicate '6.2<y+x<6.3'; point 7 violates predicate '0<z<3.4'; point 8 violates predicate '6.2<y+x<6.3'; point 8 violates predicate '0<z<3.4'; point 9 violates predicate '6.2<y+x<6.3'; point 9 violates predicate '0<z<3.4'"
+    },
+    {
+      "expr_id": "179",
+      "kind": "explicit_surface",
+      "latex": "z=\\left(-ay+0y+5.6\\right)\\left\\{6.2<y-x<6.3\\right\\}\\left\\{0<z<3.4\\right\\}",
+      "reason": "point 0 violates predicate '6.2<y-x<6.3'; point 0 violates predicate '0<z<3.4'; point 1 violates predicate '6.2<y-x<6.3'; point 1 violates predicate '0<z<3.4'; point 2 violates predicate '6.2<y-x<6.3'; point 2 violates predicate '0<z<3.4'; point 3 violates predicate '6.2<y-x<6.3'; point 3 violates predicate '0<z<3.4'; point 4 violates predicate '6.2<y-x<6.3'; point 4 violates predicate '0<z<3.4'; point 5 violates predicate '6.2<y-x<6.3'; point 5 violates predicate '0<z<3.4'; point 6 violates predicate '6.2<y-x<6.3'; point 6 violates predicate '0<z<3.4'; point 7 violates predicate '6.2<y-x<6.3'; point 7 violates predicate '0<z<3.4'; point 8 violates predicate '6.2<y-x<6.3'; point 8 violates predicate '0<z<3.4'; point 9 violates predicate '6.2<y-x<6.3'; point 9 violates predicate '0<z<3.4'"
+    },
+    {
+      "expr_id": "180",
+      "kind": "explicit_surface",
+      "latex": "z=\\left(-ay+0y+5.6\\right)\\left\\{7<y+x<7.1\\right\\}\\left\\{0<z<3.2\\right\\}",
+      "reason": "point 0 violates predicate '7<y+x<7.1'; point 0 violates predicate '0<z<3.2'; point 1 violates predicate '7<y+x<7.1'; point 1 violates predicate '0<z<3.2'; point 2 violates predicate '7<y+x<7.1'; point 2 violates predicate '0<z<3.2'; point 3 violates predicate '7<y+x<7.1'; point 3 violates predicate '0<z<3.2'; point 4 violates predicate '7<y+x<7.1'; point 4 violates predicate '0<z<3.2'; point 5 violates predicate '7<y+x<7.1'; point 5 violates predicate '0<z<3.2'; point 6 violates predicate '7<y+x<7.1'; point 6 violates predicate '0<z<3.2'; point 7 violates predicate '7<y+x<7.1'; point 7 violates predicate '0<z<3.2'; point 8 violates predicate '7<y+x<7.1'; point 8 violates predicate '0<z<3.2'; point 9 violates predicate '7<y+x<7.1'; point 9 violates predicate '0<z<3.2'"
+    },
+    {
+      "expr_id": "181",
+      "kind": "explicit_surface",
+      "latex": "z=\\left(-ay+0y+5.6\\right)\\left\\{7<y-x<7.1\\right\\}\\left\\{0<z<3.2\\right\\}",
+      "reason": "point 0 violates predicate '7<y-x<7.1'; point 0 violates predicate '0<z<3.2'; point 1 violates predicate '7<y-x<7.1'; point 1 violates predicate '0<z<3.2'; point 2 violates predicate '7<y-x<7.1'; point 2 violates predicate '0<z<3.2'; point 3 violates predicate '7<y-x<7.1'; point 3 violates predicate '0<z<3.2'; point 4 violates predicate '7<y-x<7.1'; point 4 violates predicate '0<z<3.2'; point 5 violates predicate '7<y-x<7.1'; point 5 violates predicate '0<z<3.2'; point 6 violates predicate '7<y-x<7.1'; point 6 violates predicate '0<z<3.2'; point 7 violates predicate '7<y-x<7.1'; point 7 violates predicate '0<z<3.2'; point 8 violates predicate '7<y-x<7.1'; point 8 violates predicate '0<z<3.2'; point 9 violates predicate '7<y-x<7.1'; point 9 violates predicate '0<z<3.2'"
+    },
+    {
+      "expr_id": "182",
+      "kind": "explicit_surface",
+      "latex": "z=\\left(-ay+0y+5.6\\right)\\left\\{7.9<y+x<8\\right\\}\\left\\{0<z<2.9\\right\\}",
+      "reason": "point 0 violates predicate '7.9<y+x<8'; point 0 violates predicate '0<z<2.9'; point 1 violates predicate '7.9<y+x<8'; point 1 violates predicate '0<z<2.9'; point 2 violates predicate '7.9<y+x<8'; point 2 violates predicate '0<z<2.9'; point 3 violates predicate '7.9<y+x<8'; point 3 violates predicate '0<z<2.9'; point 4 violates predicate '7.9<y+x<8'; point 4 violates predicate '0<z<2.9'; point 5 violates predicate '7.9<y+x<8'; point 5 violates predicate '0<z<2.9'; point 6 violates predicate '7.9<y+x<8'; point 6 violates predicate '0<z<2.9'; point 7 violates predicate '7.9<y+x<8'; point 7 violates predicate '0<z<2.9'; point 8 violates predicate '7.9<y+x<8'; point 8 violates predicate '0<z<2.9'; point 9 violates predicate '7.9<y+x<8'; point 9 violates predicate '0<z<2.9'"
+    },
+    {
+      "expr_id": "183",
+      "kind": "explicit_surface",
+      "latex": "z=\\left(-ay+0y+5.6\\right)\\left\\{7.9<y-x<8\\right\\}\\left\\{0<z<2.9\\right\\}",
+      "reason": "point 0 violates predicate '7.9<y-x<8'; point 0 violates predicate '0<z<2.9'; point 1 violates predicate '7.9<y-x<8'; point 1 violates predicate '0<z<2.9'; point 2 violates predicate '7.9<y-x<8'; point 2 violates predicate '0<z<2.9'; point 3 violates predicate '7.9<y-x<8'; point 3 violates predicate '0<z<2.9'; point 4 violates predicate '7.9<y-x<8'; point 4 violates predicate '0<z<2.9'; point 5 violates predicate '7.9<y-x<8'; point 5 violates predicate '0<z<2.9'; point 6 violates predicate '7.9<y-x<8'; point 6 violates predicate '0<z<2.9'; point 7 violates predicate '7.9<y-x<8'; point 7 violates predicate '0<z<2.9'; point 8 violates predicate '7.9<y-x<8'; point 8 violates predicate '0<z<2.9'; point 9 violates predicate '7.9<y-x<8'; point 9 violates predicate '0<z<2.9'"
+    },
+    {
+      "expr_id": "186",
+      "kind": "explicit_surface",
+      "latex": "z=\\left(-ay+0y+5.6\\right)\\left\\{9.5<y+x<9.6\\right\\}\\left\\{0<z<2.4\\right\\}",
+      "reason": "point 0 violates predicate '9.5<y+x<9.6'; point 0 violates predicate '0<z<2.4'; point 1 violates predicate '9.5<y+x<9.6'; point 1 violates predicate '0<z<2.4'; point 2 violates predicate '9.5<y+x<9.6'; point 2 violates predicate '0<z<2.4'; point 3 violates predicate '9.5<y+x<9.6'; point 3 violates predicate '0<z<2.4'; point 4 violates predicate '9.5<y+x<9.6'; point 4 violates predicate '0<z<2.4'; point 5 violates predicate '9.5<y+x<9.6'; point 5 violates predicate '0<z<2.4'; point 6 violates predicate '9.5<y+x<9.6'; point 6 violates predicate '0<z<2.4'; point 7 violates predicate '9.5<y+x<9.6'; point 7 violates predicate '0<z<2.4'; point 8 violates predicate '9.5<y+x<9.6'; point 8 violates predicate '0<z<2.4'; point 9 violates predicate '9.5<y+x<9.6'; point 9 violates predicate '0<z<2.4'"
+    },
+    {
+      "expr_id": "187",
+      "kind": "explicit_surface",
+      "latex": "z=\\left(-ay+0y+5.6\\right)\\left\\{9.5<y-x<9.6\\right\\}\\left\\{0<z<2.4\\right\\}",
+      "reason": "point 0 violates predicate '9.5<y-x<9.6'; point 0 violates predicate '0<z<2.4'; point 1 violates predicate '9.5<y-x<9.6'; point 1 violates predicate '0<z<2.4'; point 2 violates predicate '9.5<y-x<9.6'; point 2 violates predicate '0<z<2.4'; point 3 violates predicate '9.5<y-x<9.6'; point 3 violates predicate '0<z<2.4'; point 4 violates predicate '9.5<y-x<9.6'; point 4 violates predicate '0<z<2.4'; point 5 violates predicate '9.5<y-x<9.6'; point 5 violates predicate '0<z<2.4'; point 6 violates predicate '9.5<y-x<9.6'; point 6 violates predicate '0<z<2.4'; point 7 violates predicate '9.5<y-x<9.6'; point 7 violates predicate '0<z<2.4'; point 8 violates predicate '9.5<y-x<9.6'; point 8 violates predicate '0<z<2.4'; point 9 violates predicate '9.5<y-x<9.6'; point 9 violates predicate '0<z<2.4'"
+    },
+    {
+      "expr_id": "188",
+      "kind": "explicit_surface",
+      "latex": "z=\\left(-ay+0y+5.6\\right)\\left\\{10.3<y+x<10.4\\right\\}\\left\\{0<z<2.1\\right\\}",
+      "reason": "point 0 violates predicate '10.3<y+x<10.4'; point 0 violates predicate '0<z<2.1'; point 1 violates predicate '10.3<y+x<10.4'; point 1 violates predicate '0<z<2.1'; point 2 violates predicate '10.3<y+x<10.4'; point 2 violates predicate '0<z<2.1'; point 3 violates predicate '10.3<y+x<10.4'; point 3 violates predicate '0<z<2.1'; point 4 violates predicate '10.3<y+x<10.4'; point 4 violates predicate '0<z<2.1'; point 5 violates predicate '10.3<y+x<10.4'; point 5 violates predicate '0<z<2.1'; point 6 violates predicate '10.3<y+x<10.4'; point 6 violates predicate '0<z<2.1'; point 7 violates predicate '10.3<y+x<10.4'; point 7 violates predicate '0<z<2.1'; point 8 violates predicate '10.3<y+x<10.4'; point 8 violates predicate '0<z<2.1'; point 9 violates predicate '10.3<y+x<10.4'; point 9 violates predicate '0<z<2.1'"
+    },
+    {
+      "expr_id": "189",
+      "kind": "explicit_surface",
+      "latex": "z=\\left(-ay+0y+5.6\\right)\\left\\{10.3<y-x<10.4\\right\\}\\left\\{0<z<2.1\\right\\}",
+      "reason": "point 0 violates predicate '10.3<y-x<10.4'; point 0 violates predicate '0<z<2.1'; point 1 violates predicate '10.3<y-x<10.4'; point 1 violates predicate '0<z<2.1'; point 2 violates predicate '10.3<y-x<10.4'; point 2 violates predicate '0<z<2.1'; point 3 violates predicate '10.3<y-x<10.4'; point 3 violates predicate '0<z<2.1'; point 4 violates predicate '10.3<y-x<10.4'; point 4 violates predicate '0<z<2.1'; point 5 violates predicate '10.3<y-x<10.4'; point 5 violates predicate '0<z<2.1'; point 6 violates predicate '10.3<y-x<10.4'; point 6 violates predicate '0<z<2.1'; point 7 violates predicate '10.3<y-x<10.4'; point 7 violates predicate '0<z<2.1'; point 8 violates predicate '10.3<y-x<10.4'; point 8 violates predicate '0<z<2.1'; point 9 violates predicate '10.3<y-x<10.4'; point 9 violates predicate '0<z<2.1'"
+    },
+    {
+      "expr_id": "196",
+      "kind": "explicit_surface",
+      "latex": "z=\\left(-ay+0y+5.6\\right)\\left\\{13.7<y+x<13.8\\right\\}\\left\\{0<z<1.1\\right\\}",
+      "reason": "point 0 violates predicate '13.7<y+x<13.8'; point 0 violates predicate '0<z<1.1'; point 1 violates predicate '13.7<y+x<13.8'; point 1 violates predicate '0<z<1.1'; point 2 violates predicate '13.7<y+x<13.8'; point 2 violates predicate '0<z<1.1'; point 3 violates predicate '13.7<y+x<13.8'; point 3 violates predicate '0<z<1.1'; point 4 violates predicate '13.7<y+x<13.8'; point 4 violates predicate '0<z<1.1'; point 5 violates predicate '13.7<y+x<13.8'; point 5 violates predicate '0<z<1.1'; point 6 violates predicate '13.7<y+x<13.8'; point 6 violates predicate '0<z<1.1'; point 7 violates predicate '13.7<y+x<13.8'; point 7 violates predicate '0<z<1.1'; point 8 violates predicate '13.7<y+x<13.8'; point 8 violates predicate '0<z<1.1'; point 9 violates predicate '13.7<y+x<13.8'; point 9 violates predicate '0<z<1.1'"
+    },
+    {
+      "expr_id": "197",
+      "kind": "explicit_surface",
+      "latex": "z=\\left(-ay+0y+5.6\\right)\\left\\{13.7<y-x<13.8\\right\\}\\left\\{0<z<1.1\\right\\}",
+      "reason": "point 0 violates predicate '13.7<y-x<13.8'; point 0 violates predicate '0<z<1.1'; point 1 violates predicate '13.7<y-x<13.8'; point 1 violates predicate '0<z<1.1'; point 2 violates predicate '13.7<y-x<13.8'; point 2 violates predicate '0<z<1.1'; point 3 violates predicate '13.7<y-x<13.8'; point 3 violates predicate '0<z<1.1'; point 4 violates predicate '13.7<y-x<13.8'; point 4 violates predicate '0<z<1.1'; point 5 violates predicate '13.7<y-x<13.8'; point 5 violates predicate '0<z<1.1'; point 6 violates predicate '13.7<y-x<13.8'; point 6 violates predicate '0<z<1.1'; point 7 violates predicate '13.7<y-x<13.8'; point 7 violates predicate '0<z<1.1'; point 8 violates predicate '13.7<y-x<13.8'; point 8 violates predicate '0<z<1.1'; point 9 violates predicate '13.7<y-x<13.8'; point 9 violates predicate '0<z<1.1'"
+    },
+    {
+      "expr_id": "198",
+      "kind": "explicit_surface",
+      "latex": "z=\\left(-ay+0y+5.6\\right)\\left\\{14.6<y+x<14.7\\right\\}\\left\\{0<z<0.8\\right\\}",
+      "reason": "point 0 violates predicate '14.6<y+x<14.7'; point 0 violates predicate '0<z<0.8'; point 1 violates predicate '14.6<y+x<14.7'; point 1 violates predicate '0<z<0.8'; point 2 violates predicate '14.6<y+x<14.7'; point 2 violates predicate '0<z<0.8'; point 3 violates predicate '14.6<y+x<14.7'; point 3 violates predicate '0<z<0.8'; point 4 violates predicate '14.6<y+x<14.7'; point 4 violates predicate '0<z<0.8'; point 5 violates predicate '14.6<y+x<14.7'; point 5 violates predicate '0<z<0.8'; point 6 violates predicate '14.6<y+x<14.7'; point 6 violates predicate '0<z<0.8'; point 7 violates predicate '14.6<y+x<14.7'; point 7 violates predicate '0<z<0.8'; point 8 violates predicate '14.6<y+x<14.7'; point 8 violates predicate '0<z<0.8'; point 9 violates predicate '14.6<y+x<14.7'; point 9 violates predicate '0<z<0.8'"
+    },
+    {
+      "expr_id": "199",
+      "kind": "explicit_surface",
+      "latex": "z=\\left(-ay+0y+5.6\\right)\\left\\{14.6<y-x<14.7\\right\\}\\left\\{0<z<0.8\\right\\}",
+      "reason": "point 0 violates predicate '14.6<y-x<14.7'; point 0 violates predicate '0<z<0.8'; point 1 violates predicate '14.6<y-x<14.7'; point 1 violates predicate '0<z<0.8'; point 2 violates predicate '14.6<y-x<14.7'; point 2 violates predicate '0<z<0.8'; point 3 violates predicate '14.6<y-x<14.7'; point 3 violates predicate '0<z<0.8'; point 4 violates predicate '14.6<y-x<14.7'; point 4 violates predicate '0<z<0.8'; point 5 violates predicate '14.6<y-x<14.7'; point 5 violates predicate '0<z<0.8'; point 6 violates predicate '14.6<y-x<14.7'; point 6 violates predicate '0<z<0.8'; point 7 violates predicate '14.6<y-x<14.7'; point 7 violates predicate '0<z<0.8'; point 8 violates predicate '14.6<y-x<14.7'; point 8 violates predicate '0<z<0.8'; point 9 violates predicate '14.6<y-x<14.7'; point 9 violates predicate '0<z<0.8'"
+    },
+    {
+      "expr_id": "275",
+      "kind": "explicit_surface",
+      "latex": "z=\\left(-ay+5.5\\right)\\left\\{15.4<y-x<15.5\\right\\}\\left\\{0<z<0.4\\right\\}",
+      "reason": "point 0 violates predicate '15.4<y-x<15.5'; point 0 violates predicate '0<z<0.4'; point 1 violates predicate '15.4<y-x<15.5'; point 1 violates predicate '0<z<0.4'; point 2 violates predicate '15.4<y-x<15.5'; point 2 violates predicate '0<z<0.4'; point 3 violates predicate '15.4<y-x<15.5'; point 3 violates predicate '0<z<0.4'; point 4 violates predicate '15.4<y-x<15.5'; point 4 violates predicate '0<z<0.4'; point 5 violates predicate '15.4<y-x<15.5'; point 5 violates predicate '0<z<0.4'; point 6 violates predicate '15.4<y-x<15.5'; point 6 violates predicate '0<z<0.4'; point 7 violates predicate '15.4<y-x<15.5'; point 7 violates predicate '0<z<0.4'; point 8 violates predicate '15.4<y-x<15.5'; point 8 violates predicate '0<z<0.4'; point 9 violates predicate '15.4<y-x<15.5'; point 9 violates predicate '0<z<0.4'"
+    },
+    {
+      "expr_id": "276",
+      "kind": "explicit_surface",
+      "latex": "z=\\left(-ay+5.5\\right)\\left\\{15.4<y+x<15.5\\right\\}\\left\\{0<z<0.4\\right\\}",
+      "reason": "point 0 violates predicate '15.4<y+x<15.5'; point 0 violates predicate '0<z<0.4'; point 1 violates predicate '15.4<y+x<15.5'; point 1 violates predicate '0<z<0.4'; point 2 violates predicate '15.4<y+x<15.5'; point 2 violates predicate '0<z<0.4'; point 3 violates predicate '15.4<y+x<15.5'; point 3 violates predicate '0<z<0.4'; point 4 violates predicate '15.4<y+x<15.5'; point 4 violates predicate '0<z<0.4'; point 5 violates predicate '15.4<y+x<15.5'; point 5 violates predicate '0<z<0.4'; point 6 violates predicate '15.4<y+x<15.5'; point 6 violates predicate '0<z<0.4'; point 7 violates predicate '15.4<y+x<15.5'; point 7 violates predicate '0<z<0.4'; point 8 violates predicate '15.4<y+x<15.5'; point 8 violates predicate '0<z<0.4'; point 9 violates predicate '15.4<y+x<15.5'; point 9 violates predicate '0<z<0.4'"
+    },
+    {
+      "expr_id": "201",
+      "kind": "explicit_surface",
+      "latex": "z=\\left(ay+5.5\\right)\\left\\{-0.4<y+x<-0.3\\right\\}\\left\\{4.3<z<5.4\\right\\}",
+      "reason": "point 0 violates predicate '-0.4<y+x<-0.3'; point 0 violates predicate '4.3<z<5.4'; point 1 violates predicate '-0.4<y+x<-0.3'; point 1 violates predicate '4.3<z<5.4'; point 2 violates predicate '-0.4<y+x<-0.3'; point 2 violates predicate '4.3<z<5.4'; point 3 violates predicate '-0.4<y+x<-0.3'; point 3 violates predicate '4.3<z<5.4'; point 4 violates predicate '-0.4<y+x<-0.3'; point 4 violates predicate '4.3<z<5.4'; point 5 violates predicate '-0.4<y+x<-0.3'; point 5 violates predicate '4.3<z<5.4'; point 6 violates predicate '-0.4<y+x<-0.3'; point 6 violates predicate '4.3<z<5.4'; point 7 violates predicate '-0.4<y+x<-0.3'; point 7 violates predicate '4.3<z<5.4'; point 8 violates predicate '-0.4<y+x<-0.3'; point 8 violates predicate '4.3<z<5.4'; point 9 violates predicate '-0.4<y+x<-0.3'; point 9 violates predicate '4.3<z<5.4'"
+    },
+    {
+      "expr_id": "202",
+      "kind": "explicit_surface",
+      "latex": "z=\\left(ay+5.5\\right)\\left\\{-0.4<y-x<-0.3\\right\\}\\left\\{4.3<z<5.4\\right\\}",
+      "reason": "point 0 violates predicate '-0.4<y-x<-0.3'; point 0 violates predicate '4.3<z<5.4'; point 1 violates predicate '-0.4<y-x<-0.3'; point 1 violates predicate '4.3<z<5.4'; point 2 violates predicate '-0.4<y-x<-0.3'; point 2 violates predicate '4.3<z<5.4'; point 3 violates predicate '-0.4<y-x<-0.3'; point 3 violates predicate '4.3<z<5.4'; point 4 violates predicate '-0.4<y-x<-0.3'; point 4 violates predicate '4.3<z<5.4'; point 5 violates predicate '-0.4<y-x<-0.3'; point 5 violates predicate '4.3<z<5.4'; point 6 violates predicate '-0.4<y-x<-0.3'; point 6 violates predicate '4.3<z<5.4'; point 7 violates predicate '-0.4<y-x<-0.3'; point 7 violates predicate '4.3<z<5.4'; point 8 violates predicate '-0.4<y-x<-0.3'; point 8 violates predicate '4.3<z<5.4'; point 9 violates predicate '-0.4<y-x<-0.3'; point 9 violates predicate '4.3<z<5.4'"
+    },
+    {
+      "expr_id": "203",
+      "kind": "explicit_surface",
+      "latex": "z=\\left(ay+5.5\\right)\\left\\{-1.2<x+y<-1.1\\right\\}\\left\\{0<z<5.1\\right\\}",
+      "reason": "point 0 violates predicate '-1.2<x+y<-1.1'; point 0 violates predicate '0<z<5.1'; point 1 violates predicate '-1.2<x+y<-1.1'; point 1 violates predicate '0<z<5.1'; point 2 violates predicate '-1.2<x+y<-1.1'; point 2 violates predicate '0<z<5.1'; point 3 violates predicate '-1.2<x+y<-1.1'; point 3 violates predicate '0<z<5.1'; point 4 violates predicate '-1.2<x+y<-1.1'; point 4 violates predicate '0<z<5.1'; point 5 violates predicate '-1.2<x+y<-1.1'; point 5 violates predicate '0<z<5.1'; point 6 violates predicate '-1.2<x+y<-1.1'; point 6 violates predicate '0<z<5.1'; point 7 violates predicate '-1.2<x+y<-1.1'; point 7 violates predicate '0<z<5.1'; point 8 violates predicate '-1.2<x+y<-1.1'; point 8 violates predicate '0<z<5.1'; point 9 violates predicate '-1.2<x+y<-1.1'; point 9 violates predicate '0<z<5.1'"
+    },
+    {
+      "expr_id": "204",
+      "kind": "explicit_surface",
+      "latex": "z=\\left(ay+5.5\\right)\\left\\{-1.2<y-x<-1.1\\right\\}\\left\\{0<z<5.1\\right\\}",
+      "reason": "point 0 violates predicate '-1.2<y-x<-1.1'; point 0 violates predicate '0<z<5.1'; point 1 violates predicate '-1.2<y-x<-1.1'; point 1 violates predicate '0<z<5.1'; point 2 violates predicate '-1.2<y-x<-1.1'; point 2 violates predicate '0<z<5.1'; point 3 violates predicate '-1.2<y-x<-1.1'; point 3 violates predicate '0<z<5.1'; point 4 violates predicate '-1.2<y-x<-1.1'; point 4 violates predicate '0<z<5.1'; point 5 violates predicate '-1.2<y-x<-1.1'; point 5 violates predicate '0<z<5.1'; point 6 violates predicate '-1.2<y-x<-1.1'; point 6 violates predicate '0<z<5.1'; point 7 violates predicate '-1.2<y-x<-1.1'; point 7 violates predicate '0<z<5.1'; point 8 violates predicate '-1.2<y-x<-1.1'; point 8 violates predicate '0<z<5.1'; point 9 violates predicate '-1.2<y-x<-1.1'; point 9 violates predicate '0<z<5.1'"
+    },
+    {
+      "expr_id": "205",
+      "kind": "explicit_surface",
+      "latex": "z=\\left(ay+5.5\\right)\\left\\{-2<x+y<-1.9\\right\\}\\left\\{0<z<4.8\\right\\}",
+      "reason": "point 0 violates predicate '-2<x+y<-1.9'; point 0 violates predicate '0<z<4.8'; point 1 violates predicate '-2<x+y<-1.9'; point 1 violates predicate '0<z<4.8'; point 2 violates predicate '-2<x+y<-1.9'; point 2 violates predicate '0<z<4.8'; point 3 violates predicate '-2<x+y<-1.9'; point 3 violates predicate '0<z<4.8'; point 4 violates predicate '-2<x+y<-1.9'; point 4 violates predicate '0<z<4.8'; point 5 violates predicate '-2<x+y<-1.9'; point 5 violates predicate '0<z<4.8'; point 6 violates predicate '-2<x+y<-1.9'; point 6 violates predicate '0<z<4.8'; point 7 violates predicate '-2<x+y<-1.9'; point 7 violates predicate '0<z<4.8'; point 8 violates predicate '-2<x+y<-1.9'; point 8 violates predicate '0<z<4.8'; point 9 violates predicate '-2<x+y<-1.9'; point 9 violates predicate '0<z<4.8'"
+    },
+    {
+      "expr_id": "206",
+      "kind": "explicit_surface",
+      "latex": "z=\\left(ay+5.5\\right)\\left\\{-2<y-x<-1.9\\right\\}\\left\\{0<z<4.8\\right\\}",
+      "reason": "point 0 violates predicate '-2<y-x<-1.9'; point 0 violates predicate '0<z<4.8'; point 1 violates predicate '-2<y-x<-1.9'; point 1 violates predicate '0<z<4.8'; point 2 violates predicate '-2<y-x<-1.9'; point 2 violates predicate '0<z<4.8'; point 3 violates predicate '-2<y-x<-1.9'; point 3 violates predicate '0<z<4.8'; point 4 violates predicate '-2<y-x<-1.9'; point 4 violates predicate '0<z<4.8'; point 5 violates predicate '-2<y-x<-1.9'; point 5 violates predicate '0<z<4.8'; point 6 violates predicate '-2<y-x<-1.9'; point 6 violates predicate '0<z<4.8'; point 7 violates predicate '-2<y-x<-1.9'; point 7 violates predicate '0<z<4.8'; point 8 violates predicate '-2<y-x<-1.9'; point 8 violates predicate '0<z<4.8'; point 9 violates predicate '-2<y-x<-1.9'; point 9 violates predicate '0<z<4.8'"
+    },
+    {
+      "expr_id": "207",
+      "kind": "explicit_surface",
+      "latex": "z=\\left(ay+5.5\\right)\\left\\{-2.8<x+y<-2.7\\right\\}\\left\\{0<z<4.6\\right\\}",
+      "reason": "point 0 violates predicate '-2.8<x+y<-2.7'; point 0 violates predicate '0<z<4.6'; point 1 violates predicate '-2.8<x+y<-2.7'; point 1 violates predicate '0<z<4.6'; point 2 violates predicate '-2.8<x+y<-2.7'; point 2 violates predicate '0<z<4.6'; point 3 violates predicate '-2.8<x+y<-2.7'; point 3 violates predicate '0<z<4.6'; point 4 violates predicate '-2.8<x+y<-2.7'; point 4 violates predicate '0<z<4.6'; point 5 violates predicate '-2.8<x+y<-2.7'; point 5 violates predicate '0<z<4.6'; point 6 violates predicate '-2.8<x+y<-2.7'; point 6 violates predicate '0<z<4.6'; point 7 violates predicate '-2.8<x+y<-2.7'; point 7 violates predicate '0<z<4.6'; point 8 violates predicate '-2.8<x+y<-2.7'; point 8 violates predicate '0<z<4.6'; point 9 violates predicate '-2.8<x+y<-2.7'; point 9 violates predicate '0<z<4.6'"
+    },
+    {
+      "expr_id": "208",
+      "kind": "explicit_surface",
+      "latex": "z=\\left(ay+5.5\\right)\\left\\{-2.8<y-x<-2.7\\right\\}\\left\\{0<z<4.6\\right\\}",
+      "reason": "point 0 violates predicate '-2.8<y-x<-2.7'; point 0 violates predicate '0<z<4.6'; point 1 violates predicate '-2.8<y-x<-2.7'; point 1 violates predicate '0<z<4.6'; point 2 violates predicate '-2.8<y-x<-2.7'; point 2 violates predicate '0<z<4.6'; point 3 violates predicate '-2.8<y-x<-2.7'; point 3 violates predicate '0<z<4.6'; point 4 violates predicate '-2.8<y-x<-2.7'; point 4 violates predicate '0<z<4.6'; point 5 violates predicate '-2.8<y-x<-2.7'; point 5 violates predicate '0<z<4.6'; point 6 violates predicate '-2.8<y-x<-2.7'; point 6 violates predicate '0<z<4.6'; point 7 violates predicate '-2.8<y-x<-2.7'; point 7 violates predicate '0<z<4.6'; point 8 violates predicate '-2.8<y-x<-2.7'; point 8 violates predicate '0<z<4.6'; point 9 violates predicate '-2.8<y-x<-2.7'; point 9 violates predicate '0<z<4.6'"
+    },
+    {
+      "expr_id": "209",
+      "kind": "explicit_surface",
+      "latex": "z=\\left(ay+5.5\\right)\\left\\{-3.6<x+y<-3.5\\right\\}\\left\\{0<z<4.3\\right\\}",
+      "reason": "point 0 violates predicate '-3.6<x+y<-3.5'; point 0 violates predicate '0<z<4.3'; point 1 violates predicate '-3.6<x+y<-3.5'; point 1 violates predicate '0<z<4.3'; point 2 violates predicate '-3.6<x+y<-3.5'; point 2 violates predicate '0<z<4.3'; point 3 violates predicate '-3.6<x+y<-3.5'; point 3 violates predicate '0<z<4.3'; point 4 violates predicate '-3.6<x+y<-3.5'; point 4 violates predicate '0<z<4.3'; point 5 violates predicate '-3.6<x+y<-3.5'; point 5 violates predicate '0<z<4.3'; point 6 violates predicate '-3.6<x+y<-3.5'; point 6 violates predicate '0<z<4.3'; point 7 violates predicate '-3.6<x+y<-3.5'; point 7 violates predicate '0<z<4.3'; point 8 violates predicate '-3.6<x+y<-3.5'; point 8 violates predicate '0<z<4.3'; point 9 violates predicate '-3.6<x+y<-3.5'; point 9 violates predicate '0<z<4.3'"
+    },
+    {
+      "expr_id": "210",
+      "kind": "explicit_surface",
+      "latex": "z=\\left(ay+5.5\\right)\\left\\{-3.6<y-x<-3.5\\right\\}\\left\\{0<z<4.3\\right\\}",
+      "reason": "point 0 violates predicate '-3.6<y-x<-3.5'; point 0 violates predicate '0<z<4.3'; point 1 violates predicate '-3.6<y-x<-3.5'; point 1 violates predicate '0<z<4.3'; point 2 violates predicate '-3.6<y-x<-3.5'; point 2 violates predicate '0<z<4.3'; point 3 violates predicate '-3.6<y-x<-3.5'; point 3 violates predicate '0<z<4.3'; point 4 violates predicate '-3.6<y-x<-3.5'; point 4 violates predicate '0<z<4.3'; point 5 violates predicate '-3.6<y-x<-3.5'; point 5 violates predicate '0<z<4.3'; point 6 violates predicate '-3.6<y-x<-3.5'; point 6 violates predicate '0<z<4.3'; point 7 violates predicate '-3.6<y-x<-3.5'; point 7 violates predicate '0<z<4.3'; point 8 violates predicate '-3.6<y-x<-3.5'; point 8 violates predicate '0<z<4.3'; point 9 violates predicate '-3.6<y-x<-3.5'; point 9 violates predicate '0<z<4.3'"
+    },
+    {
+      "expr_id": "211",
+      "kind": "explicit_surface",
+      "latex": "z=\\left(ay+5.5\\right)\\left\\{-4.5<x+y<-4.4\\right\\}\\left\\{1<z<4\\right\\}",
+      "reason": "point 0 violates predicate '-4.5<x+y<-4.4'; point 0 violates predicate '1<z<4'; point 1 violates predicate '-4.5<x+y<-4.4'; point 1 violates predicate '1<z<4'; point 2 violates predicate '-4.5<x+y<-4.4'; point 2 violates predicate '1<z<4'; point 3 violates predicate '-4.5<x+y<-4.4'; point 3 violates predicate '1<z<4'; point 4 violates predicate '-4.5<x+y<-4.4'; point 4 violates predicate '1<z<4'; point 5 violates predicate '-4.5<x+y<-4.4'; point 5 violates predicate '1<z<4'; point 6 violates predicate '-4.5<x+y<-4.4'; point 6 violates predicate '1<z<4'; point 7 violates predicate '-4.5<x+y<-4.4'; point 7 violates predicate '1<z<4'; point 8 violates predicate '-4.5<x+y<-4.4'; point 8 violates predicate '1<z<4'; point 9 violates predicate '-4.5<x+y<-4.4'; point 9 violates predicate '1<z<4'"
+    },
+    {
+      "expr_id": "212",
+      "kind": "explicit_surface",
+      "latex": "z=\\left(ay+5.5\\right)\\left\\{-4.5<y-x<-4.4\\right\\}\\left\\{1<z<4\\right\\}",
+      "reason": "point 0 violates predicate '-4.5<y-x<-4.4'; point 0 violates predicate '1<z<4'; point 1 violates predicate '-4.5<y-x<-4.4'; point 1 violates predicate '1<z<4'; point 2 violates predicate '-4.5<y-x<-4.4'; point 2 violates predicate '1<z<4'; point 3 violates predicate '-4.5<y-x<-4.4'; point 3 violates predicate '1<z<4'; point 4 violates predicate '-4.5<y-x<-4.4'; point 4 violates predicate '1<z<4'; point 5 violates predicate '-4.5<y-x<-4.4'; point 5 violates predicate '1<z<4'; point 6 violates predicate '-4.5<y-x<-4.4'; point 6 violates predicate '1<z<4'; point 7 violates predicate '-4.5<y-x<-4.4'; point 7 violates predicate '1<z<4'; point 8 violates predicate '-4.5<y-x<-4.4'; point 8 violates predicate '1<z<4'; point 9 violates predicate '-4.5<y-x<-4.4'; point 9 violates predicate '1<z<4'"
+    },
+    {
+      "expr_id": "213",
+      "kind": "explicit_surface",
+      "latex": "z=\\left(ay+5.5\\right)\\left\\{-5.3<x+y<-5.2\\right\\}\\left\\{1<z<3.67\\right\\}",
+      "reason": "point 0 violates predicate '-5.3<x+y<-5.2'; point 0 violates predicate '1<z<3.67'; point 1 violates predicate '-5.3<x+y<-5.2'; point 1 violates predicate '1<z<3.67'; point 2 violates predicate '-5.3<x+y<-5.2'; point 2 violates predicate '1<z<3.67'; point 3 violates predicate '-5.3<x+y<-5.2'; point 3 violates predicate '1<z<3.67'; point 4 violates predicate '-5.3<x+y<-5.2'; point 4 violates predicate '1<z<3.67'; point 5 violates predicate '-5.3<x+y<-5.2'; point 5 violates predicate '1<z<3.67'; point 6 violates predicate '-5.3<x+y<-5.2'; point 6 violates predicate '1<z<3.67'; point 7 violates predicate '-5.3<x+y<-5.2'; point 7 violates predicate '1<z<3.67'; point 8 violates predicate '-5.3<x+y<-5.2'; point 8 violates predicate '1<z<3.67'; point 9 violates predicate '-5.3<x+y<-5.2'; point 9 violates predicate '1<z<3.67'"
+    },
+    {
+      "expr_id": "214",
+      "kind": "explicit_surface",
+      "latex": "z=\\left(ay+5.5\\right)\\left\\{-5.3<y-x<-5.2\\right\\}\\left\\{1<z<3.67\\right\\}",
+      "reason": "point 0 violates predicate '-5.3<y-x<-5.2'; point 0 violates predicate '1<z<3.67'; point 1 violates predicate '-5.3<y-x<-5.2'; point 1 violates predicate '1<z<3.67'; point 2 violates predicate '-5.3<y-x<-5.2'; point 2 violates predicate '1<z<3.67'; point 3 violates predicate '-5.3<y-x<-5.2'; point 3 violates predicate '1<z<3.67'; point 4 violates predicate '-5.3<y-x<-5.2'; point 4 violates predicate '1<z<3.67'; point 5 violates predicate '-5.3<y-x<-5.2'; point 5 violates predicate '1<z<3.67'; point 6 violates predicate '-5.3<y-x<-5.2'; point 6 violates predicate '1<z<3.67'; point 7 violates predicate '-5.3<y-x<-5.2'; point 7 violates predicate '1<z<3.67'; point 8 violates predicate '-5.3<y-x<-5.2'; point 8 violates predicate '1<z<3.67'; point 9 violates predicate '-5.3<y-x<-5.2'; point 9 violates predicate '1<z<3.67'"
+    },
+    {
+      "expr_id": "215",
+      "kind": "explicit_surface",
+      "latex": "z=\\left(ay+5.5\\right)\\left\\{-6.2<x+y<-6.1\\right\\}\\left\\{1<z<3.4\\right\\}",
+      "reason": "point 0 violates predicate '-6.2<x+y<-6.1'; point 0 violates predicate '1<z<3.4'; point 1 violates predicate '-6.2<x+y<-6.1'; point 1 violates predicate '1<z<3.4'; point 2 violates predicate '-6.2<x+y<-6.1'; point 2 violates predicate '1<z<3.4'; point 3 violates predicate '-6.2<x+y<-6.1'; point 3 violates predicate '1<z<3.4'; point 4 violates predicate '-6.2<x+y<-6.1'; point 4 violates predicate '1<z<3.4'; point 5 violates predicate '-6.2<x+y<-6.1'; point 5 violates predicate '1<z<3.4'; point 6 violates predicate '-6.2<x+y<-6.1'; point 6 violates predicate '1<z<3.4'; point 7 violates predicate '-6.2<x+y<-6.1'; point 7 violates predicate '1<z<3.4'; point 8 violates predicate '-6.2<x+y<-6.1'; point 8 violates predicate '1<z<3.4'; point 9 violates predicate '-6.2<x+y<-6.1'; point 9 violates predicate '1<z<3.4'"
+    },
+    {
+      "expr_id": "216",
+      "kind": "explicit_surface",
+      "latex": "z=\\left(ay+5.5\\right)\\left\\{-6.2<y-x<-6.1\\right\\}\\left\\{1<z<3.4\\right\\}",
+      "reason": "point 0 violates predicate '-6.2<y-x<-6.1'; point 0 violates predicate '1<z<3.4'; point 1 violates predicate '-6.2<y-x<-6.1'; point 1 violates predicate '1<z<3.4'; point 2 violates predicate '-6.2<y-x<-6.1'; point 2 violates predicate '1<z<3.4'; point 3 violates predicate '-6.2<y-x<-6.1'; point 3 violates predicate '1<z<3.4'; point 4 violates predicate '-6.2<y-x<-6.1'; point 4 violates predicate '1<z<3.4'; point 5 violates predicate '-6.2<y-x<-6.1'; point 5 violates predicate '1<z<3.4'; point 6 violates predicate '-6.2<y-x<-6.1'; point 6 violates predicate '1<z<3.4'; point 7 violates predicate '-6.2<y-x<-6.1'; point 7 violates predicate '1<z<3.4'; point 8 violates predicate '-6.2<y-x<-6.1'; point 8 violates predicate '1<z<3.4'; point 9 violates predicate '-6.2<y-x<-6.1'; point 9 violates predicate '1<z<3.4'"
+    },
+    {
+      "expr_id": "217",
+      "kind": "explicit_surface",
+      "latex": "z=\\left(ay+5.5\\right)\\left\\{-7<x+y<-6.9\\right\\}\\left\\{1<z<3.2\\right\\}",
+      "reason": "point 0 violates predicate '-7<x+y<-6.9'; point 0 violates predicate '1<z<3.2'; point 1 violates predicate '-7<x+y<-6.9'; point 1 violates predicate '1<z<3.2'; point 2 violates predicate '-7<x+y<-6.9'; point 2 violates predicate '1<z<3.2'; point 3 violates predicate '-7<x+y<-6.9'; point 3 violates predicate '1<z<3.2'; point 4 violates predicate '-7<x+y<-6.9'; point 4 violates predicate '1<z<3.2'; point 5 violates predicate '-7<x+y<-6.9'; point 5 violates predicate '1<z<3.2'; point 6 violates predicate '-7<x+y<-6.9'; point 6 violates predicate '1<z<3.2'; point 7 violates predicate '-7<x+y<-6.9'; point 7 violates predicate '1<z<3.2'; point 8 violates predicate '-7<x+y<-6.9'; point 8 violates predicate '1<z<3.2'; point 9 violates predicate '-7<x+y<-6.9'; point 9 violates predicate '1<z<3.2'"
+    },
+    {
+      "expr_id": "218",
+      "kind": "explicit_surface",
+      "latex": "z=\\left(ay+5.5\\right)\\left\\{-7<y-x<-6.9\\right\\}\\left\\{1<z<3.2\\right\\}",
+      "reason": "point 0 violates predicate '-7<y-x<-6.9'; point 0 violates predicate '1<z<3.2'; point 1 violates predicate '-7<y-x<-6.9'; point 1 violates predicate '1<z<3.2'; point 2 violates predicate '-7<y-x<-6.9'; point 2 violates predicate '1<z<3.2'; point 3 violates predicate '-7<y-x<-6.9'; point 3 violates predicate '1<z<3.2'; point 4 violates predicate '-7<y-x<-6.9'; point 4 violates predicate '1<z<3.2'; point 5 violates predicate '-7<y-x<-6.9'; point 5 violates predicate '1<z<3.2'; point 6 violates predicate '-7<y-x<-6.9'; point 6 violates predicate '1<z<3.2'; point 7 violates predicate '-7<y-x<-6.9'; point 7 violates predicate '1<z<3.2'; point 8 violates predicate '-7<y-x<-6.9'; point 8 violates predicate '1<z<3.2'; point 9 violates predicate '-7<y-x<-6.9'; point 9 violates predicate '1<z<3.2'"
+    },
+    {
+      "expr_id": "219",
+      "kind": "explicit_surface",
+      "latex": "z=\\left(ay+5.5\\right)\\left\\{-7.8<x+y<-7.7\\right\\}\\left\\{1<z<2.9\\right\\}",
+      "reason": "point 0 violates predicate '-7.8<x+y<-7.7'; point 0 violates predicate '1<z<2.9'; point 1 violates predicate '-7.8<x+y<-7.7'; point 1 violates predicate '1<z<2.9'; point 2 violates predicate '-7.8<x+y<-7.7'; point 2 violates predicate '1<z<2.9'; point 3 violates predicate '-7.8<x+y<-7.7'; point 3 violates predicate '1<z<2.9'; point 4 violates predicate '-7.8<x+y<-7.7'; point 4 violates predicate '1<z<2.9'; point 5 violates predicate '-7.8<x+y<-7.7'; point 5 violates predicate '1<z<2.9'; point 6 violates predicate '-7.8<x+y<-7.7'; point 6 violates predicate '1<z<2.9'; point 7 violates predicate '-7.8<x+y<-7.7'; point 7 violates predicate '1<z<2.9'; point 8 violates predicate '-7.8<x+y<-7.7'; point 8 violates predicate '1<z<2.9'; point 9 violates predicate '-7.8<x+y<-7.7'; point 9 violates predicate '1<z<2.9'"
+    },
+    {
+      "expr_id": "220",
+      "kind": "explicit_surface",
+      "latex": "z=\\left(ay+5.5\\right)\\left\\{-7.8<y-x<-7.7\\right\\}\\left\\{1<z<2.9\\right\\}",
+      "reason": "point 0 violates predicate '-7.8<y-x<-7.7'; point 0 violates predicate '1<z<2.9'; point 1 violates predicate '-7.8<y-x<-7.7'; point 1 violates predicate '1<z<2.9'; point 2 violates predicate '-7.8<y-x<-7.7'; point 2 violates predicate '1<z<2.9'; point 3 violates predicate '-7.8<y-x<-7.7'; point 3 violates predicate '1<z<2.9'; point 4 violates predicate '-7.8<y-x<-7.7'; point 4 violates predicate '1<z<2.9'; point 5 violates predicate '-7.8<y-x<-7.7'; point 5 violates predicate '1<z<2.9'; point 6 violates predicate '-7.8<y-x<-7.7'; point 6 violates predicate '1<z<2.9'; point 7 violates predicate '-7.8<y-x<-7.7'; point 7 violates predicate '1<z<2.9'; point 8 violates predicate '-7.8<y-x<-7.7'; point 8 violates predicate '1<z<2.9'; point 9 violates predicate '-7.8<y-x<-7.7'; point 9 violates predicate '1<z<2.9'"
+    },
+    {
+      "expr_id": "221",
+      "kind": "explicit_surface",
+      "latex": "z=\\left(ay+5.5\\right)\\left\\{-8.6<x+y<-8.5\\right\\}\\left\\{1<z<2.6\\right\\}",
+      "reason": "point 0 violates predicate '-8.6<x+y<-8.5'; point 0 violates predicate '1<z<2.6'; point 1 violates predicate '-8.6<x+y<-8.5'; point 1 violates predicate '1<z<2.6'; point 2 violates predicate '-8.6<x+y<-8.5'; point 2 violates predicate '1<z<2.6'; point 3 violates predicate '-8.6<x+y<-8.5'; point 3 violates predicate '1<z<2.6'; point 4 violates predicate '-8.6<x+y<-8.5'; point 4 violates predicate '1<z<2.6'; point 5 violates predicate '-8.6<x+y<-8.5'; point 5 violates predicate '1<z<2.6'; point 6 violates predicate '-8.6<x+y<-8.5'; point 6 violates predicate '1<z<2.6'; point 7 violates predicate '-8.6<x+y<-8.5'; point 7 violates predicate '1<z<2.6'; point 8 violates predicate '-8.6<x+y<-8.5'; point 8 violates predicate '1<z<2.6'; point 9 violates predicate '-8.6<x+y<-8.5'; point 9 violates predicate '1<z<2.6'"
+    },
+    {
+      "expr_id": "222",
+      "kind": "explicit_surface",
+      "latex": "z=\\left(ay+5.5\\right)\\left\\{-8.6<y-x<-8.5\\right\\}\\left\\{1<z<2.7\\right\\}",
+      "reason": "point 0 violates predicate '-8.6<y-x<-8.5'; point 0 violates predicate '1<z<2.7'; point 1 violates predicate '-8.6<y-x<-8.5'; point 1 violates predicate '1<z<2.7'; point 2 violates predicate '-8.6<y-x<-8.5'; point 2 violates predicate '1<z<2.7'; point 3 violates predicate '-8.6<y-x<-8.5'; point 3 violates predicate '1<z<2.7'; point 4 violates predicate '-8.6<y-x<-8.5'; point 4 violates predicate '1<z<2.7'; point 5 violates predicate '-8.6<y-x<-8.5'; point 5 violates predicate '1<z<2.7'; point 6 violates predicate '-8.6<y-x<-8.5'; point 6 violates predicate '1<z<2.7'; point 7 violates predicate '-8.6<y-x<-8.5'; point 7 violates predicate '1<z<2.7'; point 8 violates predicate '-8.6<y-x<-8.5'; point 8 violates predicate '1<z<2.7'; point 9 violates predicate '-8.6<y-x<-8.5'; point 9 violates predicate '1<z<2.7'"
+    },
+    {
+      "expr_id": "223",
+      "kind": "explicit_surface",
+      "latex": "z=\\left(ay+5.5\\right)\\left\\{-9.4<x+y<-9.3\\right\\}\\left\\{1<z<2.4\\right\\}",
+      "reason": "point 0 violates predicate '-9.4<x+y<-9.3'; point 0 violates predicate '1<z<2.4'; point 1 violates predicate '-9.4<x+y<-9.3'; point 1 violates predicate '1<z<2.4'; point 2 violates predicate '-9.4<x+y<-9.3'; point 2 violates predicate '1<z<2.4'; point 3 violates predicate '-9.4<x+y<-9.3'; point 3 violates predicate '1<z<2.4'; point 4 violates predicate '-9.4<x+y<-9.3'; point 4 violates predicate '1<z<2.4'; point 5 violates predicate '-9.4<x+y<-9.3'; point 5 violates predicate '1<z<2.4'; point 6 violates predicate '-9.4<x+y<-9.3'; point 6 violates predicate '1<z<2.4'; point 7 violates predicate '-9.4<x+y<-9.3'; point 7 violates predicate '1<z<2.4'; point 8 violates predicate '-9.4<x+y<-9.3'; point 8 violates predicate '1<z<2.4'; point 9 violates predicate '-9.4<x+y<-9.3'; point 9 violates predicate '1<z<2.4'"
+    },
+    {
+      "expr_id": "224",
+      "kind": "explicit_surface",
+      "latex": "z=\\left(ay+5.5\\right)\\left\\{-9.4<y-x<-9.3\\right\\}\\left\\{1<z<2.4\\right\\}",
+      "reason": "point 0 violates predicate '-9.4<y-x<-9.3'; point 0 violates predicate '1<z<2.4'; point 1 violates predicate '-9.4<y-x<-9.3'; point 1 violates predicate '1<z<2.4'; point 2 violates predicate '-9.4<y-x<-9.3'; point 2 violates predicate '1<z<2.4'; point 3 violates predicate '-9.4<y-x<-9.3'; point 3 violates predicate '1<z<2.4'; point 4 violates predicate '-9.4<y-x<-9.3'; point 4 violates predicate '1<z<2.4'; point 5 violates predicate '-9.4<y-x<-9.3'; point 5 violates predicate '1<z<2.4'; point 6 violates predicate '-9.4<y-x<-9.3'; point 6 violates predicate '1<z<2.4'; point 7 violates predicate '-9.4<y-x<-9.3'; point 7 violates predicate '1<z<2.4'; point 8 violates predicate '-9.4<y-x<-9.3'; point 8 violates predicate '1<z<2.4'; point 9 violates predicate '-9.4<y-x<-9.3'; point 9 violates predicate '1<z<2.4'"
+    },
+    {
+      "expr_id": "225",
+      "kind": "explicit_surface",
+      "latex": "z=\\left(ay+5.5\\right)\\left\\{-10.2<x+y<-10.1\\right\\}\\left\\{1<z<2.1\\right\\}",
+      "reason": "point 0 violates predicate '-10.2<x+y<-10.1'; point 0 violates predicate '1<z<2.1'; point 1 violates predicate '-10.2<x+y<-10.1'; point 1 violates predicate '1<z<2.1'; point 2 violates predicate '-10.2<x+y<-10.1'; point 2 violates predicate '1<z<2.1'; point 3 violates predicate '-10.2<x+y<-10.1'; point 3 violates predicate '1<z<2.1'; point 4 violates predicate '-10.2<x+y<-10.1'; point 4 violates predicate '1<z<2.1'; point 5 violates predicate '-10.2<x+y<-10.1'; point 5 violates predicate '1<z<2.1'; point 6 violates predicate '-10.2<x+y<-10.1'; point 6 violates predicate '1<z<2.1'; point 7 violates predicate '-10.2<x+y<-10.1'; point 7 violates predicate '1<z<2.1'; point 8 violates predicate '-10.2<x+y<-10.1'; point 8 violates predicate '1<z<2.1'; point 9 violates predicate '-10.2<x+y<-10.1'; point 9 violates predicate '1<z<2.1'"
+    },
+    {
+      "expr_id": "226",
+      "kind": "explicit_surface",
+      "latex": "z=\\left(ay+5.5\\right)\\left\\{-10.2<y-x<-10.1\\right\\}\\left\\{1<z<2.1\\right\\}",
+      "reason": "point 0 violates predicate '-10.2<y-x<-10.1'; point 0 violates predicate '1<z<2.1'; point 1 violates predicate '-10.2<y-x<-10.1'; point 1 violates predicate '1<z<2.1'; point 2 violates predicate '-10.2<y-x<-10.1'; point 2 violates predicate '1<z<2.1'; point 3 violates predicate '-10.2<y-x<-10.1'; point 3 violates predicate '1<z<2.1'; point 4 violates predicate '-10.2<y-x<-10.1'; point 4 violates predicate '1<z<2.1'; point 5 violates predicate '-10.2<y-x<-10.1'; point 5 violates predicate '1<z<2.1'; point 6 violates predicate '-10.2<y-x<-10.1'; point 6 violates predicate '1<z<2.1'; point 7 violates predicate '-10.2<y-x<-10.1'; point 7 violates predicate '1<z<2.1'; point 8 violates predicate '-10.2<y-x<-10.1'; point 8 violates predicate '1<z<2.1'; point 9 violates predicate '-10.2<y-x<-10.1'; point 9 violates predicate '1<z<2.1'"
+    },
+    {
+      "expr_id": "227",
+      "kind": "explicit_surface",
+      "latex": "z=\\left(ay+5.5\\right)\\left\\{-11.1<x+y<-11\\right\\}\\left\\{0.7<z<1.8\\right\\}",
+      "reason": "point 0 violates predicate '-11.1<x+y<-11'; point 0 violates predicate '0.7<z<1.8'; point 1 violates predicate '-11.1<x+y<-11'; point 1 violates predicate '0.7<z<1.8'; point 2 violates predicate '-11.1<x+y<-11'; point 2 violates predicate '0.7<z<1.8'; point 3 violates predicate '-11.1<x+y<-11'; point 3 violates predicate '0.7<z<1.8'; point 4 violates predicate '-11.1<x+y<-11'; point 4 violates predicate '0.7<z<1.8'; point 5 violates predicate '-11.1<x+y<-11'; point 5 violates predicate '0.7<z<1.8'; point 6 violates predicate '-11.1<x+y<-11'; point 6 violates predicate '0.7<z<1.8'; point 7 violates predicate '-11.1<x+y<-11'; point 7 violates predicate '0.7<z<1.8'; point 8 violates predicate '-11.1<x+y<-11'; point 8 violates predicate '0.7<z<1.8'; point 9 violates predicate '-11.1<x+y<-11'; point 9 violates predicate '0.7<z<1.8'"
+    },
+    {
+      "expr_id": "228",
+      "kind": "explicit_surface",
+      "latex": "z=\\left(ay+5.5\\right)\\left\\{-11.1<y-x<-11\\right\\}\\left\\{0.87<z<1.8\\right\\}",
+      "reason": "point 0 violates predicate '-11.1<y-x<-11'; point 0 violates predicate '0.87<z<1.8'; point 1 violates predicate '-11.1<y-x<-11'; point 1 violates predicate '0.87<z<1.8'; point 2 violates predicate '-11.1<y-x<-11'; point 2 violates predicate '0.87<z<1.8'; point 3 violates predicate '-11.1<y-x<-11'; point 3 violates predicate '0.87<z<1.8'; point 4 violates predicate '-11.1<y-x<-11'; point 4 violates predicate '0.87<z<1.8'; point 5 violates predicate '-11.1<y-x<-11'; point 5 violates predicate '0.87<z<1.8'; point 6 violates predicate '-11.1<y-x<-11'; point 6 violates predicate '0.87<z<1.8'; point 7 violates predicate '-11.1<y-x<-11'; point 7 violates predicate '0.87<z<1.8'; point 8 violates predicate '-11.1<y-x<-11'; point 8 violates predicate '0.87<z<1.8'; point 9 violates predicate '-11.1<y-x<-11'; point 9 violates predicate '0.87<z<1.8'"
+    },
+    {
+      "expr_id": "231",
+      "kind": "explicit_surface",
+      "latex": "z=\\left(ay+5.5\\right)\\left\\{-12.8<x+y<-12.7\\right\\}\\left\\{0.16<z<1.4\\right\\}",
+      "reason": "point 0 violates predicate '-12.8<x+y<-12.7'; point 0 violates predicate '0.16<z<1.4'; point 1 violates predicate '-12.8<x+y<-12.7'; point 1 violates predicate '0.16<z<1.4'; point 2 violates predicate '-12.8<x+y<-12.7'; point 2 violates predicate '0.16<z<1.4'; point 3 violates predicate '-12.8<x+y<-12.7'; point 3 violates predicate '0.16<z<1.4'; point 4 violates predicate '-12.8<x+y<-12.7'; point 4 violates predicate '0.16<z<1.4'; point 5 violates predicate '-12.8<x+y<-12.7'; point 5 violates predicate '0.16<z<1.4'; point 6 violates predicate '-12.8<x+y<-12.7'; point 6 violates predicate '0.16<z<1.4'; point 7 violates predicate '-12.8<x+y<-12.7'; point 7 violates predicate '0.16<z<1.4'; point 8 violates predicate '-12.8<x+y<-12.7'; point 8 violates predicate '0.16<z<1.4'; point 9 violates predicate '-12.8<x+y<-12.7'; point 9 violates predicate '0.16<z<1.4'"
+    },
+    {
+      "expr_id": "232",
+      "kind": "explicit_surface",
+      "latex": "z=\\left(ay+5.5\\right)\\left\\{-12.8<y-x<-12.7\\right\\}\\left\\{0.3<z<1.4\\right\\}",
+      "reason": "point 0 violates predicate '-12.8<y-x<-12.7'; point 0 violates predicate '0.3<z<1.4'; point 1 violates predicate '-12.8<y-x<-12.7'; point 1 violates predicate '0.3<z<1.4'; point 2 violates predicate '-12.8<y-x<-12.7'; point 2 violates predicate '0.3<z<1.4'; point 3 violates predicate '-12.8<y-x<-12.7'; point 3 violates predicate '0.3<z<1.4'; point 4 violates predicate '-12.8<y-x<-12.7'; point 4 violates predicate '0.3<z<1.4'; point 5 violates predicate '-12.8<y-x<-12.7'; point 5 violates predicate '0.3<z<1.4'; point 6 violates predicate '-12.8<y-x<-12.7'; point 6 violates predicate '0.3<z<1.4'; point 7 violates predicate '-12.8<y-x<-12.7'; point 7 violates predicate '0.3<z<1.4'; point 8 violates predicate '-12.8<y-x<-12.7'; point 8 violates predicate '0.3<z<1.4'; point 9 violates predicate '-12.8<y-x<-12.7'; point 9 violates predicate '0.3<z<1.4'"
+    },
+    {
+      "expr_id": "233",
+      "kind": "explicit_surface",
+      "latex": "z=\\left(ay+5.5\\right)\\left\\{-13.6<x+y<-13.5\\right\\}\\left\\{0<z<1\\right\\}",
+      "reason": "point 0 violates predicate '-13.6<x+y<-13.5'; point 0 violates predicate '0<z<1'; point 1 violates predicate '-13.6<x+y<-13.5'; point 1 violates predicate '0<z<1'; point 2 violates predicate '-13.6<x+y<-13.5'; point 2 violates predicate '0<z<1'; point 3 violates predicate '-13.6<x+y<-13.5'; point 3 violates predicate '0<z<1'; point 4 violates predicate '-13.6<x+y<-13.5'; point 4 violates predicate '0<z<1'; point 5 violates predicate '-13.6<x+y<-13.5'; point 5 violates predicate '0<z<1'; point 6 violates predicate '-13.6<x+y<-13.5'; point 6 violates predicate '0<z<1'; point 7 violates predicate '-13.6<x+y<-13.5'; point 7 violates predicate '0<z<1'; point 8 violates predicate '-13.6<x+y<-13.5'; point 8 violates predicate '0<z<1'; point 9 violates predicate '-13.6<x+y<-13.5'; point 9 violates predicate '0<z<1'"
+    },
+    {
+      "expr_id": "234",
+      "kind": "explicit_surface",
+      "latex": "z=\\left(ay+5.5\\right)\\left\\{-13.6<y-x<-13.5\\right\\}\\left\\{0<z<1\\right\\}",
+      "reason": "point 0 violates predicate '-13.6<y-x<-13.5'; point 0 violates predicate '0<z<1'; point 1 violates predicate '-13.6<y-x<-13.5'; point 1 violates predicate '0<z<1'; point 2 violates predicate '-13.6<y-x<-13.5'; point 2 violates predicate '0<z<1'; point 3 violates predicate '-13.6<y-x<-13.5'; point 3 violates predicate '0<z<1'; point 4 violates predicate '-13.6<y-x<-13.5'; point 4 violates predicate '0<z<1'; point 5 violates predicate '-13.6<y-x<-13.5'; point 5 violates predicate '0<z<1'; point 6 violates predicate '-13.6<y-x<-13.5'; point 6 violates predicate '0<z<1'; point 7 violates predicate '-13.6<y-x<-13.5'; point 7 violates predicate '0<z<1'; point 8 violates predicate '-13.6<y-x<-13.5'; point 8 violates predicate '0<z<1'; point 9 violates predicate '-13.6<y-x<-13.5'; point 9 violates predicate '0<z<1'"
+    }
+  ],
+  "unsupported_count": 118,
+  "usdz_package": {
+    "command": [
+      "/usr/bin/usdzip",
+      "/Users/chek/repos/desmos2usd-carey/artifacts/fixture_usdz/review_evidence/20260427_s201_group_a_ralph_affine_surface_clips/S2-01_Group_A_projection_before.usdz",
+      "S2-01_Group_A_projection_before.usda"
+    ],
+    "cwd": "/Users/chek/repos/desmos2usd-carey/artifacts/fixture_usdz/review_evidence/20260427_s201_group_a_ralph_affine_surface_clips",
+    "returncode": 0,
+    "stderr": "",
+    "stdout": "",
+    "tool": "usdzip"
+  },
+  "usdz_validation": {
+    "command": [
+      "/usr/bin/usdchecker",
+      "--arkit",
+      "artifacts/fixture_usdz/review_evidence/20260427_s201_group_a_ralph_affine_surface_clips/S2-01_Group_A_projection_before.usdz"
+    ],
+    "cwd": null,
+    "returncode": 0,
+    "stderr": "",
+    "stdout": "\nValidation Result with no explicit variants set\nSuccess!\n",
+    "tool": "usdchecker"
+  },
+  "valid": true
+}

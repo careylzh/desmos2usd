@@ -64,6 +64,8 @@ def residual_for_point(item: ClassifiedExpression, context: EvalContext, variabl
         expected = item.vector.eval(context, variables)
         actual = (variables["x"], variables["y"], variables["z"])
         return max(abs(a - b) for a, b in zip(actual, expected, strict=True))
+    if item.kind == "point_list_curve":
+        return None
     if item.kind == "implicit_surface":
         # Implicit surfaces are contour-extracted numerically, so vertices lie on
         # a linearized zero crossing rather than the exact analytic equation.

@@ -84,7 +84,10 @@ def artifact_display_path(path: Path, project_root: Path) -> str:
 
 
 def classify_graph_tolerant(graph: GraphIR) -> tuple[ClassificationResult, list[UnsupportedExpression]]:
-    context = EvalContext(degree_mode=bool(graph.source.view_metadata.get("degree_mode")))
+    context = EvalContext(
+        degree_mode=bool(graph.source.view_metadata.get("degree_mode")),
+        random_seed=str(graph.raw_state.get("randomSeed") or graph.source.graph_hash or ""),
+    )
     classified = []
     unsupported: list[UnsupportedExpression] = []
 

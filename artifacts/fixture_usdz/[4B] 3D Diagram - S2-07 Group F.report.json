@@ -1,103 +1,18 @@
 {
-  "acceptance_success": false,
-  "classified_expression_count": 875,
-  "complete": false,
+  "acceptance_success": true,
+  "classified_expression_count": 888,
+  "complete": true,
   "fixture": "[4B] 3D Diagram - S2-07 Group F.json",
   "fixture_path": "fixtures/states/[4B] 3D Diagram - S2-07 Group F.json",
   "graph_hash": null,
   "output": "artifacts/fixture_usdz/[4B] 3D Diagram - S2-07 Group F.usda",
-  "prim_count": 874,
+  "prim_count": 888,
   "renderable_expression_count": 888,
   "resolution": 8,
-  "status": "partial",
+  "status": "success",
   "title": "Desmos graph",
-  "unsupported": [
-    {
-      "expr_id": "72",
-      "kind": "classification",
-      "latex": "2z=.515x+1.91\\left\\{-1.55\\le y\\le2.6\\right\\}\\left\\{-2\\le x\\le-.6\\right\\}",
-      "reason": "Could not parse '(2z)-(.515x+1.91)' as '(2*z)-(.515x+1.91)': invalid decimal literal (<unknown>, line 1)"
-    },
-    {
-      "expr_id": "88",
-      "kind": "classification",
-      "latex": "2z=-.515x+1.91\\left\\{-1.55\\le y\\le2.6\\right\\}\\left\\{.6\\le x\\le2\\right\\}",
-      "reason": "Could not parse '(2z)-(-.515x+1.91)' as '(2*z)-(-.515x+1.91)': invalid decimal literal (<unknown>, line 1)"
-    },
-    {
-      "expr_id": "112",
-      "kind": "classification",
-      "latex": ".5\\le z\\le1+.43(x+0.6)\\left\\{-10\\le x\\le-0.6\\right\\}\\left\\{2.55\\le y\\le2.6\\right\\}",
-      "reason": "Only direct function calls are supported"
-    },
-    {
-      "expr_id": "117",
-      "kind": "classification",
-      "latex": ".5\\le z\\le1+.43(x+0.6)\\left\\{-10\\le x\\le-0.6\\right\\}\\left\\{-1.6\\le y\\le-1.55\\right\\}",
-      "reason": "Only direct function calls are supported"
-    },
-    {
-      "expr_id": "123",
-      "kind": "classification",
-      "latex": ".5\\le z\\le1+.43(0.6-x)\\left\\{0.6\\le x\\right\\}\\left\\{-1.6\\le y\\le-1.55\\right\\}",
-      "reason": "Only direct function calls are supported"
-    },
-    {
-      "expr_id": "125",
-      "kind": "classification",
-      "latex": ".5\\le z\\le1+.43(0.6-x)\\left\\{0.6\\le x\\right\\}\\left\\{2.55\\le y\\le2.6\\right\\}",
-      "reason": "Only direct function calls are supported"
-    },
-    {
-      "expr_id": "160",
-      "kind": "classification",
-      "latex": "2z=.75x+2.46\\left\\{-1.15\\le x\\le-0.35\\right\\}\\left\\{-0.8\\le y\\le1.85\\right\\}",
-      "reason": "Could not parse '(2z)-(.75x+2.46)' as '(2*z)-(.75x+2.46)': invalid decimal literal (<unknown>, line 1)"
-    },
-    {
-      "expr_id": "163",
-      "kind": "classification",
-      "latex": "2z=-.75x+2.46\\left\\{0.35\\le x\\le1.15\\right\\}\\left\\{-0.8\\le y\\le1.85\\right\\}",
-      "reason": "Could not parse '(2z)-(-.75x+2.46)' as '(2*z)-(-.75x+2.46)': invalid decimal literal (<unknown>, line 1)"
-    },
-    {
-      "expr_id": "171",
-      "kind": "classification",
-      "latex": ".8\\le z\\le1.3+.63(x+.35)\\left\\{-10\\le x\\le-.35\\right\\}\\left\\{1.85\\le y\\le1.9\\right\\}",
-      "reason": "Only direct function calls are supported"
-    },
-    {
-      "expr_id": "175",
-      "kind": "classification",
-      "latex": ".8\\le z\\le1.3+.63(x+.35)\\left\\{-10\\le x\\le-.35\\right\\}\\left\\{-0.85\\le y\\le-0.8\\right\\}",
-      "reason": "Only direct function calls are supported"
-    },
-    {
-      "expr_id": "176",
-      "kind": "classification",
-      "latex": ".8\\le z\\le1.3+.63(0.35-x)\\left\\{-10\\le0.35\\le x\\right\\}\\left\\{1.85\\le y\\le1.9\\right\\}",
-      "reason": "Only direct function calls are supported"
-    },
-    {
-      "expr_id": "178",
-      "kind": "classification",
-      "latex": ".8\\le z\\le1.3+.63(0.35-x)\\left\\{-10\\le0.35\\le x\\right\\}\\left\\{-0.85\\le y\\le-0.8\\right\\}",
-      "reason": "Only direct function calls are supported"
-    },
-    {
-      "expr_id": "297",
-      "kind": "classification",
-      "latex": ".5x+3.76\\le z\\le.8x+4.13\\left\\{-0.08\\le x\\le0.09\\right\\}\\left\\{0.206\\le y\\le.75\\right\\}",
-      "reason": "Could not parse '.5x+3.76' as '.5x+3.76': invalid decimal literal (<unknown>, line 1)"
-    },
-    {
-      "expr_id": "325",
-      "kind": "inequality_region",
-      "latex": "(x-u)^{2}+(y-v)^{2}\\le w^{2}q-t/2\\le z\\le q+t/2\\ \\left\\{5<z<5.9\\right\\}",
-      "reason": "Inequality region for 325 did not resolve to sampled cells"
-    }
-  ],
-  "unsupported_count": 14,
+  "unsupported": [],
+  "unsupported_count": 0,
   "usda_exists": true,
   "usdz_exists": true,
   "usdz_output": "artifacts/fixture_usdz/[4B] 3D Diagram - S2-07 Group F.usdz",
@@ -121,7 +36,7 @@
     ],
     "cwd": null,
     "returncode": 0,
-    "stderr": "Coding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\n",
+    "stderr": "Coding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\n",
     "stdout": "\nValidation Result with no explicit variants set\nSuccess!\n",
     "tool": "usdchecker"
   },
@@ -5680,6 +5595,26 @@
     {
       "constraint_violation_count": 0,
       "errors": [],
+      "expr_id": "72",
+      "face_count": 8,
+      "kind": "implicit_surface",
+      "max_residual": null,
+      "point_count": 32,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "88",
+      "face_count": 8,
+      "kind": "implicit_surface",
+      "max_residual": null,
+      "point_count": 32,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
       "expr_id": "90",
       "face_count": 30,
       "kind": "inequality_region",
@@ -5695,6 +5630,46 @@
       "kind": "inequality_region",
       "max_residual": null,
       "point_count": 32,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "112",
+      "face_count": 12,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 16,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "117",
+      "face_count": 12,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 16,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "123",
+      "face_count": 138,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 184,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "125",
+      "face_count": 138,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 184,
       "valid": true
     },
     {
@@ -6730,6 +6705,26 @@
     {
       "constraint_violation_count": 0,
       "errors": [],
+      "expr_id": "160",
+      "face_count": 8,
+      "kind": "implicit_surface",
+      "max_residual": null,
+      "point_count": 32,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "163",
+      "face_count": 8,
+      "kind": "implicit_surface",
+      "max_residual": null,
+      "point_count": 32,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
       "expr_id": "165",
       "face_count": 30,
       "kind": "inequality_region",
@@ -6745,6 +6740,46 @@
       "kind": "inequality_region",
       "max_residual": null,
       "point_count": 32,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "171",
+      "face_count": 6,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 8,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "175",
+      "face_count": 6,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 8,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "176",
+      "face_count": 96,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 128,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "178",
+      "face_count": 96,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 128,
       "valid": true
     },
     {
@@ -8490,6 +8525,16 @@
     {
       "constraint_violation_count": 0,
       "errors": [],
+      "expr_id": "297",
+      "face_count": 30,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 32,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
       "expr_id": "300_0",
       "face_count": 1,
       "kind": "triangle_mesh",
@@ -8865,6 +8910,16 @@
       "kind": "implicit_surface",
       "max_residual": null,
       "point_count": 114,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "325",
+      "face_count": 96,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 66,
       "valid": true
     }
   ],

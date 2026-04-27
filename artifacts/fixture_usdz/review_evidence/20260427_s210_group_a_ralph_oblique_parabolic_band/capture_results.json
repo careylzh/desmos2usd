@@ -1,0 +1,18 @@
+{
+  "desmos_url": "https://www.desmos.com/3d/g53xte50e7",
+  "desmos_browser_capture": {
+    "chrome_devtools": "user cancelled MCP tool call",
+    "playwright": "user cancelled MCP tool call",
+    "screenshots": []
+  },
+  "route_checks": {
+    "https://chq.singapura-broadnose.ts.net/": "curl: (6) Could not resolve host: chq.singapura-broadnose.ts.net",
+    "https://chq.singapura-broadnose.ts.net/artifacts/fixture_usdz/summary.json": "curl: (6) Could not resolve host: chq.singapura-broadnose.ts.net",
+    "https://chq.singapura-broadnose.ts.net/viewer/": "curl: (6) Could not resolve host: chq.singapura-broadnose.ts.net"
+  },
+  "viewer_browser_capture": {
+    "chrome_devtools": "user cancelled MCP tool call",
+    "playwright": "user cancelled MCP tool call",
+    "screenshots": []
+  }
+}

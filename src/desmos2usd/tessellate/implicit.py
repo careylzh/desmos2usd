@@ -450,11 +450,43 @@ def tessellate_axis_aligned_ellipsoid(
     longitude_segments = max(16, min(48, resolution * 2))
     geometry = build_axis_aligned_ellipsoid_mesh(profile, latitude_segments, longitude_segments)
     if item.predicates:
-        for point in geometry.points:
-            variables = dict(zip(AXES, point, strict=True))
-            if not all(predicate.evaluate(context, variables, tol=1e-5) for predicate in item.predicates):
-                return None
+        return clip_mesh_faces_to_predicates(geometry, item, context)
     return geometry
+
+
+def clip_mesh_faces_to_predicates(
+    geometry: GeometryData,
+    item: ClassifiedExpression,
+    context: EvalContext,
+) -> GeometryData:
+    points: list[Point] = []
+    counts: list[int] = []
+    indices: list[int] = []
+    remap: dict[int, int] = {}
+    cursor = 0
+    for count in geometry.face_vertex_counts:
+        face = geometry.face_vertex_indices[cursor : cursor + count]
+        cursor += count
+        if len(face) != count:
+            continue
+        if not all(point_satisfies_predicates(geometry.points[index], item, context) for index in face):
+            continue
+        counts.append(count)
+        for index in face:
+            if index not in remap:
+                remap[index] = len(points)
+                points.append(geometry.points[index])
+            indices.append(remap[index])
+    return GeometryData(kind="Mesh", points=points, face_vertex_counts=counts, face_vertex_indices=indices)
+
+
+def point_satisfies_predicates(
+    point: Point,
+    item: ClassifiedExpression,
+    context: EvalContext,
+) -> bool:
+    variables = dict(zip(AXES, point, strict=True))
+    return all(predicate.evaluate(context, variables, tol=1e-5) for predicate in item.predicates)
 
 
 def fit_axis_aligned_ellipsoid(

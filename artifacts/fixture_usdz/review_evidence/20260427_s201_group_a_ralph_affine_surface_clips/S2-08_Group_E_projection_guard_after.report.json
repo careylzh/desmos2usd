@@ -1,0 +1,37 @@
+{
+  "classified_expression_count": 87,
+  "complete": true,
+  "fixture": "[4B] 3D Diagram - S2-08 Group E.json",
+  "prim_count": 87,
+  "renderable_expression_count": 87,
+  "resolution": 12,
+  "source": "guard after affine explicit-domain inference",
+  "status": "success",
+  "unsupported": [],
+  "unsupported_count": 0,
+  "usdz_package": {
+    "command": [
+      "/usr/bin/usdzip",
+      "/Users/chek/repos/desmos2usd-carey/artifacts/fixture_usdz/review_evidence/20260427_s201_group_a_ralph_affine_surface_clips/S2-08_Group_E_projection_guard_after.usdz",
+      "S2-08_Group_E_projection_guard_after.usda"
+    ],
+    "cwd": "/Users/chek/repos/desmos2usd-carey/artifacts/fixture_usdz/review_evidence/20260427_s201_group_a_ralph_affine_surface_clips",
+    "returncode": 0,
+    "stderr": "",
+    "stdout": "",
+    "tool": "usdzip"
+  },
+  "usdz_validation": {
+    "command": [
+      "/usr/bin/usdchecker",
+      "--arkit",
+      "artifacts/fixture_usdz/review_evidence/20260427_s201_group_a_ralph_affine_surface_clips/S2-08_Group_E_projection_guard_after.usdz"
+    ],
+    "cwd": null,
+    "returncode": 0,
+    "stderr": "",
+    "stdout": "\nValidation Result with no explicit variants set\nSuccess!\n",
+    "tool": "usdchecker"
+  },
+  "valid": true
+}

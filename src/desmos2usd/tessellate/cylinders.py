@@ -77,11 +77,13 @@ def tessellate_circular_extrusion(
             continue
         shape_axes = tuple(axis for axis in AXES if axis != extrude_axis)
         segment_count = max(16, min(128, resolution * 2))
-        if low == high and not caps:
+        if low == high:
             profile = fit_circle_profile(context, residual, shape_axes, extrude_axis, low)
-            if profile is not None:
-                return build_ellipse_curve(shape_axes, extrude_axis, low, profile, segment_count)
-            continue
+            if profile is None:
+                continue
+            if caps:
+                return build_circular_disk_mesh(shape_axes, extrude_axis, low, profile, segment_count)
+            return build_ellipse_curve(shape_axes, extrude_axis, low, profile, segment_count)
         if low >= high:
             continue
         layer_count = max(3, min(96, resolution))
@@ -261,6 +263,42 @@ def build_ellipse_curve(
         }
         points.append(point_from_variables(variables))
     return GeometryData(kind="BasisCurves", points=points, curve_vertex_counts=[len(points)])
+
+
+def build_circular_disk_mesh(
+    shape_axes: tuple[str, str],
+    extrude_axis: str,
+    extrude_value: float,
+    profile: CircleProfile,
+    segment_count: int,
+) -> GeometryData:
+    points: list[Point] = []
+    radius_a, radius_b = profile.radii
+    for segment in range(segment_count):
+        angle = 2.0 * pi * segment / segment_count
+        variables = {
+            shape_axes[0]: profile.center[0] + radius_a * cos(angle),
+            shape_axes[1]: profile.center[1] + radius_b * sin(angle),
+            extrude_axis: extrude_value,
+        }
+        points.append(point_from_variables(variables))
+    center_index = len(points)
+    points.append(
+        point_from_variables(
+            {
+                shape_axes[0]: profile.center[0],
+                shape_axes[1]: profile.center[1],
+                extrude_axis: extrude_value,
+            }
+        )
+    )
+    counts: list[int] = []
+    indices: list[int] = []
+    for segment in range(segment_count):
+        next_segment = (segment + 1) % segment_count
+        counts.append(3)
+        indices.extend([center_index, segment, next_segment])
+    return GeometryData(kind="Mesh", points=points, face_vertex_counts=counts, face_vertex_indices=indices)
 
 
 def add_cap(

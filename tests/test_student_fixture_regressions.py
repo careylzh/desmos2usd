@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import json
 import tempfile
 import unittest
 from math import cos, sin
@@ -8,8 +9,8 @@ from pathlib import Path
 import _path  # noqa: F401
 from desmos2usd.converter import export_graph
 from desmos2usd.eval.context import EvalContext
-from desmos2usd.ir import ExpressionIR, GraphIR, SourceInfo
-from desmos2usd.parse.classify import classify_expression, classify_graph, register_definition
+from desmos2usd.ir import ExpressionIR, GraphIR, SourceInfo, graph_ir_from_state, looks_like_non_graphable_label_latex
+from desmos2usd.parse.classify import classify_expression, classify_graph, expand_list_expression, register_definition
 from desmos2usd.parse.latex_subset import LatexExpression
 from desmos2usd.tessellate import tessellate
 from desmos2usd.validate.fixture_usdz_suite import classify_graph_tolerant
@@ -18,8 +19,23 @@ from desmos2usd.validate.fixture_usdz_suite import classify_graph_tolerant
 SOURCE = SourceInfo(url="", graph_hash="fixture", state_url="", title="fixture")
 
 
-def expr(expr_id: str, latex: str, *, color: str = "#c74440", hidden: bool = False) -> ExpressionIR:
-    return ExpressionIR(source=SOURCE, expr_id=expr_id, order=int(expr_id) if expr_id.isdigit() else 0, latex=latex, color=color, hidden=hidden)
+def expr(
+    expr_id: str,
+    latex: str,
+    *,
+    color: str = "#c74440",
+    color_latex: str | None = None,
+    hidden: bool = False,
+) -> ExpressionIR:
+    return ExpressionIR(
+        source=SOURCE,
+        expr_id=expr_id,
+        order=int(expr_id) if expr_id.isdigit() else 0,
+        latex=latex,
+        color=color,
+        color_latex=color_latex,
+        hidden=hidden,
+    )
 
 
 class StudentFixtureRegressionTests(unittest.TestCase):
@@ -35,6 +51,306 @@ class StudentFixtureRegressionTests(unittest.TestCase):
         self.assertEqual(geometry.kind, "BasisCurves")
         self.assertEqual(geometry.points[0], (0.0, -8.2, 0.0))
         self.assertEqual(geometry.points[-1], (0.0, -5.0, 122.6))
+
+    def test_sphere_operator_exports_as_implicit_surface(self) -> None:
+        item = classify_expression(
+            expr("1", r"\operatorname{sphere}\left(\left(0,0,100\right),40\right)"),
+            EvalContext(),
+        )
+
+        geometry = tessellate(item, EvalContext(), resolution=8)
+
+        self.assertEqual(item.kind, "implicit_surface")
+        self.assertEqual(geometry.kind, "Mesh")
+        self.assertGreater(geometry.face_count, 0)
+        xs = [point[0] for point in geometry.points]
+        zs = [point[2] for point in geometry.points]
+        self.assertAlmostEqual(min(xs), -40.0)
+        self.assertAlmostEqual(max(xs), 40.0)
+        self.assertAlmostEqual(min(zs), 60.0)
+        self.assertAlmostEqual(max(zs), 140.0)
+
+    def test_sphere_operator_uses_scalar_center_and_radius_definitions(self) -> None:
+        graph = GraphIR(
+            source=SOURCE,
+            expressions=[
+                expr("1", "s=37"),
+                expr("2", "d=-37"),
+                expr("3", "p=100"),
+                expr("4", "o=13.1"),
+                expr("5", r"\operatorname{sphere}\left(\left(s,d,p\right),o\right)"),
+            ],
+            raw_state={},
+        )
+
+        classification, unsupported = classify_graph_tolerant(graph)
+
+        self.assertEqual(len(unsupported), 0)
+        self.assertEqual(classification.classified[0].kind, "implicit_surface")
+        geometry = tessellate(classification.classified[0], classification.context, resolution=8)
+        self.assertEqual(geometry.kind, "Mesh")
+        self.assertGreater(geometry.face_count, 0)
+
+    def test_infinity_implicit_helper_plane_tessellates(self) -> None:
+        source = SourceInfo(
+            "", "", "", "", viewport_bounds={"x": (-40.0, 40.0), "y": (-70.0, 70.0), "z": (0.0, 100.0)}
+        )
+        item = classify_expression(
+            ExpressionIR(
+                source,
+                "25",
+                0,
+                r"\frac{x}{\infty}=z-90\left\{60>y>-60\right\}\left\{30>x>-30\right\}",
+            ),
+            EvalContext(),
+        )
+
+        geometry = tessellate(item, EvalContext(), resolution=12)
+        used_points = [geometry.points[index] for index in set(geometry.face_vertex_indices)]
+
+        self.assertEqual(item.kind, "implicit_surface")
+        self.assertGreater(geometry.face_count, 0)
+        self.assertAlmostEqual(min(point[2] for point in used_points), 90.0, places=5)
+        self.assertAlmostEqual(max(point[2] for point in used_points), 90.0, places=5)
+        self.assertGreaterEqual(min(point[0] for point in used_points), -30.00001)
+        self.assertLessEqual(max(point[0] for point in used_points), 30.00001)
+        self.assertGreaterEqual(min(point[1] for point in used_points), -60.00001)
+        self.assertLessEqual(max(point[1] for point in used_points), 60.00001)
+
+    def test_infinity_explicit_helper_plane_tessellates(self) -> None:
+        source = SourceInfo(
+            "", "", "", "", viewport_bounds={"x": (-20.0, 20.0), "y": (-70.0, 70.0), "z": (0.0, 100.0)}
+        )
+        item = classify_expression(
+            ExpressionIR(
+                source,
+                "110",
+                0,
+                r"y=\frac{z}{\infty}-60\left\{70>z>10\right\}\left\{15<x<18\right\}",
+            ),
+            EvalContext(),
+        )
+
+        geometry = tessellate(item, EvalContext(), resolution=12)
+        used_points = [geometry.points[index] for index in set(geometry.face_vertex_indices)]
+
+        self.assertEqual(item.kind, "explicit_surface")
+        self.assertGreater(geometry.face_count, 0)
+        self.assertAlmostEqual(min(point[1] for point in used_points), -60.0, places=6)
+        self.assertAlmostEqual(max(point[1] for point in used_points), -60.0, places=6)
+        self.assertGreaterEqual(min(point[0] for point in used_points), 15.0)
+        self.assertLessEqual(max(point[0] for point in used_points), 18.0)
+        self.assertGreaterEqual(min(point[2] for point in used_points), 10.0)
+        self.assertLessEqual(max(point[2] for point in used_points), 70.0)
+
+    def test_hsv_and_okhsv_color_definitions_resolve_color_latex(self) -> None:
+        graph = GraphIR(
+            source=SOURCE,
+            expressions=[
+                expr("1", r"c_{1}=\operatorname{hsv}(0,1,1)"),
+                expr("2", r"c_{2}=\operatorname{hsv}\left(160,0,1\right)"),
+                expr("3", r"c_{3}=\operatorname{okhsv}(72,0.243,0.99)"),
+                expr(
+                    "4",
+                    r"z=0\left\{-1<x<1\right\}\left\{-1<y<1\right\}",
+                    color="#aaaaaa",
+                    color_latex="c_{1}",
+                ),
+                expr(
+                    "5",
+                    r"x=0\left\{-1<y<1\right\}\left\{-1<z<1\right\}",
+                    color="#aaaaaa",
+                    color_latex="c_{2}",
+                ),
+                expr(
+                    "6",
+                    r"y=0\left\{-1<x<1\right\}\left\{-1<z<1\right\}",
+                    color="#aaaaaa",
+                    color_latex="c_{3}",
+                ),
+            ],
+            raw_state={},
+        )
+
+        classification, unsupported = classify_graph_tolerant(graph)
+
+        self.assertEqual(unsupported, [])
+        self.assertEqual([item.ir.color for item in classification.classified], ["#ff0000", "#ffffff", "#fcdcb5"])
+
+    def test_s204_group_g_color_definitions_do_not_remain_unsupported(self) -> None:
+        fixture = (
+            Path(__file__).resolve().parents[1]
+            / "fixtures"
+            / "states"
+            / "[4B] 3D Diagram - S2-04 Group G.json"
+        )
+        graph = graph_ir_from_state(json.loads(fixture.read_text(encoding="utf-8")))
+
+        _classification, unsupported = classify_graph_tolerant(graph)
+
+        self.assertNotIn("109", {item.expr_id for item in unsupported})
+        self.assertNotIn("130", {item.expr_id for item in unsupported})
+        self.assertNotIn("131", {item.expr_id for item in unsupported})
+
+    def test_label_only_math_rows_are_not_renderable_candidates(self) -> None:
+        self.assertTrue(looks_like_non_graphable_label_latex(r"------first\ pyramid\ lines------"))
+        self.assertTrue(looks_like_non_graphable_label_latex(r"\sec ond\ pyramid\ sketch"))
+        self.assertTrue(looks_like_non_graphable_label_latex(r"pyramid\ 4\ lines\ "))
+        self.assertFalse(looks_like_non_graphable_label_latex(r"z=0\left\{-3<x<3\right\}"))
+        self.assertFalse(looks_like_non_graphable_label_latex(r"\operatorname{sphere}\left(\left(0,0,0\right),1\right)"))
+
+        self.assertFalse(expr("1", r"------first\ pyramid\ lines------").renderable_candidate)
+        self.assertTrue(expr("2", r"z=0\left\{-3<x<3\right\}").renderable_candidate)
+
+    def test_s210_group_e_label_rows_do_not_remain_unsupported(self) -> None:
+        fixture = (
+            Path(__file__).resolve().parents[1]
+            / "fixtures"
+            / "states"
+            / "[4B] 3D Diagram - S2-10 Group E.json"
+        )
+        graph = graph_ir_from_state(json.loads(fixture.read_text(encoding="utf-8")))
+
+        classification, unsupported = classify_graph_tolerant(graph)
+
+        self.assertEqual(unsupported, [])
+        self.assertEqual(len(classification.classified), 249)
+
+    def test_s210_group_a_unbraced_trig_surfaces_tessellate(self) -> None:
+        fixture = (
+            Path(__file__).resolve().parents[1]
+            / "fixtures"
+            / "states"
+            / "[4B] 3D Diagram - S2-10 Group A.json"
+        )
+        graph = graph_ir_from_state(json.loads(fixture.read_text(encoding="utf-8")))
+
+        classification, classification_unsupported = classify_graph_tolerant(graph)
+        with tempfile.TemporaryDirectory() as tmp:
+            prims, _validations, export_unsupported = export_graph(
+                graph,
+                classification,
+                Path(tmp) / "s210a.usda",
+                resolution=12,
+            )
+
+        unsupported_ids = {item.expr_id for item in [*classification_unsupported, *export_unsupported]}
+        prim_ids = {prim.item.ir.expr_id for prim in prims}
+        trig_ids = {"59", "60", "61", "62"}
+        self.assertTrue(trig_ids.issubset(prim_ids))
+        self.assertTrue(trig_ids.isdisjoint(unsupported_ids))
+
+    def test_oblique_affine_clipped_function_band_tessellates(self) -> None:
+        item = classify_expression(
+            expr(
+                "41",
+                r"-0.7y^{2}+2.3<z<-0.7y^{2}+2.8\left\{-1<2.8x+1.25z-8.4<0\right\}\left\{z>0\right\}",
+            ),
+            EvalContext(),
+        )
+
+        geometry = tessellate(item, EvalContext(), resolution=12)
+        used_points = [geometry.points[index] for index in set(geometry.face_vertex_indices)]
+
+        self.assertEqual(item.kind, "inequality_region")
+        self.assertGreater(geometry.face_count, 0)
+        self.assertGreater(min(point[0] for point in used_points), 1.0)
+        self.assertGreater(max(point[0] for point in used_points), 2.5)
+        self.assertGreater(max(point[1] for point in used_points), 1.5)
+        self.assertLess(min(point[1] for point in used_points), -1.5)
+        self.assertGreaterEqual(min(point[2] for point in used_points), -1e-8)
+        self.assertLessEqual(max(point[2] for point in used_points), 2.80001)
+
+    def test_s210_group_a_oblique_parabolic_band_no_longer_unsupported(self) -> None:
+        fixture = (
+            Path(__file__).resolve().parents[1]
+            / "fixtures"
+            / "states"
+            / "[4B] 3D Diagram - S2-10 Group A.json"
+        )
+        graph = graph_ir_from_state(json.loads(fixture.read_text(encoding="utf-8")))
+
+        classification, classification_unsupported = classify_graph_tolerant(graph)
+        with tempfile.TemporaryDirectory() as tmp:
+            prims, _validations, export_unsupported = export_graph(
+                graph,
+                classification,
+                Path(tmp) / "s210a.usda",
+                resolution=12,
+            )
+
+        unsupported_ids = {item.expr_id for item in [*classification_unsupported, *export_unsupported]}
+        prim_ids = {prim.item.ir.expr_id for prim in prims}
+        self.assertIn("41", prim_ids)
+        self.assertNotIn("41", unsupported_ids)
+        self.assertEqual(unsupported_ids, set())
+        self.assertEqual(len(prims), 40)
+
+    def test_affine_clipped_explicit_surface_infers_tight_domain(self) -> None:
+        source = SourceInfo(
+            "",
+            "",
+            "",
+            "",
+            viewport_bounds={"x": (-25.0, 25.0), "y": (-25.0, 25.0), "z": (-25.0, 25.0)},
+        )
+        context = EvalContext(scalars={"a": 0.636})
+        item = classify_expression(
+            ExpressionIR(
+                source,
+                "82",
+                0,
+                r"z=\left(-ax+0y+5.6\right)\left\{0.3<y+x<0.4\right\}\left\{4.5<z<5.45\right\}",
+            ),
+            context,
+        )
+
+        geometry = tessellate(item, context, resolution=12)
+        used_points = [geometry.points[index] for index in set(geometry.face_vertex_indices)]
+
+        self.assertEqual(item.kind, "explicit_surface")
+        self.assertGreater(geometry.face_count, 0)
+        self.assertGreater(min(point[0] for point in used_points), 0.2)
+        self.assertLess(max(point[0] for point in used_points), 1.8)
+        for point in used_points:
+            variables = {"x": point[0], "y": point[1], "z": point[2]}
+            self.assertTrue(all(predicate.evaluate(context, variables, tol=1e-4) for predicate in item.predicates))
+
+    def test_s201_group_a_affine_clipped_surfaces_no_longer_unsupported(self) -> None:
+        fixture = (
+            Path(__file__).resolve().parents[1]
+            / "fixtures"
+            / "states"
+            / "[4B] 3D Diagram - S2-01 Group A.json"
+        )
+        graph = graph_ir_from_state(json.loads(fixture.read_text(encoding="utf-8")))
+
+        classification, classification_unsupported = classify_graph_tolerant(graph)
+        with tempfile.TemporaryDirectory() as tmp:
+            prims, _validations, export_unsupported = export_graph(
+                graph,
+                classification,
+                Path(tmp) / "s201a.usda",
+                resolution=12,
+            )
+
+        unsupported_ids = {item.expr_id for item in [*classification_unsupported, *export_unsupported]}
+        self.assertEqual(unsupported_ids, set())
+        self.assertEqual(len(prims), 208)
+
+    def test_s202_group_c_nested_restrictions_classify(self) -> None:
+        fixture = (
+            Path(__file__).resolve().parents[1]
+            / "fixtures"
+            / "states"
+            / "[4B] 3D Diagram - S2-02 Group C.json"
+        )
+        graph = graph_ir_from_state(json.loads(fixture.read_text(encoding="utf-8")))
+
+        classification, unsupported = classify_graph_tolerant(graph)
+
+        self.assertEqual(unsupported, [])
+        self.assertEqual(len(classification.classified), 169)
 
     def test_uv_tuple_exports_as_parametric_surface(self) -> None:
         item = classify_expression(expr("1", r"\left(17u-8.5,-2.5,0.4v\right)"), EvalContext())
@@ -58,6 +374,79 @@ class StudentFixtureRegressionTests(unittest.TestCase):
         self.assertEqual(geometry.kind, "BasisCurves")
         self.assertEqual(geometry.points[0], (0.0, 0.0, 0.0))
         self.assertEqual(geometry.points[-1], (2.0, 0.0, 4.0))
+
+    def test_point_defined_affine_vector_expression_exports_curve(self) -> None:
+        context = EvalContext()
+        self.assertTrue(register_definition(expr("1", r"A=\left(0,0,2\right)", hidden=True), context))
+        self.assertTrue(register_definition(expr("2", r"B=\left(10,0,4\right)", hidden=True), context))
+        item = classify_expression(expr("3", r"A+t\left(B-A\right)"), context)
+
+        geometry = tessellate(item, context, resolution=4)
+
+        self.assertEqual(item.kind, "parametric_curve")
+        self.assertEqual(geometry.kind, "BasisCurves")
+        self.assertEqual(geometry.points[0], (0.0, 0.0, 2.0))
+        self.assertEqual(geometry.points[-1], (10.0, 0.0, 4.0))
+
+    def test_point_defined_vector_list_exports_curve(self) -> None:
+        context = EvalContext()
+        self.assertTrue(register_definition(expr("1", r"A=\left(0,0,2\right)", hidden=True), context))
+        self.assertTrue(register_definition(expr("2", r"B=\left(10,0,4\right)", hidden=True), context))
+        item = classify_expression(expr("3", r"\left[A,B\right]"), context)
+
+        geometry = tessellate(item, context, resolution=4)
+
+        self.assertEqual(item.kind, "point_list_curve")
+        self.assertEqual(geometry.kind, "BasisCurves")
+        self.assertEqual(geometry.curve_vertex_counts, [2])
+        self.assertEqual(geometry.points[0], (0.0, 0.0, 2.0))
+        self.assertEqual(geometry.points[-1], (10.0, 0.0, 4.0))
+
+    def test_s201_group_b_point_defined_edge_curves_no_longer_unsupported(self) -> None:
+        fixture = (
+            Path(__file__).resolve().parents[1]
+            / "fixtures"
+            / "states"
+            / "[4B] 3D Diagram - S2-01 Group B.json"
+        )
+        graph = graph_ir_from_state(json.loads(fixture.read_text(encoding="utf-8")))
+        edge_ids = {
+            "13",
+            "16",
+            "19",
+            "25",
+            "32",
+            "37",
+            "40",
+            "41",
+            "43",
+            "46",
+            "47",
+            "51",
+            "52",
+            "53",
+            "55",
+            "56",
+            "57",
+        }
+        point_list_ids = {"12", "15", "18", "24", "31", "36", "39", "48", "49"}
+
+        classification, classification_unsupported = classify_graph_tolerant(graph)
+        with tempfile.TemporaryDirectory() as tmp:
+            prims, _validations, export_unsupported = export_graph(
+                graph,
+                classification,
+                Path(tmp) / "s201b.usda",
+                resolution=12,
+            )
+
+        unsupported_ids = {item.expr_id for item in [*classification_unsupported, *export_unsupported]}
+        prim_ids = {prim.item.ir.expr_id for prim in prims}
+        self.assertTrue(edge_ids.issubset(prim_ids))
+        self.assertTrue(point_list_ids.issubset(prim_ids))
+        self.assertTrue(point_list_ids.isdisjoint(unsupported_ids))
+        self.assertTrue(edge_ids.isdisjoint(unsupported_ids))
+        self.assertGreaterEqual(len(prims), 133)
 
     def test_desmos_parametric_domain_sets_curve_bounds(self) -> None:
         item = classify_expression(
@@ -188,6 +577,58 @@ class StudentFixtureRegressionTests(unittest.TestCase):
         self.assertAlmostEqual(min(zs), 1.665 - radius, places=6)
         self.assertAlmostEqual(max(zs), 1.665 + radius, places=6)
 
+    def test_axis_restricted_implicit_sphere_exports_surface_cap(self) -> None:
+        source = SourceInfo("", "", "", "", viewport_bounds={"x": (-25.0, 25.0), "y": (-25.0, 25.0), "z": (0.0, 25.0)})
+        context = EvalContext(scalars={"s_top": 0.6})
+        item = classify_expression(
+            ExpressionIR(
+                source,
+                "1",
+                0,
+                r"\left(x-20\right)^{2}+\left(y-20\right)^{2}+\left(z-21.1\right)^{2}=s_{top}^{2}"
+                r"\left\{z\ge21.1\right\}",
+            ),
+            context,
+        )
+
+        geometry = tessellate(item, context, resolution=12)
+        zs = [point[2] for point in geometry.points]
+
+        self.assertEqual(item.kind, "implicit_surface")
+        self.assertEqual(geometry.kind, "Mesh")
+        self.assertGreater(geometry.face_count, 40)
+        self.assertAlmostEqual(min(zs), 21.1, places=6)
+        self.assertAlmostEqual(max(zs), 21.7, places=6)
+        for point in geometry.points:
+            variables = {"x": point[0], "y": point[1], "z": point[2]}
+            self.assertTrue(all(predicate.evaluate(context, variables, tol=1e-4) for predicate in item.predicates))
+
+    def test_axis_aligned_ball_cap_inequality_exports_capped_mesh(self) -> None:
+        source = SourceInfo("", "", "", "", viewport_bounds={"x": (-12.0, 12.0), "y": (-8.0, 8.0), "z": (0.0, 8.0)})
+        context = EvalContext()
+        item = classify_expression(
+            ExpressionIR(
+                source,
+                "1",
+                0,
+                r"\left(x-7\right)^{2}+\left(y-4\right)^{2}+\left(z-5\right)^{2}<0.5^{2}\left\{z<5\right\}",
+            ),
+            context,
+        )
+
+        geometry = tessellate(item, context, resolution=8)
+        zs = [point[2] for point in geometry.points]
+
+        self.assertEqual(item.kind, "inequality_region")
+        self.assertEqual(geometry.kind, "Mesh")
+        self.assertGreater(geometry.face_count, 100)
+        self.assertAlmostEqual(min(zs), 4.5, places=6)
+        self.assertLessEqual(max(zs), 5.00001)
+        self.assertTrue(has_coplanar_face(geometry, axis=2, value=5.0))
+        for point in geometry.points:
+            variables = {"x": point[0], "y": point[1], "z": point[2]}
+            self.assertTrue(all(predicate.evaluate(context, variables, tol=1e-4) for predicate in item.predicates))
+
     def test_variable_adjacent_trig_inequality_region_tessellates(self) -> None:
         source = SourceInfo("", "", "", "", viewport_bounds={"x": (-10.0, 10.0), "y": (-10.0, 10.0), "z": (0.0, 2.0)})
         item = classify_expression(
@@ -312,6 +753,44 @@ class StudentFixtureRegressionTests(unittest.TestCase):
         self.assertEqual(geometry.kind, "Mesh")
         self.assertGreater(geometry.face_count, 0)
 
+    def test_leading_dot_decimal_implicit_plane_tessellates(self) -> None:
+        source = SourceInfo("", "", "", "", viewport_bounds={"x": (-3.0, 3.0), "y": (-3.0, 3.0), "z": (0.0, 3.0)})
+        context = EvalContext()
+        item = classify_expression(
+            ExpressionIR(
+                source,
+                "1",
+                0,
+                r"2z=.515x+1.91\left\{-1.55\le y\le2.6\right\}\left\{-2\le x\le-.6\right\}",
+            ),
+            context,
+        )
+
+        geometry = tessellate(item, context, resolution=8)
+
+        self.assertEqual(item.kind, "implicit_surface")
+        self.assertEqual(geometry.kind, "Mesh")
+        self.assertGreater(geometry.face_count, 0)
+
+    def test_leading_dot_decimal_slab_tessellates(self) -> None:
+        source = SourceInfo("", "", "", "", viewport_bounds={"x": (-12.0, 2.0), "y": (2.0, 3.0), "z": (0.0, 3.0)})
+        context = EvalContext()
+        item = classify_expression(
+            ExpressionIR(
+                source,
+                "1",
+                0,
+                r".5\le z\le1+.43(x+0.6)\left\{-10\le x\le-0.6\right\}\left\{2.55\le y\le2.6\right\}",
+            ),
+            context,
+        )
+
+        geometry = tessellate(item, context, resolution=8)
+
+        self.assertEqual(item.kind, "inequality_region")
+        self.assertEqual(geometry.kind, "Mesh")
+        self.assertGreater(geometry.face_count, 0)
+
     def test_tolerant_fixture_classification_uses_graph_degree_mode(self) -> None:
         source = SourceInfo(
             "",
@@ -343,7 +822,7 @@ class StudentFixtureRegressionTests(unittest.TestCase):
         graph = GraphIR(
             source=SOURCE,
             expressions=[
-                expr("1", r"\operatorname{sphere}\left(\left(0,0,0\right),1\right)"),
+                expr("1", r"\operatorname{unknown}\left(1\right)"),
                 expr("2", "z=0\\left\\{-1<x<1\\right\\}\\left\\{-1<y<1\\right\\}"),
             ],
             raw_state={},
@@ -422,6 +901,77 @@ class StudentFixtureRegressionTests(unittest.TestCase):
 
         self.assertEqual(len(unsupported), 0)
         self.assertEqual([item.ir.expr_id for item in classification.classified], ["3_0", "3_1", "3_2", "3_3"])
+
+    def test_inline_random_list_expansion_is_seeded_and_bounded(self) -> None:
+        context = EvalContext(random_seed="fixture-seed", random_list_limit=3)
+        source = expr("1", r"x=\operatorname{random}\left(10\right)\left\{0<y<1\right\}")
+
+        expanded = expand_list_expression(source, context)
+        expanded_again = expand_list_expression(source, context)
+
+        self.assertEqual([item.expr_id for item in expanded], ["1_0", "1_1", "1_2"])
+        self.assertEqual([item.latex for item in expanded], [item.latex for item in expanded_again])
+        self.assertNotIn("random", "".join(item.latex for item in expanded))
+        self.assertTrue(all(item.raw["expandedFromRandomExpression"] == "1" for item in expanded))
+
+    def test_random_gaussian_flat_regions_sample_in_local_bounds(self) -> None:
+        source = SourceInfo(
+            "",
+            "",
+            "",
+            "",
+            viewport_bounds={"x": (-500.0, 500.0), "y": (-500.0, 500.0), "z": (-500.0, 500.0)},
+        )
+        graph = GraphIR(
+            source=source,
+            expressions=[
+                ExpressionIR(
+                    source,
+                    "1",
+                    0,
+                    r"e^{-\frac{(x-\operatorname{random}\left(3\right))^{2}"
+                    r"+(y-\operatorname{random}\left(3\right))^{2}}{1.1}}>0.0000001",
+                )
+            ],
+            raw_state={"randomSeed": "fixture-seed"},
+        )
+
+        classification, unsupported = classify_graph_tolerant(graph)
+
+        self.assertEqual(unsupported, [])
+        self.assertEqual([item.ir.expr_id for item in classification.classified], ["1_0", "1_1", "1_2"])
+        for item in classification.classified:
+            geometry = tessellate(item, classification.context, resolution=8)
+            self.assertEqual(geometry.kind, "Mesh")
+            self.assertGreater(geometry.face_count, 0)
+            self.assertEqual({point[2] for point in geometry.points}, {0.0})
+
+    def test_gaussian_flat_region_outside_function_restriction_exports_empty_mesh(self) -> None:
+        source = SourceInfo(
+            "",
+            "",
+            "",
+            "",
+            viewport_bounds={"x": (-600.0, 600.0), "y": (-600.0, 600.0), "z": (-600.0, 600.0)},
+        )
+        item = classify_expression(
+            ExpressionIR(
+                source,
+                "1",
+                0,
+                r"e^{-\frac{(x-500)^{2}+y^{2}}{1.1}}>0.0000001"
+                r"\left\{-\sqrt{100000\left(1-\frac{x^{2}}{200000}\right)}<y"
+                r"<\sqrt{100000\left(1-\frac{x^{2}}{200000}\right)}\right\}",
+            ),
+            EvalContext(),
+        )
+
+        geometry = tessellate(item, EvalContext(), resolution=8)
+
+        self.assertEqual(item.kind, "inequality_region")
+        self.assertEqual(geometry.kind, "Mesh")
+        self.assertEqual(geometry.point_count, 0)
+        self.assertEqual(geometry.face_count, 0)
 
     def test_desmos_mod_is_available_in_list_definitions(self) -> None:
         graph = GraphIR(
@@ -758,6 +1308,34 @@ class StudentFixtureRegressionTests(unittest.TestCase):
         geometry = tessellate(item, EvalContext(), resolution=12)
         self.assertGreater(geometry.face_count, 0)
 
+    def test_near_vertical_explicit_surface_reorients_sampling_axis(self) -> None:
+        """Very steep affine explicit surfaces should be sampled along their wide axis."""
+        source = SourceInfo("", "", "", "", viewport_bounds={"x": (-1.0, 1.0), "y": (-400.0, 400.0), "z": (0.0, 1.0)})
+        context = EvalContext()
+        item = classify_expression(
+            ExpressionIR(
+                source,
+                "1",
+                0,
+                r"y=1000000000000x\left\{60000<y^{2}<100000\right\}\left\{0<z<1\right\}",
+            ),
+            context,
+        )
+
+        geometry = tessellate(item, context, resolution=8)
+
+        self.assertEqual(item.kind, "explicit_surface")
+        self.assertGreater(geometry.face_count, 0)
+        used = sorted(set(geometry.face_vertex_indices))
+        self.assertLess(max(abs(geometry.points[index][0]) for index in used), 1e-8)
+        self.assertTrue(any(geometry.points[index][1] > 0 for index in used))
+        self.assertTrue(any(geometry.points[index][1] < 0 for index in used))
+        for index in used:
+            point = geometry.points[index]
+            variables = {"x": point[0], "y": point[1], "z": point[2]}
+            self.assertAlmostEqual(point[1], 1000000000000 * point[0], places=4)
+            self.assertTrue(all(predicate.evaluate(context, variables, tol=1e-4) for predicate in item.predicates))
+
     def test_parabolic_inequality_band_skips_circular_fast_path(self) -> None:
         """S2-05 Group E: parabolic slab bands are not circular profiles. The circular
         fast path should decline them instead of dividing by a zero quadratic axis.
@@ -898,6 +1476,128 @@ class StudentFixtureRegressionTests(unittest.TestCase):
         self.assertGreater(min(used_x_values), -0.25)
         self.assertLess(max(used_x_values), 0.2)
 
+    def test_annular_quadratic_inequality_extrudes_as_ellipse_ring(self) -> None:
+        """S2-06 Group E uses tall elliptical ring slabs such as
+        ``98000 < x^2/2 + y^2 < 100000 {35 < z < 40}``. The analytic path should emit
+        the annular extrusion directly instead of missing every valid voxel cell.
+        """
+        source = SourceInfo(
+            "", "", "", "", viewport_bounds={"x": (-500.0, 500.0), "y": (-500.0, 500.0), "z": (0.0, 200.0)}
+        )
+        item = classify_expression(
+            ExpressionIR(
+                source,
+                "1",
+                0,
+                r"98000<\frac{x^{2}}{2}+y^{2}<100000\left\{35<z<40\right\}",
+            ),
+            EvalContext(),
+        )
+
+        geometry = tessellate(item, EvalContext(), resolution=12)
+        used_points = [geometry.points[index] for index in set(geometry.face_vertex_indices)]
+        q_values = [point[0] ** 2 / 2.0 + point[1] ** 2 for point in used_points]
+        z_values = [point[2] for point in used_points]
+
+        self.assertEqual(item.kind, "inequality_region")
+        self.assertGreater(geometry.face_count, 100)
+        self.assertAlmostEqual(min(q_values), 98000.0, delta=1e-3)
+        self.assertAlmostEqual(max(q_values), 100000.0, delta=1e-3)
+        self.assertEqual(min(z_values), 35.0)
+        self.assertEqual(max(z_values), 40.0)
+
+    def test_chained_quadratic_disk_inequality_extrudes_as_cylinder(self) -> None:
+        """S2-07 Group F has a small disk chained into the z band:
+        ``(x-u)^2+(y-v)^2 <= r^2 <= z <= q+t/2 {5<z<5.9}``.
+        The analytic path should emit the cylinder shell directly instead of relying on
+        coarse voxel cells that can miss the tiny radius.
+        """
+        source = SourceInfo(
+            "", "", "", "", viewport_bounds={"x": (-8.0, 8.0), "y": (-8.0, 8.0), "z": (-8.0, 8.0)}
+        )
+        context = EvalContext(scalars={"u": -0.3, "v": 0.5, "w": 0.21, "q": 5.9, "t": 0.5})
+        item = classify_expression(
+            ExpressionIR(
+                source,
+                "325",
+                0,
+                r"(x-u)^{2}+(y-v)^{2}\le w^{2}q-t/2\le z\le q+t/2\left\{5<z<5.9\right\}",
+            ),
+            context,
+        )
+
+        geometry = tessellate(item, context, resolution=12)
+        used_points = [geometry.points[index] for index in set(geometry.face_vertex_indices)]
+        radial_values = [(point[0] + 0.3) ** 2 + (point[1] - 0.5) ** 2 for point in used_points]
+        z_values = [point[2] for point in used_points]
+
+        self.assertEqual(item.kind, "inequality_region")
+        self.assertEqual(geometry.kind, "Mesh")
+        self.assertGreater(geometry.face_count, 100)
+        self.assertAlmostEqual(max(radial_values), 0.21**2 * 5.9 - 0.5 / 2.0, delta=1e-6)
+        self.assertEqual(min(z_values), 5.0)
+        self.assertEqual(max(z_values), 5.9)
+
+    def test_single_axis_quadratic_inequality_band_tessellates_as_slab(self) -> None:
+        """S2-02 Group F uses list-expanded guide bands like
+        ``(z-0.3)^2 <= 0.0025`` inside bounded x/y rectangles. The analytic path should
+        export the thin slab instead of relying on coarse voxel cells to hit it.
+        """
+        source = SourceInfo(
+            "", "", "", "", viewport_bounds={"x": (0.0, 18.7), "y": (0.0, 18.7), "z": (0.0, 18.7)}
+        )
+        item = classify_expression(
+            ExpressionIR(
+                source,
+                "3_0",
+                0,
+                r"(z-0.3)^{2}\le0.0025\left\{-0.03\le x\le2.03\right\}\left\{-0.03\le y\le2.03\right\}",
+            ),
+            EvalContext(),
+        )
+
+        geometry = tessellate(item, EvalContext(), resolution=8)
+        used_points = [geometry.points[index] for index in set(geometry.face_vertex_indices)]
+        z_values = [point[2] for point in used_points]
+        x_values = [point[0] for point in used_points]
+        y_values = [point[1] for point in used_points]
+
+        self.assertEqual(item.kind, "inequality_region")
+        self.assertGreater(geometry.face_count, 0)
+        self.assertAlmostEqual(min(z_values), 0.25, places=6)
+        self.assertAlmostEqual(max(z_values), 0.35, places=6)
+        self.assertAlmostEqual(min(x_values), -0.03, places=6)
+        self.assertAlmostEqual(max(x_values), 2.03, places=6)
+        self.assertAlmostEqual(min(y_values), -0.03, places=6)
+        self.assertAlmostEqual(max(y_values), 2.03, places=6)
+
+    def test_contradictory_chained_inequality_exports_empty_mesh(self) -> None:
+        """S2-02 Group F has malformed list expansions whose chained bounds are empty.
+
+        ``13.2-0.03 <= x <= 2.03`` proves the Desmos region has no points, so the
+        exporter should emit a valid empty mesh instead of falling through to a sampled
+        unsupported error.
+        """
+        source = SourceInfo(
+            "", "", "", "", viewport_bounds={"x": (0.0, 18.7), "y": (0.0, 18.7), "z": (0.0, 18.7)}
+        )
+        item = classify_expression(
+            ExpressionIR(
+                source,
+                "72_0",
+                0,
+                r"(y-0.2)^{2}\le0.00250\le z\le13.2-0.03\le x\le2.03",
+            ),
+            EvalContext(),
+        )
+
+        geometry = tessellate(item, EvalContext(), resolution=8)
+
+        self.assertEqual(item.kind, "inequality_region")
+        self.assertEqual(geometry.kind, "Mesh")
+        self.assertEqual(geometry.point_count, 0)
+        self.assertEqual(geometry.face_count, 0)
+
     def test_explicit_surface_expression_undefined_samples_are_outside_domain(self) -> None:
         """An explicit function's natural domain should clip the mesh just like Desmos.
         Pre-fix, z=sqrt(1-x^2-y^2) over a larger viewport raised on the first outside
@@ -966,6 +1666,82 @@ class StudentFixtureRegressionTests(unittest.TestCase):
         z_values = [point[2] for point in geometry.points]
         self.assertEqual(min(z_values), 8.0)
         self.assertEqual(max(z_values), 8.0)
+
+    def test_strict_constant_z_circular_inequality_uses_analytic_flat_disk(self) -> None:
+        """S2-08 Group G has small strict disks high above the origin.
+
+        The large z constant should not widen the x/y sampling window so much that the
+        tiny disk is missed.
+        """
+        source = SourceInfo(
+            "", "", "", "", viewport_bounds={"x": (-220.0, 220.0), "y": (-220.0, 220.0), "z": (-220.0, 220.0)}
+        )
+        item = classify_expression(
+            ExpressionIR(source, "800", 0, r"x^{2}+y^{2}<2.5^{2}\left\{z=146.5\right\}"),
+            EvalContext(),
+        )
+
+        geometry = tessellate(item, EvalContext(), resolution=12)
+        used_points = [geometry.points[index] for index in set(geometry.face_vertex_indices)]
+        radial_values = [point[0] ** 2 + point[1] ** 2 for point in used_points]
+        z_values = [point[2] for point in used_points]
+
+        self.assertEqual(item.kind, "inequality_region")
+        self.assertGreater(geometry.face_count, 0)
+        self.assertLessEqual(max(radial_values), 2.5**2 + 1e-5)
+        self.assertEqual(min(z_values), 146.5)
+        self.assertEqual(max(z_values), 146.5)
+
+    def test_s208_group_g_tuple_lists_and_constant_z_disks_tessellate(self) -> None:
+        fixture = (
+            Path(__file__).resolve().parents[1]
+            / "fixtures"
+            / "states"
+            / "[4B] 3D Diagram - S2-08 Group G.json"
+        )
+        graph = graph_ir_from_state(json.loads(fixture.read_text(encoding="utf-8")))
+
+        classification, unsupported = classify_graph_tolerant(graph)
+
+        self.assertEqual(unsupported, [])
+        self.assertIn("596_0", {item.ir.expr_id for item in classification.classified})
+        for expr_id in ("800", "801"):
+            item = next(item for item in classification.classified if item.ir.expr_id == expr_id)
+            geometry = tessellate(item, classification.context, resolution=12)
+            self.assertEqual(geometry.kind, "Mesh")
+            self.assertGreater(geometry.face_count, 0)
+
+    def test_constant_z_explicit_surface_disk_exports_flat_cap(self) -> None:
+        """S2-02 Group F has small caps written as ``z=c {circle <= r}``.
+
+        Sampling the full x/y viewport misses the tiny disk, so constant explicit
+        surfaces with circular domain predicates should use an analytic flat disk.
+        """
+        source = SourceInfo(
+            "", "", "", "", viewport_bounds={"x": (0.0, 18.7), "y": (0.0, 18.7), "z": (0.0, 18.7)}
+        )
+        item = classify_expression(
+            ExpressionIR(
+                source,
+                "90_0",
+                0,
+                r"z=15.5\left\{(x-1)^{2}+(y-1)^{2}\le0.003\right\}",
+            ),
+            EvalContext(),
+        )
+
+        geometry = tessellate(item, EvalContext(), resolution=12)
+        used_points = [geometry.points[index] for index in set(geometry.face_vertex_indices)]
+        radius = 0.003**0.5
+
+        self.assertEqual(item.kind, "explicit_surface")
+        self.assertGreater(geometry.face_count, 0)
+        self.assertEqual(min(point[2] for point in used_points), 15.5)
+        self.assertEqual(max(point[2] for point in used_points), 15.5)
+        self.assertGreaterEqual(min(point[0] for point in used_points), 1.0 - radius - 1e-6)
+        self.assertLessEqual(max(point[0] for point in used_points), 1.0 + radius + 1e-6)
+        self.assertGreaterEqual(min(point[1] for point in used_points), 1.0 - radius - 1e-6)
+        self.assertLessEqual(max(point[1] for point in used_points), 1.0 + radius + 1e-6)
 
     def test_s203_empty_affine_inequality_band_exports_empty_mesh(self) -> None:
         """S2-03 Group D includes list-expanded half-plane bands that Desmos renders as
@@ -1037,6 +1813,45 @@ class StudentFixtureRegressionTests(unittest.TestCase):
         z_values = [point[2] for point in geometry.points]
         self.assertEqual(min(z_values), 2.8)
         self.assertEqual(max(z_values), 3.0)
+
+    def test_s203_rotated_arc_cutout_retries_sampled_cells(self) -> None:
+        """S2-03 Group E includes rotated arc cutouts that a coarse 3D grid misses."""
+        source = SourceInfo(
+            "",
+            "",
+            "",
+            "",
+            viewport_bounds={"x": (-38.3, 38.3), "y": (-38.3, 38.3), "z": (-30.0, 46.7)},
+        )
+        context = EvalContext(
+            scalars={
+                "d_height": 11.5,
+                "d_length": 5.656854249492381,
+                "p_2": 9.0,
+                "p_3": 0.0,
+                "r_arc": 2.0,
+            }
+        )
+        item = classify_expression(
+            ExpressionIR(
+                source,
+                "254",
+                0,
+                r"\left(\frac{x-y}{\sqrt{2}}-p_{3}\right)^{2}+\left(z-p_{2}\right)^{2}\ge r_{arc}^{2}"
+                r"\left\{-\frac{d_{length}}{2}\le\frac{x-y}{\sqrt{2}}\le\frac{d_{length}}{2}\right\}"
+                r"\left\{d_{height}+2.5\ge z\ge p_{2}\right\}"
+                r"\left\{\sqrt{162}-2<\frac{x+y}{\sqrt{2}}<\sqrt{162}\right\}",
+            ),
+            context,
+        )
+
+        geometry = tessellate(item, context, resolution=8)
+
+        self.assertEqual(item.kind, "inequality_region")
+        self.assertEqual(geometry.kind, "Mesh")
+        self.assertGreater(geometry.face_count, 0)
+        z_values = [point[2] for point in geometry.points]
+        self.assertGreater(max(z_values), min(z_values))
 
 
 def has_coplanar_face(geometry, axis: int, value: float) -> bool:

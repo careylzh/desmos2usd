@@ -1,0 +1,48 @@
+{
+  "browser_capture_available": false,
+  "claim": "No live Desmos/viewer parity claim; structural/local projection evidence only.",
+  "desmos_url": "https://www.desmos.com/3d/sqkhp7wnx6",
+  "failures": [
+    {
+      "result": "user cancelled MCP tool call",
+      "target": "Desmos setup",
+      "tool": "mcp__playwright__.browser_resize"
+    },
+    {
+      "result": "user cancelled MCP tool call",
+      "target": "https://www.desmos.com/3d/sqkhp7wnx6",
+      "tool": "mcp__playwright__.browser_navigate"
+    },
+    {
+      "result": "user cancelled MCP tool call",
+      "target": "https://www.desmos.com/3d/sqkhp7wnx6",
+      "tool": "mcp__chrome_devtools__.navigate_page"
+    },
+    {
+      "result": "user cancelled MCP tool call",
+      "target": "live viewer direct link",
+      "tool": "mcp__playwright__.browser_navigate"
+    },
+    {
+      "result": "user cancelled MCP tool call",
+      "target": "live viewer direct link",
+      "tool": "mcp__chrome_devtools__.navigate_page"
+    },
+    {
+      "result": "curl: (6) Could not resolve host: chq.singapura-broadnose.ts.net",
+      "target": "https://chq.singapura-broadnose.ts.net/",
+      "tool": "curl -I --max-time 10"
+    },
+    {
+      "result": "curl: (6) Could not resolve host: chq.singapura-broadnose.ts.net",
+      "target": "https://chq.singapura-broadnose.ts.net/viewer/",
+      "tool": "curl -I --max-time 10"
+    },
+    {
+      "result": "curl: (6) Could not resolve host: chq.singapura-broadnose.ts.net",
+      "target": "https://chq.singapura-broadnose.ts.net/artifacts/fixture_usdz/summary.json",
+      "tool": "curl -I --max-time 10"
+    }
+  ],
+  "viewer_url": "https://chq.singapura-broadnose.ts.net/viewer/?usda=..%2Fartifacts%2Ffixture_usdz%2F%5B4B%5D%203D%20Diagram%20-%20S2-03%20Group%20E.usda&label=S2-03%20Group%20E"
+}

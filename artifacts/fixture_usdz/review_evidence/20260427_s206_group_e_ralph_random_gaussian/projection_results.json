@@ -1,0 +1,38 @@
+{
+  "desmos_url": "https://www.desmos.com/3d/cg2sd6h1ws",
+  "projections": [
+    {
+      "face_count": 58720,
+      "png": "S2-06_Group_E_projection_before.png",
+      "point_count": 82524,
+      "ppm": "S2-06_Group_E_projection_before.ppm",
+      "prim_count": 729,
+      "usda": "S2-06_Group_E_projection_before.usda"
+    },
+    {
+      "face_count": 204829,
+      "png": "S2-06_Group_E_projection_after.png",
+      "point_count": 251996,
+      "ppm": "S2-06_Group_E_projection_after.ppm",
+      "prim_count": 1625,
+      "usda": "S2-06_Group_E_projection_after.usda"
+    },
+    {
+      "face_count": 24959,
+      "png": "S2-08_Group_E_projection_guard_after.png",
+      "point_count": 32254,
+      "ppm": "S2-08_Group_E_projection_guard_after.ppm",
+      "prim_count": 87,
+      "usda": "S2-08_Group_E_projection_guard_after.usda"
+    },
+    {
+      "face_count": 14624,
+      "png": "S2-09_Group_F_projection_guard_after.png",
+      "point_count": 13876,
+      "ppm": "S2-09_Group_F_projection_guard_after.ppm",
+      "prim_count": 27,
+      "usda": "S2-09_Group_F_projection_guard_after.usda"
+    }
+  ],
+  "target": "S2-06 Group E"
+}

@@ -30,5 +30,6 @@ ALLOWED_FUNCTIONS = {
 
 CONSTANTS = {
     "e": math.e,
+    "infty": math.inf,
     "pi": math.pi,
 }

@@ -68,28 +68,31 @@ class ComparisonPredicate:
 
     def variable_bounds(self) -> dict[str, tuple[LatexExpression | None, LatexExpression | None]]:
         bounds: dict[str, tuple[LatexExpression | None, LatexExpression | None]] = {}
-        if len(self.terms) == 3 and len(self.ops) == 2:
-            middle = single_identifier(self.terms[1])
-            if middle and self.ops[0] in {"<=", "<"} and self.ops[1] in {"<=", "<"}:
-                bounds[middle] = (self.terms[0], self.terms[2])
-            if middle and self.ops[0] in {">=", ">"} and self.ops[1] in {">=", ">"}:
-                bounds[middle] = (self.terms[2], self.terms[0])
-        if len(self.terms) == 2 and len(self.ops) == 1:
-            left_id = single_identifier(self.terms[0])
-            right_id = single_identifier(self.terms[1])
-            op = self.ops[0]
+        for variable, lower, upper in self.iter_variable_bounds():
+            previous = bounds.get(variable, (None, None))
+            bounds[variable] = (
+                previous[0] if previous[0] is not None else lower,
+                previous[1] if previous[1] is not None else upper,
+            )
+        return bounds
+
+    def iter_variable_bounds(self) -> list[tuple[str, LatexExpression | None, LatexExpression | None]]:
+        bounds: list[tuple[str, LatexExpression | None, LatexExpression | None]] = []
+        for left, op, right in zip(self.terms[:-1], self.ops, self.terms[1:], strict=True):
+            left_id = single_identifier(left)
+            right_id = single_identifier(right)
             if left_id and op in {"<=", "<"}:
-                bounds[left_id] = (None, self.terms[1])
+                bounds.append((left_id, None, right))
             elif left_id and op in {">=", ">"}:
-                bounds[left_id] = (self.terms[1], None)
+                bounds.append((left_id, right, None))
             elif right_id and op in {"<=", "<"}:
-                bounds[right_id] = (self.terms[0], None)
+                bounds.append((right_id, left, None))
             elif right_id and op in {">=", ">"}:
-                bounds[right_id] = (None, self.terms[0])
-            elif left_id and op == "=" and not self.terms[1].identifiers:
-                bounds[left_id] = (self.terms[1], self.terms[1])
-            elif right_id and op == "=" and not self.terms[0].identifiers:
-                bounds[right_id] = (self.terms[0], self.terms[0])
+                bounds.append((right_id, None, left))
+            elif left_id and op == "=" and not right.identifiers:
+                bounds.append((left_id, right, right))
+            elif right_id and op == "=" and not left.identifiers:
+                bounds.append((right_id, left, left))
         return bounds
 
 
@@ -147,7 +150,33 @@ def split_restrictions(latex: str) -> tuple[str, list[str]]:
                         output.pop()
                     if output and output[-1] in "+-*/":
                         output.pop()
-                    restrictions.append(inner)
+                    flattened, nested_restrictions = split_nested_restrictions(inner)
+                    restrictions.append(flattened)
+                    restrictions.extend(nested_restrictions)
+                    i = end + 1
+                    continue
+        output.append(text[i])
+        i += 1
+    return "".join(output).strip(), restrictions
+
+
+def split_nested_restrictions(text: str) -> tuple[str, list[str]]:
+    restrictions: list[str] = []
+    output: list[str] = []
+    i = 0
+    while i < len(text):
+        if text[i] == "{":
+            end = find_matching_close_brace(text, i)
+            if end >= 0:
+                inner = text[i + 1 : end].strip()
+                if looks_like_restriction(inner):
+                    while output and output[-1].isspace():
+                        output.pop()
+                    if output and output[-1] in "+-*/":
+                        output.pop()
+                    flattened, nested = split_nested_restrictions(inner)
+                    restrictions.append(flattened)
+                    restrictions.extend(nested)
                     i = end + 1
                     continue
         output.append(text[i])
@@ -189,11 +218,20 @@ def looks_like_restriction(text: str) -> bool:
 def collect_constant_bounds(predicates: list[ComparisonPredicate], context: EvalContext) -> dict[str, tuple[float | None, float | None]]:
     bounds: dict[str, tuple[float | None, float | None]] = {}
     for predicate in predicates:
-        for variable, (lower, upper) in predicate.variable_bounds().items():
-            try:
-                low_value = lower.eval(context, {}) if lower else None
-                high_value = upper.eval(context, {}) if upper else None
-            except Exception:
+        for variable, lower, upper in predicate.iter_variable_bounds():
+            low_value = None
+            high_value = None
+            if lower:
+                try:
+                    low_value = lower.eval(context, {})
+                except Exception:
+                    pass
+            if upper:
+                try:
+                    high_value = upper.eval(context, {})
+                except Exception:
+                    pass
+            if low_value is None and high_value is None:
                 continue
             previous = bounds.get(variable, (None, None))
             low = low_value if previous[0] is None else (max(previous[0], low_value) if low_value is not None else previous[0])

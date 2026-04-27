@@ -1,0 +1,36 @@
+{
+  "generated": [
+    {
+      "label": "S2-02 Group F before",
+      "png": "S2-02_Group_F_projection_before.png",
+      "ppm": "S2-02_Group_F_projection_before.ppm",
+      "report": "S2-02_Group_F_report_before.json",
+      "usda": "S2-02_Group_F_projection_before.usda"
+    },
+    {
+      "label": "S2-02 Group F after",
+      "png": "S2-02_Group_F_projection_after.png",
+      "ppm": "S2-02_Group_F_projection_after.ppm",
+      "report": "S2-02_Group_F_report_after.json",
+      "usda": "S2-02_Group_F_projection_after.usda"
+    },
+    {
+      "label": "S2-08 Group E guard after",
+      "metrics": "S2-08_Group_E_projection_guard_after_metrics.json",
+      "png": "S2-08_Group_E_projection_guard_after.png",
+      "ppm": "S2-08_Group_E_projection_guard_after.ppm",
+      "usda": "S2-08_Group_E_projection_guard_after.usda"
+    },
+    {
+      "label": "S2-09 Group F guard after",
+      "metrics": "S2-09_Group_F_projection_guard_after_metrics.json",
+      "png": "S2-09_Group_F_projection_guard_after.png",
+      "ppm": "S2-09_Group_F_projection_guard_after.ppm",
+      "usda": "S2-09_Group_F_projection_guard_after.usda"
+    }
+  ],
+  "png_dimensions": {
+    "height": 512,
+    "width": 1552
+  }
+}

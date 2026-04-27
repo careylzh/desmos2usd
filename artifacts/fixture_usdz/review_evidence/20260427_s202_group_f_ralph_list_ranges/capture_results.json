@@ -1,0 +1,21 @@
+{
+  "desmos_url": "https://www.desmos.com/3d/1zpiejy9c9",
+  "fixture": "[4B] 3D Diagram - S2-02 Group F.json",
+  "live_capture": {
+    "desmos_chrome_devtools": "new_page returned: user cancelled MCP tool call",
+    "desmos_playwright": "browser_navigate returned: user cancelled MCP tool call",
+    "tailscale_root": "curl: (6) Could not resolve host: chq.singapura-broadnose.ts.net",
+    "tailscale_summary": "curl: (6) Could not resolve host: chq.singapura-broadnose.ts.net",
+    "tailscale_viewer": "curl: (6) Could not resolve host: chq.singapura-broadnose.ts.net",
+    "viewer_playwright": "browser_navigate returned: user cancelled MCP tool call"
+  },
+  "local_projection_evidence": [
+    "S2-02_Group_F_projection_before.png",
+    "S2-02_Group_F_projection_before.ppm",
+    "S2-02_Group_F_projection_before.usda",
+    "S2-02_Group_F_projection_after.png",
+    "S2-02_Group_F_projection_after.ppm",
+    "S2-02_Group_F_projection_after.usda"
+  ],
+  "visual_claim": "No live Desmos/viewer parity claim; browser navigation was blocked before page load. Local orthographic projections only."
+}

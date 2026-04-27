@@ -1,0 +1,9 @@
+{
+  "desmos_url": "https://www.desmos.com/3d/ratctlkc9i",
+  "errors": [
+    "Chrome DevTools resize_page returned: user cancelled MCP tool call",
+    "Playwright browser_navigate to https://www.desmos.com/3d/ratctlkc9i returned: user cancelled MCP tool call"
+  ],
+  "live_capture_attempted": true,
+  "live_capture_succeeded": false
+}

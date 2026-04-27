@@ -1,0 +1,47 @@
+{
+  "claim": "No live Desmos/viewer parity claim; deterministic local projections only.",
+  "projections": [
+    {
+      "classification_unsupported_count": 0,
+      "classified_expression_count": 736,
+      "export_unsupported_count": 9,
+      "fixture": "[4B] 3D Diagram - S2-06 Group E.json",
+      "png": "artifacts/fixture_usdz/review_evidence/20260427_s206_group_e_ralph_annular_slabs/S2-06_Group_E_projection_after.png",
+      "ppm": "artifacts/fixture_usdz/review_evidence/20260427_s206_group_e_ralph_annular_slabs/S2-06_Group_E_projection_after.ppm",
+      "prim_count": 727,
+      "projection": "S2-06_Group_E_projection_after.png",
+      "renderable_expression_count": 736,
+      "unsupported_count": 9,
+      "usda": "artifacts/fixture_usdz/review_evidence/20260427_s206_group_e_ralph_annular_slabs/S2-06_Group_E_projection_after.usda",
+      "valid": true
+    },
+    {
+      "classification_unsupported_count": 0,
+      "classified_expression_count": 87,
+      "export_unsupported_count": 0,
+      "fixture": "[4B] 3D Diagram - S2-08 Group E.json",
+      "png": "artifacts/fixture_usdz/review_evidence/20260427_s206_group_e_ralph_annular_slabs/S2-08_Group_E_projection_guard_after.png",
+      "ppm": "artifacts/fixture_usdz/review_evidence/20260427_s206_group_e_ralph_annular_slabs/S2-08_Group_E_projection_guard_after.ppm",
+      "prim_count": 87,
+      "projection": "S2-08_Group_E_projection_guard_after.png",
+      "renderable_expression_count": 87,
+      "unsupported_count": 0,
+      "usda": "artifacts/fixture_usdz/review_evidence/20260427_s206_group_e_ralph_annular_slabs/S2-08_Group_E_projection_guard_after.usda",
+      "valid": true
+    },
+    {
+      "classification_unsupported_count": 0,
+      "classified_expression_count": 27,
+      "export_unsupported_count": 0,
+      "fixture": "[4B] 3D Diagram - S2-09 Group F.json",
+      "png": "artifacts/fixture_usdz/review_evidence/20260427_s206_group_e_ralph_annular_slabs/S2-09_Group_F_projection_guard_after.png",
+      "ppm": "artifacts/fixture_usdz/review_evidence/20260427_s206_group_e_ralph_annular_slabs/S2-09_Group_F_projection_guard_after.ppm",
+      "prim_count": 27,
+      "projection": "S2-09_Group_F_projection_guard_after.png",
+      "renderable_expression_count": 27,
+      "unsupported_count": 0,
+      "usda": "artifacts/fixture_usdz/review_evidence/20260427_s206_group_e_ralph_annular_slabs/S2-09_Group_F_projection_guard_after.usda",
+      "valid": true
+    }
+  ]
+}

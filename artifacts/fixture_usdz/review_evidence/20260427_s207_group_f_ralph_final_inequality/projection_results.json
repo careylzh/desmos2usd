@@ -1,0 +1,44 @@
+{
+  "claim": "No live Desmos/viewer parity claim; deterministic local projections only.",
+  "projections": [
+    {
+      "classification_unsupported": 0,
+      "classified_expression_count": 888,
+      "complete": true,
+      "export_unsupported": 0,
+      "fixture": "[4B] 3D Diagram - S2-07 Group F.json",
+      "png": "artifacts/fixture_usdz/review_evidence/20260427_s207_group_f_ralph_final_inequality/S2-07_Group_F_projection_after.png",
+      "ppm": "artifacts/fixture_usdz/review_evidence/20260427_s207_group_f_ralph_final_inequality/S2-07_Group_F_projection_after.ppm",
+      "prim_count": 888,
+      "unsupported_count": 0,
+      "usda": "artifacts/fixture_usdz/review_evidence/20260427_s207_group_f_ralph_final_inequality/S2-07_Group_F_projection_after.usda",
+      "valid": true
+    },
+    {
+      "classification_unsupported": 0,
+      "classified_expression_count": 87,
+      "complete": true,
+      "export_unsupported": 0,
+      "fixture": "[4B] 3D Diagram - S2-08 Group E.json",
+      "png": "artifacts/fixture_usdz/review_evidence/20260427_s207_group_f_ralph_final_inequality/S2-08_Group_E_projection_guard_after.png",
+      "ppm": "artifacts/fixture_usdz/review_evidence/20260427_s207_group_f_ralph_final_inequality/S2-08_Group_E_projection_guard_after.ppm",
+      "prim_count": 87,
+      "unsupported_count": 0,
+      "usda": "artifacts/fixture_usdz/review_evidence/20260427_s207_group_f_ralph_final_inequality/S2-08_Group_E_projection_guard_after.usda",
+      "valid": true
+    },
+    {
+      "classification_unsupported": 0,
+      "classified_expression_count": 27,
+      "complete": true,
+      "export_unsupported": 0,
+      "fixture": "[4B] 3D Diagram - S2-09 Group F.json",
+      "png": "artifacts/fixture_usdz/review_evidence/20260427_s207_group_f_ralph_final_inequality/S2-09_Group_F_projection_guard_after.png",
+      "ppm": "artifacts/fixture_usdz/review_evidence/20260427_s207_group_f_ralph_final_inequality/S2-09_Group_F_projection_guard_after.ppm",
+      "prim_count": 27,
+      "unsupported_count": 0,
+      "usda": "artifacts/fixture_usdz/review_evidence/20260427_s207_group_f_ralph_final_inequality/S2-09_Group_F_projection_guard_after.usda",
+      "valid": true
+    }
+  ]
+}

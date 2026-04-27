@@ -1,0 +1,26 @@
+{
+  "classified_expression_count": 27,
+  "complete": true,
+  "fixture": "[4B] 3D Diagram - S2-09 Group F.json",
+  "fixture_path": "fixtures/states/[4B] 3D Diagram - S2-09 Group F.json",
+  "output": "artifacts/fixture_usdz/review_evidence/20260427_s210_group_a_ralph_oblique_parabolic_band/S2-09_Group_F_projection_guard_after.usda",
+  "prim_count": 27,
+  "renderable_expression_count": 27,
+  "resolution": 12,
+  "unsupported": [],
+  "unsupported_count": 0,
+  "usdz_output": "artifacts/fixture_usdz/review_evidence/20260427_s210_group_a_ralph_oblique_parabolic_band/S2-09_Group_F_projection_guard_after.usdz",
+  "usdz_package": {
+    "command": [
+      "/usr/bin/usdzip",
+      "/Users/chek/repos/desmos2usd-carey/artifacts/fixture_usdz/review_evidence/20260427_s210_group_a_ralph_oblique_parabolic_band/S2-09_Group_F_projection_guard_after.usdz",
+      "S2-09_Group_F_projection_guard_after.usda"
+    ],
+    "cwd": "/Users/chek/repos/desmos2usd-carey/artifacts/fixture_usdz/review_evidence/20260427_s210_group_a_ralph_oblique_parabolic_band",
+    "returncode": 0,
+    "stderr": "",
+    "stdout": "",
+    "tool": "usdzip"
+  },
+  "valid": true
+}

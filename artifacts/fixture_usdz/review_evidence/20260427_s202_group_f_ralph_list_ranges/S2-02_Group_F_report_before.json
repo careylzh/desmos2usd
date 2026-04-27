@@ -1,0 +1,1629 @@
+{
+  "classified_expression_count": 206,
+  "complete": false,
+  "fixture": "[4B] 3D Diagram - S2-02 Group F.json",
+  "prim_count": 95,
+  "renderable_expression_count": 206,
+  "unsupported": [
+    {
+      "expr_id": "3_1",
+      "kind": "inequality_region",
+      "latex": "(z-0.6)^{2}\\le0.0025\\left\\{-0.03\\le x\\le2.03\\right\\}\\left\\{-0.03\\le y\\le2.03\\right\\}",
+      "reason": "Inequality region for 3_1 did not resolve to sampled cells"
+    },
+    {
+      "expr_id": "3_4",
+      "kind": "inequality_region",
+      "latex": "(z-1.5)^{2}\\le0.0025\\left\\{-0.03\\le x\\le2.03\\right\\}\\left\\{-0.03\\le y\\le2.03\\right\\}",
+      "reason": "Inequality region for 3_4 did not resolve to sampled cells"
+    },
+    {
+      "expr_id": "3_6",
+      "kind": "inequality_region",
+      "latex": "(z-2.1)^{2}\\le0.0025\\left\\{-0.03\\le x\\le2.03\\right\\}\\left\\{-0.03\\le y\\le2.03\\right\\}",
+      "reason": "Inequality region for 3_6 did not resolve to sampled cells"
+    },
+    {
+      "expr_id": "3_8",
+      "kind": "inequality_region",
+      "latex": "(z-2.7)^{2}\\le0.0025\\left\\{-0.03\\le x\\le2.03\\right\\}\\left\\{-0.03\\le y\\le2.03\\right\\}",
+      "reason": "Inequality region for 3_8 did not resolve to sampled cells"
+    },
+    {
+      "expr_id": "3_9",
+      "kind": "inequality_region",
+      "latex": "(z-3.0)^{2}\\le0.0025\\left\\{-0.03\\le x\\le2.03\\right\\}\\left\\{-0.03\\le y\\le2.03\\right\\}",
+      "reason": "Inequality region for 3_9 did not resolve to sampled cells"
+    },
+    {
+      "expr_id": "3_11",
+      "kind": "inequality_region",
+      "latex": "(z-3.6)^{2}\\le0.0025\\left\\{-0.03\\le x\\le2.03\\right\\}\\left\\{-0.03\\le y\\le2.03\\right\\}",
+      "reason": "Inequality region for 3_11 did not resolve to sampled cells"
+    },
+    {
+      "expr_id": "3_13",
+      "kind": "inequality_region",
+      "latex": "(z-4.2)^{2}\\le0.0025\\left\\{-0.03\\le x\\le2.03\\right\\}\\left\\{-0.03\\le y\\le2.03\\right\\}",
+      "reason": "Inequality region for 3_13 did not resolve to sampled cells"
+    },
+    {
+      "expr_id": "3_15",
+      "kind": "inequality_region",
+      "latex": "(z-4.8)^{2}\\le0.0025\\left\\{-0.03\\le x\\le2.03\\right\\}\\left\\{-0.03\\le y\\le2.03\\right\\}",
+      "reason": "Inequality region for 3_15 did not resolve to sampled cells"
+    },
+    {
+      "expr_id": "3_16",
+      "kind": "inequality_region",
+      "latex": "(z-5.1)^{2}\\le0.0025\\left\\{-0.03\\le x\\le2.03\\right\\}\\left\\{-0.03\\le y\\le2.03\\right\\}",
+      "reason": "Inequality region for 3_16 did not resolve to sampled cells"
+    },
+    {
+      "expr_id": "3_19",
+      "kind": "inequality_region",
+      "latex": "(z-6.0)^{2}\\le0.0025\\left\\{-0.03\\le x\\le2.03\\right\\}\\left\\{-0.03\\le y\\le2.03\\right\\}",
+      "reason": "Inequality region for 3_19 did not resolve to sampled cells"
+    },
+    {
+      "expr_id": "3_21",
+      "kind": "inequality_region",
+      "latex": "(z-6.6)^{2}\\le0.0025\\left\\{-0.03\\le x\\le2.03\\right\\}\\left\\{-0.03\\le y\\le2.03\\right\\}",
+      "reason": "Inequality region for 3_21 did not resolve to sampled cells"
+    },
+    {
+      "expr_id": "3_22",
+      "kind": "inequality_region",
+      "latex": "(z-6.9)^{2}\\le0.0025\\left\\{-0.03\\le x\\le2.03\\right\\}\\left\\{-0.03\\le y\\le2.03\\right\\}",
+      "reason": "Inequality region for 3_22 did not resolve to sampled cells"
+    },
+    {
+      "expr_id": "3_23",
+      "kind": "inequality_region",
+      "latex": "(z-7.2)^{2}\\le0.0025\\left\\{-0.03\\le x\\le2.03\\right\\}\\left\\{-0.03\\le y\\le2.03\\right\\}",
+      "reason": "Inequality region for 3_23 did not resolve to sampled cells"
+    },
+    {
+      "expr_id": "3_24",
+      "kind": "inequality_region",
+      "latex": "(z-7.5)^{2}\\le0.0025\\left\\{-0.03\\le x\\le2.03\\right\\}\\left\\{-0.03\\le y\\le2.03\\right\\}",
+      "reason": "Inequality region for 3_24 did not resolve to sampled cells"
+    },
+    {
+      "expr_id": "3_25",
+      "kind": "inequality_region",
+      "latex": "(z-7.8)^{2}\\le0.0025\\left\\{-0.03\\le x\\le2.03\\right\\}\\left\\{-0.03\\le y\\le2.03\\right\\}",
+      "reason": "Inequality region for 3_25 did not resolve to sampled cells"
+    },
+    {
+      "expr_id": "3_26",
+      "kind": "inequality_region",
+      "latex": "(z-8.1)^{2}\\le0.0025\\left\\{-0.03\\le x\\le2.03\\right\\}\\left\\{-0.03\\le y\\le2.03\\right\\}",
+      "reason": "Inequality region for 3_26 did not resolve to sampled cells"
+    },
+    {
+      "expr_id": "3_27",
+      "kind": "inequality_region",
+      "latex": "(z-8.4)^{2}\\le0.0025\\left\\{-0.03\\le x\\le2.03\\right\\}\\left\\{-0.03\\le y\\le2.03\\right\\}",
+      "reason": "Inequality region for 3_27 did not resolve to sampled cells"
+    },
+    {
+      "expr_id": "3_28",
+      "kind": "inequality_region",
+      "latex": "(z-8.7)^{2}\\le0.0025\\left\\{-0.03\\le x\\le2.03\\right\\}\\left\\{-0.03\\le y\\le2.03\\right\\}",
+      "reason": "Inequality region for 3_28 did not resolve to sampled cells"
+    },
+    {
+      "expr_id": "3_29",
+      "kind": "inequality_region",
+      "latex": "(z-9.0)^{2}\\le0.0025\\left\\{-0.03\\le x\\le2.03\\right\\}\\left\\{-0.03\\le y\\le2.03\\right\\}",
+      "reason": "Inequality region for 3_29 did not resolve to sampled cells"
+    },
+    {
+      "expr_id": "3_30",
+      "kind": "inequality_region",
+      "latex": "(z-9.3)^{2}\\le0.0025\\left\\{-0.03\\le x\\le2.03\\right\\}\\left\\{-0.03\\le y\\le2.03\\right\\}",
+      "reason": "Inequality region for 3_30 did not resolve to sampled cells"
+    },
+    {
+      "expr_id": "3_31",
+      "kind": "inequality_region",
+      "latex": "(z-9.6)^{2}\\le0.0025\\left\\{-0.03\\le x\\le2.03\\right\\}\\left\\{-0.03\\le y\\le2.03\\right\\}",
+      "reason": "Inequality region for 3_31 did not resolve to sampled cells"
+    },
+    {
+      "expr_id": "3_32",
+      "kind": "inequality_region",
+      "latex": "(z-9.9)^{2}\\le0.0025\\left\\{-0.03\\le x\\le2.03\\right\\}\\left\\{-0.03\\le y\\le2.03\\right\\}",
+      "reason": "Inequality region for 3_32 did not resolve to sampled cells"
+    },
+    {
+      "expr_id": "3_33",
+      "kind": "inequality_region",
+      "latex": "(z-10.2)^{2}\\le0.0025\\left\\{-0.03\\le x\\le2.03\\right\\}\\left\\{-0.03\\le y\\le2.03\\right\\}",
+      "reason": "Inequality region for 3_33 did not resolve to sampled cells"
+    },
+    {
+      "expr_id": "3_34",
+      "kind": "inequality_region",
+      "latex": "(z-10.5)^{2}\\le0.0025\\left\\{-0.03\\le x\\le2.03\\right\\}\\left\\{-0.03\\le y\\le2.03\\right\\}",
+      "reason": "Inequality region for 3_34 did not resolve to sampled cells"
+    },
+    {
+      "expr_id": "3_35",
+      "kind": "inequality_region",
+      "latex": "(z-10.8)^{2}\\le0.0025\\left\\{-0.03\\le x\\le2.03\\right\\}\\left\\{-0.03\\le y\\le2.03\\right\\}",
+      "reason": "Inequality region for 3_35 did not resolve to sampled cells"
+    },
+    {
+      "expr_id": "3_36",
+      "kind": "inequality_region",
+      "latex": "(z-11.1)^{2}\\le0.0025\\left\\{-0.03\\le x\\le2.03\\right\\}\\left\\{-0.03\\le y\\le2.03\\right\\}",
+      "reason": "Inequality region for 3_36 did not resolve to sampled cells"
+    },
+    {
+      "expr_id": "3_37",
+      "kind": "inequality_region",
+      "latex": "(z-11.4)^{2}\\le0.0025\\left\\{-0.03\\le x\\le2.03\\right\\}\\left\\{-0.03\\le y\\le2.03\\right\\}",
+      "reason": "Inequality region for 3_37 did not resolve to sampled cells"
+    },
+    {
+      "expr_id": "3_38",
+      "kind": "inequality_region",
+      "latex": "(z-11.7)^{2}\\le0.0025\\left\\{-0.03\\le x\\le2.03\\right\\}\\left\\{-0.03\\le y\\le2.03\\right\\}",
+      "reason": "Inequality region for 3_38 did not resolve to sampled cells"
+    },
+    {
+      "expr_id": "3_39",
+      "kind": "inequality_region",
+      "latex": "(z-12.0)^{2}\\le0.0025\\left\\{-0.03\\le x\\le2.03\\right\\}\\left\\{-0.03\\le y\\le2.03\\right\\}",
+      "reason": "Inequality region for 3_39 did not resolve to sampled cells"
+    },
+    {
+      "expr_id": "3_40",
+      "kind": "inequality_region",
+      "latex": "(z-12.3)^{2}\\le0.0025\\left\\{-0.03\\le x\\le2.03\\right\\}\\left\\{-0.03\\le y\\le2.03\\right\\}",
+      "reason": "Inequality region for 3_40 did not resolve to sampled cells"
+    },
+    {
+      "expr_id": "3_41",
+      "kind": "inequality_region",
+      "latex": "(z-12.6)^{2}\\le0.0025\\left\\{-0.03\\le x\\le2.03\\right\\}\\left\\{-0.03\\le y\\le2.03\\right\\}",
+      "reason": "Inequality region for 3_41 did not resolve to sampled cells"
+    },
+    {
+      "expr_id": "3_42",
+      "kind": "inequality_region",
+      "latex": "(z-12.9)^{2}\\le0.0025\\left\\{-0.03\\le x\\le2.03\\right\\}\\left\\{-0.03\\le y\\le2.03\\right\\}",
+      "reason": "Inequality region for 3_42 did not resolve to sampled cells"
+    },
+    {
+      "expr_id": "71_1",
+      "kind": "inequality_region",
+      "latex": "(z-0.6)^{2}\\le0.0025\\left\\{3.97\\le x\\le6.03\\right\\}\\left\\{-0.03\\le y\\le2.03\\right\\}",
+      "reason": "Inequality region for 71_1 did not resolve to sampled cells"
+    },
+    {
+      "expr_id": "71_4",
+      "kind": "inequality_region",
+      "latex": "(z-1.5)^{2}\\le0.0025\\left\\{3.97\\le x\\le6.03\\right\\}\\left\\{-0.03\\le y\\le2.03\\right\\}",
+      "reason": "Inequality region for 71_4 did not resolve to sampled cells"
+    },
+    {
+      "expr_id": "71_6",
+      "kind": "inequality_region",
+      "latex": "(z-2.1)^{2}\\le0.0025\\left\\{3.97\\le x\\le6.03\\right\\}\\left\\{-0.03\\le y\\le2.03\\right\\}",
+      "reason": "Inequality region for 71_6 did not resolve to sampled cells"
+    },
+    {
+      "expr_id": "71_8",
+      "kind": "inequality_region",
+      "latex": "(z-2.7)^{2}\\le0.0025\\left\\{3.97\\le x\\le6.03\\right\\}\\left\\{-0.03\\le y\\le2.03\\right\\}",
+      "reason": "Inequality region for 71_8 did not resolve to sampled cells"
+    },
+    {
+      "expr_id": "71_9",
+      "kind": "inequality_region",
+      "latex": "(z-3.0)^{2}\\le0.0025\\left\\{3.97\\le x\\le6.03\\right\\}\\left\\{-0.03\\le y\\le2.03\\right\\}",
+      "reason": "Inequality region for 71_9 did not resolve to sampled cells"
+    },
+    {
+      "expr_id": "71_11",
+      "kind": "inequality_region",
+      "latex": "(z-3.6)^{2}\\le0.0025\\left\\{3.97\\le x\\le6.03\\right\\}\\left\\{-0.03\\le y\\le2.03\\right\\}",
+      "reason": "Inequality region for 71_11 did not resolve to sampled cells"
+    },
+    {
+      "expr_id": "71_13",
+      "kind": "inequality_region",
+      "latex": "(z-4.2)^{2}\\le0.0025\\left\\{3.97\\le x\\le6.03\\right\\}\\left\\{-0.03\\le y\\le2.03\\right\\}",
+      "reason": "Inequality region for 71_13 did not resolve to sampled cells"
+    },
+    {
+      "expr_id": "71_15",
+      "kind": "inequality_region",
+      "latex": "(z-4.8)^{2}\\le0.0025\\left\\{3.97\\le x\\le6.03\\right\\}\\left\\{-0.03\\le y\\le2.03\\right\\}",
+      "reason": "Inequality region for 71_15 did not resolve to sampled cells"
+    },
+    {
+      "expr_id": "71_16",
+      "kind": "inequality_region",
+      "latex": "(z-5.1)^{2}\\le0.0025\\left\\{3.97\\le x\\le6.03\\right\\}\\left\\{-0.03\\le y\\le2.03\\right\\}",
+      "reason": "Inequality region for 71_16 did not resolve to sampled cells"
+    },
+    {
+      "expr_id": "71_19",
+      "kind": "inequality_region",
+      "latex": "(z-6.0)^{2}\\le0.0025\\left\\{3.97\\le x\\le6.03\\right\\}\\left\\{-0.03\\le y\\le2.03\\right\\}",
+      "reason": "Inequality region for 71_19 did not resolve to sampled cells"
+    },
+    {
+      "expr_id": "71_21",
+      "kind": "inequality_region",
+      "latex": "(z-6.6)^{2}\\le0.0025\\left\\{3.97\\le x\\le6.03\\right\\}\\left\\{-0.03\\le y\\le2.03\\right\\}",
+      "reason": "Inequality region for 71_21 did not resolve to sampled cells"
+    },
+    {
+      "expr_id": "71_22",
+      "kind": "inequality_region",
+      "latex": "(z-6.9)^{2}\\le0.0025\\left\\{3.97\\le x\\le6.03\\right\\}\\left\\{-0.03\\le y\\le2.03\\right\\}",
+      "reason": "Inequality region for 71_22 did not resolve to sampled cells"
+    },
+    {
+      "expr_id": "71_23",
+      "kind": "inequality_region",
+      "latex": "(z-7.2)^{2}\\le0.0025\\left\\{3.97\\le x\\le6.03\\right\\}\\left\\{-0.03\\le y\\le2.03\\right\\}",
+      "reason": "Inequality region for 71_23 did not resolve to sampled cells"
+    },
+    {
+      "expr_id": "71_24",
+      "kind": "inequality_region",
+      "latex": "(z-7.5)^{2}\\le0.0025\\left\\{3.97\\le x\\le6.03\\right\\}\\left\\{-0.03\\le y\\le2.03\\right\\}",
+      "reason": "Inequality region for 71_24 did not resolve to sampled cells"
+    },
+    {
+      "expr_id": "71_25",
+      "kind": "inequality_region",
+      "latex": "(z-7.8)^{2}\\le0.0025\\left\\{3.97\\le x\\le6.03\\right\\}\\left\\{-0.03\\le y\\le2.03\\right\\}",
+      "reason": "Inequality region for 71_25 did not resolve to sampled cells"
+    },
+    {
+      "expr_id": "71_26",
+      "kind": "inequality_region",
+      "latex": "(z-8.1)^{2}\\le0.0025\\left\\{3.97\\le x\\le6.03\\right\\}\\left\\{-0.03\\le y\\le2.03\\right\\}",
+      "reason": "Inequality region for 71_26 did not resolve to sampled cells"
+    },
+    {
+      "expr_id": "71_27",
+      "kind": "inequality_region",
+      "latex": "(z-8.4)^{2}\\le0.0025\\left\\{3.97\\le x\\le6.03\\right\\}\\left\\{-0.03\\le y\\le2.03\\right\\}",
+      "reason": "Inequality region for 71_27 did not resolve to sampled cells"
+    },
+    {
+      "expr_id": "71_28",
+      "kind": "inequality_region",
+      "latex": "(z-8.7)^{2}\\le0.0025\\left\\{3.97\\le x\\le6.03\\right\\}\\left\\{-0.03\\le y\\le2.03\\right\\}",
+      "reason": "Inequality region for 71_28 did not resolve to sampled cells"
+    },
+    {
+      "expr_id": "71_29",
+      "kind": "inequality_region",
+      "latex": "(z-9.0)^{2}\\le0.0025\\left\\{3.97\\le x\\le6.03\\right\\}\\left\\{-0.03\\le y\\le2.03\\right\\}",
+      "reason": "Inequality region for 71_29 did not resolve to sampled cells"
+    },
+    {
+      "expr_id": "71_30",
+      "kind": "inequality_region",
+      "latex": "(z-9.3)^{2}\\le0.0025\\left\\{3.97\\le x\\le6.03\\right\\}\\left\\{-0.03\\le y\\le2.03\\right\\}",
+      "reason": "Inequality region for 71_30 did not resolve to sampled cells"
+    },
+    {
+      "expr_id": "71_31",
+      "kind": "inequality_region",
+      "latex": "(z-9.6)^{2}\\le0.0025\\left\\{3.97\\le x\\le6.03\\right\\}\\left\\{-0.03\\le y\\le2.03\\right\\}",
+      "reason": "Inequality region for 71_31 did not resolve to sampled cells"
+    },
+    {
+      "expr_id": "71_32",
+      "kind": "inequality_region",
+      "latex": "(z-9.9)^{2}\\le0.0025\\left\\{3.97\\le x\\le6.03\\right\\}\\left\\{-0.03\\le y\\le2.03\\right\\}",
+      "reason": "Inequality region for 71_32 did not resolve to sampled cells"
+    },
+    {
+      "expr_id": "71_33",
+      "kind": "inequality_region",
+      "latex": "(z-10.2)^{2}\\le0.0025\\left\\{3.97\\le x\\le6.03\\right\\}\\left\\{-0.03\\le y\\le2.03\\right\\}",
+      "reason": "Inequality region for 71_33 did not resolve to sampled cells"
+    },
+    {
+      "expr_id": "71_34",
+      "kind": "inequality_region",
+      "latex": "(z-10.5)^{2}\\le0.0025\\left\\{3.97\\le x\\le6.03\\right\\}\\left\\{-0.03\\le y\\le2.03\\right\\}",
+      "reason": "Inequality region for 71_34 did not resolve to sampled cells"
+    },
+    {
+      "expr_id": "71_35",
+      "kind": "inequality_region",
+      "latex": "(z-10.8)^{2}\\le0.0025\\left\\{3.97\\le x\\le6.03\\right\\}\\left\\{-0.03\\le y\\le2.03\\right\\}",
+      "reason": "Inequality region for 71_35 did not resolve to sampled cells"
+    },
+    {
+      "expr_id": "71_36",
+      "kind": "inequality_region",
+      "latex": "(z-11.1)^{2}\\le0.0025\\left\\{3.97\\le x\\le6.03\\right\\}\\left\\{-0.03\\le y\\le2.03\\right\\}",
+      "reason": "Inequality region for 71_36 did not resolve to sampled cells"
+    },
+    {
+      "expr_id": "71_37",
+      "kind": "inequality_region",
+      "latex": "(z-11.4)^{2}\\le0.0025\\left\\{3.97\\le x\\le6.03\\right\\}\\left\\{-0.03\\le y\\le2.03\\right\\}",
+      "reason": "Inequality region for 71_37 did not resolve to sampled cells"
+    },
+    {
+      "expr_id": "71_38",
+      "kind": "inequality_region",
+      "latex": "(z-11.7)^{2}\\le0.0025\\left\\{3.97\\le x\\le6.03\\right\\}\\left\\{-0.03\\le y\\le2.03\\right\\}",
+      "reason": "Inequality region for 71_38 did not resolve to sampled cells"
+    },
+    {
+      "expr_id": "71_39",
+      "kind": "inequality_region",
+      "latex": "(z-12.0)^{2}\\le0.0025\\left\\{3.97\\le x\\le6.03\\right\\}\\left\\{-0.03\\le y\\le2.03\\right\\}",
+      "reason": "Inequality region for 71_39 did not resolve to sampled cells"
+    },
+    {
+      "expr_id": "71_40",
+      "kind": "inequality_region",
+      "latex": "(z-12.3)^{2}\\le0.0025\\left\\{3.97\\le x\\le6.03\\right\\}\\left\\{-0.03\\le y\\le2.03\\right\\}",
+      "reason": "Inequality region for 71_40 did not resolve to sampled cells"
+    },
+    {
+      "expr_id": "71_41",
+      "kind": "inequality_region",
+      "latex": "(z-12.6)^{2}\\le0.0025\\left\\{3.97\\le x\\le6.03\\right\\}\\left\\{-0.03\\le y\\le2.03\\right\\}",
+      "reason": "Inequality region for 71_41 did not resolve to sampled cells"
+    },
+    {
+      "expr_id": "71_42",
+      "kind": "inequality_region",
+      "latex": "(z-12.9)^{2}\\le0.0025\\left\\{3.97\\le x\\le6.03\\right\\}\\left\\{-0.03\\le y\\le2.03\\right\\}",
+      "reason": "Inequality region for 71_42 did not resolve to sampled cells"
+    },
+    {
+      "expr_id": "72_0",
+      "kind": "inequality_region",
+      "latex": "(y-0.2)^{2}\\le0.00250\\le z\\le13.2-0.03\\le x\\le2.03",
+      "reason": "Inequality region for 72_0 did not resolve to sampled cells"
+    },
+    {
+      "expr_id": "72_1",
+      "kind": "inequality_region",
+      "latex": "(y-0.4)^{2}\\le0.00250\\le z\\le13.2-0.03\\le x\\le2.03",
+      "reason": "Inequality region for 72_1 did not resolve to sampled cells"
+    },
+    {
+      "expr_id": "72_2",
+      "kind": "inequality_region",
+      "latex": "(y-0.6)^{2}\\le0.00250\\le z\\le13.2-0.03\\le x\\le2.03",
+      "reason": "Inequality region for 72_2 did not resolve to sampled cells"
+    },
+    {
+      "expr_id": "72_3",
+      "kind": "inequality_region",
+      "latex": "(y-0.8)^{2}\\le0.00250\\le z\\le13.2-0.03\\le x\\le2.03",
+      "reason": "Inequality region for 72_3 did not resolve to sampled cells"
+    },
+    {
+      "expr_id": "72_4",
+      "kind": "inequality_region",
+      "latex": "(y-1.0)^{2}\\le0.00250\\le z\\le13.2-0.03\\le x\\le2.03",
+      "reason": "Inequality region for 72_4 did not resolve to sampled cells"
+    },
+    {
+      "expr_id": "72_5",
+      "kind": "inequality_region",
+      "latex": "(y-1.2)^{2}\\le0.00250\\le z\\le13.2-0.03\\le x\\le2.03",
+      "reason": "Inequality region for 72_5 did not resolve to sampled cells"
+    },
+    {
+      "expr_id": "72_6",
+      "kind": "inequality_region",
+      "latex": "(y-1.4)^{2}\\le0.00250\\le z\\le13.2-0.03\\le x\\le2.03",
+      "reason": "Inequality region for 72_6 did not resolve to sampled cells"
+    },
+    {
+      "expr_id": "72_7",
+      "kind": "inequality_region",
+      "latex": "(y-1.6)^{2}\\le0.00250\\le z\\le13.2-0.03\\le x\\le2.03",
+      "reason": "Inequality region for 72_7 did not resolve to sampled cells"
+    },
+    {
+      "expr_id": "72_8",
+      "kind": "inequality_region",
+      "latex": "(y-1.8)^{2}\\le0.00250\\le z\\le13.2-0.03\\le x\\le2.03",
+      "reason": "Inequality region for 72_8 did not resolve to sampled cells"
+    },
+    {
+      "expr_id": "90_0",
+      "kind": "explicit_surface",
+      "latex": "z=15.5\\left\\{(x-1)^{2}+(y-1)^{2}\\le0.003\\right\\}",
+      "reason": "point 0 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 1 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 2 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 3 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 4 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 5 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 6 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 7 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 8 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 9 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 10 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 11 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 12 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 13 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 14 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 15 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 16 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 17 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 18 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 19 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'"
+    },
+    {
+      "expr_id": "90_1",
+      "kind": "explicit_surface",
+      "latex": "z=15.55\\left\\{(x-1)^{2}+(y-1)^{2}\\le0.003\\right\\}",
+      "reason": "point 0 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 1 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 2 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 3 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 4 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 5 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 6 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 7 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 8 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 9 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 10 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 11 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 12 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 13 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 14 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 15 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 16 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 17 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 18 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 19 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'"
+    },
+    {
+      "expr_id": "90_2",
+      "kind": "explicit_surface",
+      "latex": "z=15.6\\left\\{(x-1)^{2}+(y-1)^{2}\\le0.003\\right\\}",
+      "reason": "point 0 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 1 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 2 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 3 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 4 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 5 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 6 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 7 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 8 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 9 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 10 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 11 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 12 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 13 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 14 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 15 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 16 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 17 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 18 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 19 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'"
+    },
+    {
+      "expr_id": "90_3",
+      "kind": "explicit_surface",
+      "latex": "z=15.65\\left\\{(x-1)^{2}+(y-1)^{2}\\le0.003\\right\\}",
+      "reason": "point 0 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 1 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 2 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 3 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 4 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 5 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 6 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 7 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 8 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 9 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 10 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 11 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 12 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 13 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 14 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 15 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 16 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 17 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 18 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 19 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'"
+    },
+    {
+      "expr_id": "90_4",
+      "kind": "explicit_surface",
+      "latex": "z=15.7\\left\\{(x-1)^{2}+(y-1)^{2}\\le0.003\\right\\}",
+      "reason": "point 0 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 1 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 2 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 3 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 4 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 5 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 6 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 7 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 8 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 9 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 10 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 11 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 12 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 13 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 14 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 15 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 16 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 17 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 18 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 19 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'"
+    },
+    {
+      "expr_id": "90_5",
+      "kind": "explicit_surface",
+      "latex": "z=15.75\\left\\{(x-1)^{2}+(y-1)^{2}\\le0.003\\right\\}",
+      "reason": "point 0 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 1 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 2 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 3 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 4 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 5 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 6 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 7 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 8 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 9 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 10 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 11 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 12 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 13 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 14 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 15 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 16 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 17 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 18 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 19 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'"
+    },
+    {
+      "expr_id": "90_6",
+      "kind": "explicit_surface",
+      "latex": "z=15.8\\left\\{(x-1)^{2}+(y-1)^{2}\\le0.003\\right\\}",
+      "reason": "point 0 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 1 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 2 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 3 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 4 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 5 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 6 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 7 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 8 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 9 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 10 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 11 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 12 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 13 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 14 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 15 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 16 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 17 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 18 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 19 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'"
+    },
+    {
+      "expr_id": "90_7",
+      "kind": "explicit_surface",
+      "latex": "z=15.85\\left\\{(x-1)^{2}+(y-1)^{2}\\le0.003\\right\\}",
+      "reason": "point 0 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 1 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 2 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 3 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 4 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 5 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 6 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 7 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 8 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 9 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 10 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 11 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 12 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 13 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 14 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 15 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 16 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 17 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 18 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 19 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'"
+    },
+    {
+      "expr_id": "90_8",
+      "kind": "explicit_surface",
+      "latex": "z=15.9\\left\\{(x-1)^{2}+(y-1)^{2}\\le0.003\\right\\}",
+      "reason": "point 0 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 1 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 2 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 3 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 4 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 5 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 6 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 7 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 8 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 9 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 10 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 11 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 12 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 13 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 14 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 15 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 16 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 17 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 18 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 19 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'"
+    },
+    {
+      "expr_id": "90_9",
+      "kind": "explicit_surface",
+      "latex": "z=15.95\\left\\{(x-1)^{2}+(y-1)^{2}\\le0.003\\right\\}",
+      "reason": "point 0 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 1 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 2 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 3 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 4 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 5 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 6 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 7 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 8 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 9 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 10 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 11 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 12 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 13 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 14 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 15 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 16 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 17 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 18 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 19 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'"
+    },
+    {
+      "expr_id": "90_10",
+      "kind": "explicit_surface",
+      "latex": "z=16.0\\left\\{(x-1)^{2}+(y-1)^{2}\\le0.003\\right\\}",
+      "reason": "point 0 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 1 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 2 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 3 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 4 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 5 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 6 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 7 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 8 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 9 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 10 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 11 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 12 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 13 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 14 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 15 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 16 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 17 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 18 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 19 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'"
+    },
+    {
+      "expr_id": "90_11",
+      "kind": "explicit_surface",
+      "latex": "z=16.05\\left\\{(x-1)^{2}+(y-1)^{2}\\le0.003\\right\\}",
+      "reason": "point 0 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 1 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 2 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 3 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 4 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 5 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 6 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 7 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 8 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 9 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 10 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 11 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 12 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 13 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 14 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 15 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 16 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 17 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 18 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 19 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'"
+    },
+    {
+      "expr_id": "90_12",
+      "kind": "explicit_surface",
+      "latex": "z=16.1\\left\\{(x-1)^{2}+(y-1)^{2}\\le0.003\\right\\}",
+      "reason": "point 0 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 1 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 2 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 3 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 4 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 5 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 6 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 7 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 8 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 9 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 10 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 11 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 12 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 13 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 14 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 15 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 16 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 17 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 18 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 19 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'"
+    },
+    {
+      "expr_id": "90_13",
+      "kind": "explicit_surface",
+      "latex": "z=16.15\\left\\{(x-1)^{2}+(y-1)^{2}\\le0.003\\right\\}",
+      "reason": "point 0 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 1 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 2 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 3 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 4 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 5 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 6 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 7 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 8 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 9 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 10 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 11 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 12 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 13 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 14 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 15 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 16 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 17 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 18 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 19 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'"
+    },
+    {
+      "expr_id": "90_14",
+      "kind": "explicit_surface",
+      "latex": "z=16.2\\left\\{(x-1)^{2}+(y-1)^{2}\\le0.003\\right\\}",
+      "reason": "point 0 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 1 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 2 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 3 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 4 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 5 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 6 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 7 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 8 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 9 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 10 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 11 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 12 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 13 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 14 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 15 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 16 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 17 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 18 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 19 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'"
+    },
+    {
+      "expr_id": "90_15",
+      "kind": "explicit_surface",
+      "latex": "z=16.25\\left\\{(x-1)^{2}+(y-1)^{2}\\le0.003\\right\\}",
+      "reason": "point 0 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 1 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 2 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 3 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 4 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 5 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 6 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 7 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 8 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 9 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 10 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 11 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 12 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 13 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 14 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 15 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 16 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 17 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 18 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 19 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'"
+    },
+    {
+      "expr_id": "90_16",
+      "kind": "explicit_surface",
+      "latex": "z=16.3\\left\\{(x-1)^{2}+(y-1)^{2}\\le0.003\\right\\}",
+      "reason": "point 0 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 1 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 2 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 3 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 4 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 5 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 6 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 7 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 8 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 9 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 10 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 11 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 12 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 13 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 14 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 15 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 16 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 17 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 18 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 19 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'"
+    },
+    {
+      "expr_id": "90_17",
+      "kind": "explicit_surface",
+      "latex": "z=16.35\\left\\{(x-1)^{2}+(y-1)^{2}\\le0.003\\right\\}",
+      "reason": "point 0 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 1 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 2 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 3 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 4 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 5 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 6 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 7 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 8 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 9 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 10 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 11 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 12 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 13 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 14 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 15 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 16 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 17 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 18 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 19 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'"
+    },
+    {
+      "expr_id": "90_18",
+      "kind": "explicit_surface",
+      "latex": "z=16.4\\left\\{(x-1)^{2}+(y-1)^{2}\\le0.003\\right\\}",
+      "reason": "point 0 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 1 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 2 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 3 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 4 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 5 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 6 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 7 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 8 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 9 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 10 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 11 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 12 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 13 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 14 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 15 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 16 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 17 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 18 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 19 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'"
+    },
+    {
+      "expr_id": "90_19",
+      "kind": "explicit_surface",
+      "latex": "z=16.45\\left\\{(x-1)^{2}+(y-1)^{2}\\le0.003\\right\\}",
+      "reason": "point 0 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 1 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 2 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 3 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 4 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 5 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 6 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 7 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 8 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 9 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 10 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 11 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 12 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 13 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 14 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 15 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 16 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 17 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 18 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 19 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'"
+    },
+    {
+      "expr_id": "90_20",
+      "kind": "explicit_surface",
+      "latex": "z=16.5\\left\\{(x-1)^{2}+(y-1)^{2}\\le0.003\\right\\}",
+      "reason": "point 0 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 1 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 2 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 3 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 4 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 5 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 6 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 7 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 8 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 9 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 10 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 11 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 12 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 13 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 14 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 15 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 16 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 17 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 18 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'; point 19 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.003'"
+    },
+    {
+      "expr_id": "98_0",
+      "kind": "explicit_surface",
+      "latex": "z=18.0\\left\\{(x-1)^{2}+(y-1)^{2}\\le0.001\\right\\}",
+      "reason": "point 0 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 1 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 2 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 3 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 4 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 5 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 6 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 7 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 8 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 9 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 10 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 11 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 12 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 13 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 14 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 15 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 16 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 17 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 18 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 19 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'"
+    },
+    {
+      "expr_id": "98_1",
+      "kind": "explicit_surface",
+      "latex": "z=18.03\\left\\{(x-1)^{2}+(y-1)^{2}\\le0.001\\right\\}",
+      "reason": "point 0 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 1 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 2 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 3 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 4 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 5 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 6 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 7 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 8 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 9 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 10 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 11 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 12 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 13 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 14 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 15 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 16 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 17 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 18 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 19 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'"
+    },
+    {
+      "expr_id": "98_2",
+      "kind": "explicit_surface",
+      "latex": "z=18.06\\left\\{(x-1)^{2}+(y-1)^{2}\\le0.001\\right\\}",
+      "reason": "point 0 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 1 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 2 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 3 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 4 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 5 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 6 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 7 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 8 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 9 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 10 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 11 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 12 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 13 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 14 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 15 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 16 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 17 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 18 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 19 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'"
+    },
+    {
+      "expr_id": "98_3",
+      "kind": "explicit_surface",
+      "latex": "z=18.09\\left\\{(x-1)^{2}+(y-1)^{2}\\le0.001\\right\\}",
+      "reason": "point 0 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 1 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 2 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 3 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 4 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 5 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 6 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 7 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 8 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 9 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 10 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 11 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 12 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 13 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 14 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 15 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 16 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 17 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 18 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 19 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'"
+    },
+    {
+      "expr_id": "98_4",
+      "kind": "explicit_surface",
+      "latex": "z=18.12\\left\\{(x-1)^{2}+(y-1)^{2}\\le0.001\\right\\}",
+      "reason": "point 0 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 1 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 2 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 3 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 4 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 5 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 6 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 7 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 8 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 9 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 10 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 11 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 12 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 13 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 14 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 15 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 16 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 17 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 18 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 19 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'"
+    },
+    {
+      "expr_id": "98_5",
+      "kind": "explicit_surface",
+      "latex": "z=18.15\\left\\{(x-1)^{2}+(y-1)^{2}\\le0.001\\right\\}",
+      "reason": "point 0 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 1 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 2 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 3 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 4 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 5 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 6 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 7 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 8 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 9 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 10 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 11 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 12 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 13 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 14 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 15 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 16 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 17 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 18 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 19 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'"
+    },
+    {
+      "expr_id": "98_6",
+      "kind": "explicit_surface",
+      "latex": "z=18.18\\left\\{(x-1)^{2}+(y-1)^{2}\\le0.001\\right\\}",
+      "reason": "point 0 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 1 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 2 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 3 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 4 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 5 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 6 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 7 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 8 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 9 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 10 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 11 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 12 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 13 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 14 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 15 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 16 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 17 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 18 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 19 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'"
+    },
+    {
+      "expr_id": "98_7",
+      "kind": "explicit_surface",
+      "latex": "z=18.21\\left\\{(x-1)^{2}+(y-1)^{2}\\le0.001\\right\\}",
+      "reason": "point 0 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 1 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 2 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 3 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 4 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 5 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 6 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 7 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 8 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 9 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 10 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 11 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 12 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 13 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 14 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 15 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 16 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 17 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 18 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 19 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'"
+    },
+    {
+      "expr_id": "98_8",
+      "kind": "explicit_surface",
+      "latex": "z=18.24\\left\\{(x-1)^{2}+(y-1)^{2}\\le0.001\\right\\}",
+      "reason": "point 0 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 1 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 2 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 3 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 4 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 5 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 6 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 7 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 8 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 9 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 10 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 11 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 12 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 13 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 14 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 15 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 16 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 17 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 18 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 19 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'"
+    },
+    {
+      "expr_id": "98_9",
+      "kind": "explicit_surface",
+      "latex": "z=18.27\\left\\{(x-1)^{2}+(y-1)^{2}\\le0.001\\right\\}",
+      "reason": "point 0 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 1 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 2 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 3 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 4 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 5 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 6 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 7 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 8 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 9 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 10 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 11 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 12 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 13 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 14 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 15 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 16 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 17 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 18 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 19 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'"
+    },
+    {
+      "expr_id": "98_10",
+      "kind": "explicit_surface",
+      "latex": "z=18.3\\left\\{(x-1)^{2}+(y-1)^{2}\\le0.001\\right\\}",
+      "reason": "point 0 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 1 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 2 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 3 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 4 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 5 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 6 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 7 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 8 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 9 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 10 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 11 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 12 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 13 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 14 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 15 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 16 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 17 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 18 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 19 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'"
+    },
+    {
+      "expr_id": "98_11",
+      "kind": "explicit_surface",
+      "latex": "z=18.33\\left\\{(x-1)^{2}+(y-1)^{2}\\le0.001\\right\\}",
+      "reason": "point 0 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 1 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 2 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 3 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 4 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 5 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 6 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 7 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 8 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 9 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 10 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 11 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 12 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 13 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 14 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 15 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 16 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 17 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 18 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 19 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'"
+    },
+    {
+      "expr_id": "98_12",
+      "kind": "explicit_surface",
+      "latex": "z=18.36\\left\\{(x-1)^{2}+(y-1)^{2}\\le0.001\\right\\}",
+      "reason": "point 0 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 1 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 2 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 3 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 4 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 5 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 6 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 7 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 8 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 9 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 10 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 11 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 12 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 13 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 14 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 15 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 16 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 17 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 18 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 19 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'"
+    },
+    {
+      "expr_id": "98_13",
+      "kind": "explicit_surface",
+      "latex": "z=18.39\\left\\{(x-1)^{2}+(y-1)^{2}\\le0.001\\right\\}",
+      "reason": "point 0 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 1 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 2 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 3 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 4 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 5 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 6 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 7 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 8 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 9 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 10 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 11 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 12 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 13 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 14 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 15 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 16 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 17 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 18 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 19 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'"
+    },
+    {
+      "expr_id": "98_14",
+      "kind": "explicit_surface",
+      "latex": "z=18.42\\left\\{(x-1)^{2}+(y-1)^{2}\\le0.001\\right\\}",
+      "reason": "point 0 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 1 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 2 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 3 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 4 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 5 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 6 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 7 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 8 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 9 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 10 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 11 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 12 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 13 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 14 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 15 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 16 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 17 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 18 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 19 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'"
+    },
+    {
+      "expr_id": "98_15",
+      "kind": "explicit_surface",
+      "latex": "z=18.45\\left\\{(x-1)^{2}+(y-1)^{2}\\le0.001\\right\\}",
+      "reason": "point 0 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 1 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 2 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 3 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 4 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 5 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 6 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 7 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 8 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 9 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 10 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 11 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 12 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 13 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 14 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 15 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 16 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 17 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 18 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 19 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'"
+    },
+    {
+      "expr_id": "98_16",
+      "kind": "explicit_surface",
+      "latex": "z=18.48\\left\\{(x-1)^{2}+(y-1)^{2}\\le0.001\\right\\}",
+      "reason": "point 0 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 1 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 2 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 3 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 4 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 5 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 6 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 7 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 8 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 9 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 10 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 11 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 12 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 13 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 14 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 15 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 16 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 17 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 18 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'; point 19 violates predicate '(x-1)^{2}+(y-1)^{2}\\\\le0.001'"
+    }
+  ],
+  "unsupported_count": 111,
+  "valid": true,
+  "validations": [
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "69",
+      "face_count": 30,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 32,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "70",
+      "face_count": 30,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 32,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "3_0",
+      "face_count": 24,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 32,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "3_2",
+      "face_count": 30,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 40,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "3_3",
+      "face_count": 30,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 40,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "3_5",
+      "face_count": 30,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 40,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "3_7",
+      "face_count": 30,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 40,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "3_10",
+      "face_count": 24,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 32,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "3_12",
+      "face_count": 30,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 40,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "3_14",
+      "face_count": 30,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 40,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "3_17",
+      "face_count": 24,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 32,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "3_18",
+      "face_count": 30,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 40,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "3_20",
+      "face_count": 24,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 32,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "71_0",
+      "face_count": 24,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 32,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "71_2",
+      "face_count": 30,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 40,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "71_3",
+      "face_count": 30,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 40,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "71_5",
+      "face_count": 30,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 40,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "71_7",
+      "face_count": 30,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 40,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "71_10",
+      "face_count": 24,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 32,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "71_12",
+      "face_count": 30,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 40,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "71_14",
+      "face_count": 30,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 40,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "71_17",
+      "face_count": 24,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 32,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "71_18",
+      "face_count": 30,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 40,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "71_20",
+      "face_count": 24,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 32,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "73_0",
+      "face_count": 81,
+      "kind": "explicit_surface",
+      "max_residual": 0.0,
+      "point_count": 100,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "73_1",
+      "face_count": 81,
+      "kind": "explicit_surface",
+      "max_residual": 0.0,
+      "point_count": 100,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "73_2",
+      "face_count": 81,
+      "kind": "explicit_surface",
+      "max_residual": 0.0,
+      "point_count": 100,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "73_3",
+      "face_count": 81,
+      "kind": "explicit_surface",
+      "max_residual": 0.0,
+      "point_count": 100,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "73_4",
+      "face_count": 81,
+      "kind": "explicit_surface",
+      "max_residual": 0.0,
+      "point_count": 100,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "73_5",
+      "face_count": 81,
+      "kind": "explicit_surface",
+      "max_residual": 0.0,
+      "point_count": 100,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "73_6",
+      "face_count": 81,
+      "kind": "explicit_surface",
+      "max_residual": 0.0,
+      "point_count": 100,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "73_7",
+      "face_count": 81,
+      "kind": "explicit_surface",
+      "max_residual": 0.0,
+      "point_count": 100,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "73_8",
+      "face_count": 81,
+      "kind": "explicit_surface",
+      "max_residual": 0.0,
+      "point_count": 100,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "74_0",
+      "face_count": 81,
+      "kind": "explicit_surface",
+      "max_residual": 0.0,
+      "point_count": 100,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "74_1",
+      "face_count": 81,
+      "kind": "explicit_surface",
+      "max_residual": 0.0,
+      "point_count": 100,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "74_2",
+      "face_count": 81,
+      "kind": "explicit_surface",
+      "max_residual": 0.0,
+      "point_count": 100,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "74_3",
+      "face_count": 81,
+      "kind": "explicit_surface",
+      "max_residual": 0.0,
+      "point_count": 100,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "74_4",
+      "face_count": 81,
+      "kind": "explicit_surface",
+      "max_residual": 0.0,
+      "point_count": 100,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "74_5",
+      "face_count": 81,
+      "kind": "explicit_surface",
+      "max_residual": 0.0,
+      "point_count": 100,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "74_6",
+      "face_count": 81,
+      "kind": "explicit_surface",
+      "max_residual": 0.0,
+      "point_count": 100,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "74_7",
+      "face_count": 81,
+      "kind": "explicit_surface",
+      "max_residual": 0.0,
+      "point_count": 100,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "74_8",
+      "face_count": 81,
+      "kind": "explicit_surface",
+      "max_residual": 0.0,
+      "point_count": 100,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "75_0",
+      "face_count": 81,
+      "kind": "explicit_surface",
+      "max_residual": 0.0,
+      "point_count": 100,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "75_1",
+      "face_count": 81,
+      "kind": "explicit_surface",
+      "max_residual": 0.0,
+      "point_count": 100,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "75_2",
+      "face_count": 81,
+      "kind": "explicit_surface",
+      "max_residual": 0.0,
+      "point_count": 100,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "75_3",
+      "face_count": 81,
+      "kind": "explicit_surface",
+      "max_residual": 0.0,
+      "point_count": 100,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "75_4",
+      "face_count": 81,
+      "kind": "explicit_surface",
+      "max_residual": 0.0,
+      "point_count": 100,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "75_5",
+      "face_count": 81,
+      "kind": "explicit_surface",
+      "max_residual": 0.0,
+      "point_count": 100,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "75_6",
+      "face_count": 81,
+      "kind": "explicit_surface",
+      "max_residual": 0.0,
+      "point_count": 100,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "75_7",
+      "face_count": 81,
+      "kind": "explicit_surface",
+      "max_residual": 0.0,
+      "point_count": 100,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "75_8",
+      "face_count": 81,
+      "kind": "explicit_surface",
+      "max_residual": 0.0,
+      "point_count": 100,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "76_0",
+      "face_count": 81,
+      "kind": "explicit_surface",
+      "max_residual": 0.0,
+      "point_count": 100,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "76_1",
+      "face_count": 81,
+      "kind": "explicit_surface",
+      "max_residual": 0.0,
+      "point_count": 100,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "76_2",
+      "face_count": 81,
+      "kind": "explicit_surface",
+      "max_residual": 0.0,
+      "point_count": 100,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "76_3",
+      "face_count": 81,
+      "kind": "explicit_surface",
+      "max_residual": 0.0,
+      "point_count": 100,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "76_4",
+      "face_count": 81,
+      "kind": "explicit_surface",
+      "max_residual": 0.0,
+      "point_count": 100,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "76_5",
+      "face_count": 81,
+      "kind": "explicit_surface",
+      "max_residual": 0.0,
+      "point_count": 100,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "76_6",
+      "face_count": 81,
+      "kind": "explicit_surface",
+      "max_residual": 0.0,
+      "point_count": 100,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "76_7",
+      "face_count": 81,
+      "kind": "explicit_surface",
+      "max_residual": 0.0,
+      "point_count": 100,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "76_8",
+      "face_count": 81,
+      "kind": "explicit_surface",
+      "max_residual": 0.0,
+      "point_count": 100,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "78_0",
+      "face_count": 81,
+      "kind": "explicit_surface",
+      "max_residual": 0.0,
+      "point_count": 100,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "78_1",
+      "face_count": 81,
+      "kind": "explicit_surface",
+      "max_residual": 0.0,
+      "point_count": 100,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "78_2",
+      "face_count": 81,
+      "kind": "explicit_surface",
+      "max_residual": 0.0,
+      "point_count": 100,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "77",
+      "face_count": 544,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 514,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "79",
+      "face_count": 544,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 514,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "80",
+      "face_count": 544,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 514,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "81",
+      "face_count": 544,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 514,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "86",
+      "face_count": 30,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 32,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "87_0",
+      "face_count": 81,
+      "kind": "explicit_surface",
+      "max_residual": 0.0,
+      "point_count": 100,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "87_1",
+      "face_count": 81,
+      "kind": "explicit_surface",
+      "max_residual": 0.0,
+      "point_count": 100,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "87_2",
+      "face_count": 81,
+      "kind": "explicit_surface",
+      "max_residual": 0.0,
+      "point_count": 100,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "87_3",
+      "face_count": 81,
+      "kind": "explicit_surface",
+      "max_residual": 0.0,
+      "point_count": 100,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "87_4",
+      "face_count": 81,
+      "kind": "explicit_surface",
+      "max_residual": 0.0,
+      "point_count": 100,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "87_5",
+      "face_count": 81,
+      "kind": "explicit_surface",
+      "max_residual": 0.0,
+      "point_count": 100,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "87_6",
+      "face_count": 81,
+      "kind": "explicit_surface",
+      "max_residual": 0.0,
+      "point_count": 100,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "87_7",
+      "face_count": 81,
+      "kind": "explicit_surface",
+      "max_residual": 0.0,
+      "point_count": 100,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "87_8",
+      "face_count": 81,
+      "kind": "explicit_surface",
+      "max_residual": 0.0,
+      "point_count": 100,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "87_9",
+      "face_count": 81,
+      "kind": "explicit_surface",
+      "max_residual": 0.0,
+      "point_count": 100,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "87_10",
+      "face_count": 81,
+      "kind": "explicit_surface",
+      "max_residual": 0.0,
+      "point_count": 100,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "87_11",
+      "face_count": 81,
+      "kind": "explicit_surface",
+      "max_residual": 0.0,
+      "point_count": 100,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "87_12",
+      "face_count": 81,
+      "kind": "explicit_surface",
+      "max_residual": 0.0,
+      "point_count": 100,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "87_13",
+      "face_count": 81,
+      "kind": "explicit_surface",
+      "max_residual": 0.0,
+      "point_count": 100,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "87_14",
+      "face_count": 81,
+      "kind": "explicit_surface",
+      "max_residual": 0.0,
+      "point_count": 100,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "87_15",
+      "face_count": 81,
+      "kind": "explicit_surface",
+      "max_residual": 0.0,
+      "point_count": 100,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "87_16",
+      "face_count": 81,
+      "kind": "explicit_surface",
+      "max_residual": 0.0,
+      "point_count": 100,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "87_17",
+      "face_count": 81,
+      "kind": "explicit_surface",
+      "max_residual": 0.0,
+      "point_count": 100,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "87_18",
+      "face_count": 81,
+      "kind": "explicit_surface",
+      "max_residual": 0.0,
+      "point_count": 100,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "89",
+      "face_count": 544,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 514,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "92",
+      "face_count": 544,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 514,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "94",
+      "face_count": 544,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 514,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "95",
+      "face_count": 544,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 514,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "96",
+      "face_count": 544,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 514,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "97",
+      "face_count": 544,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 514,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "99",
+      "face_count": 544,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 514,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "103",
+      "face_count": 544,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 514,
+      "valid": true
+    }
+  ]
+}

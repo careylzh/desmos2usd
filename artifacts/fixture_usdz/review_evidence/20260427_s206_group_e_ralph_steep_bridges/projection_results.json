@@ -1,0 +1,83 @@
+{
+  "projections": [
+    {
+      "classification_unsupported": [],
+      "export_unsupported": [
+        {
+          "expr_id": "214",
+          "kind": "inequality_region",
+          "latex": "e^{-\\frac{\\left(x-\\operatorname{random}\\left(1000\\right)\\cdot1000+500\\right)^{2}+\\left(y-\\operatorname{random}\\left(1000\\right)\\cdot600+300\\right)^{2}}{1.1}}>0.0000001\\left\\{-\\sqrt{100000\\left(1-\\frac{x^{2}}{200000}\\right)}<y<\\sqrt{100000\\left(1-\\frac{x^{2}}{200000}\\right)}\\right\\}",
+          "reason": "Could not evaluate 'e^{-\\\\frac{(x-\\\\operatorname{random}(1000)\\\\cdot1000+500)^{2}+(y-\\\\operatorname{random}(1000)\\\\cdot600+300)^{2}}{1.1}}' with variables {'x': -250000.0, 'y': -250000.0, 'z': 0.0}: name 'r' is not defined"
+        },
+        {
+          "expr_id": "217",
+          "kind": "inequality_region",
+          "latex": "e^{-\\frac{\\left(x-\\operatorname{random}\\left(1000\\right)\\cdot1000+500\\right)^{2}+\\left(y-\\operatorname{random}\\left(1000\\right)\\cdot600+300\\right)^{2}}{1.1}}>0.0000001\\left\\{-\\sqrt{100000\\left(1-\\frac{x^{2}}{200000}\\right)}<y<\\sqrt{100000\\left(1-\\frac{x^{2}}{200000}\\right)}\\right\\}",
+          "reason": "Could not evaluate 'e^{-\\\\frac{(x-\\\\operatorname{random}(1000)\\\\cdot1000+500)^{2}+(y-\\\\operatorname{random}(1000)\\\\cdot600+300)^{2}}{1.1}}' with variables {'x': -250000.0, 'y': -250000.0, 'z': 0.0}: name 'r' is not defined"
+        },
+        {
+          "expr_id": "218",
+          "kind": "inequality_region",
+          "latex": "e^{-\\frac{\\left(x-\\operatorname{random}\\left(1000\\right)\\cdot1000+500\\right)^{2}+\\left(y-\\operatorname{random}\\left(1000\\right)\\cdot600+300\\right)^{2}}{1.1}}>0.0000001\\left\\{-\\sqrt{100000\\left(1-\\frac{x^{2}}{200000}\\right)}<y<\\sqrt{100000\\left(1-\\frac{x^{2}}{200000}\\right)}\\right\\}",
+          "reason": "Could not evaluate 'e^{-\\\\frac{(x-\\\\operatorname{random}(1000)\\\\cdot1000+500)^{2}+(y-\\\\operatorname{random}(1000)\\\\cdot600+300)^{2}}{1.1}}' with variables {'x': -250000.0, 'y': -250000.0, 'z': 0.0}: name 'r' is not defined"
+        },
+        {
+          "expr_id": "222",
+          "kind": "inequality_region",
+          "latex": "e^{-\\frac{\\left(x-\\operatorname{random}\\left(1000\\right)\\cdot1000+500\\right)^{2}+\\left(y-\\operatorname{random}\\left(1000\\right)\\cdot600+300\\right)^{2}}{1.1}}>0.0000001\\left\\{-\\sqrt{100000\\left(1-\\frac{x^{2}}{200000}\\right)}<y<\\sqrt{100000\\left(1-\\frac{x^{2}}{200000}\\right)}\\right\\}",
+          "reason": "Could not evaluate 'e^{-\\\\frac{(x-\\\\operatorname{random}(1000)\\\\cdot1000+500)^{2}+(y-\\\\operatorname{random}(1000)\\\\cdot600+300)^{2}}{1.1}}' with variables {'x': -250000.0, 'y': -250000.0, 'z': 0.0}: name 'r' is not defined"
+        },
+        {
+          "expr_id": "230",
+          "kind": "inequality_region",
+          "latex": "e^{-\\frac{\\left(x-\\operatorname{random}\\left(1000\\right)\\cdot1000+500\\right)^{2}+\\left(y-\\operatorname{random}\\left(1000\\right)\\cdot600+300\\right)^{2}}{1.1}}>0.0000001\\left\\{-\\sqrt{100000\\left(1-\\frac{x^{2}}{200000}\\right)}<y<\\sqrt{100000\\left(1-\\frac{x^{2}}{200000}\\right)}\\right\\}",
+          "reason": "Could not evaluate 'e^{-\\\\frac{(x-\\\\operatorname{random}(1000)\\\\cdot1000+500)^{2}+(y-\\\\operatorname{random}(1000)\\\\cdot600+300)^{2}}{1.1}}' with variables {'x': -250000.0, 'y': -250000.0, 'z': 0.0}: name 'r' is not defined"
+        },
+        {
+          "expr_id": "248",
+          "kind": "inequality_region",
+          "latex": "e^{-\\frac{\\left(x-\\operatorname{random}\\left(1000\\right)\\cdot1000+500\\right)^{2}+\\left(y-\\operatorname{random}\\left(1000\\right)\\cdot600+300\\right)^{2}}{1.1}}>0.0000001\\left\\{-\\sqrt{100000\\left(1-\\frac{x^{2}}{200000}\\right)}<y<\\sqrt{100000\\left(1-\\frac{x^{2}}{200000}\\right)}\\right\\}",
+          "reason": "Could not evaluate 'e^{-\\\\frac{(x-\\\\operatorname{random}(1000)\\\\cdot1000+500)^{2}+(y-\\\\operatorname{random}(1000)\\\\cdot600+300)^{2}}{1.1}}' with variables {'x': -250000.0, 'y': -250000.0, 'z': 0.0}: name 'r' is not defined"
+        },
+        {
+          "expr_id": "246",
+          "kind": "inequality_region",
+          "latex": "e^{-\\frac{\\left(x-\\operatorname{random}\\left(10000\\right)\\cdot1000+500\\right)^{2}+\\left(y-\\operatorname{random}\\left(10000\\right)\\cdot600+300\\right)^{2}}{1.1}}>0.0000001\\left\\{-\\sqrt{100000\\left(1-\\frac{x^{2}}{200000}\\right)}<y<\\sqrt{100000\\left(1-\\frac{x^{2}}{200000}\\right)}\\right\\}",
+          "reason": "Could not evaluate 'e^{-\\\\frac{(x-\\\\operatorname{random}(10000)\\\\cdot1000+500)^{2}+(y-\\\\operatorname{random}(10000)\\\\cdot600+300)^{2}}{1.1}}' with variables {'x': -250000.0, 'y': -250000.0, 'z': 0.0}: name 'r' is not defined"
+        }
+      ],
+      "fixture": "[4B] 3D Diagram - S2-06 Group E.json",
+      "prim_count": 729,
+      "projection": "artifacts/fixture_usdz/review_evidence/20260427_s206_group_e_ralph_steep_bridges/S2-06_Group_E_projection_after.ppm",
+      "report_complete": false,
+      "report_prim_count": 729,
+      "report_unsupported_count": 7,
+      "report_valid": true,
+      "usda": "artifacts/fixture_usdz/review_evidence/20260427_s206_group_e_ralph_steep_bridges/S2-06_Group_E_projection_after.usda"
+    },
+    {
+      "classification_unsupported": [],
+      "export_unsupported": [],
+      "fixture": "[4B] 3D Diagram - S2-08 Group E.json",
+      "prim_count": 87,
+      "projection": "artifacts/fixture_usdz/review_evidence/20260427_s206_group_e_ralph_steep_bridges/S2-08_Group_E_projection_guard_after.ppm",
+      "report_complete": true,
+      "report_prim_count": 87,
+      "report_unsupported_count": 0,
+      "report_valid": true,
+      "usda": "artifacts/fixture_usdz/review_evidence/20260427_s206_group_e_ralph_steep_bridges/S2-08_Group_E_projection_guard_after.usda"
+    },
+    {
+      "classification_unsupported": [],
+      "export_unsupported": [],
+      "fixture": "[4B] 3D Diagram - S2-09 Group F.json",
+      "prim_count": 27,
+      "projection": "artifacts/fixture_usdz/review_evidence/20260427_s206_group_e_ralph_steep_bridges/S2-09_Group_F_projection_guard_after.ppm",
+      "report_complete": true,
+      "report_prim_count": 27,
+      "report_unsupported_count": 0,
+      "report_valid": true,
+      "usda": "artifacts/fixture_usdz/review_evidence/20260427_s206_group_e_ralph_steep_bridges/S2-09_Group_F_projection_guard_after.usda"
+    }
+  ]
+}

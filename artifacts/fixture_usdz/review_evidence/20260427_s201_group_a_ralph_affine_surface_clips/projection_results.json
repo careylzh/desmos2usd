@@ -1,0 +1,63 @@
+{
+  "fixture": "[4B] 3D Diagram - S2-01 Group A.json",
+  "desmos_url": "https://www.desmos.com/3d/cvggvbbe73",
+  "projection_size": "1552x512",
+  "target": {
+    "before": {
+      "files": [
+        "S2-01_Group_A_projection_before.png",
+        "S2-01_Group_A_projection_before.ppm",
+        "S2-01_Group_A_projection_before.usda",
+        "S2-01_Group_A_projection_before.usdz",
+        "S2-01_Group_A_projection_before.report.json"
+      ],
+      "prim_count": 90,
+      "unsupported_count": 118,
+      "status": "partial",
+      "valid": true
+    },
+    "after": {
+      "files": [
+        "S2-01_Group_A_projection_after.png",
+        "S2-01_Group_A_projection_after.ppm",
+        "S2-01_Group_A_projection_after.usda",
+        "S2-01_Group_A_projection_after.usdz",
+        "S2-01_Group_A_projection_after.report.json"
+      ],
+      "prim_count": 208,
+      "unsupported_count": 0,
+      "status": "success",
+      "valid": true
+    }
+  },
+  "guards": [
+    {
+      "fixture": "[4B] 3D Diagram - S2-08 Group E.json",
+      "files": [
+        "S2-08_Group_E_projection_guard_after.png",
+        "S2-08_Group_E_projection_guard_after.ppm",
+        "S2-08_Group_E_projection_guard_after.usda",
+        "S2-08_Group_E_projection_guard_after.usdz",
+        "S2-08_Group_E_projection_guard_after.report.json"
+      ],
+      "prim_count": 87,
+      "unsupported_count": 0,
+      "status": "success",
+      "valid": true
+    },
+    {
+      "fixture": "[4B] 3D Diagram - S2-09 Group F.json",
+      "files": [
+        "S2-09_Group_F_projection_guard_after.png",
+        "S2-09_Group_F_projection_guard_after.ppm",
+        "S2-09_Group_F_projection_guard_after.usda",
+        "S2-09_Group_F_projection_guard_after.usdz",
+        "S2-09_Group_F_projection_guard_after.report.json"
+      ],
+      "prim_count": 27,
+      "unsupported_count": 0,
+      "status": "success",
+      "valid": true
+    }
+  ]
+}

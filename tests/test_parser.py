@@ -27,6 +27,13 @@ class ParserTests(unittest.TestCase):
         self.assertEqual(main, "z=0")
         self.assertEqual(restrictions, ["-3<x<3", "-32<y<32"])
 
+    def test_nested_restriction_split(self) -> None:
+        main, restrictions = split_restrictions(
+            r"0.57<z<2.17\left\{\frac{x^{2}}{0.2}+\frac{\left(z-0.6\right)^{2}}{1}>1\left\{2.7>y>2\right\}\right\}"
+        )
+        self.assertEqual(main, "0.57<z<2.17")
+        self.assertEqual(restrictions, [r"\frac{x^{2}}{0.2}+\frac{(z-0.6)^{2}}{1}>1", "2.7>y>2"])
+
     def test_list_definition_parses(self) -> None:
         expr = LatexExpression.parse(r"a_{1}x^{2}+b_{1}x+c_{1}")
         self.assertEqual(expr.python, "a_1*x**(2)+b_1*x+c_1")
@@ -45,6 +52,23 @@ class ParserTests(unittest.TestCase):
         expr = LatexExpression.parse(r"x-z\tan\left(5.5\right)")
         self.assertEqual(expr.python, "x-z*tan(5.5)")
         self.assertAlmostEqual(expr.eval(variables={"x": 2.0, "z": 3.0}), 2.0 - 3.0 * math.tan(5.5))
+
+    def test_unbraced_latex_function_argument_parses_as_function_call(self) -> None:
+        expr = LatexExpression.parse(r"0.3\left|\sin7x\ \right|+3")
+
+        self.assertEqual(expr.python, "0.3*abs(sin(7*x))+3")
+        self.assertAlmostEqual(expr.eval(variables={"x": 0.25}), 0.3 * abs(math.sin(7 * 0.25)) + 3)
+
+    def test_leading_dot_decimal_coefficients_multiply(self) -> None:
+        expr = LatexExpression.parse(r".515x+.43\left(z+0.6\right)")
+        self.assertEqual(expr.python, ".515*x+.43*(z+0.6)")
+        self.assertAlmostEqual(expr.eval(variables={"x": 2.0, "z": 1.4}), 0.515 * 2.0 + 0.43 * 2.0)
+
+    def test_desmos_infinity_division_evaluates_as_zero(self) -> None:
+        expr = LatexExpression.parse(r"\frac{z}{\infty}+60")
+        self.assertEqual(expr.python, "((z)/(infty))+60")
+        self.assertEqual(expr.identifiers, frozenset({"z"}))
+        self.assertAlmostEqual(expr.eval(variables={"z": 70.0}), 60.0)
 
     def test_degree_mode_trig_uses_degrees(self) -> None:
         expr = LatexExpression.parse(r"\tan\left(45\right)")
