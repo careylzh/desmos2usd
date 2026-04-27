@@ -1149,6 +1149,39 @@ class StudentFixtureRegressionTests(unittest.TestCase):
         self.assertEqual(min(z_values), 5.0)
         self.assertEqual(max(z_values), 5.9)
 
+    def test_single_axis_quadratic_inequality_band_tessellates_as_slab(self) -> None:
+        """S2-02 Group F uses list-expanded guide bands like
+        ``(z-0.3)^2 <= 0.0025`` inside bounded x/y rectangles. The analytic path should
+        export the thin slab instead of relying on coarse voxel cells to hit it.
+        """
+        source = SourceInfo(
+            "", "", "", "", viewport_bounds={"x": (0.0, 18.7), "y": (0.0, 18.7), "z": (0.0, 18.7)}
+        )
+        item = classify_expression(
+            ExpressionIR(
+                source,
+                "3_0",
+                0,
+                r"(z-0.3)^{2}\le0.0025\left\{-0.03\le x\le2.03\right\}\left\{-0.03\le y\le2.03\right\}",
+            ),
+            EvalContext(),
+        )
+
+        geometry = tessellate(item, EvalContext(), resolution=8)
+        used_points = [geometry.points[index] for index in set(geometry.face_vertex_indices)]
+        z_values = [point[2] for point in used_points]
+        x_values = [point[0] for point in used_points]
+        y_values = [point[1] for point in used_points]
+
+        self.assertEqual(item.kind, "inequality_region")
+        self.assertGreater(geometry.face_count, 0)
+        self.assertAlmostEqual(min(z_values), 0.25, places=6)
+        self.assertAlmostEqual(max(z_values), 0.35, places=6)
+        self.assertAlmostEqual(min(x_values), -0.03, places=6)
+        self.assertAlmostEqual(max(x_values), 2.03, places=6)
+        self.assertAlmostEqual(min(y_values), -0.03, places=6)
+        self.assertAlmostEqual(max(y_values), 2.03, places=6)
+
     def test_explicit_surface_expression_undefined_samples_are_outside_domain(self) -> None:
         """An explicit function's natural domain should clip the mesh just like Desmos.
         Pre-fix, z=sqrt(1-x^2-y^2) over a larger viewport raised on the first outside

@@ -26,9 +26,11 @@ from desmos2usd.tessellate.surfaces import (
     DEFAULT_BOUNDS,
     axis_bounds,
     broad_bounds_from_constants,
+    fit_quadratic_samples,
     numeric_constants,
     numeric_constants_for_item,
     point_from_variables,
+    solve_quadratic_less_than_zero,
 )
 
 
@@ -44,6 +46,21 @@ def tessellate_inequality_region(item: ClassifiedExpression, context: EvalContex
     ellipsoid = tessellate_axis_aligned_ellipsoid_region(item, context, resolution=max(8, resolution * 4))
     if ellipsoid is not None and mesh_vertices_satisfy_predicates(item, context, ellipsoid):
         return ellipsoid
+    quadratic_band = extract_single_axis_quadratic_band(item.inequality, context)
+    if quadratic_band is not None:
+        axis, low, high, lower_closed, upper_closed = quadratic_band
+        geometry = tessellate_band(
+            item,
+            context,
+            axis,
+            low,
+            high,
+            lower_closed,
+            upper_closed,
+            resolution,
+        )
+        if geometry.face_count and mesh_vertices_satisfy_predicates(item, context, geometry):
+            return geometry
     circular = tessellate_circular_inequality_extrusion(item, context, resolution=max(16, resolution * 4))
     if circular is not None and mesh_vertices_satisfy_predicates(item, context, circular):
         return circular
@@ -117,6 +134,62 @@ def ellipsoid_interior_residual(predicate: ComparisonPredicate) -> LatexExpressi
     if op in {">", ">="}:
         return LatexExpression.parse(f"({right.latex})-({left.latex})")
     return None
+
+
+def extract_single_axis_quadratic_band(
+    predicate: ComparisonPredicate | None,
+    context: EvalContext,
+) -> tuple[str, LatexExpression, LatexExpression, bool, bool] | None:
+    if predicate is None or len(predicate.terms) != 2 or len(predicate.ops) != 1:
+        return None
+    left, right = predicate.terms
+    op = predicate.ops[0]
+    if op in {"<", "<="}:
+        residual = LatexExpression.parse(f"({left.latex})-({right.latex})")
+        closed = op == "<="
+    elif op in {">", ">="}:
+        residual = LatexExpression.parse(f"({right.latex})-({left.latex})")
+        closed = op == ">="
+    else:
+        return None
+    graph_axes = residual.identifiers & {"x", "y", "z"}
+    if len(graph_axes) != 1:
+        return None
+    axis = next(iter(graph_axes))
+    if residual.identifiers - {axis} - set(context.scalars):
+        return None
+
+    samples: list[tuple[float, float]] = []
+    for value in (-1.0, 0.0, 1.0, 2.0):
+        try:
+            observed = residual.eval(context, {axis: value})
+        except Exception:
+            return None
+        if not isfinite(observed):
+            return None
+        samples.append((value, observed))
+    coefficients = fit_quadratic_samples(samples)
+    if coefficients is None:
+        return None
+    interval = solve_quadratic_less_than_zero(*coefficients)
+    if interval is None:
+        return None
+    low, high = interval
+    if not (isfinite(low) and isfinite(high)) or low >= high:
+        return None
+    midpoint = (low + high) / 2.0
+    try:
+        if residual.eval(context, {axis: midpoint}) > 1e-8:
+            return None
+    except Exception:
+        return None
+    return (
+        axis,
+        LatexExpression.parse(f"{low:.17g}"),
+        LatexExpression.parse(f"{high:.17g}"),
+        closed,
+        closed,
+    )
 
 
 def append_predicate_faces(

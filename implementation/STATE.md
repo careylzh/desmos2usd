@@ -1,6 +1,6 @@
 # Implementation State
 
-Last updated: 2026-04-27 12:36 SGT
+Last updated: 2026-04-27 12:49 SGT
 
 ## Loop Mode
 - cadence: every 10 minutes via OpenClaw cron
@@ -29,7 +29,7 @@ Last updated: 2026-04-27 12:36 SGT
 - id: one-desmos-input-at-a-time
 - title: Fix one remaining partial Desmos input per bounded tranche using live Desmos screenshots and viewer screenshots
 - current-priority:
-  1. TODAY 1530 Class 2-02: S2-02 Group F — https://www.desmos.com/3d/1zpiejy9c9 — highest-risk early presenter, 41 unsupported, 73 prims
+  1. TODAY 1530 Class 2-02: S2-02 Group F — https://www.desmos.com/3d/1zpiejy9c9 — still highest-risk early presenter after one-axis quadratic band pass, 47 unsupported, 159 prims
   2. TODAY 1530 Class 2-02: S2-02 Group C — https://www.desmos.com/3d/sqn7vxcm4n — second-highest early risk, 36 unsupported, 133 prims
   3. TODAY 1550 Class 2-04: S2-04 Group G — https://www.desmos.com/3d/ratctlkc9i — 36 unsupported, 44 prims
   4. TODAY 1610 Class 2-08: S2-08 Group G — https://www.desmos.com/3d/24vpv4pfwh — 23 unsupported, 1236 prims
@@ -56,6 +56,7 @@ Last updated: 2026-04-27 12:36 SGT
 ## Current Baseline
 - HEAD before current tranche: 8137dd2 Handle random Gaussian fixture regions
 - summary: 71 fixtures; 30 success, 41 partial, 0 error
+- S2-02 Group F current tranche: list-expanded one-axis quadratic guide bands improved fresh local export 111 unsupported -> 47 unsupported and 95 prims -> 159 prims; tracked resolution-12 artifact is 159 prims / 47 unsupported / 206 classified; live browser/viewer capture blocked, so visual claim is structural/local projection only
 - S2-07 Group F current tranche: chained quadratic disk inequality support improved 1 unsupported -> 0 unsupported, 887 prims -> 888 prims, 888 classified; live browser/viewer capture blocked, so visual claim is structural/local projection only
 - S2-03 Group E current tranche: predicate-clipped implicit ellipsoid surfaces improved 4 unsupported -> 0 unsupported, 460 prims -> 464 prims, classified remains 464; live browser/viewer capture blocked, so visual claim is structural/local projection only
 - S2-06 Group E current tranche: seeded bounded `random(n)` expansion plus Gaussian local flat-region sampling improved 7 unsupported -> 0 unsupported, 729 prims -> 1625 prims, 736 classified -> 1625 classified; live browser/viewer capture blocked, so visual claim is structural/local projection only
@@ -86,5 +87,5 @@ Last updated: 2026-04-27 12:36 SGT
 - Do not overlap Codex/ccwork runs.
 
 ## Last Wake
-- timestamp: 2026-04-27 12:36 SGT
-- result: Orchestrator committed and pushed the harvested S2-07F fix as `8babd2b Handle chained quadratic disk inequalities`. Chek then requested prioritising today's presenting classes (2-02, 2-04, 2-08, 2-10), so the active queue was changed to today's highest-risk fixtures in schedule order: S2-02F, S2-02C, S2-04G, S2-08G, S2-10E, S2-10A. Next launch should start with S2-02F unless it is already fixed or blocked.
+- timestamp: 2026-04-27 12:49 SGT
+- result: HOME Codex targeted S2-02 Group F and added a general one-axis quadratic inequality band tessellation path. It regenerated S2-02F plus S2-08E/S2-09F guards and rebuilt `summary.json`. Commit was blocked by `.git/index.lock` permission (`Operation not permitted`), so the worktree is ready for an external commit. S2-02F remains partial at 47 unsupported; the next tranche should continue S2-02F unless Chek reprioritises, with the largest remaining families being constant-z circular disk caps (`90_*`, `98_*`) and malformed chained `72_*` inequalities.
