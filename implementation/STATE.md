@@ -1,6 +1,6 @@
 # Implementation State
 
-Last updated: 2026-04-27 18:20 SGT
+Last updated: 2026-04-27 18:42 SGT
 
 ## Loop Mode
 - cadence: every 10 minutes via OpenClaw cron
@@ -35,7 +35,8 @@ Last updated: 2026-04-27 18:20 SGT
   4. Fixed today: S2-02 Group C — https://www.desmos.com/3d/sqn7vxcm4n — success after nested restriction pass, 169 prims, 0 unsupported
   5. Fixed today: S2-04 Group G — https://www.desmos.com/3d/ratctlkc9i — success after hsv/okhsv color-function pass, 103 prims, 0 unsupported
   6. Fixed today: S2-02 Group F — https://www.desmos.com/3d/1zpiejy9c9 — success after chained-empty pass, 206 prims, 0 unsupported
-  7. Only after today's presenters are improved: resume global queue, starting with S2-01 Group A and S2-06 Group F
+  7. Fixed today: S2-01 Group A — https://www.desmos.com/3d/cvggvbbe73 — success after affine-clipped explicit-surface domain inference, 208 prims, 0 unsupported
+  8. Next global queue: S2-06 Group F is already success in latest summary; continue with S2-01 Group B unless Chek reprioritizes
 - done-when:
   - one chosen fixture has fresh Desmos reference screenshots
   - live viewer screenshots/projections exist for the generated USD artifact
@@ -54,8 +55,9 @@ Last updated: 2026-04-27 18:20 SGT
 7. [ ] Advance to the next input only after the current one is either defensibly fixed or explicitly blocked.
 
 ## Current Baseline
-- HEAD before current tranche: a3fc7cf Record S2-10A trig harvest
-- summary: 71 fixtures; 46 success, 25 partial, 0 error
+- HEAD before current tranche: d6e672e Tessellate affine clipped function bands
+- summary: 71 fixtures; 47 success, 24 partial, 0 error
+- S2-01 Group A current tranche: affine-clipped explicit-surface domain inference now substitutes the solved axis into linear predicates and clips the two domain axes before grid sampling; tracked export improved from HEAD-projection 90 prims / 118 unsupported to regenerated 208 prims / 0 unsupported, success. Browser/live viewer capture remains blocked by MCP cancellation and Tailscale DNS failure, so visual claim is structural/local projection only.
 - S2-10 Group A current tranche: affine-clipped function-band variable extrusion fixed expression `41`, the obliquely clipped parabolic inequality region; tracked export improved 39 prims / 1 unsupported to 40 prims / 0 unsupported, success. Browser/live viewer capture remains blocked by MCP cancellation and Tailscale DNS failure, so visual claim is structural/local projection only.
 - S2-10 Group A previous tranche: unbraced Desmos trig commands such as `\sin7x` now parse as function calls with implicit argument multiplication; tracked export improved 35 prims / 5 unsupported to 39 prims / 1 unsupported, with all four sinusoidal border surfaces `59`, `60`, `61`, and `62` exported. Browser/live viewer capture blocked by MCP cancellation and Tailscale DNS failure, so visual claim is structural/local projection only.
 - S2-10 Group E current tranche: tracked artifact improved 249 prims / 10 unsupported / 259 renderable -> 249 prims / 0 unsupported / 249 renderable, success. The unsupported rows were non-graphable section labels/separators such as `pyramid 4 sketch`, not Desmos geometry; visible expression rows with only label text are now filtered out before classification. Browser/live viewer capture blocked, so visual claim is structural/local projection only and geometry projection is unchanged.
@@ -95,5 +97,5 @@ Last updated: 2026-04-27 18:20 SGT
 - Do not overlap Codex/ccwork runs.
 
 ## Last Wake
-- timestamp: 2026-04-27 18:20 SGT
-- result: wrapper harvested dirty HOME Codex run 20260427-175332-18719; orchestrator revalidated targeted modules (100 OK), full unittest discovery (158 OK), and `git diff --check`, then committed and pushed `d6e672e` (`Tessellate affine clipped function bands`). No new implementation pass launched in this wake; next wake should resume the global queue with S2-01 Group A and S2-06 Group F.
+- timestamp: 2026-04-27 18:53 SGT
+- result: harvested HOME Codex tranche `20260427-182336-12454`, validated targeted modules and full unittest discovery, then committed/pushed S2-01 Group A affine explicit-surface domain inference. Browser/live viewer capture remains blocked; next target is S2-01 Group B unless Chek reprioritizes.

@@ -286,6 +286,58 @@ class StudentFixtureRegressionTests(unittest.TestCase):
         self.assertEqual(unsupported_ids, set())
         self.assertEqual(len(prims), 40)
 
+    def test_affine_clipped_explicit_surface_infers_tight_domain(self) -> None:
+        source = SourceInfo(
+            "",
+            "",
+            "",
+            "",
+            viewport_bounds={"x": (-25.0, 25.0), "y": (-25.0, 25.0), "z": (-25.0, 25.0)},
+        )
+        context = EvalContext(scalars={"a": 0.636})
+        item = classify_expression(
+            ExpressionIR(
+                source,
+                "82",
+                0,
+                r"z=\left(-ax+0y+5.6\right)\left\{0.3<y+x<0.4\right\}\left\{4.5<z<5.45\right\}",
+            ),
+            context,
+        )
+
+        geometry = tessellate(item, context, resolution=12)
+        used_points = [geometry.points[index] for index in set(geometry.face_vertex_indices)]
+
+        self.assertEqual(item.kind, "explicit_surface")
+        self.assertGreater(geometry.face_count, 0)
+        self.assertGreater(min(point[0] for point in used_points), 0.2)
+        self.assertLess(max(point[0] for point in used_points), 1.8)
+        for point in used_points:
+            variables = {"x": point[0], "y": point[1], "z": point[2]}
+            self.assertTrue(all(predicate.evaluate(context, variables, tol=1e-4) for predicate in item.predicates))
+
+    def test_s201_group_a_affine_clipped_surfaces_no_longer_unsupported(self) -> None:
+        fixture = (
+            Path(__file__).resolve().parents[1]
+            / "fixtures"
+            / "states"
+            / "[4B] 3D Diagram - S2-01 Group A.json"
+        )
+        graph = graph_ir_from_state(json.loads(fixture.read_text(encoding="utf-8")))
+
+        classification, classification_unsupported = classify_graph_tolerant(graph)
+        with tempfile.TemporaryDirectory() as tmp:
+            prims, _validations, export_unsupported = export_graph(
+                graph,
+                classification,
+                Path(tmp) / "s201a.usda",
+                resolution=12,
+            )
+
+        unsupported_ids = {item.expr_id for item in [*classification_unsupported, *export_unsupported]}
+        self.assertEqual(unsupported_ids, set())
+        self.assertEqual(len(prims), 208)
+
     def test_s202_group_c_nested_restrictions_classify(self) -> None:
         fixture = (
             Path(__file__).resolve().parents[1]

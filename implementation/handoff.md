@@ -1,3 +1,101 @@
+# Handoff: 2026-04-27 18:42 SGT - S2-01A affine explicit-surface tranche
+
+## Current Branch State
+- Repo: `/Users/chek/repos/desmos2usd-carey`
+- Branch: `fix/student-fixture-usdz-export`
+- Push target: `chektien:fix/student-fixture-usdz-export`
+- HEAD before this tranche: `d6e672e Tessellate affine clipped function bands`
+
+## Completed This Tranche
+- Targeted fixture: `[4B] 3D Diagram - S2-01 Group A.json`
+- Desmos URL: `https://www.desmos.com/3d/cvggvbbe73`
+- S2-04 Group G urgent override was skipped because `STATE.md` and latest summary already mark it success with `103 prims / 0 unsupported`.
+- Implemented one general exporter fix:
+  - Explicit surfaces now try an affine domain clipping pass before broad grid inference.
+  - The pass substitutes the solved axis into linear predicates, converts chained comparisons into half-planes over the two domain axes, clips the fallback rectangle, and only returns early when both domain axes become fully bounded.
+  - Partial affine bounds feed the existing sampled boundary inference so previously precise nonlinear clips, such as the `zaqxhna15w` truss y-bound, are preserved.
+  - No fixture-specific ids, fixture names, or hard-coded S2-01 constants were added.
+- Added regression coverage for:
+  - a synthetic S2-01A-style affine-clipped explicit surface with `y+x` and solved-`z` restrictions
+  - the real S2-01A fixture exporting all 208 renderable expressions with no unsupported rows
+- Regenerated tracked S2-01A USDA/USDZ/report artifacts and updated the 71-fixture `artifacts/fixture_usdz/summary.json` entry.
+- Revalidated S2-08E and S2-09F as guard fixtures; both remain success.
+
+## Evidence
+- Evidence directory: `artifacts/fixture_usdz/review_evidence/20260427_s201_group_a_ralph_affine_surface_clips/`
+- Local projection files:
+  - `S2-01_Group_A_projection_before.png`
+  - `S2-01_Group_A_projection_before.ppm`
+  - `S2-01_Group_A_projection_before.usda`
+  - `S2-01_Group_A_projection_before.usdz`
+  - `S2-01_Group_A_projection_before.report.json`
+  - `S2-01_Group_A_projection_after.png`
+  - `S2-01_Group_A_projection_after.ppm`
+  - `S2-01_Group_A_projection_after.usda`
+  - `S2-01_Group_A_projection_after.usdz`
+  - `S2-01_Group_A_projection_after.report.json`
+  - `S2-08_Group_E_projection_guard_after.png`
+  - `S2-08_Group_E_projection_guard_after.ppm`
+  - `S2-08_Group_E_projection_guard_after.usda`
+  - `S2-08_Group_E_projection_guard_after.usdz`
+  - `S2-08_Group_E_projection_guard_after.report.json`
+  - `S2-09_Group_F_projection_guard_after.png`
+  - `S2-09_Group_F_projection_guard_after.ppm`
+  - `S2-09_Group_F_projection_guard_after.usda`
+  - `S2-09_Group_F_projection_guard_after.usdz`
+  - `S2-09_Group_F_projection_guard_after.report.json`
+  - `capture_results.json`
+  - `projection_results.json`
+  - `assessment.md`
+- Browser/live viewer blockers:
+  - Playwright Desmos navigation returned `user cancelled MCP tool call`.
+  - Chrome DevTools Desmos navigation returned `user cancelled MCP tool call`.
+  - Tailscale route checks for root, viewer, and summary failed with `curl: (6) Could not resolve host: chq.singapura-broadnose.ts.net`.
+  - Playwright and Chrome DevTools live-viewer navigation both returned `user cancelled MCP tool call`.
+- Visual claim: no live Desmos/viewer parity claim. This tranche has deterministic local projection evidence only. The after projection fills in the S2-01A tower/roof affine explicit-surface family and removes the broad-domain sampling artifacts visible in the before projection.
+
+## Metrics
+- S2-01A HEAD-code before projection: `90 prims / 118 unsupported / 208 classified / 208 renderable / valid true / partial`.
+- S2-01A tracked summary baseline before this tranche: `88 prims / 120 unsupported / 208 classified / 208 renderable / partial`.
+- S2-01A after tracked resolution-12 regeneration: `208 prims / 0 unsupported / 208 classified / 208 renderable / valid true / success / usdchecker returncode 0`.
+- Overall fixture summary: 71 fixtures; 47 success, 24 partial, 0 error, acceptance not met.
+- S2-08 Group E guard remains success: `87 prims / 0 unsupported / valid true / usdchecker returncode 0`.
+- S2-09 Group F guard remains success: `27 prims / 0 unsupported / valid true / usdchecker returncode 0`.
+
+## Validation
+- Focused regressions passed: `test_affine_clipped_explicit_surface_infers_tight_domain`, `test_s201_group_a_affine_clipped_surfaces_no_longer_unsupported`, and `test_zaqxhna15w_predicate_clipped_truss_reaches_exact_y_bounds`.
+- Targeted modules passed: `PYTHONPATH=src:tests python3 -m unittest tests.test_tessellate tests.test_student_fixture_regressions tests.test_fixture_usdz_suite tests.test_visual_preview` ran 101 tests OK.
+- Full unittest discovery passed: `PYTHONPATH=src:tests python3 -m unittest discover -s tests` ran 160 tests in 121.264s OK.
+- Report-vs-USDA consistency checked:
+  - S2-01A report prim_count `208`, USDA `Mesh` + `BasisCurves` defs `208`, unsupported `0`
+  - S2-08E report prim_count `87`, USDA defs `87`, unsupported `0`
+  - S2-09F report prim_count `27`, USDA defs `27`, unsupported `0`
+- PNG projection dimensions checked with `sips`: before/after/guard PNGs are `1552x512`.
+- `git diff --check`: passed.
+
+## Commit / Push
+- Blocked in this HOME Codex turn: `git add src/desmos2usd/tessellate/surfaces.py tests/test_student_fixture_regressions.py implementation/STATE.md implementation/handoff.md artifacts/fixture_usdz/summary.json 'artifacts/fixture_usdz/[4B] 3D Diagram - S2-01 Group A.report.json' 'artifacts/fixture_usdz/[4B] 3D Diagram - S2-01 Group A.usda' 'artifacts/fixture_usdz/[4B] 3D Diagram - S2-01 Group A.usdz' 'artifacts/fixture_usdz/[4B] 3D Diagram - S2-08 Group E.usdz' 'artifacts/fixture_usdz/[4B] 3D Diagram - S2-09 Group F.usdz'` failed with `fatal: Unable to create '/Users/chek/repos/desmos2usd-carey/.git/index.lock': Operation not permitted`.
+- `git add -f artifacts/fixture_usdz/review_evidence/20260427_s201_group_a_ralph_affine_surface_clips` failed with the same `.git/index.lock` permission error.
+- Worktree is ready to stage, commit, and push from the main environment.
+- Evidence directory is ignored by `.gitignore`; include it with:
+  - `git add -f artifacts/fixture_usdz/review_evidence/20260427_s201_group_a_ralph_affine_surface_clips`
+- Suggested commit subject: `Infer affine explicit surface domains`
+
+## Review Links
+- Route verification from this environment failed for root/viewer/summary with `curl: (6) Could not resolve host: chq.singapura-broadnose.ts.net`.
+- S2-01 Group A Desmos: `https://www.desmos.com/3d/cvggvbbe73`
+- S2-01 Group A viewer: `https://chq.singapura-broadnose.ts.net/viewer/?usda=..%2Fartifacts%2Ffixture_usdz%2F%5B4B%5D%203D%20Diagram%20-%20S2-01%20Group%20A.usda&label=S2-01%20Group%20A`
+- S2-08 Group E Desmos: `https://www.desmos.com/3d/g59jqe6nxy`
+- S2-08 Group E viewer: `https://chq.singapura-broadnose.ts.net/viewer/?usda=..%2Fartifacts%2Ffixture_usdz%2F%5B4B%5D%203D%20Diagram%20-%20S2-08%20Group%20E.usda&label=S2-08%20Group%20E`
+- S2-09 Group F Desmos: `https://www.desmos.com/3d/umjxv6ahck`
+- S2-09 Group F viewer: `https://chq.singapura-broadnose.ts.net/viewer/?usda=..%2Fartifacts%2Ffixture_usdz%2F%5B4B%5D%203D%20Diagram%20-%20S2-09%20Group%20F.usda&label=S2-09%20Group%20F`
+
+## Remaining Mismatch / Next Wake Instructions
+1. S2-01 Group A is structurally complete and should not be picked again unless Chek reports a live visual issue.
+2. Browser/live viewer capture is still blocked here; do not claim live visual parity until Desmos and viewer screenshots are captured.
+3. S2-06 Group F is already success in the latest summary. Continue the global queue with S2-01 Group B unless Chek reprioritizes.
+4. Keep S2-08E and S2-09F as regression guards.
+
 # Handoff: 2026-04-27 18:07 SGT - S2-10A oblique parabolic band tranche
 
 ## Current Branch State
@@ -1027,3 +1125,9 @@
 - Re-ran validation before commit: targeted parser/student fixture/fixture USDZ/visual preview modules 100 tests OK, full unittest discovery 158 tests OK, `git diff --check` OK.
 - Committed and pushed `d6e672e` (`Tessellate affine clipped function bands`) to `chektien:fix/student-fixture-usdz-export`.
 - Next wake should resume the global queue with S2-01 Group A and S2-06 Group F; do not revisit S2-10 Group A unless live visual review finds a mismatch.
+
+## Orchestrator Harvest: 2026-04-27 18:53 SGT
+- Wrapper reported `harvested_dirty` for run `20260427-182336-12454`; no new implementation pass launched.
+- Re-ran validation before commit: targeted tessellate/student fixture/fixture USDZ/visual preview modules 101 tests OK, full unittest discovery 160 tests OK, `git diff --check` OK.
+- Committed and pushed from the main environment.
+- Next wake should continue with S2-01 Group B unless Chek reprioritizes.

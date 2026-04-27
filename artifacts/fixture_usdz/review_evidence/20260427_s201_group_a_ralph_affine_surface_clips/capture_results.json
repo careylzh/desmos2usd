@@ -1,0 +1,48 @@
+{
+  "desmos_url": "https://www.desmos.com/3d/cvggvbbe73",
+  "fixture": "[4B] 3D Diagram - S2-01 Group A.json",
+  "results": [
+    {
+      "attempt": "playwright_desmos_reference",
+      "command": "mcp__playwright__.browser_run_code: goto https://www.desmos.com/3d/cvggvbbe73, wait 12000ms, screenshot desmos_reference_initial.png/desmos_reference_rotated_*.png",
+      "ok": false,
+      "error": "user cancelled MCP tool call"
+    },
+    {
+      "attempt": "chrome_devtools_desmos_reference",
+      "command": "mcp__chrome_devtools__.new_page: https://www.desmos.com/3d/cvggvbbe73",
+      "ok": false,
+      "error": "user cancelled MCP tool call"
+    },
+    {
+      "attempt": "tailscale_root",
+      "command": "curl -I --max-time 10 https://chq.singapura-broadnose.ts.net/",
+      "ok": false,
+      "error": "curl: (6) Could not resolve host: chq.singapura-broadnose.ts.net"
+    },
+    {
+      "attempt": "tailscale_viewer",
+      "command": "curl -I --max-time 10 https://chq.singapura-broadnose.ts.net/viewer/",
+      "ok": false,
+      "error": "curl: (6) Could not resolve host: chq.singapura-broadnose.ts.net"
+    },
+    {
+      "attempt": "tailscale_summary",
+      "command": "curl -I --max-time 10 https://chq.singapura-broadnose.ts.net/artifacts/fixture_usdz/summary.json",
+      "ok": false,
+      "error": "curl: (6) Could not resolve host: chq.singapura-broadnose.ts.net"
+    },
+    {
+      "attempt": "playwright_live_viewer",
+      "command": "mcp__playwright__.browser_run_code: goto S2-01 Group A direct viewer URL and screenshot viewer_s201_group_a_after.png",
+      "ok": false,
+      "error": "user cancelled MCP tool call"
+    },
+    {
+      "attempt": "chrome_devtools_live_viewer",
+      "command": "mcp__chrome_devtools__.new_page: S2-01 Group A direct viewer URL",
+      "ok": false,
+      "error": "user cancelled MCP tool call"
+    }
+  ]
+}
