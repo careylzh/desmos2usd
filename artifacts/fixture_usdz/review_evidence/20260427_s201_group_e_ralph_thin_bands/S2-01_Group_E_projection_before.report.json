@@ -1,87 +1,61 @@
 {
-  "acceptance_success": true,
+  "acceptance_success": false,
   "classified_expression_count": 43,
-  "complete": true,
+  "complete": false,
   "fixture": "[4B] 3D Diagram - S2-01 Group E.json",
   "fixture_path": "fixtures/states/[4B] 3D Diagram - S2-01 Group E.json",
   "graph_hash": null,
-  "output": "artifacts/fixture_usdz/[4B] 3D Diagram - S2-01 Group E.usda",
-  "prim_count": 43,
+  "output": "artifacts/fixture_usdz/review_evidence/20260427_s201_group_e_ralph_thin_bands/S2-01_Group_E_projection_before.usda",
+  "prim_count": 39,
   "renderable_expression_count": 43,
   "resolution": 12,
-  "status": "success",
+  "status": "partial",
   "title": "Desmos graph",
-  "unsupported": [],
-  "unsupported_count": 0,
+  "unsupported": [
+    {
+      "expr_id": "104",
+      "kind": "inequality_region",
+      "latex": "2z<-\\left(x-0\\right)^{2}+2\\ \\left\\{0<z\\right\\}\\left\\{2z>-\\left(x-0\\right)^{2}+1.8\\right\\}\\left\\{z<-5y+10\\right\\}\\left\\{z>-5y+9.\\right\\}",
+      "reason": "Inequality region for 104 did not resolve to sampled cells"
+    },
+    {
+      "expr_id": "190",
+      "kind": "inequality_region",
+      "latex": "2z<-\\left(x-0\\right)^{2}+2\\ \\left\\{0<z\\right\\}\\left\\{2z>-\\left(x-0\\right)^{2}+1.8\\right\\}\\left\\{z<5y+10\\right\\}\\left\\{z>5y+9.\\right\\}",
+      "reason": "Inequality region for 190 did not resolve to sampled cells"
+    },
+    {
+      "expr_id": "154",
+      "kind": "inequality_region",
+      "latex": "z<-\\left(y+0\\right)^{2}+1\\ \\left\\{z>2.45x+4.8\\right\\}\\ \\left\\{z<2.3x+4.7\\right\\}\\left\\{z>-\\left(y+0\\right)^{2}+0.9\\right\\}\\left\\{z>0\\right\\}",
+      "reason": "Inequality region for 154 did not resolve to sampled cells"
+    },
+    {
+      "expr_id": "135",
+      "kind": "inequality_region",
+      "latex": "z<-\\left(y+0\\right)^{2}+1\\ \\left\\{z>-2.45x+4.8\\right\\}\\ \\left\\{z<-2.3x+4.7\\right\\}\\left\\{z>-\\left(y+0\\right)^{2}+0.9\\right\\}\\left\\{z>0\\right\\}",
+      "reason": "Inequality region for 135 did not resolve to sampled cells"
+    }
+  ],
+  "unsupported_count": 4,
   "usda_exists": true,
   "usdz_exists": true,
-  "usdz_output": "artifacts/fixture_usdz/[4B] 3D Diagram - S2-01 Group E.usdz",
+  "usdz_output": "artifacts/fixture_usdz/review_evidence/20260427_s201_group_e_ralph_thin_bands/S2-01_Group_E_projection_before.usdz",
   "usdz_package": {
     "command": [
       "/usr/bin/usdzip",
-      "/Users/chek/repos/desmos2usd-carey/artifacts/fixture_usdz/[4B] 3D Diagram - S2-01 Group E.usdz",
-      "[4B] 3D Diagram - S2-01 Group E.usda"
+      "/Users/chek/repos/desmos2usd-carey/artifacts/fixture_usdz/review_evidence/20260427_s201_group_e_ralph_thin_bands/S2-01_Group_E_projection_before.usdz",
+      "S2-01_Group_E_projection_before.usda"
     ],
-    "cwd": "/Users/chek/repos/desmos2usd-carey/artifacts/fixture_usdz",
+    "cwd": "/Users/chek/repos/desmos2usd-carey/artifacts/fixture_usdz/review_evidence/20260427_s201_group_e_ralph_thin_bands",
     "returncode": 0,
     "stderr": "",
     "stdout": "",
     "tool": "usdzip"
   },
-  "usdz_validation": {
-    "command": [
-      "/usr/bin/usdchecker",
-      "--arkit",
-      "/Users/chek/repos/desmos2usd-carey/artifacts/fixture_usdz/[4B] 3D Diagram - S2-01 Group E.usdz"
-    ],
-    "cwd": null,
-    "returncode": 0,
-    "stderr": "",
-    "stdout": "\nValidation Result with no explicit variants set\nSuccess!\n",
-    "tool": "usdchecker"
-  },
+  "usdz_validation": null,
   "valid": true,
   "validations": [
-    {
-      "constraint_violation_count": 0,
-      "errors": [],
-      "expr_id": "104",
-      "face_count": 2304,
-      "kind": "inequality_region",
-      "max_residual": null,
-      "point_count": 3072,
-      "valid": true
-    },
-    {
-      "constraint_violation_count": 0,
-      "errors": [],
-      "expr_id": "190",
-      "face_count": 2304,
-      "kind": "inequality_region",
-      "max_residual": null,
-      "point_count": 3072,
-      "valid": true
-    },
-    {
-      "constraint_violation_count": 0,
-      "errors": [],
-      "expr_id": "154",
-      "face_count": 2496,
-      "kind": "inequality_region",
-      "max_residual": null,
-      "point_count": 3328,
-      "valid": true
-    },
-    {
-      "constraint_violation_count": 0,
-      "errors": [],
-      "expr_id": "135",
-      "face_count": 2496,
-      "kind": "inequality_region",
-      "max_residual": null,
-      "point_count": 3328,
-      "valid": true
-    },
     {
       "constraint_violation_count": 0,
       "errors": [],

@@ -448,6 +448,59 @@ class StudentFixtureRegressionTests(unittest.TestCase):
         self.assertTrue(edge_ids.isdisjoint(unsupported_ids))
         self.assertGreaterEqual(len(prims), 133)
 
+    def test_curved_band_with_scaled_axis_and_affine_cross_bounds_tessellates(self) -> None:
+        source = SourceInfo(
+            "",
+            "",
+            "",
+            "",
+            viewport_bounds={"x": (-3.0, 3.0), "y": (-3.0, 3.0), "z": (0.0, 2.0)},
+        )
+        item = classify_expression(
+            ExpressionIR(
+                source,
+                "104",
+                0,
+                r"2z<-\left(x-0\right)^{2}+2"
+                r"\left\{0<z\right\}"
+                r"\left\{2z>-\left(x-0\right)^{2}+1.8\right\}"
+                r"\left\{z<-5y+10\right\}"
+                r"\left\{z>-5y+9\right\}",
+            ),
+            EvalContext(),
+        )
+
+        geometry = tessellate(item, EvalContext(), resolution=8)
+        used_points = [geometry.points[index] for index in set(geometry.face_vertex_indices)]
+
+        self.assertEqual(item.kind, "inequality_region")
+        self.assertEqual(geometry.kind, "Mesh")
+        self.assertGreater(geometry.face_count, 0)
+        self.assertGreater(max(point[2] for point in used_points), min(point[2] for point in used_points))
+        self.assertGreater(max(point[1] for point in used_points), min(point[1] for point in used_points))
+
+    def test_s201_group_e_curved_bands_no_longer_unsupported(self) -> None:
+        fixture = (
+            Path(__file__).resolve().parents[1]
+            / "fixtures"
+            / "states"
+            / "[4B] 3D Diagram - S2-01 Group E.json"
+        )
+        graph = graph_ir_from_state(json.loads(fixture.read_text(encoding="utf-8")))
+
+        classification, classification_unsupported = classify_graph_tolerant(graph)
+        with tempfile.TemporaryDirectory() as tmp:
+            prims, _validations, export_unsupported = export_graph(
+                graph,
+                classification,
+                Path(tmp) / "s201e.usda",
+                resolution=12,
+            )
+
+        unsupported_ids = {item.expr_id for item in [*classification_unsupported, *export_unsupported]}
+        self.assertEqual(unsupported_ids, set())
+        self.assertEqual(len(prims), 43)
+
     def test_desmos_parametric_domain_sets_curve_bounds(self) -> None:
         item = classify_expression(
             ExpressionIR(

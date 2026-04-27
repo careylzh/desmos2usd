@@ -1,6 +1,6 @@
 # Implementation State
 
-Last updated: 2026-04-27 20:00 SGT
+Last updated: 2026-04-27 20:17 SGT
 
 ## Loop Mode
 - cadence: every 10 minutes via OpenClaw cron
@@ -29,9 +29,9 @@ Last updated: 2026-04-27 20:00 SGT
 - id: one-desmos-input-at-a-time
 - title: Fix one remaining partial Desmos input per bounded tranche using live Desmos screenshots and viewer screenshots
 - current-priority:
-  1. TOMORROW focus: S2-01 Group E — https://www.desmos.com/3d/nzokib2plm — partial, 23 prims, 20 unsupported; highest remaining S2-01 gap
-  2. TOMORROW focus: S2-01 Group C — https://www.desmos.com/3d/upbjmsjpzq — partial, 15 prims, 4 unsupported
-  3. TOMORROW focus: S2-01 Group B — https://www.desmos.com/3d/27v0xuv64m — partial, 142 prims, 1 unsupported; remaining malformed disk expression `74`
+  1. TOMORROW focus: S2-01 Group C — https://www.desmos.com/3d/upbjmsjpzq — partial, 15 prims, 4 unsupported
+  2. TOMORROW focus: S2-01 Group B — https://www.desmos.com/3d/27v0xuv64m — partial, 142 prims, 1 unsupported; remaining malformed disk expression `74`
+  3. TOMORROW already success: S2-01 Group E — https://www.desmos.com/3d/nzokib2plm — 43 prims, 0 unsupported
   4. TOMORROW already success: S2-01 Group A — https://www.desmos.com/3d/cvggvbbe73 — 208 prims, 0 unsupported
   5. TOMORROW already success: S2-01 Group D — https://www.desmos.com/3d/z68jgsnw24 — 21 prims, 0 unsupported
   6. TOMORROW already success: S2-01 Group F — https://www.desmos.com/3d/sbrpw8amwn — 10 prims, 0 unsupported
@@ -55,8 +55,9 @@ Last updated: 2026-04-27 20:00 SGT
 7. [ ] Advance to the next input only after the current one is either defensibly fixed or explicitly blocked.
 
 ## Current Baseline
-- HEAD before current tranche: d9a8424 Render point-defined vector edges
-- summary: 71 fixtures; 47 success, 24 partial, 0 error
+- HEAD before current tranche: ee7335c Render point-list curves
+- summary: 71 fixtures; 48 success, 23 partial, 0 error
+- S2-01 Group E current tranche: scaled band-axis comparisons such as `2z < f(x)` now produce normalized function bounds, and curved thin bands can extrude through affine cross-axis bounds. Tracked resolution-12 export improved 23 prims / 20 unsupported -> fresh pre-edit local 39 prims / 4 unsupported -> regenerated 43 prims / 0 unsupported, success. S2-08 Group E and S2-09 Group F guards remain success. Browser/live viewer capture remains blocked by MCP cancellation, local server permission failure, and Tailscale DNS failure, so visual claim is deterministic local projection only.
 - S2-01 Group B current tranche: static 3D vector-list rows such as `[A,B]` now classify/export as linear `BasisCurves` when entries resolve to point/vector definitions; tracked resolution-12 export improved 133 prims / 10 unsupported -> 142 prims / 1 unsupported, still partial. Remaining unsupported is malformed flat-disk inequality `74` (`x^{2}+y^{2}<=5000z=0`). Browser/live viewer capture remains blocked by MCP cancellation and Tailscale DNS failure, so visual claim is structural/local projection only.
 - S2-01 Group B previous tranche: point-defined vector expressions such as `A+t(B-A)` now classify/export as parametric `BasisCurves`; tracked resolution-12 export improved 116 prims / 27 unsupported -> 133 prims / 10 unsupported, still partial. Remaining unsupported were nine point-list rows like `[A,B]` and malformed flat-disk inequality `74` (`x^{2}+y^{2}<=5000z=0`). Browser/live viewer capture remained blocked by MCP cancellation and Tailscale DNS failure, so visual claim was structural/local projection only.
 - S2-01 Group A current tranche: affine-clipped explicit-surface domain inference now substitutes the solved axis into linear predicates and clips the two domain axes before grid sampling; tracked export improved from HEAD-projection 90 prims / 118 unsupported to regenerated 208 prims / 0 unsupported, success. Browser/live viewer capture remains blocked by MCP cancellation and Tailscale DNS failure, so visual claim is structural/local projection only.
@@ -99,5 +100,5 @@ Last updated: 2026-04-27 20:00 SGT
 - Do not overlap Codex/ccwork runs.
 
 ## Last Wake
-- timestamp: 2026-04-27 20:00 SGT
-- result: harvested dirty run `20260427-193331-22493`, revalidated targeted modules (104 tests OK), full unittest discovery (163 tests OK), and `git diff --check`, then committed and pushed `ee7335c` (`Render point-list curves`). No new implementation pass launched; next wake should continue S2-01 Group B expression `74` (`x^{2}+y^{2}<=5000z=0`).
+- timestamp: 2026-04-27 20:17 SGT
+- result: HOME Codex completed one bounded S2-01 Group E tranche. Group E is structurally success at 43 prims / 0 unsupported with local before/after projection evidence; S2-08E and S2-09F guards remain success. Live Desmos/viewer screenshots are still blocked in this environment. Commit/push is blocked by `.git/index.lock` permission failure from this environment; worktree is ready for the main environment to commit. Next wake should continue tomorrow's S2-01 priority with S2-01 Group C unless Chek reprioritizes after committing this tranche.

@@ -1,3 +1,100 @@
+# Handoff: 2026-04-27 20:17 SGT - S2-01E curved thin-band tranche
+
+## Current Branch State
+- Repo: `/Users/chek/repos/desmos2usd-carey`
+- Branch: `fix/student-fixture-usdz-export`
+- Push target: `chektien:fix/student-fixture-usdz-export`
+- HEAD before this tranche: `ee7335c Render point-list curves`
+
+## Completed This Tranche
+- Targeted fixture: `[4B] 3D Diagram - S2-01 Group E.json`
+- Desmos URL: `https://www.desmos.com/3d/nzokib2plm`
+- Implemented one general exporter fix:
+  - Function-band bound extraction now handles scaled band axes such as `2z < f(x)` by normalizing to `z < f(x)/2`.
+  - Added a curved-band affine-extrusion path that separates nonlinear band bounds from affine cross-axis restrictions, so narrow parabolic/affine 3D strips export without relying on voxel sampling.
+  - No fixture-specific ids, fixture names, or hard-coded S2-01 constants were added.
+- Added regression coverage for:
+  - a synthetic scaled-axis curved band with affine cross-bounds
+  - the real S2-01E fixture exporting all 43 renderable expressions with no unsupported rows
+- Regenerated tracked S2-01E USDA/USDZ/report artifacts and updated the 71-fixture `artifacts/fixture_usdz/summary.json` entry.
+- Revalidated S2-08E and S2-09F as guard fixtures; both remain success.
+
+## Evidence
+- Evidence directory: `artifacts/fixture_usdz/review_evidence/20260427_s201_group_e_ralph_thin_bands/`
+- Local projection files:
+  - `S2-01_Group_E_projection_before.png`
+  - `S2-01_Group_E_projection_before.ppm`
+  - `S2-01_Group_E_projection_before.usda`
+  - `S2-01_Group_E_projection_before.usdz`
+  - `S2-01_Group_E_projection_before.report.json`
+  - `S2-01_Group_E_projection_after.png`
+  - `S2-01_Group_E_projection_after.ppm`
+  - `S2-01_Group_E_projection_after.usda`
+  - `S2-01_Group_E_projection_after.usdz`
+  - `S2-01_Group_E_projection_after.report.json`
+  - `S2-08_Group_E_projection_guard_after.png`
+  - `S2-08_Group_E_projection_guard_after.ppm`
+  - `S2-08_Group_E_projection_guard_after.usda`
+  - `S2-08_Group_E_projection_guard_after.usdz`
+  - `S2-08_Group_E_projection_guard_after.report.json`
+  - `S2-09_Group_F_projection_guard_after.png`
+  - `S2-09_Group_F_projection_guard_after.ppm`
+  - `S2-09_Group_F_projection_guard_after.usda`
+  - `S2-09_Group_F_projection_guard_after.usdz`
+  - `S2-09_Group_F_projection_guard_after.report.json`
+  - `capture_results.json`
+  - `projection_results.json`
+  - `assessment.md`
+- Browser/live viewer blockers:
+  - Playwright Desmos navigation to `https://www.desmos.com/3d/nzokib2plm` returned `user cancelled MCP tool call`.
+  - Chrome DevTools Desmos navigation to `https://www.desmos.com/3d/nzokib2plm` returned `user cancelled MCP tool call`.
+  - Tailscale route checks for root, viewer, and summary failed with `curl: (6) Could not resolve host: chq.singapura-broadnose.ts.net`.
+  - Local viewer server startup failed: `PermissionError: [Errno 1] Operation not permitted` for `python3 -m http.server 8765 --bind 127.0.0.1`.
+  - Chrome DevTools navigation to `file:///Users/chek/repos/desmos2usd-carey/viewer/index.html` returned `user cancelled MCP tool call`.
+- Visual claim: no live Desmos/viewer parity claim. This tranche has deterministic local projection evidence only. The after projection adds the missing curved/sloped side bands in the S2-01E tower silhouette.
+
+## Metrics
+- S2-01E tracked summary before this tranche: `23 prims / 20 unsupported / 43 classified / 43 renderable / valid true / partial`.
+- S2-01E fresh local pre-fix export from current code before this tranche: `39 prims / 4 unsupported / 43 classified / 43 renderable / valid true / partial`.
+- S2-01E after tracked resolution-12 regeneration: `43 prims / 0 unsupported / 43 classified / 43 renderable / valid true / success / usdchecker returncode 0`.
+- Fixed remaining unsupported family: expressions `104`, `190`, `154`, and `135`, all narrow curved inequality bands with affine cross-axis bounds.
+- Overall fixture summary is now: 71 fixtures; 48 success, 23 partial, 0 error, acceptance not met.
+- S2-08 Group E guard remains success: `87 prims / 0 unsupported / valid true / usdchecker returncode 0`.
+- S2-09 Group F guard remains success: `27 prims / 0 unsupported / valid true / usdchecker returncode 0`.
+
+## Validation
+- Focused regressions passed: `test_curved_band_with_scaled_axis_and_affine_cross_bounds_tessellates`, `test_s201_group_e_curved_bands_no_longer_unsupported`.
+- Targeted modules passed: `PYTHONPATH=src:tests python3 -m unittest tests.test_tessellate tests.test_student_fixture_regressions tests.test_fixture_usdz_suite tests.test_visual_preview` ran 106 tests OK.
+- Full unittest discovery passed: `PYTHONPATH=src:tests python3 -m unittest discover -s tests` ran 165 tests OK.
+- Report-vs-USDA consistency checked:
+  - S2-01E report prim_count `43`, USDA `Mesh` + `BasisCurves` defs `43`, unsupported `0`
+  - S2-08E report prim_count `87`, USDA defs `87`, unsupported `0`
+  - S2-09F report prim_count `27`, USDA defs `27`, unsupported `0`
+- PNG projection dimensions checked with `sips`: target/guard PNGs are `776x256`.
+- `git diff --check`: passed.
+
+## Commit / Push
+- Blocked in this HOME Codex turn: `git add src/desmos2usd/tessellate/slabs.py tests/test_student_fixture_regressions.py implementation/STATE.md implementation/handoff.md artifacts/fixture_usdz/summary.json 'artifacts/fixture_usdz/[4B] 3D Diagram - S2-01 Group E.report.json' 'artifacts/fixture_usdz/[4B] 3D Diagram - S2-01 Group E.usda' 'artifacts/fixture_usdz/[4B] 3D Diagram - S2-01 Group E.usdz' 'artifacts/fixture_usdz/[4B] 3D Diagram - S2-08 Group E.report.json' 'artifacts/fixture_usdz/[4B] 3D Diagram - S2-08 Group E.usdz' 'artifacts/fixture_usdz/[4B] 3D Diagram - S2-09 Group F.usdz' && git add -f artifacts/fixture_usdz/review_evidence/20260427_s201_group_e_ralph_thin_bands` failed with `fatal: Unable to create '/Users/chek/repos/desmos2usd-carey/.git/index.lock': Operation not permitted`.
+- Worktree is ready to stage, commit, and push from the main environment.
+- Evidence directory is ignored by `.gitignore`; include it with:
+  - `git add -f artifacts/fixture_usdz/review_evidence/20260427_s201_group_e_ralph_thin_bands`
+- Suggested commit subject: `Export curved S2-01E bands`
+
+## Review Links
+- Route verification from this environment failed for root/viewer/summary with `curl: (6) Could not resolve host: chq.singapura-broadnose.ts.net`.
+- S2-01 Group E Desmos: `https://www.desmos.com/3d/nzokib2plm`
+- S2-01 Group E viewer: `https://chq.singapura-broadnose.ts.net/viewer/?usda=..%2Fartifacts%2Ffixture_usdz%2F%5B4B%5D%203D%20Diagram%20-%20S2-01%20Group%20E.usda&label=S2-01%20Group%20E`
+- S2-08 Group E Desmos: `https://www.desmos.com/3d/g59jqe6nxy`
+- S2-08 Group E viewer: `https://chq.singapura-broadnose.ts.net/viewer/?usda=..%2Fartifacts%2Ffixture_usdz%2F%5B4B%5D%203D%20Diagram%20-%20S2-08%20Group%20E.usda&label=S2-08%20Group%20E`
+- S2-09 Group F Desmos: `https://www.desmos.com/3d/umjxv6ahck`
+- S2-09 Group F viewer: `https://chq.singapura-broadnose.ts.net/viewer/?usda=..%2Fartifacts%2Ffixture_usdz%2F%5B4B%5D%203D%20Diagram%20-%20S2-09%20Group%20F.usda&label=S2-09%20Group%20F`
+
+## Remaining Mismatch / Next Wake Instructions
+1. S2-01 Group E is structurally complete and should not be picked again unless Chek reports a live visual issue.
+2. Browser/live viewer capture is still blocked here; do not claim live visual parity until Desmos and viewer screenshots are captured.
+3. Continue tomorrow's S2-01 priority queue with S2-01 Group C (`https://www.desmos.com/3d/upbjmsjpzq`), currently `15 prims / 4 unsupported`.
+4. Keep S2-08E and S2-09F as regression guards.
+
 # Handoff: 2026-04-27 19:43 SGT - S2-01B point-list curve tranche
 
 ## Current Branch State

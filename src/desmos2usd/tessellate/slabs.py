@@ -96,6 +96,9 @@ def tessellate_inequality_region(item: ClassifiedExpression, context: EvalContex
     geometry = tessellate_function_band_variable_extrusion(item, context, resolution=max(16, resolution * 4))
     if geometry is not None and geometry.face_count and mesh_vertices_satisfy_predicates(item, context, geometry):
         return geometry
+    geometry = tessellate_curved_band_affine_extrusion(item, context, resolution=max(16, resolution * 4))
+    if geometry is not None and geometry.face_count and mesh_vertices_satisfy_predicates(item, context, geometry):
+        return geometry
     try:
         return tessellate_box(item, context)
     except Exception:
@@ -1426,48 +1429,51 @@ def function_bounds_for_axis(
             continue
         left, right = predicate.terms
         op = predicate.ops[0]
-        left_signed = signed_axis_identifier(left, axis)
-        right_signed = signed_axis_identifier(right, axis)
-        if left_signed is not None and axis not in right.identifiers:
-            add_signed_bound(lower, upper, left_signed, op, right)
-        elif right_signed is not None and axis not in left.identifiers:
+        left_scale = scaled_axis_identifier(left, axis)
+        right_scale = scaled_axis_identifier(right, axis)
+        if left_scale is not None and axis not in right.identifiers:
+            add_scaled_bound(lower, upper, left_scale, op, right)
+        elif right_scale is not None and axis not in left.identifiers:
             reversed_op = reverse_op(op)
-            add_signed_bound(lower, upper, right_signed, reversed_op, left)
+            add_scaled_bound(lower, upper, right_scale, reversed_op, left)
     return lower, upper
 
 
-def signed_axis_identifier(expression: LatexExpression, axis: str) -> int | None:
-    tree = expression.tree.body
-    if isinstance(tree, ast.Name) and tree.id == axis:
-        return 1
-    if (
-        isinstance(tree, ast.UnaryOp)
-        and isinstance(tree.op, ast.USub)
-        and isinstance(tree.operand, ast.Name)
-        and tree.operand.id == axis
-    ):
-        return -1
-    return None
+def scaled_axis_identifier(expression: LatexExpression, axis: str) -> float | None:
+    coeffs = affine_coefficients(expression, EvalContext(), axis)
+    if coeffs is None:
+        return None
+    coefficient, intercept = coeffs
+    if abs(coefficient) <= 1e-12 or abs(intercept) > 1e-12:
+        return None
+    if expression.identifiers - {axis}:
+        return None
+    return coefficient
 
 
-def add_signed_bound(
+def add_scaled_bound(
     lower: list[LatexExpression],
     upper: list[LatexExpression],
-    sign: int,
+    coefficient: float,
     op: str,
     expression: LatexExpression,
 ) -> None:
-    if sign == 1:
-        if op in {"<=", "<"}:
-            upper.append(expression)
-        elif op in {">=", ">"}:
-            lower.append(expression)
-    elif sign == -1:
-        negated = LatexExpression.parse(f"-({expression.latex})")
-        if op in {"<=", "<"}:
-            lower.append(negated)
-        elif op in {">=", ">"}:
-            upper.append(negated)
+    if abs(coefficient) <= 1e-12:
+        return
+    normalized_op = op if coefficient > 0 else reverse_op(op)
+    bound = scaled_bound_expression(expression, coefficient)
+    if normalized_op in {"<=", "<"}:
+        upper.append(bound)
+    elif normalized_op in {">=", ">"}:
+        lower.append(bound)
+
+
+def scaled_bound_expression(expression: LatexExpression, coefficient: float) -> LatexExpression:
+    if abs(coefficient - 1.0) <= 1e-12:
+        return expression
+    if abs(coefficient + 1.0) <= 1e-12:
+        return LatexExpression.parse(f"-({expression.latex})")
+    return LatexExpression.parse(f"({expression.latex})/({coefficient:.17g})")
 
 
 def reverse_op(op: str) -> str:
@@ -1827,6 +1833,72 @@ def tessellate_function_band_variable_extrusion(
         if geometry.face_count:
             return geometry
     return None
+
+
+def tessellate_curved_band_affine_extrusion(
+    item: ClassifiedExpression,
+    context: EvalContext,
+    resolution: int,
+) -> GeometryData | None:
+    bounds = collect_constant_bounds(item.predicates, context)
+    graph_axes = ("x", "y", "z")
+    graph_axis_set = set(graph_axes)
+    for band_axis in graph_axes:
+        lower_exprs, upper_exprs = function_bounds_for_axis(item.predicates, band_axis)
+        if not lower_exprs or not upper_exprs:
+            continue
+        for param_axis in graph_axes:
+            if param_axis == band_axis:
+                continue
+            extrude_axes = [axis for axis in graph_axes if axis not in {band_axis, param_axis}]
+            if len(extrude_axes) != 1:
+                continue
+            extrude_axis = extrude_axes[0]
+            param_lower = band_bound_expressions_for_param(lower_exprs, param_axis, graph_axis_set)
+            param_upper = band_bound_expressions_for_param(upper_exprs, param_axis, graph_axis_set)
+            if not param_lower or not param_upper:
+                continue
+            param_bounds = infer_variable_extrusion_param_bounds(
+                item,
+                context,
+                param_axis,
+                band_axis,
+                extrude_axis,
+                param_lower,
+                param_upper,
+                bounds,
+                resolution,
+            )
+            if param_bounds is None:
+                continue
+            geometry = build_function_band_variable_extrusion(
+                item,
+                context,
+                param_axis,
+                band_axis,
+                extrude_axis,
+                param_lower,
+                param_upper,
+                bounds,
+                param_bounds,
+                resolution,
+            )
+            if geometry.face_count:
+                return geometry
+    return None
+
+
+def band_bound_expressions_for_param(
+    expressions: list[LatexExpression],
+    param_axis: str,
+    graph_axes: set[str],
+) -> list[LatexExpression]:
+    allowed = {param_axis}
+    return [
+        expression
+        for expression in expressions
+        if (expression.identifiers & graph_axes).issubset(allowed)
+    ]
 
 
 def infer_variable_extrusion_param_bounds(
