@@ -244,11 +244,11 @@ def split_concatenated_symbols(expr: str) -> str:
 
 
 def is_value_end(token: str) -> bool:
-    return bool(re.match(r"\d|\w|\)", token))
+    return bool(re.match(r"\d|\.\d|\w|\)", token))
 
 
 def is_value_start(token: str) -> bool:
-    return bool(re.match(r"\d|\w|\(", token))
+    return bool(re.match(r"\d|\.\d|\w|\(", token))
 
 
 def needs_multiply(prev: str, token: str, index: int, tokens: list[str]) -> bool:

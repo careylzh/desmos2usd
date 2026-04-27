@@ -46,6 +46,11 @@ class ParserTests(unittest.TestCase):
         self.assertEqual(expr.python, "x-z*tan(5.5)")
         self.assertAlmostEqual(expr.eval(variables={"x": 2.0, "z": 3.0}), 2.0 - 3.0 * math.tan(5.5))
 
+    def test_leading_dot_decimal_coefficients_multiply(self) -> None:
+        expr = LatexExpression.parse(r".515x+.43\left(z+0.6\right)")
+        self.assertEqual(expr.python, ".515*x+.43*(z+0.6)")
+        self.assertAlmostEqual(expr.eval(variables={"x": 2.0, "z": 1.4}), 0.515 * 2.0 + 0.43 * 2.0)
+
     def test_degree_mode_trig_uses_degrees(self) -> None:
         expr = LatexExpression.parse(r"\tan\left(45\right)")
 

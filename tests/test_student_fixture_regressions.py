@@ -338,6 +338,44 @@ class StudentFixtureRegressionTests(unittest.TestCase):
         self.assertEqual(geometry.kind, "Mesh")
         self.assertGreater(geometry.face_count, 0)
 
+    def test_leading_dot_decimal_implicit_plane_tessellates(self) -> None:
+        source = SourceInfo("", "", "", "", viewport_bounds={"x": (-3.0, 3.0), "y": (-3.0, 3.0), "z": (0.0, 3.0)})
+        context = EvalContext()
+        item = classify_expression(
+            ExpressionIR(
+                source,
+                "1",
+                0,
+                r"2z=.515x+1.91\left\{-1.55\le y\le2.6\right\}\left\{-2\le x\le-.6\right\}",
+            ),
+            context,
+        )
+
+        geometry = tessellate(item, context, resolution=8)
+
+        self.assertEqual(item.kind, "implicit_surface")
+        self.assertEqual(geometry.kind, "Mesh")
+        self.assertGreater(geometry.face_count, 0)
+
+    def test_leading_dot_decimal_slab_tessellates(self) -> None:
+        source = SourceInfo("", "", "", "", viewport_bounds={"x": (-12.0, 2.0), "y": (2.0, 3.0), "z": (0.0, 3.0)})
+        context = EvalContext()
+        item = classify_expression(
+            ExpressionIR(
+                source,
+                "1",
+                0,
+                r".5\le z\le1+.43(x+0.6)\left\{-10\le x\le-0.6\right\}\left\{2.55\le y\le2.6\right\}",
+            ),
+            context,
+        )
+
+        geometry = tessellate(item, context, resolution=8)
+
+        self.assertEqual(item.kind, "inequality_region")
+        self.assertEqual(geometry.kind, "Mesh")
+        self.assertGreater(geometry.face_count, 0)
+
     def test_tolerant_fixture_classification_uses_graph_degree_mode(self) -> None:
         source = SourceInfo(
             "",
