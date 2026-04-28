@@ -1,3 +1,2707 @@
+# Handoff: 2026-04-28 09:33 SGT - S2-01B visual retry 22 blocker
+
+## Current Branch State
+- Repo: `/Users/chek/repos/desmos2usd-carey`
+- Branch: `fix/student-fixture-usdz-export`
+- Push target: `chektien:fix/student-fixture-usdz-export`
+- HEAD before this tranche: `72f80ae Record S2-01B visual retry blocker`
+
+## Completed This Tranche
+- Targeted fixture: `[4B] 3D Diagram - S2-01 Group B.json`
+- Desmos URL: `https://www.desmos.com/3d/27v0xuv64m`
+- Outcome: blocked, no exporter/viewer code change.
+- Reason: S2-01B remains structurally complete (`143 prims / 0 unsupported / valid true`), but Chek's open issue is visual and every live Desmos/viewer capture path available here is still blocked. A general code fix would be speculative without rendered Desmos evidence, rendered viewer evidence, or fresh concrete mismatch details.
+- Preserved S2-08 Group E and S2-09 Group F as regression guards via fresh offline precheck and projection evidence.
+
+## Evidence
+- Evidence directory: `artifacts/fixture_usdz/review_evidence/20260428_s201_group_b_ralph_visual_retry_22/`
+- Files:
+  - `capture_results.json`
+  - `assessment.md`
+  - `projection_results.json`
+  - `S2-01_Group_B_projection.png`
+  - `S2-01_Group_B_projection.ppm`
+  - `S2-01_Group_B_projection.usda`
+  - `S2-01_Group_B_projection.usdz`
+  - `S2-01_Group_B_projection.report.json`
+  - `S2-08_Group_E_projection_guard.png`
+  - `S2-08_Group_E_projection_guard.ppm`
+  - `S2-08_Group_E_projection_guard.usda`
+  - `S2-08_Group_E_projection_guard.usdz`
+  - `S2-08_Group_E_projection_guard.report.json`
+  - `S2-09_Group_F_projection_guard.png`
+  - `S2-09_Group_F_projection_guard.ppm`
+  - `S2-09_Group_F_projection_guard.usda`
+  - `S2-09_Group_F_projection_guard.usdz`
+  - `S2-09_Group_F_projection_guard.report.json`
+  - `precheck/[4B] 3D Diagram - S2-01 Group B.usda`
+  - `precheck/[4B] 3D Diagram - S2-01 Group B.usdz`
+  - `precheck/[4B] 3D Diagram - S2-01 Group B.report.json`
+  - `precheck/[4B] 3D Diagram - S2-08 Group E.usda`
+  - `precheck/[4B] 3D Diagram - S2-08 Group E.usdz`
+  - `precheck/[4B] 3D Diagram - S2-08 Group E.report.json`
+  - `precheck/[4B] 3D Diagram - S2-09 Group F.usda`
+  - `precheck/[4B] 3D Diagram - S2-09 Group F.usdz`
+  - `precheck/[4B] 3D Diagram - S2-09 Group F.report.json`
+  - `precheck/summary.json`
+- Browser/live viewer blockers:
+  - Playwright Desmos navigation to `https://www.desmos.com/3d/27v0xuv64m` returned `user cancelled MCP tool call`.
+  - Chrome DevTools Desmos navigation to `https://www.desmos.com/3d/27v0xuv64m` returned `user cancelled MCP tool call`.
+  - Tailscale route checks for root, viewer, and summary failed with `curl: (6) Could not resolve host: chq.singapura-broadnose.ts.net`.
+  - Direct Desmos route check failed with `curl: (6) Could not resolve host: www.desmos.com`.
+  - Local viewer server startup failed: `PermissionError: [Errno 1] Operation not permitted` for `python3 -m http.server 8765 --bind 127.0.0.1`.
+  - Chrome DevTools `file://` viewer navigation returned `user cancelled MCP tool call`; Playwright `file://` viewer navigation also returned `user cancelled MCP tool call`.
+  - Headless Google Chrome and Brave `file://` viewer screenshot attempts exited `-1` and did not create screenshots.
+- Visual claim: no live Desmos/viewer parity claim. The PNGs are deterministic orthographic projection evidence only.
+
+## Metrics
+- Before/after tracked S2-01B metrics unchanged: `143 prims / 0 unsupported / valid true / success`.
+- S2-01B offline precheck/projection: `143 prims / 0 unsupported / valid true / success`.
+- S2-08 Group E guard precheck/projection: `87 prims / 0 unsupported / valid true / success`.
+- S2-09 Group F guard precheck/projection: `27 prims / 0 unsupported / valid true / success`.
+- Overall tracked fixture summary unchanged: 71 fixtures; 50 success, 21 partial, 0 error, acceptance not met.
+
+## Validation
+- Offline precheck passed: `PYTHONPATH=src python3 -m desmos2usd.validate.fixture_usdz_suite --out artifacts/fixture_usdz/review_evidence/20260428_s201_group_b_ralph_visual_retry_22/precheck --resolution 12 --fixture '[4B] 3D Diagram - S2-01 Group B.json' --fixture '[4B] 3D Diagram - S2-08 Group E.json' --fixture '[4B] 3D Diagram - S2-09 Group F.json'`.
+- Projection regeneration passed for S2-01B, S2-08E, and S2-09F: `143/0`, `87/0`, and `27/0`.
+- `sips` generated projection PNGs for all three fixtures.
+- Viewer JavaScript syntax passed: `node --check viewer/app.js` and `node --check viewer/camera.js`.
+- Focused tests passed: `PYTHONPATH=src:tests python3 -m unittest tests.test_viewer_camera tests.test_visual_preview tests.test_fixture_usdz_suite tests.test_student_fixture_regressions` ran 101 tests OK.
+- Full unittest discovery passed: `PYTHONPATH=src:tests python3 -m unittest discover -s tests` ran 174 tests OK.
+- Report-vs-USDA consistency checked for S2-01B, S2-08E, and S2-09F projection artifacts: `143/143`, `87/87`, and `27/27`.
+- JSON validity checked for tracked `summary.json`, `capture_results.json`, `projection_results.json`, all three projection reports, and precheck `summary.json`.
+- Projection PNG dimensions checked with `sips`: all three are `776x256`.
+- `git diff --check`: passed.
+
+## Commit / Push
+- Blocked in this HOME Codex turn: `.git` is not writable from this sandbox (`test -w .git` returned nonzero), so commit/push must be done from the main environment.
+- Staging attempt failed with `fatal: Unable to create '/Users/chek/repos/desmos2usd-carey/.git/index.lock': Operation not permitted`.
+- Suggested commit subject: `Record S2-01B visual retry blocker`.
+- Evidence directory is ignored by `.gitignore`; include it with:
+  - `git add -f artifacts/fixture_usdz/review_evidence/20260428_s201_group_b_ralph_visual_retry_22`
+- Also stage tracked docs:
+  - `git add implementation/STATE.md implementation/handoff.md`
+- Then commit and push:
+  - `git commit --author="chektien <www@ch3k.com>" -m "Record S2-01B visual retry blocker"`
+  - `git push chektien fix/student-fixture-usdz-export`
+
+## Review Links
+- Route verification from this environment failed for root/viewer/summary with `curl: (6) Could not resolve host: chq.singapura-broadnose.ts.net`.
+- S2-01 Group B Desmos: `https://www.desmos.com/3d/27v0xuv64m`
+- S2-01 Group B viewer: `https://chq.singapura-broadnose.ts.net/viewer/?usda=..%2Fartifacts%2Ffixture_usdz%2F%5B4B%5D%203D%20Diagram%20-%20S2-01%20Group%20B.usda&label=S2-01%20Group%20B`
+- S2-08 Group E Desmos: `https://www.desmos.com/3d/g59jqe6nxy`
+- S2-08 Group E viewer: `https://chq.singapura-broadnose.ts.net/viewer/?usda=..%2Fartifacts%2Ffixture_usdz%2F%5B4B%5D%203D%20Diagram%20-%20S2-08%20Group%20E.usda&label=S2-08%20Group%20E`
+- S2-09 Group F Desmos: `https://www.desmos.com/3d/umjxv6ahck`
+- S2-09 Group F viewer: `https://chq.singapura-broadnose.ts.net/viewer/?usda=..%2Fartifacts%2Ffixture_usdz%2F%5B4B%5D%203D%20Diagram%20-%20S2-09%20Group%20F.usda&label=S2-09%20Group%20F`
+
+## Remaining Mismatch / Next Wake Instructions
+1. Ask Chek to review S2-01B in the direct viewer link against the Desmos URL, or provide a fresh screenshot/description of what looks wrong.
+2. If Chek still reports S2-01B wrong, continue S2-01B only with that visual feedback as concrete blocker context.
+3. If Chek accepts S2-01B or does not reopen it, advance to tomorrow's next largest priority gap: S2-09 Group A (`https://www.desmos.com/3d/gk9kr8h9ki`), currently `22 prims / 40 unsupported`.
+4. Keep S2-08E and S2-09F as regression guards.
+
+# Handoff: 2026-04-28 09:08 SGT - S2-01B visual retry 21 blocker
+
+## Current Branch State
+- Repo: `/Users/chek/repos/desmos2usd-carey`
+- Branch: `fix/student-fixture-usdz-export`
+- Push target: `chektien:fix/student-fixture-usdz-export`
+- HEAD before this tranche: `51604bc Record S2-01B visual retry blocker`
+
+## Completed This Tranche
+- Targeted fixture: `[4B] 3D Diagram - S2-01 Group B.json`
+- Desmos URL: `https://www.desmos.com/3d/27v0xuv64m`
+- Outcome: blocked, no exporter/viewer code change.
+- Reason: S2-01B remains structurally complete (`143 prims / 0 unsupported / valid true`), but Chek's open issue is visual and every live Desmos/viewer capture path available here is still blocked. A general code fix would be speculative without rendered Desmos evidence, rendered viewer evidence, or fresh concrete mismatch details.
+- Preserved S2-08 Group E and S2-09 Group F as regression guards via fresh offline precheck and projection evidence.
+
+## Evidence
+- Evidence directory: `artifacts/fixture_usdz/review_evidence/20260428_s201_group_b_ralph_visual_retry_21/`
+- Files:
+  - `capture_results.json`
+  - `assessment.md`
+  - `projection_results.json`
+  - `S2-01_Group_B_projection.png`
+  - `S2-01_Group_B_projection.ppm`
+  - `S2-01_Group_B_projection.usda`
+  - `S2-01_Group_B_projection.usdz`
+  - `S2-01_Group_B_projection.report.json`
+  - `S2-08_Group_E_projection_guard.png`
+  - `S2-08_Group_E_projection_guard.ppm`
+  - `S2-08_Group_E_projection_guard.usda`
+  - `S2-08_Group_E_projection_guard.usdz`
+  - `S2-08_Group_E_projection_guard.report.json`
+  - `S2-09_Group_F_projection_guard.png`
+  - `S2-09_Group_F_projection_guard.ppm`
+  - `S2-09_Group_F_projection_guard.usda`
+  - `S2-09_Group_F_projection_guard.usdz`
+  - `S2-09_Group_F_projection_guard.report.json`
+  - `precheck/[4B] 3D Diagram - S2-01 Group B.usda`
+  - `precheck/[4B] 3D Diagram - S2-01 Group B.usdz`
+  - `precheck/[4B] 3D Diagram - S2-01 Group B.report.json`
+  - `precheck/[4B] 3D Diagram - S2-08 Group E.usda`
+  - `precheck/[4B] 3D Diagram - S2-08 Group E.usdz`
+  - `precheck/[4B] 3D Diagram - S2-08 Group E.report.json`
+  - `precheck/[4B] 3D Diagram - S2-09 Group F.usda`
+  - `precheck/[4B] 3D Diagram - S2-09 Group F.usdz`
+  - `precheck/[4B] 3D Diagram - S2-09 Group F.report.json`
+  - `precheck/summary.json`
+- Browser/live viewer blockers:
+  - Playwright Desmos navigation to `https://www.desmos.com/3d/27v0xuv64m` returned `user cancelled MCP tool call`.
+  - Chrome DevTools Desmos navigation to `https://www.desmos.com/3d/27v0xuv64m` returned `user cancelled MCP tool call`.
+  - Tailscale route checks for root, viewer, and summary failed with `curl: (6) Could not resolve host: chq.singapura-broadnose.ts.net`.
+  - Direct Desmos route check failed with `curl: (6) Could not resolve host: www.desmos.com`.
+  - Local viewer server startup failed: `PermissionError: [Errno 1] Operation not permitted` for `python3 -m http.server 8765 --bind 127.0.0.1`.
+  - Chrome DevTools `file://` viewer navigation returned `user cancelled MCP tool call`; Playwright `file://` viewer navigation also returned `user cancelled MCP tool call`.
+  - Headless Google Chrome and Brave `file://` viewer screenshot attempts exited `-1` and did not create screenshots.
+- Visual claim: no live Desmos/viewer parity claim. The PNGs are deterministic orthographic projection evidence only.
+
+## Metrics
+- Before/after tracked S2-01B metrics unchanged: `143 prims / 0 unsupported / valid true / success`.
+- S2-01B offline precheck/projection: `143 prims / 0 unsupported / valid true / success`.
+- S2-08 Group E guard precheck/projection: `87 prims / 0 unsupported / valid true / success`.
+- S2-09 Group F guard precheck/projection: `27 prims / 0 unsupported / valid true / success`.
+- Overall tracked fixture summary unchanged: 71 fixtures; 50 success, 21 partial, 0 error, acceptance not met.
+
+## Validation
+- Offline precheck passed: `PYTHONPATH=src python3 -m desmos2usd.validate.fixture_usdz_suite --out artifacts/fixture_usdz/review_evidence/20260428_s201_group_b_ralph_visual_retry_21/precheck --resolution 12 --fixture '[4B] 3D Diagram - S2-01 Group B.json' --fixture '[4B] 3D Diagram - S2-08 Group E.json' --fixture '[4B] 3D Diagram - S2-09 Group F.json'`.
+- Projection regeneration passed for S2-01B, S2-08E, and S2-09F: `143/0`, `87/0`, and `27/0`.
+- `sips` generated projection PNGs for all three fixtures.
+- Viewer JavaScript syntax passed: `node --check viewer/app.js` and `node --check viewer/camera.js`.
+- Focused tests passed: `PYTHONPATH=src:tests python3 -m unittest tests.test_viewer_camera tests.test_visual_preview tests.test_fixture_usdz_suite tests.test_student_fixture_regressions` ran 101 tests OK.
+- Full unittest discovery passed: `PYTHONPATH=src:tests python3 -m unittest discover -s tests` ran 174 tests OK.
+- Report-vs-USDA consistency checked for S2-01B, S2-08E, and S2-09F projection artifacts: `143/143`, `87/87`, and `27/27`.
+- JSON validity checked for tracked `summary.json`, `capture_results.json`, `projection_results.json`, and precheck `summary.json`.
+- Projection PNG dimensions checked with `sips`: all three are `776x256`.
+- `git diff --check`: passed.
+
+## Commit / Push
+- Blocked in this HOME Codex turn: `.git` is not writable from this sandbox (`test -w .git` returned nonzero), so commit/push must be done from the main environment.
+- Staging attempt failed with `fatal: Unable to create '/Users/chek/repos/desmos2usd-carey/.git/index.lock': Operation not permitted`.
+- Suggested commit subject: `Record S2-01B visual retry blocker`.
+- Evidence directory is ignored by `.gitignore`; include it with:
+  - `git add -f artifacts/fixture_usdz/review_evidence/20260428_s201_group_b_ralph_visual_retry_21`
+- Also stage tracked docs:
+  - `git add implementation/STATE.md implementation/handoff.md`
+- Then commit and push:
+  - `git commit --author="chektien <www@ch3k.com>" -m "Record S2-01B visual retry blocker"`
+  - `git push chektien fix/student-fixture-usdz-export`
+
+## Review Links
+- Route verification from this environment failed for root/viewer/summary with `curl: (6) Could not resolve host: chq.singapura-broadnose.ts.net`.
+- S2-01 Group B Desmos: `https://www.desmos.com/3d/27v0xuv64m`
+- S2-01 Group B viewer: `https://chq.singapura-broadnose.ts.net/viewer/?usda=..%2Fartifacts%2Ffixture_usdz%2F%5B4B%5D%203D%20Diagram%20-%20S2-01%20Group%20B.usda&label=S2-01%20Group%20B`
+- S2-08 Group E Desmos: `https://www.desmos.com/3d/g59jqe6nxy`
+- S2-08 Group E viewer: `https://chq.singapura-broadnose.ts.net/viewer/?usda=..%2Fartifacts%2Ffixture_usdz%2F%5B4B%5D%203D%20Diagram%20-%20S2-08%20Group%20E.usda&label=S2-08%20Group%20E`
+- S2-09 Group F Desmos: `https://www.desmos.com/3d/umjxv6ahck`
+- S2-09 Group F viewer: `https://chq.singapura-broadnose.ts.net/viewer/?usda=..%2Fartifacts%2Ffixture_usdz%2F%5B4B%5D%203D%20Diagram%20-%20S2-09%20Group%20F.usda&label=S2-09%20Group%20F`
+
+## Remaining Mismatch / Next Wake Instructions
+1. Ask Chek to review S2-01B in the direct viewer link against the Desmos URL, or provide a fresh screenshot/description of what looks wrong.
+2. If Chek still reports S2-01B wrong, continue S2-01B only with that visual feedback as concrete blocker context.
+3. If Chek accepts S2-01B or does not reopen it, advance to tomorrow's next largest priority gap: S2-09 Group A (`https://www.desmos.com/3d/gk9kr8h9ki`), currently `22 prims / 40 unsupported`.
+4. Keep S2-08E and S2-09F as regression guards.
+
+# Handoff: 2026-04-28 07:26 SGT - S2-01B visual retry 20 blocker
+
+## Current Branch State
+- Repo: `/Users/chek/repos/desmos2usd-carey`
+- Branch: `fix/student-fixture-usdz-export`
+- Push target: `chektien:fix/student-fixture-usdz-export`
+- HEAD before this tranche: `756b3ab Record S2-01B visual retry blocker`
+
+## Completed This Tranche
+- Targeted fixture: `[4B] 3D Diagram - S2-01 Group B.json`
+- Desmos URL: `https://www.desmos.com/3d/27v0xuv64m`
+- Outcome: blocked, no exporter/viewer code change.
+- Reason: S2-01B remains structurally complete (`143 prims / 0 unsupported / valid true`), but Chek's open issue is visual and every live Desmos/viewer capture path available here is still blocked. A general code fix would be speculative without rendered Desmos evidence, rendered viewer evidence, or fresh concrete mismatch details.
+- Preserved S2-08 Group E and S2-09 Group F as regression guards via fresh offline precheck and projection evidence.
+
+## Evidence
+- Evidence directory: `artifacts/fixture_usdz/review_evidence/20260428_s201_group_b_ralph_visual_retry_20/`
+- Files:
+  - `capture_results.json`
+  - `assessment.md`
+  - `projection_results.json`
+  - `S2-01_Group_B_projection.png`
+  - `S2-01_Group_B_projection.ppm`
+  - `S2-01_Group_B_projection.usda`
+  - `S2-01_Group_B_projection.usdz`
+  - `S2-01_Group_B_projection.report.json`
+  - `S2-08_Group_E_projection_guard.png`
+  - `S2-08_Group_E_projection_guard.ppm`
+  - `S2-08_Group_E_projection_guard.usda`
+  - `S2-08_Group_E_projection_guard.usdz`
+  - `S2-08_Group_E_projection_guard.report.json`
+  - `S2-09_Group_F_projection_guard.png`
+  - `S2-09_Group_F_projection_guard.ppm`
+  - `S2-09_Group_F_projection_guard.usda`
+  - `S2-09_Group_F_projection_guard.usdz`
+  - `S2-09_Group_F_projection_guard.report.json`
+  - `precheck/[4B] 3D Diagram - S2-01 Group B.usda`
+  - `precheck/[4B] 3D Diagram - S2-01 Group B.usdz`
+  - `precheck/[4B] 3D Diagram - S2-01 Group B.report.json`
+  - `precheck/[4B] 3D Diagram - S2-08 Group E.usda`
+  - `precheck/[4B] 3D Diagram - S2-08 Group E.usdz`
+  - `precheck/[4B] 3D Diagram - S2-08 Group E.report.json`
+  - `precheck/[4B] 3D Diagram - S2-09 Group F.usda`
+  - `precheck/[4B] 3D Diagram - S2-09 Group F.usdz`
+  - `precheck/[4B] 3D Diagram - S2-09 Group F.report.json`
+  - `precheck/summary.json`
+- Browser/live viewer blockers:
+  - Playwright Desmos navigation to `https://www.desmos.com/3d/27v0xuv64m` returned `user cancelled MCP tool call`.
+  - Chrome DevTools Desmos navigation to `https://www.desmos.com/3d/27v0xuv64m` returned `user cancelled MCP tool call`.
+  - Tailscale route checks for root, viewer, and summary failed with `curl: (6) Could not resolve host: chq.singapura-broadnose.ts.net`.
+  - Direct Desmos route check failed with `curl: (6) Could not resolve host: www.desmos.com`.
+  - Local viewer server startup failed: `PermissionError: [Errno 1] Operation not permitted` for `python3 -m http.server 8765 --bind 127.0.0.1`.
+  - Chrome DevTools `file://` viewer navigation returned `user cancelled MCP tool call`; Playwright `file://` viewer navigation also returned `user cancelled MCP tool call`.
+  - Headless Google Chrome and Brave `file://` viewer screenshot attempts exited `-1` and did not create screenshots.
+  - URL CLI conversion against Desmos with `--refresh` failed DNS resolution for all Desmos endpoints.
+- Visual claim: no live Desmos/viewer parity claim. The PNGs are deterministic orthographic projection evidence only.
+
+## Metrics
+- Before/after tracked S2-01B metrics unchanged: `143 prims / 0 unsupported / valid true / success`.
+- S2-01B offline precheck/projection: `143 prims / 0 unsupported / valid true / success`.
+- S2-08 Group E guard precheck/projection: `87 prims / 0 unsupported / valid true / success`.
+- S2-09 Group F guard precheck/projection: `27 prims / 0 unsupported / valid true / success`.
+- Overall tracked fixture summary unchanged: 71 fixtures; 50 success, 21 partial, 0 error, acceptance not met.
+
+## Validation
+- Offline precheck passed: `PYTHONPATH=src python3 -m desmos2usd.validate.fixture_usdz_suite --out artifacts/fixture_usdz/review_evidence/20260428_s201_group_b_ralph_visual_retry_20/precheck --resolution 12 --fixture '[4B] 3D Diagram - S2-01 Group B.json' --fixture '[4B] 3D Diagram - S2-08 Group E.json' --fixture '[4B] 3D Diagram - S2-09 Group F.json'`.
+- Projection regeneration passed for S2-01B, S2-08E, and S2-09F: `143/0`, `87/0`, and `27/0`.
+- `sips` generated projection PNGs for all three fixtures.
+- Viewer JavaScript syntax passed: `node --check viewer/app.js` and `node --check viewer/camera.js`.
+- Focused tests passed: `PYTHONPATH=src:tests python3 -m unittest tests.test_viewer_camera tests.test_visual_preview tests.test_fixture_usdz_suite tests.test_student_fixture_regressions` ran 101 tests OK.
+- Full unittest discovery passed: `PYTHONPATH=src:tests python3 -m unittest discover -s tests` ran 174 tests OK.
+- Report-vs-USDA consistency checked for S2-01B, S2-08E, and S2-09F projection artifacts: `143/143`, `87/87`, and `27/27`.
+- JSON validity checked for tracked `summary.json`, `capture_results.json`, `projection_results.json`, and precheck `summary.json`.
+- Projection PNG dimensions checked with `sips`: all three are `776x256`.
+- `git diff --check`: passed.
+
+## Commit / Push
+- Blocked in this HOME Codex turn: `.git` is not writable from this sandbox (`test -w .git` returned nonzero), so commit/push must be done from the main environment.
+- Staging attempt failed with `fatal: Unable to create '/Users/chek/repos/desmos2usd-carey/.git/index.lock': Operation not permitted`.
+- Suggested commit subject: `Record S2-01B visual retry blocker`.
+- Evidence directory is ignored by `.gitignore`; include it with:
+  - `git add -f artifacts/fixture_usdz/review_evidence/20260428_s201_group_b_ralph_visual_retry_20`
+- Also stage tracked docs:
+  - `git add implementation/STATE.md implementation/handoff.md`
+- Then commit and push:
+  - `git commit --author="chektien <www@ch3k.com>" -m "Record S2-01B visual retry blocker"`
+  - `git push chektien fix/student-fixture-usdz-export`
+
+## Review Links
+- Route verification from this environment failed for root/viewer/summary with `curl: (6) Could not resolve host: chq.singapura-broadnose.ts.net`.
+- S2-01 Group B Desmos: `https://www.desmos.com/3d/27v0xuv64m`
+- S2-01 Group B viewer: `https://chq.singapura-broadnose.ts.net/viewer/?usda=..%2Fartifacts%2Ffixture_usdz%2F%5B4B%5D%203D%20Diagram%20-%20S2-01%20Group%20B.usda&label=S2-01%20Group%20B`
+- S2-08 Group E Desmos: `https://www.desmos.com/3d/g59jqe6nxy`
+- S2-08 Group E viewer: `https://chq.singapura-broadnose.ts.net/viewer/?usda=..%2Fartifacts%2Ffixture_usdz%2F%5B4B%5D%203D%20Diagram%20-%20S2-08%20Group%20E.usda&label=S2-08%20Group%20E`
+- S2-09 Group F Desmos: `https://www.desmos.com/3d/umjxv6ahck`
+- S2-09 Group F viewer: `https://chq.singapura-broadnose.ts.net/viewer/?usda=..%2Fartifacts%2Ffixture_usdz%2F%5B4B%5D%203D%20Diagram%20-%20S2-09%20Group%20F.usda&label=S2-09%20Group%20F`
+
+## Remaining Mismatch / Next Wake Instructions
+1. Ask Chek to review S2-01B in the direct viewer link against the Desmos URL, or provide a fresh screenshot/description of what looks wrong.
+2. If Chek still reports S2-01B wrong, continue S2-01B only with that visual feedback as concrete blocker context.
+3. If Chek accepts S2-01B or does not reopen it, advance to tomorrow's next largest priority gap: S2-09 Group A (`https://www.desmos.com/3d/gk9kr8h9ki`), currently `22 prims / 40 unsupported`.
+4. Keep S2-08E and S2-09F as regression guards.
+
+# Handoff: 2026-04-28 06:51 SGT - S2-01B visual retry 19 blocker
+
+## Current Branch State
+- Repo: `/Users/chek/repos/desmos2usd-carey`
+- Branch: `fix/student-fixture-usdz-export`
+- Push target: `chektien:fix/student-fixture-usdz-export`
+- HEAD before this tranche: `156e3b5 Record S2-01B visual retry blocker`
+
+## Completed This Tranche
+- Targeted fixture: `[4B] 3D Diagram - S2-01 Group B.json`
+- Desmos URL: `https://www.desmos.com/3d/27v0xuv64m`
+- Outcome: blocked, no exporter/viewer code change.
+- Reason: S2-01B remains structurally complete (`143 prims / 0 unsupported / valid true`), but Chek's open issue is visual and every live Desmos/viewer capture path available here is still blocked. A general code fix would be speculative without rendered Desmos evidence, rendered viewer evidence, or fresh concrete mismatch details.
+- Preserved S2-08 Group E and S2-09 Group F as regression guards via fresh offline precheck and projection evidence.
+
+## Evidence
+- Evidence directory: `artifacts/fixture_usdz/review_evidence/20260428_s201_group_b_ralph_visual_retry_19/`
+- Files:
+  - `capture_results.json`
+  - `assessment.md`
+  - `projection_results.json`
+  - `S2-01_Group_B_projection.png`
+  - `S2-01_Group_B_projection.ppm`
+  - `S2-01_Group_B_projection.usda`
+  - `S2-01_Group_B_projection.usdz`
+  - `S2-01_Group_B_projection.report.json`
+  - `S2-08_Group_E_projection_guard.png`
+  - `S2-08_Group_E_projection_guard.ppm`
+  - `S2-08_Group_E_projection_guard.usda`
+  - `S2-08_Group_E_projection_guard.usdz`
+  - `S2-08_Group_E_projection_guard.report.json`
+  - `S2-09_Group_F_projection_guard.png`
+  - `S2-09_Group_F_projection_guard.ppm`
+  - `S2-09_Group_F_projection_guard.usda`
+  - `S2-09_Group_F_projection_guard.usdz`
+  - `S2-09_Group_F_projection_guard.report.json`
+  - `precheck/[4B] 3D Diagram - S2-01 Group B.usda`
+  - `precheck/[4B] 3D Diagram - S2-01 Group B.usdz`
+  - `precheck/[4B] 3D Diagram - S2-01 Group B.report.json`
+  - `precheck/[4B] 3D Diagram - S2-08 Group E.usda`
+  - `precheck/[4B] 3D Diagram - S2-08 Group E.usdz`
+  - `precheck/[4B] 3D Diagram - S2-08 Group E.report.json`
+  - `precheck/[4B] 3D Diagram - S2-09 Group F.usda`
+  - `precheck/[4B] 3D Diagram - S2-09 Group F.usdz`
+  - `precheck/[4B] 3D Diagram - S2-09 Group F.report.json`
+  - `precheck/summary.json`
+- Browser/live viewer blockers:
+  - Playwright Desmos navigation to `https://www.desmos.com/3d/27v0xuv64m` returned `user cancelled MCP tool call`.
+  - Chrome DevTools Desmos navigation to `https://www.desmos.com/3d/27v0xuv64m` returned `user cancelled MCP tool call`.
+  - Tailscale route checks for root, viewer, and summary failed with `curl: (6) Could not resolve host: chq.singapura-broadnose.ts.net`.
+  - Direct Desmos route check failed with `curl: (6) Could not resolve host: www.desmos.com`.
+  - Local viewer server startup failed: `PermissionError: [Errno 1] Operation not permitted` for `python3 -m http.server 8765 --bind 127.0.0.1`.
+  - Chrome DevTools `file://` viewer navigation returned `user cancelled MCP tool call`; Playwright `file://` viewer navigation also returned `user cancelled MCP tool call`.
+  - Headless Google Chrome and Brave `file://` viewer screenshot attempts exited `-1` and did not create screenshots.
+  - URL CLI conversion against Desmos with `--refresh` failed DNS resolution for all Desmos endpoints.
+- Visual claim: no live Desmos/viewer parity claim. The PNGs are deterministic orthographic projection evidence only.
+
+## Metrics
+- Before/after tracked S2-01B metrics unchanged: `143 prims / 0 unsupported / valid true / success`.
+- S2-01B offline precheck/projection: `143 prims / 0 unsupported / valid true / success`.
+- S2-08 Group E guard precheck/projection: `87 prims / 0 unsupported / valid true / success`.
+- S2-09 Group F guard precheck/projection: `27 prims / 0 unsupported / valid true / success`.
+- Overall tracked fixture summary unchanged: 71 fixtures; 50 success, 21 partial, 0 error, acceptance not met.
+
+## Validation
+- Offline precheck passed: `PYTHONPATH=src python3 -m desmos2usd.validate.fixture_usdz_suite --out artifacts/fixture_usdz/review_evidence/20260428_s201_group_b_ralph_visual_retry_19/precheck --resolution 12 --fixture '[4B] 3D Diagram - S2-01 Group B.json' --fixture '[4B] 3D Diagram - S2-08 Group E.json' --fixture '[4B] 3D Diagram - S2-09 Group F.json'`.
+- Projection regeneration passed for S2-01B, S2-08E, and S2-09F: `143/0`, `87/0`, and `27/0`.
+- `sips` generated projection PNGs for all three fixtures.
+- Viewer JavaScript syntax passed: `node --check viewer/app.js` and `node --check viewer/camera.js`.
+- Focused tests passed: `PYTHONPATH=src:tests python3 -m unittest tests.test_viewer_camera tests.test_visual_preview tests.test_fixture_usdz_suite tests.test_student_fixture_regressions` ran 101 tests OK.
+- Full unittest discovery passed: `PYTHONPATH=src:tests python3 -m unittest discover -s tests` ran 174 tests OK.
+- Report-vs-USDA consistency checked for S2-01B, S2-08E, and S2-09F projection artifacts: `143/143`, `87/87`, and `27/27`.
+- JSON validity checked for tracked `summary.json`, `capture_results.json`, `projection_results.json`, and precheck `summary.json`.
+- Projection PNG dimensions checked with `sips`: all three are `776x256`.
+
+## Commit / Push
+- `git diff --check`: passed.
+- Blocked in this HOME Codex turn: staging failed with `fatal: Unable to create '/Users/chek/repos/desmos2usd-carey/.git/index.lock': Operation not permitted`.
+- `.git` is not writable from this sandbox (`test -w .git` returned nonzero), so commit/push must be done from the main environment.
+- Suggested commit subject: `Record S2-01B visual retry blocker`.
+- Evidence directory is ignored by `.gitignore`; include it with:
+  - `git add -f artifacts/fixture_usdz/review_evidence/20260428_s201_group_b_ralph_visual_retry_19`
+
+## Review Links
+- Route verification from this environment failed for root/viewer/summary with `curl: (6) Could not resolve host: chq.singapura-broadnose.ts.net`.
+- S2-01 Group B Desmos: `https://www.desmos.com/3d/27v0xuv64m`
+- S2-01 Group B viewer: `https://chq.singapura-broadnose.ts.net/viewer/?usda=..%2Fartifacts%2Ffixture_usdz%2F%5B4B%5D%203D%20Diagram%20-%20S2-01%20Group%20B.usda&label=S2-01%20Group%20B`
+- S2-08 Group E Desmos: `https://www.desmos.com/3d/g59jqe6nxy`
+- S2-08 Group E viewer: `https://chq.singapura-broadnose.ts.net/viewer/?usda=..%2Fartifacts%2Ffixture_usdz%2F%5B4B%5D%203D%20Diagram%20-%20S2-08%20Group%20E.usda&label=S2-08%20Group%20E`
+- S2-09 Group F Desmos: `https://www.desmos.com/3d/umjxv6ahck`
+- S2-09 Group F viewer: `https://chq.singapura-broadnose.ts.net/viewer/?usda=..%2Fartifacts%2Ffixture_usdz%2F%5B4B%5D%203D%20Diagram%20-%20S2-09%20Group%20F.usda&label=S2-09%20Group%20F`
+
+## Remaining Mismatch / Next Wake Instructions
+1. Ask Chek to review S2-01B in the direct viewer link against the Desmos URL, or provide a fresh screenshot/description of what looks wrong.
+2. If Chek still reports S2-01B wrong, continue S2-01B only with that visual feedback as concrete blocker context.
+3. If Chek accepts S2-01B or does not reopen it, advance to tomorrow's next largest priority gap: S2-09 Group A (`https://www.desmos.com/3d/gk9kr8h9ki`), currently `22 prims / 40 unsupported`.
+4. Keep S2-08E and S2-09F as regression guards.
+
+# Handoff: 2026-04-28 06:25 SGT - S2-01B visual retry 18 blocker
+
+## Current Branch State
+- Repo: `/Users/chek/repos/desmos2usd-carey`
+- Branch: `fix/student-fixture-usdz-export`
+- Push target: `chektien:fix/student-fixture-usdz-export`
+- HEAD before this tranche: `8dccf36 Record S2-01B visual retry blocker`
+
+## Completed This Tranche
+- Targeted fixture: `[4B] 3D Diagram - S2-01 Group B.json`
+- Desmos URL: `https://www.desmos.com/3d/27v0xuv64m`
+- Outcome: blocked, no exporter/viewer code change.
+- Reason: S2-01B remains structurally complete (`143 prims / 0 unsupported / valid true`), but Chek's open issue is visual and every live Desmos/viewer capture path available here is still blocked. A general code fix would be speculative without rendered Desmos evidence, rendered viewer evidence, or fresh concrete mismatch details.
+- Preserved S2-08 Group E and S2-09 Group F as regression guards via fresh offline precheck and projection evidence.
+
+## Evidence
+- Evidence directory: `artifacts/fixture_usdz/review_evidence/20260428_s201_group_b_ralph_visual_retry_18/`
+- Files:
+  - `capture_results.json`
+  - `assessment.md`
+  - `projection_results.json`
+  - `S2-01_Group_B_projection.png`
+  - `S2-01_Group_B_projection.ppm`
+  - `S2-01_Group_B_projection.usda`
+  - `S2-01_Group_B_projection.usdz`
+  - `S2-01_Group_B_projection.report.json`
+  - `S2-08_Group_E_projection_guard.png`
+  - `S2-08_Group_E_projection_guard.ppm`
+  - `S2-08_Group_E_projection_guard.usda`
+  - `S2-08_Group_E_projection_guard.usdz`
+  - `S2-08_Group_E_projection_guard.report.json`
+  - `S2-09_Group_F_projection_guard.png`
+  - `S2-09_Group_F_projection_guard.ppm`
+  - `S2-09_Group_F_projection_guard.usda`
+  - `S2-09_Group_F_projection_guard.usdz`
+  - `S2-09_Group_F_projection_guard.report.json`
+  - `precheck/[4B] 3D Diagram - S2-01 Group B.usda`
+  - `precheck/[4B] 3D Diagram - S2-01 Group B.usdz`
+  - `precheck/[4B] 3D Diagram - S2-01 Group B.report.json`
+  - `precheck/[4B] 3D Diagram - S2-08 Group E.usda`
+  - `precheck/[4B] 3D Diagram - S2-08 Group E.usdz`
+  - `precheck/[4B] 3D Diagram - S2-08 Group E.report.json`
+  - `precheck/[4B] 3D Diagram - S2-09 Group F.usda`
+  - `precheck/[4B] 3D Diagram - S2-09 Group F.usdz`
+  - `precheck/[4B] 3D Diagram - S2-09 Group F.report.json`
+  - `precheck/summary.json`
+- Browser/live viewer blockers:
+  - Playwright Desmos navigation to `https://www.desmos.com/3d/27v0xuv64m` returned `user cancelled MCP tool call`.
+  - Chrome DevTools Desmos navigation to `https://www.desmos.com/3d/27v0xuv64m` returned `user cancelled MCP tool call`.
+  - Tailscale route checks for root, viewer, and summary failed with `curl: (6) Could not resolve host: chq.singapura-broadnose.ts.net`.
+  - Direct Desmos route check failed with `curl: (6) Could not resolve host: www.desmos.com`.
+  - Local viewer server startup failed: `PermissionError: [Errno 1] Operation not permitted` for `python3 -m http.server 8765 --bind 127.0.0.1`.
+  - Chrome DevTools `file://` viewer navigation returned `user cancelled MCP tool call`; Playwright `file://` viewer navigation also returned `user cancelled MCP tool call`.
+  - Headless Google Chrome and Brave `file://` viewer screenshot attempts exited `-1` and did not create screenshots.
+  - URL CLI conversion against Desmos failed DNS resolution for all Desmos endpoints.
+- Visual claim: no live Desmos/viewer parity claim. The PNGs are deterministic offline projection evidence only.
+
+## Metrics
+- Before/after tracked S2-01B metrics unchanged: `143 prims / 0 unsupported / valid true / success`.
+- S2-01B offline precheck/projection: `143 prims / 0 unsupported / valid true / success`.
+- S2-08 Group E guard precheck/projection: `87 prims / 0 unsupported / valid true / success`.
+- S2-09 Group F guard precheck/projection: `27 prims / 0 unsupported / valid true / success`.
+- Overall tracked fixture summary unchanged: 71 fixtures; 50 success, 21 partial, 0 error, acceptance not met.
+
+## Validation
+- Offline precheck passed: `PYTHONPATH=src python3 -m desmos2usd.validate.fixture_usdz_suite --out artifacts/fixture_usdz/review_evidence/20260428_s201_group_b_ralph_visual_retry_18/precheck --resolution 12 --fixture '[4B] 3D Diagram - S2-01 Group B.json' --fixture '[4B] 3D Diagram - S2-08 Group E.json' --fixture '[4B] 3D Diagram - S2-09 Group F.json'`.
+- Projection regeneration passed for S2-01B, S2-08E, and S2-09F: `143/0`, `87/0`, and `27/0`.
+- `sips` generated projection PNGs for all three fixtures.
+- Viewer JavaScript syntax passed: `node --check viewer/app.js` and `node --check viewer/camera.js`.
+- Focused tests passed: `PYTHONPATH=src:tests python3 -m unittest tests.test_viewer_camera tests.test_visual_preview tests.test_fixture_usdz_suite tests.test_student_fixture_regressions` ran 101 tests OK.
+- Full unittest discovery passed: `PYTHONPATH=src:tests python3 -m unittest discover -s tests` ran 174 tests OK.
+- Report-vs-USDA consistency checked for S2-01B, S2-08E, and S2-09F projection artifacts: `143/143`, `87/87`, and `27/27`.
+- JSON validity checked for tracked `summary.json`, `capture_results.json`, `projection_results.json`, and precheck `summary.json`.
+- Projection PNG dimensions checked with `sips`: all three are `776x256`.
+- `git diff --check`: passed.
+
+## Commit / Push
+- Blocked in this HOME Codex turn: staging failed with `fatal: Unable to create '/Users/chek/repos/desmos2usd-carey/.git/index.lock': Operation not permitted`.
+- `.git` is not writable from this sandbox (`test -w .git` returned nonzero), so commit/push must be done from the main environment.
+- Suggested commit subject: `Record S2-01B visual retry blocker`.
+- Evidence directory is ignored by `.gitignore`; include it with:
+  - `git add -f artifacts/fixture_usdz/review_evidence/20260428_s201_group_b_ralph_visual_retry_18`
+
+## Review Links
+- Route verification from this environment failed for root/viewer/summary with `curl: (6) Could not resolve host: chq.singapura-broadnose.ts.net`.
+- S2-01 Group B Desmos: `https://www.desmos.com/3d/27v0xuv64m`
+- S2-01 Group B viewer: `https://chq.singapura-broadnose.ts.net/viewer/?usda=..%2Fartifacts%2Ffixture_usdz%2F%5B4B%5D%203D%20Diagram%20-%20S2-01%20Group%20B.usda&label=S2-01%20Group%20B`
+- S2-08 Group E Desmos: `https://www.desmos.com/3d/g59jqe6nxy`
+- S2-08 Group E viewer: `https://chq.singapura-broadnose.ts.net/viewer/?usda=..%2Fartifacts%2Ffixture_usdz%2F%5B4B%5D%203D%20Diagram%20-%20S2-08%20Group%20E.usda&label=S2-08%20Group%20E`
+- S2-09 Group F Desmos: `https://www.desmos.com/3d/umjxv6ahck`
+- S2-09 Group F viewer: `https://chq.singapura-broadnose.ts.net/viewer/?usda=..%2Fartifacts%2Ffixture_usdz%2F%5B4B%5D%203D%20Diagram%20-%20S2-09%20Group%20F.usda&label=S2-09%20Group%20F`
+
+## Remaining Mismatch / Next Wake Instructions
+1. Ask Chek to review S2-01B in the direct viewer link against the Desmos URL, or provide a fresh screenshot/description of what looks wrong.
+2. If Chek still reports S2-01B wrong, continue S2-01B only with that visual feedback as concrete blocker context.
+3. If Chek accepts S2-01B or does not reopen it, advance to tomorrow's next largest priority gap: S2-09 Group A (`https://www.desmos.com/3d/gk9kr8h9ki`), currently `22 prims / 40 unsupported`.
+4. Keep S2-08E and S2-09F as regression guards.
+
+# Handoff: 2026-04-28 06:05 SGT - S2-01B visual retry 17 blocker
+
+## Current Branch State
+- Repo: `/Users/chek/repos/desmos2usd-carey`
+- Branch: `fix/student-fixture-usdz-export`
+- Push target: `chektien:fix/student-fixture-usdz-export`
+- HEAD before this tranche: `70f417c Record S2-01B visual retry blocker`
+
+## Completed This Tranche
+- Targeted fixture: `[4B] 3D Diagram - S2-01 Group B.json`
+- Desmos URL: `https://www.desmos.com/3d/27v0xuv64m`
+- Outcome: blocked, no exporter/viewer code change.
+- Reason: S2-01B remains structurally complete (`143 prims / 0 unsupported / valid true`), but Chek's open issue is visual and every live Desmos/viewer capture path available here is still blocked. A general code fix would be speculative without rendered Desmos evidence, rendered viewer evidence, or fresh concrete mismatch details.
+- Preserved S2-08 Group E and S2-09 Group F as regression guards via fresh offline precheck and projection evidence.
+
+## Evidence
+- Evidence directory: `artifacts/fixture_usdz/review_evidence/20260428_s201_group_b_ralph_visual_retry_17/`
+- Files:
+  - `capture_results.json`
+  - `assessment.md`
+  - `projection_results.json`
+  - `S2-01_Group_B_projection.png`
+  - `S2-01_Group_B_projection.ppm`
+  - `S2-01_Group_B_projection.usda`
+  - `S2-01_Group_B_projection.usdz`
+  - `S2-01_Group_B_projection.report.json`
+  - `S2-08_Group_E_projection_guard.png`
+  - `S2-08_Group_E_projection_guard.ppm`
+  - `S2-08_Group_E_projection_guard.usda`
+  - `S2-08_Group_E_projection_guard.usdz`
+  - `S2-08_Group_E_projection_guard.report.json`
+  - `S2-09_Group_F_projection_guard.png`
+  - `S2-09_Group_F_projection_guard.ppm`
+  - `S2-09_Group_F_projection_guard.usda`
+  - `S2-09_Group_F_projection_guard.usdz`
+  - `S2-09_Group_F_projection_guard.report.json`
+  - `precheck/[4B] 3D Diagram - S2-01 Group B.usda`
+  - `precheck/[4B] 3D Diagram - S2-01 Group B.usdz`
+  - `precheck/[4B] 3D Diagram - S2-01 Group B.report.json`
+  - `precheck/[4B] 3D Diagram - S2-08 Group E.usda`
+  - `precheck/[4B] 3D Diagram - S2-08 Group E.usdz`
+  - `precheck/[4B] 3D Diagram - S2-08 Group E.report.json`
+  - `precheck/[4B] 3D Diagram - S2-09 Group F.usda`
+  - `precheck/[4B] 3D Diagram - S2-09 Group F.usdz`
+  - `precheck/[4B] 3D Diagram - S2-09 Group F.report.json`
+  - `precheck/summary.json`
+- Browser/live viewer blockers:
+  - Playwright Desmos navigation to `https://www.desmos.com/3d/27v0xuv64m` failed because `chrome-for-testing` is not installed.
+  - Chrome DevTools Desmos navigation to `https://www.desmos.com/3d/27v0xuv64m` returned `user cancelled MCP tool call`.
+  - Tailscale route checks for root, viewer, and summary failed with `curl: (6) Could not resolve host: chq.singapura-broadnose.ts.net`.
+  - Direct Desmos route check failed with `curl: (6) Could not resolve host: www.desmos.com`.
+  - Local viewer server startup failed: `PermissionError: [Errno 1] Operation not permitted` for `python3 -m http.server 8765 --bind 127.0.0.1`.
+  - Chrome DevTools `file://` viewer navigation returned `user cancelled MCP tool call`; Playwright `file://` viewer navigation is blocked by missing `chrome-for-testing`.
+  - Headless Google Chrome and Brave `file://` viewer screenshot attempts exited `134` and did not create screenshots.
+  - URL conversion against Desmos with `--refresh` failed DNS resolution for all Desmos endpoints.
+- Visual claim: no live Desmos/viewer parity claim. The PNGs are deterministic offline projection evidence only.
+
+## Metrics
+- Before/after tracked S2-01B metrics unchanged: `143 prims / 0 unsupported / valid true / success`.
+- S2-01B offline precheck/projection: `143 prims / 0 unsupported / valid true / success`.
+- S2-08 Group E guard precheck/projection: `87 prims / 0 unsupported / valid true / success`.
+- S2-09 Group F guard precheck/projection: `27 prims / 0 unsupported / valid true / success`.
+- Overall tracked fixture summary unchanged: 71 fixtures; 50 success, 21 partial, 0 error, acceptance not met.
+
+## Validation
+- Offline precheck passed: `PYTHONPATH=src python3 -m desmos2usd.validate.fixture_usdz_suite --out artifacts/fixture_usdz/review_evidence/20260428_s201_group_b_ralph_visual_retry_17/precheck --resolution 12 --fixture '[4B] 3D Diagram - S2-01 Group B.json' --fixture '[4B] 3D Diagram - S2-08 Group E.json' --fixture '[4B] 3D Diagram - S2-09 Group F.json'`.
+- Projection regeneration passed for S2-01B, S2-08E, and S2-09F: `143/0`, `87/0`, and `27/0`.
+- `sips` generated projection PNGs for all three fixtures.
+- Viewer JavaScript syntax passed: `node --check viewer/app.js` and `node --check viewer/camera.js`.
+- Focused tests passed: `PYTHONPATH=src:tests python3 -m unittest tests.test_viewer_camera tests.test_visual_preview tests.test_fixture_usdz_suite tests.test_student_fixture_regressions` ran 101 tests OK.
+- Full unittest discovery passed: `PYTHONPATH=src:tests python3 -m unittest discover -s tests` ran 174 tests OK.
+- Report-vs-USDA consistency checked for S2-01B, S2-08E, and S2-09F projection artifacts: `143/143`, `87/87`, and `27/27`.
+- JSON validity checked for tracked `summary.json`, `capture_results.json`, `projection_results.json`, and precheck `summary.json`.
+- Projection PNG dimensions checked with `sips`: all three are `776x256`.
+
+## Commit / Push
+- `git diff --check`: passed.
+- Blocked in this HOME Codex turn: staging failed with `fatal: Unable to create '/Users/chek/repos/desmos2usd-carey/.git/index.lock': Operation not permitted`.
+- `.git` is not writable from this sandbox (`test -w .git` returned nonzero), so commit/push must be done from the main environment.
+- Suggested commit subject: `Record S2-01B visual retry blocker`.
+- Evidence directory is ignored by `.gitignore`; include it with:
+  - `git add -f artifacts/fixture_usdz/review_evidence/20260428_s201_group_b_ralph_visual_retry_17`
+
+## Review Links
+- Route verification from this environment failed for root/viewer/summary with `curl: (6) Could not resolve host: chq.singapura-broadnose.ts.net`.
+- S2-01 Group B Desmos: `https://www.desmos.com/3d/27v0xuv64m`
+- S2-01 Group B viewer: `https://chq.singapura-broadnose.ts.net/viewer/?usda=..%2Fartifacts%2Ffixture_usdz%2F%5B4B%5D%203D%20Diagram%20-%20S2-01%20Group%20B.usda&label=S2-01%20Group%20B`
+- S2-08 Group E Desmos: `https://www.desmos.com/3d/g59jqe6nxy`
+- S2-08 Group E viewer: `https://chq.singapura-broadnose.ts.net/viewer/?usda=..%2Fartifacts%2Ffixture_usdz%2F%5B4B%5D%203D%20Diagram%20-%20S2-08%20Group%20E.usda&label=S2-08%20Group%20E`
+- S2-09 Group F Desmos: `https://www.desmos.com/3d/umjxv6ahck`
+- S2-09 Group F viewer: `https://chq.singapura-broadnose.ts.net/viewer/?usda=..%2Fartifacts%2Ffixture_usdz%2F%5B4B%5D%203D%20Diagram%20-%20S2-09%20Group%20F.usda&label=S2-09%20Group%20F`
+
+## Remaining Mismatch / Next Wake Instructions
+1. Ask Chek to review S2-01B in the direct viewer link against the Desmos URL, or provide a fresh screenshot/description of what looks wrong.
+2. If Chek still reports S2-01B wrong, continue S2-01B only with that visual feedback as concrete blocker context.
+3. If Chek accepts S2-01B or does not reopen it, advance to tomorrow's next largest priority gap: S2-09 Group A (`https://www.desmos.com/3d/gk9kr8h9ki`), currently `22 prims / 40 unsupported`.
+4. Keep S2-08E and S2-09F as regression guards.
+
+# Handoff: 2026-04-28 05:34 SGT - S2-01B visual retry 16 blocker
+
+## Current Branch State
+- Repo: `/Users/chek/repos/desmos2usd-carey`
+- Branch: `fix/student-fixture-usdz-export`
+- Push target: `chektien:fix/student-fixture-usdz-export`
+- HEAD before this tranche: `851c9aa Record S2-01B visual retry blocker`
+
+## Completed This Tranche
+- Targeted fixture: `[4B] 3D Diagram - S2-01 Group B.json`
+- Desmos URL: `https://www.desmos.com/3d/27v0xuv64m`
+- Outcome: blocked, no exporter/viewer code change.
+- Reason: S2-01B remains structurally complete (`143 prims / 0 unsupported / valid true`), but Chek's open issue is visual and every live Desmos/viewer capture path available here is still blocked. A general code fix would be speculative without rendered Desmos evidence, rendered viewer evidence, or fresh concrete mismatch details.
+- Preserved S2-08 Group E and S2-09 Group F as regression guards via fresh offline precheck and projection evidence.
+
+## Evidence
+- Evidence directory: `artifacts/fixture_usdz/review_evidence/20260428_s201_group_b_ralph_visual_retry_16/`
+- Files:
+  - `capture_results.json`
+  - `assessment.md`
+  - `projection_results.json`
+  - `S2-01_Group_B_projection.png`
+  - `S2-01_Group_B_projection.ppm`
+  - `S2-01_Group_B_projection.usda`
+  - `S2-01_Group_B_projection.usdz`
+  - `S2-01_Group_B_projection.report.json`
+  - `S2-08_Group_E_projection_guard.png`
+  - `S2-08_Group_E_projection_guard.ppm`
+  - `S2-08_Group_E_projection_guard.usda`
+  - `S2-08_Group_E_projection_guard.usdz`
+  - `S2-08_Group_E_projection_guard.report.json`
+  - `S2-09_Group_F_projection_guard.png`
+  - `S2-09_Group_F_projection_guard.ppm`
+  - `S2-09_Group_F_projection_guard.usda`
+  - `S2-09_Group_F_projection_guard.usdz`
+  - `S2-09_Group_F_projection_guard.report.json`
+  - `precheck/[4B] 3D Diagram - S2-01 Group B.usda`
+  - `precheck/[4B] 3D Diagram - S2-01 Group B.usdz`
+  - `precheck/[4B] 3D Diagram - S2-01 Group B.report.json`
+  - `precheck/[4B] 3D Diagram - S2-08 Group E.usda`
+  - `precheck/[4B] 3D Diagram - S2-08 Group E.usdz`
+  - `precheck/[4B] 3D Diagram - S2-08 Group E.report.json`
+  - `precheck/[4B] 3D Diagram - S2-09 Group F.usda`
+  - `precheck/[4B] 3D Diagram - S2-09 Group F.usdz`
+  - `precheck/[4B] 3D Diagram - S2-09 Group F.report.json`
+  - `precheck/summary.json`
+- Browser/live viewer blockers:
+  - Playwright Desmos navigation to `https://www.desmos.com/3d/27v0xuv64m` returned `user cancelled MCP tool call`.
+  - Chrome DevTools Desmos navigation to `https://www.desmos.com/3d/27v0xuv64m` returned `user cancelled MCP tool call`.
+  - Tailscale route checks for root, viewer, and summary failed with `curl: (6) Could not resolve host: chq.singapura-broadnose.ts.net`.
+  - Local viewer server startup failed: `PermissionError: [Errno 1] Operation not permitted` for `python3 -m http.server 8765 --bind 127.0.0.1`.
+  - Playwright and Chrome DevTools `file://` viewer navigation returned `user cancelled MCP tool call`.
+  - Headless Chrome `file://` viewer screenshot exited `-1` and did not create a screenshot.
+  - URL conversion against Desmos with `--refresh` failed DNS resolution for all Desmos endpoints.
+- Visual claim: no live Desmos/viewer parity claim. The PNGs are deterministic offline projection evidence only.
+
+## Metrics
+- Before/after tracked S2-01B metrics unchanged: `143 prims / 0 unsupported / valid true / success`.
+- S2-01B offline precheck/projection: `143 prims / 0 unsupported / valid true / success`.
+- S2-08 Group E guard precheck/projection: `87 prims / 0 unsupported / valid true / success`.
+- S2-09 Group F guard precheck/projection: `27 prims / 0 unsupported / valid true / success`.
+- Overall tracked fixture summary unchanged: 71 fixtures; 50 success, 21 partial, 0 error, acceptance not met.
+
+## Validation
+- Offline precheck passed: `PYTHONPATH=src python3 -m desmos2usd.validate.fixture_usdz_suite --out artifacts/fixture_usdz/review_evidence/20260428_s201_group_b_ralph_visual_retry_16/precheck --resolution 12 --fixture '[4B] 3D Diagram - S2-01 Group B.json' --fixture '[4B] 3D Diagram - S2-08 Group E.json' --fixture '[4B] 3D Diagram - S2-09 Group F.json'`.
+- Projection regeneration passed for S2-01B, S2-08E, and S2-09F: `143/0`, `87/0`, and `27/0`.
+- `sips` generated projection PNGs for all three fixtures.
+- Viewer JavaScript syntax passed: `node --check viewer/app.js` and `node --check viewer/camera.js`.
+- Focused tests passed: `PYTHONPATH=src:tests python3 -m unittest tests.test_viewer_camera tests.test_visual_preview tests.test_fixture_usdz_suite tests.test_student_fixture_regressions` ran 101 tests OK.
+- Full unittest discovery passed: `PYTHONPATH=src:tests python3 -m unittest discover -s tests` ran 174 tests OK.
+- Report-vs-USDA consistency checked for S2-01B, S2-08E, and S2-09F projection artifacts: `143/143`, `87/87`, and `27/27`.
+- JSON validity checked for tracked `summary.json`, `capture_results.json`, `projection_results.json`, and precheck `summary.json`.
+- Projection PNG dimensions checked with `sips`: all three are `776x256`.
+- `git diff --check`: passed.
+
+## Commit / Push
+- Blocked in this HOME Codex turn: staging failed with `fatal: Unable to create '/Users/chek/repos/desmos2usd-carey/.git/index.lock': Operation not permitted`.
+- `.git` is not writable from this sandbox (`test -w .git` returned nonzero), so commit/push must be done from the main environment.
+- Suggested commit subject: `Record S2-01B visual retry blocker`.
+- Evidence directory is ignored by `.gitignore`; include it with:
+  - `git add -f artifacts/fixture_usdz/review_evidence/20260428_s201_group_b_ralph_visual_retry_16`
+
+## Review Links
+- Route verification from this environment failed for root/viewer/summary with `curl: (6) Could not resolve host: chq.singapura-broadnose.ts.net`.
+- S2-01 Group B Desmos: `https://www.desmos.com/3d/27v0xuv64m`
+- S2-01 Group B viewer: `https://chq.singapura-broadnose.ts.net/viewer/?usda=..%2Fartifacts%2Ffixture_usdz%2F%5B4B%5D%203D%20Diagram%20-%20S2-01%20Group%20B.usda&label=S2-01%20Group%20B`
+- S2-08 Group E Desmos: `https://www.desmos.com/3d/g59jqe6nxy`
+- S2-08 Group E viewer: `https://chq.singapura-broadnose.ts.net/viewer/?usda=..%2Fartifacts%2Ffixture_usdz%2F%5B4B%5D%203D%20Diagram%20-%20S2-08%20Group%20E.usda&label=S2-08%20Group%20E`
+- S2-09 Group F Desmos: `https://www.desmos.com/3d/umjxv6ahck`
+- S2-09 Group F viewer: `https://chq.singapura-broadnose.ts.net/viewer/?usda=..%2Fartifacts%2Ffixture_usdz%2F%5B4B%5D%203D%20Diagram%20-%20S2-09%20Group%20F.usda&label=S2-09%20Group%20F`
+
+## Remaining Mismatch / Next Wake Instructions
+1. Ask Chek to review S2-01B in the direct viewer link against the Desmos URL, or provide a fresh screenshot/description of what looks wrong.
+2. If Chek still reports S2-01B wrong, continue S2-01B only with that visual feedback as concrete blocker context.
+3. If Chek accepts S2-01B or does not reopen it, advance to tomorrow's next largest priority gap: S2-09 Group A (`https://www.desmos.com/3d/gk9kr8h9ki`), currently `22 prims / 40 unsupported`.
+4. Keep S2-08E and S2-09F as regression guards.
+
+# Handoff: 2026-04-28 05:11 SGT - S2-01B visual retry 15 blocker
+
+## Current Branch State
+- Repo: `/Users/chek/repos/desmos2usd-carey`
+- Branch: `fix/student-fixture-usdz-export`
+- Push target: `chektien:fix/student-fixture-usdz-export`
+- HEAD before this tranche: `03d65f0 Record S2-01B visual retry blocker`
+
+## Completed This Tranche
+- Targeted fixture: `[4B] 3D Diagram - S2-01 Group B.json`
+- Desmos URL: `https://www.desmos.com/3d/27v0xuv64m`
+- Outcome: blocked, no exporter/viewer code change.
+- Reason: S2-01B remains structurally complete (`143 prims / 0 unsupported / valid true`), but Chek's open issue is visual and every live Desmos/viewer capture route available here is still blocked. A new general exporter/viewer fix would be speculative without rendered Desmos evidence, rendered viewer evidence, or fresh visual mismatch details.
+- Preserved S2-08 Group E and S2-09 Group F as regression guards via fresh offline precheck and projection evidence.
+
+## Evidence
+- Evidence directory: `artifacts/fixture_usdz/review_evidence/20260428_s201_group_b_ralph_visual_retry_15/`
+- Files:
+  - `capture_results.json`
+  - `assessment.md`
+  - `projection_results.json`
+  - `S2-01_Group_B_projection.png`
+  - `S2-01_Group_B_projection.ppm`
+  - `S2-01_Group_B_projection.usda`
+  - `S2-01_Group_B_projection.usdz`
+  - `S2-01_Group_B_projection.report.json`
+  - `S2-08_Group_E_projection_guard.png`
+  - `S2-08_Group_E_projection_guard.ppm`
+  - `S2-08_Group_E_projection_guard.usda`
+  - `S2-08_Group_E_projection_guard.usdz`
+  - `S2-08_Group_E_projection_guard.report.json`
+  - `S2-09_Group_F_projection_guard.png`
+  - `S2-09_Group_F_projection_guard.ppm`
+  - `S2-09_Group_F_projection_guard.usda`
+  - `S2-09_Group_F_projection_guard.usdz`
+  - `S2-09_Group_F_projection_guard.report.json`
+  - `precheck/[4B] 3D Diagram - S2-01 Group B.usda`
+  - `precheck/[4B] 3D Diagram - S2-01 Group B.usdz`
+  - `precheck/[4B] 3D Diagram - S2-01 Group B.report.json`
+  - `precheck/[4B] 3D Diagram - S2-08 Group E.usda`
+  - `precheck/[4B] 3D Diagram - S2-08 Group E.usdz`
+  - `precheck/[4B] 3D Diagram - S2-08 Group E.report.json`
+  - `precheck/[4B] 3D Diagram - S2-09 Group F.usda`
+  - `precheck/[4B] 3D Diagram - S2-09 Group F.usdz`
+  - `precheck/[4B] 3D Diagram - S2-09 Group F.report.json`
+  - `precheck/summary.json`
+- Browser/live viewer blockers:
+  - Playwright Desmos navigation to `https://www.desmos.com/3d/27v0xuv64m` returned `user cancelled MCP tool call`.
+  - Chrome DevTools Desmos navigation to `https://www.desmos.com/3d/27v0xuv64m` returned `user cancelled MCP tool call`.
+  - Tailscale route checks for root, viewer, and summary failed with `curl: (6) Could not resolve host: chq.singapura-broadnose.ts.net`.
+  - Local viewer server startup failed: `PermissionError: [Errno 1] Operation not permitted` for `python3 -m http.server 8765 --bind 127.0.0.1`.
+  - Playwright and Chrome DevTools `file://` viewer navigation returned `user cancelled MCP tool call`.
+  - Headless Chrome `file://` viewer screenshot exited `-1` and did not create a screenshot.
+  - URL conversion against Desmos with `--refresh` failed DNS resolution; offline fixture-based precheck/projections were used instead.
+- Visual claim: no live Desmos/viewer parity claim. The PNGs are deterministic offline projection evidence only.
+
+## Metrics
+- Before/after tracked S2-01B metrics unchanged: `143 prims / 0 unsupported / valid true / success`.
+- S2-01B offline precheck/projection: `143 prims / 0 unsupported / valid true / success`.
+- S2-08 Group E guard precheck/projection: `87 prims / 0 unsupported / valid true / success`.
+- S2-09 Group F guard precheck/projection: `27 prims / 0 unsupported / valid true / success`.
+- Overall tracked fixture summary unchanged: 71 fixtures; 50 success, 21 partial, 0 error, acceptance not met.
+
+## Validation
+- Offline precheck passed: `PYTHONPATH=src python3 -m desmos2usd.validate.fixture_usdz_suite --out artifacts/fixture_usdz/review_evidence/20260428_s201_group_b_ralph_visual_retry_15/precheck --resolution 12 --fixture '[4B] 3D Diagram - S2-01 Group B.json' --fixture '[4B] 3D Diagram - S2-08 Group E.json' --fixture '[4B] 3D Diagram - S2-09 Group F.json'`.
+- Projection regeneration passed for S2-01B, S2-08E, and S2-09F: `143/0`, `87/0`, and `27/0`.
+- `sips` generated projection PNGs for all three fixtures.
+- Viewer JavaScript syntax passed: `node --check viewer/app.js` and `node --check viewer/camera.js`.
+- Focused tests passed: `PYTHONPATH=src:tests python3 -m unittest tests.test_viewer_camera tests.test_visual_preview tests.test_fixture_usdz_suite tests.test_student_fixture_regressions` ran 101 tests OK.
+- Full unittest discovery passed: `PYTHONPATH=src:tests python3 -m unittest discover -s tests` ran 174 tests OK.
+- Report-vs-USDA consistency checked for S2-01B, S2-08E, and S2-09F projection artifacts: `143/143`, `87/87`, and `27/27`.
+- JSON validity checked for tracked `summary.json`, `capture_results.json`, `projection_results.json`, and precheck `summary.json`.
+- Projection PNG dimensions checked with `sips`: all three are `776x256`.
+- `git diff --check`: passed.
+
+## Commit / Push
+- Blocked in this HOME Codex turn: staging failed with `fatal: Unable to create '/Users/chek/repos/desmos2usd-carey/.git/index.lock': Operation not permitted`.
+- `.git` is not writable from this sandbox (`test -w .git` returned nonzero), so commit/push must be done from the main environment.
+- Suggested commit subject: `Record S2-01B visual retry blocker`.
+- Evidence directory is ignored by `.gitignore`; include it with:
+  - `git add -f artifacts/fixture_usdz/review_evidence/20260428_s201_group_b_ralph_visual_retry_15`
+
+## Review Links
+- Route verification from this environment failed for root/viewer/summary with `curl: (6) Could not resolve host: chq.singapura-broadnose.ts.net`.
+- S2-01 Group B Desmos: `https://www.desmos.com/3d/27v0xuv64m`
+- S2-01 Group B viewer: `https://chq.singapura-broadnose.ts.net/viewer/?usda=..%2Fartifacts%2Ffixture_usdz%2F%5B4B%5D%203D%20Diagram%20-%20S2-01%20Group%20B.usda&label=S2-01%20Group%20B`
+- S2-08 Group E Desmos: `https://www.desmos.com/3d/g59jqe6nxy`
+- S2-08 Group E viewer: `https://chq.singapura-broadnose.ts.net/viewer/?usda=..%2Fartifacts%2Ffixture_usdz%2F%5B4B%5D%203D%20Diagram%20-%20S2-08%20Group%20E.usda&label=S2-08%20Group%20E`
+- S2-09 Group F Desmos: `https://www.desmos.com/3d/umjxv6ahck`
+- S2-09 Group F viewer: `https://chq.singapura-broadnose.ts.net/viewer/?usda=..%2Fartifacts%2Ffixture_usdz%2F%5B4B%5D%203D%20Diagram%20-%20S2-09%20Group%20F.usda&label=S2-09%20Group%20F`
+
+## Remaining Mismatch / Next Wake Instructions
+1. Ask Chek to review S2-01B in the direct viewer link against the Desmos URL, or provide a fresh screenshot/description of what looks wrong.
+2. If Chek still reports S2-01B wrong, continue S2-01B only with that visual feedback as concrete blocker context.
+3. If Chek accepts S2-01B or does not reopen it, advance to tomorrow's next largest priority gap: S2-09 Group A (`https://www.desmos.com/3d/gk9kr8h9ki`), currently `22 prims / 40 unsupported`.
+4. Keep S2-08E and S2-09F as regression guards.
+
+# Handoff: 2026-04-28 04:26 SGT - S2-01B visual retry 14 blocker
+
+## Current Branch State
+- Repo: `/Users/chek/repos/desmos2usd-carey`
+- Branch: `fix/student-fixture-usdz-export`
+- Push target: `chektien:fix/student-fixture-usdz-export`
+- HEAD before this tranche: `e0fa45e Record S2-01B visual retry blocker`
+
+## Completed This Tranche
+- Targeted fixture: `[4B] 3D Diagram - S2-01 Group B.json`
+- Desmos URL: `https://www.desmos.com/3d/27v0xuv64m`
+- Outcome: blocked, no exporter/viewer code change.
+- Reason: S2-01B remains structurally complete (`143 prims / 0 unsupported / valid true`), but Chek's remaining issue is visual and every live Desmos/viewer capture path available here is still blocked. A new general exporter/viewer fix would be speculative without rendered Desmos evidence, rendered viewer evidence, or fresh visual mismatch details.
+- Preserved S2-08 Group E and S2-09 Group F as regression guards via fresh offline precheck and projection evidence.
+
+## Evidence
+- Evidence directory: `artifacts/fixture_usdz/review_evidence/20260428_s201_group_b_ralph_visual_retry_14/`
+- Files:
+  - `capture_results.json`
+  - `assessment.md`
+  - `projection_results.json`
+  - `S2-01_Group_B_projection.png`
+  - `S2-01_Group_B_projection.ppm`
+  - `S2-01_Group_B_projection.usda`
+  - `S2-01_Group_B_projection.usdz`
+  - `S2-01_Group_B_projection.report.json`
+  - `S2-08_Group_E_projection_guard.png`
+  - `S2-08_Group_E_projection_guard.ppm`
+  - `S2-08_Group_E_projection_guard.usda`
+  - `S2-08_Group_E_projection_guard.usdz`
+  - `S2-08_Group_E_projection_guard.report.json`
+  - `S2-09_Group_F_projection_guard.png`
+  - `S2-09_Group_F_projection_guard.ppm`
+  - `S2-09_Group_F_projection_guard.usda`
+  - `S2-09_Group_F_projection_guard.usdz`
+  - `S2-09_Group_F_projection_guard.report.json`
+  - `precheck/[4B] 3D Diagram - S2-01 Group B.usda`
+  - `precheck/[4B] 3D Diagram - S2-01 Group B.usdz`
+  - `precheck/[4B] 3D Diagram - S2-01 Group B.report.json`
+  - `precheck/[4B] 3D Diagram - S2-08 Group E.usda`
+  - `precheck/[4B] 3D Diagram - S2-08 Group E.usdz`
+  - `precheck/[4B] 3D Diagram - S2-08 Group E.report.json`
+  - `precheck/[4B] 3D Diagram - S2-09 Group F.usda`
+  - `precheck/[4B] 3D Diagram - S2-09 Group F.usdz`
+  - `precheck/[4B] 3D Diagram - S2-09 Group F.report.json`
+  - `precheck/summary.json`
+- Browser/live viewer blockers:
+  - Playwright Desmos navigation to `https://www.desmos.com/3d/27v0xuv64m` returned `user cancelled MCP tool call`.
+  - Chrome DevTools Desmos navigation to `https://www.desmos.com/3d/27v0xuv64m` returned `user cancelled MCP tool call`.
+  - Tailscale route checks for root, viewer, and summary failed with `curl: (6) Could not resolve host: chq.singapura-broadnose.ts.net`.
+  - Local viewer server startup failed: `PermissionError: [Errno 1] Operation not permitted` for `python3 -m http.server 8765 --bind 127.0.0.1`.
+  - Playwright and Chrome DevTools `file://` viewer navigation returned `user cancelled MCP tool call`.
+  - Headless Chrome `file://` viewer screenshot exited `-1` and did not create a screenshot.
+  - URL conversion against Desmos with `--refresh` failed DNS resolution; offline fixture-based precheck/projections were used instead.
+- Visual claim: no live Desmos/viewer parity claim. The PNGs are deterministic offline projection evidence only.
+
+## Metrics
+- Before/after tracked S2-01B metrics unchanged: `143 prims / 0 unsupported / valid true / success`.
+- S2-01B offline precheck/projection: `143 prims / 0 unsupported / valid true / success`.
+- S2-08 Group E guard precheck/projection: `87 prims / 0 unsupported / valid true / success`.
+- S2-09 Group F guard precheck/projection: `27 prims / 0 unsupported / valid true / success`.
+- Overall tracked fixture summary unchanged: 71 fixtures; 50 success, 21 partial, 0 error, acceptance not met.
+
+## Validation
+- Offline precheck passed: `PYTHONPATH=src python3 -m desmos2usd.validate.fixture_usdz_suite --out artifacts/fixture_usdz/review_evidence/20260428_s201_group_b_ralph_visual_retry_14/precheck --resolution 12 --fixture '[4B] 3D Diagram - S2-01 Group B.json' --fixture '[4B] 3D Diagram - S2-08 Group E.json' --fixture '[4B] 3D Diagram - S2-09 Group F.json'`.
+- Projection regeneration passed for S2-01B, S2-08E, and S2-09F: `143/0`, `87/0`, and `27/0`.
+- `sips` generated projection PNGs for all three fixtures.
+- Viewer JavaScript syntax passed: `node --check viewer/app.js` and `node --check viewer/camera.js`.
+- Focused tests passed: `PYTHONPATH=src:tests python3 -m unittest tests.test_viewer_camera tests.test_visual_preview tests.test_fixture_usdz_suite tests.test_student_fixture_regressions` ran 101 tests OK.
+- Full unittest discovery passed: `PYTHONPATH=src:tests python3 -m unittest discover -s tests` ran 174 tests OK.
+- Report-vs-USDA consistency checked for S2-01B, S2-08E, and S2-09F projection artifacts: `143/143`, `87/87`, and `27/27`.
+- JSON validity checked for tracked `summary.json`, `capture_results.json`, `projection_results.json`, and precheck `summary.json`.
+- Projection PNG dimensions checked with `sips`: all three are `776x256`.
+- `git diff --check`: passed.
+
+## Commit / Push
+- Blocked in this HOME Codex turn: staging failed with `fatal: Unable to create '/Users/chek/repos/desmos2usd-carey/.git/index.lock': Operation not permitted`.
+- `.git` and `.git/index` are not writable from this sandbox (`test -w` returned nonzero), so commit/push must be done from the main environment.
+- Suggested commit subject: `Record S2-01B visual retry blocker`.
+- Evidence directory is ignored by `.gitignore`; include it with:
+  - `git add -f artifacts/fixture_usdz/review_evidence/20260428_s201_group_b_ralph_visual_retry_14`
+
+## Review Links
+- Route verification from this environment failed for root/viewer/summary with `curl: (6) Could not resolve host: chq.singapura-broadnose.ts.net`.
+- S2-01 Group B Desmos: `https://www.desmos.com/3d/27v0xuv64m`
+- S2-01 Group B viewer: `https://chq.singapura-broadnose.ts.net/viewer/?usda=..%2Fartifacts%2Ffixture_usdz%2F%5B4B%5D%203D%20Diagram%20-%20S2-01%20Group%20B.usda&label=S2-01%20Group%20B`
+- S2-08 Group E Desmos: `https://www.desmos.com/3d/g59jqe6nxy`
+- S2-08 Group E viewer: `https://chq.singapura-broadnose.ts.net/viewer/?usda=..%2Fartifacts%2Ffixture_usdz%2F%5B4B%5D%203D%20Diagram%20-%20S2-08%20Group%20E.usda&label=S2-08%20Group%20E`
+- S2-09 Group F Desmos: `https://www.desmos.com/3d/umjxv6ahck`
+- S2-09 Group F viewer: `https://chq.singapura-broadnose.ts.net/viewer/?usda=..%2Fartifacts%2Ffixture_usdz%2F%5B4B%5D%203D%20Diagram%20-%20S2-09%20Group%20F.usda&label=S2-09%20Group%20F`
+
+## Remaining Mismatch / Next Wake Instructions
+1. Ask Chek to review S2-01B in the direct viewer link against the Desmos URL, or provide a fresh screenshot/description of what looks wrong.
+2. If Chek still reports S2-01B wrong, continue S2-01B only with that visual feedback as concrete blocker context.
+3. If Chek accepts S2-01B or does not reopen it, advance to tomorrow's next largest priority gap: S2-09 Group A (`https://www.desmos.com/3d/gk9kr8h9ki`), currently `22 prims / 40 unsupported`.
+4. Keep S2-08E and S2-09F as regression guards.
+
+# Handoff: 2026-04-28 04:01 SGT - S2-01B visual retry 13 blocker
+
+## Current Branch State
+- Repo: `/Users/chek/repos/desmos2usd-carey`
+- Branch: `fix/student-fixture-usdz-export`
+- Push target: `chektien:fix/student-fixture-usdz-export`
+- HEAD before this tranche: `1f1ac3b Record S2-01B visual retry blocker`
+
+## Completed This Tranche
+- Targeted fixture: `[4B] 3D Diagram - S2-01 Group B.json`
+- Desmos URL: `https://www.desmos.com/3d/27v0xuv64m`
+- Outcome: blocked, no exporter/viewer code change.
+- Reason: S2-01B remains structurally complete (`143 prims / 0 unsupported / valid true`), but Chek's remaining issue is visual and every live Desmos/viewer capture route available here is still blocked. Without a rendered Desmos screenshot, rendered viewer screenshot, or concrete fresh mismatch description, another code fix would be speculative.
+- Preserved S2-08 Group E and S2-09 Group F as regression guards via fresh offline precheck and projection evidence.
+
+## Evidence
+- Evidence directory: `artifacts/fixture_usdz/review_evidence/20260428_s201_group_b_ralph_visual_retry_13/`
+- Files:
+  - `capture_results.json`
+  - `assessment.md`
+  - `projection_results.json`
+  - `S2-01_Group_B_projection.png`
+  - `S2-01_Group_B_projection.ppm`
+  - `S2-01_Group_B_projection.usda`
+  - `S2-01_Group_B_projection.usdz`
+  - `S2-01_Group_B_projection.report.json`
+  - `S2-08_Group_E_projection_guard.png`
+  - `S2-08_Group_E_projection_guard.ppm`
+  - `S2-08_Group_E_projection_guard.usda`
+  - `S2-08_Group_E_projection_guard.usdz`
+  - `S2-08_Group_E_projection_guard.report.json`
+  - `S2-09_Group_F_projection_guard.png`
+  - `S2-09_Group_F_projection_guard.ppm`
+  - `S2-09_Group_F_projection_guard.usda`
+  - `S2-09_Group_F_projection_guard.usdz`
+  - `S2-09_Group_F_projection_guard.report.json`
+  - `precheck/[4B] 3D Diagram - S2-01 Group B.usda`
+  - `precheck/[4B] 3D Diagram - S2-01 Group B.usdz`
+  - `precheck/[4B] 3D Diagram - S2-01 Group B.report.json`
+  - `precheck/[4B] 3D Diagram - S2-08 Group E.usda`
+  - `precheck/[4B] 3D Diagram - S2-08 Group E.usdz`
+  - `precheck/[4B] 3D Diagram - S2-08 Group E.report.json`
+  - `precheck/[4B] 3D Diagram - S2-09 Group F.usda`
+  - `precheck/[4B] 3D Diagram - S2-09 Group F.usdz`
+  - `precheck/[4B] 3D Diagram - S2-09 Group F.report.json`
+  - `precheck/summary.json`
+- Browser/live viewer blockers:
+  - Playwright Desmos navigation to `https://www.desmos.com/3d/27v0xuv64m` returned `user cancelled MCP tool call`.
+  - Chrome DevTools Desmos navigation to `https://www.desmos.com/3d/27v0xuv64m` returned `user cancelled MCP tool call`.
+  - Tailscale route checks for root, viewer, and summary failed with `curl: (6) Could not resolve host: chq.singapura-broadnose.ts.net`.
+  - Local viewer server startup failed: `PermissionError: [Errno 1] Operation not permitted` for `python3 -m http.server 8765 --bind 127.0.0.1`.
+  - Playwright and Chrome DevTools `file://` viewer navigation returned `user cancelled MCP tool call`.
+  - Headless Chrome `file://` viewer screenshot exited `-1` and did not create a screenshot.
+  - URL conversion against Desmos failed DNS resolution; offline fixture-based precheck/projections were used instead.
+- Visual claim: no live Desmos/viewer parity claim. The PNGs are deterministic offline projection evidence only.
+
+## Metrics
+- Before/after tracked S2-01B metrics unchanged: `143 prims / 0 unsupported / 143 classified / 143 renderable / valid true / success`.
+- S2-01B offline precheck/projection: `143 prims / 0 unsupported / valid true / success`.
+- S2-08 Group E guard precheck/projection: `87 prims / 0 unsupported / valid true / success`.
+- S2-09 Group F guard precheck/projection: `27 prims / 0 unsupported / valid true / success`.
+- Overall tracked fixture summary unchanged: 71 fixtures; 50 success, 21 partial, 0 error, acceptance not met.
+
+## Validation
+- Viewer JavaScript syntax passed: `node --check viewer/app.js && node --check viewer/camera.js`.
+- Offline precheck passed: `PYTHONPATH=src python3 -m desmos2usd.validate.fixture_usdz_suite --out artifacts/fixture_usdz/review_evidence/20260428_s201_group_b_ralph_visual_retry_13/precheck --resolution 12 --fixture '[4B] 3D Diagram - S2-01 Group B.json' --fixture '[4B] 3D Diagram - S2-08 Group E.json' --fixture '[4B] 3D Diagram - S2-09 Group F.json'`.
+- Focused tests passed: `PYTHONPATH=src:tests python3 -m unittest tests.test_viewer_camera tests.test_visual_preview tests.test_fixture_usdz_suite tests.test_student_fixture_regressions` ran 101 tests OK.
+- Full unittest discovery passed: `PYTHONPATH=src:tests python3 -m unittest discover -s tests` ran 174 tests OK.
+- Report-vs-USDA consistency checked for S2-01B, S2-08E, and S2-09F projection artifacts: `143/143`, `87/87`, and `27/27`.
+- JSON validity checked for tracked `summary.json`, `capture_results.json`, `projection_results.json`, and precheck `summary.json`.
+- Projection PNG dimensions checked with `sips`: all three are `776x256`.
+- `git diff --check`: passed.
+
+## Commit / Push
+- Blocked in this HOME Codex turn: staging failed with `fatal: Unable to create '/Users/chek/repos/desmos2usd-carey/.git/index.lock': Operation not permitted`.
+- `.git` and `.git/index` are not writable from this sandbox (`test -w` returned nonzero), so commit/push must be done from the main environment.
+- Suggested commit subject: `Record S2-01B visual retry blocker`.
+- Evidence directory is ignored by `.gitignore`; include it with:
+  - `git add -f artifacts/fixture_usdz/review_evidence/20260428_s201_group_b_ralph_visual_retry_13`
+
+## Review Links
+- Route verification from this environment failed for root/viewer/summary with `curl: (6) Could not resolve host: chq.singapura-broadnose.ts.net`.
+- S2-01 Group B Desmos: `https://www.desmos.com/3d/27v0xuv64m`
+- S2-01 Group B viewer: `https://chq.singapura-broadnose.ts.net/viewer/?usda=..%2Fartifacts%2Ffixture_usdz%2F%5B4B%5D%203D%20Diagram%20-%20S2-01%20Group%20B.usda&label=S2-01%20Group%20B`
+- S2-08 Group E Desmos: `https://www.desmos.com/3d/g59jqe6nxy`
+- S2-08 Group E viewer: `https://chq.singapura-broadnose.ts.net/viewer/?usda=..%2Fartifacts%2Ffixture_usdz%2F%5B4B%5D%203D%20Diagram%20-%20S2-08%20Group%20E.usda&label=S2-08%20Group%20E`
+- S2-09 Group F Desmos: `https://www.desmos.com/3d/umjxv6ahck`
+- S2-09 Group F viewer: `https://chq.singapura-broadnose.ts.net/viewer/?usda=..%2Fartifacts%2Ffixture_usdz%2F%5B4B%5D%203D%20Diagram%20-%20S2-09%20Group%20F.usda&label=S2-09%20Group%20F`
+
+## Remaining Mismatch / Next Wake Instructions
+1. Ask Chek to review S2-01B in the direct viewer link against the Desmos URL, or provide a fresh screenshot/description of what looks wrong.
+2. If Chek still reports S2-01B wrong, continue S2-01B only with that visual feedback as concrete blocker context.
+3. If Chek accepts S2-01B or does not reopen it, advance to tomorrow's next largest priority gap: S2-09 Group A (`https://www.desmos.com/3d/gk9kr8h9ki`), currently `22 prims / 40 unsupported`.
+4. Keep S2-08E and S2-09F as regression guards.
+
+# Handoff: 2026-04-28 03:39 SGT - S2-01B visual retry 12 blocker
+
+## Current Branch State
+- Repo: `/Users/chek/repos/desmos2usd-carey`
+- Branch: `fix/student-fixture-usdz-export`
+- Push target: `chektien:fix/student-fixture-usdz-export`
+- HEAD before this tranche: `e7e8da7 Record S2-01B visual retry blocker`
+
+## Completed This Tranche
+- Targeted fixture: `[4B] 3D Diagram - S2-01 Group B.json`
+- Desmos URL: `https://www.desmos.com/3d/27v0xuv64m`
+- Outcome: blocked, no exporter/viewer code change.
+- Reason: S2-01B remains structurally complete (`143 prims / 0 unsupported / valid true`), but Chek's remaining issue is visual and every live Desmos/viewer capture route available here is still blocked. Without a rendered Desmos screenshot, rendered viewer screenshot, or concrete fresh mismatch description, another code fix would be speculative.
+- Preserved S2-08 Group E and S2-09 Group F as regression guards via fresh offline precheck and projection evidence.
+
+## Evidence
+- Evidence directory: `artifacts/fixture_usdz/review_evidence/20260428_s201_group_b_ralph_visual_retry_12/`
+- Files:
+  - `capture_results.json`
+  - `assessment.md`
+  - `projection_results.json`
+  - `S2-01_Group_B_projection.png`
+  - `S2-01_Group_B_projection.ppm`
+  - `S2-01_Group_B_projection.usda`
+  - `S2-01_Group_B_projection.usdz`
+  - `S2-01_Group_B_projection.report.json`
+  - `S2-08_Group_E_projection_guard.png`
+  - `S2-08_Group_E_projection_guard.ppm`
+  - `S2-08_Group_E_projection_guard.usda`
+  - `S2-08_Group_E_projection_guard.usdz`
+  - `S2-08_Group_E_projection_guard.report.json`
+  - `S2-09_Group_F_projection_guard.png`
+  - `S2-09_Group_F_projection_guard.ppm`
+  - `S2-09_Group_F_projection_guard.usda`
+  - `S2-09_Group_F_projection_guard.usdz`
+  - `S2-09_Group_F_projection_guard.report.json`
+  - `precheck/[4B] 3D Diagram - S2-01 Group B.usda`
+  - `precheck/[4B] 3D Diagram - S2-01 Group B.usdz`
+  - `precheck/[4B] 3D Diagram - S2-01 Group B.report.json`
+  - `precheck/[4B] 3D Diagram - S2-08 Group E.usda`
+  - `precheck/[4B] 3D Diagram - S2-08 Group E.usdz`
+  - `precheck/[4B] 3D Diagram - S2-08 Group E.report.json`
+  - `precheck/[4B] 3D Diagram - S2-09 Group F.usda`
+  - `precheck/[4B] 3D Diagram - S2-09 Group F.usdz`
+  - `precheck/[4B] 3D Diagram - S2-09 Group F.report.json`
+  - `precheck/summary.json`
+- Browser/live viewer blockers:
+  - Playwright Desmos navigation to `https://www.desmos.com/3d/27v0xuv64m` returned `user cancelled MCP tool call`.
+  - Chrome DevTools Desmos navigation to `https://www.desmos.com/3d/27v0xuv64m` returned `user cancelled MCP tool call`.
+  - Tailscale route checks for root, viewer, and summary failed with `curl: (6) Could not resolve host: chq.singapura-broadnose.ts.net`.
+  - Local viewer server startup failed: `PermissionError: [Errno 1] Operation not permitted` for `python3 -m http.server 8765 --bind 127.0.0.1`.
+  - Playwright and Chrome DevTools `file://` viewer navigation returned `user cancelled MCP tool call`.
+  - Headless Chrome `file://` viewer screenshot attempts exited `-1` and did not create screenshots.
+  - URL conversion against Desmos with `--refresh` failed DNS resolution; offline fixture-based precheck/projections were used instead.
+- Visual claim: no live Desmos/viewer parity claim. The PNGs are deterministic offline projection evidence only.
+
+## Metrics
+- Before/after tracked S2-01B metrics unchanged: `143 prims / 0 unsupported / 143 classified / 143 renderable / valid true / success`.
+- S2-01B offline precheck/projection: `143 prims / 0 unsupported / valid true / success`.
+- S2-08 Group E guard precheck/projection: `87 prims / 0 unsupported / valid true / success`.
+- S2-09 Group F guard precheck/projection: `27 prims / 0 unsupported / valid true / success`.
+- Overall tracked fixture summary unchanged: 71 fixtures; 50 success, 21 partial, 0 error, acceptance not met.
+
+## Validation
+- Viewer JavaScript syntax passed: `node --check viewer/app.js && node --check viewer/camera.js`.
+- Offline precheck passed: `PYTHONPATH=src python3 -m desmos2usd.validate.fixture_usdz_suite --out artifacts/fixture_usdz/review_evidence/20260428_s201_group_b_ralph_visual_retry_12/precheck --resolution 12 --fixture '[4B] 3D Diagram - S2-01 Group B.json' --fixture '[4B] 3D Diagram - S2-08 Group E.json' --fixture '[4B] 3D Diagram - S2-09 Group F.json'`.
+- Focused tests passed: `PYTHONPATH=src:tests python3 -m unittest tests.test_viewer_camera tests.test_visual_preview tests.test_fixture_usdz_suite tests.test_student_fixture_regressions` ran 101 tests OK.
+- Full unittest discovery passed: `PYTHONPATH=src:tests python3 -m unittest discover -s tests` ran 174 tests OK.
+- Report-vs-USDA consistency checked for S2-01B, S2-08E, and S2-09F projection artifacts: `143/143`, `87/87`, and `27/27`.
+- JSON validity checked for tracked `summary.json`, `capture_results.json`, `projection_results.json`, and precheck `summary.json`.
+- Projection PNG dimensions checked with `sips`: all three are `776x256`.
+- `git diff --check`: passed.
+
+## Commit / Push
+- Blocked in this HOME Codex turn: staging failed with `fatal: Unable to create '/Users/chek/repos/desmos2usd-carey/.git/index.lock': Operation not permitted`.
+- `.git` and `.git/index` are not writable from this sandbox (`test -w` returned nonzero), so commit/push must be done from the main environment.
+- Suggested commit subject: `Record S2-01B visual retry blocker`.
+- Evidence directory is ignored by `.gitignore`; include it with:
+  - `git add -f artifacts/fixture_usdz/review_evidence/20260428_s201_group_b_ralph_visual_retry_12`
+
+## Review Links
+- Route verification from this environment failed for root/viewer/summary with `curl: (6) Could not resolve host: chq.singapura-broadnose.ts.net`.
+- S2-01 Group B Desmos: `https://www.desmos.com/3d/27v0xuv64m`
+- S2-01 Group B viewer: `https://chq.singapura-broadnose.ts.net/viewer/?usda=..%2Fartifacts%2Ffixture_usdz%2F%5B4B%5D%203D%20Diagram%20-%20S2-01%20Group%20B.usda&label=S2-01%20Group%20B`
+- S2-08 Group E Desmos: `https://www.desmos.com/3d/g59jqe6nxy`
+- S2-08 Group E viewer: `https://chq.singapura-broadnose.ts.net/viewer/?usda=..%2Fartifacts%2Ffixture_usdz%2F%5B4B%5D%203D%20Diagram%20-%20S2-08%20Group%20E.usda&label=S2-08%20Group%20E`
+- S2-09 Group F Desmos: `https://www.desmos.com/3d/umjxv6ahck`
+- S2-09 Group F viewer: `https://chq.singapura-broadnose.ts.net/viewer/?usda=..%2Fartifacts%2Ffixture_usdz%2F%5B4B%5D%203D%20Diagram%20-%20S2-09%20Group%20F.usda&label=S2-09%20Group%20F`
+
+## Remaining Mismatch / Next Wake Instructions
+1. Ask Chek to review S2-01B in the direct viewer link against the Desmos URL, or provide a fresh screenshot/description of what looks wrong.
+2. If Chek still reports S2-01B wrong, continue S2-01B only with that visual feedback as concrete blocker context.
+3. If Chek accepts S2-01B or does not reopen it, advance to tomorrow's next largest priority gap: S2-09 Group A (`https://www.desmos.com/3d/gk9kr8h9ki`), currently `22 prims / 40 unsupported`.
+4. Keep S2-08E and S2-09F as regression guards.
+
+# Handoff: 2026-04-28 03:11 SGT - S2-01B visual retry 11 blocker
+
+## Current Branch State
+- Repo: `/Users/chek/repos/desmos2usd-carey`
+- Branch: `fix/student-fixture-usdz-export`
+- Push target: `chektien:fix/student-fixture-usdz-export`
+- HEAD before this tranche: `2e4f1e0 Record S2-01B visual retry blocker`
+
+## Completed This Tranche
+- Targeted fixture: `[4B] 3D Diagram - S2-01 Group B.json`
+- Desmos URL: `https://www.desmos.com/3d/27v0xuv64m`
+- Outcome: blocked, no exporter/viewer code change.
+- Reason: S2-01B remains structurally complete (`143 prims / 0 unsupported / valid true`), but Chek's remaining issue is visual and every live Desmos/viewer capture route available here is still blocked. Without a rendered Desmos screenshot, rendered viewer screenshot, or concrete fresh mismatch description, another code fix would be speculative.
+- Preserved S2-08 Group E and S2-09 Group F as regression guards via fresh offline precheck and projection evidence.
+
+## Evidence
+- Evidence directory: `artifacts/fixture_usdz/review_evidence/20260428_s201_group_b_ralph_visual_retry_11/`
+- Files:
+  - `capture_results.json`
+  - `assessment.md`
+  - `projection_results.json`
+  - `S2-01_Group_B_projection.png`
+  - `S2-01_Group_B_projection.ppm`
+  - `S2-01_Group_B_projection.usda`
+  - `S2-01_Group_B_projection.usdz`
+  - `S2-01_Group_B_projection.report.json`
+  - `S2-08_Group_E_projection_guard.png`
+  - `S2-08_Group_E_projection_guard.ppm`
+  - `S2-08_Group_E_projection_guard.usda`
+  - `S2-08_Group_E_projection_guard.usdz`
+  - `S2-08_Group_E_projection_guard.report.json`
+  - `S2-09_Group_F_projection_guard.png`
+  - `S2-09_Group_F_projection_guard.ppm`
+  - `S2-09_Group_F_projection_guard.usda`
+  - `S2-09_Group_F_projection_guard.usdz`
+  - `S2-09_Group_F_projection_guard.report.json`
+  - `precheck/[4B] 3D Diagram - S2-01 Group B.usda`
+  - `precheck/[4B] 3D Diagram - S2-01 Group B.usdz`
+  - `precheck/[4B] 3D Diagram - S2-01 Group B.report.json`
+  - `precheck/[4B] 3D Diagram - S2-08 Group E.usda`
+  - `precheck/[4B] 3D Diagram - S2-08 Group E.usdz`
+  - `precheck/[4B] 3D Diagram - S2-08 Group E.report.json`
+  - `precheck/[4B] 3D Diagram - S2-09 Group F.usda`
+  - `precheck/[4B] 3D Diagram - S2-09 Group F.usdz`
+  - `precheck/[4B] 3D Diagram - S2-09 Group F.report.json`
+  - `precheck/summary.json`
+- Browser/live viewer blockers:
+  - Playwright Desmos navigation to `https://www.desmos.com/3d/27v0xuv64m` returned `user cancelled MCP tool call`.
+  - Chrome DevTools Desmos navigation to `https://www.desmos.com/3d/27v0xuv64m` returned `user cancelled MCP tool call`.
+  - Tailscale route checks for root, viewer, and summary failed with `curl: (6) Could not resolve host: chq.singapura-broadnose.ts.net`.
+  - Local viewer server startup failed: `PermissionError: [Errno 1] Operation not permitted` for `python3 -m http.server 8765 --bind 127.0.0.1`.
+  - Playwright and Chrome DevTools `file://` viewer navigation returned `user cancelled MCP tool call`.
+  - Headless Chrome `file://` viewer screenshot exited `134` and did not create a screenshot.
+  - URL conversion against Desmos with `--refresh` failed DNS resolution; offline fixture-based precheck/projections were used instead.
+- Visual claim: no live Desmos/viewer parity claim. The PNGs are deterministic offline projection evidence only.
+
+## Metrics
+- Before/after tracked S2-01B metrics unchanged: `143 prims / 0 unsupported / 143 classified / 143 renderable / valid true / success`.
+- S2-01B offline precheck/projection: `143 prims / 0 unsupported / valid true / success`.
+- S2-08 Group E guard precheck/projection: `87 prims / 0 unsupported / valid true / success`.
+- S2-09 Group F guard precheck/projection: `27 prims / 0 unsupported / valid true / success`.
+- Overall tracked fixture summary unchanged: 71 fixtures; 50 success, 21 partial, 0 error, acceptance not met.
+
+## Validation
+- Viewer JavaScript syntax passed: `node --check viewer/app.js && node --check viewer/camera.js`.
+- Offline precheck passed: `PYTHONPATH=src python3 -m desmos2usd.validate.fixture_usdz_suite --out artifacts/fixture_usdz/review_evidence/20260428_s201_group_b_ralph_visual_retry_11/precheck --resolution 12 --fixture '[4B] 3D Diagram - S2-01 Group B.json' --fixture '[4B] 3D Diagram - S2-08 Group E.json' --fixture '[4B] 3D Diagram - S2-09 Group F.json'`.
+- Focused tests passed: `PYTHONPATH=src:tests python3 -m unittest tests.test_viewer_camera tests.test_visual_preview tests.test_fixture_usdz_suite tests.test_student_fixture_regressions` ran 101 tests OK.
+- Full unittest discovery passed: `PYTHONPATH=src:tests python3 -m unittest discover -s tests` ran 174 tests OK.
+- Report-vs-USDA consistency checked for S2-01B, S2-08E, and S2-09F projection artifacts: `143/143`, `87/87`, and `27/27`.
+- JSON validity checked for tracked `summary.json`, `capture_results.json`, `projection_results.json`, and precheck `summary.json`.
+- Projection PNG dimensions checked with `sips`: all three are `776x256`.
+- `git diff --check`: passed.
+
+## Commit / Push
+- Blocked in this HOME Codex turn: staging failed with `fatal: Unable to create '/Users/chek/repos/desmos2usd-carey/.git/index.lock': Operation not permitted`.
+- `.git` and `.git/index` are not writable from this sandbox (`test -w` returned nonzero), so commit/push must be done from the main environment.
+- Suggested commit subject: `Record S2-01B visual retry blocker`.
+- Evidence directory is ignored by `.gitignore`; include it with:
+  - `git add -f artifacts/fixture_usdz/review_evidence/20260428_s201_group_b_ralph_visual_retry_11`
+
+## Review Links
+- Route verification from this environment failed for root/viewer/summary with `curl: (6) Could not resolve host: chq.singapura-broadnose.ts.net`.
+- S2-01 Group B Desmos: `https://www.desmos.com/3d/27v0xuv64m`
+- S2-01 Group B viewer: `https://chq.singapura-broadnose.ts.net/viewer/?usda=..%2Fartifacts%2Ffixture_usdz%2F%5B4B%5D%203D%20Diagram%20-%20S2-01%20Group%20B.usda&label=S2-01%20Group%20B`
+- S2-08 Group E Desmos: `https://www.desmos.com/3d/g59jqe6nxy`
+- S2-08 Group E viewer: `https://chq.singapura-broadnose.ts.net/viewer/?usda=..%2Fartifacts%2Ffixture_usdz%2F%5B4B%5D%203D%20Diagram%20-%20S2-08%20Group%20E.usda&label=S2-08%20Group%20E`
+- S2-09 Group F Desmos: `https://www.desmos.com/3d/umjxv6ahck`
+- S2-09 Group F viewer: `https://chq.singapura-broadnose.ts.net/viewer/?usda=..%2Fartifacts%2Ffixture_usdz%2F%5B4B%5D%203D%20Diagram%20-%20S2-09%20Group%20F.usda&label=S2-09%20Group%20F`
+
+## Remaining Mismatch / Next Wake Instructions
+1. Ask Chek to review S2-01B in the direct viewer link against the Desmos URL, or provide a fresh screenshot/description of what looks wrong.
+2. If Chek still reports S2-01B wrong, continue S2-01B only with that visual feedback as concrete blocker context.
+3. If Chek accepts S2-01B or does not reopen it, advance to tomorrow's next largest priority gap: S2-09 Group A (`https://www.desmos.com/3d/gk9kr8h9ki`), currently `22 prims / 40 unsupported`.
+4. Keep S2-08E and S2-09F as regression guards.
+
+# Handoff: 2026-04-28 02:59 SGT - S2-01B visual retry 10 blocker
+
+## Current Branch State
+- Repo: `/Users/chek/repos/desmos2usd-carey`
+- Branch: `fix/student-fixture-usdz-export`
+- Push target: `chektien:fix/student-fixture-usdz-export`
+- HEAD before this tranche: `9498e01 Record S2-01B visual retry blocker`
+
+## Completed This Tranche
+- Targeted fixture: `[4B] 3D Diagram - S2-01 Group B.json`
+- Desmos URL: `https://www.desmos.com/3d/27v0xuv64m`
+- Outcome: blocked, no exporter/viewer code change.
+- Reason: S2-01B remains structurally complete (`143 prims / 0 unsupported / valid true`), but Chek's remaining issue is visual and every live Desmos/viewer capture route available here is still blocked. Without a rendered Desmos screenshot, rendered viewer screenshot, or concrete fresh mismatch description, another code fix would be speculative.
+- Preserved S2-08 Group E and S2-09 Group F as regression guards via fresh offline precheck and projection evidence.
+
+## Evidence
+- Evidence directory: `artifacts/fixture_usdz/review_evidence/20260428_s201_group_b_ralph_visual_retry_10/`
+- Files:
+  - `capture_results.json`
+  - `assessment.md`
+  - `projection_results.json`
+  - `S2-01_Group_B_projection.png`
+  - `S2-01_Group_B_projection.ppm`
+  - `S2-01_Group_B_projection.usda`
+  - `S2-01_Group_B_projection.usdz`
+  - `S2-01_Group_B_projection.report.json`
+  - `S2-08_Group_E_projection_guard.png`
+  - `S2-08_Group_E_projection_guard.ppm`
+  - `S2-08_Group_E_projection_guard.usda`
+  - `S2-08_Group_E_projection_guard.usdz`
+  - `S2-08_Group_E_projection_guard.report.json`
+  - `S2-09_Group_F_projection_guard.png`
+  - `S2-09_Group_F_projection_guard.ppm`
+  - `S2-09_Group_F_projection_guard.usda`
+  - `S2-09_Group_F_projection_guard.usdz`
+  - `S2-09_Group_F_projection_guard.report.json`
+  - `precheck/[4B] 3D Diagram - S2-01 Group B.usda`
+  - `precheck/[4B] 3D Diagram - S2-01 Group B.usdz`
+  - `precheck/[4B] 3D Diagram - S2-01 Group B.report.json`
+  - `precheck/[4B] 3D Diagram - S2-08 Group E.usda`
+  - `precheck/[4B] 3D Diagram - S2-08 Group E.usdz`
+  - `precheck/[4B] 3D Diagram - S2-08 Group E.report.json`
+  - `precheck/[4B] 3D Diagram - S2-09 Group F.usda`
+  - `precheck/[4B] 3D Diagram - S2-09 Group F.usdz`
+  - `precheck/[4B] 3D Diagram - S2-09 Group F.report.json`
+  - `precheck/summary.json`
+- Browser/live viewer blockers:
+  - Playwright Desmos navigation to `https://www.desmos.com/3d/27v0xuv64m` returned `user cancelled MCP tool call`.
+  - Chrome DevTools Desmos navigation to `https://www.desmos.com/3d/27v0xuv64m` returned `user cancelled MCP tool call`.
+  - Tailscale route checks for root, viewer, and summary failed with `curl: (6) Could not resolve host: chq.singapura-broadnose.ts.net`.
+  - Local viewer server startup failed: `PermissionError: [Errno 1] Operation not permitted` for `python3 -m http.server 8765 --bind 127.0.0.1`.
+  - Playwright and Chrome DevTools `file://` viewer navigation returned `user cancelled MCP tool call`.
+  - Headless Chrome `file://` viewer screenshot exited `-1` and did not create a screenshot.
+  - URL conversion against Desmos with `--refresh` failed DNS resolution; offline fixture-based precheck/projections were used instead.
+- Visual claim: no live Desmos/viewer parity claim. The PNGs are deterministic offline projection evidence only.
+
+## Metrics
+- Before/after tracked S2-01B metrics unchanged: `143 prims / 0 unsupported / 143 classified / 143 renderable / valid true / success`.
+- S2-01B offline precheck/projection: `143 prims / 0 unsupported / valid true / success`.
+- S2-08 Group E guard precheck/projection: `87 prims / 0 unsupported / valid true / success`.
+- S2-09 Group F guard precheck/projection: `27 prims / 0 unsupported / valid true / success`.
+- Overall tracked fixture summary unchanged: 71 fixtures; 50 success, 21 partial, 0 error, acceptance not met.
+
+## Validation
+- Viewer JavaScript syntax passed: `node --check viewer/app.js && node --check viewer/camera.js`.
+- Offline precheck passed: `PYTHONPATH=src python3 -m desmos2usd.validate.fixture_usdz_suite --out artifacts/fixture_usdz/review_evidence/20260428_s201_group_b_ralph_visual_retry_10/precheck --resolution 12 --fixture '[4B] 3D Diagram - S2-01 Group B.json' --fixture '[4B] 3D Diagram - S2-08 Group E.json' --fixture '[4B] 3D Diagram - S2-09 Group F.json'`.
+- Focused tests passed: `PYTHONPATH=src:tests python3 -m unittest tests.test_viewer_camera tests.test_visual_preview tests.test_fixture_usdz_suite tests.test_student_fixture_regressions` ran 101 tests OK.
+- Full unittest discovery passed: `PYTHONPATH=src:tests python3 -m unittest discover -s tests` ran 174 tests OK.
+- Report-vs-USDA consistency checked for S2-01B, S2-08E, and S2-09F projection artifacts: `143/143`, `87/87`, and `27/27`.
+- JSON validity checked for tracked `summary.json`, `capture_results.json`, `projection_results.json`, and precheck `summary.json`.
+- Projection PNG dimensions checked with `sips`: all three are `776x256`.
+- `git diff --check`: passed.
+
+## Commit / Push
+- Blocked in this HOME Codex turn: staging failed with `fatal: Unable to create '/Users/chek/repos/desmos2usd-carey/.git/index.lock': Operation not permitted`.
+- `.git` and `.git/index` are not writable from this sandbox (`test -w` returned nonzero), so commit/push must be done from the main environment.
+- Suggested commit subject: `Record S2-01B visual retry blocker`.
+- Evidence directory is ignored by `.gitignore`; include it with:
+  - `git add -f artifacts/fixture_usdz/review_evidence/20260428_s201_group_b_ralph_visual_retry_10`
+
+## Review Links
+- Route verification from this environment failed for root/viewer/summary with `curl: (6) Could not resolve host: chq.singapura-broadnose.ts.net`.
+- S2-01 Group B Desmos: `https://www.desmos.com/3d/27v0xuv64m`
+- S2-01 Group B viewer: `https://chq.singapura-broadnose.ts.net/viewer/?usda=..%2Fartifacts%2Ffixture_usdz%2F%5B4B%5D%203D%20Diagram%20-%20S2-01%20Group%20B.usda&label=S2-01%20Group%20B`
+- S2-08 Group E Desmos: `https://www.desmos.com/3d/g59jqe6nxy`
+- S2-08 Group E viewer: `https://chq.singapura-broadnose.ts.net/viewer/?usda=..%2Fartifacts%2Ffixture_usdz%2F%5B4B%5D%203D%20Diagram%20-%20S2-08%20Group%20E.usda&label=S2-08%20Group%20E`
+- S2-09 Group F Desmos: `https://www.desmos.com/3d/umjxv6ahck`
+- S2-09 Group F viewer: `https://chq.singapura-broadnose.ts.net/viewer/?usda=..%2Fartifacts%2Ffixture_usdz%2F%5B4B%5D%203D%20Diagram%20-%20S2-09%20Group%20F.usda&label=S2-09%20Group%20F`
+
+## Remaining Mismatch / Next Wake Instructions
+1. Ask Chek to review S2-01B in the direct viewer link against the Desmos URL, or provide a fresh screenshot/description of what looks wrong.
+2. If Chek still reports S2-01B wrong, continue S2-01B only with that visual feedback as concrete blocker context.
+3. If Chek accepts S2-01B or does not reopen it, advance to tomorrow's next largest priority gap: S2-09 Group A (`https://www.desmos.com/3d/gk9kr8h9ki`), currently `22 prims / 40 unsupported`.
+4. Keep S2-08E and S2-09F as regression guards.
+
+# Handoff: 2026-04-28 02:24 SGT - S2-01B visual retry 9 blocker
+
+## Current Branch State
+- Repo: `/Users/chek/repos/desmos2usd-carey`
+- Branch: `fix/student-fixture-usdz-export`
+- Push target: `chektien:fix/student-fixture-usdz-export`
+- HEAD before this tranche: `1cd87b8 Record S2-01B visual retry blocker`
+
+## Completed This Tranche
+- Targeted fixture: `[4B] 3D Diagram - S2-01 Group B.json`
+- Desmos URL: `https://www.desmos.com/3d/27v0xuv64m`
+- Outcome: blocked, no exporter/viewer code change.
+- Reason: S2-01B remains structurally complete (`143 prims / 0 unsupported / valid true`), but Chek's concern is visual and every live Desmos/viewer capture route available here is still blocked. Without a rendered Desmos screenshot, rendered viewer screenshot, or concrete fresh mismatch description, another code fix would be speculative.
+- Preserved S2-08 Group E and S2-09 Group F as regression guards via fresh offline precheck and projection evidence.
+
+## Evidence
+- Evidence directory: `artifacts/fixture_usdz/review_evidence/20260428_s201_group_b_ralph_visual_retry_9/`
+- Files:
+  - `capture_results.json`
+  - `assessment.md`
+  - `projection_results.json`
+  - `S2-01_Group_B_projection.png`
+  - `S2-01_Group_B_projection.ppm`
+  - `S2-01_Group_B_projection.usda`
+  - `S2-01_Group_B_projection.usdz`
+  - `S2-01_Group_B_projection.report.json`
+  - `S2-08_Group_E_projection_guard.png`
+  - `S2-08_Group_E_projection_guard.ppm`
+  - `S2-08_Group_E_projection_guard.usda`
+  - `S2-08_Group_E_projection_guard.usdz`
+  - `S2-08_Group_E_projection_guard.report.json`
+  - `S2-09_Group_F_projection_guard.png`
+  - `S2-09_Group_F_projection_guard.ppm`
+  - `S2-09_Group_F_projection_guard.usda`
+  - `S2-09_Group_F_projection_guard.usdz`
+  - `S2-09_Group_F_projection_guard.report.json`
+  - `precheck/[4B] 3D Diagram - S2-01 Group B.usda`
+  - `precheck/[4B] 3D Diagram - S2-01 Group B.usdz`
+  - `precheck/[4B] 3D Diagram - S2-01 Group B.report.json`
+  - `precheck/[4B] 3D Diagram - S2-08 Group E.usda`
+  - `precheck/[4B] 3D Diagram - S2-08 Group E.usdz`
+  - `precheck/[4B] 3D Diagram - S2-08 Group E.report.json`
+  - `precheck/[4B] 3D Diagram - S2-09 Group F.usda`
+  - `precheck/[4B] 3D Diagram - S2-09 Group F.usdz`
+  - `precheck/[4B] 3D Diagram - S2-09 Group F.report.json`
+  - `precheck/summary.json`
+- Browser/live viewer blockers:
+  - Playwright Desmos navigation to `https://www.desmos.com/3d/27v0xuv64m` returned `user cancelled MCP tool call`.
+  - Chrome DevTools Desmos navigation to `https://www.desmos.com/3d/27v0xuv64m` returned `user cancelled MCP tool call`.
+  - Tailscale route checks for root, viewer, and summary failed with `curl: (6) Could not resolve host: chq.singapura-broadnose.ts.net`.
+  - Local viewer server startup failed: `PermissionError: [Errno 1] Operation not permitted` for `python3 -m http.server 8765 --bind 127.0.0.1`.
+  - Playwright and Chrome DevTools `file://` viewer navigation returned `user cancelled MCP tool call`.
+  - Headless Chrome `file://` viewer screenshot exited `-1` and did not create a screenshot.
+  - URL conversion against Desmos with `--refresh` failed DNS resolution; offline fixture-based precheck/projections were used instead.
+- Visual claim: no live Desmos/viewer parity claim. The PNGs are deterministic offline projection evidence only.
+
+## Metrics
+- Before/after tracked S2-01B metrics unchanged: `143 prims / 0 unsupported / 143 classified / 143 renderable / valid true / success`.
+- S2-01B offline precheck/projection: `143 prims / 0 unsupported / valid true / success`.
+- S2-08 Group E guard precheck/projection: `87 prims / 0 unsupported / valid true / success`.
+- S2-09 Group F guard precheck/projection: `27 prims / 0 unsupported / valid true / success`.
+- Overall tracked fixture summary unchanged: 71 fixtures; 50 success, 21 partial, 0 error, acceptance not met.
+
+## Validation
+- Viewer JavaScript syntax passed: `node --check viewer/app.js && node --check viewer/camera.js`.
+- Offline precheck passed: `PYTHONPATH=src python3 -m desmos2usd.validate.fixture_usdz_suite --out artifacts/fixture_usdz/review_evidence/20260428_s201_group_b_ralph_visual_retry_9/precheck --resolution 12 --fixture '[4B] 3D Diagram - S2-01 Group B.json' --fixture '[4B] 3D Diagram - S2-08 Group E.json' --fixture '[4B] 3D Diagram - S2-09 Group F.json'`.
+- Focused tests passed: `PYTHONPATH=src:tests python3 -m unittest tests.test_viewer_camera tests.test_visual_preview tests.test_fixture_usdz_suite tests.test_student_fixture_regressions` ran 101 tests OK.
+- Full unittest discovery passed: `PYTHONPATH=src:tests python3 -m unittest discover -s tests` ran 174 tests OK.
+- Report-vs-USDA consistency checked for S2-01B, S2-08E, and S2-09F projection artifacts: `143/143`, `87/87`, and `27/27`.
+- JSON validity checked for tracked `summary.json`, `capture_results.json`, `projection_results.json`, and precheck `summary.json`.
+- Projection PNG dimensions checked with `sips`: all three are `776x256`.
+- `git diff --check`: passed.
+
+## Commit / Push
+- Blocked in this HOME Codex turn: staging failed with `fatal: Unable to create '/Users/chek/repos/desmos2usd-carey/.git/index.lock': Operation not permitted`.
+- `.git` and `.git/index` are not writable from this sandbox (`test -w` failed), so commit/push must be done from the main environment.
+- Suggested commit subject: `Record S2-01B visual retry blocker`.
+- Evidence directory is ignored by `.gitignore`; include it with:
+  - `git add -f artifacts/fixture_usdz/review_evidence/20260428_s201_group_b_ralph_visual_retry_9`
+
+## Review Links
+- Route verification from this environment failed for root/viewer/summary with `curl: (6) Could not resolve host: chq.singapura-broadnose.ts.net`.
+- S2-01 Group B Desmos: `https://www.desmos.com/3d/27v0xuv64m`
+- S2-01 Group B viewer: `https://chq.singapura-broadnose.ts.net/viewer/?usda=..%2Fartifacts%2Ffixture_usdz%2F%5B4B%5D%203D%20Diagram%20-%20S2-01%20Group%20B.usda&label=S2-01%20Group%20B`
+- S2-08 Group E Desmos: `https://www.desmos.com/3d/g59jqe6nxy`
+- S2-08 Group E viewer: `https://chq.singapura-broadnose.ts.net/viewer/?usda=..%2Fartifacts%2Ffixture_usdz%2F%5B4B%5D%203D%20Diagram%20-%20S2-08%20Group%20E.usda&label=S2-08%20Group%20E`
+- S2-09 Group F Desmos: `https://www.desmos.com/3d/umjxv6ahck`
+- S2-09 Group F viewer: `https://chq.singapura-broadnose.ts.net/viewer/?usda=..%2Fartifacts%2Ffixture_usdz%2F%5B4B%5D%203D%20Diagram%20-%20S2-09%20Group%20F.usda&label=S2-09%20Group%20F`
+
+## Remaining Mismatch / Next Wake Instructions
+1. Ask Chek to review S2-01B in the direct viewer link against the Desmos URL, or provide a fresh screenshot/description of what looks wrong.
+2. If Chek still reports S2-01B wrong, continue S2-01B only with that visual feedback as concrete blocker context.
+3. If Chek accepts S2-01B or does not reopen it, advance to tomorrow's next largest priority gap: S2-09 Group A (`https://www.desmos.com/3d/gk9kr8h9ki`), currently `22 prims / 40 unsupported`.
+4. Keep S2-08E and S2-09F as regression guards.
+
+# Handoff: 2026-04-28 02:04 SGT - S2-01B visual retry 8 blocker
+
+## Current Branch State
+- Repo: `/Users/chek/repos/desmos2usd-carey`
+- Branch: `fix/student-fixture-usdz-export`
+- Push target: `chektien:fix/student-fixture-usdz-export`
+- HEAD before this tranche: `0ba08d7 Record S2-01B visual retry blocker`
+
+## Completed This Tranche
+- Targeted fixture: `[4B] 3D Diagram - S2-01 Group B.json`
+- Desmos URL: `https://www.desmos.com/3d/27v0xuv64m`
+- Outcome: blocked, no exporter/viewer code change.
+- Reason: S2-01B remains structurally complete (`143 prims / 0 unsupported / valid true`), but Chek's concern is visual and every live Desmos/viewer capture route available here is still blocked. Without a rendered Desmos screenshot, rendered viewer screenshot, or concrete fresh mismatch description, another code fix would be speculative.
+- Preserved S2-08 Group E and S2-09 Group F as regression guards via fresh offline precheck and projection evidence.
+
+## Evidence
+- Evidence directory: `artifacts/fixture_usdz/review_evidence/20260428_s201_group_b_ralph_visual_retry_8/`
+- Files:
+  - `capture_results.json`
+  - `assessment.md`
+  - `projection_results.json`
+  - `S2-01_Group_B_projection.png`
+  - `S2-01_Group_B_projection.ppm`
+  - `S2-01_Group_B_projection.usda`
+  - `S2-01_Group_B_projection.usdz`
+  - `S2-01_Group_B_projection.report.json`
+  - `S2-08_Group_E_projection_guard.png`
+  - `S2-08_Group_E_projection_guard.ppm`
+  - `S2-08_Group_E_projection_guard.usda`
+  - `S2-08_Group_E_projection_guard.usdz`
+  - `S2-08_Group_E_projection_guard.report.json`
+  - `S2-09_Group_F_projection_guard.png`
+  - `S2-09_Group_F_projection_guard.ppm`
+  - `S2-09_Group_F_projection_guard.usda`
+  - `S2-09_Group_F_projection_guard.usdz`
+  - `S2-09_Group_F_projection_guard.report.json`
+  - `precheck/[4B] 3D Diagram - S2-01 Group B.usda`
+  - `precheck/[4B] 3D Diagram - S2-01 Group B.usdz`
+  - `precheck/[4B] 3D Diagram - S2-01 Group B.report.json`
+  - `precheck/[4B] 3D Diagram - S2-08 Group E.usda`
+  - `precheck/[4B] 3D Diagram - S2-08 Group E.usdz`
+  - `precheck/[4B] 3D Diagram - S2-08 Group E.report.json`
+  - `precheck/[4B] 3D Diagram - S2-09 Group F.usda`
+  - `precheck/[4B] 3D Diagram - S2-09 Group F.usdz`
+  - `precheck/[4B] 3D Diagram - S2-09 Group F.report.json`
+  - `precheck/summary.json`
+- Browser/live viewer blockers:
+  - Playwright Desmos navigation to `https://www.desmos.com/3d/27v0xuv64m` returned `user cancelled MCP tool call`.
+  - Chrome DevTools Desmos navigation to `https://www.desmos.com/3d/27v0xuv64m` returned `user cancelled MCP tool call`.
+  - Tailscale route checks for root, viewer, and summary failed with `curl: (6) Could not resolve host: chq.singapura-broadnose.ts.net`.
+  - Local viewer server startup failed: `PermissionError: [Errno 1] Operation not permitted` for `python3 -m http.server 8765 --bind 127.0.0.1`.
+  - Playwright and Chrome DevTools `file://` viewer navigation returned `user cancelled MCP tool call`.
+  - Headless Chrome `file://` viewer screenshot exited `134` and did not create a screenshot.
+  - URL conversion against Desmos with `--refresh` failed DNS resolution; offline fixture-based precheck/projections were used instead.
+- Visual claim: no live Desmos/viewer parity claim. The PNGs are deterministic offline projection evidence only.
+
+## Metrics
+- Before/after tracked S2-01B metrics unchanged: `143 prims / 0 unsupported / 143 classified / 143 renderable / valid true / success`.
+- S2-01B offline precheck/projection: `143 prims / 0 unsupported / valid true / success`.
+- S2-08 Group E guard precheck/projection: `87 prims / 0 unsupported / valid true / success`.
+- S2-09 Group F guard precheck/projection: `27 prims / 0 unsupported / valid true / success`.
+- Overall tracked fixture summary unchanged: 71 fixtures; 50 success, 21 partial, 0 error, acceptance not met.
+
+## Validation
+- Viewer JavaScript syntax passed: `node --check viewer/app.js && node --check viewer/camera.js`.
+- Offline precheck passed: `PYTHONPATH=src python3 -m desmos2usd.validate.fixture_usdz_suite --out artifacts/fixture_usdz/review_evidence/20260428_s201_group_b_ralph_visual_retry_8/precheck --resolution 12 --fixture '[4B] 3D Diagram - S2-01 Group B.json' --fixture '[4B] 3D Diagram - S2-08 Group E.json' --fixture '[4B] 3D Diagram - S2-09 Group F.json'`.
+- Focused tests passed: `PYTHONPATH=src:tests python3 -m unittest tests.test_viewer_camera tests.test_visual_preview tests.test_fixture_usdz_suite tests.test_student_fixture_regressions` ran 101 tests OK.
+- Full unittest discovery passed: `PYTHONPATH=src:tests python3 -m unittest discover -s tests` ran 174 tests OK.
+- Report-vs-USDA consistency checked for S2-01B, S2-08E, and S2-09F projection artifacts: `143/143`, `87/87`, and `27/27`.
+- JSON validity checked for tracked `summary.json`, `capture_results.json`, `projection_results.json`, and precheck `summary.json`.
+- Projection PNG dimensions checked with `sips`: all three are `776x256`.
+- `git diff --check`: passed.
+
+## Commit / Push
+- Blocked in this HOME Codex turn: staging failed with `fatal: Unable to create '/Users/chek/repos/desmos2usd-carey/.git/index.lock': Operation not permitted`.
+- `.git` and `.git/index` are not writable from this sandbox (`git_dir_writable=no`, `git_index_writable=no`), so commit/push must be done from the main environment.
+- Suggested commit subject: `Record S2-01B visual retry blocker`.
+- Evidence directory is ignored by `.gitignore`; include it with:
+  - `git add -f artifacts/fixture_usdz/review_evidence/20260428_s201_group_b_ralph_visual_retry_8`
+
+## Review Links
+- Route verification from this environment failed for root/viewer/summary with `curl: (6) Could not resolve host: chq.singapura-broadnose.ts.net`.
+- S2-01 Group B Desmos: `https://www.desmos.com/3d/27v0xuv64m`
+- S2-01 Group B viewer: `https://chq.singapura-broadnose.ts.net/viewer/?usda=..%2Fartifacts%2Ffixture_usdz%2F%5B4B%5D%203D%20Diagram%20-%20S2-01%20Group%20B.usda&label=S2-01%20Group%20B`
+- S2-08 Group E Desmos: `https://www.desmos.com/3d/g59jqe6nxy`
+- S2-08 Group E viewer: `https://chq.singapura-broadnose.ts.net/viewer/?usda=..%2Fartifacts%2Ffixture_usdz%2F%5B4B%5D%203D%20Diagram%20-%20S2-08%20Group%20E.usda&label=S2-08%20Group%20E`
+- S2-09 Group F Desmos: `https://www.desmos.com/3d/umjxv6ahck`
+- S2-09 Group F viewer: `https://chq.singapura-broadnose.ts.net/viewer/?usda=..%2Fartifacts%2Ffixture_usdz%2F%5B4B%5D%203D%20Diagram%20-%20S2-09%20Group%20F.usda&label=S2-09%20Group%20F`
+
+## Remaining Mismatch / Next Wake Instructions
+1. Ask Chek to review S2-01B in the direct viewer link against the Desmos URL, or provide a fresh screenshot/description of what looks wrong.
+2. If Chek still reports S2-01B wrong, continue S2-01B only with that visual feedback as concrete blocker context.
+3. If Chek accepts S2-01B or does not reopen it, advance to tomorrow's next largest priority gap: S2-09 Group A (`https://www.desmos.com/3d/gk9kr8h9ki`), currently `22 prims / 40 unsupported`.
+4. Keep S2-08E and S2-09F as regression guards.
+
+# Handoff: 2026-04-28 01:44 SGT - S2-01B visual retry 7 blocker
+
+## Current Branch State
+- Repo: `/Users/chek/repos/desmos2usd-carey`
+- Branch: `fix/student-fixture-usdz-export`
+- Push target: `chektien:fix/student-fixture-usdz-export`
+- HEAD before this tranche: `2a6282a Record S2-01B visual retry blocker`
+
+## Completed This Tranche
+- Targeted fixture: `[4B] 3D Diagram - S2-01 Group B.json`
+- Desmos URL: `https://www.desmos.com/3d/27v0xuv64m`
+- Outcome: blocked, no exporter/viewer code change.
+- Reason: S2-01B remains structurally complete (`143 prims / 0 unsupported / valid true`), but Chek's concern is visual and every live Desmos/viewer capture route available here is still blocked. Without a rendered Desmos screenshot, rendered viewer screenshot, or concrete fresh mismatch description, another code fix would be speculative.
+- Preserved S2-08 Group E and S2-09 Group F as regression guards via fresh offline precheck and projection evidence.
+
+## Evidence
+- Evidence directory: `artifacts/fixture_usdz/review_evidence/20260428_s201_group_b_ralph_visual_retry_7/`
+- Files:
+  - `capture_results.json`
+  - `assessment.md`
+  - `projection_results.json`
+  - `S2-01_Group_B_projection.png`
+  - `S2-01_Group_B_projection.ppm`
+  - `S2-01_Group_B_projection.usda`
+  - `S2-01_Group_B_projection.usdz`
+  - `S2-01_Group_B_projection.report.json`
+  - `S2-08_Group_E_projection_guard.png`
+  - `S2-08_Group_E_projection_guard.ppm`
+  - `S2-08_Group_E_projection_guard.usda`
+  - `S2-08_Group_E_projection_guard.usdz`
+  - `S2-08_Group_E_projection_guard.report.json`
+  - `S2-09_Group_F_projection_guard.png`
+  - `S2-09_Group_F_projection_guard.ppm`
+  - `S2-09_Group_F_projection_guard.usda`
+  - `S2-09_Group_F_projection_guard.usdz`
+  - `S2-09_Group_F_projection_guard.report.json`
+  - `precheck/[4B] 3D Diagram - S2-01 Group B.usda`
+  - `precheck/[4B] 3D Diagram - S2-01 Group B.usdz`
+  - `precheck/[4B] 3D Diagram - S2-01 Group B.report.json`
+  - `precheck/[4B] 3D Diagram - S2-08 Group E.usda`
+  - `precheck/[4B] 3D Diagram - S2-08 Group E.usdz`
+  - `precheck/[4B] 3D Diagram - S2-08 Group E.report.json`
+  - `precheck/[4B] 3D Diagram - S2-09 Group F.usda`
+  - `precheck/[4B] 3D Diagram - S2-09 Group F.usdz`
+  - `precheck/[4B] 3D Diagram - S2-09 Group F.report.json`
+  - `precheck/summary.json`
+- Browser/live viewer blockers:
+  - Playwright Desmos navigation to `https://www.desmos.com/3d/27v0xuv64m` returned `user cancelled MCP tool call`.
+  - Chrome DevTools Desmos navigation to `https://www.desmos.com/3d/27v0xuv64m` returned `user cancelled MCP tool call`.
+  - Tailscale route checks for root, viewer, and summary failed with `curl: (6) Could not resolve host: chq.singapura-broadnose.ts.net`.
+  - Local viewer server startup failed: `PermissionError: [Errno 1] Operation not permitted` for `python3 -m http.server 8765 --bind 127.0.0.1`.
+  - Playwright and Chrome DevTools `file://` viewer navigation returned `user cancelled MCP tool call`.
+  - Headless Chrome `file://` viewer screenshot exited `-1` and did not create a screenshot.
+  - URL conversion against Desmos with `--refresh` failed DNS resolution; offline fixture-based precheck/projections were used instead.
+- Visual claim: no live Desmos/viewer parity claim. The PNGs are deterministic offline projection evidence only.
+
+## Metrics
+- Before/after tracked S2-01B metrics unchanged: `143 prims / 0 unsupported / 143 classified / 143 renderable / valid true / success`.
+- S2-01B offline precheck/projection: `143 prims / 0 unsupported / valid true / success`.
+- S2-08 Group E guard precheck/projection: `87 prims / 0 unsupported / valid true / success`.
+- S2-09 Group F guard precheck/projection: `27 prims / 0 unsupported / valid true / success`.
+- Overall tracked fixture summary unchanged: 71 fixtures; 50 success, 21 partial, 0 error, acceptance not met.
+
+## Validation
+- Viewer JavaScript syntax passed: `node --check viewer/app.js && node --check viewer/camera.js`.
+- Offline precheck passed: `PYTHONPATH=src python3 -m desmos2usd.validate.fixture_usdz_suite --out artifacts/fixture_usdz/review_evidence/20260428_s201_group_b_ralph_visual_retry_7/precheck --resolution 12 --fixture '[4B] 3D Diagram - S2-01 Group B.json' --fixture '[4B] 3D Diagram - S2-08 Group E.json' --fixture '[4B] 3D Diagram - S2-09 Group F.json'`.
+- Focused tests passed: `PYTHONPATH=src:tests python3 -m unittest tests.test_viewer_camera tests.test_visual_preview tests.test_fixture_usdz_suite tests.test_student_fixture_regressions` ran 101 tests OK.
+- Full unittest discovery passed: `PYTHONPATH=src:tests python3 -m unittest discover -s tests` ran 174 tests OK.
+- Report-vs-USDA consistency checked for S2-01B, S2-08E, and S2-09F projection artifacts: `143/143`, `87/87`, and `27/27`.
+- JSON validity checked for tracked `summary.json`, `capture_results.json`, `projection_results.json`, and precheck `summary.json`.
+- Projection PNG dimensions checked with `sips`: all three are `776x256`.
+- `git diff --check`: passed.
+
+## Commit / Push
+- Blocked in this HOME Codex turn: staging failed with `fatal: Unable to create '/Users/chek/repos/desmos2usd-carey/.git/index.lock': Operation not permitted`.
+- `.git` and `.git/index` are not writable from this sandbox (`test -w` failed), so commit/push must be done from the main environment.
+- Suggested commit subject: `Record S2-01B visual retry blocker`.
+- Evidence directory is ignored by `.gitignore`; include it with:
+  - `git add -f artifacts/fixture_usdz/review_evidence/20260428_s201_group_b_ralph_visual_retry_7`
+
+## Review Links
+- Route verification from this environment failed for root/viewer/summary with `curl: (6) Could not resolve host: chq.singapura-broadnose.ts.net`.
+- S2-01 Group B Desmos: `https://www.desmos.com/3d/27v0xuv64m`
+- S2-01 Group B viewer: `https://chq.singapura-broadnose.ts.net/viewer/?usda=..%2Fartifacts%2Ffixture_usdz%2F%5B4B%5D%203D%20Diagram%20-%20S2-01%20Group%20B.usda&label=S2-01%20Group%20B`
+- S2-08 Group E Desmos: `https://www.desmos.com/3d/g59jqe6nxy`
+- S2-08 Group E viewer: `https://chq.singapura-broadnose.ts.net/viewer/?usda=..%2Fartifacts%2Ffixture_usdz%2F%5B4B%5D%203D%20Diagram%20-%20S2-08%20Group%20E.usda&label=S2-08%20Group%20E`
+- S2-09 Group F Desmos: `https://www.desmos.com/3d/umjxv6ahck`
+- S2-09 Group F viewer: `https://chq.singapura-broadnose.ts.net/viewer/?usda=..%2Fartifacts%2Ffixture_usdz%2F%5B4B%5D%203D%20Diagram%20-%20S2-09%20Group%20F.usda&label=S2-09%20Group%20F`
+
+## Remaining Mismatch / Next Wake Instructions
+1. Ask Chek to review S2-01B in the direct viewer link against the Desmos URL, or provide a fresh screenshot/description of what looks wrong.
+2. If Chek still reports S2-01B wrong, continue S2-01B only with that visual feedback as concrete blocker context.
+3. If Chek accepts S2-01B or does not reopen it, advance to tomorrow's next largest priority gap: S2-09 Group A (`https://www.desmos.com/3d/gk9kr8h9ki`), currently `22 prims / 40 unsupported`.
+4. Keep S2-08E and S2-09F as regression guards.
+
+# Handoff: 2026-04-28 01:27 SGT - S2-01B visual retry 6 blocker
+
+## Current Branch State
+- Repo: `/Users/chek/repos/desmos2usd-carey`
+- Branch: `fix/student-fixture-usdz-export`
+- Push target: `chektien:fix/student-fixture-usdz-export`
+- HEAD before this tranche: `162a8fc Record S2-01B visual retry blocker`
+
+## Completed This Tranche
+- Targeted fixture: `[4B] 3D Diagram - S2-01 Group B.json`
+- Desmos URL: `https://www.desmos.com/3d/27v0xuv64m`
+- Outcome: blocked, no exporter/viewer code change.
+- Reason: S2-01B remains structurally complete (`143 prims / 0 unsupported / valid true`), but Chek's concern is visual and every live Desmos/viewer capture route available here is still blocked. Without a rendered Desmos screenshot, rendered viewer screenshot, or concrete fresh mismatch description, another code fix would be speculative.
+- Preserved S2-08 Group E and S2-09 Group F as regression guards via fresh offline precheck and projection evidence.
+
+## Evidence
+- Evidence directory: `artifacts/fixture_usdz/review_evidence/20260428_s201_group_b_ralph_visual_retry_6/`
+- Files:
+  - `capture_results.json`
+  - `assessment.md`
+  - `projection_results.json`
+  - `S2-01_Group_B_projection.png`
+  - `S2-01_Group_B_projection.ppm`
+  - `S2-01_Group_B_projection.usda`
+  - `S2-01_Group_B_projection.usdz`
+  - `S2-01_Group_B_projection.report.json`
+  - `S2-08_Group_E_projection_guard.png`
+  - `S2-08_Group_E_projection_guard.ppm`
+  - `S2-08_Group_E_projection_guard.usda`
+  - `S2-08_Group_E_projection_guard.usdz`
+  - `S2-08_Group_E_projection_guard.report.json`
+  - `S2-09_Group_F_projection_guard.png`
+  - `S2-09_Group_F_projection_guard.ppm`
+  - `S2-09_Group_F_projection_guard.usda`
+  - `S2-09_Group_F_projection_guard.usdz`
+  - `S2-09_Group_F_projection_guard.report.json`
+  - `precheck/[4B] 3D Diagram - S2-01 Group B.usda`
+  - `precheck/[4B] 3D Diagram - S2-01 Group B.usdz`
+  - `precheck/[4B] 3D Diagram - S2-01 Group B.report.json`
+  - `precheck/[4B] 3D Diagram - S2-08 Group E.usda`
+  - `precheck/[4B] 3D Diagram - S2-08 Group E.usdz`
+  - `precheck/[4B] 3D Diagram - S2-08 Group E.report.json`
+  - `precheck/[4B] 3D Diagram - S2-09 Group F.usda`
+  - `precheck/[4B] 3D Diagram - S2-09 Group F.usdz`
+  - `precheck/[4B] 3D Diagram - S2-09 Group F.report.json`
+  - `precheck/summary.json`
+- Browser/live viewer blockers:
+  - Playwright Desmos navigation to `https://www.desmos.com/3d/27v0xuv64m` returned `user cancelled MCP tool call`.
+  - Chrome DevTools Desmos navigation to `https://www.desmos.com/3d/27v0xuv64m` returned `user cancelled MCP tool call`.
+  - Tailscale route checks for root, viewer, and summary failed with `curl: (6) Could not resolve host: chq.singapura-broadnose.ts.net`.
+  - Local viewer server startup failed: `PermissionError: [Errno 1] Operation not permitted` for `python3 -m http.server 8765 --bind 127.0.0.1`.
+  - Playwright and Chrome DevTools `file://` viewer navigation returned `user cancelled MCP tool call`.
+  - Headless Chrome `file://` viewer screenshot exited `-1` and did not create a screenshot.
+  - URL conversion against Desmos with `--refresh` failed DNS resolution; offline fixture-based precheck/projections were used instead.
+- Visual claim: no live Desmos/viewer parity claim. The PNGs are deterministic offline projection evidence only.
+
+## Metrics
+- Before/after tracked S2-01B metrics unchanged: `143 prims / 0 unsupported / 143 classified / 143 renderable / valid true / success`.
+- S2-01B offline precheck/projection: `143 prims / 0 unsupported / valid true / success`.
+- S2-08 Group E guard precheck/projection: `87 prims / 0 unsupported / valid true / success`.
+- S2-09 Group F guard precheck/projection: `27 prims / 0 unsupported / valid true / success`.
+- Overall tracked fixture summary unchanged: 71 fixtures; 50 success, 21 partial, 0 error, acceptance not met.
+
+## Validation
+- Viewer JavaScript syntax passed: `node --check viewer/app.js && node --check viewer/camera.js`.
+- Offline precheck passed: `PYTHONPATH=src python3 -m desmos2usd.validate.fixture_usdz_suite --out artifacts/fixture_usdz/review_evidence/20260428_s201_group_b_ralph_visual_retry_6/precheck --resolution 12 --fixture '[4B] 3D Diagram - S2-01 Group B.json' --fixture '[4B] 3D Diagram - S2-08 Group E.json' --fixture '[4B] 3D Diagram - S2-09 Group F.json'`.
+- Focused tests passed: `PYTHONPATH=src:tests python3 -m unittest tests.test_viewer_camera tests.test_visual_preview tests.test_fixture_usdz_suite tests.test_student_fixture_regressions` ran 101 tests OK.
+- Full unittest discovery passed: `PYTHONPATH=src:tests python3 -m unittest discover -s tests` ran 174 tests OK.
+- Report-vs-USDA consistency checked for S2-01B, S2-08E, and S2-09F projection artifacts: `143/143`, `87/87`, and `27/27`.
+- JSON validity checked for tracked `summary.json`, `capture_results.json`, `projection_results.json`, and precheck `summary.json`.
+- Projection PNG dimensions checked with `sips`: all three are `776x256`.
+- `git diff --check`: passed.
+
+## Commit / Push
+- Blocked in this HOME Codex turn: staging failed with `fatal: Unable to create '/Users/chek/repos/desmos2usd-carey/.git/index.lock': Operation not permitted`.
+- `.git` and `.git/index` are not writable from this sandbox (`test -w` failed), so commit/push must be done from the main environment.
+- Suggested commit subject: `Record S2-01B visual retry blocker`.
+- Evidence directory is ignored by `.gitignore`; include it with:
+  - `git add -f artifacts/fixture_usdz/review_evidence/20260428_s201_group_b_ralph_visual_retry_6`
+
+## Review Links
+- Route verification from this environment failed for root/viewer/summary with `curl: (6) Could not resolve host: chq.singapura-broadnose.ts.net`.
+- S2-01 Group B Desmos: `https://www.desmos.com/3d/27v0xuv64m`
+- S2-01 Group B viewer: `https://chq.singapura-broadnose.ts.net/viewer/?usda=..%2Fartifacts%2Ffixture_usdz%2F%5B4B%5D%203D%20Diagram%20-%20S2-01%20Group%20B.usda&label=S2-01%20Group%20B`
+- S2-08 Group E Desmos: `https://www.desmos.com/3d/g59jqe6nxy`
+- S2-08 Group E viewer: `https://chq.singapura-broadnose.ts.net/viewer/?usda=..%2Fartifacts%2Ffixture_usdz%2F%5B4B%5D%203D%20Diagram%20-%20S2-08%20Group%20E.usda&label=S2-08%20Group%20E`
+- S2-09 Group F Desmos: `https://www.desmos.com/3d/umjxv6ahck`
+- S2-09 Group F viewer: `https://chq.singapura-broadnose.ts.net/viewer/?usda=..%2Fartifacts%2Ffixture_usdz%2F%5B4B%5D%203D%20Diagram%20-%20S2-09%20Group%20F.usda&label=S2-09%20Group%20F`
+
+## Remaining Mismatch / Next Wake Instructions
+1. Ask Chek to review S2-01B in the direct viewer link against the Desmos URL, or provide a fresh screenshot/description of what looks wrong.
+2. If Chek still reports S2-01B wrong, continue S2-01B only with that visual feedback as concrete blocker context.
+3. If Chek accepts S2-01B or does not reopen it, advance to tomorrow's next largest priority gap: S2-09 Group A (`https://www.desmos.com/3d/gk9kr8h9ki`), currently `22 prims / 40 unsupported`.
+4. Keep S2-08E and S2-09F as regression guards.
+
+# Handoff: 2026-04-28 00:51 SGT - S2-01B visual retry 5 blocker
+
+## Current Branch State
+- Repo: `/Users/chek/repos/desmos2usd-carey`
+- Branch: `fix/student-fixture-usdz-export`
+- Push target: `chektien:fix/student-fixture-usdz-export`
+- HEAD before this tranche: `a81828b Record S2-01B visual retry blocker`
+
+## Completed This Tranche
+- Targeted fixture: `[4B] 3D Diagram - S2-01 Group B.json`
+- Desmos URL: `https://www.desmos.com/3d/27v0xuv64m`
+- Outcome: blocked, no exporter/viewer code change.
+- Reason: S2-01B remains structurally complete (`143 prims / 0 unsupported / valid true`), but Chek's concern is visual and every live Desmos/viewer capture route available here is still blocked. Without a rendered Desmos screenshot, rendered viewer screenshot, or concrete fresh mismatch description, another code fix would be speculative.
+- Preserved S2-08 Group E and S2-09 Group F as regression guards via fresh offline precheck and projection evidence.
+
+## Evidence
+- Evidence directory: `artifacts/fixture_usdz/review_evidence/20260428_s201_group_b_ralph_visual_retry_5/`
+- Files:
+  - `capture_results.json`
+  - `assessment.md`
+  - `projection_results.json`
+  - `S2-01_Group_B_projection.png`
+  - `S2-01_Group_B_projection.ppm`
+  - `S2-01_Group_B_projection.usda`
+  - `S2-01_Group_B_projection.usdz`
+  - `S2-01_Group_B_projection.report.json`
+  - `S2-08_Group_E_projection_guard.png`
+  - `S2-08_Group_E_projection_guard.ppm`
+  - `S2-08_Group_E_projection_guard.usda`
+  - `S2-08_Group_E_projection_guard.usdz`
+  - `S2-08_Group_E_projection_guard.report.json`
+  - `S2-09_Group_F_projection_guard.png`
+  - `S2-09_Group_F_projection_guard.ppm`
+  - `S2-09_Group_F_projection_guard.usda`
+  - `S2-09_Group_F_projection_guard.usdz`
+  - `S2-09_Group_F_projection_guard.report.json`
+  - `precheck/[4B] 3D Diagram - S2-01 Group B.usda`
+  - `precheck/[4B] 3D Diagram - S2-01 Group B.usdz`
+  - `precheck/[4B] 3D Diagram - S2-01 Group B.report.json`
+  - `precheck/[4B] 3D Diagram - S2-08 Group E.usda`
+  - `precheck/[4B] 3D Diagram - S2-08 Group E.usdz`
+  - `precheck/[4B] 3D Diagram - S2-08 Group E.report.json`
+  - `precheck/[4B] 3D Diagram - S2-09 Group F.usda`
+  - `precheck/[4B] 3D Diagram - S2-09 Group F.usdz`
+  - `precheck/[4B] 3D Diagram - S2-09 Group F.report.json`
+  - `precheck/summary.json`
+- Browser/live viewer blockers:
+  - Playwright Desmos navigation to `https://www.desmos.com/3d/27v0xuv64m` returned `user cancelled MCP tool call`.
+  - Chrome DevTools Desmos navigation to `https://www.desmos.com/3d/27v0xuv64m` returned `user cancelled MCP tool call`.
+  - Tailscale route checks for root, viewer, and summary failed with `curl: (6) Could not resolve host: chq.singapura-broadnose.ts.net`.
+  - Local viewer server startup failed: `PermissionError: [Errno 1] Operation not permitted` for `python3 -m http.server 8765 --bind 127.0.0.1`.
+  - Playwright and Chrome DevTools `file://` viewer navigation returned `user cancelled MCP tool call`.
+  - Headless Chrome `file://` viewer screenshot exited `-1` and did not create a screenshot.
+  - URL conversion against Desmos with `--refresh` failed DNS resolution; offline fixture-based precheck/projections were used instead.
+- Visual claim: no live Desmos/viewer parity claim. The PNGs are deterministic offline projection evidence only.
+
+## Metrics
+- S2-01B tracked/current: `143 prims / 0 unsupported / 143 classified / 143 renderable / valid true / success`.
+- S2-01B offline precheck/projection: `143 prims / 0 unsupported / valid true / success`.
+- S2-08 Group E guard precheck/projection: `87 prims / 0 unsupported / valid true / success`.
+- S2-09 Group F guard precheck/projection: `27 prims / 0 unsupported / valid true / success`.
+- Overall tracked fixture summary unchanged: 71 fixtures; 50 success, 21 partial, 0 error, acceptance not met.
+
+## Validation
+- Viewer JavaScript syntax passed: `node --check viewer/app.js && node --check viewer/camera.js`.
+- Offline precheck passed: `PYTHONPATH=src python3 -m desmos2usd.validate.fixture_usdz_suite --out artifacts/fixture_usdz/review_evidence/20260428_s201_group_b_ralph_visual_retry_5/precheck --resolution 12 --fixture '[4B] 3D Diagram - S2-01 Group B.json' --fixture '[4B] 3D Diagram - S2-08 Group E.json' --fixture '[4B] 3D Diagram - S2-09 Group F.json'`.
+- Focused tests passed: `PYTHONPATH=src:tests python3 -m unittest tests.test_viewer_camera tests.test_visual_preview tests.test_fixture_usdz_suite tests.test_student_fixture_regressions` ran 101 tests OK.
+- Full unittest discovery passed: `PYTHONPATH=src:tests python3 -m unittest discover -s tests` ran 174 tests OK.
+- Report-vs-USDA consistency checked for S2-01B, S2-08E, and S2-09F projection artifacts: `143/143`, `87/87`, and `27/27`.
+- JSON validity checked for tracked `summary.json`, `capture_results.json`, `projection_results.json`, and precheck `summary.json`.
+- Projection PNG dimensions checked with `sips`: all three are `776x256`.
+- `git diff --check`: passed.
+
+## Commit / Push
+- Blocked in this HOME Codex turn: staging failed with `fatal: Unable to create '/Users/chek/repos/desmos2usd-carey/.git/index.lock': Operation not permitted`.
+- Worktree is ready to stage, commit, and push from the main environment.
+- Suggested commit subject: `Record S2-01B visual retry blocker`.
+- Evidence directory is ignored by `.gitignore`; include it with:
+  - `git add -f artifacts/fixture_usdz/review_evidence/20260428_s201_group_b_ralph_visual_retry_5`
+
+## Review Links
+- Route verification from this environment failed for root/viewer/summary with `curl: (6) Could not resolve host: chq.singapura-broadnose.ts.net`.
+- S2-01 Group B Desmos: `https://www.desmos.com/3d/27v0xuv64m`
+- S2-01 Group B viewer: `https://chq.singapura-broadnose.ts.net/viewer/?usda=..%2Fartifacts%2Ffixture_usdz%2F%5B4B%5D%203D%20Diagram%20-%20S2-01%20Group%20B.usda&label=S2-01%20Group%20B`
+- S2-08 Group E Desmos: `https://www.desmos.com/3d/g59jqe6nxy`
+- S2-08 Group E viewer: `https://chq.singapura-broadnose.ts.net/viewer/?usda=..%2Fartifacts%2Ffixture_usdz%2F%5B4B%5D%203D%20Diagram%20-%20S2-08%20Group%20E.usda&label=S2-08%20Group%20E`
+- S2-09 Group F Desmos: `https://www.desmos.com/3d/umjxv6ahck`
+- S2-09 Group F viewer: `https://chq.singapura-broadnose.ts.net/viewer/?usda=..%2Fartifacts%2Ffixture_usdz%2F%5B4B%5D%203D%20Diagram%20-%20S2-09%20Group%20F.usda&label=S2-09%20Group%20F`
+
+## Remaining Mismatch / Next Wake Instructions
+1. Ask Chek to review S2-01B in the direct viewer link against the Desmos URL, or provide a fresh screenshot/description of what looks wrong.
+2. If Chek still reports S2-01B wrong, continue S2-01B only with that visual feedback as concrete blocker context.
+3. If Chek accepts S2-01B or does not reopen it, advance to tomorrow's next largest priority gap: S2-09 Group A (`https://www.desmos.com/3d/gk9kr8h9ki`), currently `22 prims / 40 unsupported`.
+4. Keep S2-08E and S2-09F as regression guards.
+
+# Handoff: 2026-04-28 00:31 SGT - S2-01B visual retry 4 blocker
+
+## Current Branch State
+- Repo: `/Users/chek/repos/desmos2usd-carey`
+- Branch: `fix/student-fixture-usdz-export`
+- Push target: `chektien:fix/student-fixture-usdz-export`
+- HEAD before this tranche: `384e2b9 Record S2-01B visual retry blocker`
+
+## Completed This Tranche
+- Targeted fixture: `[4B] 3D Diagram - S2-01 Group B.json`
+- Desmos URL: `https://www.desmos.com/3d/27v0xuv64m`
+- Outcome: blocked, no exporter/viewer code change.
+- Reason: S2-01B remains structurally complete (`143 prims / 0 unsupported / valid true`), but Chek's concern is visual and every live Desmos/viewer capture route available here is still blocked. Without a rendered Desmos screenshot, rendered viewer screenshot, or concrete fresh mismatch description, another code fix would be speculative.
+- Preserved S2-08 Group E and S2-09 Group F as regression guards via fresh offline precheck and projection evidence.
+
+## Evidence
+- Evidence directory: `artifacts/fixture_usdz/review_evidence/20260428_s201_group_b_ralph_visual_retry_4/`
+- Files:
+  - `capture_results.json`
+  - `assessment.md`
+  - `projection_results.json`
+  - `S2-01_Group_B_projection.png`
+  - `S2-01_Group_B_projection.ppm`
+  - `S2-01_Group_B_projection.usda`
+  - `S2-01_Group_B_projection.usdz`
+  - `S2-01_Group_B_projection.report.json`
+  - `S2-08_Group_E_projection_guard.png`
+  - `S2-08_Group_E_projection_guard.ppm`
+  - `S2-08_Group_E_projection_guard.usda`
+  - `S2-08_Group_E_projection_guard.usdz`
+  - `S2-08_Group_E_projection_guard.report.json`
+  - `S2-09_Group_F_projection_guard.png`
+  - `S2-09_Group_F_projection_guard.ppm`
+  - `S2-09_Group_F_projection_guard.usda`
+  - `S2-09_Group_F_projection_guard.usdz`
+  - `S2-09_Group_F_projection_guard.report.json`
+  - `precheck/[4B] 3D Diagram - S2-01 Group B.usda`
+  - `precheck/[4B] 3D Diagram - S2-01 Group B.usdz`
+  - `precheck/[4B] 3D Diagram - S2-01 Group B.report.json`
+  - `precheck/[4B] 3D Diagram - S2-08 Group E.usda`
+  - `precheck/[4B] 3D Diagram - S2-08 Group E.usdz`
+  - `precheck/[4B] 3D Diagram - S2-08 Group E.report.json`
+  - `precheck/[4B] 3D Diagram - S2-09 Group F.usda`
+  - `precheck/[4B] 3D Diagram - S2-09 Group F.usdz`
+  - `precheck/[4B] 3D Diagram - S2-09 Group F.report.json`
+  - `precheck/summary.json`
+- Browser/live viewer blockers:
+  - Playwright Desmos navigation to `https://www.desmos.com/3d/27v0xuv64m` returned `user cancelled MCP tool call`.
+  - Chrome DevTools Desmos navigation to `https://www.desmos.com/3d/27v0xuv64m` returned `user cancelled MCP tool call`.
+  - Tailscale route checks for root, viewer, and summary failed with `curl: (6) Could not resolve host: chq.singapura-broadnose.ts.net`.
+  - Local viewer server startup failed: `PermissionError: [Errno 1] Operation not permitted` for `python3 -m http.server 8765 --bind 127.0.0.1`.
+  - Playwright and Chrome DevTools `file://` viewer navigation returned `user cancelled MCP tool call`.
+  - Headless Chrome `file://` viewer screenshot exited `-1` and did not create a screenshot.
+  - URL conversion against Desmos with `--refresh` failed DNS resolution; offline fixture-based precheck/projections were used instead.
+- Visual claim: no live Desmos/viewer parity claim. The PNGs are deterministic offline projection evidence only.
+
+## Metrics
+- S2-01B tracked/current: `143 prims / 0 unsupported / 143 classified / 143 renderable / valid true / success`.
+- S2-01B offline precheck/projection: `143 prims / 0 unsupported / valid true / success`.
+- S2-08 Group E guard precheck/projection: `87 prims / 0 unsupported / valid true / success`.
+- S2-09 Group F guard precheck/projection: `27 prims / 0 unsupported / valid true / success`.
+- Overall tracked fixture summary unchanged: 71 fixtures; 50 success, 21 partial, 0 error, acceptance not met.
+
+## Validation
+- Viewer JavaScript syntax passed: `node --check viewer/app.js` and `node --check viewer/camera.js`.
+- Offline precheck passed: `PYTHONPATH=src python3 -m desmos2usd.validate.fixture_usdz_suite --out artifacts/fixture_usdz/review_evidence/20260428_s201_group_b_ralph_visual_retry_4/precheck --resolution 12 --fixture '[4B] 3D Diagram - S2-01 Group B.json' --fixture '[4B] 3D Diagram - S2-08 Group E.json' --fixture '[4B] 3D Diagram - S2-09 Group F.json'`.
+- Focused tests passed: `PYTHONPATH=src:tests python3 -m unittest tests.test_viewer_camera tests.test_visual_preview tests.test_fixture_usdz_suite tests.test_student_fixture_regressions` ran 101 tests OK.
+- Full unittest discovery passed: `PYTHONPATH=src:tests python3 -m unittest discover -s tests` ran 174 tests OK.
+- Report-vs-USDA consistency checked for S2-01B, S2-08E, and S2-09F projection artifacts: `143/143`, `87/87`, and `27/27`.
+- JSON validity checked for tracked `summary.json`, `capture_results.json`, `projection_results.json`, and precheck `summary.json`.
+- Projection PNG dimensions checked with `sips`: all three are `776x256`.
+
+## Commit / Push
+- Blocked in this HOME Codex turn: staging failed with `fatal: Unable to create '/Users/chek/repos/desmos2usd-carey/.git/index.lock': Operation not permitted`.
+- Worktree is ready to stage, commit, and push from the main environment.
+- Suggested commit subject: `Record S2-01B visual retry blocker`.
+- Evidence directory is ignored by `.gitignore`; include it with:
+  - `git add -f artifacts/fixture_usdz/review_evidence/20260428_s201_group_b_ralph_visual_retry_4`
+
+## Review Links
+- Route verification from this environment failed for root/viewer/summary with `curl: (6) Could not resolve host: chq.singapura-broadnose.ts.net`.
+- S2-01 Group B Desmos: `https://www.desmos.com/3d/27v0xuv64m`
+- S2-01 Group B viewer: `https://chq.singapura-broadnose.ts.net/viewer/?usda=..%2Fartifacts%2Ffixture_usdz%2F%5B4B%5D%203D%20Diagram%20-%20S2-01%20Group%20B.usda&label=S2-01%20Group%20B`
+- S2-08 Group E Desmos: `https://www.desmos.com/3d/g59jqe6nxy`
+- S2-08 Group E viewer: `https://chq.singapura-broadnose.ts.net/viewer/?usda=..%2Fartifacts%2Ffixture_usdz%2F%5B4B%5D%203D%20Diagram%20-%20S2-08%20Group%20E.usda&label=S2-08%20Group%20E`
+- S2-09 Group F Desmos: `https://www.desmos.com/3d/umjxv6ahck`
+- S2-09 Group F viewer: `https://chq.singapura-broadnose.ts.net/viewer/?usda=..%2Fartifacts%2Ffixture_usdz%2F%5B4B%5D%203D%20Diagram%20-%20S2-09%20Group%20F.usda&label=S2-09%20Group%20F`
+
+## Remaining Mismatch / Next Wake Instructions
+1. Ask Chek to review S2-01B in the direct viewer link against the Desmos URL, or provide a fresh screenshot/description of what looks wrong.
+2. If Chek still reports S2-01B wrong, continue S2-01B only with that visual feedback as concrete blocker context.
+3. If Chek accepts S2-01B or does not reopen it, advance to tomorrow's next largest priority gap: S2-09 Group A (`https://www.desmos.com/3d/gk9kr8h9ki`), currently `22 prims / 40 unsupported`.
+4. Keep S2-08E and S2-09F as regression guards.
+
+# Handoff: 2026-04-28 00:10 SGT - S2-01B visual retry 3 blocker
+
+## Current Branch State
+- Repo: `/Users/chek/repos/desmos2usd-carey`
+- Branch: `fix/student-fixture-usdz-export`
+- Push target: `chektien:fix/student-fixture-usdz-export`
+- HEAD before this tranche: `ace64b0 Record S2-01B visual retry blocker`
+
+## Completed This Tranche
+- Targeted fixture: `[4B] 3D Diagram - S2-01 Group B.json`
+- Desmos URL: `https://www.desmos.com/3d/27v0xuv64m`
+- Outcome: blocked, no exporter/viewer code change.
+- Reason: S2-01B remains structurally complete (`143 prims / 0 unsupported / valid true`), but Chek's concern is visual and every live Desmos/viewer capture route available here is still blocked. Without a rendered Desmos screenshot, rendered viewer screenshot, or concrete fresh mismatch description, another code fix would be speculative.
+- Preserved S2-08 Group E and S2-09 Group F as regression guards via fresh offline precheck and projection evidence.
+
+## Evidence
+- Evidence directory: `artifacts/fixture_usdz/review_evidence/20260428_s201_group_b_ralph_visual_retry_3/`
+- Files:
+  - `capture_results.json`
+  - `assessment.md`
+  - `projection_results.json`
+  - `S2-01_Group_B_projection.png`
+  - `S2-01_Group_B_projection.ppm`
+  - `S2-01_Group_B_projection.usda`
+  - `S2-01_Group_B_projection.usdz`
+  - `S2-01_Group_B_projection.report.json`
+  - `S2-08_Group_E_projection_guard.png`
+  - `S2-08_Group_E_projection_guard.ppm`
+  - `S2-08_Group_E_projection_guard.usda`
+  - `S2-08_Group_E_projection_guard.usdz`
+  - `S2-08_Group_E_projection_guard.report.json`
+  - `S2-09_Group_F_projection_guard.png`
+  - `S2-09_Group_F_projection_guard.ppm`
+  - `S2-09_Group_F_projection_guard.usda`
+  - `S2-09_Group_F_projection_guard.usdz`
+  - `S2-09_Group_F_projection_guard.report.json`
+  - `precheck/[4B] 3D Diagram - S2-01 Group B.usda`
+  - `precheck/[4B] 3D Diagram - S2-01 Group B.usdz`
+  - `precheck/[4B] 3D Diagram - S2-01 Group B.report.json`
+  - `precheck/[4B] 3D Diagram - S2-08 Group E.usda`
+  - `precheck/[4B] 3D Diagram - S2-08 Group E.usdz`
+  - `precheck/[4B] 3D Diagram - S2-08 Group E.report.json`
+  - `precheck/[4B] 3D Diagram - S2-09 Group F.usda`
+  - `precheck/[4B] 3D Diagram - S2-09 Group F.usdz`
+  - `precheck/[4B] 3D Diagram - S2-09 Group F.report.json`
+  - `precheck/summary.json`
+- Browser/live viewer blockers:
+  - Playwright Desmos navigation to `https://www.desmos.com/3d/27v0xuv64m` returned `user cancelled MCP tool call`.
+  - Chrome DevTools Desmos navigation to `https://www.desmos.com/3d/27v0xuv64m` returned `user cancelled MCP tool call`.
+  - Tailscale route checks for root, viewer, and summary failed with `curl: (6) Could not resolve host: chq.singapura-broadnose.ts.net`.
+  - Local viewer server startup failed: `PermissionError: [Errno 1] Operation not permitted` for `python3 -m http.server 8765 --bind 127.0.0.1`.
+  - Playwright and Chrome DevTools `file://` viewer navigation returned `user cancelled MCP tool call`.
+  - Headless Chrome `file://` viewer screenshots exited `-1` and did not create screenshots.
+  - URL conversion against Desmos with `--refresh` failed DNS resolution; offline fixture-based precheck/projections were used instead.
+- Visual claim: no live Desmos/viewer parity claim. The PNGs are deterministic offline projection evidence only.
+
+## Metrics
+- S2-01B tracked/current: `143 prims / 0 unsupported / 143 classified / 143 renderable / valid true / success`.
+- S2-01B offline precheck/projection: `143 prims / 0 unsupported / valid true / success`.
+- S2-08 Group E guard precheck/projection: `87 prims / 0 unsupported / valid true / success`.
+- S2-09 Group F guard precheck/projection: `27 prims / 0 unsupported / valid true / success`.
+- Overall tracked fixture summary unchanged: 71 fixtures; 50 success, 21 partial, 0 error, acceptance not met.
+
+## Validation
+- Viewer JavaScript syntax passed: `node --check viewer/app.js` and `node --check viewer/camera.js`.
+- Offline precheck passed: `PYTHONPATH=src python3 -m desmos2usd.validate.fixture_usdz_suite --out artifacts/fixture_usdz/review_evidence/20260428_s201_group_b_ralph_visual_retry_3/precheck --resolution 12 --fixture '[4B] 3D Diagram - S2-01 Group B.json' --fixture '[4B] 3D Diagram - S2-08 Group E.json' --fixture '[4B] 3D Diagram - S2-09 Group F.json'`.
+- Focused tests passed: `PYTHONPATH=src:tests python3 -m unittest tests.test_viewer_camera tests.test_visual_preview tests.test_fixture_usdz_suite tests.test_student_fixture_regressions` ran 101 tests OK.
+- Full unittest discovery passed: `PYTHONPATH=src:tests python3 -m unittest discover -s tests` ran 174 tests OK.
+- Report-vs-USDA consistency checked for S2-01B, S2-08E, and S2-09F projection artifacts: `143/143`, `87/87`, and `27/27`.
+- JSON validity checked for tracked `summary.json`, `capture_results.json`, `projection_results.json`, and precheck `summary.json`.
+- Projection PNG dimensions checked with `sips`: all three are `776x256`.
+- `git diff --check`: passed.
+
+## Commit / Push
+- Blocked in this HOME Codex turn: staging failed with `fatal: Unable to create '/Users/chek/repos/desmos2usd-carey/.git/index.lock': Operation not permitted`.
+- Worktree is ready to stage, commit, and push from the main environment.
+- Suggested commit subject: `Record S2-01B visual retry blocker`.
+- Evidence directory is ignored by `.gitignore`; include it with:
+  - `git add -f artifacts/fixture_usdz/review_evidence/20260428_s201_group_b_ralph_visual_retry_3`
+
+## Review Links
+- Route verification from this environment failed for root/viewer/summary with `curl: (6) Could not resolve host: chq.singapura-broadnose.ts.net`.
+- S2-01 Group B Desmos: `https://www.desmos.com/3d/27v0xuv64m`
+- S2-01 Group B viewer: `https://chq.singapura-broadnose.ts.net/viewer/?usda=..%2Fartifacts%2Ffixture_usdz%2F%5B4B%5D%203D%20Diagram%20-%20S2-01%20Group%20B.usda&label=S2-01%20Group%20B`
+- S2-08 Group E Desmos: `https://www.desmos.com/3d/g59jqe6nxy`
+- S2-08 Group E viewer: `https://chq.singapura-broadnose.ts.net/viewer/?usda=..%2Fartifacts%2Ffixture_usdz%2F%5B4B%5D%203D%20Diagram%20-%20S2-08%20Group%20E.usda&label=S2-08%20Group%20E`
+- S2-09 Group F Desmos: `https://www.desmos.com/3d/umjxv6ahck`
+- S2-09 Group F viewer: `https://chq.singapura-broadnose.ts.net/viewer/?usda=..%2Fartifacts%2Ffixture_usdz%2F%5B4B%5D%203D%20Diagram%20-%20S2-09%20Group%20F.usda&label=S2-09%20Group%20F`
+
+## Remaining Mismatch / Next Wake Instructions
+1. Ask Chek to review S2-01B in the direct viewer link against the Desmos URL, or provide a fresh screenshot/description of what looks wrong.
+2. If Chek still reports S2-01B wrong, continue S2-01B only with that visual feedback as concrete blocker context.
+3. If Chek accepts S2-01B or does not reopen it, advance to tomorrow's next largest priority gap: S2-09 Group A (`https://www.desmos.com/3d/gk9kr8h9ki`), currently `22 prims / 40 unsupported`.
+4. Keep S2-08E and S2-09F as regression guards.
+
+# Handoff: 2026-04-27 23:38 SGT - S2-01B visual retry 2 blocker
+
+## Current Branch State
+- Repo: `/Users/chek/repos/desmos2usd-carey`
+- Branch: `fix/student-fixture-usdz-export`
+- Push target: `chektien:fix/student-fixture-usdz-export`
+- HEAD before this tranche: `874905f Record S2-01B visual gate retry blocker`
+
+## Completed This Tranche
+- Targeted fixture: `[4B] 3D Diagram - S2-01 Group B.json`
+- Desmos URL: `https://www.desmos.com/3d/27v0xuv64m`
+- Outcome: blocked, no exporter/viewer code change.
+- Reason: S2-01B remains structurally complete (`143 prims / 0 unsupported / valid true`), but Chek's concern is visual and every live Desmos/viewer capture route available here is still blocked. Without a rendered Desmos screenshot, rendered viewer screenshot, or concrete fresh mismatch description, another code fix would be speculative.
+- Preserved S2-08 Group E and S2-09 Group F as regression guards via fresh offline precheck and projection evidence.
+
+## Evidence
+- Evidence directory: `artifacts/fixture_usdz/review_evidence/20260427_s201_group_b_ralph_visual_retry_2/`
+- Files:
+  - `capture_results.json`
+  - `assessment.md`
+  - `projection_results.json`
+  - `S2-01_Group_B_projection.png`
+  - `S2-01_Group_B_projection.ppm`
+  - `S2-01_Group_B_projection.usda`
+  - `S2-01_Group_B_projection.usdz`
+  - `S2-01_Group_B_projection.report.json`
+  - `S2-08_Group_E_projection_guard.png`
+  - `S2-08_Group_E_projection_guard.ppm`
+  - `S2-08_Group_E_projection_guard.usda`
+  - `S2-08_Group_E_projection_guard.usdz`
+  - `S2-08_Group_E_projection_guard.report.json`
+  - `S2-09_Group_F_projection_guard.png`
+  - `S2-09_Group_F_projection_guard.ppm`
+  - `S2-09_Group_F_projection_guard.usda`
+  - `S2-09_Group_F_projection_guard.usdz`
+  - `S2-09_Group_F_projection_guard.report.json`
+  - `precheck/[4B] 3D Diagram - S2-01 Group B.usda`
+  - `precheck/[4B] 3D Diagram - S2-01 Group B.usdz`
+  - `precheck/[4B] 3D Diagram - S2-01 Group B.report.json`
+  - `precheck/[4B] 3D Diagram - S2-08 Group E.usda`
+  - `precheck/[4B] 3D Diagram - S2-08 Group E.usdz`
+  - `precheck/[4B] 3D Diagram - S2-08 Group E.report.json`
+  - `precheck/[4B] 3D Diagram - S2-09 Group F.usda`
+  - `precheck/[4B] 3D Diagram - S2-09 Group F.usdz`
+  - `precheck/[4B] 3D Diagram - S2-09 Group F.report.json`
+  - `precheck/summary.json`
+- Browser/live viewer blockers:
+  - Playwright Desmos navigation to `https://www.desmos.com/3d/27v0xuv64m` returned `user cancelled MCP tool call`.
+  - Chrome DevTools Desmos navigation to `https://www.desmos.com/3d/27v0xuv64m` returned `user cancelled MCP tool call`.
+  - Tailscale route checks for root, viewer, and summary failed with `curl: (6) Could not resolve host: chq.singapura-broadnose.ts.net`.
+  - Local viewer server startup failed: `PermissionError: [Errno 1] Operation not permitted` for `python3 -m http.server 8765 --bind 127.0.0.1`.
+  - Playwright and Chrome DevTools `file://` viewer navigation returned `user cancelled MCP tool call`.
+  - Headless Chrome `file://` viewer screenshots exited `134` and did not create screenshots.
+  - URL conversion against Desmos with `--refresh` failed DNS resolution; offline fixture-based precheck/projections were used instead.
+- Visual claim: no live Desmos/viewer parity claim. The PNGs are deterministic offline projection evidence only.
+
+## Metrics
+- S2-01B tracked/current: `143 prims / 0 unsupported / 143 classified / 143 renderable / valid true / success`.
+- S2-01B offline precheck/projection: `143 prims / 0 unsupported / valid true / success`.
+- S2-08 Group E guard precheck/projection: `87 prims / 0 unsupported / valid true / success`.
+- S2-09 Group F guard precheck/projection: `27 prims / 0 unsupported / valid true / success`.
+- Overall tracked fixture summary unchanged: 71 fixtures; 50 success, 21 partial, 0 error, acceptance not met.
+
+## Validation
+- Viewer JavaScript syntax passed: `node --check viewer/app.js && node --check viewer/camera.js`.
+- Offline precheck passed: `PYTHONPATH=src python3 -m desmos2usd.validate.fixture_usdz_suite --out artifacts/fixture_usdz/review_evidence/20260427_s201_group_b_ralph_visual_retry_2/precheck --resolution 12 --fixture '[4B] 3D Diagram - S2-01 Group B.json' --fixture '[4B] 3D Diagram - S2-08 Group E.json' --fixture '[4B] 3D Diagram - S2-09 Group F.json'`.
+- Focused tests passed: `PYTHONPATH=src:tests python3 -m unittest tests.test_viewer_camera tests.test_visual_preview tests.test_fixture_usdz_suite tests.test_student_fixture_regressions` ran 101 tests OK.
+- Full unittest discovery passed: `PYTHONPATH=src:tests python3 -m unittest discover -s tests` ran 174 tests OK.
+- Report-vs-USDA consistency checked for S2-01B, S2-08E, and S2-09F projection artifacts: `143/143`, `87/87`, and `27/27`.
+- JSON validity checked for tracked `summary.json`, precheck `summary.json`, and `projection_results.json`.
+- Projection PNG dimensions checked with `sips`: all three are `776x256`.
+- `git diff --check`: passed.
+
+## Commit / Push
+- Blocked in this HOME Codex turn: staging failed with `fatal: Unable to create '/Users/chek/repos/desmos2usd-carey/.git/index.lock': Operation not permitted`.
+- Worktree is ready to stage, commit, and push from the main environment.
+- Suggested commit subject: `Record S2-01B visual retry blocker`.
+- Evidence directory is ignored by `.gitignore`; include it with:
+  - `git add -f artifacts/fixture_usdz/review_evidence/20260427_s201_group_b_ralph_visual_retry_2`
+
+## Review Links
+- Route verification from this environment failed for root/viewer/summary with `curl: (6) Could not resolve host: chq.singapura-broadnose.ts.net`.
+- S2-01 Group B Desmos: `https://www.desmos.com/3d/27v0xuv64m`
+- S2-01 Group B viewer: `https://chq.singapura-broadnose.ts.net/viewer/?usda=..%2Fartifacts%2Ffixture_usdz%2F%5B4B%5D%203D%20Diagram%20-%20S2-01%20Group%20B.usda&label=S2-01%20Group%20B`
+- S2-08 Group E Desmos: `https://www.desmos.com/3d/g59jqe6nxy`
+- S2-08 Group E viewer: `https://chq.singapura-broadnose.ts.net/viewer/?usda=..%2Fartifacts%2Ffixture_usdz%2F%5B4B%5D%203D%20Diagram%20-%20S2-08%20Group%20E.usda&label=S2-08%20Group%20E`
+- S2-09 Group F Desmos: `https://www.desmos.com/3d/umjxv6ahck`
+- S2-09 Group F viewer: `https://chq.singapura-broadnose.ts.net/viewer/?usda=..%2Fartifacts%2Ffixture_usdz%2F%5B4B%5D%203D%20Diagram%20-%20S2-09%20Group%20F.usda&label=S2-09%20Group%20F`
+
+## Remaining Mismatch / Next Wake Instructions
+1. Ask Chek to review S2-01B in the direct viewer link against the Desmos URL, or provide a fresh screenshot/description of what looks wrong.
+2. If Chek still reports S2-01B wrong, continue S2-01B only with that visual feedback as concrete blocker context.
+3. If Chek accepts S2-01B or does not reopen it, advance to tomorrow's next largest priority gap: S2-09 Group A (`https://www.desmos.com/3d/gk9kr8h9ki`), currently `22 prims / 40 unsupported`.
+4. Keep S2-08E and S2-09F as regression guards.
+
+# Handoff: 2026-04-27 23:07 SGT - S2-01B visual gate retry blocker
+
+## Current Branch State
+- Repo: `/Users/chek/repos/desmos2usd-carey`
+- Branch: `fix/student-fixture-usdz-export`
+- Push target: `chektien:fix/student-fixture-usdz-export`
+- HEAD before this tranche: `25c3934 Record S2-01B live review blocker`
+
+## Completed This Tranche
+- Targeted fixture: `[4B] 3D Diagram - S2-01 Group B.json`
+- Desmos URL: `https://www.desmos.com/3d/27v0xuv64m`
+- Outcome: blocked, no exporter/viewer code change.
+- Reason: S2-01B remains structurally complete (`143 prims / 0 unsupported / valid true`), but Chek's concern is visual and every live Desmos/viewer capture route available here is still blocked. Without a rendered Desmos screenshot, rendered viewer screenshot, or concrete fresh mismatch description, another code fix would be speculative.
+- Preserved S2-08 Group E and S2-09 Group F as regression guards via fresh offline precheck and projection evidence.
+
+## Evidence
+- Evidence directory: `artifacts/fixture_usdz/review_evidence/20260427_s201_group_b_ralph_visual_gate_retry/`
+- Files:
+  - `capture_results.json`
+  - `assessment.md`
+  - `projection_results.json`
+  - `S2-01_Group_B_projection.png`
+  - `S2-01_Group_B_projection.ppm`
+  - `S2-01_Group_B_projection.usda`
+  - `S2-01_Group_B_projection.usdz`
+  - `S2-01_Group_B_projection.report.json`
+  - `S2-08_Group_E_projection_guard.png`
+  - `S2-08_Group_E_projection_guard.ppm`
+  - `S2-08_Group_E_projection_guard.usda`
+  - `S2-08_Group_E_projection_guard.usdz`
+  - `S2-08_Group_E_projection_guard.report.json`
+  - `S2-09_Group_F_projection_guard.png`
+  - `S2-09_Group_F_projection_guard.ppm`
+  - `S2-09_Group_F_projection_guard.usda`
+  - `S2-09_Group_F_projection_guard.usdz`
+  - `S2-09_Group_F_projection_guard.report.json`
+  - `precheck/[4B] 3D Diagram - S2-01 Group B.usda`
+  - `precheck/[4B] 3D Diagram - S2-01 Group B.usdz`
+  - `precheck/[4B] 3D Diagram - S2-01 Group B.report.json`
+  - `precheck/[4B] 3D Diagram - S2-08 Group E.usda`
+  - `precheck/[4B] 3D Diagram - S2-08 Group E.usdz`
+  - `precheck/[4B] 3D Diagram - S2-08 Group E.report.json`
+  - `precheck/[4B] 3D Diagram - S2-09 Group F.usda`
+  - `precheck/[4B] 3D Diagram - S2-09 Group F.usdz`
+  - `precheck/[4B] 3D Diagram - S2-09 Group F.report.json`
+  - `precheck/summary.json`
+- Browser/live viewer blockers:
+  - Playwright Desmos navigation to `https://www.desmos.com/3d/27v0xuv64m` returned `user cancelled MCP tool call`.
+  - Chrome DevTools Desmos navigation to `https://www.desmos.com/3d/27v0xuv64m` returned `user cancelled MCP tool call`.
+  - Tailscale route checks for root, viewer, and summary failed with `curl: (6) Could not resolve host: chq.singapura-broadnose.ts.net`.
+  - Local viewer server startup failed: `PermissionError: [Errno 1] Operation not permitted` for `python3 -m http.server 8765 --bind 127.0.0.1`.
+  - Playwright and Chrome DevTools `file://` viewer navigation returned `user cancelled MCP tool call`.
+  - Headless Chrome `file://` viewer screenshot exited `-1` and did not create `S2-01_Group_B_file_viewer_probe.png`.
+  - URL conversion against Desmos failed DNS resolution; offline fixture-based precheck/projections were used instead.
+- Visual claim: no live Desmos/viewer parity claim. The PNGs are deterministic offline projection evidence only.
+
+## Metrics
+- S2-01B tracked/current: `143 prims / 0 unsupported / 143 classified / 143 renderable / valid true / success`.
+- S2-01B offline precheck/projection: `143 prims / 0 unsupported / valid true / success`.
+- S2-08 Group E guard precheck/projection: `87 prims / 0 unsupported / valid true / success`.
+- S2-09 Group F guard precheck/projection: `27 prims / 0 unsupported / valid true / success`.
+- Overall tracked fixture summary unchanged: 71 fixtures; 50 success, 21 partial, 0 error, acceptance not met.
+
+## Validation
+- Viewer JavaScript syntax passed: `node --check viewer/app.js` and `node --check viewer/camera.js`.
+- Offline precheck passed: `PYTHONPATH=src python3 -m desmos2usd.validate.fixture_usdz_suite --out artifacts/fixture_usdz/review_evidence/20260427_s201_group_b_ralph_visual_gate_retry/precheck --resolution 12 --fixture '[4B] 3D Diagram - S2-01 Group B.json' --fixture '[4B] 3D Diagram - S2-08 Group E.json' --fixture '[4B] 3D Diagram - S2-09 Group F.json'`.
+- Focused tests passed: `PYTHONPATH=src:tests python3 -m unittest tests.test_viewer_camera tests.test_visual_preview tests.test_fixture_usdz_suite tests.test_student_fixture_regressions` ran 101 tests OK.
+- Full unittest discovery passed: `PYTHONPATH=src:tests python3 -m unittest discover -s tests` ran 174 tests OK.
+- Report-vs-USDA consistency checked for S2-01B, S2-08E, and S2-09F projection artifacts.
+- JSON validity checked for tracked `summary.json`, `capture_results.json`, and `projection_results.json`.
+- Projection PNG dimensions checked with `sips`: all three are `776x256`.
+- `git diff --check`: passed.
+
+## Commit / Push
+- Blocked in this HOME Codex turn: staging failed with `fatal: Unable to create '/Users/chek/repos/desmos2usd-carey/.git/index.lock': Operation not permitted`.
+- Worktree is ready to stage, commit, and push from the main environment.
+- Suggested commit subject: `Record S2-01B visual gate retry blocker`.
+- Evidence directory is ignored by `.gitignore`; include it with:
+  - `git add -f artifacts/fixture_usdz/review_evidence/20260427_s201_group_b_ralph_visual_gate_retry`
+
+## Review Links
+- Route verification from this environment failed for root/viewer/summary with `curl: (6) Could not resolve host: chq.singapura-broadnose.ts.net`.
+- S2-01 Group B Desmos: `https://www.desmos.com/3d/27v0xuv64m`
+- S2-01 Group B viewer: `https://chq.singapura-broadnose.ts.net/viewer/?usda=..%2Fartifacts%2Ffixture_usdz%2F%5B4B%5D%203D%20Diagram%20-%20S2-01%20Group%20B.usda&label=S2-01%20Group%20B`
+- S2-08 Group E Desmos: `https://www.desmos.com/3d/g59jqe6nxy`
+- S2-08 Group E viewer: `https://chq.singapura-broadnose.ts.net/viewer/?usda=..%2Fartifacts%2Ffixture_usdz%2F%5B4B%5D%203D%20Diagram%20-%20S2-08%20Group%20E.usda&label=S2-08%20Group%20E`
+- S2-09 Group F Desmos: `https://www.desmos.com/3d/umjxv6ahck`
+- S2-09 Group F viewer: `https://chq.singapura-broadnose.ts.net/viewer/?usda=..%2Fartifacts%2Ffixture_usdz%2F%5B4B%5D%203D%20Diagram%20-%20S2-09%20Group%20F.usda&label=S2-09%20Group%20F`
+
+## Remaining Mismatch / Next Wake Instructions
+1. Ask Chek to review S2-01B in the direct viewer link against the Desmos URL, or provide a fresh screenshot/description of what looks wrong.
+2. If Chek still reports S2-01B wrong, continue S2-01B only with that visual feedback as concrete blocker context.
+3. If Chek accepts S2-01B or does not reopen it, advance to tomorrow's next largest priority gap: S2-09 Group A (`https://www.desmos.com/3d/gk9kr8h9ki`), currently `22 prims / 40 unsupported`.
+4. Keep S2-08E and S2-09F as regression guards.
+
+# Handoff: 2026-04-27 22:38 SGT - S2-01B live-review blocker tranche
+
+## Current Branch State
+- Repo: `/Users/chek/repos/desmos2usd-carey`
+- Branch: `fix/student-fixture-usdz-export`
+- Push target: `chektien:fix/student-fixture-usdz-export`
+- HEAD before this tranche: `32e8bd1 Align viewer to Desmos saved camera`
+
+## Completed This Tranche
+- Targeted fixture: `[4B] 3D Diagram - S2-01 Group B.json`
+- Desmos URL: `https://www.desmos.com/3d/27v0xuv64m`
+- Outcome: blocked, no exporter/viewer code change.
+- Reason: S2-01B is already structurally complete (`143 prims / 0 unsupported / valid true`) and every live visual capture route available in this environment is still blocked. Without a rendered Desmos screenshot, rendered viewer screenshot, or fresh Chek feedback describing the visible mismatch, another S2-01B code fix would be speculative.
+- Preserved S2-08 Group E and S2-09 Group F as regression guards via offline fixture precheck.
+
+## Evidence
+- Evidence directory: `artifacts/fixture_usdz/review_evidence/20260427_s201_group_b_ralph_live_review/`
+- Files:
+  - `capture_results.json`
+  - `assessment.md`
+  - `S2-01_Group_B_projection.png`
+  - `S2-01_Group_B_projection.ppm`
+  - `S2-08_Group_E_projection_guard.png`
+  - `S2-08_Group_E_projection_guard.ppm`
+  - `S2-09_Group_F_projection_guard.png`
+  - `S2-09_Group_F_projection_guard.ppm`
+  - `precheck/[4B] 3D Diagram - S2-01 Group B.usda`
+  - `precheck/[4B] 3D Diagram - S2-01 Group B.usdz`
+  - `precheck/[4B] 3D Diagram - S2-01 Group B.report.json`
+  - `precheck/[4B] 3D Diagram - S2-08 Group E.usda`
+  - `precheck/[4B] 3D Diagram - S2-08 Group E.usdz`
+  - `precheck/[4B] 3D Diagram - S2-08 Group E.report.json`
+  - `precheck/[4B] 3D Diagram - S2-09 Group F.usda`
+  - `precheck/[4B] 3D Diagram - S2-09 Group F.usdz`
+  - `precheck/[4B] 3D Diagram - S2-09 Group F.report.json`
+  - `precheck/summary.json`
+- Browser/live viewer blockers:
+  - Chrome DevTools Desmos navigation to `https://www.desmos.com/3d/27v0xuv64m` returned `user cancelled MCP tool call`.
+  - Playwright Desmos navigation to `https://www.desmos.com/3d/27v0xuv64m` returned `user cancelled MCP tool call`.
+  - Tailscale route checks for root, viewer, and summary failed with `curl: (6) Could not resolve host: chq.singapura-broadnose.ts.net`.
+  - Local viewer server startup failed: `PermissionError: [Errno 1] Operation not permitted` for `python3 -m http.server 8765 --bind 127.0.0.1`.
+  - Chrome DevTools and Playwright `file://` viewer navigation both returned `user cancelled MCP tool call`.
+  - Headless Chrome `file://` viewer screenshot exited `-1` and did not create `S2-01_Group_B_file_viewer_probe.png`.
+- Visual claim: no live Desmos/viewer parity claim. The PNGs are deterministic offline projection evidence only.
+
+## Metrics
+- S2-01B tracked/current: `143 prims / 0 unsupported / 143 classified / 143 renderable / valid true / success`.
+- S2-01B offline precheck: `143 prims / 0 unsupported / 143 classified / 143 renderable / valid true / success`.
+- S2-08 Group E guard precheck: `87 prims / 0 unsupported / valid true / usdchecker returncode 0`.
+- S2-09 Group F guard precheck: `27 prims / 0 unsupported / valid true / usdchecker returncode 0`.
+- Overall tracked fixture summary unchanged: 71 fixtures; 50 success, 21 partial, 0 error, acceptance not met.
+
+## Validation
+- Viewer JavaScript syntax passed: `node --check viewer/app.js && node --check viewer/camera.js`.
+- Offline precheck passed: `PYTHONPATH=src python3 -m desmos2usd.validate.fixture_usdz_suite --out artifacts/fixture_usdz/review_evidence/20260427_s201_group_b_ralph_live_review/precheck --resolution 12 --fixture '[4B] 3D Diagram - S2-01 Group B.json' --fixture '[4B] 3D Diagram - S2-08 Group E.json' --fixture '[4B] 3D Diagram - S2-09 Group F.json'`.
+- Focused tests passed: `PYTHONPATH=src:tests python3 -m unittest tests.test_viewer_camera tests.test_fixture_usdz_suite tests.test_student_fixture_regressions` ran 99 tests OK.
+- Full unittest discovery passed: `PYTHONPATH=src:tests python3 -m unittest discover -s tests` ran 174 tests OK.
+- Report-vs-USDA consistency checked for S2-01B, S2-08E, and S2-09F precheck artifacts.
+- JSON validity checked for `capture_results.json`, precheck `summary.json`, and tracked `artifacts/fixture_usdz/summary.json`.
+- Projection PNG dimensions checked with `sips`: all three are `776x256`.
+- `git diff --check`: passed.
+
+## Commit / Push
+- Blocked in this HOME Codex turn: staging failed with `fatal: Unable to create '/Users/chek/repos/desmos2usd-carey/.git/index.lock': Operation not permitted`.
+- Worktree is ready to stage, commit, and push from the main environment.
+- Suggested commit subject: `Record S2-01B live review blocker`.
+- Evidence directory is ignored by `.gitignore`; include it with:
+  - `git add -f artifacts/fixture_usdz/review_evidence/20260427_s201_group_b_ralph_live_review`
+
+## Review Links
+- Route verification from this environment failed for root/viewer/summary with `curl: (6) Could not resolve host: chq.singapura-broadnose.ts.net`.
+- S2-01 Group B Desmos: `https://www.desmos.com/3d/27v0xuv64m`
+- S2-01 Group B viewer: `https://chq.singapura-broadnose.ts.net/viewer/?usda=..%2Fartifacts%2Ffixture_usdz%2F%5B4B%5D%203D%20Diagram%20-%20S2-01%20Group%20B.usda&label=S2-01%20Group%20B`
+- S2-08 Group E Desmos: `https://www.desmos.com/3d/g59jqe6nxy`
+- S2-08 Group E viewer: `https://chq.singapura-broadnose.ts.net/viewer/?usda=..%2Fartifacts%2Ffixture_usdz%2F%5B4B%5D%203D%20Diagram%20-%20S2-08%20Group%20E.usda&label=S2-08%20Group%20E`
+- S2-09 Group F Desmos: `https://www.desmos.com/3d/umjxv6ahck`
+- S2-09 Group F viewer: `https://chq.singapura-broadnose.ts.net/viewer/?usda=..%2Fartifacts%2Ffixture_usdz%2F%5B4B%5D%203D%20Diagram%20-%20S2-09%20Group%20F.usda&label=S2-09%20Group%20F`
+
+## Remaining Mismatch / Next Wake Instructions
+1. Ask Chek to review S2-01B in the direct viewer link against the Desmos URL, or provide a fresh screenshot/description of what looks wrong.
+2. If Chek still reports S2-01B wrong, continue S2-01B with that visual feedback as the concrete blocker context.
+3. If Chek accepts S2-01B or does not reopen it, advance to tomorrow's next largest priority gap: S2-09 Group A (`https://www.desmos.com/3d/gk9kr8h9ki`), currently `22 prims / 40 unsupported`.
+4. Keep S2-08E and S2-09F as regression guards.
+
+# Handoff: 2026-04-27 22:14 SGT - S2-01B saved-view camera tranche
+
+## Current Branch State
+- Repo: `/Users/chek/repos/desmos2usd-carey`
+- Branch: `fix/student-fixture-usdz-export`
+- Push target: `chektien:fix/student-fixture-usdz-export`
+- HEAD before this tranche: `0ac0553 Restore S2-01B bounded top panel`
+
+## Completed This Tranche
+- Targeted fixture: `[4B] 3D Diagram - S2-01 Group B.json`
+- Desmos URL: `https://www.desmos.com/3d/27v0xuv64m`
+- Diagnosed a general live-viewer mismatch candidate:
+  - the USDA stores Desmos `worldRotation3D` in `customLayerData`
+  - the viewer had interpreted that matrix by columns with sign flips
+  - the existing diagnostics and frozen view metadata treat the matrix rows as Desmos screen-right, screen-up, and camera-depth vectors
+  - this could make a metrics-complete model open from the wrong saved Desmos view, which matches Chek's "viewer looks wrong" report better than another exporter unsupported-family issue
+- Implemented one general viewer fix:
+  - added `viewer/camera.js`, a small reusable camera-basis helper
+  - loaded it before `viewer/app.js`
+  - changed the viewer camera basis to use row 0 as right, row 1 as up, and row 2 as depth
+  - no fixture ids, S2-01 constants, or fixture-specific hacks were added
+- Added regression coverage:
+  - `tests/test_viewer_camera.py` checks the S2-01B `worldRotation3D` matrix maps rows directly into the viewer basis
+  - it also checks `camera.js` loads before `app.js`
+- Regenerated tracked S2-01B, S2-08E, and S2-09F USDZ/report artifacts and merged the refreshed entries back into the 71-fixture `summary.json`.
+
+## Evidence
+- Evidence directory: `artifacts/fixture_usdz/review_evidence/20260427_s201_group_b_ralph_view_camera/`
+- Files:
+  - `S2-01_Group_B_projection_after.png`
+  - `S2-01_Group_B_projection_after.ppm`
+  - `S2-01_Group_B_projection_after.usda`
+  - `S2-01_Group_B_projection_after.usdz`
+  - `S2-01_Group_B_projection_after.report.json`
+  - `S2-08_Group_E_projection_guard_after.png`
+  - `S2-08_Group_E_projection_guard_after.ppm`
+  - `S2-08_Group_E_projection_guard_after.usda`
+  - `S2-08_Group_E_projection_guard_after.usdz`
+  - `S2-08_Group_E_projection_guard_after.report.json`
+  - `S2-09_Group_F_projection_guard_after.png`
+  - `S2-09_Group_F_projection_guard_after.ppm`
+  - `S2-09_Group_F_projection_guard_after.usda`
+  - `S2-09_Group_F_projection_guard_after.usdz`
+  - `S2-09_Group_F_projection_guard_after.report.json`
+  - `camera_basis_comparison.json`
+  - `capture_results.json`
+  - `projection_results.json`
+  - `assessment.md`
+- Browser/live viewer blockers this tranche:
+  - Playwright Desmos navigation to `https://www.desmos.com/3d/27v0xuv64m` returned `user cancelled MCP tool call`.
+  - Chrome DevTools Desmos navigation to `https://www.desmos.com/3d/27v0xuv64m` returned `user cancelled MCP tool call`.
+  - Tailscale route checks for root, viewer, and summary failed with `curl: (6) Could not resolve host: chq.singapura-broadnose.ts.net`.
+  - Local viewer server startup failed with `PermissionError: [Errno 1] Operation not permitted` for `python3 -m http.server 8765 --bind 127.0.0.1`.
+  - Headless Chrome `file://` viewer screenshot exited `-1` and did not create `S2-01_Group_B_file_viewer_probe.png`.
+- Visual claim: no live Desmos/viewer parity claim. This tranche is structural viewer progress plus deterministic local projection and camera-basis evidence only.
+
+## Metrics
+- S2-01B before this tranche: `143 prims / 0 unsupported / 143 classified / 143 renderable / valid true / success`.
+- S2-01B after tracked resolution-12 regeneration: `143 prims / 0 unsupported / 143 classified / 143 renderable / valid true / success`.
+- Overall fixture summary remains: 71 fixtures; 50 success, 21 partial, 0 error, acceptance not met.
+- S2-08 Group E guard remains success: `87 prims / 0 unsupported / valid true / usdchecker returncode 0`.
+- S2-09 Group F guard remains success: `27 prims / 0 unsupported / valid true / usdchecker returncode 0`.
+
+## Validation
+- Focused viewer-camera tests passed: `PYTHONPATH=src:tests python3 -m unittest tests.test_viewer_camera` ran 2 tests OK.
+- Targeted modules passed: `PYTHONPATH=src:tests python3 -m unittest tests.test_viewer_camera tests.test_visual_preview tests.test_fixture_usdz_suite tests.test_student_fixture_regressions` ran 101 tests OK.
+- Full unittest discovery passed: `PYTHONPATH=src:tests python3 -m unittest discover -s tests` ran 174 tests OK.
+- Report-vs-USDA consistency checked:
+  - S2-01B report prim_count `143`, USDA `Mesh` + `BasisCurves` defs `143`, unsupported `0`
+  - S2-08E report prim_count `87`, USDA defs `87`, unsupported `0`
+  - S2-09F report prim_count `27`, USDA defs `27`, unsupported `0`
+- PNG projection dimensions checked with `sips`: target and guard PNGs are `776x256`.
+- JSON validity checked for summary and evidence JSON.
+- `git diff --check`: passed.
+
+## Commit / Push
+- Blocked in this HOME Codex turn: staging failed with `fatal: Unable to create '/Users/chek/repos/desmos2usd-carey/.git/index.lock': Operation not permitted`.
+- Worktree is ready to stage, commit, and push from the main environment.
+- Suggested commit subject: `Align viewer to Desmos saved camera`.
+- Include ignored evidence with:
+  - `git add -f artifacts/fixture_usdz/review_evidence/20260427_s201_group_b_ralph_view_camera`
+
+## Review Links
+- Route verification from this environment failed for root/viewer/summary with `curl: (6) Could not resolve host: chq.singapura-broadnose.ts.net`.
+- S2-01 Group B Desmos: `https://www.desmos.com/3d/27v0xuv64m`
+- S2-01 Group B viewer: `https://chq.singapura-broadnose.ts.net/viewer/?usda=..%2Fartifacts%2Ffixture_usdz%2F%5B4B%5D%203D%20Diagram%20-%20S2-01%20Group%20B.usda&label=S2-01%20Group%20B`
+- S2-08 Group E Desmos: `https://www.desmos.com/3d/g59jqe6nxy`
+- S2-08 Group E viewer: `https://chq.singapura-broadnose.ts.net/viewer/?usda=..%2Fartifacts%2Ffixture_usdz%2F%5B4B%5D%203D%20Diagram%20-%20S2-08%20Group%20E.usda&label=S2-08%20Group%20E`
+- S2-09 Group F Desmos: `https://www.desmos.com/3d/umjxv6ahck`
+- S2-09 Group F viewer: `https://chq.singapura-broadnose.ts.net/viewer/?usda=..%2Fartifacts%2Ffixture_usdz%2F%5B4B%5D%203D%20Diagram%20-%20S2-09%20Group%20F.usda&label=S2-09%20Group%20F`
+
+## Remaining Mismatch / Next Wake Instructions
+1. Ask Chek to review S2-01B again in the direct viewer link against the Desmos URL. The likely saved-view orientation mismatch is fixed, but this environment still cannot capture live browser evidence.
+2. If Chek still reports S2-01B wrong, continue S2-01B using the fresh visual feedback as blocker context.
+3. If Chek accepts S2-01B or does not reopen it, advance to tomorrow's next largest priority gap: S2-09 Group A (`https://www.desmos.com/3d/gk9kr8h9ki`), currently about `22 prims / 40 unsupported` in STATE.
+4. Keep S2-08E and S2-09F as regression guards.
+
+# Handoff: 2026-04-27 21:35 SGT - S2-01B bounded top-panel visual tranche
+
+## Current Branch State
+- Repo: `/Users/chek/repos/desmos2usd-carey`
+- Branch: `fix/student-fixture-usdz-export`
+- Push target: `chektien:fix/student-fixture-usdz-export`
+- HEAD before this tranche: `57affb1 Export S2-01B malformed flat disk`
+
+## Completed This Tranche
+- Targeted fixture: `[4B] 3D Diagram - S2-01 Group B.json`
+- Desmos URL: `https://www.desmos.com/3d/27v0xuv64m`
+- Diagnosed a structural viewer mismatch behind the metrics-success state:
+  - expression `8`, `z=130 {-10<=x<=10} {-10<=y<=10}`, was classified and counted as a valid prim but exported as an empty mesh (`0 points / 0 faces`) because solved-axis viewport suppression dropped it.
+  - neighboring roof/edge geometry at `z=130` and `z=150` is intentionally exported, so this made the model visually incomplete despite `0 unsupported`.
+- Implemented one general exporter fix:
+  - constant explicit surfaces with finite constant bounds on both domain axes are no longer dropped solely because the solved axis is outside the saved source viewport.
+  - nonconstant solved-axis surfaces outside the viewport still use the existing suppression path; the existing `ghnr7txz47` expr `835` viewport guard remains covered.
+  - no fixture-specific ids, fixture names, or S2-01 constants were added.
+- Added regression coverage for:
+  - a synthetic constant bounded panel outside the source viewport
+  - the real S2-01B top panel exporting non-empty geometry
+- Regenerated tracked S2-01B USDA/USDZ/report artifacts and merged the S2-01B summary entry back into the 71-fixture `summary.json`.
+- Revalidated/regenerated S2-08 Group E and S2-09 Group F guard artifacts; both remain success.
+
+## Evidence
+- Evidence directory: `artifacts/fixture_usdz/review_evidence/20260427_s201_group_b_ralph_top_panel/`
+- Local projection files:
+  - `S2-01_Group_B_projection_before.png`
+  - `S2-01_Group_B_projection_before.ppm`
+  - `S2-01_Group_B_projection_before.usda`
+  - `S2-01_Group_B_projection_before.usdz`
+  - `S2-01_Group_B_projection_before.report.json`
+  - `S2-01_Group_B_projection_after.png`
+  - `S2-01_Group_B_projection_after.ppm`
+  - `S2-01_Group_B_projection_after.usda`
+  - `S2-01_Group_B_projection_after.usdz`
+  - `S2-01_Group_B_projection_after.report.json`
+  - `S2-08_Group_E_projection_guard_after.png`
+  - `S2-08_Group_E_projection_guard_after.ppm`
+  - `S2-08_Group_E_projection_guard_after.usda`
+  - `S2-08_Group_E_projection_guard_after.usdz`
+  - `S2-08_Group_E_projection_guard_after.report.json`
+  - `S2-09_Group_F_projection_guard_after.png`
+  - `S2-09_Group_F_projection_guard_after.ppm`
+  - `S2-09_Group_F_projection_guard_after.usda`
+  - `S2-09_Group_F_projection_guard_after.usdz`
+  - `S2-09_Group_F_projection_guard_after.report.json`
+  - `capture_results.json`
+  - `projection_results.json`
+  - `assessment.md`
+- Browser/live viewer blockers this tranche:
+  - Playwright Desmos navigation to `https://www.desmos.com/3d/27v0xuv64m` returned `user cancelled MCP tool call`.
+  - Chrome DevTools Desmos navigation to `https://www.desmos.com/3d/27v0xuv64m` returned `user cancelled MCP tool call`.
+  - Tailscale route checks for root, viewer, and summary failed with `curl: (6) Could not resolve host: chq.singapura-broadnose.ts.net`.
+  - Local viewer server startup failed: `PermissionError: [Errno 1] Operation not permitted` for `python3 -m http.server 8765 --bind 127.0.0.1`.
+  - Headless Chrome `file://` viewer fallback exited `-1` without creating `/tmp/s201b_viewer_probe.png`.
+  - Playwright and Chrome DevTools `file://` viewer navigation both returned `user cancelled MCP tool call`.
+- Visual claim: no live Desmos/viewer parity claim. This tranche is structural plus deterministic local projection evidence only.
+
+## Metrics
+- S2-01B before this tranche: `143 prims / 0 unsupported / 143 classified / 143 renderable / valid true / success`, but expression `8` was empty (`0 points / 0 faces`).
+- S2-01B after tracked resolution-12 regeneration: `143 prims / 0 unsupported / 143 classified / 143 renderable / valid true / success`, and expression `8` now exports `196 points / 169 faces`.
+- Overall fixture summary remains: 71 fixtures; 50 success, 21 partial, 0 error, acceptance not met.
+- S2-08 Group E guard remains success: `87 prims / 0 unsupported / valid true / usdchecker returncode 0`.
+- S2-09 Group F guard remains success: `27 prims / 0 unsupported / valid true / usdchecker returncode 0`.
+
+## Validation
+- Focused regressions passed: `test_finite_bounded_explicit_panel_outside_viewport_still_exports`, `test_s201_group_b_top_panel_is_not_dropped_by_viewport_clip`, `test_ghnr7txz47_expr835_suppressed_when_solved_axis_outside_viewport`, `test_ghnr7txz47_expr800_mirror_not_suppressed`.
+- Targeted modules passed: `PYTHONPATH=src:tests python3 -m unittest tests.test_tessellate tests.test_student_fixture_regressions tests.test_fixture_usdz_suite tests.test_visual_preview` ran 113 tests OK.
+- Full unittest discovery passed: `PYTHONPATH=src:tests python3 -m unittest discover -s tests` ran 172 tests OK.
+- Report-vs-USDA consistency checked:
+  - S2-01B report prim_count `143`, USDA `Mesh` + `BasisCurves` defs `143`, unsupported `0`, expr `8` `196 points / 169 faces`
+  - S2-08E report prim_count `87`, USDA defs `87`, unsupported `0`
+  - S2-09F report prim_count `27`, USDA defs `27`, unsupported `0`
+- PNG projection dimensions checked with `sips`: target before/after and guard PNGs are `776x256`.
+- JSON validity checked for summary and evidence JSON.
+- `git diff --check`: passed.
+
+## Commit / Push
+- Blocked in this HOME Codex turn: `git add src/desmos2usd/tessellate/surfaces.py tests/test_student_fixture_regressions.py implementation/STATE.md implementation/handoff.md artifacts/fixture_usdz/summary.json 'artifacts/fixture_usdz/[4B] 3D Diagram - S2-01 Group B.report.json' 'artifacts/fixture_usdz/[4B] 3D Diagram - S2-01 Group B.usda' 'artifacts/fixture_usdz/[4B] 3D Diagram - S2-01 Group B.usdz' 'artifacts/fixture_usdz/[4B] 3D Diagram - S2-08 Group E.report.json' 'artifacts/fixture_usdz/[4B] 3D Diagram - S2-08 Group E.usdz' 'artifacts/fixture_usdz/[4B] 3D Diagram - S2-09 Group F.usdz'` failed with `fatal: Unable to create '/Users/chek/repos/desmos2usd-carey/.git/index.lock': Operation not permitted`.
+- Worktree is ready to stage, commit, and push from the main environment.
+- Suggested commit subject: `Restore S2-01B bounded top panel`.
+- Evidence directory is ignored by `.gitignore`; include it with:
+  - `git add -f artifacts/fixture_usdz/review_evidence/20260427_s201_group_b_ralph_top_panel`
+
+## Review Links
+- Route verification from this environment failed for root/viewer/summary with `curl: (6) Could not resolve host: chq.singapura-broadnose.ts.net`.
+- S2-01 Group B Desmos: `https://www.desmos.com/3d/27v0xuv64m`
+- S2-01 Group B viewer: `https://chq.singapura-broadnose.ts.net/viewer/?usda=..%2Fartifacts%2Ffixture_usdz%2F%5B4B%5D%203D%20Diagram%20-%20S2-01%20Group%20B.usda&label=S2-01%20Group%20B`
+- S2-08 Group E Desmos: `https://www.desmos.com/3d/g59jqe6nxy`
+- S2-08 Group E viewer: `https://chq.singapura-broadnose.ts.net/viewer/?usda=..%2Fartifacts%2Ffixture_usdz%2F%5B4B%5D%203D%20Diagram%20-%20S2-08%20Group%20E.usda&label=S2-08%20Group%20E`
+- S2-09 Group F Desmos: `https://www.desmos.com/3d/umjxv6ahck`
+- S2-09 Group F viewer: `https://chq.singapura-broadnose.ts.net/viewer/?usda=..%2Fartifacts%2Ffixture_usdz%2F%5B4B%5D%203D%20Diagram%20-%20S2-09%20Group%20F.usda&label=S2-09%20Group%20F`
+
+## Remaining Mismatch / Next Wake Instructions
+1. S2-01 Group B has one more structural visual fix, but it still lacks live Desmos/viewer parity evidence from this environment. Ask Chek to review the direct viewer link against the Desmos URL.
+2. If Chek still reports S2-01B wrong, continue S2-01B with live visual feedback as the blocker context.
+3. If Chek accepts S2-01B or does not reopen it, continue tomorrow's priority queue with S2-09 Group A (`https://www.desmos.com/3d/gk9kr8h9ki`), currently `22 prims / 40 unsupported`.
+4. Keep S2-08E and S2-09F as regression guards.
+
+# Handoff: 2026-04-27 21:17 SGT - S2-01B malformed flat-disk tranche
+
+## Current Branch State
+- Repo: `/Users/chek/repos/desmos2usd-carey`
+- Branch: `fix/student-fixture-usdz-export`
+- Push target: `chektien:fix/student-fixture-usdz-export`
+- HEAD before this tranche: `bd5effe Record S2-01C harvest commit`
+
+## Completed This Tranche
+- Targeted fixture: `[4B] 3D Diagram - S2-01 Group B.json`
+- Desmos URL: `https://www.desmos.com/3d/27v0xuv64m`
+- Implemented one general parser/exporter fix:
+  - Malformed flat-axis chained comparisons such as `x^{2}+y^{2}<=5000z=0` now normalize to an ordinary 2D inequality plus a constant-axis predicate, equivalent to `x^{2}+y^{2}<=5000 {z=0}`.
+  - The normalized predicates flow through the existing flat-region disk path and validation, so expression `74` emits a flat mesh at `z=0` instead of falling through sampled cells.
+  - No fixture-specific ids, fixture names, or hard-coded S2-01 constants were added.
+- Added regression coverage for:
+  - a synthetic malformed chained disk inequality normalizing to `x^{2}+y^{2}<=5000` plus `z=0`
+  - the real S2-01B fixture exporting all 143 renderable expressions with no unsupported rows
+- Regenerated tracked S2-01B USDA/USDZ/report artifacts and updated the 71-fixture `artifacts/fixture_usdz/summary.json` entry.
+- Revalidated S2-08E and S2-09F as guard fixtures; both remain success.
+
+## Evidence
+- Evidence directory: `artifacts/fixture_usdz/review_evidence/20260427_s201_group_b_ralph_flat_disk/`
+- Local projection files:
+  - `S2-01_Group_B_projection_before.png`
+  - `S2-01_Group_B_projection_before.ppm`
+  - `S2-01_Group_B_projection_before.usda`
+  - `S2-01_Group_B_projection_before.usdz`
+  - `S2-01_Group_B_projection_before.report.json`
+  - `S2-01_Group_B_projection_after.png`
+  - `S2-01_Group_B_projection_after.ppm`
+  - `S2-01_Group_B_projection_after.usda`
+  - `S2-01_Group_B_projection_after.usdz`
+  - `S2-01_Group_B_projection_after.report.json`
+  - `S2-08_Group_E_projection_guard_after.png`
+  - `S2-08_Group_E_projection_guard_after.ppm`
+  - `S2-08_Group_E_projection_guard_after.usda`
+  - `S2-08_Group_E_projection_guard_after.usdz`
+  - `S2-08_Group_E_projection_guard_after.report.json`
+  - `S2-09_Group_F_projection_guard_after.png`
+  - `S2-09_Group_F_projection_guard_after.ppm`
+  - `S2-09_Group_F_projection_guard_after.usda`
+  - `S2-09_Group_F_projection_guard_after.usdz`
+  - `S2-09_Group_F_projection_guard_after.report.json`
+  - `capture_results.json`
+  - `projection_results.json`
+  - `assessment.md`
+- Browser/live viewer blockers:
+  - Playwright Desmos navigation to `https://www.desmos.com/3d/27v0xuv64m` returned `user cancelled MCP tool call`.
+  - Chrome DevTools Desmos navigation to `https://www.desmos.com/3d/27v0xuv64m` returned `user cancelled MCP tool call`.
+  - Tailscale route checks for root, viewer, and summary failed with `curl: (6) Could not resolve host: chq.singapura-broadnose.ts.net`.
+  - Playwright and Chrome DevTools live-viewer navigation both returned `user cancelled MCP tool call`.
+  - Local viewer server startup failed: `PermissionError: [Errno 1] Operation not permitted` for `python3 -m http.server 8765 --bind 127.0.0.1`.
+  - Playwright `file://` viewer fallback returned `user cancelled MCP tool call`.
+- Visual claim: no live Desmos/viewer parity claim. This tranche has deterministic local projection evidence only. The after projection adds expression `74` as a flat disk at `z=0`, mostly redundant with expression `58`'s existing base disk.
+
+## Metrics
+- S2-01B before this tranche: `142 prims / 1 unsupported / 143 classified / 143 renderable / valid true / partial`.
+- S2-01B after tracked resolution-12 regeneration: `143 prims / 0 unsupported / 143 classified / 143 renderable / valid true / success / usdchecker returncode 0`.
+- Fixed unsupported row:
+  - expression `74`: `x^{2}+y^{2}<=5000z=0`, now normalized to constraints `x^{2}+y^{2}<=5000; z=0` and exported as a 64-face flat disk mesh.
+- Overall fixture summary is now: 71 fixtures; 50 success, 21 partial, 0 error, acceptance not met.
+- S2-08 Group E guard remains success: `87 prims / 0 unsupported / valid true / usdchecker returncode 0`.
+- S2-09 Group F guard remains success: `27 prims / 0 unsupported / valid true / usdchecker returncode 0`.
+
+## Validation
+- Focused regressions passed: `test_malformed_chained_disk_inequality_normalizes_to_flat_axis`, `test_s201_group_b_point_defined_edge_curves_no_longer_unsupported`.
+- Targeted modules passed: `PYTHONPATH=src:tests python3 -m unittest tests.test_tessellate tests.test_student_fixture_regressions tests.test_fixture_usdz_suite tests.test_visual_preview` ran 111 tests OK.
+- Full unittest discovery passed: `PYTHONPATH=src:tests python3 -m unittest discover -s tests` ran 170 tests OK.
+- Report-vs-USDA consistency checked:
+  - S2-01B report prim_count `143`, USDA `Mesh` + `BasisCurves` defs `143`, unsupported `0`
+  - S2-08E report prim_count `87`, USDA defs `87`, unsupported `0`
+  - S2-09F report prim_count `27`, USDA defs `27`, unsupported `0`
+- PNG projection dimensions checked with `sips`: target before/after and guard PNGs are `776x256`.
+- JSON validity checked for summary and evidence JSON.
+- `git diff --check`: passed.
+
+## Commit / Push
+- Blocked in this HOME Codex turn: `git add src/desmos2usd/parse/classify.py tests/test_student_fixture_regressions.py implementation/STATE.md implementation/handoff.md artifacts/fixture_usdz/summary.json 'artifacts/fixture_usdz/[4B] 3D Diagram - S2-01 Group B.report.json' 'artifacts/fixture_usdz/[4B] 3D Diagram - S2-01 Group B.usda' 'artifacts/fixture_usdz/[4B] 3D Diagram - S2-01 Group B.usdz' 'artifacts/fixture_usdz/[4B] 3D Diagram - S2-08 Group E.report.json' 'artifacts/fixture_usdz/[4B] 3D Diagram - S2-08 Group E.usdz' 'artifacts/fixture_usdz/[4B] 3D Diagram - S2-09 Group F.report.json' 'artifacts/fixture_usdz/[4B] 3D Diagram - S2-09 Group F.usdz' && git add -f artifacts/fixture_usdz/review_evidence/20260427_s201_group_b_ralph_flat_disk` failed with `fatal: Unable to create '/Users/chek/repos/desmos2usd-carey/.git/index.lock': Operation not permitted`.
+- Worktree is ready to stage, commit, and push from the main environment.
+- Suggested commit subject: `Export S2-01B malformed flat disk`
+- Evidence directory is ignored by `.gitignore`; include it with:
+  - `git add -f artifacts/fixture_usdz/review_evidence/20260427_s201_group_b_ralph_flat_disk`
+
+## Review Links
+- Route verification from this environment failed for root/viewer/summary with `curl: (6) Could not resolve host: chq.singapura-broadnose.ts.net`.
+- S2-01 Group B Desmos: `https://www.desmos.com/3d/27v0xuv64m`
+- S2-01 Group B viewer: `https://chq.singapura-broadnose.ts.net/viewer/?usda=..%2Fartifacts%2Ffixture_usdz%2F%5B4B%5D%203D%20Diagram%20-%20S2-01%20Group%20B.usda&label=S2-01%20Group%20B`
+- S2-08 Group E Desmos: `https://www.desmos.com/3d/g59jqe6nxy`
+- S2-08 Group E viewer: `https://chq.singapura-broadnose.ts.net/viewer/?usda=..%2Fartifacts%2Ffixture_usdz%2F%5B4B%5D%203D%20Diagram%20-%20S2-08%20Group%20E.usda&label=S2-08%20Group%20E`
+- S2-09 Group F Desmos: `https://www.desmos.com/3d/umjxv6ahck`
+- S2-09 Group F viewer: `https://chq.singapura-broadnose.ts.net/viewer/?usda=..%2Fartifacts%2Ffixture_usdz%2F%5B4B%5D%203D%20Diagram%20-%20S2-09%20Group%20F.usda&label=S2-09%20Group%20F`
+
+## Remaining Mismatch / Next Wake Instructions
+1. S2-01 Group B is structurally complete and should not be picked again unless Chek reports a live visual issue.
+2. The tomorrow S2-01 priority queue is now structurally complete for Groups A-G. Do not return to the global queue or S2-10E unless Chek or `STATE.md` explicitly reprioritizes.
+3. Browser/live viewer capture is still blocked here; do not claim live visual parity until Desmos and viewer screenshots are captured.
+4. Keep S2-08E and S2-09F as regression guards.
+
+# Handoff: 2026-04-27 20:49 SGT - S2-01C absolute/list tube tranche
+
+## Current Branch State
+- Repo: `/Users/chek/repos/desmos2usd-carey`
+- Branch: `fix/student-fixture-usdz-export`
+- Push target: `chektien:fix/student-fixture-usdz-export`
+- HEAD before this tranche: `6a31b14 Export curved S2-01E bands`
+
+## Completed This Tranche
+- Targeted fixture: `[4B] 3D Diagram - S2-01 Group C.json`
+- Desmos URL: `https://www.desmos.com/3d/upbjmsjpzq`
+- Implemented general exporter fixes:
+  - Scalar-list expansion now detects single-letter list variables in implicit numeric products such as `3n`, so hidden definitions like `n=[2,3,4,5,6]` broadcast into repeated renderable expressions.
+  - Axis-aligned `abs(axis)` interval inequalities with bounded cross axes export as disjoint rectangular shell extrusions instead of falling through to coarse sampled cells.
+  - One-axis implicit equalities with bounded cross axes export as sheet meshes by solving the one-dimensional residual roots.
+  - No fixture-specific ids, fixture names, or hard-coded S2-01 constants were added.
+- Added regression coverage for:
+  - numeric-coefficient list expansion
+  - `abs(x)` interval shell extrusion
+  - bounded one-axis `abs(abs(x)-c)=r` sheet extrusion
+  - the real S2-01C fixture exporting all 27 renderable expressions with no unsupported rows
+- Regenerated tracked S2-01C USDA/USDZ/report artifacts and updated the 71-fixture `artifacts/fixture_usdz/summary.json` entry.
+- Revalidated S2-08E and S2-09F as guard fixtures; both remain success.
+
+## Evidence
+- Evidence directory: `artifacts/fixture_usdz/review_evidence/20260427_s201_group_c_ralph_abs_tubes/`
+- Local projection files:
+  - `S2-01_Group_C_projection_before.png`
+  - `S2-01_Group_C_projection_before.ppm`
+  - `S2-01_Group_C_projection_before.usda`
+  - `S2-01_Group_C_projection_before.usdz`
+  - `S2-01_Group_C_projection_before.report.json`
+  - `S2-01_Group_C_projection_after.png`
+  - `S2-01_Group_C_projection_after.ppm`
+  - `S2-01_Group_C_projection_after.usda`
+  - `S2-01_Group_C_projection_after.usdz`
+  - `S2-01_Group_C_projection_after.report.json`
+  - `S2-08_Group_E_projection_guard_after.png`
+  - `S2-08_Group_E_projection_guard_after.ppm`
+  - `S2-08_Group_E_projection_guard_after.usda`
+  - `S2-08_Group_E_projection_guard_after.usdz`
+  - `S2-08_Group_E_projection_guard_after.report.json`
+  - `S2-09_Group_F_projection_guard_after.png`
+  - `S2-09_Group_F_projection_guard_after.ppm`
+  - `S2-09_Group_F_projection_guard_after.usda`
+  - `S2-09_Group_F_projection_guard_after.usdz`
+  - `S2-09_Group_F_projection_guard_after.report.json`
+  - `capture_results.json`
+  - `projection_results.json`
+  - `assessment.md`
+- Browser/live viewer blockers:
+  - Playwright Desmos navigation to `https://www.desmos.com/3d/upbjmsjpzq` returned `user cancelled MCP tool call`.
+  - Chrome DevTools Desmos navigation to `https://www.desmos.com/3d/upbjmsjpzq` returned `user cancelled MCP tool call`.
+  - Tailscale route checks for root, viewer, and summary failed with `curl: (6) Could not resolve host: chq.singapura-broadnose.ts.net`.
+  - Local viewer server startup failed: `PermissionError: [Errno 1] Operation not permitted` for `python3 -m http.server 8765 --bind 127.0.0.1`.
+  - Playwright and Chrome DevTools viewer navigation for S2-01C both returned `user cancelled MCP tool call`.
+- Visual claim: no live Desmos/viewer parity claim. This tranche has deterministic local projection evidence only. The after projection adds the repeated green tube posts and the missing gray absolute-value shell/sheet geometry around the small structure.
+
+## Metrics
+- S2-01C before this tranche: `15 prims / 4 unsupported / 18 classified / 19 renderable / valid true / partial`.
+- S2-01C after tracked resolution-12 regeneration: `27 prims / 0 unsupported / 27 classified / 27 renderable / valid true / success / usdchecker returncode 0`.
+- Fixed unsupported rows:
+  - expression `28`: `abs(x)` shell band, previously sampled-cell miss
+  - expressions `40` and `42`: repeated circular posts using `3n`, now expanded into `40_0..40_4` and `42_0..42_4`
+  - expression `47`: bounded `abs(abs(x)-2.5)=0.3` side sheets
+- Overall fixture summary is now: 71 fixtures; 49 success, 22 partial, 0 error, acceptance not met.
+- S2-08 Group E guard remains success: `87 prims / 0 unsupported / valid true / usdchecker returncode 0`.
+- S2-09 Group F guard remains success: `27 prims / 0 unsupported / valid true / usdchecker returncode 0`.
+
+## Validation
+- Focused regressions passed: `test_list_definition_after_numeric_coefficient_expands_and_tessellates`, `test_abs_axis_interval_extrudes_as_disjoint_shells`, `test_one_axis_abs_equality_with_bounded_cross_axes_tessellates`, `test_s201_group_c_abs_and_list_regions_no_longer_unsupported`.
+- Targeted modules passed: `PYTHONPATH=src:tests python3 -m unittest tests.test_tessellate tests.test_student_fixture_regressions tests.test_fixture_usdz_suite tests.test_visual_preview` ran 110 tests OK.
+- Full unittest discovery passed: `PYTHONPATH=src:tests python3 -m unittest discover -s tests` ran 169 tests OK.
+- Report-vs-USDA consistency checked:
+  - S2-01C report prim_count `27`, USDA `Mesh` + `BasisCurves` defs `27`, unsupported `0`
+  - S2-08E report prim_count `87`, USDA defs `87`, unsupported `0`
+  - S2-09F report prim_count `27`, USDA defs `27`, unsupported `0`
+- PNG projection dimensions checked with `sips`: target before/after and guard PNGs are `776x256`.
+- `git diff --check`: passed.
+
+## Commit / Push
+- Harvested by cron wake and committed from the main environment.
+- Commit: `81cc02b` (`Export S2-01C absolute tube details`)
+- Pushed to `chektien:fix/student-fixture-usdz-export`.
+- Evidence directory included with `git add -f artifacts/fixture_usdz/review_evidence/20260427_s201_group_c_ralph_abs_tubes`.
+
+## Review Links
+- Route verification from this environment failed for root/viewer/summary with `curl: (6) Could not resolve host: chq.singapura-broadnose.ts.net`.
+- S2-01 Group C Desmos: `https://www.desmos.com/3d/upbjmsjpzq`
+- S2-01 Group C viewer: `https://chq.singapura-broadnose.ts.net/viewer/?usda=..%2Fartifacts%2Ffixture_usdz%2F%5B4B%5D%203D%20Diagram%20-%20S2-01%20Group%20C.usda&label=S2-01%20Group%20C`
+- S2-08 Group E Desmos: `https://www.desmos.com/3d/g59jqe6nxy`
+- S2-08 Group E viewer: `https://chq.singapura-broadnose.ts.net/viewer/?usda=..%2Fartifacts%2Ffixture_usdz%2F%5B4B%5D%203D%20Diagram%20-%20S2-08%20Group%20E.usda&label=S2-08%20Group%20E`
+- S2-09 Group F Desmos: `https://www.desmos.com/3d/umjxv6ahck`
+- S2-09 Group F viewer: `https://chq.singapura-broadnose.ts.net/viewer/?usda=..%2Fartifacts%2Ffixture_usdz%2F%5B4B%5D%203D%20Diagram%20-%20S2-09%20Group%20F.usda&label=S2-09%20Group%20F`
+
+## Remaining Mismatch / Next Wake Instructions
+1. S2-01 Group C is structurally complete and should not be picked again unless Chek reports a live visual issue.
+2. Browser/live viewer capture is still blocked here; do not claim live visual parity until Desmos and viewer screenshots are captured.
+3. Continue tomorrow's S2-01 priority queue with S2-01 Group B (`https://www.desmos.com/3d/27v0xuv64m`), currently `142 prims / 1 unsupported`; next exact target remains expression `74` (`x^{2}+y^{2}<=5000z=0`).
+4. Keep S2-08E and S2-09F as regression guards.
+
+# Handoff: 2026-04-27 20:17 SGT - S2-01E curved thin-band tranche
+
+## Current Branch State
+- Repo: `/Users/chek/repos/desmos2usd-carey`
+- Branch: `fix/student-fixture-usdz-export`
+- Push target: `chektien:fix/student-fixture-usdz-export`
+- HEAD before this tranche: `ee7335c Render point-list curves`
+
+## Completed This Tranche
+- Targeted fixture: `[4B] 3D Diagram - S2-01 Group E.json`
+- Desmos URL: `https://www.desmos.com/3d/nzokib2plm`
+- Implemented one general exporter fix:
+  - Function-band bound extraction now handles scaled band axes such as `2z < f(x)` by normalizing to `z < f(x)/2`.
+  - Added a curved-band affine-extrusion path that separates nonlinear band bounds from affine cross-axis restrictions, so narrow parabolic/affine 3D strips export without relying on voxel sampling.
+  - No fixture-specific ids, fixture names, or hard-coded S2-01 constants were added.
+- Added regression coverage for:
+  - a synthetic scaled-axis curved band with affine cross-bounds
+  - the real S2-01E fixture exporting all 43 renderable expressions with no unsupported rows
+- Regenerated tracked S2-01E USDA/USDZ/report artifacts and updated the 71-fixture `artifacts/fixture_usdz/summary.json` entry.
+- Revalidated S2-08E and S2-09F as guard fixtures; both remain success.
+
+## Evidence
+- Evidence directory: `artifacts/fixture_usdz/review_evidence/20260427_s201_group_e_ralph_thin_bands/`
+- Local projection files:
+  - `S2-01_Group_E_projection_before.png`
+  - `S2-01_Group_E_projection_before.ppm`
+  - `S2-01_Group_E_projection_before.usda`
+  - `S2-01_Group_E_projection_before.usdz`
+  - `S2-01_Group_E_projection_before.report.json`
+  - `S2-01_Group_E_projection_after.png`
+  - `S2-01_Group_E_projection_after.ppm`
+  - `S2-01_Group_E_projection_after.usda`
+  - `S2-01_Group_E_projection_after.usdz`
+  - `S2-01_Group_E_projection_after.report.json`
+  - `S2-08_Group_E_projection_guard_after.png`
+  - `S2-08_Group_E_projection_guard_after.ppm`
+  - `S2-08_Group_E_projection_guard_after.usda`
+  - `S2-08_Group_E_projection_guard_after.usdz`
+  - `S2-08_Group_E_projection_guard_after.report.json`
+  - `S2-09_Group_F_projection_guard_after.png`
+  - `S2-09_Group_F_projection_guard_after.ppm`
+  - `S2-09_Group_F_projection_guard_after.usda`
+  - `S2-09_Group_F_projection_guard_after.usdz`
+  - `S2-09_Group_F_projection_guard_after.report.json`
+  - `capture_results.json`
+  - `projection_results.json`
+  - `assessment.md`
+- Browser/live viewer blockers:
+  - Playwright Desmos navigation to `https://www.desmos.com/3d/nzokib2plm` returned `user cancelled MCP tool call`.
+  - Chrome DevTools Desmos navigation to `https://www.desmos.com/3d/nzokib2plm` returned `user cancelled MCP tool call`.
+  - Tailscale route checks for root, viewer, and summary failed with `curl: (6) Could not resolve host: chq.singapura-broadnose.ts.net`.
+  - Local viewer server startup failed: `PermissionError: [Errno 1] Operation not permitted` for `python3 -m http.server 8765 --bind 127.0.0.1`.
+  - Chrome DevTools navigation to `file:///Users/chek/repos/desmos2usd-carey/viewer/index.html` returned `user cancelled MCP tool call`.
+- Visual claim: no live Desmos/viewer parity claim. This tranche has deterministic local projection evidence only. The after projection adds the missing curved/sloped side bands in the S2-01E tower silhouette.
+
+## Metrics
+- S2-01E tracked summary before this tranche: `23 prims / 20 unsupported / 43 classified / 43 renderable / valid true / partial`.
+- S2-01E fresh local pre-fix export from current code before this tranche: `39 prims / 4 unsupported / 43 classified / 43 renderable / valid true / partial`.
+- S2-01E after tracked resolution-12 regeneration: `43 prims / 0 unsupported / 43 classified / 43 renderable / valid true / success / usdchecker returncode 0`.
+- Fixed remaining unsupported family: expressions `104`, `190`, `154`, and `135`, all narrow curved inequality bands with affine cross-axis bounds.
+- Overall fixture summary is now: 71 fixtures; 48 success, 23 partial, 0 error, acceptance not met.
+- S2-08 Group E guard remains success: `87 prims / 0 unsupported / valid true / usdchecker returncode 0`.
+- S2-09 Group F guard remains success: `27 prims / 0 unsupported / valid true / usdchecker returncode 0`.
+
+## Validation
+- Focused regressions passed: `test_curved_band_with_scaled_axis_and_affine_cross_bounds_tessellates`, `test_s201_group_e_curved_bands_no_longer_unsupported`.
+- Targeted modules passed: `PYTHONPATH=src:tests python3 -m unittest tests.test_tessellate tests.test_student_fixture_regressions tests.test_fixture_usdz_suite tests.test_visual_preview` ran 106 tests OK.
+- Full unittest discovery passed: `PYTHONPATH=src:tests python3 -m unittest discover -s tests` ran 165 tests OK.
+- Report-vs-USDA consistency checked:
+  - S2-01E report prim_count `43`, USDA `Mesh` + `BasisCurves` defs `43`, unsupported `0`
+  - S2-08E report prim_count `87`, USDA defs `87`, unsupported `0`
+  - S2-09F report prim_count `27`, USDA defs `27`, unsupported `0`
+- PNG projection dimensions checked with `sips`: target/guard PNGs are `776x256`.
+- `git diff --check`: passed.
+
+## Commit / Push
+- Blocked in this HOME Codex turn: `git add src/desmos2usd/tessellate/slabs.py tests/test_student_fixture_regressions.py implementation/STATE.md implementation/handoff.md artifacts/fixture_usdz/summary.json 'artifacts/fixture_usdz/[4B] 3D Diagram - S2-01 Group E.report.json' 'artifacts/fixture_usdz/[4B] 3D Diagram - S2-01 Group E.usda' 'artifacts/fixture_usdz/[4B] 3D Diagram - S2-01 Group E.usdz' 'artifacts/fixture_usdz/[4B] 3D Diagram - S2-08 Group E.report.json' 'artifacts/fixture_usdz/[4B] 3D Diagram - S2-08 Group E.usdz' 'artifacts/fixture_usdz/[4B] 3D Diagram - S2-09 Group F.usdz' && git add -f artifacts/fixture_usdz/review_evidence/20260427_s201_group_e_ralph_thin_bands` failed with `fatal: Unable to create '/Users/chek/repos/desmos2usd-carey/.git/index.lock': Operation not permitted`.
+- Worktree is ready to stage, commit, and push from the main environment.
+- Evidence directory is ignored by `.gitignore`; include it with:
+  - `git add -f artifacts/fixture_usdz/review_evidence/20260427_s201_group_e_ralph_thin_bands`
+- Suggested commit subject: `Export curved S2-01E bands`
+
+## Review Links
+- Route verification from this environment failed for root/viewer/summary with `curl: (6) Could not resolve host: chq.singapura-broadnose.ts.net`.
+- S2-01 Group E Desmos: `https://www.desmos.com/3d/nzokib2plm`
+- S2-01 Group E viewer: `https://chq.singapura-broadnose.ts.net/viewer/?usda=..%2Fartifacts%2Ffixture_usdz%2F%5B4B%5D%203D%20Diagram%20-%20S2-01%20Group%20E.usda&label=S2-01%20Group%20E`
+- S2-08 Group E Desmos: `https://www.desmos.com/3d/g59jqe6nxy`
+- S2-08 Group E viewer: `https://chq.singapura-broadnose.ts.net/viewer/?usda=..%2Fartifacts%2Ffixture_usdz%2F%5B4B%5D%203D%20Diagram%20-%20S2-08%20Group%20E.usda&label=S2-08%20Group%20E`
+- S2-09 Group F Desmos: `https://www.desmos.com/3d/umjxv6ahck`
+- S2-09 Group F viewer: `https://chq.singapura-broadnose.ts.net/viewer/?usda=..%2Fartifacts%2Ffixture_usdz%2F%5B4B%5D%203D%20Diagram%20-%20S2-09%20Group%20F.usda&label=S2-09%20Group%20F`
+
+## Remaining Mismatch / Next Wake Instructions
+1. S2-01 Group E is structurally complete and should not be picked again unless Chek reports a live visual issue.
+2. Browser/live viewer capture is still blocked here; do not claim live visual parity until Desmos and viewer screenshots are captured.
+3. Continue tomorrow's S2-01 priority queue with S2-01 Group C (`https://www.desmos.com/3d/upbjmsjpzq`), currently `15 prims / 4 unsupported`.
+4. Keep S2-08E and S2-09F as regression guards.
+
 # Handoff: 2026-04-27 19:43 SGT - S2-01B point-list curve tranche
 
 ## Current Branch State
@@ -1338,3 +4042,9 @@
 - Re-ran validation before commit: targeted tessellate/student fixture/fixture USDZ/visual preview modules 101 tests OK, full unittest discovery 160 tests OK, `git diff --check` OK.
 - Committed and pushed from the main environment.
 - Next wake should continue with S2-01 Group B unless Chek reprioritizes.
+
+## Orchestrator update - 2026-04-27 21:20 SGT
+- Checked the earlier main schedule: Tue 28 Apr main slots are 2-01 (1400), 2-03 (1420), 2-05 (1440), 2-06 (1500), 2-07 (1520), and 2-09 (1540). Exceptions noted earlier: 201C at 1440 and 205C at 1500.
+- Tomorrow queue is therefore not only S2-01.
+- Chek reports S2-01B still looks wrong in the live viewer. Treat S2-01B as a visual blocker despite metrics success (`143 prims / 0 unsupported`) and keep it pinned first until a visual-fidelity pass records/fixes the mismatch.
+- After S2-01B visual triage, prioritize remaining tomorrow partials by current unsupported count/risk: S2-09A (40), S2-06A (18), S2-09D (12), S2-03C (9), S2-09B (4), S2-05F (3), then S2-03A/S2-07C/S2-09C/S2-09E/S2-09G (2 each), then S2-07D/S2-07E (1 each).

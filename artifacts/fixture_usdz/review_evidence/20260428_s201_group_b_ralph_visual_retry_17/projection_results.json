@@ -1,0 +1,40 @@
+{
+  "results": [
+    {
+      "fixture": "[4B] 3D Diagram - S2-01 Group B.json",
+      "label": "S2-01 Group B",
+      "ppm": "artifacts/fixture_usdz/review_evidence/20260428_s201_group_b_ralph_visual_retry_17/S2-01_Group_B_projection.ppm",
+      "prim_count": 143,
+      "report": "artifacts/fixture_usdz/review_evidence/20260428_s201_group_b_ralph_visual_retry_17/S2-01_Group_B_projection.report.json",
+      "status": "success",
+      "unsupported_count": 0,
+      "usda": "artifacts/fixture_usdz/review_evidence/20260428_s201_group_b_ralph_visual_retry_17/S2-01_Group_B_projection.usda",
+      "usdz": "artifacts/fixture_usdz/review_evidence/20260428_s201_group_b_ralph_visual_retry_17/S2-01_Group_B_projection.usdz",
+      "valid": true
+    },
+    {
+      "fixture": "[4B] 3D Diagram - S2-08 Group E.json",
+      "label": "S2-08 Group E",
+      "ppm": "artifacts/fixture_usdz/review_evidence/20260428_s201_group_b_ralph_visual_retry_17/S2-08_Group_E_projection_guard.ppm",
+      "prim_count": 87,
+      "report": "artifacts/fixture_usdz/review_evidence/20260428_s201_group_b_ralph_visual_retry_17/S2-08_Group_E_projection_guard.report.json",
+      "status": "success",
+      "unsupported_count": 0,
+      "usda": "artifacts/fixture_usdz/review_evidence/20260428_s201_group_b_ralph_visual_retry_17/S2-08_Group_E_projection_guard.usda",
+      "usdz": "artifacts/fixture_usdz/review_evidence/20260428_s201_group_b_ralph_visual_retry_17/S2-08_Group_E_projection_guard.usdz",
+      "valid": true
+    },
+    {
+      "fixture": "[4B] 3D Diagram - S2-09 Group F.json",
+      "label": "S2-09 Group F",
+      "ppm": "artifacts/fixture_usdz/review_evidence/20260428_s201_group_b_ralph_visual_retry_17/S2-09_Group_F_projection_guard.ppm",
+      "prim_count": 27,
+      "report": "artifacts/fixture_usdz/review_evidence/20260428_s201_group_b_ralph_visual_retry_17/S2-09_Group_F_projection_guard.report.json",
+      "status": "success",
+      "unsupported_count": 0,
+      "usda": "artifacts/fixture_usdz/review_evidence/20260428_s201_group_b_ralph_visual_retry_17/S2-09_Group_F_projection_guard.usda",
+      "usdz": "artifacts/fixture_usdz/review_evidence/20260428_s201_group_b_ralph_visual_retry_17/S2-09_Group_F_projection_guard.usdz",
+      "valid": true
+    }
+  ]
+}

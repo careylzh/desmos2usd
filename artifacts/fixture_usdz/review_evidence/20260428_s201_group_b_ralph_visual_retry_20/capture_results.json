@@ -1,0 +1,82 @@
+{
+  "attempts": [
+    {
+      "error": "user cancelled MCP tool call",
+      "name": "Playwright Desmos navigation",
+      "status": "failed",
+      "target": "https://www.desmos.com/3d/27v0xuv64m"
+    },
+    {
+      "error": "user cancelled MCP tool call",
+      "name": "Chrome DevTools Desmos navigation",
+      "status": "failed",
+      "target": "https://www.desmos.com/3d/27v0xuv64m"
+    },
+    {
+      "error": "curl: (6) Could not resolve host: chq.singapura-broadnose.ts.net",
+      "name": "Tailscale root route check",
+      "status": "failed",
+      "target": "https://chq.singapura-broadnose.ts.net/"
+    },
+    {
+      "error": "curl: (6) Could not resolve host: chq.singapura-broadnose.ts.net",
+      "name": "Tailscale viewer route check",
+      "status": "failed",
+      "target": "https://chq.singapura-broadnose.ts.net/viewer/"
+    },
+    {
+      "error": "curl: (6) Could not resolve host: chq.singapura-broadnose.ts.net",
+      "name": "Tailscale summary route check",
+      "status": "failed",
+      "target": "https://chq.singapura-broadnose.ts.net/artifacts/fixture_usdz/summary.json"
+    },
+    {
+      "error": "curl: (6) Could not resolve host: www.desmos.com",
+      "name": "Direct Desmos route check",
+      "status": "failed",
+      "target": "https://www.desmos.com/3d/27v0xuv64m"
+    },
+    {
+      "error": "PermissionError: [Errno 1] Operation not permitted",
+      "name": "Local viewer server",
+      "status": "failed",
+      "target": "python3 -m http.server 8765 --bind 127.0.0.1"
+    },
+    {
+      "error": "user cancelled MCP tool call",
+      "name": "Chrome DevTools file viewer navigation",
+      "status": "failed",
+      "target": "file:///Users/chek/repos/desmos2usd-carey/viewer/index.html?usda=..%2Fartifacts%2Ffixture_usdz%2F%5B4B%5D%203D%20Diagram%20-%20S2-01%20Group%20B.usda&label=S2-01%20Group%20B"
+    },
+    {
+      "error": "user cancelled MCP tool call",
+      "name": "Playwright file viewer navigation",
+      "status": "failed",
+      "target": "file:///Users/chek/repos/desmos2usd-carey/viewer/index.html?usda=..%2Fartifacts%2Ffixture_usdz%2F%5B4B%5D%203D%20Diagram%20-%20S2-01%20Group%20B.usda&label=S2-01%20Group%20B"
+    },
+    {
+      "error": "process exited -1 and did not create a screenshot",
+      "name": "Headless Google Chrome file viewer screenshot",
+      "status": "failed",
+      "target": "artifacts/fixture_usdz/review_evidence/20260428_s201_group_b_ralph_visual_retry_20/S2-01_Group_B_chrome_file_viewer.png"
+    },
+    {
+      "error": "process exited -1 and did not create a screenshot",
+      "name": "Headless Brave file viewer screenshot",
+      "status": "failed",
+      "target": "artifacts/fixture_usdz/review_evidence/20260428_s201_group_b_ralph_visual_retry_20/S2-01_Group_B_brave_file_viewer.png"
+    },
+    {
+      "error": "FetchError: Could not fetch Desmos state; all Desmos endpoints failed with nodename nor servname provided, or not known",
+      "name": "URL CLI conversion with --refresh",
+      "status": "failed",
+      "target": "https://www.desmos.com/3d/27v0xuv64m"
+    }
+  ],
+  "desmos_url": "https://www.desmos.com/3d/27v0xuv64m",
+  "evidence_dir": "artifacts/fixture_usdz/review_evidence/20260428_s201_group_b_ralph_visual_retry_20",
+  "fixture": "[4B] 3D Diagram - S2-01 Group B.json",
+  "live_capture_available": false,
+  "target": "S2-01 Group B",
+  "viewer_capture_available": false
+}

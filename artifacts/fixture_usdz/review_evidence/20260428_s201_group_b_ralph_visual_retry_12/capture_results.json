@@ -1,0 +1,86 @@
+{
+  "attempted_at_sgt": "2026-04-28 03:32",
+  "desmos_url": "https://www.desmos.com/3d/27v0xuv64m",
+  "evidence_dir": "artifacts/fixture_usdz/review_evidence/20260428_s201_group_b_ralph_visual_retry_12",
+  "fixture": "[4B] 3D Diagram - S2-01 Group B.json",
+  "live_captures": [
+    {
+      "result": "blocked",
+      "route": "playwright_desmos",
+      "url": "https://www.desmos.com/3d/27v0xuv64m",
+      "error": "user cancelled MCP tool call"
+    },
+    {
+      "result": "blocked",
+      "route": "chrome_devtools_desmos",
+      "url": "https://www.desmos.com/3d/27v0xuv64m",
+      "error": "user cancelled MCP tool call"
+    },
+    {
+      "result": "blocked",
+      "route": "tailscale_root",
+      "url": "https://chq.singapura-broadnose.ts.net/",
+      "error": "curl: (6) Could not resolve host: chq.singapura-broadnose.ts.net"
+    },
+    {
+      "result": "blocked",
+      "route": "tailscale_viewer",
+      "url": "https://chq.singapura-broadnose.ts.net/viewer/",
+      "error": "curl: (6) Could not resolve host: chq.singapura-broadnose.ts.net"
+    },
+    {
+      "result": "blocked",
+      "route": "tailscale_summary",
+      "url": "https://chq.singapura-broadnose.ts.net/artifacts/fixture_usdz/summary.json",
+      "error": "curl: (6) Could not resolve host: chq.singapura-broadnose.ts.net"
+    },
+    {
+      "result": "blocked",
+      "route": "local_http_server",
+      "command": "python3 -m http.server 8765 --bind 127.0.0.1",
+      "error": "PermissionError: [Errno 1] Operation not permitted"
+    },
+    {
+      "result": "blocked",
+      "route": "playwright_file_viewer",
+      "url": "file:///Users/chek/repos/desmos2usd-carey/viewer/index.html?usda=..%2Fartifacts%2Ffixture_usdz%2F%5B4B%5D%203D%20Diagram%20-%20S2-01%20Group%20B.usda&label=S2-01%20Group%20B",
+      "error": "user cancelled MCP tool call"
+    },
+    {
+      "result": "blocked",
+      "route": "chrome_devtools_file_viewer",
+      "url": "file:///Users/chek/repos/desmos2usd-carey/viewer/index.html?usda=..%2Fartifacts%2Ffixture_usdz%2F%5B4B%5D%203D%20Diagram%20-%20S2-01%20Group%20B.usda&label=S2-01%20Group%20B",
+      "error": "user cancelled MCP tool call"
+    },
+    {
+      "result": "blocked",
+      "route": "headless_chrome_file_viewer",
+      "url": "file:///Users/chek/repos/desmos2usd-carey/viewer/index.html?usda=..%2Fartifacts%2Ffixture_usdz%2F%5B4B%5D%203D%20Diagram%20-%20S2-01%20Group%20B.usda&label=S2-01%20Group%20B",
+      "error": "Google Chrome exited -1 and did not create headless_file_viewer.png"
+    },
+    {
+      "result": "blocked",
+      "route": "headless_chrome_file_viewer_no_sandbox",
+      "url": "file:///Users/chek/repos/desmos2usd-carey/viewer/index.html?usda=..%2Fartifacts%2Ffixture_usdz%2F%5B4B%5D%203D%20Diagram%20-%20S2-01%20Group%20B.usda&label=S2-01%20Group%20B",
+      "error": "Google Chrome exited -1 and did not create headless_file_viewer_nosandbox.png"
+    },
+    {
+      "result": "blocked",
+      "route": "desmos_refresh_conversion",
+      "command": "PYTHONPATH=src python3 -m desmos2usd.cli https://www.desmos.com/3d/27v0xuv64m -o artifacts/fixture_usdz/review_evidence/20260428_s201_group_b_ralph_visual_retry_12/live_refresh_attempt.usda --refresh --resolution 12 --report artifacts/fixture_usdz/review_evidence/20260428_s201_group_b_ralph_visual_retry_12/live_refresh_attempt.report.json --preview --usdz artifacts/fixture_usdz/review_evidence/20260428_s201_group_b_ralph_visual_retry_12/live_refresh_attempt.usdz --validate-usdz",
+      "error": "Could not fetch Desmos state for https://www.desmos.com/3d/27v0xuv64m; all Desmos endpoints failed DNS resolution with nodename nor servname provided, or not known"
+    }
+  ],
+  "offline_evidence": [
+    "S2-01_Group_B_projection.png",
+    "S2-01_Group_B_projection.ppm",
+    "S2-01_Group_B_projection.usda",
+    "S2-01_Group_B_projection.usdz",
+    "S2-01_Group_B_projection.report.json",
+    "S2-08_Group_E_projection_guard.png",
+    "S2-09_Group_F_projection_guard.png",
+    "projection_results.json",
+    "precheck/summary.json"
+  ],
+  "visual_claim": "No live Desmos or live viewer parity claim. Available images are deterministic offline projections only."
+}

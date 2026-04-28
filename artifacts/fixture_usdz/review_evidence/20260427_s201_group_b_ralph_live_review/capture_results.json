@@ -1,0 +1,65 @@
+{
+  "target": {
+    "fixture": "[4B] 3D Diagram - S2-01 Group B.json",
+    "desmos_url": "https://www.desmos.com/3d/27v0xuv64m"
+  },
+  "browser_capture": {
+    "desmos_reference": [
+      {
+        "tool": "chrome_devtools.navigate_page",
+        "url": "https://www.desmos.com/3d/27v0xuv64m",
+        "result": "user cancelled MCP tool call"
+      },
+      {
+        "tool": "playwright.browser_navigate",
+        "url": "https://www.desmos.com/3d/27v0xuv64m",
+        "result": "user cancelled MCP tool call"
+      }
+    ],
+    "viewer": [
+      {
+        "tool": "curl",
+        "url": "https://chq.singapura-broadnose.ts.net/",
+        "result": "curl: (6) Could not resolve host: chq.singapura-broadnose.ts.net"
+      },
+      {
+        "tool": "curl",
+        "url": "https://chq.singapura-broadnose.ts.net/viewer/",
+        "result": "curl: (6) Could not resolve host: chq.singapura-broadnose.ts.net"
+      },
+      {
+        "tool": "curl",
+        "url": "https://chq.singapura-broadnose.ts.net/artifacts/fixture_usdz/summary.json",
+        "result": "curl: (6) Could not resolve host: chq.singapura-broadnose.ts.net"
+      },
+      {
+        "tool": "python3 -m http.server 8765 --bind 127.0.0.1",
+        "result": "PermissionError: [Errno 1] Operation not permitted"
+      },
+      {
+        "tool": "chrome_devtools.navigate_page",
+        "url": "file:///Users/chek/repos/desmos2usd-carey/viewer/index.html?usda=..%2Fartifacts%2Ffixture_usdz%2F%5B4B%5D%203D%20Diagram%20-%20S2-01%20Group%20B.usda&label=S2-01%20Group%20B",
+        "result": "user cancelled MCP tool call"
+      },
+      {
+        "tool": "playwright.browser_navigate",
+        "url": "file:///Users/chek/repos/desmos2usd-carey/viewer/index.html?usda=..%2Fartifacts%2Ffixture_usdz%2F%5B4B%5D%203D%20Diagram%20-%20S2-01%20Group%20B.usda&label=S2-01%20Group%20B",
+        "result": "user cancelled MCP tool call"
+      },
+      {
+        "tool": "Google Chrome --headless=new --disable-gpu --no-sandbox --allow-file-access-from-files --screenshot",
+        "url": "file:///Users/chek/repos/desmos2usd-carey/viewer/index.html?usda=..%2Fartifacts%2Ffixture_usdz%2F%5B4B%5D%203D%20Diagram%20-%20S2-01%20Group%20B.usda&label=S2-01%20Group%20B",
+        "result": "process exited with code -1 and did not create S2-01_Group_B_file_viewer_probe.png"
+      }
+    ]
+  },
+  "offline_evidence": {
+    "precheck_summary": "artifacts/fixture_usdz/review_evidence/20260427_s201_group_b_ralph_live_review/precheck/summary.json",
+    "target_projection_png": "artifacts/fixture_usdz/review_evidence/20260427_s201_group_b_ralph_live_review/S2-01_Group_B_projection.png",
+    "guard_projection_pngs": [
+      "artifacts/fixture_usdz/review_evidence/20260427_s201_group_b_ralph_live_review/S2-08_Group_E_projection_guard.png",
+      "artifacts/fixture_usdz/review_evidence/20260427_s201_group_b_ralph_live_review/S2-09_Group_F_projection_guard.png"
+    ]
+  },
+  "conclusion": "Live visual gate remains blocked in this environment; no new general exporter/viewer mismatch could be safely diagnosed for metrics-complete S2-01B without a Desmos/viewer screenshot or Chek visual feedback."
+}

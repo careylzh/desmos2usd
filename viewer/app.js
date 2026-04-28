@@ -1149,23 +1149,8 @@ ${url}`;
   }
 
   function cameraBasisFromWorldRotation(rotation) {
-    if (!Array.isArray(rotation) || rotation.length !== 9) return null;
-    const rows = [
-      rotation.slice(0, 3),
-      rotation.slice(3, 6),
-      rotation.slice(6, 9),
-    ];
-    if (rows.some((row) => row.some((value) => !Number.isFinite(value)) || Math.hypot(row[0], row[1], row[2]) < 1e-6)) {
-      return null;
-    }
-    // Desmos stores this row-major, but the camera basis vectors are column-based:
-    // camera depth, screen-left, then screen-up.
-    const columns = [0, 1, 2].map((column) => [rows[0][column], rows[1][column], rows[2][column]]);
-    const depth = normalize(columns[0].map((value) => -value));
-    const right = normalize(columns[1].map((value) => -value));
-    const up = normalize(columns[2]);
-    if (Math.abs(dot(cross(right, up), depth)) < 0.4) return null;
-    return { right, up, depth };
+    if (!window.Desmos2UsdCamera) return null;
+    return window.Desmos2UsdCamera.cameraBasisFromWorldRotation(rotation);
   }
 
   function cloneCameraBasis(basis) {

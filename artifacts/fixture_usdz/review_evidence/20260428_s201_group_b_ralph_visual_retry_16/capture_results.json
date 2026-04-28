@@ -1,0 +1,78 @@
+{
+  "target": "S2-01 Group B",
+  "fixture": "[4B] 3D Diagram - S2-01 Group B.json",
+  "desmos_url": "https://www.desmos.com/3d/27v0xuv64m",
+  "evidence_dir": "artifacts/fixture_usdz/review_evidence/20260428_s201_group_b_ralph_visual_retry_16",
+  "attempts": [
+    {
+      "name": "playwright_desmos",
+      "target": "https://www.desmos.com/3d/27v0xuv64m",
+      "status": "blocked",
+      "result": "user cancelled MCP tool call"
+    },
+    {
+      "name": "chrome_devtools_desmos",
+      "target": "https://www.desmos.com/3d/27v0xuv64m",
+      "status": "blocked",
+      "result": "user cancelled MCP tool call"
+    },
+    {
+      "name": "tailscale_root",
+      "target": "https://chq.singapura-broadnose.ts.net/",
+      "status": "blocked",
+      "exit_code": 6,
+      "result": "curl: (6) Could not resolve host: chq.singapura-broadnose.ts.net"
+    },
+    {
+      "name": "tailscale_viewer",
+      "target": "https://chq.singapura-broadnose.ts.net/viewer/",
+      "status": "blocked",
+      "exit_code": 6,
+      "result": "curl: (6) Could not resolve host: chq.singapura-broadnose.ts.net"
+    },
+    {
+      "name": "tailscale_summary",
+      "target": "https://chq.singapura-broadnose.ts.net/artifacts/fixture_usdz/summary.json",
+      "status": "blocked",
+      "exit_code": 6,
+      "result": "curl: (6) Could not resolve host: chq.singapura-broadnose.ts.net"
+    },
+    {
+      "name": "local_http_server",
+      "target": "python3 -m http.server 8765 --bind 127.0.0.1",
+      "status": "blocked",
+      "exit_code": 1,
+      "result": "PermissionError: [Errno 1] Operation not permitted"
+    },
+    {
+      "name": "playwright_file_viewer",
+      "target": "file:///Users/chek/repos/desmos2usd-carey/viewer/index.html?usda=../artifacts/fixture_usdz/%5B4B%5D%203D%20Diagram%20-%20S2-01%20Group%20B.usda&label=S2-01%20Group%20B",
+      "status": "blocked",
+      "result": "user cancelled MCP tool call"
+    },
+    {
+      "name": "chrome_devtools_file_viewer",
+      "target": "file:///Users/chek/repos/desmos2usd-carey/viewer/index.html?usda=../artifacts/fixture_usdz/%5B4B%5D%203D%20Diagram%20-%20S2-01%20Group%20B.usda&label=S2-01%20Group%20B",
+      "status": "blocked",
+      "result": "user cancelled MCP tool call"
+    },
+    {
+      "name": "headless_chrome_file_viewer",
+      "target": "file:///Users/chek/repos/desmos2usd-carey/viewer/index.html?usda=../artifacts/fixture_usdz/%5B4B%5D%203D%20Diagram%20-%20S2-01%20Group%20B.usda&label=S2-01%20Group%20B",
+      "status": "blocked",
+      "exit_code": -1,
+      "screenshot": "artifacts/fixture_usdz/review_evidence/20260428_s201_group_b_ralph_visual_retry_16/headless_file_viewer.png",
+      "screenshot_exists": false
+    },
+    {
+      "name": "desmos_cli_refresh",
+      "target": "PYTHONPATH=src python3 -m desmos2usd.cli https://www.desmos.com/3d/27v0xuv64m -o artifacts/fixture_usdz/review_evidence/20260428_s201_group_b_ralph_visual_retry_16/live_refresh.usda --refresh",
+      "status": "blocked",
+      "exit_code": 1,
+      "result": "FetchError: Could not fetch Desmos state for https://www.desmos.com/3d/27v0xuv64m; all endpoints failed with nodename nor servname provided, or not known"
+    }
+  ],
+  "live_desmos_screenshots": [],
+  "live_viewer_screenshots": [],
+  "visual_claim": "No live Desmos/viewer parity claim. Offline projection PNGs are deterministic structural evidence only."
+}
