@@ -1,0 +1,350 @@
+{
+  "acceptance_success": true,
+  "classified_expression_count": 27,
+  "complete": true,
+  "fixture": "[4B] 3D Diagram - S2-01 Group C.json",
+  "fixture_path": "fixtures/states/[4B] 3D Diagram - S2-01 Group C.json",
+  "graph_hash": null,
+  "output": "artifacts/fixture_usdz/review_evidence/20260427_s201_group_c_ralph_abs_tubes/[4B] 3D Diagram - S2-01 Group C.usda",
+  "prim_count": 27,
+  "renderable_expression_count": 27,
+  "resolution": 12,
+  "status": "success",
+  "title": "Desmos graph",
+  "unsupported": [],
+  "unsupported_count": 0,
+  "usda_exists": true,
+  "usdz_exists": true,
+  "usdz_output": "artifacts/fixture_usdz/review_evidence/20260427_s201_group_c_ralph_abs_tubes/[4B] 3D Diagram - S2-01 Group C.usdz",
+  "usdz_package": {
+    "command": [
+      "/usr/bin/usdzip",
+      "/Users/chek/repos/desmos2usd-carey/artifacts/fixture_usdz/review_evidence/20260427_s201_group_c_ralph_abs_tubes/[4B] 3D Diagram - S2-01 Group C.usdz",
+      "[4B] 3D Diagram - S2-01 Group C.usda"
+    ],
+    "cwd": "/Users/chek/repos/desmos2usd-carey/artifacts/fixture_usdz/review_evidence/20260427_s201_group_c_ralph_abs_tubes",
+    "returncode": 0,
+    "stderr": "",
+    "stdout": "",
+    "tool": "usdzip"
+  },
+  "usdz_validation": {
+    "command": [
+      "/usr/bin/usdchecker",
+      "--arkit",
+      "/Users/chek/repos/desmos2usd-carey/artifacts/fixture_usdz/review_evidence/20260427_s201_group_c_ralph_abs_tubes/[4B] 3D Diagram - S2-01 Group C.usdz"
+    ],
+    "cwd": null,
+    "returncode": 0,
+    "stderr": "Coding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\nCoding Error: in RegisterBehaviorForPrimTypeId at line 454 of usdShade/connectableAPIBehavior.cpp -- UsdShade Connectable behavior already registered for primTypeId comprised of 'Mesh' type and apischemas.\n",
+    "stdout": "\nValidation Result with no explicit variants set\nSuccess!\n",
+    "tool": "usdchecker"
+  },
+  "valid": true,
+  "validations": [
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "17",
+      "face_count": 12696,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 16928,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "20",
+      "face_count": 12696,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 16928,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "22",
+      "face_count": 1153,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 1217,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "23",
+      "face_count": 2112,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 2050,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "24",
+      "face_count": 2112,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 2050,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "25",
+      "face_count": 2112,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 2050,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "26",
+      "face_count": 2112,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 2050,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "28",
+      "face_count": 12,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 16,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "29",
+      "face_count": 9336,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 12448,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "30",
+      "face_count": 2112,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 2050,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "32",
+      "face_count": 132,
+      "kind": "explicit_surface",
+      "max_residual": 0.0,
+      "point_count": 196,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "38",
+      "face_count": 132,
+      "kind": "explicit_surface",
+      "max_residual": 0.0,
+      "point_count": 196,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "39",
+      "face_count": 117,
+      "kind": "explicit_surface",
+      "max_residual": 0.0,
+      "point_count": 196,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "40_0",
+      "face_count": 2112,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 2050,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "40_1",
+      "face_count": 2112,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 2050,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "40_2",
+      "face_count": 2112,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 2050,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "40_3",
+      "face_count": 2112,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 2050,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "40_4",
+      "face_count": 2112,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 2050,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "42_0",
+      "face_count": 2112,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 2050,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "42_1",
+      "face_count": 2112,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 2050,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "42_2",
+      "face_count": 2112,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 2050,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "42_3",
+      "face_count": 2112,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 2050,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "42_4",
+      "face_count": 2112,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 2050,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "47",
+      "face_count": 4,
+      "kind": "implicit_surface",
+      "max_residual": null,
+      "point_count": 16,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "49",
+      "face_count": 0,
+      "kind": "implicit_surface",
+      "max_residual": null,
+      "point_count": 0,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "50",
+      "face_count": 24,
+      "kind": "explicit_surface",
+      "max_residual": 0.0,
+      "point_count": 196,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "51",
+      "face_count": 2048,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 1986,
+      "valid": true
+    }
+  ],
+  "view_metadata": {
+    "axis_3d": [
+      0.0,
+      0.0,
+      -1.00000000000691
+    ],
+    "show_plane_3d": false,
+    "three_d_mode": true,
+    "viewport_bounds": {
+      "x": [
+        -18.66728161170779,
+        18.66728161170779
+      ],
+      "y": [
+        -18.66728161170779,
+        18.66728161170779
+      ],
+      "z": [
+        -18.66728161170779,
+        18.66728161170779
+      ]
+    },
+    "world_rotation_3d": [
+      0.13827551384255743,
+      -0.9900372790303178,
+      0.02657194764859998,
+      0.9722484050891159,
+      0.14080549041235252,
+      0.1868337567770537,
+      -0.18871386031043427,
+      -1.9565445968869382e-14,
+      0.9820321170546104
+    ]
+  }
+}

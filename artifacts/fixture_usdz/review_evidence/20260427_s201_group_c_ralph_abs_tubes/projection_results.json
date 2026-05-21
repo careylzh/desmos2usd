@@ -1,0 +1,26 @@
+{
+  "S2-01_Group_C_projection_after": {
+    "classified_expression_count": 27,
+    "prim_count": 27,
+    "renderable_expression_count": 27,
+    "status": "success",
+    "unsupported_count": 0,
+    "valid": true
+  },
+  "S2-08_Group_E_projection_guard_after": {
+    "classified_expression_count": 87,
+    "prim_count": 87,
+    "renderable_expression_count": 87,
+    "status": "success",
+    "unsupported_count": 0,
+    "valid": true
+  },
+  "S2-09_Group_F_projection_guard_after": {
+    "classified_expression_count": 27,
+    "prim_count": 27,
+    "renderable_expression_count": 27,
+    "status": "success",
+    "unsupported_count": 0,
+    "valid": true
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "desmos": [
+    {
+      "status": "blocked",
+      "tool": "playwright",
+      "url": "https://www.desmos.com/3d/nzokib2plm",
+      "error": "user cancelled MCP tool call"
+    },
+    {
+      "status": "blocked",
+      "tool": "chrome_devtools",
+      "url": "https://www.desmos.com/3d/nzokib2plm",
+      "error": "user cancelled MCP tool call"
+    }
+  ],
+  "tailscale_routes": [
+    {
+      "status": "blocked",
+      "url": "https://chq.singapura-broadnose.ts.net/",
+      "error": "curl: (6) Could not resolve host: chq.singapura-broadnose.ts.net"
+    },
+    {
+      "status": "blocked",
+      "url": "https://chq.singapura-broadnose.ts.net/viewer/",
+      "error": "curl: (6) Could not resolve host: chq.singapura-broadnose.ts.net"
+    },
+    {
+      "status": "blocked",
+      "url": "https://chq.singapura-broadnose.ts.net/artifacts/fixture_usdz/summary.json",
+      "error": "curl: (6) Could not resolve host: chq.singapura-broadnose.ts.net"
+    }
+  ],
+  "viewer": [
+    {
+      "status": "blocked",
+      "tool": "python_http_server",
+      "url": "http://127.0.0.1:8765/viewer/",
+      "error": "PermissionError: [Errno 1] Operation not permitted"
+    },
+    {
+      "status": "blocked",
+      "tool": "chrome_devtools",
+      "url": "file:///Users/chek/repos/desmos2usd-carey/viewer/index.html",
+      "error": "user cancelled MCP tool call"
+    }
+  ]
+}

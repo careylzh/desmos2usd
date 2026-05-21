@@ -1,0 +1,38 @@
+{
+  "results": [
+    {
+      "complete": true,
+      "fixture": "[4B] 3D Diagram - S2-01 Group B.json",
+      "output": "artifacts/fixture_usdz/review_evidence/20260428_s201_group_b_ralph_visual_retry_16/S2-01_Group_B_projection.usda",
+      "ppm_output": "artifacts/fixture_usdz/review_evidence/20260428_s201_group_b_ralph_visual_retry_16/S2-01_Group_B_projection.ppm",
+      "prim_count": 143,
+      "status": "success",
+      "unsupported_count": 0,
+      "usdz_output": "artifacts/fixture_usdz/review_evidence/20260428_s201_group_b_ralph_visual_retry_16/S2-01_Group_B_projection.usdz",
+      "valid": true
+    },
+    {
+      "complete": true,
+      "fixture": "[4B] 3D Diagram - S2-08 Group E.json",
+      "output": "artifacts/fixture_usdz/review_evidence/20260428_s201_group_b_ralph_visual_retry_16/S2-08_Group_E_projection_guard.usda",
+      "ppm_output": "artifacts/fixture_usdz/review_evidence/20260428_s201_group_b_ralph_visual_retry_16/S2-08_Group_E_projection_guard.ppm",
+      "prim_count": 87,
+      "status": "success",
+      "unsupported_count": 0,
+      "usdz_output": "artifacts/fixture_usdz/review_evidence/20260428_s201_group_b_ralph_visual_retry_16/S2-08_Group_E_projection_guard.usdz",
+      "valid": true
+    },
+    {
+      "complete": true,
+      "fixture": "[4B] 3D Diagram - S2-09 Group F.json",
+      "output": "artifacts/fixture_usdz/review_evidence/20260428_s201_group_b_ralph_visual_retry_16/S2-09_Group_F_projection_guard.usda",
+      "ppm_output": "artifacts/fixture_usdz/review_evidence/20260428_s201_group_b_ralph_visual_retry_16/S2-09_Group_F_projection_guard.ppm",
+      "prim_count": 27,
+      "status": "success",
+      "unsupported_count": 0,
+      "usdz_output": "artifacts/fixture_usdz/review_evidence/20260428_s201_group_b_ralph_visual_retry_16/S2-09_Group_F_projection_guard.usdz",
+      "valid": true
+    }
+  ],
+  "target": "S2-01 Group B"
+}

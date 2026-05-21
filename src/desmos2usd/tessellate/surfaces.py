@@ -42,7 +42,8 @@ def tessellate_explicit_surface(
         if geometry.face_count:
             return geometry
     surface_bounds = explicit_surface_domain_bounds(item, context)
-    flat_axis = _explicit_flat_axis(item, domain_axes, collect_constant_bounds(item.predicates, context))
+    constant_bounds = collect_constant_bounds(item.predicates, context)
+    flat_axis = _explicit_flat_axis(item, domain_axes, constant_bounds)
     a0, a1 = surface_bounds[domain_axes[0]]
     b0, b1 = surface_bounds[domain_axes[1]]
     # If a domain axis was intentionally collapsed by the 2D-in-3D rule, expand it to a
@@ -95,7 +96,14 @@ def tessellate_explicit_surface(
             resolution=min(64, resolution * 2),
             axis_samples=axis_samples,
         )
-    if counts and _solved_axis_entirely_outside_viewport(item, points, indices):
+    if (
+        counts
+        and not (
+            _has_constant_solved_axis_value(item)
+            and _domain_axes_have_finite_constant_bounds(constant_bounds, domain_axes)
+        )
+        and _solved_axis_entirely_outside_viewport(item, points, indices)
+    ):
         return GeometryData(kind="Mesh", points=[], face_vertex_counts=[], face_vertex_indices=[])
     return GeometryData(kind="Mesh", points=points, face_vertex_counts=counts, face_vertex_indices=indices)
 
@@ -1161,3 +1169,18 @@ def _solved_axis_entirely_outside_viewport(
     if not values:
         return False
     return min(values) > vmax or max(values) < vmin
+
+
+def _domain_axes_have_finite_constant_bounds(
+    bounds: dict[str, tuple[float | None, float | None]],
+    domain_axes: list[str],
+) -> bool:
+    for axis in domain_axes:
+        low, high = bounds.get(axis, (None, None))
+        if low is None or high is None:
+            return False
+    return True
+
+
+def _has_constant_solved_axis_value(item: ClassifiedExpression) -> bool:
+    return bool(item.expression and not (item.expression.identifiers & {"x", "y", "z"}))

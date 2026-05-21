@@ -1,0 +1,61 @@
+{
+  "guards": [
+    {
+      "fixture": "[4B] 3D Diagram - S2-08 Group E.json",
+      "prim_count": 87,
+      "projection_png": "S2-08_Group_E_projection_guard_after.png",
+      "projection_ppm": "S2-08_Group_E_projection_guard_after.ppm",
+      "report": "S2-08_Group_E_projection_guard_after.report.json",
+      "status": "success",
+      "unsupported_count": 0,
+      "usda": "S2-08_Group_E_projection_guard_after.usda",
+      "usdz": "S2-08_Group_E_projection_guard_after.usdz",
+      "valid": true
+    },
+    {
+      "fixture": "[4B] 3D Diagram - S2-09 Group F.json",
+      "prim_count": 27,
+      "projection_png": "S2-09_Group_F_projection_guard_after.png",
+      "projection_ppm": "S2-09_Group_F_projection_guard_after.ppm",
+      "report": "S2-09_Group_F_projection_guard_after.report.json",
+      "status": "success",
+      "unsupported_count": 0,
+      "usda": "S2-09_Group_F_projection_guard_after.usda",
+      "usdz": "S2-09_Group_F_projection_guard_after.usdz",
+      "valid": true
+    }
+  ],
+  "target": {
+    "after": {
+      "expr_8": {
+        "face_count": 169,
+        "point_count": 196
+      },
+      "fixture": "[4B] 3D Diagram - S2-01 Group B.json",
+      "prim_count": 143,
+      "projection_png": "S2-01_Group_B_projection_after.png",
+      "projection_ppm": "S2-01_Group_B_projection_after.ppm",
+      "report": "S2-01_Group_B_projection_after.report.json",
+      "status": "success",
+      "unsupported_count": 0,
+      "usda": "S2-01_Group_B_projection_after.usda",
+      "usdz": "S2-01_Group_B_projection_after.usdz",
+      "valid": true
+    },
+    "before": {
+      "expr_8": {
+        "face_count": 0,
+        "point_count": 0
+      },
+      "prim_count": 143,
+      "projection_png": "S2-01_Group_B_projection_before.png",
+      "projection_ppm": "S2-01_Group_B_projection_before.ppm",
+      "report": "S2-01_Group_B_projection_before.report.json",
+      "status": "success",
+      "unsupported_count": 0,
+      "usda": "S2-01_Group_B_projection_before.usda",
+      "usdz": "S2-01_Group_B_projection_before.usdz"
+    },
+    "fixture": "[4B] 3D Diagram - S2-01 Group B.json"
+  }
+}

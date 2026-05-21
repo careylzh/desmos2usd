@@ -47,6 +47,9 @@ def tessellate_implicit_surface(item: ClassifiedExpression, context: EvalContext
     if len(residual_axes) == 1:
         shape_axes = _flat_implicit_curve_axes(item, residual_axes)
         if shape_axes is None:
+            geometry = tessellate_one_axis_implicit_sheets(item, context, residual_axes[0], resolution)
+            if geometry is not None and geometry.point_count > 0:
+                return geometry
             raise ValueError("implicit surface extrusion requires exactly two equation axes")
         extrude_axis = next(axis for axis in AXES if axis not in shape_axes)
         bounds = collect_constant_bounds(item.predicates, context)
@@ -201,6 +204,116 @@ def _implicit_curve_axis_bounds(
     span = max(magnitudes) if magnitudes else 1.0
     span = max(span * 1.25, 0.5)
     return -span, span
+
+
+def tessellate_one_axis_implicit_sheets(
+    item: ClassifiedExpression,
+    context: EvalContext,
+    residual_axis: str,
+    resolution: int,
+) -> GeometryData | None:
+    if item.expression is None:
+        return None
+    bounds = collect_constant_bounds(item.predicates, context)
+    residual_bounds = _implicit_curve_axis_bounds(item, residual_axis, bounds)
+    roots = one_axis_roots(item.expression, context, residual_axis, residual_bounds, max(257, resolution * 24 + 1))
+    if not roots:
+        return None
+
+    sheet_axes = [axis for axis in AXES if axis != residual_axis]
+    viewport = item.ir.source.viewport_bounds
+    ranges = {axis: implicit_axis_bounds(axis, bounds, viewport) for axis in sheet_axes}
+    if any(low >= high for low, high in ranges.values()):
+        return None
+
+    points: list[Point] = []
+    counts: list[int] = []
+    indices: list[int] = []
+    a_axis, b_axis = sheet_axes
+    a_low, a_high = ranges[a_axis]
+    b_low, b_high = ranges[b_axis]
+    for root in roots:
+        corners = [
+            point_from_variables({residual_axis: root, a_axis: a_low, b_axis: b_low}),
+            point_from_variables({residual_axis: root, a_axis: a_high, b_axis: b_low}),
+            point_from_variables({residual_axis: root, a_axis: a_high, b_axis: b_high}),
+            point_from_variables({residual_axis: root, a_axis: a_low, b_axis: b_high}),
+        ]
+        variables = [dict(zip(AXES, point, strict=True)) for point in corners]
+        if not all(all(predicate.evaluate(context, variable, tol=1e-5) for predicate in item.predicates) for variable in variables):
+            continue
+        base = len(points)
+        points.extend(corners)
+        counts.append(4)
+        indices.extend([base, base + 1, base + 2, base + 3])
+    if not counts:
+        return None
+    return GeometryData(kind="Mesh", points=points, face_vertex_counts=counts, face_vertex_indices=indices)
+
+
+def one_axis_roots(
+    expression: LatexExpression,
+    context: EvalContext,
+    axis: str,
+    bounds: tuple[float, float],
+    sample_count: int,
+) -> list[float]:
+    low, high = bounds
+    values: list[tuple[float, float | None]] = []
+    for value in linspace(low, high, sample_count):
+        try:
+            evaluated = float(expression.eval(context, {axis: value}))
+        except Exception:
+            evaluated = None
+        values.append((value, evaluated))
+
+    roots: list[float] = []
+    tolerance = 1e-6
+    for (left_x, left_y), (right_x, right_y) in zip(values[:-1], values[1:], strict=True):
+        if left_y is None or right_y is None:
+            continue
+        if abs(left_y) <= tolerance:
+            roots.append(left_x)
+        if left_y == 0.0 or right_y == 0.0:
+            continue
+        if (left_y < 0.0) == (right_y < 0.0):
+            continue
+        roots.append(bisect_one_axis_root(expression, context, axis, left_x, right_x, left_y))
+    last_x, last_y = values[-1]
+    if last_y is not None and abs(last_y) <= tolerance:
+        roots.append(last_x)
+    return dedupe_roots(roots)
+
+
+def bisect_one_axis_root(
+    expression: LatexExpression,
+    context: EvalContext,
+    axis: str,
+    low: float,
+    high: float,
+    low_value: float,
+) -> float:
+    for _ in range(64):
+        mid = (low + high) / 2.0
+        mid_value = float(expression.eval(context, {axis: mid}))
+        if abs(mid_value) <= 1e-10:
+            return mid
+        if (low_value < 0.0) == (mid_value < 0.0):
+            low = mid
+            low_value = mid_value
+        else:
+            high = mid
+    return (low + high) / 2.0
+
+
+def dedupe_roots(roots: list[float]) -> list[float]:
+    deduped: list[float] = []
+    for root in sorted(roots):
+        if deduped and abs(root - deduped[-1]) <= 1e-5:
+            deduped[-1] = (deduped[-1] + root) / 2.0
+            continue
+        deduped.append(root)
+    return deduped
 
 
 def tessellate_implicit_curve_2d(

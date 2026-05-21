@@ -1,0 +1,43 @@
+{
+  "desmos_url": "https://www.desmos.com/3d/27v0xuv64m",
+  "fixture": "[4B] 3D Diagram - S2-01 Group B.json",
+  "live_capture_status": "blocked",
+  "live_viewer_url": "https://chq.singapura-broadnose.ts.net/viewer/?usda=..%2Fartifacts%2Ffixture_usdz%2F%5B4B%5D%203D%20Diagram%20-%20S2-01%20Group%20B.usda&label=S2-01%20Group%20B",
+  "attempts": [
+    {
+      "target": "Desmos reference",
+      "tool": "Playwright MCP",
+      "result": "user cancelled MCP tool call"
+    },
+    {
+      "target": "Desmos reference",
+      "tool": "Chrome DevTools MCP",
+      "result": "user cancelled MCP tool call"
+    },
+    {
+      "target": "Tailscale root/viewer/summary route verification",
+      "tool": "curl",
+      "result": "curl: (6) Could not resolve host: chq.singapura-broadnose.ts.net"
+    },
+    {
+      "target": "Live viewer",
+      "tool": "Playwright MCP",
+      "result": "user cancelled MCP tool call"
+    },
+    {
+      "target": "Live viewer",
+      "tool": "Chrome DevTools MCP",
+      "result": "user cancelled MCP tool call"
+    },
+    {
+      "target": "Local viewer server",
+      "tool": "python3 -m http.server 8765 --bind 127.0.0.1",
+      "result": "PermissionError: [Errno 1] Operation not permitted"
+    },
+    {
+      "target": "file:// viewer fallback",
+      "tool": "Playwright MCP",
+      "result": "user cancelled MCP tool call"
+    }
+  ]
+}

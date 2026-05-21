@@ -1,0 +1,483 @@
+{
+  "acceptance_success": false,
+  "classified_expression_count": 43,
+  "complete": false,
+  "fixture": "[4B] 3D Diagram - S2-01 Group E.json",
+  "fixture_path": "fixtures/states/[4B] 3D Diagram - S2-01 Group E.json",
+  "graph_hash": null,
+  "output": "artifacts/fixture_usdz/review_evidence/20260427_s201_group_e_ralph_thin_bands/precheck/[4B] 3D Diagram - S2-01 Group E.usda",
+  "prim_count": 39,
+  "renderable_expression_count": 43,
+  "resolution": 8,
+  "status": "partial",
+  "title": "Desmos graph",
+  "unsupported": [
+    {
+      "expr_id": "104",
+      "kind": "inequality_region",
+      "latex": "2z<-\\left(x-0\\right)^{2}+2\\ \\left\\{0<z\\right\\}\\left\\{2z>-\\left(x-0\\right)^{2}+1.8\\right\\}\\left\\{z<-5y+10\\right\\}\\left\\{z>-5y+9.\\right\\}",
+      "reason": "Inequality region for 104 did not resolve to sampled cells"
+    },
+    {
+      "expr_id": "190",
+      "kind": "inequality_region",
+      "latex": "2z<-\\left(x-0\\right)^{2}+2\\ \\left\\{0<z\\right\\}\\left\\{2z>-\\left(x-0\\right)^{2}+1.8\\right\\}\\left\\{z<5y+10\\right\\}\\left\\{z>5y+9.\\right\\}",
+      "reason": "Inequality region for 190 did not resolve to sampled cells"
+    },
+    {
+      "expr_id": "154",
+      "kind": "inequality_region",
+      "latex": "z<-\\left(y+0\\right)^{2}+1\\ \\left\\{z>2.45x+4.8\\right\\}\\ \\left\\{z<2.3x+4.7\\right\\}\\left\\{z>-\\left(y+0\\right)^{2}+0.9\\right\\}\\left\\{z>0\\right\\}",
+      "reason": "Inequality region for 154 did not resolve to sampled cells"
+    },
+    {
+      "expr_id": "135",
+      "kind": "inequality_region",
+      "latex": "z<-\\left(y+0\\right)^{2}+1\\ \\left\\{z>-2.45x+4.8\\right\\}\\ \\left\\{z<-2.3x+4.7\\right\\}\\left\\{z>-\\left(y+0\\right)^{2}+0.9\\right\\}\\left\\{z>0\\right\\}",
+      "reason": "Inequality region for 135 did not resolve to sampled cells"
+    }
+  ],
+  "unsupported_count": 4,
+  "usda_exists": true,
+  "usdz_exists": true,
+  "usdz_output": "artifacts/fixture_usdz/review_evidence/20260427_s201_group_e_ralph_thin_bands/precheck/[4B] 3D Diagram - S2-01 Group E.usdz",
+  "usdz_package": {
+    "command": [
+      "/usr/bin/usdzip",
+      "/Users/chek/repos/desmos2usd-carey/artifacts/fixture_usdz/review_evidence/20260427_s201_group_e_ralph_thin_bands/precheck/[4B] 3D Diagram - S2-01 Group E.usdz",
+      "[4B] 3D Diagram - S2-01 Group E.usda"
+    ],
+    "cwd": "/Users/chek/repos/desmos2usd-carey/artifacts/fixture_usdz/review_evidence/20260427_s201_group_e_ralph_thin_bands/precheck",
+    "returncode": 0,
+    "stderr": "",
+    "stdout": "",
+    "tool": "usdzip"
+  },
+  "usdz_validation": null,
+  "valid": true,
+  "validations": [
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "87",
+      "face_count": 80,
+      "kind": "explicit_surface",
+      "max_residual": 0.0,
+      "point_count": 110,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "90",
+      "face_count": 80,
+      "kind": "explicit_surface",
+      "max_residual": 0.0,
+      "point_count": 110,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "44",
+      "face_count": 80,
+      "kind": "explicit_surface",
+      "max_residual": 0.0,
+      "point_count": 110,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "45",
+      "face_count": 80,
+      "kind": "explicit_surface",
+      "max_residual": 0.0,
+      "point_count": 110,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "8",
+      "face_count": 80,
+      "kind": "explicit_surface",
+      "max_residual": 0.0,
+      "point_count": 110,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "75",
+      "face_count": 80,
+      "kind": "explicit_surface",
+      "max_residual": 0.0,
+      "point_count": 110,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "49",
+      "face_count": 288,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 384,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "184",
+      "face_count": 288,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 384,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "187",
+      "face_count": 288,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 384,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "181",
+      "face_count": 288,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 384,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "99",
+      "face_count": 80,
+      "kind": "explicit_surface",
+      "max_residual": 0.0,
+      "point_count": 110,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "102",
+      "face_count": 80,
+      "kind": "explicit_surface",
+      "max_residual": 0.0,
+      "point_count": 110,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "105",
+      "face_count": 132,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 176,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "110",
+      "face_count": 138,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 184,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "458",
+      "face_count": 30,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 32,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "283",
+      "face_count": 30,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 32,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "284",
+      "face_count": 336,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 448,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "292",
+      "face_count": 288,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 384,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "295",
+      "face_count": 336,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 448,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "297",
+      "face_count": 336,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 448,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "301",
+      "face_count": 30,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 32,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "320",
+      "face_count": 96,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 128,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "321",
+      "face_count": 96,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 128,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "322",
+      "face_count": 96,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 128,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "323",
+      "face_count": 96,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 128,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "336",
+      "face_count": 30,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 32,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "337",
+      "face_count": 30,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 32,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "340",
+      "face_count": 192,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 256,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "343",
+      "face_count": 192,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 256,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "348",
+      "face_count": 192,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 256,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "349",
+      "face_count": 192,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 256,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "350",
+      "face_count": 30,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 32,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "352",
+      "face_count": 30,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 32,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "258",
+      "face_count": 64,
+      "kind": "explicit_surface",
+      "max_residual": 0.0,
+      "point_count": 100,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "459",
+      "face_count": 30,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 32,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "464",
+      "face_count": 30,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 32,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "470",
+      "face_count": 30,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 32,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "466",
+      "face_count": 30,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 32,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "471",
+      "face_count": 30,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 32,
+      "valid": true
+    }
+  ],
+  "view_metadata": {
+    "axis_3d": [
+      0.0,
+      0.0,
+      -0.9999999999998096
+    ],
+    "three_d_mode": true,
+    "viewport_bounds": {
+      "x": [
+        -11.908957002938186,
+        11.89224350567231
+      ],
+      "y": [
+        -11.908820415060127,
+        11.892380093550369
+      ],
+      "z": [
+        -11.49184815514262,
+        12.309352353468178
+      ]
+    },
+    "world_rotation_3d": [
+      -0.895907844828136,
+      -0.4238765004128613,
+      -0.13295806095588442,
+      0.41928441830531404,
+      -0.9057199966864722,
+      0.06222430528843574,
+      -0.1467981952946875,
+      -1.696496847109934e-16,
+      0.9891664621580253
+    ]
+  }
+}

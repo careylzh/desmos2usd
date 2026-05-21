@@ -1,139 +1,18 @@
 {
-  "acceptance_success": false,
+  "acceptance_success": true,
   "classified_expression_count": 43,
-  "complete": false,
+  "complete": true,
   "fixture": "[4B] 3D Diagram - S2-01 Group E.json",
   "fixture_path": "fixtures/states/[4B] 3D Diagram - S2-01 Group E.json",
   "graph_hash": null,
   "output": "artifacts/fixture_usdz/[4B] 3D Diagram - S2-01 Group E.usda",
-  "prim_count": 23,
+  "prim_count": 43,
   "renderable_expression_count": 43,
   "resolution": 12,
-  "status": "partial",
+  "status": "success",
   "title": "Desmos graph",
-  "unsupported": [
-    {
-      "expr_id": "104",
-      "kind": "inequality_region",
-      "latex": "2z<-\\left(x-0\\right)^{2}+2\\ \\left\\{0<z\\right\\}\\left\\{2z>-\\left(x-0\\right)^{2}+1.8\\right\\}\\left\\{z<-5y+10\\right\\}\\left\\{z>-5y+9.\\right\\}",
-      "reason": "Inequality region for 104 did not resolve to sampled cells"
-    },
-    {
-      "expr_id": "190",
-      "kind": "inequality_region",
-      "latex": "2z<-\\left(x-0\\right)^{2}+2\\ \\left\\{0<z\\right\\}\\left\\{2z>-\\left(x-0\\right)^{2}+1.8\\right\\}\\left\\{z<5y+10\\right\\}\\left\\{z>5y+9.\\right\\}",
-      "reason": "Inequality region for 190 did not resolve to sampled cells"
-    },
-    {
-      "expr_id": "154",
-      "kind": "inequality_region",
-      "latex": "z<-\\left(y+0\\right)^{2}+1\\ \\left\\{z>2.45x+4.8\\right\\}\\ \\left\\{z<2.3x+4.7\\right\\}\\left\\{z>-\\left(y+0\\right)^{2}+0.9\\right\\}\\left\\{z>0\\right\\}",
-      "reason": "Inequality region for 154 did not resolve to sampled cells"
-    },
-    {
-      "expr_id": "135",
-      "kind": "inequality_region",
-      "latex": "z<-\\left(y+0\\right)^{2}+1\\ \\left\\{z>-2.45x+4.8\\right\\}\\ \\left\\{z<-2.3x+4.7\\right\\}\\left\\{z>-\\left(y+0\\right)^{2}+0.9\\right\\}\\left\\{z>0\\right\\}",
-      "reason": "Inequality region for 135 did not resolve to sampled cells"
-    },
-    {
-      "expr_id": "49",
-      "kind": "inequality_region",
-      "latex": "z<-2.45x+4.9\\ \\left\\{0<z<1.4\\right\\}\\left\\{z>-2.45x+4.7\\right\\}\\left\\{y>-0.45x-1.1\\right\\}\\left\\{y<-0.45x-0.9\\right\\}",
-      "reason": "Inequality region for 49 did not resolve to sampled cells"
-    },
-    {
-      "expr_id": "184",
-      "kind": "inequality_region",
-      "latex": "z<-2.45x+4.9\\ \\left\\{0<z<1.5\\right\\}\\left\\{z>-2.45x+4.7\\right\\}\\left\\{y<0.45x+1.07\\right\\}\\left\\{y>0.45x+0.9\\right\\}",
-      "reason": "Inequality region for 184 did not resolve to sampled cells"
-    },
-    {
-      "expr_id": "187",
-      "kind": "inequality_region",
-      "latex": "z<2.45x+4.9\\ \\left\\{0<z<1.5\\right\\}\\left\\{z>2.45x+4.7\\right\\}\\left\\{y<-0.45x+1.07\\right\\}\\left\\{y>-0.45x+0.9\\right\\}",
-      "reason": "Inequality region for 187 did not resolve to sampled cells"
-    },
-    {
-      "expr_id": "181",
-      "kind": "inequality_region",
-      "latex": "z<2.45x+4.9\\ \\left\\{0<z<1.4\\right\\}\\left\\{z>2.45x+4.7\\right\\}\\left\\{y>0.45x-1.1\\right\\}\\left\\{y<0.45x-0.9\\right\\}",
-      "reason": "Inequality region for 181 did not resolve to sampled cells"
-    },
-    {
-      "expr_id": "284",
-      "kind": "inequality_region",
-      "latex": "z<4.76x+8.7\\left\\{7>z>1.5\\right\\}\\left\\{z>4.76x+8.5\\right\\}\\left\\{y>0.95x-0.16\\right\\}\\left\\{y<0.95x-0.05\\right\\}",
-      "reason": "Inequality region for 284 did not resolve to sampled cells"
-    },
-    {
-      "expr_id": "292",
-      "kind": "inequality_region",
-      "latex": "z<-4.76x+8.4\\left\\{7>z>1.5\\right\\}\\left\\{z>-4.6x+8.\\right\\}\\left\\{y>0.95x+0\\right\\}\\left\\{y<0.95x+0.2\\right\\}",
-      "reason": "Inequality region for 292 did not resolve to sampled cells"
-    },
-    {
-      "expr_id": "295",
-      "kind": "inequality_region",
-      "latex": "z<-4.76x+8.7\\left\\{7>z>1.5\\right\\}\\left\\{z>-4.76x+8.5\\right\\}\\left\\{y>-0.95x-0.15\\right\\}\\left\\{y<-0.95x-0\\right\\}",
-      "reason": "Inequality region for 295 did not resolve to sampled cells"
-    },
-    {
-      "expr_id": "297",
-      "kind": "inequality_region",
-      "latex": "z<4.76x+8.7\\left\\{7>z>1.5\\right\\}\\left\\{z>4.76x+8.5\\right\\}\\left\\{y>-0.95x+0.1\\right\\}\\left\\{y<-0.95x+0.2\\right\\}",
-      "reason": "Inequality region for 297 did not resolve to sampled cells"
-    },
-    {
-      "expr_id": "320",
-      "kind": "inequality_region",
-      "latex": "z<4.76x+8.7\\left\\{3>z>1.5\\right\\}\\left\\{z>4.76x+8.5\\right\\}\\left\\{y>-0.95x-0.8\\right\\}\\left\\{y<-0.95x-0.7\\right\\}",
-      "reason": "Inequality region for 320 did not resolve to sampled cells"
-    },
-    {
-      "expr_id": "321",
-      "kind": "inequality_region",
-      "latex": "z<4.76x+8.7\\left\\{3>z>1.5\\right\\}\\left\\{z>4.76x+8.5\\right\\}\\left\\{y>0.95x+0.8\\right\\}\\left\\{y<0.95x+0.9\\right\\}",
-      "reason": "Inequality region for 321 did not resolve to sampled cells"
-    },
-    {
-      "expr_id": "322",
-      "kind": "inequality_region",
-      "latex": "z<-4.76x+8.7\\left\\{3>z>1.5\\right\\}\\left\\{z>-4.76x+8.5\\right\\}\\left\\{y>0.95x-0.8\\right\\}\\left\\{y<0.95x-0.7\\right\\}",
-      "reason": "Inequality region for 322 did not resolve to sampled cells"
-    },
-    {
-      "expr_id": "323",
-      "kind": "inequality_region",
-      "latex": "z<-4.76x+8.7\\left\\{3>z>1.5\\right\\}\\left\\{z>-4.76x+8.5\\right\\}\\left\\{y>-0.95x+0.8\\right\\}\\left\\{y<-0.95x+0.9\\right\\}",
-      "reason": "Inequality region for 323 did not resolve to sampled cells"
-    },
-    {
-      "expr_id": "340",
-      "kind": "inequality_region",
-      "latex": "z<4.76x+5\\left\\{3>z>1.5\\right\\}\\ \\left\\{z>4.76x+4.7\\right\\}\\left\\{y>1.05x-0.8\\right\\}\\left\\{y<1.05x-0.75\\right\\}",
-      "reason": "Inequality region for 340 did not resolve to sampled cells"
-    },
-    {
-      "expr_id": "343",
-      "kind": "inequality_region",
-      "latex": "z<-4.76x+5\\left\\{3>z>1.5\\right\\}\\ \\left\\{z>-4.76x+4.7\\right\\}\\left\\{y>1.05x+0.8\\right\\}\\left\\{y<1.05x+0.85\\right\\}",
-      "reason": "Inequality region for 343 did not resolve to sampled cells"
-    },
-    {
-      "expr_id": "348",
-      "kind": "inequality_region",
-      "latex": "z<-4.76x+5\\left\\{3>z>1.5\\right\\}\\left\\{z>-4.76x+4.7\\right\\}\\left\\{y>-0.64x-1\\right\\}\\left\\{y<-0.64x-0.9\\right\\}",
-      "reason": "Inequality region for 348 did not resolve to sampled cells"
-    },
-    {
-      "expr_id": "349",
-      "kind": "inequality_region",
-      "latex": "z<4.76x+5\\left\\{3>z>1.5\\right\\}\\left\\{z>4.76x+4.7\\right\\}\\left\\{y>-1.2x+0.74\\right\\}\\left\\{y<-1.2x+0.8\\right\\}",
-      "reason": "Inequality region for 349 did not resolve to sampled cells"
-    }
-  ],
-  "unsupported_count": 20,
+  "unsupported": [],
+  "unsupported_count": 0,
   "usda_exists": true,
   "usdz_exists": true,
   "usdz_output": "artifacts/fixture_usdz/[4B] 3D Diagram - S2-01 Group E.usdz",
@@ -163,6 +42,46 @@
   },
   "valid": true,
   "validations": [
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "104",
+      "face_count": 2304,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 3072,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "190",
+      "face_count": 2304,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 3072,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "154",
+      "face_count": 2496,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 3328,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "135",
+      "face_count": 2496,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 3328,
+      "valid": true
+    },
     {
       "constraint_violation_count": 0,
       "errors": [],
@@ -221,6 +140,46 @@
       "kind": "explicit_surface",
       "max_residual": 0.0,
       "point_count": 210,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "49",
+      "face_count": 1728,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 2304,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "184",
+      "face_count": 1536,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 2048,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "187",
+      "face_count": 1536,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 2048,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "181",
+      "face_count": 1728,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 2304,
       "valid": true
     },
     {
@@ -286,11 +245,91 @@
     {
       "constraint_violation_count": 0,
       "errors": [],
+      "expr_id": "284",
+      "face_count": 1824,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 2432,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "292",
+      "face_count": 2016,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 2688,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "295",
+      "face_count": 1824,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 2432,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "297",
+      "face_count": 1824,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 2432,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
       "expr_id": "301",
       "face_count": 126,
       "kind": "inequality_region",
       "max_residual": null,
       "point_count": 128,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "320",
+      "face_count": 1056,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 1408,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "321",
+      "face_count": 1056,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 1408,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "322",
+      "face_count": 1056,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 1408,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "323",
+      "face_count": 1056,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 1408,
       "valid": true
     },
     {
@@ -311,6 +350,46 @@
       "kind": "inequality_region",
       "max_residual": null,
       "point_count": 128,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "340",
+      "face_count": 1152,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 1536,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "343",
+      "face_count": 1152,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 1536,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "348",
+      "face_count": 1152,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 1536,
+      "valid": true
+    },
+    {
+      "constraint_violation_count": 0,
+      "errors": [],
+      "expr_id": "349",
+      "face_count": 1152,
+      "kind": "inequality_region",
+      "max_residual": null,
+      "point_count": 1536,
       "valid": true
     },
     {

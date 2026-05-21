@@ -1,0 +1,66 @@
+{
+  "attempted_at": "2026-04-28 09:08 +08",
+  "evidence_dir": "artifacts/fixture_usdz/review_evidence/20260428_s201_group_b_ralph_visual_retry_21",
+  "fixture": "S2-01 Group B",
+  "desmos_url": "https://www.desmos.com/3d/27v0xuv64m",
+  "viewer_file_url": "file:///Users/chek/repos/desmos2usd-carey/viewer/index.html?usda=..%2Fartifacts%2Ffixture_usdz%2F%5B4B%5D%203D%20Diagram%20-%20S2-01%20Group%20B.usda&label=S2-01%20Group%20B",
+  "viewer_tailscale_url": "https://chq.singapura-broadnose.ts.net/viewer/?usda=..%2Fartifacts%2Ffixture_usdz%2F%5B4B%5D%203D%20Diagram%20-%20S2-01%20Group%20B.usda&label=S2-01%20Group%20B",
+  "live_capture_available": false,
+  "attempts": [
+    {
+      "target": "Desmos URL via Playwright",
+      "command": "mcp__playwright__.browser_navigate",
+      "result": "user cancelled MCP tool call"
+    },
+    {
+      "target": "Desmos URL via Chrome DevTools",
+      "command": "mcp__chrome_devtools__.navigate_page",
+      "result": "user cancelled MCP tool call"
+    },
+    {
+      "target": "Tailscale root route",
+      "command": "curl -I --max-time 10 https://chq.singapura-broadnose.ts.net/",
+      "result": "curl: (6) Could not resolve host: chq.singapura-broadnose.ts.net"
+    },
+    {
+      "target": "Tailscale viewer route",
+      "command": "curl -I --max-time 10 https://chq.singapura-broadnose.ts.net/viewer/",
+      "result": "curl: (6) Could not resolve host: chq.singapura-broadnose.ts.net"
+    },
+    {
+      "target": "Tailscale summary route",
+      "command": "curl -I --max-time 10 https://chq.singapura-broadnose.ts.net/artifacts/fixture_usdz/summary.json",
+      "result": "curl: (6) Could not resolve host: chq.singapura-broadnose.ts.net"
+    },
+    {
+      "target": "Desmos DNS route",
+      "command": "curl -I --max-time 10 https://www.desmos.com/3d/27v0xuv64m",
+      "result": "curl: (6) Could not resolve host: www.desmos.com"
+    },
+    {
+      "target": "Local viewer HTTP server",
+      "command": "python3 -m http.server 8765 --bind 127.0.0.1",
+      "result": "PermissionError: [Errno 1] Operation not permitted"
+    },
+    {
+      "target": "file:// viewer via Playwright",
+      "command": "mcp__playwright__.browser_navigate",
+      "result": "user cancelled MCP tool call"
+    },
+    {
+      "target": "file:// viewer via Chrome DevTools",
+      "command": "mcp__chrome_devtools__.navigate_page",
+      "result": "user cancelled MCP tool call"
+    },
+    {
+      "target": "file:// viewer via headless Google Chrome",
+      "command": "\"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome\" --headless=new --disable-gpu --user-data-dir=/tmp/desmos2usd-chrome-ralph21 --window-size=1280,900 --screenshot=.../chrome_file_viewer.png file://...",
+      "result": "process exited with code -1; screenshot file was not created"
+    },
+    {
+      "target": "file:// viewer via headless Brave",
+      "command": "\"/Applications/Brave Browser.app/Contents/MacOS/Brave Browser\" --headless=new --disable-gpu --user-data-dir=/tmp/desmos2usd-brave-ralph21 --window-size=1280,900 --screenshot=.../brave_file_viewer.png file://...",
+      "result": "process exited with code -1; screenshot file was not created"
+    }
+  ]
+}

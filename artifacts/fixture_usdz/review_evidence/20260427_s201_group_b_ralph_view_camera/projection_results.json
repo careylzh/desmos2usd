@@ -1,0 +1,8 @@
+{
+  "guard_projections": [
+    "S2-08_Group_E_projection_guard_after.png",
+    "S2-09_Group_F_projection_guard_after.png"
+  ],
+  "note": "Orthographic contact-sheet projections are deterministic local evidence, not live Desmos/viewer parity evidence.",
+  "target_projection": "S2-01_Group_B_projection_after.png"
+}

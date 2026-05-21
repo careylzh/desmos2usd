@@ -1,0 +1,34 @@
+[
+  {
+    "complete": false,
+    "fixture": "[4B] 3D Diagram - S2-01 Group E.json",
+    "prim_count": 39,
+    "status": "partial",
+    "unsupported_count": 4,
+    "valid": true
+  },
+  {
+    "complete": true,
+    "fixture": "[4B] 3D Diagram - S2-01 Group E.json",
+    "prim_count": 43,
+    "status": "success",
+    "unsupported_count": 0,
+    "valid": true
+  },
+  {
+    "complete": true,
+    "fixture": "[4B] 3D Diagram - S2-08 Group E.json",
+    "prim_count": 87,
+    "status": "success",
+    "unsupported_count": 0,
+    "valid": true
+  },
+  {
+    "complete": true,
+    "fixture": "[4B] 3D Diagram - S2-09 Group F.json",
+    "prim_count": 27,
+    "status": "success",
+    "unsupported_count": 0,
+    "valid": true
+  }
+]

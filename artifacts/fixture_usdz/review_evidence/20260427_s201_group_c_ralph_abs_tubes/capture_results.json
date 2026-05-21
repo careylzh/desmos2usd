@@ -1,0 +1,41 @@
+{
+  "desmos": {
+    "chrome_devtools": {
+      "error": "user cancelled MCP tool call",
+      "url": "https://www.desmos.com/3d/upbjmsjpzq"
+    },
+    "playwright": {
+      "error": "user cancelled MCP tool call",
+      "url": "https://www.desmos.com/3d/upbjmsjpzq"
+    }
+  },
+  "local_server": {
+    "command": "python3 -m http.server 8765 --bind 127.0.0.1",
+    "error": "PermissionError: [Errno 1] Operation not permitted"
+  },
+  "tailscale_routes": {
+    "artifacts_summary": {
+      "command": "curl -I --max-time 10 https://chq.singapura-broadnose.ts.net/artifacts/fixture_usdz/summary.json",
+      "error": "curl: (6) Could not resolve host: chq.singapura-broadnose.ts.net"
+    },
+    "root": {
+      "command": "curl -I --max-time 10 https://chq.singapura-broadnose.ts.net/",
+      "error": "curl: (6) Could not resolve host: chq.singapura-broadnose.ts.net"
+    },
+    "viewer": {
+      "command": "curl -I --max-time 10 https://chq.singapura-broadnose.ts.net/viewer/",
+      "error": "curl: (6) Could not resolve host: chq.singapura-broadnose.ts.net"
+    }
+  },
+  "viewer": {
+    "chrome_devtools": {
+      "error": "user cancelled MCP tool call",
+      "url": "https://chq.singapura-broadnose.ts.net/viewer/?usda=..%2Fartifacts%2Ffixture_usdz%2F%5B4B%5D%203D%20Diagram%20-%20S2-01%20Group%20C.usda&label=S2-01%20Group%20C"
+    },
+    "playwright": {
+      "error": "user cancelled MCP tool call",
+      "url": "https://chq.singapura-broadnose.ts.net/viewer/?usda=..%2Fartifacts%2Ffixture_usdz%2F%5B4B%5D%203D%20Diagram%20-%20S2-01%20Group%20C.usda&label=S2-01%20Group%20C"
+    }
+  },
+  "visual_claim": "No live Desmos/viewer parity claim. Browser and route checks failed; local projection evidence only."
+}
